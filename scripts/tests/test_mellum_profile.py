@@ -154,3 +154,11 @@ def test_real_model_runner_profile_methods_acknowledge_and_remove_hooks(monkeypa
     assert wait_receipt(tmp_path/'control','stopped',1,.01)['traces']
     assert runner.profiler is None and not runner._mellum_profile_handles
     assert order==['sync','install','enter','sync','exit','remove']
+
+
+def test_prepare_only_via_workspace_compatibility_path():
+    import subprocess
+    result=subprocess.run(['/opt/venv/bin/python','/workspace/scripts/profile_mellum.py',
+                           '--prepare-only','--lengths','1024'],capture_output=True,text=True,timeout=30)
+    assert result.returncode==0,result.stderr
+    assert 'RESULT prepared output' in result.stdout

@@ -39,4 +39,4 @@
 
 - Git迁移验证：旧路径已链接至总仓库，65源文件和509轻量证据校验通过，181链接有效，Mellum/sampler CPU50项通过；源码数学未改、未启动GPU。完整results同机归档及清单已保存，远端push仍待已认证用户终端执行。
 
-- Step1实验开发：分支step1/profiling-baseline，新增候选共享配置、受监控单请求profile运行器、GPU trace离线归因与Markdown摘要；worker增加opt-in启停回执和仅采集期间安装的标签，避免异步空trace与计时hook开销。固定1024/4096/16384输入，预热8、无profile两次64、trace16；CPU14项通过，prepare-only172037完成，未启动GPU/未改数学。归档验证改为默认核对Step0标签。见[08实验协议](../docs/plan/08_profiling_experiment.md)。
+- Step1实验开发：分支step1/profiling-baseline，新增候选共享配置、受监控单请求profile运行器、GPU trace离线归因与Markdown摘要；worker增加opt-in启停回执和仅采集期间安装的标签，避免异步空trace与计时hook开销。固定1024/4096/16384输入，预热8、无profile两次64、trace16；CPU15项通过，兼容路径指纹问题修正后prepare-only172408完成，未启动GPU/未改数学。归档验证改为默认核对Step0标签。见[08实验协议](../docs/plan/08_profiling_experiment.md)。

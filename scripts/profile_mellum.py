@@ -192,6 +192,7 @@ def main():
     save(output/'plan.json', plan)
     fingerprints = {}
     for p in sorted((PROJECT/'scripts').glob('*profile*.py')) + [Path(__file__), PROJECT/'scripts/mellum_runtime_config.py', PROJECT/'ATOM/atom/model_engine/model_runner.py', PROJECT/'ATOM/atom/model_config/mellum_profile.py']:
+        p = p.resolve()
         fingerprints[str(p.relative_to(PROJECT))] = hashlib.sha256(p.read_bytes()).hexdigest()
     report = dict(status='prepared', output=str(output), source_sha256=fingerprints,
                   git_head=subprocess.check_output(['git','-C',str(PROJECT),'rev-parse','HEAD'],text=True).strip(),
