@@ -120,3 +120,44 @@ def test_long_prefill_sliding_mask_excludes_old_and_future_values():
     # Equal scores must average exactly the allowed causal window per query.
     expected=torch.tensor([sum(range(max(0,i-3),i+1))/min(i+1,4) for i in range(n)])
     torch.testing.assert_close(got[:,0,0],expected)
+
+@pytest.mark.parametrize('n,window,opt,expected_calls',[(7,8,True,0),(8,8,True,1),(9,8,True,1),(9,-1,True,0),(9,8,False,0)])
+def test_swa_opt_dispatch_preserves_reference_paths(n,window,opt,expected_calls,monkeypatch):
+    import atom.model_config.mellum_attention as m
+    calls=[]
+    def local(q,k,v,cu,win,scale):
+        calls.append((q.shape,k.shape,win));return torch.zeros_like(q)
+    monkeypatch.setattr(m,'aiter_swa_prefill',local)
+    impl=types.SimpleNamespace(sliding_window=window,scale=0.5,_mellum_swa_prefill_opt=opt)
+    install_sdpa_prefill(impl)
+    q=torch.randn(n,4,4);k=torch.randn(n,2,4);v=torch.randn_like(k)
+    ctx=types.SimpleNamespace(attn_metadata=types.SimpleNamespace(cu_seqlens_q=torch.tensor([0,n]),cu_seqlens_k=torch.tensor([0,n])))
+    got=impl.prefill_attention(q,k,v,None,None,None,None,ctx)
+    assert len(calls)==expected_calls and got.shape==q.shape
+    if calls:assert calls[0]==(q.shape,k.shape,window)
+
+
+def test_aiter_local_window_includes_exactly_window_keys_without_head_expansion(monkeypatch):
+    import sys
+    from atom.model_config.mellum_attention import aiter_swa_prefill
+    calls=[]
+    def flash(**kw):
+        calls.append(kw)
+        # Independent scalar mean oracle for zero Q/K; inclusive AITER bounds.
+        left=kw['window_size'][0];v=kw['v'].repeat_interleave(2,dim=1)
+        return torch.stack([v[max(0,i-left):i+1].mean(0) for i in range(v.shape[0])])
+    monkeypatch.setitem(sys.modules,'aiter',types.SimpleNamespace(flash_attn_varlen_func=flash))
+    n=9;q=torch.zeros(n,4,2);k=torch.zeros(n,2,2);v=torch.arange(n).float()[:,None,None].expand(n,2,2)
+    got=aiter_swa_prefill(q,k,v,torch.tensor([0,n],dtype=torch.int32),4,0.5)
+    assert calls[0]['k'].shape[1]==2 and calls[0]['window_size']==(3,0,0)
+    assert calls[0]['causal'] is True
+    torch.testing.assert_close(got[:,0,0],torch.tensor([0,.5,1,1.5,2.5,3.5,4.5,5.5,6.5]))
+
+
+def test_swa_candidate_does_not_hide_kernel_failure(monkeypatch):
+    import sys
+    from atom.model_config.mellum_attention import aiter_swa_prefill
+    def fail(**kwargs):raise RuntimeError('local kernel unavailable')
+    monkeypatch.setitem(sys.modules,'aiter',types.SimpleNamespace(flash_attn_varlen_func=fail))
+    with pytest.raises(RuntimeError,match='unavailable'):
+        aiter_swa_prefill(torch.zeros(8,4,4),torch.zeros(8,2,4),torch.zeros(8,2,4),torch.tensor([0,8]),4,.5)

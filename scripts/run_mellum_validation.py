@@ -13,6 +13,7 @@ ROOT=Path('/workspace')
 def main():
     p=argparse.ArgumentParser();p.add_argument('--suite',choices=['short','window','long','expanded','prefill','diagnostic'],default='short');p.add_argument('--gpu',type=int,default=0);p.add_argument('--prepare-only',action='store_true')
     p.add_argument('--inputs',type=Path);p.add_argument('--dump-layers',action='store_true');p.add_argument('--dump-stages',action='store_true');p.add_argument('--max-batched-tokens',type=int);p.add_argument('--router-audit',action='store_true')
+    p.add_argument('--swa-prefill-opt',action='store_true',help='Use Step0 settings plus local SWA candidate')
     p.add_argument('--prefill-backend',choices=['aiter','sdpa_diagnostic','sdpa_rope_diagnostic','sdpa_cpu_rope_diagnostic'],default='aiter')
     p.add_argument('--stage-layer',type=int,choices=range(28),default=0)
     p.add_argument('--qkv-backend',choices=['packed','separate'],default='packed')
@@ -21,6 +22,7 @@ def main():
     p.add_argument('--stage-timeout',type=float,default=300,help='Maximum seconds per worker stage; heartbeat remains 15 seconds')
     a=p.parse_args()
     if a.stage_timeout<=0:p.error('--stage-timeout must be positive')
+    if a.swa_prefill_opt:a.correctness_candidate=True
     if a.correctness_candidate:
         for option,field,wanted in [('--qkv-backend','qkv_backend','separate'),
                                     ('--prefill-backend','prefill_backend','sdpa_cpu_rope_diagnostic')]:
@@ -29,7 +31,7 @@ def main():
         a.qkv_backend='separate';a.prefill_backend='sdpa_cpu_rope_diagnostic';a.dump_generation_logits=True
     if a.suite=='diagnostic' and a.inputs is None:p.error('diagnostic requires --inputs')
     out=ROOT/'results/mellum_validation'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
-    out.mkdir(parents=True);status={'correctness_candidate':a.correctness_candidate,'sampling_mode':'normal_no_forcing','qkv_backend':a.qkv_backend,'stage_layer':a.stage_layer,'prefill_backend':a.prefill_backend,'suite':a.suite,'status':'started','output':str(out)}
+    out.mkdir(parents=True);status={'swa_prefill_opt':a.swa_prefill_opt,'correctness_candidate':a.correctness_candidate,'sampling_mode':'normal_no_forcing','qkv_backend':a.qkv_backend,'stage_layer':a.stage_layer,'prefill_backend':a.prefill_backend,'suite':a.suite,'status':'started','output':str(out)}
     def save():(out/'summary.json').write_text(json.dumps(status,indent=2)+'\n')
     def run(stage,command):
         status.update(phase=stage);save()
@@ -59,7 +61,7 @@ def main():
     if a.router_audit:
         if not run('router',[atom,str(ROOT/'scripts/check_mellum_router.py'),'--output',str(out/'router'),'--gpu',str(a.gpu)]):return 1
     if not run('hf',[hf,str(ROOT/'scripts/export_mellum_suite_hf.py'),'--inputs',str(inputs),'--output',str(out/'hf'),'--gpu',str(a.gpu),'--stage-layer',str(a.stage_layer)]+(['--dump-layers'] if a.dump_layers else [])+(['--dump-stages'] if a.dump_stages else [])+(['--dump-generation-logits'] if a.dump_generation_logits else [])):return 1
-    atom_ok=run('atom',[atom,str(ROOT/'scripts/check_atom_mellum.py'),'--reference',str(out/'hf/reference.json'),'--gpu',str(a.gpu),'--qkv-backend',a.qkv_backend,'--prefill-backend',a.prefill_backend,'--stage-layer',str(a.stage_layer)]+(['--dump-layers'] if a.dump_layers else [])+(['--dump-stages'] if a.dump_stages else [])+(['--max-batched-tokens',str(a.max_batched_tokens)] if a.max_batched_tokens else [])+(['--reference-kv-rope','--sdpa-decode','--torch-router','--hf-generation-experts'] if a.correctness_candidate else [])+(['--dump-generation-logits'] if a.dump_generation_logits else []))
+    atom_ok=run('atom',[atom,str(ROOT/'scripts/check_atom_mellum.py'),'--reference',str(out/'hf/reference.json'),'--gpu',str(a.gpu),'--qkv-backend',a.qkv_backend,'--prefill-backend',a.prefill_backend,'--stage-layer',str(a.stage_layer)]+(['--dump-layers'] if a.dump_layers else [])+(['--dump-stages'] if a.dump_stages else [])+(['--max-batched-tokens',str(a.max_batched_tokens)] if a.max_batched_tokens else [])+(['--reference-kv-rope','--sdpa-decode','--torch-router','--hf-generation-experts'] if a.correctness_candidate else [])+(['--swa-prefill-opt'] if a.swa_prefill_opt else [])+(['--dump-generation-logits'] if a.dump_generation_logits else []))
     # The engine creates its own unique run directory; get the exact path
     # from its final RESULT line rather than scanning for "latest".
     lines=(out/'atom.log').read_text().splitlines()
@@ -98,6 +100,7 @@ def main():
             observed=json.loads((atom_out/'results.json').read_text())
             expected={'MELLUM_HF_GENERATION_EXPERTS':'1','MELLUM_QKV_BACKEND':'separate','MELLUM_MOE_BACKEND':'torch','MELLUM_ROUTER_BACKEND':'torch',
                       'MELLUM_PREFILL_BACKEND':'sdpa_cpu_rope_diagnostic','MELLUM_REFERENCE_KV_ROPE':'1','MELLUM_SDPA_DECODE':'1'}
+            expected['MELLUM_SWA_PREFILL_OPT']='1' if a.swa_prefill_opt else '0'
             if any(observed['settings'].get(k)!=v for k,v in expected.items()) or observed.get('sampling_mode')!='normal' or observed.get('ignore_eos') is not False:
                 raise ValueError('Candidate actual configuration/normal sampling differs')
             if 'MELLUM_FORCED_DECODE_PLAN' in observed['settings']:raise ValueError('Unexpected forcing in normal generation')

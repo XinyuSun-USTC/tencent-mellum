@@ -48,3 +48,14 @@ def test_candidate_rejects_unsupported_long_prompt_before_gpu(tmp_path,monkeypat
     monkeypatch.setattr(m,'ROOT',tmp_path)
     monkeypatch.setattr(sys,'argv',['runner','--inputs',str(source),'--prepare-only','--correctness-candidate'])
     with pytest.raises(ValueError,match='16384'):m.main()
+
+
+def test_swa_prepare_uses_step0_settings_and_records_opt_in(tmp_path,monkeypatch):
+    data=json.loads(Path('/workspace/results/atom_step0_batch_ab/hf_reference/inputs.json').read_text())
+    source=tmp_path/'inputs.json';source.write_text(json.dumps(data))
+    monkeypatch.setattr(m,'ROOT',tmp_path)
+    monkeypatch.setattr(sys,'argv',['runner','--inputs',str(source),'--prepare-only','--swa-prefill-opt'])
+    assert m.main()==0
+    summary=json.loads(next((tmp_path/'results/mellum_validation').glob('*/summary.json')).read_text())
+    assert summary['swa_prefill_opt'] and summary['correctness_candidate']
+    assert summary['prefill_backend']=='sdpa_cpu_rope_diagnostic'

@@ -4,13 +4,14 @@
 
 ## 当前阅读入口
 
-当前扩展评测：[09 深入性能研究](plan/09_expanded_profile_study.md)。用户要求开始优化前加深基线见解，已准备132次计时及分层trace；当前不提前固定优化点。
+当前优化实验：[10 SWA prefill候选实现与验证](plan/10_swa_prefill_optimization.md)。候选、回归开关和ABBA性能工具已实现，GPU数值/收益待用户终端运行。
 
+扩展基线已完成：[性能02](../report/performance/02_expanded_bs1_profile_study.md)；协议见[09](plan/09_expanded_profile_study.md)。
 当前可执行实验：[08 首轮单请求Profile](plan/08_profiling_experiment.md)。首轮三组GPU已完成，实测分析见[性能01](../report/performance/01_bs1_profile_baseline.md)，当前优先评估Attention。
 
 仓库管理：[07 项目Git组织与迁移](plan/07_project_repository_management.md)，总仓库`/workspace/tencent-mellum`，ATOM保留上游历史，旧工作路径通过链接兼容。
 
-Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md)，包含计分目标、源码开销假设、MoE/Attention主候选、第三点分支及首轮profiling安排；当前是方案，尚无实测性能结论。
+Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md)，包含计分目标、源码开销假设、MoE/Attention主候选、第三点分支及首轮profiling安排；候选路线随性能01/02实测更新，尚无优化后性能成绩。
 
 1. [39 Step0阶段总结](../report/validation/39_step0_summary.md)：成果、实现、问题闭环、最终证据与阶段边界。
 2. [05 基线与复现](plan/05_step0_baseline_and_reproduction.md)：真实通过配置、工作树指纹、验证命令与Step1回归方法。
@@ -20,7 +21,7 @@ Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md
 6. [研究与结果索引](../report/README.md)：按稳定编号查找源码研究和逐轮原始证据。
 7. [工作日志](../report/worklog.md)：11月10–13日按自然日归纳。
 
-下一主线：固定Step0候选，准备性能测量所需服务入口、补实际负载能力并做profiling；据瓶颈选择最多三个可消融优化点。尚未形成实际性能结果，不提前建立空的performance/submission报告。
+下一主线：验证第一个SWA prefill优化候选，并推进实际负载所需服务/批量能力；保留Step0及各优化开关作消融。
 
 ## 历史与管理
 

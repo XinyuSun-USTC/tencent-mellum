@@ -57,6 +57,12 @@ def sdpa_single_prefill(self, q, k, v, k_cache, v_cache, k_scale, v_scale, fwd_c
             q,k=reference_position_rope(raw_q,raw_k,positions,inv,factor)
         else:
             q, k = stepwise_rope(raw_q, raw_k, positions, self.rotary_emb)
+    # Opt-in Step1 candidate: retain reference RoPE and all cache/decode work.
+    # AITER's local bounds are inclusive: left=W-1 gives exactly W keys.
+    if (getattr(self, '_mellum_swa_prefill_opt', False)
+            and self.sliding_window > 0 and n >= self.sliding_window):
+        return aiter_swa_prefill(q, k, v, meta.cu_seqlens_q,
+                                 self.sliding_window, self.scale)
     query=q.transpose(0,1)[None];key=k.transpose(0,1)[None];value=v.transpose(0,1)[None]
     mask=None
     if self.sliding_window > 0 and n >= self.sliding_window:
@@ -70,6 +76,26 @@ def sdpa_single_prefill(self, q, k, v, k_cache, v_cache, k_scale, v_scale, fwd_c
         query,key,value,attn_mask=mask,
         dropout_p=0.0,is_causal=mask is None,scale=self.scale,enable_gqa=mask is None)
     return result[0].transpose(0,1).contiguous()
+
+
+def aiter_swa_prefill(q, k, v, cu_seqlens, window, scale):
+    """Full uncached local prefill, native GQA, no dense mask/KV expansion.
+
+    Caller validates single-request metadata. Failures propagate; no silent
+    fallback that could make a benchmark measure the reference path instead.
+    """
+    if window <= 0 or q.ndim != 3 or k.ndim != 3 or v.shape != k.shape:
+        raise ValueError('Invalid local prefill window or Q/K/V layout')
+    if q.shape[0] != k.shape[0] or q.shape[-1] != k.shape[-1] or q.shape[1] % k.shape[1]:
+        raise ValueError('Local prefill requires equal lengths and valid GQA heads')
+    import aiter
+    return aiter.flash_attn_varlen_func(
+        q=q.contiguous(), k=k.contiguous(), v=v.contiguous(),
+        cu_seqlens_q=cu_seqlens, cu_seqlens_k=cu_seqlens,
+        max_seqlen_q=q.shape[0], max_seqlen_k=k.shape[0],
+        dropout_p=0.0, softmax_scale=scale, causal=True,
+        window_size=(window-1, 0, 0), return_lse=False,
+        return_attn_probs=False)
 
 
 def install_sdpa_prefill(impl):

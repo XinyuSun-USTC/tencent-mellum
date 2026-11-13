@@ -46,3 +46,5 @@
 - 扩展性能评测开发：按用户希望增加深度与覆盖的要求，准备五长度×三输出档及真实A/C样本，默认19配置132次计时/22617输出token，另9短trace+1详细trace。新增逐层/子阶段/CPU self/语义op/拷贝归因、同预算profiling扰动对照、allocator峰值和只读SMI遥测；24项CPU通过，既有GPU trace离线检查与prepare-only190127通过，无新GPU任务或模型数学优化。命令、半小时量级预算与bs1边界见[09](../docs/plan/09_expanded_profile_study.md)。
 
 - 扩展性能实测：190525三阶段完成，19配置132次无profile计时/22617输出token、9短trace+1详细trace，10份trace哈希及配对token核验通过，轻量证据归档performance/02。16K prefill SDPA约72.2%，SWA每层约122ms、Full约36ms；1K×256的50次TPOT均值55.006ms，后段由约54升至56ms，后续需交错计时。未重跑GPU或改模型数学；见[性能02](performance/02_expanded_bs1_profile_study.md)。
+
+- 优化点1实现：根据扩展profile，新增opt-in AITER local SWA prefill，仅替换n≥window的窗口attention，保留reference RoPE/KV/decode/MoE及默认基线。新增HF回归开关、单层诊断及整模型ABBA计时工具；相关54项CPU通过，窗口和性能计划prepare-only通过。工具进程无/dev/kfd、cuda设备数0，未运行GPU、不宣称加速；命令与验收步骤见[10](../docs/plan/10_swa_prefill_optimization.md)。
