@@ -56,6 +56,7 @@ from torch.profiler import record_function
 logger = logging.getLogger("atom")
 
 support_model_arch_dict = {
+    "MellumForCausalLM": "atom.models.mellum.MellumForCausalLM",
     "Qwen3ForCausalLM": "atom.models.qwen3.Qwen3ForCausalLM",
     "Qwen3MoeForCausalLM": "atom.models.qwen3_moe.Qwen3MoeForCausalLM",
     "LlamaForCausalLM": "atom.models.llama.LlamaForCausalLM",
@@ -638,6 +639,8 @@ class ModelRunner:
             config.load_dummy,
             load_fused_expert_weights_fn=fused_shared_expert_load_fn,
         )
+        if not config.load_dummy and hasattr(self.model, "validate_loaded_weights"):
+            self.model.validate_loaded_weights()
         logger.info(f"Model load done: {config.model}")
 
         # Optional debug instrumentation; no-op when env vars unset.

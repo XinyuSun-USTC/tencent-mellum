@@ -595,6 +595,13 @@ def get_hf_config(model: str, trust_remote_code: bool = False) -> PretrainedConf
     )
     model_type = config_dict.get("model_type")
 
+    if model_type == "mellum":
+        # Frozen Transformers has no native Mellum registration. Keep its
+        # identity and nested RoPE; model execution is registered separately.
+        from atom.model_config.mellum import MellumConfig
+
+        return MellumConfig.from_dict(config_dict)
+
     def _get_hf_token() -> str | None:
         token = os.getenv("HF_TOKEN")
         if token and token.strip():

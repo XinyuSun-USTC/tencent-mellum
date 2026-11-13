@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+export PYTHONPATH="/workspace/ATOM${PYTHONPATH:+:$PYTHONPATH}"
+
+exec /opt/venv/bin/python \
+    -m atom.entrypoints.openai.api_server "$@"

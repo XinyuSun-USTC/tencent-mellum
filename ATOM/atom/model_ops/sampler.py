@@ -73,6 +73,11 @@ class Sampler(nn.Module):
         Returns:
             Sampled token IDs (num_tokens,)
         """
+        # Greedy selection must also bypass the unfiltered temperature kernel.
+        # torch.argmax selects the first vocabulary index for equal maxima.
+        if all_greedy:
+            return logits.argmax(dim=-1).to(torch.int)
+
         # No Top-K Top-P parameters, perform temperature-based sampling
         if not self._needs_filtering(top_ks, top_ps):
             return self._temperature_sample(
