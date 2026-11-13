@@ -41,7 +41,9 @@ def analyze_events(events):
     spans = [e for e in events if e.get('ph') == 'X' and 'dur' in e]
     gpu = [e for e in spans if gpu_kind(e)]
     kernels = [e for e in gpu if gpu_kind(e) == 'kernel']
-    cpu = [e for e in spans if not gpu_kind(e)]
+    # ROCm emits GPU mirrors of user ranges with identical names/external IDs.
+    # They are not CPU launch ranges and must not overwrite CPU ownership.
+    cpu = [e for e in spans if not gpu_kind(e) and e.get('cat') != 'gpu_user_annotation']
     annotations = defaultdict(list)
     phases = defaultdict(lambda: {'calls': 0, 'cpu_range_us': 0.0})
     for e in cpu:
@@ -72,7 +74,7 @@ def analyze_events(events):
             phase = min(containing, key=lambda r: r[1] - r[0])[3] if containing else 'unattributed'
             module_ranges = [r for r in active if r[2].startswith('mellum/')]
             deepest = min(module_ranges, key=lambda r: r[1] - r[0])[2].split('/')[1] if module_ranges else 'unattributed'
-            owner = (phase, deepest, {name.split('/')[1] for name in names})
+            owner = (phase, deepest, {name.split('/')[1] for name in names}, point.get('name', '<unnamed>'))
             owners[external(point)] = owner
             corr = point.get('args', {}).get('correlation')
             if corr is not None:
@@ -82,6 +84,8 @@ def analyze_events(events):
     exclusive = defaultdict(float)
     inclusive = defaultdict(float)
     phase_gpu = defaultdict(float)
+    phase_modules = defaultdict(lambda: defaultdict(float))
+    launch_operators = defaultdict(lambda: {'calls': 0, 'summed_kernel_us': 0.0})
     attributed = 0.0
     for e in kernels:
         duration = float(e['dur'])
@@ -90,9 +94,12 @@ def analyze_events(events):
         owner = owners.get(external(e))
         if owner is None:
             owner = correlations.get(str(e.get('args', {}).get('correlation')))
-        phase, module, parents = owner or ('unattributed', 'unattributed', set())
+        phase, module, parents, operator = owner or ('unattributed', 'unattributed', set(), 'unattributed')
         exclusive[module] += duration
         phase_gpu[phase] += duration
+        phase_modules[phase][module] += duration
+        launch_operators[(phase, module, operator)]['calls'] += 1
+        launch_operators[(phase, module, operator)]['summed_kernel_us'] += duration
         for parent in parents:
             inclusive[parent] += duration
         if module != 'unattributed':
@@ -111,6 +118,8 @@ def analyze_events(events):
                 module_attribution_fraction=attributed/summed if summed else 0,
                 exclusive_module_kernel_us=dict(exclusive), inclusive_module_kernel_us=dict(inclusive),
                 phase_kernel_us=dict(phase_gpu), phase_cpu_ranges=dict(phases),
+                phase_exclusive_module_kernel_us={k:dict(v) for k,v in phase_modules.items()},
+                top_launch_operators=sorted((dict(phase=k[0],module=k[1],name=k[2],**v) for k,v in launch_operators.items()),key=lambda r:-r['summed_kernel_us'])[:40],
                 top_kernels=sorted((dict(name=k, **v) for k,v in by_kernel.items()), key=lambda r:-r['summed_us'])[:25],
                 top_cpu_operators=sorted((dict(name=k, **v) for k,v in by_operator.items()), key=lambda r:-r['summed_cpu_event_us'])[:25],
                 interpretation=[
@@ -139,6 +148,10 @@ def render_markdown(result):
               '## 按最内层模块归因', '', '| 模块 | 累计kernel ms |', '| --- | --- |']
     for name, duration in sorted(result['exclusive_module_kernel_us'].items(), key=lambda r:-r[1]):
         lines.append(f'| {name} | {duration/1000:.3f} |')
+    lines += ['', '## 分阶段模块kernel累计ms', '', '| 阶段 | 模块 | 累计ms |', '| --- | --- | --- |']
+    for phase, modules in result['phase_exclusive_module_kernel_us'].items():
+        for name,duration in sorted(modules.items(),key=lambda r:-r[1]):
+            lines.append(f'| {phase} | {name} | {duration/1000:.3f} |')
     lines += ['', '## 热点kernel', '', '| 名称 | 次数 | 累计ms |', '| --- | --- | --- |']
     for row in result['top_kernels'][:15]:
         name = row['name'].replace('|', '/').replace('\n', ' ')[:180]

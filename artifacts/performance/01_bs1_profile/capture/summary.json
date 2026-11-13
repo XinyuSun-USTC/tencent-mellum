@@ -1,0 +1,33 @@
+{
+  "status": "profile_collected",
+  "output": "/workspace/results/mellum_profile/20261113T180921043675Z",
+  "source_sha256": {
+    "scripts/analyze_mellum_profile.py": "90f4d32bbe84a9991b381ef6c56ccc62ae03fefc10a8676dde4c052967b18f50",
+    "scripts/profile_mellum.py": "e33a0d0fcfbc0efacb802f886913445be2d5705d2fa2e1096e73fc1c2e21584e",
+    "scripts/mellum_runtime_config.py": "7a61adb0032138c4729b5132fb49dc9cd140e6a9d0e0af1d0c97382475eae2cd",
+    "ATOM/atom/model_engine/model_runner.py": "6bd93967b2777cea02d8df7097baa0da1cd6e4ec88ea185c166342b81af2d4fd",
+    "ATOM/atom/model_config/mellum_profile.py": "7f9e820487b9c47e4383123a4d3ed4e837f06faab85954e2907e50fefc6f80dd"
+  },
+  "git_head": "c557aee0a75564e7a264483c6da3024c4a76c8bf",
+  "git_status": "",
+  "cases": [
+    {
+      "name": "ctx_1024",
+      "input_tokens": 1024,
+      "gpu_kernel_count": 53897,
+      "module_attribution_fraction": 0.9889440710611069
+    },
+    {
+      "name": "ctx_4096",
+      "input_tokens": 4096,
+      "gpu_kernel_count": 54045,
+      "module_attribution_fraction": 0.9943231505421812
+    },
+    {
+      "name": "ctx_16384",
+      "input_tokens": 16384,
+      "gpu_kernel_count": 54133,
+      "module_attribution_fraction": 0.9986049184252185
+    }
+  ]
+}

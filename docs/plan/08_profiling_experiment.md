@@ -77,3 +77,7 @@ trace在results外部目录，默认不纳入Git。后续保留精选汇总与�
 CPU测试15项通过：候选配置与既有GPU记录一致、固定输入长度、原子回执/超时、异步时间线correlation归因/区间重叠、实际CPU Profiler下hook输出不变和可移除、提取真实ModelRunner start/stop方法的生命周期测试、进程监控及原运行器回归、经`/workspace/scripts`符号链接调用的prepare-only回归。Profiler单周期事件清理警告不表示测试失败；没有实际GPU证据时不声称ROCm采集已通过。
 
 语法检查、prepare-only及差异检查通过。GPU仍需普通终端执行，不启用性能优化开关、不安装evalscope/TensorBoard、不将无profile两次样例当正式统计。后续依据本轮trace选择MoE或Attention先做，再补批量与服务场景；不把“较全面profile”扩大为长期全组合扫描。
+
+## 首次GPU结果与解析修正
+
+运行20261113T180921043675Z已完成三组GPU采集，加载与关闭正常；报告见[性能01](../../report/performance/01_bs1_profile_baseline.md)。初版解析将gpu_user_annotation镜像误计为CPU范围，已离线修正并新增回归；原数据不覆盖、不重跑GPU。修正后每组1次prefill/16次decode，含异步末尾额外forward。当前按实际kernel归因优先评估Attention，不把CPU/GPU范围重复或kernel空隙当成可承诺收益。

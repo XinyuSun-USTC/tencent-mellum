@@ -1,5 +1,7 @@
 # 06 Step1优化路线：候选、证据门槛与实施顺序
 
+实测更新：首轮bs1 trace已完成，见[性能报告01](../../report/performance/01_bs1_profile_baseline.md)。16k prefill的Attention路径占该阶段kernel时间78.6%，decode占51–66%；当前将Attention排在MoE前实施，但A并发32尚未测，最终排序仍需批量数据。下文保留候选规划与条件。
+
 ## 状态、目标与证据等级
 
 本文是Step0收尾后的优化规划，不是profiling或性能结果。用户要求结合原题、早期方案及近期实现讨论可选路线；本轮只读源码并撰写方案，未启用新优化、未启动GPU测量。已有基线见[05](05_step0_baseline_and_reproduction.md)，正确性成果见[39](../../report/validation/39_step0_summary.md)，题目口径见[要求摘要](../requirements/01_assessment_summary.md)。

@@ -73,9 +73,14 @@ def test_trace_attribution_uses_launch_correlation_not_gpu_time(tmp_path):
             event('aten::bmm',22,1,'cpu_op',ext=8),
             event('gemm',100,5,'kernel',ext=7,tid=99),
             event('bmm',102,8,'kernel',ext=8,tid=100),
-            event('unknown',120,1,'kernel',ext=999,tid=99)]
+            event('unknown',120,1,'kernel',ext=999,tid=99),
+            event('prefill[bs=1 tok=10]',100,10,'gpu_user_annotation',ext=1,pid=2,tid=0),
+            event('mellum/qkv/layer_00',100,5,'gpu_user_annotation',ext=7,pid=2,tid=0)]
     result=analyze_events(events)
     assert result['phase_kernel_us']=={'prefill':5,'decode':8,'unattributed':1}
+    assert result['phase_cpu_ranges']['prefill']['calls']==1
+    assert result['module_annotation_count']==3
+    assert result['phase_exclusive_module_kernel_us']['prefill']['qkv']==5
     assert result['exclusive_module_kernel_us']['qkv']==5
     assert result['inclusive_module_kernel_us']['attention_swa']==5
     assert result['summed_gpu_kernel_us']==14

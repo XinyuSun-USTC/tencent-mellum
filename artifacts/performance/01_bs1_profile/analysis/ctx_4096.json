@@ -1,0 +1,574 @@
+{
+  "module_annotation_count": 3332,
+  "gpu_kernel_count": 54045,
+  "gpu_copy_or_memset_count": 5500,
+  "summed_gpu_kernel_us": 974981.641,
+  "kernel_active_union_us": 974981.8120117188,
+  "kernel_span_us": 1946021.4370117188,
+  "kernel_gaps_within_span_us": 971039.625,
+  "module_attribution_fraction": 0.9943231505421812,
+  "exclusive_module_kernel_us": {
+    "unattributed": 5534.823999999999,
+    "norm_input": 25940.916999999976,
+    "qkv": 57809.027999999846,
+    "attention_swa": 454065.692999972,
+    "output_projection": 20453.351999999973,
+    "norm_post": 26770.278000000024,
+    "router": 5706.053000000008,
+    "moe_experts": 276411.09400000586,
+    "attention_full": 102290.40199999975
+  },
+  "inclusive_module_kernel_us": {
+    "norm_input": 25940.916999999976,
+    "qkv": 57809.027999999846,
+    "attention_swa": 512808.0999999729,
+    "output_projection": 20453.351999999973,
+    "norm_post": 26770.278000000024,
+    "router": 5706.053000000008,
+    "moe_experts": 276411.09400000586,
+    "attention_full": 121810.3749999997
+  },
+  "phase_kernel_us": {
+    "prefill": 581424.5220000003,
+    "unattributed": 1036.45,
+    "decode": 392520.6690000047
+  },
+  "phase_cpu_ranges": {
+    "prefill": {
+      "calls": 1,
+      "cpu_range_us": 607426.447
+    },
+    "decode": {
+      "calls": 16,
+      "cpu_range_us": 1315230.6510000003
+    }
+  },
+  "phase_exclusive_module_kernel_us": {
+    "prefill": {
+      "unattributed": 428.70500000000004,
+      "norm_input": 4910.681999999996,
+      "qkv": 38605.340000000004,
+      "attention_swa": 309701.606,
+      "output_projection": 13352.052999999996,
+      "norm_post": 4935.235999999999,
+      "router": 645.309,
+      "moe_experts": 178637.07900000043,
+      "attention_full": 30208.51200000002
+    },
+    "unattributed": {
+      "unattributed": 1036.45
+    },
+    "decode": {
+      "unattributed": 4069.6690000000003,
+      "norm_input": 21030.23500000002,
+      "qkv": 19203.688000000006,
+      "attention_swa": 144364.08700000308,
+      "output_projection": 7101.298999999996,
+      "norm_post": 21835.042000000027,
+      "router": 5060.744000000008,
+      "moe_experts": 97774.015,
+      "attention_full": 72081.88999999959
+    }
+  },
+  "top_launch_operators": [
+    {
+      "phase": "prefill",
+      "module": "attention_swa",
+      "name": "hipModuleLaunchKernel",
+      "calls": 42,
+      "summed_kernel_us": 268487.80299999996
+    },
+    {
+      "phase": "prefill",
+      "module": "moe_experts",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 3464,
+      "summed_kernel_us": 147076.22600000037
+    },
+    {
+      "phase": "decode",
+      "module": "attention_swa",
+      "name": "hipLaunchKernel",
+      "calls": 20496,
+      "summed_kernel_us": 105149.41900000068
+    },
+    {
+      "phase": "decode",
+      "module": "moe_experts",
+      "name": "hipLaunchKernel",
+      "calls": 6720,
+      "summed_kernel_us": 70378.49599999994
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_swa",
+      "name": "hipLaunchKernel",
+      "calls": 1554,
+      "summed_kernel_us": 40883.83900000006
+    },
+    {
+      "phase": "decode",
+      "module": "attention_full",
+      "name": "hipLaunchKernel",
+      "calls": 6608,
+      "summed_kernel_us": 39490.54899999978
+    },
+    {
+      "phase": "decode",
+      "module": "attention_swa",
+      "name": "hipModuleLaunchKernel",
+      "calls": 672,
+      "summed_kernel_us": 36696.20299999997
+    },
+    {
+      "phase": "prefill",
+      "module": "qkv",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 84,
+      "summed_kernel_us": 36250.392
+    },
+    {
+      "phase": "decode",
+      "module": "attention_full",
+      "name": "hipModuleLaunchKernel",
+      "calls": 112,
+      "summed_kernel_us": 31752.363000000005
+    },
+    {
+      "phase": "prefill",
+      "module": "moe_experts",
+      "name": "hipLaunchKernel",
+      "calls": 840,
+      "summed_kernel_us": 31560.852999999977
+    },
+    {
+      "phase": "decode",
+      "module": "moe_experts",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 896,
+      "summed_kernel_us": 27395.519
+    },
+    {
+      "phase": "decode",
+      "module": "norm_post",
+      "name": "hipLaunchKernel",
+      "calls": 4032,
+      "summed_kernel_us": 21835.042000000027
+    },
+    {
+      "phase": "decode",
+      "module": "norm_input",
+      "name": "hipLaunchKernel",
+      "calls": 4016,
+      "summed_kernel_us": 21030.23500000002
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_full",
+      "name": "hipModuleLaunchKernel",
+      "calls": 7,
+      "summed_kernel_us": 18344.671
+    },
+    {
+      "phase": "decode",
+      "module": "qkv",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 1344,
+      "summed_kernel_us": 16393.382999999998
+    },
+    {
+      "phase": "prefill",
+      "module": "output_projection",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 28,
+      "summed_kernel_us": 13352.052999999996
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_full",
+      "name": "hipLaunchKernel",
+      "calls": 483,
+      "summed_kernel_us": 11751.187999999998
+    },
+    {
+      "phase": "decode",
+      "module": "output_projection",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 448,
+      "summed_kernel_us": 7101.298999999996
+    },
+    {
+      "phase": "decode",
+      "module": "router",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 448,
+      "summed_kernel_us": 5060.744000000008
+    },
+    {
+      "phase": "prefill",
+      "module": "norm_post",
+      "name": "hipLaunchKernel",
+      "calls": 252,
+      "summed_kernel_us": 4935.235999999999
+    },
+    {
+      "phase": "prefill",
+      "module": "norm_input",
+      "name": "hipLaunchKernel",
+      "calls": 251,
+      "summed_kernel_us": 4910.681999999996
+    },
+    {
+      "phase": "decode",
+      "module": "unattributed",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 16,
+      "summed_kernel_us": 3251.5119999999997
+    },
+    {
+      "phase": "decode",
+      "module": "qkv",
+      "name": "hipLaunchKernel",
+      "calls": 448,
+      "summed_kernel_us": 2810.3050000000007
+    },
+    {
+      "phase": "decode",
+      "module": "attention_swa",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 336,
+      "summed_kernel_us": 2518.465000000001
+    },
+    {
+      "phase": "prefill",
+      "module": "qkv",
+      "name": "hipLaunchKernel",
+      "calls": 28,
+      "summed_kernel_us": 2354.948
+    },
+    {
+      "phase": "unattributed",
+      "module": "unattributed",
+      "name": "hipLaunchKernel",
+      "calls": 34,
+      "summed_kernel_us": 986.6709999999998
+    },
+    {
+      "phase": "decode",
+      "module": "attention_full",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 112,
+      "summed_kernel_us": 838.9780000000003
+    },
+    {
+      "phase": "decode",
+      "module": "unattributed",
+      "name": "hipLaunchKernel",
+      "calls": 160,
+      "summed_kernel_us": 818.1570000000011
+    },
+    {
+      "phase": "prefill",
+      "module": "router",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 28,
+      "summed_kernel_us": 645.309
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_swa",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 42,
+      "summed_kernel_us": 329.96399999999994
+    },
+    {
+      "phase": "prefill",
+      "module": "unattributed",
+      "name": "hipLaunchKernel",
+      "calls": 13,
+      "summed_kernel_us": 220.286
+    },
+    {
+      "phase": "prefill",
+      "module": "unattributed",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 1,
+      "summed_kernel_us": 208.419
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_full",
+      "name": "hipExtModuleLaunchKernel",
+      "calls": 14,
+      "summed_kernel_us": 112.65299999999999
+    },
+    {
+      "phase": "unattributed",
+      "module": "unattributed",
+      "name": "unattributed",
+      "calls": 16,
+      "summed_kernel_us": 49.778999999999996
+    }
+  ],
+  "top_kernels": [
+    {
+      "name": "attn_fwd",
+      "calls": 476,
+      "summed_us": 346997.9540000003
+    },
+    {
+      "name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+      "calls": 980,
+      "summed_us": 43734.89100000006
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1})",
+      "calls": 3977,
+      "summed_us": 41480.125999999625
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB128_LBSPPM0_LPA4_LPB4_LPM0_LRVW8_LWPMn1_MIAV0_MIWT8_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW8_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA8_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 42,
+      "summed_us": 38918.979000000014
+    },
+    {
+      "name": "void at::native::index_elementwise_kernel<128, 4, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1}>(long, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1})",
+      "calls": 1373,
+      "summed_us": 23404.193
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+      "calls": 1162,
+      "summed_us": 19721.107999999986
+    },
+    {
+      "name": "Cijk_Alik_Bjlk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT192x16x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB1_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT3_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS6_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+      "calls": 448,
+      "summed_us": 16129.756999999992
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+      "calls": 1344,
+      "summed_us": 15052.254999999996
+    },
+    {
+      "name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::MeanOps<float, float, float, float>, unsigned int, float, 4, 4> >(at::native::ReduceOp<float, at::native::MeanOps<float, float, float, float>, unsigned int, float, 4, 4>)",
+      "calls": 1921,
+      "summed_us": 14663.734000000068
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x256x32_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+      "calls": 35,
+      "summed_us": 14215.321999999995
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+      "calls": 3405,
+      "summed_us": 13797.006000000123
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy<at::native::(anonymous namespace)::OpaqueType<2u>, unsigned int, 3, 64, 64>(at::native::(anonymous namespace)::OpaqueType<2u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<2u>, unsigned int, 64, 64>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
+      "calls": 1008,
+      "summed_us": 13674.485000000062
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<8, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul>)",
+      "calls": 1960,
+      "summed_us": 13006.32000000001
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1})",
+      "calls": 1921,
+      "summed_us": 12247.867000000058
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB128_LBSPPM0_LPA4_LPB4_LPM0_LRVW8_LWPMn1_MIAV0_MIWT8_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW8_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA8_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 66,
+      "summed_us": 11305.489000000003
+    },
+    {
+      "name": "Cijk_Alik_Bjlk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x16x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB1_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA128_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+      "calls": 448,
+      "summed_us": 11265.76199999999
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul>)",
+      "calls": 2341,
+      "summed_us": 10549.506999999952
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_4_1",
+      "calls": 656,
+      "summed_us": 9906.06
+    },
+    {
+      "name": "void at::native::sbtopk::gatherTopK<float, unsigned int, 1, false>(at::cuda::detail::TensorInfo<float const, unsigned int>, unsigned int, unsigned int, bool, unsigned int, unsigned int, at::cuda::detail::TensorInfo<float, unsigned int>, unsigned int, at::cuda::detail::TensorInfo<long, unsigned int>, unsigned int, float*)",
+      "calls": 448,
+      "summed_us": 9637.698
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<float, float>(at::TensorIteratorBase&, float)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<float, float>(at::TensorIteratorBase&, float)::{lambda(float)#1}, std::array<char*, 2ul>)",
+      "calls": 1921,
+      "summed_us": 9231.928000000047
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT128x128x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 235,
+      "summed_us": 8528.025999999998
+    },
+    {
+      "name": "_fused_qk_rope_reshape_and_cache_kernel",
+      "calls": 357,
+      "summed_us": 8283.086000000016
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT224x256x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA128_LBSPPB128_LBSPPM0_LPA4_LPB4_LPM0_LRVW8_LWPMn1_MIAV0_MIWT7_8_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS7_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 26,
+      "summed_us": 8141.353000000001
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT224x128x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA128_LBSPPB128_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT7_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS7_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 91,
+      "summed_us": 8027.978000000001
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::rsqrt_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::rsqrt_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+      "calls": 1921,
+      "summed_us": 7942.596999999917
+    }
+  ],
+  "top_cpu_operators": [
+    {
+      "name": "aiter::unified_attention_with_output_base",
+      "calls": 476,
+      "summed_cpu_event_us": 609034.3840000002
+    },
+    {
+      "name": "aten::to",
+      "calls": 12119,
+      "summed_cpu_event_us": 509237.848999991
+    },
+    {
+      "name": "aten::_to_copy",
+      "calls": 7433,
+      "summed_cpu_event_us": 503748.67499999574
+    },
+    {
+      "name": "aten::copy_",
+      "calls": 10678,
+      "summed_cpu_event_us": 499954.9979999945
+    },
+    {
+      "name": "aten::_grouped_mm",
+      "calls": 56,
+      "summed_cpu_event_us": 446013.202
+    },
+    {
+      "name": "aten::mm",
+      "calls": 5981,
+      "summed_cpu_event_us": 181227.0809999999
+    },
+    {
+      "name": "aten::matmul",
+      "calls": 2901,
+      "summed_cpu_event_us": 143970.68499999994
+    },
+    {
+      "name": "aten::index",
+      "calls": 3277,
+      "summed_cpu_event_us": 125203.87200000015
+    },
+    {
+      "name": "aten::linear",
+      "calls": 2397,
+      "summed_cpu_event_us": 123394.785
+    },
+    {
+      "name": "aten::nonzero",
+      "calls": 952,
+      "summed_cpu_event_us": 70446.96199999997
+    },
+    {
+      "name": "aten::bmm",
+      "calls": 1400,
+      "summed_cpu_event_us": 67915.16199999997
+    },
+    {
+      "name": "aten::mul",
+      "calls": 7818,
+      "summed_cpu_event_us": 65430.77999999975
+    },
+    {
+      "name": "aiter::gemm_a16w16",
+      "calls": 493,
+      "summed_cpu_event_us": 42467.24999999994
+    },
+    {
+      "name": "aten::add",
+      "calls": 3881,
+      "summed_cpu_event_us": 37976.55000000002
+    },
+    {
+      "name": "aten::scaled_dot_product_attention",
+      "calls": 476,
+      "summed_cpu_event_us": 32921.23199999999
+    },
+    {
+      "name": "aten::clone",
+      "calls": 3066,
+      "summed_cpu_event_us": 31287.057999999994
+    },
+    {
+      "name": "aten::cat",
+      "calls": 1988,
+      "summed_cpu_event_us": 24370.069999999952
+    },
+    {
+      "name": "aten::square",
+      "calls": 1921,
+      "summed_cpu_event_us": 21850.14399999998
+    },
+    {
+      "name": "aten::repeat_interleave",
+      "calls": 1162,
+      "summed_cpu_event_us": 21790.505000000016
+    },
+    {
+      "name": "aten::mean",
+      "calls": 1921,
+      "summed_cpu_event_us": 21435.217999999943
+    },
+    {
+      "name": "aten::pow",
+      "calls": 1921,
+      "summed_cpu_event_us": 20378.122000000032
+    },
+    {
+      "name": "aten::as_strided",
+      "calls": 47518,
+      "summed_cpu_event_us": 20063.261999999537
+    },
+    {
+      "name": "aten::item",
+      "calls": 4480,
+      "summed_cpu_event_us": 19838.945999999938
+    },
+    {
+      "name": "aten::remainder",
+      "calls": 2072,
+      "summed_cpu_event_us": 18459.808999999997
+    },
+    {
+      "name": "aten::_local_scalar_dense",
+      "calls": 4480,
+      "summed_cpu_event_us": 18160.174000000006
+    }
+  ],
+  "interpretation": [
+    "GPU attribution uses external-id/correlation to CPU launch ranges, not GPU timestamp containment.",
+    "Inclusive module totals overlap; kernel sums can overlap across streams and are not wall time.",
+    "CPU event durations are nested totals, not self time. Kernel gaps alone do not prove CPU bottlenecks.",
+    "Unmatched correlations remain unattributed; low coverage requires inspecting the actual trace schema.",
+    "These traces are diagnostics, not official A/B/C scores."
+  ]
+}
