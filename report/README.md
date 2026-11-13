@@ -4,6 +4,8 @@
 
 ## 当前入口
 
+后续扩展实验见[09](../docs/plan/09_expanded_profile_study.md)：基线测量准备，不是新增实测成绩；在更全面数据到来前，性能01的Attention优先只作初步假设。
+
 [性能01：首轮bs1基线](performance/01_bs1_profile_baseline.md)：GPU采集有效，ROCm镜像区间解析已离线修正；长prefill和decode指向Attention优先，正式并发A/C尚未测。
 
 采集协议与工具见[08 单请求Profile协议](../docs/plan/08_profiling_experiment.md)，本轮bs1为诊断数据，不列正式A/B/C成绩。

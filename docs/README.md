@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+当前扩展评测：[09 深入性能研究](plan/09_expanded_profile_study.md)。用户要求开始优化前加深基线见解，已准备132次计时及分层trace；当前不提前固定优化点。
+
 当前可执行实验：[08 首轮单请求Profile](plan/08_profiling_experiment.md)。首轮三组GPU已完成，实测分析见[性能01](../report/performance/01_bs1_profile_baseline.md)，当前优先评估Attention。
 
 仓库管理：[07 项目Git组织与迁移](plan/07_project_repository_management.md)，总仓库`/workspace/tencent-mellum`，ATOM保留上游历史，旧工作路径通过链接兼容。

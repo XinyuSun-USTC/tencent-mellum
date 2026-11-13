@@ -42,3 +42,5 @@
 - Step1实验开发：分支step1/profiling-baseline，新增候选共享配置、受监控单请求profile运行器、GPU trace离线归因与Markdown摘要；worker增加opt-in启停回执和仅采集期间安装的标签，避免异步空trace与计时hook开销。固定1024/4096/16384输入，预热8、无profile两次64、trace16；CPU15项通过，兼容路径指纹问题修正后prepare-only172408完成，未启动GPU/未改数学。归档验证改为默认核对Step0标签。见[08实验协议](../docs/plan/08_profiling_experiment.md)。
 
 - 首轮性能采集：180921三组bs1实际GPU profile通过；无profile TTFT均值217/663/3994ms，TPOT56/56/61ms。发现ROCm gpu_user_annotation镜像导致CPU区间重复，离线修正parser并保留原始结果，相关CPU7项通过；派生分析181952，不重跑GPU。16k prefill Attention约78.6%、MoE15.3%，decode Attention约51–66%，据此先评估Attention，未外推并发32。完整证据见[性能01](performance/01_bs1_profile_baseline.md)。
+
+- 扩展性能评测开发：按用户希望增加深度与覆盖的要求，准备五长度×三输出档及真实A/C样本，默认19配置132次计时/22617输出token，另9短trace+1详细trace。新增逐层/子阶段/CPU self/语义op/拷贝归因、同预算profiling扰动对照、allocator峰值和只读SMI遥测；24项CPU通过，既有GPU trace离线检查与prepare-only190127通过，无新GPU任务或模型数学优化。命令、半小时量级预算与bs1边界见[09](../docs/plan/09_expanded_profile_study.md)。

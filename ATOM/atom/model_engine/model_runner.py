@@ -919,6 +919,8 @@ class ModelRunner:
             )
             if os.getenv("MELLUM_PROFILE_CONTROL_DIR"):
                 torch.cuda.synchronize(self.device)
+                if os.getenv("MELLUM_PROFILE_MEMORY_STATS", "0") == "1":
+                    torch.cuda.reset_peak_memory_stats(self.device)
             if os.getenv("MELLUM_PROFILE_LABELS", "0") == "1":
                 from atom.model_config.mellum_profile import install_profile_labels
                 self._mellum_profile_handles = install_profile_labels(self.model)

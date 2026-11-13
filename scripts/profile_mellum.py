@@ -34,8 +34,8 @@ def prepare_inputs(lengths):
     cases = []
     for length in lengths:
         source_length = length if length in records else 8192
-        if length not in (1024, 4096, 16384):
-            raise ValueError('First profiling suite supports 1024,4096,16384 only')
+        if length not in (512, 1024, 4096, 8192, 16384):
+            raise ValueError('Profiling suite supports 512,1024,4096,8192,16384 only')
         record, path = records[source_length]
         original = record['input_ids'][0]
         ids = original if length == source_length else original[:length-64]+original[-64:]
@@ -60,6 +60,45 @@ def wait_receipt(root, kind, sequence, timeout):
             return record
         time.sleep(0.1)
     raise TimeoutError(f'Profiler {kind} acknowledgement missing: {path}')
+
+
+def generate_request(engine, case, tokens, sampling_params_factory):
+    start_time_ns = time.time_ns()
+    start = time.perf_counter()
+    rows = engine.generate([case['input_ids']], sampling_params_factory(temperature=0, max_tokens=tokens, ignore_eos=True))
+    elapsed = time.perf_counter()-start
+    if len(rows) != 1 or len(rows[0]['token_ids']) != tokens:
+        raise RuntimeError('Unexpected completed request/output token count')
+    row = rows[0]
+    return dict(output_tokens=tokens, tpot_defined=tokens>1, wall_seconds=elapsed,
+                start_time_ns=start_time_ns, end_time_ns=time.time_ns(),
+                request_ttft_seconds=row['ttft'], request_tpot_seconds=row['tpot'],
+                request_latency_seconds=row['latency'], token_ids=row['token_ids'],
+                output_tokens_per_wall_second=tokens/elapsed)
+
+
+def capture_request(engine, case, tokens, output, sequence, sampling_params_factory):
+    before = set((output/'traces').rglob('*.pt.trace.json.gz'))
+    engine.start_profile()
+    started = wait_receipt(output/'control', 'started', sequence, 60)
+    observed = generate_request(engine, case, tokens, sampling_params_factory)
+    engine.stop_profile()
+    stopped = wait_receipt(output/'control', 'stopped', sequence, 300)
+    traces = sorted(set((output/'traces').rglob('*.pt.trace.json.gz'))-before)
+    if len(traces) != 1:
+        raise RuntimeError(f'Expected exactly one rank0 trace, got {len(traces)}')
+    analysis = analyze_file(traces[0])
+    if not analysis['gpu_kernel_count'] or not analysis['module_annotation_count']:
+        raise RuntimeError('Trace is missing GPU kernels or Mellum labels')
+    if not all(analysis['phase_cpu_ranges'].get(p,{}).get('calls') for p in ['prefill','decode']):
+        raise RuntimeError('Trace is missing prefill or decode ranges')
+    save(output/(case['name']+'_analysis.json'), analysis)
+    (output/(case['name']+'_analysis.md')).write_text(render_markdown(analysis))
+    return dict(profiled_request=observed, trace=str(traces[0]),
+                trace_sha256=hashlib.sha256(traces[0].read_bytes()).hexdigest(),
+                started=started, stopped=stopped,
+                gpu_kernel_count=analysis['gpu_kernel_count'],
+                module_attribution_fraction=analysis['module_attribution_fraction'])
 
 
 def worker(output):
@@ -101,16 +140,7 @@ def worker(output):
         result['loading_audit'] = audit
 
         def generate(case, tokens):
-            start = time.perf_counter()
-            rows = engine.generate([case['input_ids']], SamplingParams(temperature=0, max_tokens=tokens, ignore_eos=True))
-            elapsed = time.perf_counter()-start
-            if len(rows) != 1 or len(rows[0]['token_ids']) != tokens:
-                raise RuntimeError('Unexpected completed request/output token count')
-            row = rows[0]
-            return dict(output_tokens=tokens, wall_seconds=elapsed,
-                        request_ttft_seconds=row['ttft'], request_tpot_seconds=row['tpot'],
-                        request_latency_seconds=row['latency'], token_ids=row['token_ids'],
-                        output_tokens_per_wall_second=tokens/elapsed)
+            return generate_request(engine, case, tokens, SamplingParams)
 
         for sequence, case in enumerate(plan['cases'], 1):
             print('PROFILE phase warmup', case['name'], flush=True)

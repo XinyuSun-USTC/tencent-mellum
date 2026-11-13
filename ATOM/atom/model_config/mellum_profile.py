@@ -17,6 +17,15 @@ def write_profile_receipt(kind, rank, sequence, trace_dir):
     data = dict(kind=kind, rank=rank, sequence=sequence, pid=os.getpid(),
                 time_ns=time.time_ns(), trace_dir=str(trace_dir),
                 traces=[str(p.resolve()) for p in sorted(Path(trace_dir).glob('*.pt.trace.json.gz'))])
+    if torch.cuda.is_initialized():
+        try:
+            data['allocator'] = dict(allocated_bytes=torch.cuda.memory_allocated(),
+                reserved_bytes=torch.cuda.memory_reserved(),
+                peak_allocated_bytes=torch.cuda.max_memory_allocated(),
+                peak_reserved_bytes=torch.cuda.max_memory_reserved(),
+                peaks_reset_at_profile_start=os.getenv('MELLUM_PROFILE_MEMORY_STATS')=='1')
+        except Exception as error:
+            data['allocator_error'] = str(error)
     temporary = target.with_suffix('.tmp')
     temporary.write_text(json.dumps(data, indent=2) + '\n')
     os.replace(temporary, target)
@@ -59,4 +68,26 @@ def install_profile_labels(model):
         attach(layer.post_attention_layernorm, f'mellum/norm_post/{suffix}')
         attach(attn.qkv_proj, f'mellum/qkv/{suffix}')
         attach(attn.o_proj, f'mellum/output_projection/{suffix}')
+    if os.getenv('MELLUM_PROFILE_GRANULAR', '0') == '1':
+        from functools import wraps
+        from atom.model_config import mellum_attention
+
+        class Restore:
+            def __init__(self, owner, name, previous):
+                self.owner, self.name, self.previous = owner, name, previous
+            def remove(self):
+                setattr(self.owner, self.name, self.previous)
+
+        def wrap(owner, name, label):
+            original = getattr(owner, name)
+            @wraps(original)
+            def observed(*args, **kwargs):
+                with torch.profiler.record_function(label):
+                    return original(*args, **kwargs)
+            setattr(owner, name, observed)
+            handles.append(Restore(owner, name, original))
+
+        for name in ['reference_position_rope', 'overwrite_reference_keys', 'gather_reference_kv']:
+            wrap(mellum_attention, name, f'mellum/{name}/shared')
+        wrap(torch.nn.functional, 'scaled_dot_product_attention', 'mellum/sdpa/shared')
     return handles

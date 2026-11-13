@@ -118,7 +118,8 @@ def test_labels_preserve_outputs_and_balance_hook_lifetime():
     assert all(not m._forward_hooks and not m._forward_pre_hooks for m in layer.modules())
 
 
-def test_real_model_runner_profile_methods_acknowledge_and_remove_hooks(monkeypatch, tmp_path):
+@pytest.mark.parametrize('memory_stats',[False,True])
+def test_real_model_runner_profile_methods_acknowledge_and_remove_hooks(monkeypatch, tmp_path, memory_stats):
     import ast
     import logging
     import os
@@ -134,6 +135,7 @@ def test_real_model_runner_profile_methods_acknowledge_and_remove_hooks(monkeypa
     monkeypatch.setitem(sys.modules, 'atom.model_config.mellum_profile', labels)
     monkeypatch.setenv('MELLUM_PROFILE_CONTROL_DIR', str(tmp_path/'control'))
     monkeypatch.setenv('MELLUM_PROFILE_LABELS', '1')
+    monkeypatch.setenv('MELLUM_PROFILE_MEMORY_STATS','1' if memory_stats else '0')
     class Profiler:
         def __init__(self, **kwargs):self.callback=kwargs['on_trace_ready']
         def __enter__(self):order.append('enter')
@@ -145,7 +147,7 @@ def test_real_model_runner_profile_methods_acknowledge_and_remove_hooks(monkeypa
     methods=[n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name in ('start_profiler','stop_profiler')]
     scope=dict(os=os,time=time,Optional=Optional,logger=logging.getLogger('test'),
                envs=types.SimpleNamespace(ATOM_PROFILER_MORE=False),torch_profiler=fake_prof,
-               torch=types.SimpleNamespace(cuda=types.SimpleNamespace(synchronize=lambda device:order.append('sync'))))
+               torch=types.SimpleNamespace(cuda=types.SimpleNamespace(synchronize=lambda device:order.append('sync'),reset_peak_memory_stats=lambda device:order.append('reset_peaks'))))
     for method in methods:
         exec(compile(ast.Module(body=[method],type_ignores=[]),'<ModelRunner profile methods>','exec'),scope)
     trace=tmp_path/'traces';trace.mkdir()
@@ -158,7 +160,7 @@ def test_real_model_runner_profile_methods_acknowledge_and_remove_hooks(monkeypa
     scope['stop_profiler'](runner)
     assert wait_receipt(tmp_path/'control','stopped',1,.01)['traces']
     assert runner.profiler is None and not runner._mellum_profile_handles
-    assert order==['sync','install','enter','sync','exit','remove']
+    assert order==['sync']+(['reset_peaks'] if memory_stats else [])+['install','enter','sync','exit','remove']
 
 
 def test_prepare_only_via_workspace_compatibility_path():

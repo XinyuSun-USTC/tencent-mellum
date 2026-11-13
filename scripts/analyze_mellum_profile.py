@@ -60,6 +60,7 @@ def analyze_events(events):
             threads[(e.get('pid'), e.get('tid'))].append(e)
     owners = {}
     correlations = {}
+    instances = {}
     for thread, points in threads.items():
         ranges = sorted(annotations[thread], key=lambda x: (x[0], -x[1]))
         active = []
@@ -74,18 +75,26 @@ def analyze_events(events):
             phase = min(containing, key=lambda r: r[1] - r[0])[3] if containing else 'unattributed'
             module_ranges = [r for r in active if r[2].startswith('mellum/')]
             deepest = min(module_ranges, key=lambda r: r[1] - r[0])[2].split('/')[1] if module_ranges else 'unattributed'
-            owner = (phase, deepest, {name.split('/')[1] for name in names}, point.get('name', '<unnamed>'))
-            owners[external(point)] = owner
+            layer_names = [n.split('/')[-1] for n in names if n.split('/')[-1].startswith('layer_')]
+            layer = layer_names[-1] if layer_names else 'unattributed'
+            phase_name = min(containing, key=lambda r:r[1]-r[0])[2] if containing else 'unattributed'
+            owner = (phase, deepest, {name.split('/')[1] for name in names}, point.get('name', '<unnamed>'), layer, phase_name)
+            # Runtime launches can share External id with an enclosing CPU op.
+            # Prefer the semantic CPU op instead of overwriting it with hipLaunchKernel.
+            if external(point) not in owners or point.get('cat') == 'cpu_op':
+                owners[external(point)] = owner
             corr = point.get('args', {}).get('correlation')
             if corr is not None:
                 correlations[str(corr)] = owner
     by_kernel = defaultdict(lambda: {'calls': 0, 'summed_us': 0.0})
-    by_operator = defaultdict(lambda: {'calls': 0, 'summed_cpu_event_us': 0.0})
+    by_operator = defaultdict(lambda: {'calls': 0, 'summed_cpu_event_us': 0.0, 'self_cpu_event_us': 0.0})
     exclusive = defaultdict(float)
     inclusive = defaultdict(float)
     phase_gpu = defaultdict(float)
     phase_modules = defaultdict(lambda: defaultdict(float))
     launch_operators = defaultdict(lambda: {'calls': 0, 'summed_kernel_us': 0.0})
+    layer_modules = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
+    copy_stats = defaultdict(lambda: {'calls': 0, 'summed_us': 0.0})
     attributed = 0.0
     for e in kernels:
         duration = float(e['dur'])
@@ -94,20 +103,43 @@ def analyze_events(events):
         owner = owners.get(external(e))
         if owner is None:
             owner = correlations.get(str(e.get('args', {}).get('correlation')))
-        phase, module, parents, operator = owner or ('unattributed', 'unattributed', set(), 'unattributed')
+        phase, module, parents, operator, layer, instance = owner or ('unattributed', 'unattributed', set(), 'unattributed', 'unattributed', 'unattributed')
         exclusive[module] += duration
         phase_gpu[phase] += duration
         phase_modules[phase][module] += duration
+        layer_modules[phase][layer][module] += duration
+        inst = instances.setdefault(instance, dict(kernel_count=0, summed_kernel_us=0.0))
+        inst['kernel_count'] += 1; inst['summed_kernel_us'] += duration
         launch_operators[(phase, module, operator)]['calls'] += 1
         launch_operators[(phase, module, operator)]['summed_kernel_us'] += duration
         for parent in parents:
             inclusive[parent] += duration
         if module != 'unattributed':
             attributed += duration
+    op_threads = defaultdict(list)
     for e in cpu:
         if e.get('cat') == 'cpu_op':
-            row = by_operator[e.get('name', '<unnamed>')]
-            row['calls'] += 1; row['summed_cpu_event_us'] += float(e['dur'])
+            op_threads[(e.get('pid'), e.get('tid'))].append(e)
+    for points in op_threads.values():
+        stack = []
+        children = defaultdict(list)
+        ordered = sorted(points, key=lambda e:(e['ts'], -e['dur']))
+        for i,e in enumerate(ordered):
+            while stack and ordered[stack[-1]]['ts']+ordered[stack[-1]]['dur'] <= e['ts']:
+                stack.pop()
+            if stack:
+                parent = ordered[stack[-1]]
+                children[stack[-1]].append((e['ts'], min(e['ts']+e['dur'],parent['ts']+parent['dur'])))
+            stack.append(i)
+        for i,e in enumerate(ordered):
+            row = by_operator[e.get('name','<unnamed>')]
+            row['calls'] += 1
+            row['summed_cpu_event_us'] += float(e['dur'])
+            row['self_cpu_event_us'] += max(0, float(e['dur'])-union_duration(children[i]))
+    for e in gpu:
+        if gpu_kind(e) != 'kernel':
+            row = copy_stats[e.get('name','<unnamed>')]
+            row['calls'] += 1; row['summed_us'] += float(e['dur'])
     intervals = [(e['ts'], e['ts'] + e['dur']) for e in kernels]
     summed = sum(float(e['dur']) for e in kernels)
     busy = union_duration(intervals)
@@ -119,13 +151,16 @@ def analyze_events(events):
                 exclusive_module_kernel_us=dict(exclusive), inclusive_module_kernel_us=dict(inclusive),
                 phase_kernel_us=dict(phase_gpu), phase_cpu_ranges=dict(phases),
                 phase_exclusive_module_kernel_us={k:dict(v) for k,v in phase_modules.items()},
+                phase_layer_module_kernel_us={phase:{layer:dict(modules) for layer,modules in layers.items()} for phase,layers in layer_modules.items()},
+                phase_instances=instances, gpu_copy_stats=dict(copy_stats),
                 top_launch_operators=sorted((dict(phase=k[0],module=k[1],name=k[2],**v) for k,v in launch_operators.items()),key=lambda r:-r['summed_kernel_us'])[:40],
                 top_kernels=sorted((dict(name=k, **v) for k,v in by_kernel.items()), key=lambda r:-r['summed_us'])[:25],
                 top_cpu_operators=sorted((dict(name=k, **v) for k,v in by_operator.items()), key=lambda r:-r['summed_cpu_event_us'])[:25],
+                top_self_cpu_operators=sorted((dict(name=k, **v) for k,v in by_operator.items()), key=lambda r:-r['self_cpu_event_us'])[:25],
                 interpretation=[
                     'GPU attribution uses external-id/correlation to CPU launch ranges, not GPU timestamp containment.',
                     'Inclusive module totals overlap; kernel sums can overlap across streams and are not wall time.',
-                    'CPU event durations are nested totals, not self time. Kernel gaps alone do not prove CPU bottlenecks.',
+                    'CPU self duration subtracts nested CPU-op ranges but can still include waits; CPU and GPU time are not additive. Kernel gaps alone do not prove CPU bottlenecks.',
                     'Unmatched correlations remain unattributed; low coverage requires inspecting the actual trace schema.',
                     'These traces are diagnostics, not official A/B/C scores.'])
 
