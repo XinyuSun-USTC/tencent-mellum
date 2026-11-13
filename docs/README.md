@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+当前可执行实验：[08 首轮单请求Profile](plan/08_profiling_experiment.md)。工具、回执和离线分析已准备，CPU检查通过，GPU待普通终端运行。
+
 仓库管理：[07 项目Git组织与迁移](plan/07_project_repository_management.md)，总仓库`/workspace/tencent-mellum`，ATOM保留上游历史，旧工作路径通过链接兼容。
 
 Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md)，包含计分目标、源码开销假设、MoE/Attention主候选、第三点分支及首轮profiling安排；当前是方案，尚无实测性能结论。

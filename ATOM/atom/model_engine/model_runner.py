@@ -641,6 +641,8 @@ class ModelRunner:
         )
         if not config.load_dummy and hasattr(self.model, "validate_loaded_weights"):
             self.model.validate_loaded_weights()
+        if os.getenv("MELLUM_PROFILE_LABELS", "0") == "1" and config.hf_config.model_type != "mellum":
+            raise ValueError("Mellum profile labels require a Mellum model")
         logger.info(f"Model load done: {config.model}")
 
         # Optional debug instrumentation; no-op when env vars unset.
@@ -915,7 +917,16 @@ class ModelRunner:
                 profile_memory=enable_detailed_profiling,
                 on_trace_ready=_on_trace_ready,
             )
+            if os.getenv("MELLUM_PROFILE_CONTROL_DIR"):
+                torch.cuda.synchronize(self.device)
+            if os.getenv("MELLUM_PROFILE_LABELS", "0") == "1":
+                from atom.model_config.mellum_profile import install_profile_labels
+                self._mellum_profile_handles = install_profile_labels(self.model)
             self.profiler.__enter__()
+            if os.getenv("MELLUM_PROFILE_CONTROL_DIR"):
+                from atom.model_config.mellum_profile import write_profile_receipt
+                self._mellum_profile_sequence = getattr(self, "_mellum_profile_sequence", 0) + 1
+                write_profile_receipt("started", self.rank, self._mellum_profile_sequence, self.profiler_dir)
             logger.info(
                 "Rank %d: profiler started (detailed=%s, dir=%s)",
                 self.rank,
@@ -931,16 +942,24 @@ class ModelRunner:
         t0 = time.monotonic()
         logger.info("Rank %d: stopping profiler...", self.rank)
         try:
+            if os.getenv("MELLUM_PROFILE_CONTROL_DIR"):
+                torch.cuda.synchronize(self.device)
             self.profiler.__exit__(None, None, None)
         except Exception:
             logger.exception("Rank %d: profiler stop failed", self.rank)
         finally:
             self.profiler = None
+            for handle in getattr(self, "_mellum_profile_handles", []):
+                handle.remove()
+            self._mellum_profile_handles = []
         logger.info(
             "Rank %d: profiler stop completed in %.1fs",
             self.rank,
             time.monotonic() - t0,
         )
+        if os.getenv("MELLUM_PROFILE_CONTROL_DIR"):
+            from atom.model_config.mellum_profile import write_profile_receipt
+            write_profile_receipt("stopped", self.rank, self._mellum_profile_sequence, self.profiler_dir)
         return True
 
     def debug(self, *args: Any):

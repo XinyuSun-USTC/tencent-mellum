@@ -4,6 +4,8 @@
 
 ## 当前入口
 
+实验准备见[08 单请求Profile协议](../docs/plan/08_profiling_experiment.md)：尚无GPU实测结果，不列性能成绩。
+
 下一阶段见[06 Step1优化路线](../docs/plan/06_step1_optimization_routes.md)：单卡BF16为默认评估方向，MoE/Attention与条件第三点，先形成可测服务与trace，不预定收益或凑满三点。
 
 - [39 Step0阶段总结](validation/39_step0_summary.md)：实现、问题闭环、结果与交接。
