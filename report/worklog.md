@@ -44,3 +44,5 @@
 - 首轮性能采集：180921三组bs1实际GPU profile通过；无profile TTFT均值217/663/3994ms，TPOT56/56/61ms。发现ROCm gpu_user_annotation镜像导致CPU区间重复，离线修正parser并保留原始结果，相关CPU7项通过；派生分析181952，不重跑GPU。16k prefill Attention约78.6%、MoE15.3%，decode Attention约51–66%，据此先评估Attention，未外推并发32。完整证据见[性能01](performance/01_bs1_profile_baseline.md)。
 
 - 扩展性能评测开发：按用户希望增加深度与覆盖的要求，准备五长度×三输出档及真实A/C样本，默认19配置132次计时/22617输出token，另9短trace+1详细trace。新增逐层/子阶段/CPU self/语义op/拷贝归因、同预算profiling扰动对照、allocator峰值和只读SMI遥测；24项CPU通过，既有GPU trace离线检查与prepare-only190127通过，无新GPU任务或模型数学优化。命令、半小时量级预算与bs1边界见[09](../docs/plan/09_expanded_profile_study.md)。
+
+- 扩展性能实测：190525三阶段完成，19配置132次无profile计时/22617输出token、9短trace+1详细trace，10份trace哈希及配对token核验通过，轻量证据归档performance/02。16K prefill SDPA约72.2%，SWA每层约122ms、Full约36ms；1K×256的50次TPOT均值55.006ms，后段由约54升至56ms，后续需交错计时。未重跑GPU或改模型数学；见[性能02](performance/02_expanded_bs1_profile_study.md)。

@@ -2,7 +2,9 @@
 
 当前安排更新：按用户要求，开始优化前先执行[09扩展基线研究](09_expanded_profile_study.md)。首轮bs1的排序保留为假设，不因单请求数据就定案场景A优化点；随后仍需批量基线。
 
-实测更新：首轮bs1 trace已完成，见[性能报告01](../../report/performance/01_bs1_profile_baseline.md)。16k prefill的Attention路径占该阶段kernel时间78.6%，decode占51–66%；当前将Attention排在MoE前实施，但A并发32尚未测，最终排序仍需批量数据。下文保留候选规划与条件。
+扩展实测见[性能02](../../report/performance/02_expanded_bs1_profile_study.md)：长prefill的SWA/SDPA优先，decode需分别研究KV/RoPE与MoE物化；1K长输出存在时段漂移，后续采用交错基线/候选计时。正式并发场景仍待接入。
+
+首轮实测：bs1 trace已完成，见[性能报告01](../../report/performance/01_bs1_profile_baseline.md)。16k prefill的Attention路径占该阶段kernel时间78.6%，decode占51–66%；当前将Attention排在MoE前实施，但A并发32尚未测，最终排序仍需批量数据。下文保留候选规划与条件。
 
 ## 状态、目标与证据等级
 

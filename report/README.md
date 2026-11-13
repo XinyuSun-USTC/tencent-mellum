@@ -4,7 +4,7 @@
 
 ## 当前入口
 
-后续扩展实验见[09](../docs/plan/09_expanded_profile_study.md)：基线测量准备，不是新增实测成绩；在更全面数据到来前，性能01的Attention优先只作初步假设。
+扩展实测见[性能02](performance/02_expanded_bs1_profile_study.md)：19配置132次计时与10份trace已核验；长prefill优先SWA，decode关注KV/RoPE与专家权重物化。实验协议见[09](../docs/plan/09_expanded_profile_study.md)。
 
 [性能01：首轮bs1基线](performance/01_bs1_profile_baseline.md)：GPU采集有效，ROCm镜像区间解析已离线修正；长prefill和decode指向Attention优先，正式并发A/C尚未测。
 

@@ -1,0 +1,44 @@
+{
+  "telemetry_enabled": true,
+  "telemetry_interval_seconds": 15,
+  "status": "study_collected",
+  "output": "/workspace/results/mellum_profile_study/20261113T190525160560Z",
+  "dataset_sources": [
+    {
+      "path": "/data/datasets/scenario_a_prompts.jsonl",
+      "total_rows": 512,
+      "eligible_rows": 512,
+      "excluded_for_length": 0
+    },
+    {
+      "path": "/data/datasets/scenario_c_prompts.jsonl",
+      "total_rows": 200,
+      "eligible_rows": 200,
+      "excluded_for_length": 0
+    }
+  ],
+  "case_counts": {
+    "timing": 19,
+    "trace": 9,
+    "detailed": 1
+  },
+  "timed_requests": 132,
+  "timed_output_tokens": 22617,
+  "git_head": "63851f02fa53ee5e5ecd4122f091dac24cea31de",
+  "git_status": "",
+  "source_sha256": {
+    "scripts/profile_mellum.py": "adc51cb677cc1301de0d09cdef234733e902d053bd34280a3032acf831eda49f",
+    "scripts/analyze_mellum_profile.py": "f6891c600c6c96ba309335176565414d28edae8198517ed49c5e43958a6f7528",
+    "scripts/run_mellum_profile_study.py": "d0c927bd363c5bb03235935f964a5da36921847d97eec6dfe09cdd718d66d300",
+    "scripts/mellum_profile_telemetry.py": "051a61d4b8bcd703a6116bf5a04478d33f23e7ef4a5f6716cbb12a3d46fc942a",
+    "scripts/mellum_runtime_config.py": "7a61adb0032138c4729b5132fb49dc9cd140e6a9d0e0af1d0c97382475eae2cd",
+    "ATOM/atom/model_config/mellum_profile.py": "f7a2311cff759e1fb0ea85176f3d5fa01781c14973072f4838fcbed64a339c17",
+    "ATOM/atom/model_engine/model_runner.py": "e61891cd8f64dbef3a98033933fdacbfc237d2b2023b4f0dbc225e6a4ee24829"
+  },
+  "plan_sha256": {
+    "timing": "fa8829aa00a7b9411f2535de791ab84ba6a41fbf3ee1befdf994f84e5d76b838",
+    "trace": "11ed5608058db3c839157d1828642edbfb2282b876b63d65bb77aba91138fb08",
+    "detailed": "fcf65c5bc98b0ff17544208f6dcb8fc3c2f1b824d8f7ea1c590107b1d17358a4"
+  },
+  "phase": "detailed"
+}
