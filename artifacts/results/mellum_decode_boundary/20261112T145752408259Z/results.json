@@ -1,0 +1,174 @@
+{
+  "status": "diagnostic_complete",
+  "source_run": "/workspace/results/mellum_decode_validation/20261112T142950219118Z",
+  "script_sha256": "936361e294e3e9f98f7e20984c0e2533e93e57e4b79f9319ffc303c125cd8e9e",
+  "records": [
+    {
+      "name": "chinese_inventory",
+      "logical_context_tokens": 33,
+      "snapshot_sha256": "95ec477f90611527781539e69517d735487839d17d11735c98082bf301928b66",
+      "mask_is_none": true,
+      "mask_all_true": null,
+      "comparisons": {
+        "query": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 4096
+        },
+        "keys": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 16896
+        },
+        "values": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 16896
+        },
+        "sdpa_output": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 4096
+        }
+      }
+    },
+    {
+      "name": "raw_16",
+      "logical_context_tokens": 17,
+      "snapshot_sha256": "b034364bb83b4ed508f8a54d53b4b3054add3f10d6f8e88d96816e39e05d2997",
+      "mask_is_none": true,
+      "mask_all_true": null,
+      "comparisons": {
+        "query": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 4096
+        },
+        "keys": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 8704
+        },
+        "values": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 8704
+        },
+        "sdpa_output": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 4096
+        }
+      }
+    },
+    {
+      "name": "raw_17",
+      "logical_context_tokens": 18,
+      "snapshot_sha256": "293ef9e520a476e97a13606187058b0ef4542f12acf9f6c5a781c2bd47ab3e98",
+      "mask_is_none": true,
+      "mask_all_true": null,
+      "comparisons": {
+        "query": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 4096
+        },
+        "keys": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 9216
+        },
+        "values": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 9216
+        },
+        "sdpa_output": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 4096
+        }
+      }
+    },
+    {
+      "name": "window_1023",
+      "logical_context_tokens": 1024,
+      "snapshot_sha256": "3b1cc88741922172ba8116ca85121d1fad3a43a019eb1b22a2ba0705ea40ee25",
+      "mask_is_none": false,
+      "mask_all_true": true,
+      "comparisons": {
+        "query": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 4096
+        },
+        "keys": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 524288
+        },
+        "values": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 524288
+        },
+        "sdpa_output": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "elements": 4096
+        }
+      }
+    }
+  ],
+  "scope": "First-layer first-decode Q/K/V reconstruction only; no full-model execution",
+  "snapshots": [
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261112T142950264193Z/decode/sample_000000/first_decode_attention.pt",
+      "sha256": "95ec477f90611527781539e69517d735487839d17d11735c98082bf301928b66"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261112T142950264193Z/decode/sample_000001/first_decode_attention.pt",
+      "sha256": "b034364bb83b4ed508f8a54d53b4b3054add3f10d6f8e88d96816e39e05d2997"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261112T142950264193Z/decode/sample_000002/first_decode_attention.pt",
+      "sha256": "293ef9e520a476e97a13606187058b0ef4542f12acf9f6c5a781c2bd47ab3e98"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261112T142950264193Z/decode/sample_000003/first_decode_attention.pt",
+      "sha256": "3b1cc88741922172ba8116ca85121d1fad3a43a019eb1b22a2ba0705ea40ee25"
+    }
+  ]
+}

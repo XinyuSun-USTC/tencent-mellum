@@ -1,0 +1,37 @@
+{
+  "correctness_candidate": true,
+  "sampling_mode": "normal_no_forcing",
+  "qkv_backend": "separate",
+  "stage_layer": 0,
+  "prefill_backend": "sdpa_cpu_rope_diagnostic",
+  "suite": "diagnostic",
+  "status": "tokens_and_logits_exact",
+  "output": "/workspace/results/mellum_validation/20261112T213129468143Z",
+  "phase": "atom",
+  "atom_run": "/workspace/results/atom_mellum_gpu/20261112T213209402440Z",
+  "generation_logit_summary": {
+    "scope": "Same-history pre-sampling logits; no comparison after the token fork",
+    "compared_positions": 640,
+    "nonexact_positions": 0,
+    "first_nonexact": []
+  },
+  "token_summary": {
+    "compared_positions": 640,
+    "matching_positions": 640,
+    "token_match_fraction": 1.0,
+    "exact_sequences": 10,
+    "reference_records": 10
+  },
+  "logits_errors": {
+    "chinese_inventory": 0.0,
+    "identity_explanation": 0.0,
+    "missing_integer": 0.0,
+    "parenthesized_math": 0.0,
+    "raw_16": 0.0,
+    "raw_17": 0.0,
+    "rotate_list": 0.0,
+    "stable_unique": 0.0,
+    "window_1023": 0.0,
+    "window_1024": 0.0
+  }
+}

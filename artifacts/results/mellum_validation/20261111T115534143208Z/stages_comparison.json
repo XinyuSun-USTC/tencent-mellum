@@ -1,0 +1,1059 @@
+{
+  "scope": "Nonzero BF16 differences alone do not identify a bug; inspect error growth and suboperators",
+  "records": [
+    {
+      "sample": "sample_000000",
+      "stage": "input_norm_input",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "input_norm",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0009765625,
+      "rms": 3.99310483771842e-05,
+      "relative_l2": 0.004099198617041111,
+      "last_position_relative_l2": 0.004164028447121382
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "q_proj",
+      "shape_hf": [
+        24,
+        4096
+      ],
+      "shape_atom": [
+        24,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 0.00011205804912606254,
+      "relative_l2": 0.004099192563444376,
+      "last_position_relative_l2": 0.004154939670115709
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "k_proj",
+      "shape_hf": [
+        24,
+        512
+      ],
+      "shape_atom": [
+        24,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 0.00021871250646654516,
+      "relative_l2": 0.004091080743819475,
+      "last_position_relative_l2": 0.004258548375219107
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "v_proj",
+      "shape_hf": [
+        24,
+        512
+      ],
+      "shape_atom": [
+        24,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.0009765625,
+      "rms": 0.00013482723443303257,
+      "relative_l2": 0.003941874019801617,
+      "last_position_relative_l2": 0.004137488082051277
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "q_norm",
+      "shape_hf": [
+        24,
+        4096
+      ],
+      "shape_atom": [
+        24,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.125,
+      "rms": 0.0063938237726688385,
+      "relative_l2": 0.004916963633149862,
+      "last_position_relative_l2": 0.004814031533896923
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "k_norm",
+      "shape_hf": [
+        24,
+        512
+      ],
+      "shape_atom": [
+        24,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.006336480379104614,
+      "relative_l2": 0.004971932619810104,
+      "last_position_relative_l2": 0.004852785728871822
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "attention_context",
+      "shape_hf": [
+        24,
+        4096
+      ],
+      "shape_atom": [
+        24,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 0.00014029878366272897,
+      "relative_l2": 0.004683482460677624,
+      "last_position_relative_l2": 0.004559693858027458
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "attention_output",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0005247712251730263,
+      "relative_l2": 0.00436010304838419,
+      "last_position_relative_l2": 0.0012427478795871139
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "post_norm_input",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.046875,
+      "rms": 0.0005499623366631567,
+      "relative_l2": 0.004543236456811428,
+      "last_position_relative_l2": 0.0013023370411247015
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "post_norm",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0010322002926841378,
+      "relative_l2": 0.006598679814487696,
+      "last_position_relative_l2": 0.0065003144554793835
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "moe_input",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0010322002926841378,
+      "relative_l2": 0.006598679814487696,
+      "last_position_relative_l2": 0.0065003144554793835
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "router_logits",
+      "shape_hf": [
+        24,
+        64
+      ],
+      "shape_atom": [
+        24,
+        64
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.020746687427163124,
+      "relative_l2": 0.004893329925835133,
+      "last_position_relative_l2": 0.005444872193038464
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "moe_output",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.0017468614969402552,
+      "relative_l2": 0.02064012922346592,
+      "last_position_relative_l2": 0.012383999302983284
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "input_norm_input",
+      "shape_hf": [
+        61,
+        2304
+      ],
+      "shape_atom": [
+        61,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "input_norm",
+      "shape_hf": [
+        61,
+        2304
+      ],
+      "shape_atom": [
+        61,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0009765625,
+      "rms": 4.045649620820768e-05,
+      "relative_l2": 0.004075589589774609,
+      "last_position_relative_l2": 0.004161373246461153
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "q_proj",
+      "shape_hf": [
+        61,
+        4096
+      ],
+      "shape_atom": [
+        61,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 0.00011410944716772065,
+      "relative_l2": 0.004074156749993563,
+      "last_position_relative_l2": 0.004013164900243282
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "k_proj",
+      "shape_hf": [
+        61,
+        512
+      ],
+      "shape_atom": [
+        61,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 0.00022142897068988532,
+      "relative_l2": 0.004067575559020042,
+      "last_position_relative_l2": 0.00457710912451148
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "v_proj",
+      "shape_hf": [
+        61,
+        512
+      ],
+      "shape_atom": [
+        61,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.0009765625,
+      "rms": 0.00013595882046502084,
+      "relative_l2": 0.003933845553547144,
+      "last_position_relative_l2": 0.003942986950278282
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "q_norm",
+      "shape_hf": [
+        61,
+        4096
+      ],
+      "shape_atom": [
+        61,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.125,
+      "rms": 0.006402879487723112,
+      "relative_l2": 0.004913754295557737,
+      "last_position_relative_l2": 0.005013229791074991
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "k_norm",
+      "shape_hf": [
+        61,
+        512
+      ],
+      "shape_atom": [
+        61,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.125,
+      "rms": 0.00630995025858283,
+      "relative_l2": 0.004973255097866058,
+      "last_position_relative_l2": 0.005018013529479504
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "attention_context",
+      "shape_hf": [
+        61,
+        4096
+      ],
+      "shape_atom": [
+        61,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 0.0001395061262883246,
+      "relative_l2": 0.004644605331122875,
+      "last_position_relative_l2": 0.004731793887913227
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "attention_output",
+      "shape_hf": [
+        61,
+        2304
+      ],
+      "shape_atom": [
+        61,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0005958789261057973,
+      "relative_l2": 0.004716731142252684,
+      "last_position_relative_l2": 0.0014545759186148643
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "post_norm_input",
+      "shape_hf": [
+        61,
+        2304
+      ],
+      "shape_atom": [
+        61,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.0006314023630693555,
+      "relative_l2": 0.004966911859810352,
+      "last_position_relative_l2": 0.0015198304317891598
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "post_norm",
+      "shape_hf": [
+        61,
+        2304
+      ],
+      "shape_atom": [
+        61,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0009650170686654747,
+      "relative_l2": 0.006795614957809448,
+      "last_position_relative_l2": 0.00823303684592247
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "moe_input",
+      "shape_hf": [
+        61,
+        2304
+      ],
+      "shape_atom": [
+        61,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0009650170686654747,
+      "relative_l2": 0.006795614957809448,
+      "last_position_relative_l2": 0.00823303684592247
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "router_logits",
+      "shape_hf": [
+        61,
+        64
+      ],
+      "shape_atom": [
+        61,
+        64
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.0212255772203207,
+      "relative_l2": 0.005021573510020971,
+      "last_position_relative_l2": 0.007148722652345896
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "moe_output",
+      "shape_hf": [
+        61,
+        2304
+      ],
+      "shape_atom": [
+        61,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.0013346681371331215,
+      "relative_l2": 0.022642524912953377,
+      "last_position_relative_l2": 0.008406450040638447
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "input_norm_input",
+      "shape_hf": [
+        18,
+        2304
+      ],
+      "shape_atom": [
+        18,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "input_norm",
+      "shape_hf": [
+        18,
+        2304
+      ],
+      "shape_atom": [
+        18,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0009765625,
+      "rms": 4.0931434341473505e-05,
+      "relative_l2": 0.0041369423270225525,
+      "last_position_relative_l2": 0.004164028447121382
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "q_proj",
+      "shape_hf": [
+        18,
+        4096
+      ],
+      "shape_atom": [
+        18,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 0.00011314814764773473,
+      "relative_l2": 0.004082729574292898,
+      "last_position_relative_l2": 0.004154939670115709
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "k_proj",
+      "shape_hf": [
+        18,
+        512
+      ],
+      "shape_atom": [
+        18,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 0.00022182137763593346,
+      "relative_l2": 0.004080262500792742,
+      "last_position_relative_l2": 0.004258548375219107
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "v_proj",
+      "shape_hf": [
+        18,
+        512
+      ],
+      "shape_atom": [
+        18,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.0009765625,
+      "rms": 0.00013472292630467564,
+      "relative_l2": 0.004003624897450209,
+      "last_position_relative_l2": 0.004137488082051277
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "q_norm",
+      "shape_hf": [
+        18,
+        4096
+      ],
+      "shape_atom": [
+        18,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.125,
+      "rms": 0.0062815225683152676,
+      "relative_l2": 0.00483675254508853,
+      "last_position_relative_l2": 0.004814031533896923
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "k_norm",
+      "shape_hf": [
+        18,
+        512
+      ],
+      "shape_atom": [
+        18,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.006369446869939566,
+      "relative_l2": 0.005025392863899469,
+      "last_position_relative_l2": 0.004852785728871822
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "attention_context",
+      "shape_hf": [
+        18,
+        4096
+      ],
+      "shape_atom": [
+        18,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.0009765625,
+      "rms": 0.00014377808838617057,
+      "relative_l2": 0.004803127609193325,
+      "last_position_relative_l2": 0.004500144626945257
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "attention_output",
+      "shape_hf": [
+        18,
+        2304
+      ],
+      "shape_atom": [
+        18,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0005031785694882274,
+      "relative_l2": 0.004372179042547941,
+      "last_position_relative_l2": 0.0012926278868690133
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "post_norm_input",
+      "shape_hf": [
+        18,
+        2304
+      ],
+      "shape_atom": [
+        18,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0005082054412923753,
+      "relative_l2": 0.004398270510137081,
+      "last_position_relative_l2": 0.0013819769956171513
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "post_norm",
+      "shape_hf": [
+        18,
+        2304
+      ],
+      "shape_atom": [
+        18,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0011135343229398131,
+      "relative_l2": 0.006810377351939678,
+      "last_position_relative_l2": 0.006834073923528194
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "moe_input",
+      "shape_hf": [
+        18,
+        2304
+      ],
+      "shape_atom": [
+        18,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0011135343229398131,
+      "relative_l2": 0.006810377351939678,
+      "last_position_relative_l2": 0.006834073923528194
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "router_logits",
+      "shape_hf": [
+        18,
+        64
+      ],
+      "shape_atom": [
+        18,
+        64
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.023155493661761284,
+      "relative_l2": 0.005440829321742058,
+      "last_position_relative_l2": 0.005322903860360384
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "moe_output",
+      "shape_hf": [
+        18,
+        2304
+      ],
+      "shape_atom": [
+        18,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.0015249453717842698,
+      "relative_l2": 0.015083030797541142,
+      "last_position_relative_l2": 0.00923875905573368
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "input_norm_input",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "input_norm",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0009765625,
+      "rms": 3.9969978388398886e-05,
+      "relative_l2": 0.004124840721487999,
+      "last_position_relative_l2": 0.004079896956682205
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "q_proj",
+      "shape_hf": [
+        24,
+        4096
+      ],
+      "shape_atom": [
+        24,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 0.00010995299817295745,
+      "relative_l2": 0.0040937140583992004,
+      "last_position_relative_l2": 0.004308094270527363
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "k_proj",
+      "shape_hf": [
+        24,
+        512
+      ],
+      "shape_atom": [
+        24,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 0.0002154523244826123,
+      "relative_l2": 0.0040743388235569,
+      "last_position_relative_l2": 0.003975403029471636
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "v_proj",
+      "shape_hf": [
+        24,
+        512
+      ],
+      "shape_atom": [
+        24,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.0009765625,
+      "rms": 0.0001331091480096802,
+      "relative_l2": 0.004007761366665363,
+      "last_position_relative_l2": 0.004102836363017559
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "q_norm",
+      "shape_hf": [
+        24,
+        4096
+      ],
+      "shape_atom": [
+        24,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.125,
+      "rms": 0.006291860248893499,
+      "relative_l2": 0.00484593166038394,
+      "last_position_relative_l2": 0.0051292008720338345
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "k_norm",
+      "shape_hf": [
+        24,
+        512
+      ],
+      "shape_atom": [
+        24,
+        512
+      ],
+      "status": "different",
+      "max_abs": 0.125,
+      "rms": 0.0064933630637824535,
+      "relative_l2": 0.005125370342284441,
+      "last_position_relative_l2": 0.00468498794361949
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "attention_context",
+      "shape_hf": [
+        24,
+        4096
+      ],
+      "shape_atom": [
+        24,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.0009765625,
+      "rms": 0.00014364173694048077,
+      "relative_l2": 0.0047743720933794975,
+      "last_position_relative_l2": 0.00472739152610302
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "attention_output",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0005519544938579202,
+      "relative_l2": 0.004644251428544521,
+      "last_position_relative_l2": 0.005406895186752081
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "post_norm_input",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.046875,
+      "rms": 0.0005762324435636401,
+      "relative_l2": 0.004821617156267166,
+      "last_position_relative_l2": 0.007824644446372986
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "post_norm",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0010493156732991338,
+      "relative_l2": 0.006704593077301979,
+      "last_position_relative_l2": 0.0062147583812475204
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "moe_input",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0010493156732991338,
+      "relative_l2": 0.006704593077301979,
+      "last_position_relative_l2": 0.0062147583812475204
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "router_logits",
+      "shape_hf": [
+        24,
+        64
+      ],
+      "shape_atom": [
+        24,
+        64
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.022916298359632492,
+      "relative_l2": 0.005389722529798746,
+      "last_position_relative_l2": 0.0068898615427315235
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "moe_output",
+      "shape_hf": [
+        24,
+        2304
+      ],
+      "shape_atom": [
+        24,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0625,
+      "rms": 0.0013572901953011751,
+      "relative_l2": 0.015048971399664879,
+      "last_position_relative_l2": 0.008912192657589912
+    }
+  ],
+  "weights": [
+    {
+      "name": "input_norm",
+      "exact": true,
+      "shape_hf": [
+        2304
+      ],
+      "shape_atom": [
+        2304
+      ]
+    },
+    {
+      "name": "k_norm",
+      "exact": true,
+      "shape_hf": [
+        128
+      ],
+      "shape_atom": [
+        128
+      ]
+    },
+    {
+      "name": "k_proj",
+      "exact": true,
+      "shape_hf": [
+        512,
+        2304
+      ],
+      "shape_atom": [
+        512,
+        2304
+      ]
+    },
+    {
+      "name": "o_proj",
+      "exact": true,
+      "shape_hf": [
+        2304,
+        4096
+      ],
+      "shape_atom": [
+        2304,
+        4096
+      ]
+    },
+    {
+      "name": "post_norm",
+      "exact": true,
+      "shape_hf": [
+        2304
+      ],
+      "shape_atom": [
+        2304
+      ]
+    },
+    {
+      "name": "q_norm",
+      "exact": true,
+      "shape_hf": [
+        128
+      ],
+      "shape_atom": [
+        128
+      ]
+    },
+    {
+      "name": "q_proj",
+      "exact": true,
+      "shape_hf": [
+        4096,
+        2304
+      ],
+      "shape_atom": [
+        4096,
+        2304
+      ]
+    },
+    {
+      "name": "router",
+      "exact": true,
+      "shape_hf": [
+        64,
+        2304
+      ],
+      "shape_atom": [
+        64,
+        2304
+      ]
+    },
+    {
+      "name": "v_proj",
+      "exact": true,
+      "shape_hf": [
+        512,
+        2304
+      ],
+      "shape_atom": [
+        512,
+        2304
+      ]
+    }
+  ]
+}

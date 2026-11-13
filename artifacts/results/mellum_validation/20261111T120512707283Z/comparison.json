@@ -1,0 +1,29 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "arithmetic",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 2.5,
+      "rms_error": 0.9330832362174988,
+      "top1_exact": true
+    },
+    {
+      "name": "python_add",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 1.75,
+      "rms_error": 0.3999045193195343,
+      "top1_exact": true
+    }
+  ],
+  "mismatches": [
+    "arithmetic",
+    "python_add"
+  ]
+}

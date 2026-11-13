@@ -1,0 +1,53 @@
+{
+  "status": "started",
+  "argv": [
+    "/workspace/scripts/validate_hf_mellum_gpu.py"
+  ],
+  "output_dir": "/workspace/results/hf_mellum_gpu/20261111T043805569271Z",
+  "phase": "loading_checkpoint",
+  "script_sha256": "c35321bdd1115e5aee6ba1882d2ec2f6992f87e18e5f38eb4c0cf42a3d92b49b",
+  "results": [],
+  "scope": "Short-input smoke and HF internal consistency; not ATOM or official acceptance",
+  "environment": {
+    "python": "/workspace/venvs/hf-reference/bin/python",
+    "transformers": "5.10.1",
+    "transformers_file": "/workspace/venvs/hf-reference/lib/python3.12/site-packages/transformers/__init__.py",
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "torch_file": "/opt/venv/lib/python3.12/site-packages/torch/__init__.py",
+    "hip": "7.2.53211",
+    "visible_device_count": 2,
+    "packages": {
+      "torch": "2.10.0+rocm7.2.4.lw.git3d3aa833",
+      "transformers": "5.10.1",
+      "huggingface-hub": "1.18.0",
+      "tokenizers": "0.22.2",
+      "safetensors": "0.7.0"
+    }
+  },
+  "source_hashes": {
+    "models/mellum/modeling_mellum.py": "2a80cccbd01f2e2ddd391ac044145e78c71dc0637440ff765b8ccf9ad2efcd06",
+    "models/mellum/configuration_mellum.py": "6bbb53fadc6a9f17b52981acb85a1aeb7e1ee14f8356b3796c2d5fa6857ce1cf"
+  },
+  "gpus": [
+    {
+      "index": 0,
+      "name": "AMD Instinct MI308X",
+      "free_bytes": 205560741888,
+      "total_bytes": 206141652992
+    },
+    {
+      "index": 1,
+      "name": "AMD Instinct MI308X",
+      "free_bytes": 205560741888,
+      "total_bytes": 206141652992
+    }
+  ],
+  "selected_gpu": 0,
+  "input_file_hashes": {
+    "config.json": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541",
+    "model.safetensors.index.json": "a6ad930e5bb35ea92d5b734c4df4649bfcfdcd899f64b0a83efe40fe0ab9b60e",
+    "generation_config.json": "a9dc104ca398a2ef376d3f2fbb03037d99950ddb2db0cd041b98398cf1fc8d7c",
+    "chat_template.jinja": "4593a34d52f3364ac13ce57f4bea5688924e8942da6df8201e411db17e729f48",
+    "tokenizer_config.json": "e2950960d2a3040a1938e6357c8c3628d531133c464286a7869b2e0504fcc59e"
+  }
+}

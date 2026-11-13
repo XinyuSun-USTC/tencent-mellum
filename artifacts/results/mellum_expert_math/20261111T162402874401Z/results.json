@@ -1,0 +1,123 @@
+{
+  "status": "diagnostic_complete",
+  "scope": "Canonical first-layer diagnostic, not engine acceptance",
+  "records": [
+    {
+      "sample": "sample_000000",
+      "official_backends": {
+        "grouped_mm": {
+          "hf": {
+            "exact": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004147586412727833
+          }
+        },
+        "eager": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003434823825955391
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.0078125,
+            "relative_l2": 0.0032745033968240023
+          }
+        }
+      }
+    },
+    {
+      "sample": "sample_000001",
+      "official_backends": {
+        "grouped_mm": {
+          "hf": {
+            "exact": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004132059868425131
+          }
+        },
+        "eager": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003432338824495673
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.0078125,
+            "relative_l2": 0.003307476406916976
+          }
+        }
+      }
+    },
+    {
+      "sample": "sample_000002",
+      "official_backends": {
+        "grouped_mm": {
+          "hf": {
+            "exact": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004312918987125158
+          }
+        },
+        "eager": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0036109050270169973
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0038184099830687046
+          }
+        }
+      }
+    },
+    {
+      "sample": "sample_000003",
+      "official_backends": {
+        "grouped_mm": {
+          "hf": {
+            "exact": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004276973195374012
+          }
+        },
+        "eager": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003607055637985468
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003807552857324481
+          }
+        }
+      }
+    }
+  ],
+  "transformers": "5.10.1"
+}

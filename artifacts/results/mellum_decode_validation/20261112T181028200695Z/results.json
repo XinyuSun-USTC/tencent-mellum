@@ -1,0 +1,103 @@
+{
+  "status": "forced_history_logits_exact",
+  "source_prefill_run": "/workspace/results/mellum_validation/20261112T173200224689Z",
+  "steps": 2,
+  "scope": "Only saved pre-forcing logits are compared; forced token equality is not acceptance",
+  "records": [
+    {
+      "name": "python_add",
+      "step": 0,
+      "phase": "prefill",
+      "logical_context_tokens": 24,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "f736961580c6d03bd814a8f284b1f136e78d39455ee6810be14459a1bd2eda03",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          24,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          24,
+          128
+        ]
+      }
+    },
+    {
+      "name": "python_add",
+      "step": 1,
+      "phase": "decode",
+      "logical_context_tokens": 25,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.75,
+        "relative_l2": 0.004754652734845877,
+        "different_elements": 78020,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "855c6216553b0e9faec65dde3cc2a59c30e5f30dbcd6f55d1f9e6fccc5124de9",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          25,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          25,
+          128
+        ]
+      }
+    }
+  ],
+  "inputs_sha256": "1b9acae838b835af4ed86019d9a09d193d679202483e4b85d401e8a7ec339caa",
+  "script_sha256": "fbf163e47f91cc922e5321a36278e5a59b3dfe4af877321d0a0937761fb78f79",
+  "atom_run": "/workspace/results/atom_mellum_gpu/20261112T181040490903Z",
+  "atom_configuration": {
+    "MELLUM_QKV_BACKEND": "separate",
+    "MELLUM_MOE_BACKEND": "torch",
+    "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+    "MELLUM_REFERENCE_KV_ROPE": "1",
+    "MELLUM_SDPA_DECODE": "1",
+    "MELLUM_DECODE_LAYER_CAPTURE": "1",
+    "MELLUM_ROUTER_BACKEND": "torch",
+    "MELLUM_FORCED_DECODE_PLAN": "/workspace/results/mellum_decode_validation/20261112T181028200695Z/hf/reference.json"
+  },
+  "loading_audit": {
+    "source_tensors": 5631,
+    "successful_parts": 5631,
+    "missing": [],
+    "unexpected": []
+  },
+  "forced_plan_sha256": "4a62c113fea958ab5744b168fb9eb0c07e379dcdc732503b4c4b7683c9e899d8",
+  "first_nonexact_state": null,
+  "first_nonexact_attention": null,
+  "first_nonexact": null
+}

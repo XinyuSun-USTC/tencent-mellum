@@ -1,0 +1,366 @@
+{
+  "scope": "Current Step0 working-tree snapshot, not a historical tested commit or full weight archive",
+  "head": "26f23a0bdbf50b9010c07ee3a71171189723e767",
+  "branch": "feature/mellum-support",
+  "git_status": "M  atom/config.py\nA  atom/model_config/mellum.py\n M atom/model_engine/model_runner.py\n M atom/model_ops/sampler.py\nA  tests/test_mellum_config.py\n?? atom/model_config/mellum_attention.py\n?? atom/model_config/mellum_decode_probe.py\n?? atom/model_config/mellum_diagnostics.py\n?? atom/model_config/mellum_experts.py\n?? atom/model_config/mellum_projection.py\n?? atom/model_config/mellum_utils.py\n?? atom/models/mellum.py\n?? tests/test_mellum_attention.py\n?? tests/test_mellum_decode_probe.py\n?? tests/test_mellum_experts.py\n?? tests/test_mellum_model.py\n?? tests/test_mellum_projection.py\n?? tests/test_sampler_greedy.py\n",
+  "files": [
+    {
+      "path": "ATOM/atom/model_config/mellum.py",
+      "sha256": "0b9d56b974b33e5bc98bb0875d6a7e9c3d7a6e8f7cd23e293e3ca2b8133a50cd"
+    },
+    {
+      "path": "ATOM/atom/model_config/mellum_attention.py",
+      "sha256": "91fded06186635d5fe8205e8e0bb278ea870a2beaa0c15ba5cfdead83d441f64"
+    },
+    {
+      "path": "ATOM/atom/model_config/mellum_decode_probe.py",
+      "sha256": "7e9bab93b3625672245d2cc97b9a8b39107fcc56e2cbe4aac41fd72910383561"
+    },
+    {
+      "path": "ATOM/atom/model_config/mellum_diagnostics.py",
+      "sha256": "2f1d5b403704f0428b7e545d1cf8e81434a7a05950e37c6dbb9bd291fa87356a"
+    },
+    {
+      "path": "ATOM/atom/model_config/mellum_experts.py",
+      "sha256": "37c6d65b20f6c9c9480a5974c7030fd013dd6ba88e5795cad42fd5a41c958814"
+    },
+    {
+      "path": "ATOM/atom/model_config/mellum_projection.py",
+      "sha256": "33325a841f1bace20954acfefbe4c36c1ec2cfef03563cb11a418c0a64a4c1c7"
+    },
+    {
+      "path": "ATOM/atom/model_config/mellum_utils.py",
+      "sha256": "a85148ca6a6d01fbed93060993a5a2227ea0ff0e1c841d3c693296f6ad6f0d4f"
+    },
+    {
+      "path": "ATOM/atom/models/mellum.py",
+      "sha256": "a146afe5117002959a92be18faa27c5a9e8bdb956737eb07856d618b9973179b"
+    },
+    {
+      "path": "ATOM/atom/config.py",
+      "sha256": "4eddac301ab4b660d2d258b4b90c4d0ae84811ea8f9c13b849b49fa883a295bb"
+    },
+    {
+      "path": "ATOM/atom/model_engine/model_runner.py",
+      "sha256": "438460528e140b5f56e0055ff12a8977fdd310d5d34bbf01355b7f3ecf427c71"
+    },
+    {
+      "path": "ATOM/atom/model_ops/sampler.py",
+      "sha256": "a3bf97bc761b5ae287104711841c821bbfef6a2e14848484c954f5428d0988f4"
+    },
+    {
+      "path": "ATOM/tests/test_mellum_attention.py",
+      "sha256": "f9fb2a5720ad9c98f8a8e3dc3128ce932ee75c632edfb8dbf94d36805c89bd18"
+    },
+    {
+      "path": "ATOM/tests/test_mellum_config.py",
+      "sha256": "c7fc761345d54b3cfb79e607ddf9494e52f7659188ae795eeec375714d4957e8"
+    },
+    {
+      "path": "ATOM/tests/test_mellum_decode_probe.py",
+      "sha256": "fb5f5243bb0e9836bf9f88ad312ea84aa51794b79aa22a112ba3a1aa6da9d462"
+    },
+    {
+      "path": "ATOM/tests/test_mellum_experts.py",
+      "sha256": "c444344c927c30c08070930a3d771520d250784711040b4898c22997637d2fad"
+    },
+    {
+      "path": "ATOM/tests/test_mellum_model.py",
+      "sha256": "e6bf7be55399a348933db574d7ee28069252985d97f8b1c366cd17876ebf77a7"
+    },
+    {
+      "path": "ATOM/tests/test_mellum_projection.py",
+      "sha256": "16c9f867540113c8dc00b7029a2af3a41b73a331453fbaee6f11e0649a8273d2"
+    },
+    {
+      "path": "ATOM/tests/test_sampler_greedy.py",
+      "sha256": "c768c750290f3520440e33fdc5099c4b9ba3a4763dc7b5a72037d0a55ee4b5ba"
+    },
+    {
+      "path": "scripts/audit_mellum_step0.py",
+      "sha256": "239d71cbe51fee848cfbe6e6e3797e8e8ad25c007ccb979cb6314c49e654d72d"
+    },
+    {
+      "path": "scripts/check_atom_mellum.py",
+      "sha256": "30731a3a76b4b0b57e4002d0e23a799afa6bddbaf0fd264ea6b434bf04b50c57"
+    },
+    {
+      "path": "scripts/check_hf_reference.py",
+      "sha256": "c2209832fe92bc40d83126304fc843d40103051f14cfb7b871212e125d288ebb"
+    },
+    {
+      "path": "scripts/check_mellum_norm_cpu.py",
+      "sha256": "fc413046b8b8b35f4997513f7c9a8ec2720ed0ace2952e732501a6b819886d94"
+    },
+    {
+      "path": "scripts/check_mellum_rope_cpu.py",
+      "sha256": "a6263640f1b347e70e72fe6cf6cc7cff2616c2f2994a154e9391c9b50fe80d8f"
+    },
+    {
+      "path": "scripts/check_mellum_router.py",
+      "sha256": "a0a645aca65682970f653e1237c3be99bc9cf03471c277af5f523b52f9aa7a90"
+    },
+    {
+      "path": "scripts/compare_mellum_generation.py",
+      "sha256": "89f1b70a65840c045820fd29932548cab53df0eff9886ae3f17e400efe3693b9"
+    },
+    {
+      "path": "scripts/compare_mellum_layers.py",
+      "sha256": "4abb2e2dc949029e083daa39602e984bfb5df6e5c9f53e781ce09cc9b3d5f76b"
+    },
+    {
+      "path": "scripts/compare_mellum_results.py",
+      "sha256": "788e9327c3f7b8dd7bb7c3f9aad72627ff545a113a07afa3ab2c63e21dde9245"
+    },
+    {
+      "path": "scripts/diagnose_mellum_attention_math.py",
+      "sha256": "11dc0633bc449727b85f0cd48073b48a53789050199e1133d3d4b44fbd22e39f"
+    },
+    {
+      "path": "scripts/diagnose_mellum_decode_boundary.py",
+      "sha256": "936361e294e3e9f98f7e20984c0e2533e93e57e4b79f9319ffc303c125cd8e9e"
+    },
+    {
+      "path": "scripts/diagnose_mellum_expert_math.py",
+      "sha256": "85dd6cef7dac3922996c656c277691ff97e36f57d48b976b33950165cbc6ea0d"
+    },
+    {
+      "path": "scripts/diagnose_mellum_hf_generation.py",
+      "sha256": "afdc52c171423823bd276833ff8475a323d5295765189ac42fc3d39a659a1e20"
+    },
+    {
+      "path": "scripts/diagnose_mellum_layer_tail.py",
+      "sha256": "8336302aad04483fdacb9e848c9606866a109d01e0b9f90d10ad13c198d98964"
+    },
+    {
+      "path": "scripts/diagnose_mellum_mismatch.py",
+      "sha256": "fc386c607a49ca571f8d47490e9138557a388bff16e20cce26c0103c5602c276"
+    },
+    {
+      "path": "scripts/diagnose_mellum_projection_math.py",
+      "sha256": "e0905778a840fb78e67571fa5c87227169cc24914e77e57433026e8936a32ee8"
+    },
+    {
+      "path": "scripts/diagnose_mellum_rope_coefficients.py",
+      "sha256": "15b14239db270bcc74b02a4c740fd0bbf883b67bbbef1e81796f20c30467ef55"
+    },
+    {
+      "path": "scripts/export_hf_mellum_reference.py",
+      "sha256": "2e14287587ced11325bac7365dfe638a77acca30a9125dc74875be7ca752237c"
+    },
+    {
+      "path": "scripts/export_mellum_config.py",
+      "sha256": "455ae86922ab84ed47888d4a9d1a9ff5c645b664681be8602ea54d201b69481c"
+    },
+    {
+      "path": "scripts/export_mellum_decode_reference.py",
+      "sha256": "fc6960cb915db584bd6ce64265ba339e88e134cf6b824551a2044565777f8a68"
+    },
+    {
+      "path": "scripts/export_mellum_suite_hf.py",
+      "sha256": "ff6e36dc1efa3d255aabd88d8c60ab8c89b90b36b9b31e0825ef386586778f77"
+    },
+    {
+      "path": "scripts/mellum_decode_observers.py",
+      "sha256": "c9a1b1df24a787ead3bb6b7633c09b3c43f9f6958f270c9d8e66189643263104"
+    },
+    {
+      "path": "scripts/mellum_process_runner.py",
+      "sha256": "7d0e92b119552b2c3de901becf5c23f9e25dbe6f78ef4f5a2bd665cdd50fccf5"
+    },
+    {
+      "path": "scripts/prepare_mellum_acceptance_inputs.py",
+      "sha256": "ae6f05a873fad4155e3192957992c0ac89f3397ec8d19dda25520b86c37f0d17"
+    },
+    {
+      "path": "scripts/prepare_mellum_suite.py",
+      "sha256": "a56743b121c1d5ceffa631e2ea7dd83d9f8c8a38d1d95da6333fdf3cd4944b6b"
+    },
+    {
+      "path": "scripts/probe_transformers_mellum.py",
+      "sha256": "2f7730e69d6bff3d6160f4f1a3a441de36e759c27acb70184b70c6b017c8986e"
+    },
+    {
+      "path": "scripts/recompare_mellum_prefill.py",
+      "sha256": "326656285106c7318aff649ba751bd6c35690bf23e2d1e41aa376bab226c61c4"
+    },
+    {
+      "path": "scripts/replay_mellum_moe.py",
+      "sha256": "7cd096ec968169505c0ff0196ba6d2543a03db73f609699c62d840563d3d5137"
+    },
+    {
+      "path": "scripts/run_mellum_decode_validation.py",
+      "sha256": "fbf163e47f91cc922e5321a36278e5a59b3dfe4af877321d0a0937761fb78f79"
+    },
+    {
+      "path": "scripts/run_mellum_prefill_study.py",
+      "sha256": "909376ab2e03c1acb1b4eb370c9009f52e94290779ccc1afc6c0a7015d9183c8"
+    },
+    {
+      "path": "scripts/run_mellum_validation.py",
+      "sha256": "9ade884e86b80aff6136481c52409d98b01fd714cc4f75759eba1536f029c0ff"
+    },
+    {
+      "path": "scripts/setup_hf_reference.py",
+      "sha256": "b9c786146b5ca0a21c965de9ed0ce7241129307563bbb33eaa4b2eeb4d5a31f2"
+    },
+    {
+      "path": "scripts/validate_hf_mellum_cpu.py",
+      "sha256": "0f18ba7fa35bfc00c9f1066f3f8098ee7ec46f42e8e271b65472c87c62f45f9e"
+    },
+    {
+      "path": "scripts/validate_hf_mellum_gpu.py",
+      "sha256": "929403bc7190561e15463a30eaea98b57cc75b671fdee5ea3667285c73ce56d6"
+    },
+    {
+      "path": "scripts/atom",
+      "sha256": "af298caac1a79328329dd43c2ebacb7d3e553533eec18dbb1f6e85ede91ebc58"
+    },
+    {
+      "path": "scripts/tests/test_compare_mellum_results.py",
+      "sha256": "ab86382ea27d04d9d86471b2f86f45fa0fc2f2182d85a440700c91f4a2f0f43b"
+    },
+    {
+      "path": "scripts/tests/test_mellum_decode_hf.py",
+      "sha256": "1b4f45d810b5184606ecf1659345ba1987f5357c7009d452c450f67db48d9a82"
+    },
+    {
+      "path": "scripts/tests/test_mellum_decode_validation.py",
+      "sha256": "76b341482e0d4898a4e527a5c3fb85d40bd35cf26f9c0e5df859214144c2a209"
+    },
+    {
+      "path": "scripts/tests/test_mellum_diagnostic.py",
+      "sha256": "dbc9d33419b57dc7a10df1bc21fbaa64c0ea1e05c4038ddd0adb79248afcb85e"
+    },
+    {
+      "path": "scripts/tests/test_mellum_generation.py",
+      "sha256": "70490dfc68a901cff9eba125758f2159af51ecdebf042dfdcc5bf5322e164d5b"
+    },
+    {
+      "path": "scripts/tests/test_mellum_prefill_study.py",
+      "sha256": "06527566bffbdf87a47af21c84b565951abf30bbe2492bda7c8a1b8daf5a9871"
+    },
+    {
+      "path": "scripts/tests/test_mellum_process_runner.py",
+      "sha256": "f3d0c0896694e74ac097a8bc8753a78bccd90f2eb40fad6b22b982521259437c"
+    },
+    {
+      "path": "scripts/tests/test_mellum_projection.py",
+      "sha256": "922cd529744aa47f750a814b9d74d3808ee311e6e517ba49d27d8084d23bfda2"
+    },
+    {
+      "path": "scripts/tests/test_mellum_recompare.py",
+      "sha256": "e2e06bec8793801c120458763ed763efaf8862b21407bfa2ee115b0c80e1314c"
+    },
+    {
+      "path": "scripts/tests/test_mellum_router.py",
+      "sha256": "5906dba0fcc96ca39ac2cde32678eb7046df14eb5ccc60ea735f4292a0bacb12"
+    },
+    {
+      "path": "scripts/tests/test_mellum_runner.py",
+      "sha256": "b6c70a94e4f0aa84ebcd25cf06f486d3f238de75ee5af2f78b788a34df5055c5"
+    },
+    {
+      "path": "scripts/tests/test_mellum_suites.py",
+      "sha256": "b8e9481308b6568627bd60a661858c42f565cfdf5359d62f5981837128044227"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/workspace/results/mellum_validation/20261112T213129468143Z/summary.json",
+      "sha256": "06344f0f688ca3079030e46b46c32c6121e1909979d696c2a08f571c24a11912"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261112T213129468143Z/inputs.json",
+      "sha256": "2c8913ceb6135554809d76e90e3559b414f6231108dfee000729da8f0d0f95f2"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261112T213129468143Z/hf/reference.json",
+      "sha256": "efa7beea15551622ede8484102f34c18ed80f0fb9bc287b391a2811bab84f3c6"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261112T213209402440Z/results.json",
+      "sha256": "7e5d37e324aa6d18d2593279e4f7904ed0638d8fb2e0a2eabf62239f95cf0294"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261112T213209402440Z/candidate.json",
+      "sha256": "a4ab02ea8729dce54ad981c9d3c1ca71c0012c21d6e85937119b1497de58c416"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261112T213209402440Z/loading_audit.json",
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261113T085534271528Z/summary.json",
+      "sha256": "eb254f0948a1e6296668cf6015ff35227c884107715fceda12215f53152e067b"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261113T085534271528Z/inputs.json",
+      "sha256": "7dcdcf72d4ad48dea30642f72666f3ddbb722e20ffcb2ac4ccf1e4f70fe379f6"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261113T085534271528Z/hf/reference.json",
+      "sha256": "58c2b4d65f41d72ca15ee64de4a019d28e0f57538c322efb48c5ad53d6e9b395"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261113T085556427546Z/results.json",
+      "sha256": "b6ae9d31d69e54e2be0644f2415b9583d678797ecd91c091a998b315b4eb5dd5"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261113T085556427546Z/candidate.json",
+      "sha256": "e9c35338dd163b326f55a03b65513d57af5e87abefcd3f913498a03ea3e1059b"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261113T085556427546Z/loading_audit.json",
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261113T103154043872Z/summary.json",
+      "sha256": "80fffa04729ad25741e6d2b7900f5be92d84abaead08bcd27bf54a9a13688776"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261113T103154043872Z/inputs.json",
+      "sha256": "485d9e2e843a3b9e9b7d5ad10bb5ab51dfe523a0bc96046cbb3073f821ab2da1"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261113T103154043872Z/hf/reference.json",
+      "sha256": "5217624fb94fa784b1068c347a53b21b28a00979cb5cd68b8944567fbcf02752"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261113T103233957636Z/results.json",
+      "sha256": "30f974b919c6c0ea97abbfff320ad7c58f2e0b102f0dd31dc9cfe546fb8b2ea6"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261113T103233957636Z/candidate.json",
+      "sha256": "231bbe7dc129db607f3206c124f69eb1bba2d36b898a3d681dcea063952f0354"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261113T103233957636Z/loading_audit.json",
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261113T104458011376Z/summary.json",
+      "sha256": "91969d5e0e04500bc30ecb86dc6832b75671a657b9635b60faa41fc3e6f62b8d"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261113T104458011376Z/inputs.json",
+      "sha256": "d2a2ec0ac450dbe5497ec99b025bc1bd5ec5af6641dbf7157296f7e06c3b2e72"
+    },
+    {
+      "path": "/workspace/results/mellum_validation/20261113T104458011376Z/hf/reference.json",
+      "sha256": "407cab507b32e45191f6cd5431709824a5b9f845442936dfc018c3668a4d7df1"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261113T105239431753Z/results.json",
+      "sha256": "5a48267b0dff7f3feedd3fdc1af19341950915a8e165d603aa88e0582141646e"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261113T105239431753Z/candidate.json",
+      "sha256": "a9d12143425f482cf2fc1d17e44cf4815433e59c78b63168d9b844b6f5c2f8ce"
+    },
+    {
+      "path": "/workspace/results/atom_mellum_gpu/20261113T105239431753Z/loading_audit.json",
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9"
+    }
+  ]
+}

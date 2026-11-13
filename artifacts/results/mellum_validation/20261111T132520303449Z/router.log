@@ -1,0 +1,7 @@
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+hf sample_000000 sets exact True ties 9
+hf sample_000001 sets exact True ties 6
+atom sample_000000 sets exact True ties 9
+atom sample_000001 sets exact True ties 6
+RESULT diagnostic_complete output /workspace/results/mellum_validation/20261111T132520303449Z/router

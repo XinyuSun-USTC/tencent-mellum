@@ -1,0 +1,255 @@
+{
+  "status": "diagnostic_complete",
+  "scope": "Same-QKV first-layer replay; no engine acceptance",
+  "records": [
+    {
+      "sample": "sample_000000",
+      "mask_is_none": true,
+      "q_rope": {
+        "exact": false,
+        "max_abs": 0.125,
+        "relative_l2": 0.0022253564093261957
+      },
+      "k_rope": {
+        "exact": false,
+        "max_abs": 0.0625,
+        "relative_l2": 0.002367474604398012
+      },
+      "fused_q_rope": {
+        "exact": false,
+        "max_abs": 0.0078125,
+        "relative_l2": 1.1581805665628053e-05
+      },
+      "fused_k_rope": {
+        "exact": false,
+        "max_abs": 0.001953125,
+        "relative_l2": 8.397730198339559e-06
+      },
+      "contexts": {
+        "hf_rope": {
+          "hf": {
+            "exact": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0007595117785967886
+          }
+        },
+        "aiter_rope": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0018605586374178529
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0018272885354235768
+          }
+        },
+        "atom_fused_rope": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.000244140625,
+            "relative_l2": 5.200457599130459e-05
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0007584382547065616
+          }
+        }
+      }
+    },
+    {
+      "sample": "sample_000001",
+      "mask_is_none": true,
+      "q_rope": {
+        "exact": false,
+        "max_abs": 0.125,
+        "relative_l2": 0.002238525776192546
+      },
+      "k_rope": {
+        "exact": false,
+        "max_abs": 0.0625,
+        "relative_l2": 0.002390648238360882
+      },
+      "fused_q_rope": {
+        "exact": false,
+        "max_abs": 0.0078125,
+        "relative_l2": 1.108229025703622e-05
+      },
+      "fused_k_rope": {
+        "exact": false,
+        "max_abs": 0.001953125,
+        "relative_l2": 8.022340807656292e-06
+      },
+      "contexts": {
+        "hf_rope": {
+          "hf": {
+            "exact": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0007495589088648558
+          }
+        },
+        "aiter_rope": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0018982075853273273
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.001867197803221643
+          }
+        },
+        "atom_fused_rope": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.000244140625,
+            "relative_l2": 5.168230563867837e-05
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0007484584348276258
+          }
+        }
+      }
+    },
+    {
+      "sample": "sample_000002",
+      "mask_is_none": true,
+      "q_rope": {
+        "exact": false,
+        "max_abs": 0.125,
+        "relative_l2": 0.0022034430876374245
+      },
+      "k_rope": {
+        "exact": false,
+        "max_abs": 0.0625,
+        "relative_l2": 0.0023516772780567408
+      },
+      "fused_q_rope": {
+        "exact": false,
+        "max_abs": 0.015625,
+        "relative_l2": 2.139213938789908e-05
+      },
+      "fused_k_rope": {
+        "exact": false,
+        "max_abs": 0.0009765625,
+        "relative_l2": 2.8625493087020004e-06
+      },
+      "contexts": {
+        "hf_rope": {
+          "hf": {
+            "exact": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0006060903542675078
+          }
+        },
+        "aiter_rope": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.001904298085719347
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.001901618205010891
+          }
+        },
+        "atom_fused_rope": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.000244140625,
+            "relative_l2": 3.590964479371905e-05
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0006054015830159187
+          }
+        }
+      }
+    },
+    {
+      "sample": "sample_000003",
+      "mask_is_none": true,
+      "q_rope": {
+        "exact": false,
+        "max_abs": 0.125,
+        "relative_l2": 0.002210153266787529
+      },
+      "k_rope": {
+        "exact": false,
+        "max_abs": 0.0625,
+        "relative_l2": 0.0023648631758987904
+      },
+      "fused_q_rope": {
+        "exact": false,
+        "max_abs": 0.015625,
+        "relative_l2": 2.0743440472870134e-05
+      },
+      "fused_k_rope": {
+        "exact": false,
+        "max_abs": 0.0009765625,
+        "relative_l2": 2.775819893940934e-06
+      },
+      "contexts": {
+        "hf_rope": {
+          "hf": {
+            "exact": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0005995177780278027
+          }
+        },
+        "aiter_rope": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0019372273236513138
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.001933151506818831
+          }
+        },
+        "atom_fused_rope": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.000244140625,
+            "relative_l2": 3.701790774357505e-05
+          },
+          "old_atom": {
+            "exact": false,
+            "max_abs": 0.0009765625,
+            "relative_l2": 0.0005987306358292699
+          }
+        }
+      }
+    }
+  ],
+  "aiter_source": "/app/aiter-test"
+}

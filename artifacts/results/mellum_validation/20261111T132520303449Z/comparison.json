@@ -1,0 +1,232 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "binary_search",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.5,
+      "rms_error": 0.8288371562957764,
+      "top1_exact": true
+    },
+    {
+      "name": "frequencies",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 24,
+        "common_prefix_tokens": 24,
+        "token_match_fraction": 0.375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 24
+      },
+      "max_abs_error": 1.875,
+      "rms_error": 0.8440790176391602,
+      "top1_exact": true
+    },
+    {
+      "name": "h_0",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 15,
+        "common_prefix_tokens": 14,
+        "token_match_fraction": 0.234375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 14
+      },
+      "max_abs_error": 0.75,
+      "rms_error": 0.1602911651134491,
+      "top1_exact": true
+    },
+    {
+      "name": "h_1",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 9,
+        "common_prefix_tokens": 9,
+        "token_match_fraction": 0.140625
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 9
+      },
+      "max_abs_error": 0.5,
+      "rms_error": 0.15071368217468262,
+      "top1_exact": true
+    },
+    {
+      "name": "h_10",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 22,
+        "common_prefix_tokens": 22,
+        "token_match_fraction": 0.34375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 22
+      },
+      "max_abs_error": 1.5,
+      "rms_error": 0.5109293460845947,
+      "top1_exact": true
+    },
+    {
+      "name": "h_100",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 23,
+        "common_prefix_tokens": 23,
+        "token_match_fraction": 0.359375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 23
+      },
+      "max_abs_error": 1.0,
+      "rms_error": 0.1935930997133255,
+      "top1_exact": true
+    },
+    {
+      "name": "long_16384",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 46,
+        "common_prefix_tokens": 28,
+        "token_match_fraction": 0.71875
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 28
+      },
+      "max_abs_error": 5.75,
+      "rms_error": 3.299677848815918,
+      "top1_exact": true
+    },
+    {
+      "name": "long_8192",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 3.25,
+      "rms_error": 1.013785719871521,
+      "top1_exact": true
+    },
+    {
+      "name": "multiply",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 3.25,
+      "rms_error": 1.9384126663208008,
+      "top1_exact": true
+    },
+    {
+      "name": "window_1025",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 9,
+        "common_prefix_tokens": 9,
+        "token_match_fraction": 0.140625
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 9
+      },
+      "max_abs_error": 2.0,
+      "rms_error": 0.5706408619880676,
+      "top1_exact": true
+    },
+    {
+      "name": "word_problem",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 54,
+        "common_prefix_tokens": 39,
+        "token_match_fraction": 0.84375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 39
+      },
+      "max_abs_error": 0.75,
+      "rms_error": 0.17694251239299774,
+      "top1_exact": true
+    }
+  ],
+  "mismatches": [
+    "binary_search",
+    "frequencies",
+    "h_0",
+    "h_1",
+    "h_10",
+    "h_100",
+    "long_16384",
+    "long_8192",
+    "multiply",
+    "window_1025",
+    "word_problem"
+  ],
+  "token_summary": {
+    "compared_positions": 704,
+    "matching_positions": 394,
+    "token_match_fraction": 0.5596590909090909,
+    "exact_sequences": 3,
+    "reference_records": 11
+  }
+}

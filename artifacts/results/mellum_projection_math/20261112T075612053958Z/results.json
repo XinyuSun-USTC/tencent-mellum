@@ -1,0 +1,92 @@
+{
+  "status": "prepared",
+  "records": [],
+  "script_sha256": "e0905778a840fb78e67571fa5c87227169cc24914e77e57433026e8936a32ee8",
+  "python": "/opt/venv/bin/python",
+  "repeats": 2,
+  "manifest": {
+    "source_run": "/workspace/results/mellum_validation/20261111T140735437405Z",
+    "reference_sha256": "97a2a3d1febfa46fa5616226828f3bf9498ad1fdc66ccfc26d4ea81335d5b186",
+    "source_reference_environment": {
+      "transformers": "5.10.1",
+      "torch": "2.10.0+rocm7.2.4.git3d3aa833"
+    },
+    "model_config_sha256": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541",
+    "stage_layer": 0,
+    "stage_layer_evidence": "legacy default layer-zero capture",
+    "sample_names": [
+      {
+        "sample": "sample_000000",
+        "name": "h_0_prefix_0",
+        "tokens": 152
+      },
+      {
+        "sample": "sample_000001",
+        "name": "h_0_prefix_14",
+        "tokens": 166
+      },
+      {
+        "sample": "sample_000002",
+        "name": "h_1_prefix_0",
+        "tokens": 142
+      },
+      {
+        "sample": "sample_000003",
+        "name": "h_1_prefix_9",
+        "tokens": 151
+      }
+    ],
+    "tensor_files_sha256": {
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/weights/q_proj.pt": "6ef31015d5f9b5169360e3fac388aa3eac39cc7ed9ef7429ed8afaa0b19968b5",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/weights/k_proj.pt": "624e7f3e19bb3ce208988cbfe1b5d928aa750f518482b78724af87862b9f582d",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/weights/v_proj.pt": "32847aa1b9c444f9b608f134d6a0408c81d92e128c1b5ee0bf9c5615f7ea074e",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/weights/o_proj.pt": "cd311bb52593af92787d6b82e9719b2b730d30a34d9062a07173f95ff283097b",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/weights/router.pt": "ca9231f3d346d3cb35e617ae2a22d63f84c11b07a04bb47056391cc181e19a80",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000000/input_norm.pt": "96e043ca0d0409052aba8dbfcc589e48166313460f74867084217751e128c8ec",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000000/q_proj.pt": "1feff7441332342834316f45af6a59c9f8ac6f2dffe39c36f7a1658358f072dc",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000000/k_proj.pt": "41919bf0497c6f640f1f5d646b5fd7fb8371f4870ed55844ccfe546d6712b48c",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000000/v_proj.pt": "545af1bbec5e2a80a05cc86fb29fb345ede8847774baf701c360ef1d7c3e5589",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000000/attention_context.pt": "580bb278c938db54b0f741d10f83a5dc5351523e49ae1df1cee63d21ebb9d839",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000000/attention_output.pt": "7776cd9345dc4d6eb6fc5a4604a81907905cf497f4dac457791d15d589f895be",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000000/moe_input.pt": "7c24150eb2d1aae78a1622087ae0c321678a83fdcb50881696b50451e3378dde",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000000/router_logits.pt": "47d4ba0d6d58b671a012c5513b3e581096375ec073c09182ba40fc30e65c1671",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000001/input_norm.pt": "a2c43b2122cb889bb4bdf85d2948cb348bad572423336b2a355a5f14840e84ce",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000001/q_proj.pt": "883e653613cdfc617a6e8462fce7c0e8c750c78724bae80fc7a80d02f0df41c3",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000001/k_proj.pt": "c88d65ac6dc779d4618548a9d35bdb5fac5980cfef5a84e482ebb204e6a5ef5a",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000001/v_proj.pt": "5053ac6a68edb4887026cee857cfa4b0bcdb2cb346efe97f4c1b58be1952f70c",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000001/attention_context.pt": "3e7d5dfd853ed3bb1330b7e49b23b6363c5e617dbf713fb8f1b461e70b0c9523",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000001/attention_output.pt": "748671f5a42366c3321ff307199ffc590d66c89a71b1c4b6eaeeaf6c9027503e",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000001/moe_input.pt": "ab8d966cbd81957899f81acf1b32e0cd4a4678bef7019cc38536127143b6add3",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000001/router_logits.pt": "d5d7ae1eac03a0ef26489e5eaed50f9d622b8373351d66654c3fba81fda2c8f2",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000002/input_norm.pt": "b1b67158ce6d8638fa5f6f56e5112a84de4f95ca8cd10962e8df6506eff23e0f",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000002/q_proj.pt": "ee66336e319bb3fed0ad5f31628b39495a6334d6ce60b0a3f6c19574dc915b3b",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000002/k_proj.pt": "e681b183b7515de051033c870c2bf1cefff381877ae93be96459e81047595a31",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000002/v_proj.pt": "3c5a13df3d413b68bf9d544077bdb4fa80f7e2a1a3b01b50d6233b5a1343ceee",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000002/attention_context.pt": "8bf18d0e8f3a2113eff1a77a34d41238dc481b5a0481517032a290b6c6b9ec41",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000002/attention_output.pt": "893cf43b9b7c497a368a48bd1091e36f8c689209fa369322e787f2853b5487f8",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000002/moe_input.pt": "4f0654aa544f05f68abab32a17ce83393c5bc5b7dba52e7fd40d4ca9547f72b2",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000002/router_logits.pt": "9908ba0bd1ae84f336fc3a0a3761008a7e42375fcf3a51b0ce8cf301de84d352",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000003/input_norm.pt": "1b7c5079b8803c1878bf7359341587f17c6545c8116dd259674858e3e34825a1",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000003/q_proj.pt": "78bdb4053b653343e8bcb19dedd7db40b0b7d0b4f3a2fc1bb03d57be1473208d",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000003/k_proj.pt": "727b2f9e88ce1df2357f17ef7d0f8144cb6cd6952c5bef8fbb45422975b7567e",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000003/v_proj.pt": "572b8fec44e75a431392f39109765c6fe342619cfd42b2d99251c5a47ad5b1bb",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000003/attention_context.pt": "0ce872fb399f06114fb380e0080c8ee54f39bbec0092a57e670c1c27d270bebb",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000003/attention_output.pt": "2468d4a40ae8996a79cfeeb4f7615943833633baa16cbad3eef7619fd9d66dcd",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000003/moe_input.pt": "85a14cc02a242e61697064ec435f35fab3f8255ec5a39c07fab7df4dd14cddd2",
+      "/workspace/results/mellum_validation/20261111T140735437405Z/hf/stages/sample_000003/router_logits.pt": "1b9edbaa347ac7663801c56fb72612331431eb6b55fc2c133392b3dd211f837d"
+    },
+    "weights_verified_by_this_study": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "router"
+    ],
+    "scope": "Saved layer-zero QKV/O/router only; no lm_head, full model, cache or decode claim"
+  },
+  "environment": {
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "hip": "7.2.53211",
+    "cuda_initialized_before_replay": false
+  }
+}

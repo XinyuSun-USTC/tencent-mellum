@@ -1,0 +1,79 @@
+{
+  "executable": "/opt/venv/bin/python",
+  "prefix": "/opt/venv",
+  "sys_path": [
+    "/workspace/scripts",
+    "/usr/lib/python312.zip",
+    "/usr/lib/python3.12",
+    "/usr/lib/python3.12/lib-dynload",
+    "/opt/venv/lib/python3.12/site-packages",
+    "__editable__.atom-0.1.4.finder.__path_hook__"
+  ],
+  "transformers_metadata_version": "5.2.0",
+  "transformers_runtime_version": "5.2.0",
+  "transformers_file": "/opt/venv/lib/python3.12/site-packages/transformers/__init__.py",
+  "config_mapping": null,
+  "causal_lm_mapping": null,
+  "model_config_sha256": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541",
+  "model_identity": {
+    "model_type": "mellum",
+    "architectures": [
+      "MellumForCausalLM"
+    ],
+    "transformers_version": "5.8.1",
+    "auto_map": null
+  },
+  "checkpoint_python_files": [],
+  "api_probe": {
+    "transformers.configuration_utils.PreTrainedConfig": {
+      "present": true,
+      "has_post_init": false
+    },
+    "huggingface_hub.dataclasses.strict": {
+      "present": true
+    },
+    "transformers.integrations.use_experts_implementation": {
+      "present": true
+    },
+    "transformers.integrations.use_kernel_forward_from_hub": {
+      "present": true
+    },
+    "transformers.integrations.use_kernel_func_from_hub": {
+      "present": true
+    },
+    "transformers.integrations.use_kernelized_func": {
+      "present": true
+    },
+    "transformers.utils.generic.maybe_autocast": {
+      "present": true
+    },
+    "transformers.utils.generic.merge_with_config_defaults": {
+      "present": true
+    },
+    "transformers.utils.output_capturing.OutputRecorder": {
+      "present": true
+    },
+    "transformers.utils.output_capturing.capture_outputs": {
+      "present": true
+    },
+    "transformers.modeling_utils.ALL_ATTENTION_FUNCTIONS": {
+      "present": true
+    },
+    "transformers.modeling_utils.PreTrainedModel": {
+      "present": true
+    },
+    "transformers.cache_utils.DynamicCache": {
+      "present": true,
+      "init_signature": "(self, ddp_cache_data: collections.abc.Iterable[tuple[torch.Tensor | None, ...]] | None = None, config: transformers.configuration_utils.PreTrainedConfig | None = None, offloading: bool = False, offload_only_non_sliding: bool = False)"
+    }
+  },
+  "class_import": {
+    "error": "AttributeError",
+    "message": "module transformers has no attribute MellumForCausalLM"
+  },
+  "auto_config": {
+    "error": "ValueError",
+    "message": "The checkpoint you are trying to load has model type `mellum` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.\n\nYou can update Transformers with the command `pip install --upgrade transformers`. If this does not work, and the checkpoint is very new, then there may not be a release version that supports this model yet. In this case, you can get the most up-to-date code by installing Transformers from source with the command `pip install git+https://github.com/huggingface/transformers.git`"
+  },
+  "cuda_initialized_at_end": false
+}

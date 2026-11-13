@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "positions": [
+    [
+      0,
+      1,
+      1023,
+      1024,
+      8191,
+      8192,
+      8193,
+      16383
+    ]
+  ],
+  "results": {
+    "sliding_attention": {
+      "cos_max_abs": 0.0,
+      "sin_max_abs": 0.0,
+      "parameters": {
+        "rope_type": "default",
+        "rope_theta": 500000.0
+      }
+    },
+    "full_attention": {
+      "cos_max_abs": 0.0,
+      "sin_max_abs": 0.0,
+      "parameters": {
+        "rope_type": "yarn",
+        "rope_theta": 500000.0,
+        "factor": 16.0,
+        "original_max_position_embeddings": 8192,
+        "beta_fast": 32.0,
+        "beta_slow": 1.0,
+        "attn_factor": 1.0
+      }
+    }
+  },
+  "scope": "FP32 cache construction only; no GPU rotation kernels",
+  "cuda_initialized": false
+}

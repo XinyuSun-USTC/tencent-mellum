@@ -1,0 +1,317 @@
+{
+  "status": "short_input_smoke_passed",
+  "argv": [
+    "/workspace/scripts/validate_hf_mellum_gpu.py"
+  ],
+  "output_dir": "/workspace/results/hf_mellum_gpu/20261111T044314965290Z",
+  "phase": "complete",
+  "script_sha256": "929403bc7190561e15463a30eaea98b57cc75b671fdee5ea3667285c73ce56d6",
+  "results": [
+    {
+      "name": "python_add",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function add(a, b) that returns their sum."
+        }
+      ],
+      "enable_thinking": true,
+      "rendered_prompt": "<|im_start|>user\nWrite a Python function add(a, b) that returns their sum.<|im_end|>\n<|im_start|>assistant\n",
+      "input_ids": [
+        [
+          27,
+          1397,
+          233,
+          3969,
+          255,
+          99,
+          2717,
+          669,
+          846,
+          42,
+          99,
+          46,
+          321,
+          43,
+          410,
+          2565,
+          708,
+          1572,
+          48,
+          28,
+          233,
+          27,
+          8091,
+          233
+        ]
+      ],
+      "attention_mask": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "generation_settings": {
+        "do_sample": false,
+        "max_new_tokens": 16,
+        "eos_token_id": 28,
+        "pad_token_id": 0
+      },
+      "attention_backend": "sdpa",
+      "prefill_top5": {
+        "ids": [
+          23,
+          2116,
+          29,
+          433,
+          910
+        ],
+        "logits": [
+          -3.671875,
+          -28.625,
+          -29.625,
+          -30.0,
+          -30.0
+        ]
+      },
+      "cached_generation_seconds": 1.5722916300874203,
+      "generated_ids": [
+        [
+          23,
+          233,
+          2116,
+          895,
+          333,
+          6246,
+          434,
+          255,
+          99,
+          2717,
+          669,
+          4492,
+          48,
+          470,
+          1297,
+          13094
+        ]
+      ],
+      "uncached_generated_ids": [
+        [
+          23,
+          233,
+          2116,
+          895,
+          333,
+          6246,
+          434,
+          255,
+          99,
+          2717,
+          669,
+          4492,
+          48,
+          470,
+          1297,
+          13094
+        ]
+      ],
+      "cache_greedy_exact": true,
+      "generated_text": "<think>\nWe need to respond with a Python function definition. The user asks"
+    },
+    {
+      "name": "arithmetic",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What is 17 + 25?"
+        }
+      ],
+      "enable_thinking": true,
+      "rendered_prompt": "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n",
+      "input_ids": [
+        [
+          27,
+          1397,
+          233,
+          2821,
+          359,
+          255,
+          51,
+          57,
+          523,
+          255,
+          52,
+          55,
+          65,
+          28,
+          233,
+          27,
+          8091,
+          233
+        ]
+      ],
+      "attention_mask": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "generation_settings": {
+        "do_sample": false,
+        "max_new_tokens": 16,
+        "eos_token_id": 28,
+        "pad_token_id": 0
+      },
+      "attention_backend": "sdpa",
+      "prefill_top5": {
+        "ids": [
+          23,
+          629,
+          433,
+          1017,
+          29
+        ],
+        "logits": [
+          1.2265625,
+          -23.75,
+          -24.25,
+          -24.25,
+          -25.375
+        ]
+      },
+      "cached_generation_seconds": 0.5150473588146269,
+      "generated_ids": [
+        [
+          23,
+          233,
+          20320,
+          46,
+          302,
+          1297,
+          359,
+          11090,
+          1186,
+          255,
+          51,
+          57,
+          8583,
+          255,
+          52,
+          55
+        ]
+      ],
+      "uncached_generated_ids": [
+        [
+          23,
+          233,
+          20320,
+          46,
+          302,
+          1297,
+          359,
+          11090,
+          1186,
+          255,
+          51,
+          57,
+          8583,
+          255,
+          52,
+          55
+        ]
+      ],
+      "cache_greedy_exact": true,
+      "generated_text": "<think>\nOkay, the user is asking what 17 plus 25"
+    }
+  ],
+  "scope": "Short-input smoke and HF internal consistency; not ATOM or official acceptance",
+  "environment": {
+    "python": "/workspace/venvs/hf-reference/bin/python",
+    "transformers": "5.10.1",
+    "transformers_file": "/workspace/venvs/hf-reference/lib/python3.12/site-packages/transformers/__init__.py",
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "torch_file": "/opt/venv/lib/python3.12/site-packages/torch/__init__.py",
+    "hip": "7.2.53211",
+    "visible_device_count": 2,
+    "packages": {
+      "torch": "2.10.0+rocm7.2.4.lw.git3d3aa833",
+      "transformers": "5.10.1",
+      "huggingface-hub": "1.18.0",
+      "tokenizers": "0.22.2",
+      "safetensors": "0.7.0"
+    }
+  },
+  "source_hashes": {
+    "models/mellum/modeling_mellum.py": "2a80cccbd01f2e2ddd391ac044145e78c71dc0637440ff765b8ccf9ad2efcd06",
+    "models/mellum/configuration_mellum.py": "6bbb53fadc6a9f17b52981acb85a1aeb7e1ee14f8356b3796c2d5fa6857ce1cf"
+  },
+  "gpus": [
+    {
+      "index": 0,
+      "name": "AMD Instinct MI308X",
+      "free_bytes": 205560741888,
+      "total_bytes": 206141652992
+    },
+    {
+      "index": 1,
+      "name": "AMD Instinct MI308X",
+      "free_bytes": 205560741888,
+      "total_bytes": 206141652992
+    }
+  ],
+  "selected_gpu": 0,
+  "input_file_hashes": {
+    "config.json": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541",
+    "model.safetensors.index.json": "a6ad930e5bb35ea92d5b734c4df4649bfcfdcd899f64b0a83efe40fe0ab9b60e",
+    "generation_config.json": "a9dc104ca398a2ef376d3f2fbb03037d99950ddb2db0cd041b98398cf1fc8d7c",
+    "chat_template.jinja": "4593a34d52f3364ac13ce57f4bea5688924e8942da6df8201e411db17e729f48",
+    "tokenizer_config.json": "e2950960d2a3040a1938e6357c8c3628d531133c464286a7869b2e0504fcc59e"
+  },
+  "loading_info": {
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "mismatched_keys": [],
+    "error_msgs": []
+  },
+  "parameter_count": 12149923072,
+  "load_seconds": 6.0819234871305525,
+  "peak_allocated_bytes": 28249155072
+}

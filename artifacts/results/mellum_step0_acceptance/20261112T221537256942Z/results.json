@@ -1,0 +1,361 @@
+{
+  "status": "incomplete",
+  "claim_step0_passed": false,
+  "scope": "Local evidence audit, not official evaluator",
+  "checks": {
+    "short": {
+      "status": "passed",
+      "source_run": "/workspace/results/mellum_validation/20261112T193650834240Z",
+      "atom_run": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z",
+      "comparison": {
+        "status": "passed",
+        "atol": 0.0,
+        "rtol": 0.0,
+        "records": [
+          {
+            "name": "arithmetic",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          },
+          {
+            "name": "python_add",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          }
+        ],
+        "mismatches": [],
+        "token_summary": {
+          "compared_positions": 128,
+          "matching_positions": 128,
+          "token_match_fraction": 1.0,
+          "exact_sequences": 2,
+          "reference_records": 2
+        }
+      },
+      "generation": {
+        "scope": "Same-history pre-sampling logits; no comparison after the token fork",
+        "compared_positions": 128,
+        "nonexact_positions": 0,
+        "first_nonexact": []
+      },
+      "cases": [
+        {
+          "name": "python_add",
+          "input_tokens": 24,
+          "output_tokens": 64
+        },
+        {
+          "name": "arithmetic",
+          "input_tokens": 18,
+          "output_tokens": 64
+        }
+      ],
+      "loading_audit": {
+        "source_tensors": 5631,
+        "successful_parts": 5631,
+        "missing": [],
+        "unexpected": []
+      },
+      "actual_configuration": {
+        "MELLUM_QKV_BACKEND": "separate",
+        "MELLUM_MOE_BACKEND": "torch",
+        "MELLUM_ROUTER_BACKEND": "torch",
+        "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+        "MELLUM_REFERENCE_KV_ROPE": "1",
+        "MELLUM_SDPA_DECODE": "1",
+        "MELLUM_HF_GENERATION_EXPERTS": "1"
+      },
+      "source_sha256": {
+        "/workspace/results/mellum_validation/20261112T193650834240Z/hf/reference.json": "aaf6ef5c2e2db70c62f283217e46d749754785cf15cc53fb1b9998b15c521aed",
+        "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/candidate.json": "39cd01ff252549e72291d51a944b96a1ee6add9484c96e61cd4d3de954e8e237"
+      }
+    },
+    "diverse_window": {
+      "status": "passed",
+      "source_run": "/workspace/results/mellum_validation/20261112T213129468143Z",
+      "atom_run": "/workspace/results/atom_mellum_gpu/20261112T213209402440Z",
+      "comparison": {
+        "status": "passed",
+        "atol": 0.0,
+        "rtol": 0.0,
+        "records": [
+          {
+            "name": "chinese_inventory",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          },
+          {
+            "name": "identity_explanation",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          },
+          {
+            "name": "missing_integer",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          },
+          {
+            "name": "parenthesized_math",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          },
+          {
+            "name": "raw_16",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          },
+          {
+            "name": "raw_17",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          },
+          {
+            "name": "rotate_list",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          },
+          {
+            "name": "stable_unique",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          },
+          {
+            "name": "window_1023",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          },
+          {
+            "name": "window_1024",
+            "mismatches": [],
+            "token_stats": {
+              "compared_positions": 64,
+              "matching_positions": 64,
+              "common_prefix_tokens": 64,
+              "token_match_fraction": 1.0
+            },
+            "max_abs_error": 0.0,
+            "rms_error": 0.0,
+            "top1_exact": true
+          }
+        ],
+        "mismatches": [],
+        "token_summary": {
+          "compared_positions": 640,
+          "matching_positions": 640,
+          "token_match_fraction": 1.0,
+          "exact_sequences": 10,
+          "reference_records": 10
+        }
+      },
+      "generation": {
+        "scope": "Same-history pre-sampling logits; no comparison after the token fork",
+        "compared_positions": 640,
+        "nonexact_positions": 0,
+        "first_nonexact": []
+      },
+      "cases": [
+        {
+          "name": "rotate_list",
+          "input_tokens": 24,
+          "output_tokens": 64
+        },
+        {
+          "name": "stable_unique",
+          "input_tokens": 20,
+          "output_tokens": 64
+        },
+        {
+          "name": "missing_integer",
+          "input_tokens": 19,
+          "output_tokens": 64
+        },
+        {
+          "name": "parenthesized_math",
+          "input_tokens": 26,
+          "output_tokens": 64
+        },
+        {
+          "name": "chinese_inventory",
+          "input_tokens": 32,
+          "output_tokens": 64
+        },
+        {
+          "name": "identity_explanation",
+          "input_tokens": 19,
+          "output_tokens": 64
+        },
+        {
+          "name": "raw_16",
+          "input_tokens": 16,
+          "output_tokens": 64
+        },
+        {
+          "name": "raw_17",
+          "input_tokens": 17,
+          "output_tokens": 64
+        },
+        {
+          "name": "window_1023",
+          "input_tokens": 1023,
+          "output_tokens": 64
+        },
+        {
+          "name": "window_1024",
+          "input_tokens": 1024,
+          "output_tokens": 64
+        }
+      ],
+      "loading_audit": {
+        "source_tensors": 5631,
+        "successful_parts": 5631,
+        "missing": [],
+        "unexpected": []
+      },
+      "actual_configuration": {
+        "MELLUM_QKV_BACKEND": "separate",
+        "MELLUM_MOE_BACKEND": "torch",
+        "MELLUM_ROUTER_BACKEND": "torch",
+        "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+        "MELLUM_REFERENCE_KV_ROPE": "1",
+        "MELLUM_SDPA_DECODE": "1",
+        "MELLUM_HF_GENERATION_EXPERTS": "1"
+      },
+      "source_sha256": {
+        "/workspace/results/mellum_validation/20261112T213129468143Z/hf/reference.json": "efa7beea15551622ede8484102f34c18ed80f0fb9bc287b391a2811bab84f3c6",
+        "/workspace/results/atom_mellum_gpu/20261112T213209402440Z/candidate.json": "a4ab02ea8729dce54ad981c9d3c1ca71c0012c21d6e85937119b1497de58c416"
+      }
+    }
+  },
+  "gpu_access": false,
+  "capability_probes": [
+    {
+      "input_tokens": 1025,
+      "status": "unsupported",
+      "reason": "Diagnostic SDPA currently requires input within sliding window"
+    },
+    {
+      "input_tokens": 16384,
+      "status": "unsupported",
+      "reason": "Diagnostic SDPA currently requires input within sliding window"
+    },
+    {
+      "requests": 2,
+      "status": "unsupported",
+      "reason": "Diagnostic cached SDPA requires single-request single-token decode"
+    }
+  ],
+  "acceptance_gates": {
+    "single_gpu_short_correctness": {
+      "status": "passed"
+    },
+    "greedy_200": {
+      "status": "not_run",
+      "reason": "Only 12 developer prompts covered; no 200-prompt acceptance result or official evaluator located"
+    },
+    "long_16k": {
+      "status": "unsupported",
+      "reason": "Current tested candidate explicitly rejects prefill beyond sliding window"
+    },
+    "humaneval": {
+      "status": "not_run",
+      "reason": "No paired HF/ATOM pass@1 assessment; existing baseline is explicitly rejected",
+      "existing_reference_note": "Rejected: raw /v1/completions without the chat template or thinking mode. Not comparable to the model card HumanEval+ 91.5."
+    },
+    "service": {
+      "status": "not_verified",
+      "reason": "No Mellum GPU-backed HTTP inference acceptance artifact; multi-request candidate decode is unsupported"
+    }
+  },
+  "optional_features": {
+    "multi_gpu": "Not enabled; not a prerequisite for single GPU Step0",
+    "mtp": "Not enabled; not required unless used"
+  }
+}

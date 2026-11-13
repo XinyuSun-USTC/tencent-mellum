@@ -1,0 +1,124 @@
+{
+  "status": "diagnostic_complete",
+  "script_sha256": "15b14239db270bcc74b02a4c740fd0bbf883b67bbbef1e81796f20c30467ef55",
+  "records": [
+    {
+      "layer_type": "sliding_attention",
+      "inv_freq_exact": false,
+      "inv_freq_max_abs": 2.9802322387695312e-08,
+      "comparisons": {
+        "native_vs_reference_cos": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "different_positions": []
+        },
+        "native_vs_reference_sin": {
+          "exact": false,
+          "max_abs": 0.0009765625,
+          "relative_l2": 2.0714478523586877e-05,
+          "different_elements": 10,
+          "different_positions": [
+            43,
+            86,
+            129,
+            139,
+            8192
+          ]
+        },
+        "native_vs_gpu_init_cos": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "different_positions": []
+        },
+        "native_vs_gpu_init_sin": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "different_positions": []
+        },
+        "gpu_init_vs_reference_cos": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "different_positions": []
+        },
+        "gpu_init_vs_reference_sin": {
+          "exact": false,
+          "max_abs": 0.0009765625,
+          "relative_l2": 2.0714478523586877e-05,
+          "different_elements": 10,
+          "different_positions": [
+            43,
+            86,
+            129,
+            139,
+            8192
+          ]
+        }
+      }
+    },
+    {
+      "layer_type": "full_attention",
+      "inv_freq_exact": false,
+      "inv_freq_max_abs": 2.9802322387695312e-08,
+      "comparisons": {
+        "native_vs_reference_cos": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "different_positions": []
+        },
+        "native_vs_reference_sin": {
+          "exact": false,
+          "max_abs": 0.00048828125,
+          "relative_l2": 8.24540347821312e-06,
+          "different_elements": 2,
+          "different_positions": [
+            8192
+          ]
+        },
+        "native_vs_gpu_init_cos": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "different_positions": []
+        },
+        "native_vs_gpu_init_sin": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "different_positions": []
+        },
+        "gpu_init_vs_reference_cos": {
+          "exact": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "different_elements": 0,
+          "different_positions": []
+        },
+        "gpu_init_vs_reference_sin": {
+          "exact": false,
+          "max_abs": 0.00048828125,
+          "relative_l2": 8.24540347821312e-06,
+          "different_elements": 2,
+          "different_positions": [
+            8192
+          ]
+        }
+      }
+    }
+  ],
+  "scope": "RoPE coefficients only, no layer, KV or full model correctness claim",
+  "model_config_sha256": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541",
+  "transformers": "5.10.1",
+  "torch": "2.10.0+rocm7.2.4.git3d3aa833"
+}

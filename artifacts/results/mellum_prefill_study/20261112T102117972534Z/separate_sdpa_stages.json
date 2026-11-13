@@ -1,0 +1,1059 @@
+{
+  "scope": "Nonzero BF16 differences alone do not identify a bug; inspect error growth and suboperators",
+  "records": [
+    {
+      "sample": "sample_000000",
+      "stage": "input_norm_input",
+      "shape_hf": [
+        152,
+        2304
+      ],
+      "shape_atom": [
+        152,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "input_norm",
+      "shape_hf": [
+        152,
+        2304
+      ],
+      "shape_atom": [
+        152,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "q_proj",
+      "shape_hf": [
+        152,
+        4096
+      ],
+      "shape_atom": [
+        152,
+        4096
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "k_proj",
+      "shape_hf": [
+        152,
+        512
+      ],
+      "shape_atom": [
+        152,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "v_proj",
+      "shape_hf": [
+        152,
+        512
+      ],
+      "shape_atom": [
+        152,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "q_norm",
+      "shape_hf": [
+        152,
+        4096
+      ],
+      "shape_atom": [
+        152,
+        4096
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "k_norm",
+      "shape_hf": [
+        152,
+        512
+      ],
+      "shape_atom": [
+        152,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "attention_context",
+      "shape_hf": [
+        152,
+        4096
+      ],
+      "shape_atom": [
+        152,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.000244140625,
+      "rms": 1.5828302366571734e-06,
+      "relative_l2": 5.2003193559357896e-05,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "attention_output",
+      "shape_hf": [
+        152,
+        2304
+      ],
+      "shape_atom": [
+        152,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.000244140625,
+      "rms": 5.3194412430457305e-06,
+      "relative_l2": 4.0273822378367186e-05,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "post_norm_input",
+      "shape_hf": [
+        152,
+        2304
+      ],
+      "shape_atom": [
+        152,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.00048828125,
+      "rms": 6.56479141980526e-06,
+      "relative_l2": 4.953871393809095e-05,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "post_norm",
+      "shape_hf": [
+        152,
+        2304
+      ],
+      "shape_atom": [
+        152,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 2.3726217477815226e-05,
+      "relative_l2": 0.0001880905474536121,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "moe_input",
+      "shape_hf": [
+        152,
+        2304
+      ],
+      "shape_atom": [
+        152,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 2.3726217477815226e-05,
+      "relative_l2": 0.0001880905474536121,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "router_logits",
+      "shape_hf": [
+        152,
+        64
+      ],
+      "shape_atom": [
+        152,
+        64
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.00044807762606069446,
+      "relative_l2": 0.0001061848015524447,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000000",
+      "stage": "moe_output",
+      "shape_hf": [
+        152,
+        2304
+      ],
+      "shape_atom": [
+        152,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.00390625,
+      "rms": 1.031974534271285e-05,
+      "relative_l2": 0.00023248078650794923,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "input_norm_input",
+      "shape_hf": [
+        166,
+        2304
+      ],
+      "shape_atom": [
+        166,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "input_norm",
+      "shape_hf": [
+        166,
+        2304
+      ],
+      "shape_atom": [
+        166,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "q_proj",
+      "shape_hf": [
+        166,
+        4096
+      ],
+      "shape_atom": [
+        166,
+        4096
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "k_proj",
+      "shape_hf": [
+        166,
+        512
+      ],
+      "shape_atom": [
+        166,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "v_proj",
+      "shape_hf": [
+        166,
+        512
+      ],
+      "shape_atom": [
+        166,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "q_norm",
+      "shape_hf": [
+        166,
+        4096
+      ],
+      "shape_atom": [
+        166,
+        4096
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "k_norm",
+      "shape_hf": [
+        166,
+        512
+      ],
+      "shape_atom": [
+        166,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "attention_context",
+      "shape_hf": [
+        166,
+        4096
+      ],
+      "shape_atom": [
+        166,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.000244140625,
+      "rms": 1.5726511719549308e-06,
+      "relative_l2": 5.168080315343104e-05,
+      "last_position_relative_l2": 6.946911889826879e-05
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "attention_output",
+      "shape_hf": [
+        166,
+        2304
+      ],
+      "shape_atom": [
+        166,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.00048828125,
+      "rms": 5.840099220222328e-06,
+      "relative_l2": 4.4232747313799337e-05,
+      "last_position_relative_l2": 0.00018547567015048116
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "post_norm_input",
+      "shape_hf": [
+        166,
+        2304
+      ],
+      "shape_atom": [
+        166,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.00048828125,
+      "rms": 7.113662832125556e-06,
+      "relative_l2": 5.369259088183753e-05,
+      "last_position_relative_l2": 0.00021980400197207928
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "post_norm",
+      "shape_hf": [
+        166,
+        2304
+      ],
+      "shape_atom": [
+        166,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 2.5848548830254003e-05,
+      "relative_l2": 0.00020484613196458668,
+      "last_position_relative_l2": 0.0007012720452621579
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "moe_input",
+      "shape_hf": [
+        166,
+        2304
+      ],
+      "shape_atom": [
+        166,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 2.5848548830254003e-05,
+      "relative_l2": 0.00020484613196458668,
+      "last_position_relative_l2": 0.0007012720452621579
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "router_logits",
+      "shape_hf": [
+        166,
+        64
+      ],
+      "shape_atom": [
+        166,
+        64
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.00042876662337221205,
+      "relative_l2": 0.00010163076512981206,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000001",
+      "stage": "moe_output",
+      "shape_hf": [
+        166,
+        2304
+      ],
+      "shape_atom": [
+        166,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.00390625,
+      "rms": 1.3020717233303003e-05,
+      "relative_l2": 0.0002994915994349867,
+      "last_position_relative_l2": 0.0019448690582066774
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "input_norm_input",
+      "shape_hf": [
+        142,
+        2304
+      ],
+      "shape_atom": [
+        142,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "input_norm",
+      "shape_hf": [
+        142,
+        2304
+      ],
+      "shape_atom": [
+        142,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "q_proj",
+      "shape_hf": [
+        142,
+        4096
+      ],
+      "shape_atom": [
+        142,
+        4096
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "k_proj",
+      "shape_hf": [
+        142,
+        512
+      ],
+      "shape_atom": [
+        142,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "v_proj",
+      "shape_hf": [
+        142,
+        512
+      ],
+      "shape_atom": [
+        142,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "q_norm",
+      "shape_hf": [
+        142,
+        4096
+      ],
+      "shape_atom": [
+        142,
+        4096
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "k_norm",
+      "shape_hf": [
+        142,
+        512
+      ],
+      "shape_atom": [
+        142,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "attention_context",
+      "shape_hf": [
+        142,
+        4096
+      ],
+      "shape_atom": [
+        142,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.000244140625,
+      "rms": 1.0582429013084038e-06,
+      "relative_l2": 3.59087462129537e-05,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "attention_output",
+      "shape_hf": [
+        142,
+        2304
+      ],
+      "shape_atom": [
+        142,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.000244140625,
+      "rms": 3.2676382488716627e-06,
+      "relative_l2": 2.5829560399870388e-05,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "post_norm_input",
+      "shape_hf": [
+        142,
+        2304
+      ],
+      "shape_atom": [
+        142,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.000244140625,
+      "rms": 3.557644504326163e-06,
+      "relative_l2": 2.7948137358180247e-05,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "post_norm",
+      "shape_hf": [
+        142,
+        2304
+      ],
+      "shape_atom": [
+        142,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 2.0099561879760586e-05,
+      "relative_l2": 0.0001493240997660905,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "moe_input",
+      "shape_hf": [
+        142,
+        2304
+      ],
+      "shape_atom": [
+        142,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.001953125,
+      "rms": 2.0099561879760586e-05,
+      "relative_l2": 0.0001493240997660905,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "router_logits",
+      "shape_hf": [
+        142,
+        64
+      ],
+      "shape_atom": [
+        142,
+        64
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000002",
+      "stage": "moe_output",
+      "shape_hf": [
+        142,
+        2304
+      ],
+      "shape_atom": [
+        142,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.00048828125,
+      "rms": 1.071423503162805e-05,
+      "relative_l2": 0.00021593496785499156,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "input_norm_input",
+      "shape_hf": [
+        151,
+        2304
+      ],
+      "shape_atom": [
+        151,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "input_norm",
+      "shape_hf": [
+        151,
+        2304
+      ],
+      "shape_atom": [
+        151,
+        2304
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "q_proj",
+      "shape_hf": [
+        151,
+        4096
+      ],
+      "shape_atom": [
+        151,
+        4096
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "k_proj",
+      "shape_hf": [
+        151,
+        512
+      ],
+      "shape_atom": [
+        151,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "v_proj",
+      "shape_hf": [
+        151,
+        512
+      ],
+      "shape_atom": [
+        151,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "q_norm",
+      "shape_hf": [
+        151,
+        4096
+      ],
+      "shape_atom": [
+        151,
+        4096
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "k_norm",
+      "shape_hf": [
+        151,
+        512
+      ],
+      "shape_atom": [
+        151,
+        512
+      ],
+      "status": "exact",
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "relative_l2": 0.0,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "attention_context",
+      "shape_hf": [
+        151,
+        4096
+      ],
+      "shape_atom": [
+        151,
+        4096
+      ],
+      "status": "different",
+      "max_abs": 0.000244140625,
+      "rms": 1.091888975679467e-06,
+      "relative_l2": 3.701693276525475e-05,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "attention_output",
+      "shape_hf": [
+        151,
+        2304
+      ],
+      "shape_atom": [
+        151,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.000244140625,
+      "rms": 3.6688343243440613e-06,
+      "relative_l2": 2.8961912903469056e-05,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "post_norm_input",
+      "shape_hf": [
+        151,
+        2304
+      ],
+      "shape_atom": [
+        151,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.00048828125,
+      "rms": 4.240156613377621e-06,
+      "relative_l2": 3.326431760797277e-05,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "post_norm",
+      "shape_hf": [
+        151,
+        2304
+      ],
+      "shape_atom": [
+        151,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0029296875,
+      "rms": 2.1925461624050513e-05,
+      "relative_l2": 0.00016359206347260624,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "moe_input",
+      "shape_hf": [
+        151,
+        2304
+      ],
+      "shape_atom": [
+        151,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.0029296875,
+      "rms": 2.1925461624050513e-05,
+      "relative_l2": 0.00016359206347260624,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "router_logits",
+      "shape_hf": [
+        151,
+        64
+      ],
+      "shape_atom": [
+        151,
+        64
+      ],
+      "status": "different",
+      "max_abs": 0.03125,
+      "rms": 0.0005505949375219643,
+      "relative_l2": 0.00013026688247919083,
+      "last_position_relative_l2": 0.0
+    },
+    {
+      "sample": "sample_000003",
+      "stage": "moe_output",
+      "shape_hf": [
+        151,
+        2304
+      ],
+      "shape_atom": [
+        151,
+        2304
+      ],
+      "status": "different",
+      "max_abs": 0.00048828125,
+      "rms": 1.2773122762155253e-05,
+      "relative_l2": 0.0002623368345666677,
+      "last_position_relative_l2": 0.0
+    }
+  ],
+  "weights": [
+    {
+      "name": "input_norm",
+      "exact": true,
+      "shape_hf": [
+        2304
+      ],
+      "shape_atom": [
+        2304
+      ]
+    },
+    {
+      "name": "k_norm",
+      "exact": true,
+      "shape_hf": [
+        128
+      ],
+      "shape_atom": [
+        128
+      ]
+    },
+    {
+      "name": "k_proj",
+      "exact": true,
+      "shape_hf": [
+        512,
+        2304
+      ],
+      "shape_atom": [
+        512,
+        2304
+      ]
+    },
+    {
+      "name": "o_proj",
+      "exact": true,
+      "shape_hf": [
+        2304,
+        4096
+      ],
+      "shape_atom": [
+        2304,
+        4096
+      ]
+    },
+    {
+      "name": "post_norm",
+      "exact": true,
+      "shape_hf": [
+        2304
+      ],
+      "shape_atom": [
+        2304
+      ]
+    },
+    {
+      "name": "q_norm",
+      "exact": true,
+      "shape_hf": [
+        128
+      ],
+      "shape_atom": [
+        128
+      ]
+    },
+    {
+      "name": "q_proj",
+      "exact": true,
+      "shape_hf": [
+        4096,
+        2304
+      ],
+      "shape_atom": [
+        4096,
+        2304
+      ]
+    },
+    {
+      "name": "router",
+      "exact": true,
+      "shape_hf": [
+        64,
+        2304
+      ],
+      "shape_atom": [
+        64,
+        2304
+      ]
+    },
+    {
+      "name": "v_proj",
+      "exact": true,
+      "shape_hf": [
+        512,
+        2304
+      ],
+      "shape_atom": [
+        512,
+        2304
+      ]
+    }
+  ]
+}

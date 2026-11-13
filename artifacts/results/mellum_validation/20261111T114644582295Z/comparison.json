@@ -1,0 +1,59 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "arithmetic_prefix_0",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 1.5,
+      "rms_error": 0.3255106806755066,
+      "top1_exact": true
+    },
+    {
+      "name": "arithmetic_prefix_6",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "first_token_difference": {
+        "batch": 0,
+        "position": 0
+      },
+      "max_abs_error": 2.25,
+      "rms_error": 1.5735869407653809,
+      "top1_exact": false
+    },
+    {
+      "name": "python_add_prefix_0",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 2.0,
+      "rms_error": 0.5534132122993469,
+      "top1_exact": true
+    },
+    {
+      "name": "python_add_prefix_37",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "first_token_difference": {
+        "batch": 0,
+        "position": 0
+      },
+      "max_abs_error": 1.125,
+      "rms_error": 0.36941248178482056,
+      "top1_exact": false
+    }
+  ],
+  "mismatches": [
+    "arithmetic_prefix_0",
+    "arithmetic_prefix_6",
+    "python_add_prefix_0",
+    "python_add_prefix_37"
+  ]
+}

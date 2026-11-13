@@ -1,0 +1,173 @@
+{
+  "status": "offline_recomparison_complete",
+  "source_run": "/workspace/results/mellum_validation/20261112T120608015005Z",
+  "atom_run": "/workspace/results/atom_mellum_gpu/20261112T120626754201Z",
+  "provenance": [
+    {
+      "source": "/workspace/results/mellum_validation/20261112T120608015005Z/hf/reference.json",
+      "source_sha256": "7db9f58417d41d44f744995e6e8d899068e1daf452eab005d1192a3ecd72e6c2",
+      "derived_sha256": "0c2662454beed6fd7232f6cfa54df416d198fc75fbc0027b0b7e35938dbf49ec",
+      "changes": [
+        {
+          "name": "rotate_list",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "stable_unique",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "missing_integer",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "parenthesized_math",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "chinese_inventory",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "identity_explanation",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "raw_16",
+          "field": "enable_thinking",
+          "value": false,
+          "basis": "raw_code_boundary"
+        },
+        {
+          "name": "raw_17",
+          "field": "enable_thinking",
+          "value": false,
+          "basis": "raw_code_boundary"
+        },
+        {
+          "name": "window_1023",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "existing_window_boundary"
+        },
+        {
+          "name": "window_1024",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "existing_window_boundary"
+        }
+      ]
+    },
+    {
+      "source": "/workspace/results/atom_mellum_gpu/20261112T120626754201Z/candidate.json",
+      "source_sha256": "5b325e967d7fab06edf16ea32bcd89ee687c1b8d86babb30bf7b0e8f85d7212f",
+      "derived_sha256": "1479df2eb15c2e53b0c359cc33bee93072951c7cd1e3eb9b53b1e159966ea2b1",
+      "changes": [
+        {
+          "name": "rotate_list",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "stable_unique",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "missing_integer",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "parenthesized_math",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "chinese_inventory",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "identity_explanation",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "new_developer_prompt"
+        },
+        {
+          "name": "raw_16",
+          "field": "enable_thinking",
+          "value": false,
+          "basis": "raw_code_boundary"
+        },
+        {
+          "name": "raw_17",
+          "field": "enable_thinking",
+          "value": false,
+          "basis": "raw_code_boundary"
+        },
+        {
+          "name": "window_1023",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "existing_window_boundary"
+        },
+        {
+          "name": "window_1024",
+          "field": "enable_thinking",
+          "value": true,
+          "basis": "existing_window_boundary"
+        }
+      ]
+    }
+  ],
+  "comparison_status": "failed",
+  "token_summary": {
+    "compared_positions": 10,
+    "matching_positions": 10,
+    "token_match_fraction": 1.0,
+    "exact_sequences": 10,
+    "reference_records": 10
+  },
+  "layer_summary": {
+    "compared_tensors": 300,
+    "nonexact_tensors": 29,
+    "first_nonexact": [
+      {
+        "sample": "sample_000009",
+        "stage": "layer_00",
+        "shape_hf": [
+          1024,
+          2304
+        ],
+        "shape_atom": [
+          1024,
+          2304
+        ],
+        "status": "different",
+        "max_abs": 0.0625,
+        "rms": 0.0002499264373909682,
+        "relative_l2": 0.0016097365878522396,
+        "last_position_relative_l2": 0.0005051589687354863
+      }
+    ]
+  },
+  "scope": "Metadata-only derived copies; no new inference, token IDs/logits/tensors unchanged"
+}

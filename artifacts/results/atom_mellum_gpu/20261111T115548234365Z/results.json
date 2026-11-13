@@ -1,0 +1,214 @@
+{
+  "status": "token_mismatch",
+  "settings": {
+    "HIP_VISIBLE_DEVICES": "0",
+    "ATOM_LOADER_USE_THREADPOOL": "0",
+    "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "0",
+    "ATOM_ENABLE_ALLREDUCE_RMSNORM_FUSION": "0",
+    "ATOM_USE_UNIFIED_ATTN": "0",
+    "AITER_LOG_LEVEL": "WARNING",
+    "MELLUM_LOAD_AUDIT_PATH": "/workspace/results/atom_mellum_gpu/20261111T115548234365Z/loading_audit.json",
+    "PYTHONPATH": "/workspace/ATOM",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "MELLUM_PREFILL_LOGITS_DIR": "/workspace/results/atom_mellum_gpu/20261111T115548234365Z/logits",
+    "MELLUM_LAYER_DUMP_DIR": "/workspace/results/atom_mellum_gpu/20261111T115548234365Z/layers",
+    "MELLUM_STAGE_DUMP_DIR": "/workspace/results/atom_mellum_gpu/20261111T115548234365Z/stages"
+  },
+  "records": [
+    {
+      "name": "python_add_prefix_0",
+      "input_ids": [
+        27,
+        1397,
+        233,
+        3969,
+        255,
+        99,
+        2717,
+        669,
+        846,
+        42,
+        99,
+        46,
+        321,
+        43,
+        410,
+        2565,
+        708,
+        1572,
+        48,
+        28,
+        233,
+        27,
+        8091,
+        233
+      ],
+      "generated_ids": [
+        23
+      ],
+      "hf_generated_ids": [
+        23
+      ],
+      "token_exact": true,
+      "text": "<think>"
+    },
+    {
+      "name": "python_add_prefix_37",
+      "input_ids": [
+        27,
+        1397,
+        233,
+        3969,
+        255,
+        99,
+        2717,
+        669,
+        846,
+        42,
+        99,
+        46,
+        321,
+        43,
+        410,
+        2565,
+        708,
+        1572,
+        48,
+        28,
+        233,
+        27,
+        8091,
+        233,
+        23,
+        233,
+        2116,
+        895,
+        333,
+        6246,
+        434,
+        255,
+        99,
+        2717,
+        669,
+        4492,
+        48,
+        470,
+        1297,
+        13094,
+        60,
+        392,
+        3969,
+        255,
+        99,
+        2717,
+        669,
+        846,
+        42,
+        99,
+        46,
+        321,
+        43,
+        410,
+        2565,
+        708,
+        1572,
+        1748,
+        56672,
+        7958,
+        48
+      ],
+      "generated_ids": [
+        11993
+      ],
+      "hf_generated_ids": [
+        19368
+      ],
+      "token_exact": false,
+      "text": " Should"
+    },
+    {
+      "name": "arithmetic_prefix_0",
+      "input_ids": [
+        27,
+        1397,
+        233,
+        2821,
+        359,
+        255,
+        51,
+        57,
+        523,
+        255,
+        52,
+        55,
+        65,
+        28,
+        233,
+        27,
+        8091,
+        233
+      ],
+      "generated_ids": [
+        23
+      ],
+      "hf_generated_ids": [
+        23
+      ],
+      "token_exact": true,
+      "text": "<think>"
+    },
+    {
+      "name": "arithmetic_prefix_6",
+      "input_ids": [
+        27,
+        1397,
+        233,
+        2821,
+        359,
+        255,
+        51,
+        57,
+        523,
+        255,
+        52,
+        55,
+        65,
+        28,
+        233,
+        27,
+        8091,
+        233,
+        23,
+        233,
+        20320,
+        46,
+        302,
+        1297
+      ],
+      "generated_ids": [
+        359
+      ],
+      "hf_generated_ids": [
+        359
+      ],
+      "token_exact": true,
+      "text": " is"
+    }
+  ],
+  "phase": "generation",
+  "reference": "/workspace/results/mellum_validation/20261111T115534143208Z/hf/reference.json",
+  "max_model_len": 256,
+  "environment": {
+    "python": "/opt/venv/bin/python",
+    "transformers": "5.2.0",
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "visible_gpus": 1
+  },
+  "loading_audit": {
+    "source_tensors": 5631,
+    "successful_parts": 5631,
+    "missing": [],
+    "unexpected": []
+  }
+}

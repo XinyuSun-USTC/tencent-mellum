@@ -1,0 +1,87 @@
+# 研究与结果索引
+
+当前阶段：**Step0适配开发完成、本地生成一致性验证通过，进入Step1准备。** 当前结论看39、配置看05；01–38是各自配置与运行时点的证据，不以其中“待验证”作为现状。
+
+## 当前入口
+
+下一阶段见[06 Step1优化路线](../docs/plan/06_step1_optimization_routes.md)：单卡BF16为默认评估方向，MoE/Attention与条件第三点，先形成可测服务与trace，不预定收益或凑满三点。
+
+- [39 Step0阶段总结](validation/39_step0_summary.md)：实现、问题闭环、结果与交接。
+- [05 基线与复现](../docs/plan/05_step0_baseline_and_reproduction.md)：已通过配置、命令、回归政策。
+- [源码与结果指纹](validation/39_step0_manifest.json)：当前工作树与关键artifact；HEAD本身不含全部适配。
+- [工作日志](worklog.md)：11月10–13日每日简要记录。
+- [总导航](../docs/README.md) · [题目要求](../docs/requirements/01_assessment_summary.md) · [文档管理](../docs/01_document_management.md)
+
+## 研究文档
+
+| 编号 | 文档 |
+| --- | --- |
+| 01 | [环境与开发入口](research/01_environment.md) |
+| 02 | [ATOM 架构、模型接入与加载链](research/02_atom_architecture.md) |
+| 03 | [Mellum 模型结构、权重与候选组件](research/03_mellum_model.md) |
+| 04 | [正确性资产与参考实现调查](research/04_correctness_reference.md) |
+
+## 验证01–10：参考建立与初始适配
+
+| 编号 | 文档 | 阅读说明 |
+| --- | --- | --- |
+| 01 | [HF参考环境建立记录](validation/01_hf_reference_environment.md) | 历史实验，按运行ID/配置理解 |
+| 02 | [HF Mellum 小模型 CPU 验证](validation/02_hf_mellum_cpu.md) | 历史实验，按运行ID/配置理解 |
+| 03 | [真实checkpoint单卡BF16参考验证](validation/03_hf_mellum_gpu.md) | 历史实验，按运行ID/配置理解 |
+| 04 | [ATOM Step0 第一批：配置接入与参考比较协议](validation/04_atom_step0_batch_ab.md) | 历史实验，按运行ID/配置理解 |
+| 05 | [ATOM Mellum 模型接入：CPU检查与首次GPU入口](validation/05_atom_mellum_model_wiring.md) | 历史实验，按运行ID/配置理解 |
+| 06 | [64 token与真实窗口/上下文边界验证准备](validation/06_mellum_boundary_suite.md) | 历史实验，按运行ID/配置理解 |
+| 07 | [64 token分叉：离线分析与同前缀诊断](validation/07_mellum_short_mismatch_diagnosis.md) | 历史实验，按运行ID/配置理解 |
+| 08 | [同前缀分层结果：定位第0层子算子](validation/08_mellum_layer0_diagnosis.md) | 历史实验，按运行ID/配置理解 |
+| 09 | [RMSNorm首个数值差异：证据与Mellum局部修正](validation/09_mellum_rmsnorm_rounding_fix.md) | 历史实验，按运行ID/配置理解 |
+| 10 | [Step0当前验证覆盖与未完成项](validation/10_step0_validation_status.md) | 早期覆盖表；当前结论已由39替代 |
+
+## 验证11–20：扩展分叉与算子隔离
+
+| 编号 | 文档 | 阅读说明 |
+| --- | --- | --- |
+| 11 | [11 扩展回归与同输入路由诊断](validation/11_mellum_expanded_and_router_replay.md) | 历史实验，按运行ID/配置理解 |
+| 12 | [12 扩展回归失败与路由证据](validation/12_expanded_mismatch_and_router_findings.md) | 历史实验，按运行ID/配置理解 |
+| 13 | [13 短探针结果与完整MoE同输入重放](validation/13_short_probes_and_moe_input_replay.md) | 历史实验，按运行ID/配置理解 |
+| 14 | [14 完整MoE同输入结果与路由受控比较](validation/14_moe_same_input_and_routing_study.md) | 历史实验，按运行ID/配置理解 |
+| 15 | [15 路由受控结果与专家算术隔离](validation/15_moe_routing_results_and_expert_arithmetic.md) | 历史实验，按运行ID/配置理解 |
+| 16 | [16 专家累加实验与HF实际分派核验](validation/16_expert_reduction_and_hf_dispatch.md) | 历史实验，按运行ID/配置理解 |
+| 17 | [17 官方专家后端确认与Step0 PyTorch MoE接入](validation/17_official_backend_confirmed_and_step0_torch_moe.md) | 历史实验，按运行ID/配置理解 |
+| 18 | [18 Torch后端扩展回归与Attention同输入定位](validation/18_torch_expanded_and_attention_replay.md) | 历史实验，按运行ID/配置理解 |
+| 19 | [19 Prefill内核同输入证据与SDPA受控验证](validation/19_prefill_kernel_evidence_and_sdpa_intervention.md) | 历史实验，按运行ID/配置理解 |
+| 20 | [20 分步旋转实验结果与线性投影核查](validation/20_stepwise_rope_result_and_projection_replay.md) | 历史实验，按运行ID/配置理解 |
+
+## 验证21–30：完整prefill与实际缓存decode
+
+| 编号 | 文档 | 阅读说明 |
+| --- | --- | --- |
+| 21 | [21 QKV打包证据与成对prefill候选验证](validation/21_qkv_packing_and_paired_prefill.md) | 历史实验，按运行ID/配置理解 |
+| 22 | [22 Prefill组合结果与RoPE系数来源核查](validation/22_prefill_combination_and_rope_coefficients.md) | 历史实验，按运行ID/配置理解 |
+| 23 | [23 RoPE初始化差异证据与匹配参考的prefill候选](validation/23_rope_initialization_candidate.md) | 历史实验，按运行ID/配置理解 |
+| 24 | [24 四例完整prefill精确对齐与新增输入回归](validation/24_fixed_prefill_exact_and_new_inputs.md) | 历史实验，按运行ID/配置理解 |
+| 25 | [25 Prefill协议缺项恢复与1024边界调用修正](validation/25_prefill_schema_recovery_and_window_threshold.md) | 历史实验，按运行ID/配置理解 |
+| 26 | [26 新prefill集通过与强制同历史decode基线](validation/26_prefill_passed_and_forced_decode_baseline.md) | 历史实验，按运行ID/配置理解 |
+| 27 | [27 Decode诊断挂起排查、探针修正与失败检测](validation/27_decode_probe_failure_and_watchdog.md) | 历史实验，按运行ID/配置理解 |
+| 28 | [28 强制历史decode基线与KV旋转单因素对照](validation/28_forced_decode_baseline_and_kv_rope_control.md) | 历史实验，按运行ID/配置理解 |
+| 29 | [29 KV旋转对照结果与同分页缓存SDPA decode候选](validation/29_kv_rope_result_and_cached_sdpa.md) | 历史实验，按运行ID/配置理解 |
+| 30 | [30 短输入decode精确与滑窗首步快照核查](validation/30_short_decode_exact_and_window_snapshot.md) | 历史实验，按运行ID/配置理解 |
+
+## 验证31–39：生成闭环、长输入及阶段收尾
+
+| 编号 | 文档 | 阅读说明 |
+| --- | --- | --- |
+| 31 | [31 滑窗首decode的逐层成对观察](validation/31_window_decode_layer_observation.md) | 历史实验，按运行ID/配置理解 |
+| 32 | [32 窗口首decode首差定位至索引8层后半段](validation/32_layer8_tail_replay.md) | 历史实验，按运行ID/配置理解 |
+| 33 | [33 索引8层router投影首差与局部候选](validation/33_router_projection_root_and_candidate.md) | 历史实验，按运行ID/配置理解 |
+| 34 | [34 强制同历史32位置精确与正常生成候选回归](validation/34_cached_decode_exact_and_normal_generation.md) | HF generate隐式专家切换与普通生成 |
+| 35 | [35 普通多样生成：并列最大值与greedy调度修复](validation/35_greedy_tie_break_and_sampling_dispatch.md) | 精确logits并列最大值采样修复 |
+| 36 | [36 Step0验收审计](validation/36_step0_acceptance_audit.md) | 增强前审计快照；16k不支持结论已被37后续结果替代 |
+| 37 | [37 Step0增强：长prefill滑窗语义扩展](validation/37_step0_long_prefill_extension.md) | 窗口、8192边界及16k 64token回归通过 |
+| 38 | [38 Step0：200条开发生成一致性对照](validation/38_step0_developer_200_agreement.md) | 200/200序列、12800token及完整logits精确；非HumanEval pass@1 |
+| 39 | [39 Step0阶段总结：Mellum在ATOM中的单卡适配](validation/39_step0_summary.md) | 当前阶段结果主入口 |
+
+## 历史与后续材料
+
+- [最初研究归档](archive/initial_research/README.md)：原始批次文档与迁移清单。
+- [Step0收尾前文档快照](archive/step0_document_snapshots/README.md)：追加式导航、协议与完整日志原文。
+- performance和submission在实际profiling/消融及提交材料产生后建立；最终技术报告≤4页，AI使用说明1页，素材从本阶段总结与后续性能证据提取。

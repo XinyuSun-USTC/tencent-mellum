@@ -1,0 +1,49 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "long_16384",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 4.5,
+      "rms_error": 2.3181140422821045,
+      "top1_exact": true
+    },
+    {
+      "name": "long_8191",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 6.0,
+      "rms_error": 2.5177881717681885,
+      "top1_exact": true
+    },
+    {
+      "name": "long_8192",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 2.75,
+      "rms_error": 0.7191570401191711,
+      "top1_exact": true
+    },
+    {
+      "name": "long_8193",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 4.0,
+      "rms_error": 1.9497243165969849,
+      "top1_exact": true
+    }
+  ],
+  "mismatches": [
+    "long_16384",
+    "long_8191",
+    "long_8192",
+    "long_8193"
+  ]
+}

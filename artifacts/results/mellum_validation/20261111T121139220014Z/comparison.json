@@ -1,0 +1,39 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "window_1023",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 2.5,
+      "rms_error": 0.6463040113449097,
+      "top1_exact": true
+    },
+    {
+      "name": "window_1024",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 2.25,
+      "rms_error": 0.824485719203949,
+      "top1_exact": true
+    },
+    {
+      "name": "window_1025",
+      "mismatches": [
+        "logits_values"
+      ],
+      "max_abs_error": 2.5,
+      "rms_error": 0.5130763649940491,
+      "top1_exact": true
+    }
+  ],
+  "mismatches": [
+    "window_1023",
+    "window_1024",
+    "window_1025"
+  ]
+}

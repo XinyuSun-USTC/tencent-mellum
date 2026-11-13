@@ -1,0 +1,153 @@
+{
+  "status": "forced_history_logits_differ",
+  "source_prefill_run": "/workspace/results/mellum_validation/20261112T122035305179Z",
+  "steps": 2,
+  "scope": "Only saved pre-forcing logits are compared; forced token equality is not acceptance",
+  "records": [
+    {
+      "name": "window_1023",
+      "step": 0,
+      "phase": "prefill",
+      "logical_context_tokens": 1023,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "f2e6a30acbbbfbfee879a0eecae25ff6dc84b92fce784b155ed45887621b88ec",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          1023,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          1023,
+          128
+        ]
+      }
+    },
+    {
+      "name": "window_1023",
+      "step": 1,
+      "phase": "decode",
+      "logical_context_tokens": 1024,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.75,
+        "relative_l2": 0.00300481915473938,
+        "different_elements": 36545,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.5,
+        "relative_l2": 0.0026346067897975445,
+        "different_elements": 29110,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "ed8d09563377d700b92372c0a05bc67ae5f069469f1653f06f4859b909fb208d",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          1023,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          1024,
+          128
+        ]
+      }
+    }
+  ],
+  "inputs_sha256": "73c7d8c1ec8ab4cd6d2d220b13807f0498066a47ff1954c97ddabf5be7498bd2",
+  "script_sha256": "40cf25de1446fc47299b2d0fd2067d7bdce7d3038993454e730a919aac088525",
+  "atom_run": "/workspace/results/atom_mellum_gpu/20261112T152209900643Z",
+  "atom_configuration": {
+    "MELLUM_QKV_BACKEND": "separate",
+    "MELLUM_MOE_BACKEND": "torch",
+    "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+    "MELLUM_REFERENCE_KV_ROPE": "1",
+    "MELLUM_SDPA_DECODE": "1",
+    "MELLUM_DECODE_LAYER_CAPTURE": "1",
+    "MELLUM_FORCED_DECODE_PLAN": "/workspace/results/mellum_decode_validation/20261112T152156609360Z/hf/reference.json"
+  },
+  "loading_audit": {
+    "source_tensors": 5631,
+    "successful_parts": 5631,
+    "missing": [],
+    "unexpected": []
+  },
+  "forced_plan_sha256": "c13b27b11ef2a3f0bd9c951b20c1631524eabe19bbb85b19f7a0a9c747959789",
+  "first_nonexact_state": {
+    "step": 1,
+    "stage": "layer_08",
+    "exact": false,
+    "max_abs": 0.0625,
+    "relative_l2": 0.00432934844866395,
+    "different_elements": 1341,
+    "elements": 2304
+  },
+  "first_nonexact_attention": {
+    "layer": 9,
+    "stage": "query",
+    "exact": false,
+    "max_abs": 0.0625,
+    "relative_l2": 0.004326079972088337,
+    "different_elements": 2237,
+    "elements": 4096
+  },
+  "first_nonexact": {
+    "name": "window_1023",
+    "step": 1,
+    "phase": "decode",
+    "logical_context_tokens": 1024,
+    "history_verified": true,
+    "atom_vs_hf_cached": {
+      "exact": false,
+      "max_abs": 0.75,
+      "relative_l2": 0.00300481915473938,
+      "different_elements": 36545,
+      "elements": 98304
+    },
+    "hf_cached_vs_uncached": {
+      "exact": false,
+      "max_abs": 0.5,
+      "relative_l2": 0.0026346067897975445,
+      "different_elements": 29110,
+      "elements": 98304
+    },
+    "atom_logits_sha256": "ed8d09563377d700b92372c0a05bc67ae5f069469f1653f06f4859b909fb208d",
+    "hf_cache_key_shapes": {
+      "0": [
+        1,
+        4,
+        1023,
+        128
+      ],
+      "3": [
+        1,
+        4,
+        1024,
+        128
+      ]
+    }
+  }
+}

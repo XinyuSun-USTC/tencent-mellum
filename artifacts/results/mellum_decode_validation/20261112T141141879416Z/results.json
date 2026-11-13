@@ -1,0 +1,1245 @@
+{
+  "status": "forced_history_logits_differ",
+  "source_prefill_run": "/workspace/results/mellum_validation/20261112T122035305179Z",
+  "steps": 8,
+  "scope": "Only saved pre-forcing logits are compared; forced token equality is not acceptance",
+  "records": [
+    {
+      "name": "chinese_inventory",
+      "step": 0,
+      "phase": "prefill",
+      "logical_context_tokens": 32,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "6841ff9da716e0a77bd91da79ff4e26e7304af194cbe19a6b1280af2beaec8a0",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          32,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          32,
+          128
+        ]
+      }
+    },
+    {
+      "name": "chinese_inventory",
+      "step": 1,
+      "phase": "decode",
+      "logical_context_tokens": 33,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.25,
+        "relative_l2": 0.0021166130900382996,
+        "different_elements": 17639,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.5,
+        "relative_l2": 0.002293840516358614,
+        "different_elements": 20736,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "9c7accd4fdbc7bf871fe3a6ce6b1ae77f0a12a72dbe575d50e7a91e9fd0206ba",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          33,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          33,
+          128
+        ]
+      }
+    },
+    {
+      "name": "chinese_inventory",
+      "step": 2,
+      "phase": "decode",
+      "logical_context_tokens": 34,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.5,
+        "relative_l2": 0.005701146554201841,
+        "different_elements": 59077,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 1.5,
+        "relative_l2": 0.03296996280550957,
+        "different_elements": 98062,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "77a19600712212a412f7d2e55fd5de24585b76e5156fc4222fb3fefe1c25a3e8",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          34,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          34,
+          128
+        ]
+      }
+    },
+    {
+      "name": "chinese_inventory",
+      "step": 3,
+      "phase": "decode",
+      "logical_context_tokens": 35,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 2.375,
+        "relative_l2": 0.04256974160671234,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 5.0,
+        "relative_l2": 0.13443754613399506,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "8489f571ee34f342ca02019d995c243d86107ab7582ff47fe68c931ab9be89fe",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          35,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          35,
+          128
+        ]
+      }
+    },
+    {
+      "name": "chinese_inventory",
+      "step": 4,
+      "phase": "decode",
+      "logical_context_tokens": 36,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.75,
+        "relative_l2": 0.006177961360663176,
+        "different_elements": 83318,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 1.375,
+        "relative_l2": 0.01381306629627943,
+        "different_elements": 98294,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "af98a65b8e03662b55e91ca1ce476dd5da9635071bb2f55d5d08a091bcd1983f",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          36,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          36,
+          128
+        ]
+      }
+    },
+    {
+      "name": "chinese_inventory",
+      "step": 5,
+      "phase": "decode",
+      "logical_context_tokens": 37,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.6875,
+        "relative_l2": 0.06093345955014229,
+        "different_elements": 97384,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.75,
+        "relative_l2": 0.049462687224149704,
+        "different_elements": 95624,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "8cfd33f963926e7ad0f9fb44d89f739c78509ba5fec3a2f8abae5bec10694a50",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          37,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          37,
+          128
+        ]
+      }
+    },
+    {
+      "name": "chinese_inventory",
+      "step": 6,
+      "phase": "decode",
+      "logical_context_tokens": 38,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 1.25,
+        "relative_l2": 0.008959162048995495,
+        "different_elements": 75184,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 1.25,
+        "relative_l2": 0.027132028713822365,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "4d4daefe059ad17ba045c202832e84b7ff13f5cef1b43cab886ce88e4f2ba6ea",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          38,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          38,
+          128
+        ]
+      }
+    },
+    {
+      "name": "chinese_inventory",
+      "step": 7,
+      "phase": "decode",
+      "logical_context_tokens": 39,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 2.25,
+        "relative_l2": 0.03460155054926872,
+        "different_elements": 98015,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 1.625,
+        "relative_l2": 0.022361760959029198,
+        "different_elements": 97720,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "d5fd888a512d6e24ece487cb4aeac0addc75bbd51699da758b9f9cb09820613c",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          39,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          39,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_16",
+      "step": 0,
+      "phase": "prefill",
+      "logical_context_tokens": 16,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "aaf97c3f4e8b6c89987b8dd619f24a18a9308bf0dfdc2d7d21abbaf9dc766d4d",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          16,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          16,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_16",
+      "step": 1,
+      "phase": "decode",
+      "logical_context_tokens": 17,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.1318359375,
+        "relative_l2": 0.015611588023602962,
+        "different_elements": 90414,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.1875,
+        "relative_l2": 0.021494831889867783,
+        "different_elements": 91282,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "ca5e5176dbafc2fe062ebc224fede3cb116fcc07ff3ec49e55c2f474dcb479f5",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          17,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          17,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_16",
+      "step": 2,
+      "phase": "decode",
+      "logical_context_tokens": 18,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.65625,
+        "relative_l2": 0.04412417858839035,
+        "different_elements": 94987,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.6875,
+        "relative_l2": 0.04894768074154854,
+        "different_elements": 95528,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "2ed94023770cf41e260da66abbbd8cc1a30d59644b50e9481ea4ad30da709c18",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          18,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          18,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_16",
+      "step": 3,
+      "phase": "decode",
+      "logical_context_tokens": 19,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.3125,
+        "relative_l2": 0.02476857602596283,
+        "different_elements": 96464,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.3515625,
+        "relative_l2": 0.02778560295701027,
+        "different_elements": 97251,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "6fd63ae6c723bbfbbc1b9f6a490c21491dfa4732c745463c1dd4d9c8eee50b12",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          19,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          19,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_16",
+      "step": 4,
+      "phase": "decode",
+      "logical_context_tokens": 20,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.25,
+        "relative_l2": 0.007373469416052103,
+        "different_elements": 71292,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.4375,
+        "relative_l2": 0.01543993130326271,
+        "different_elements": 88293,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "691de8725805b8d9c806da70fe81546567184d5b6b0a9cc27eb3fe8465768ca9",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          20,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          20,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_16",
+      "step": 5,
+      "phase": "decode",
+      "logical_context_tokens": 21,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 2.5625,
+        "relative_l2": 0.11932799965143204,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 2.125,
+        "relative_l2": 0.06722518056631088,
+        "different_elements": 98185,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "7e6fffee6126abdea5da82a8401704a503a3136120f6f54834eb988eedd8b176",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          21,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          21,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_16",
+      "step": 6,
+      "phase": "decode",
+      "logical_context_tokens": 22,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.58203125,
+        "relative_l2": 0.05427044257521629,
+        "different_elements": 98064,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.369140625,
+        "relative_l2": 0.03930988535284996,
+        "different_elements": 97214,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "1dcb4ce4f222584516bc0deffe4a50db52c1c28bbf12e609431c3a3c6151610f",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          22,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          22,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_16",
+      "step": 7,
+      "phase": "decode",
+      "logical_context_tokens": 23,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.46875,
+        "relative_l2": 0.06109819561243057,
+        "different_elements": 97940,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.4375,
+        "relative_l2": 0.03164941072463989,
+        "different_elements": 94414,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "1a36cd2e4464c5a08a4a8ef42cbff24460435a7d7ad2828138ad4289a7ea44d8",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          23,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          23,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_17",
+      "step": 0,
+      "phase": "prefill",
+      "logical_context_tokens": 17,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "09fab6453abe8a2f5eb826263479aaff251ac9d5cfc0f4117c0613e760d1f46e",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          17,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          17,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_17",
+      "step": 1,
+      "phase": "decode",
+      "logical_context_tokens": 18,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.96875,
+        "relative_l2": 0.1360788643360138,
+        "different_elements": 98114,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.4375,
+        "relative_l2": 0.02292310632765293,
+        "different_elements": 92641,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "52546063ad30e92efdcc14aefee1776961b394ff86ccdaa0016489d37c87c49d",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          18,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          18,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_17",
+      "step": 2,
+      "phase": "decode",
+      "logical_context_tokens": 19,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.3828125,
+        "relative_l2": 0.039125509560108185,
+        "different_elements": 98303,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.21875,
+        "relative_l2": 0.010867019183933735,
+        "different_elements": 79495,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "c0306e3528251a0a2f835909604dee3ce01d181d06e18a5014cbb347dda0980a",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          19,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          19,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_17",
+      "step": 3,
+      "phase": "decode",
+      "logical_context_tokens": 20,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.625,
+        "relative_l2": 0.03898369148373604,
+        "different_elements": 98240,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.5,
+        "relative_l2": 0.021911265328526497,
+        "different_elements": 96358,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "03c24f272ee02d2fbcfc6f5ec27ecfe5f4a89756b2f236ddbe14c26fe40d1fc9",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          20,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          20,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_17",
+      "step": 4,
+      "phase": "decode",
+      "logical_context_tokens": 21,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.6875,
+        "relative_l2": 0.06429298967123032,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.96875,
+        "relative_l2": 0.08567945659160614,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "c7e0ad2004aae7c875443c74ee6b9af416f9ef50bd38763101df3b3b441d573b",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          21,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          21,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_17",
+      "step": 5,
+      "phase": "decode",
+      "logical_context_tokens": 22,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.234375,
+        "relative_l2": 0.02459707297384739,
+        "different_elements": 96815,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.486328125,
+        "relative_l2": 0.02751714177429676,
+        "different_elements": 92058,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "560767932104dd7a32ba0fd7b7e8aadc80ef622ae082b642ded89fa7c4e47b74",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          22,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          22,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_17",
+      "step": 6,
+      "phase": "decode",
+      "logical_context_tokens": 23,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.256103515625,
+        "relative_l2": 0.028119521215558052,
+        "different_elements": 95560,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.375,
+        "relative_l2": 0.0275247935205698,
+        "different_elements": 93002,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "3ad7eeba67f392814215df7beb2d5bde66f9b8047c32709bb229237fffd720ce",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          23,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          23,
+          128
+        ]
+      }
+    },
+    {
+      "name": "raw_17",
+      "step": 7,
+      "phase": "decode",
+      "logical_context_tokens": 24,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.875,
+        "relative_l2": 0.023520829156041145,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 1.125,
+        "relative_l2": 0.027919339016079903,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "9f0665191f0999131fa665129546e056e33d334e7a09bee68ad1e5b0d7aec0ab",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          24,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          24,
+          128
+        ]
+      }
+    },
+    {
+      "name": "window_1023",
+      "step": 0,
+      "phase": "prefill",
+      "logical_context_tokens": 1023,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "different_elements": 0,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "f2e6a30acbbbfbfee879a0eecae25ff6dc84b92fce784b155ed45887621b88ec",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          1023,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          1023,
+          128
+        ]
+      }
+    },
+    {
+      "name": "window_1023",
+      "step": 1,
+      "phase": "decode",
+      "logical_context_tokens": 1024,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.5,
+        "relative_l2": 0.0031118150800466537,
+        "different_elements": 38007,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 0.5,
+        "relative_l2": 0.0026346067897975445,
+        "different_elements": 29110,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "12daf326218f5715ad71e634cac04b3b37952c98d9b190f3d58c1146d1536447",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          1023,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          1024,
+          128
+        ]
+      }
+    },
+    {
+      "name": "window_1023",
+      "step": 2,
+      "phase": "decode",
+      "logical_context_tokens": 1025,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 1.0,
+        "relative_l2": 0.0067345136776566505,
+        "different_elements": 61367,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 5.75,
+        "relative_l2": 0.1380390077829361,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "b3c481c603c9e3901bb98e8e8d5589f10062eef2bc562752a9ea78b14df95eb3",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          1023,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          1025,
+          128
+        ]
+      }
+    },
+    {
+      "name": "window_1023",
+      "step": 3,
+      "phase": "decode",
+      "logical_context_tokens": 1026,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 1.125,
+        "relative_l2": 0.00793508905917406,
+        "different_elements": 73192,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 3.25,
+        "relative_l2": 0.0851968452334404,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "8d94ce516f43d605a5b0af0c575e251c1686b8f0dff20d76f445eba0b968ca80",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          1023,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          1026,
+          128
+        ]
+      }
+    },
+    {
+      "name": "window_1023",
+      "step": 4,
+      "phase": "decode",
+      "logical_context_tokens": 1027,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 2.6875,
+        "relative_l2": 0.08747941255569458,
+        "different_elements": 98208,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 3.3125,
+        "relative_l2": 0.06912855803966522,
+        "different_elements": 97310,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "f556cfbf1cb35c1aa414c511ac8bf54dce4793019809e9f0d3e13be8bd2bc137",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          1023,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          1027,
+          128
+        ]
+      }
+    },
+    {
+      "name": "window_1023",
+      "step": 5,
+      "phase": "decode",
+      "logical_context_tokens": 1028,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 0.75,
+        "relative_l2": 0.0040127928368747234,
+        "different_elements": 49744,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 1.25,
+        "relative_l2": 0.007479541469365358,
+        "different_elements": 77459,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "d061062bd6a9f265c5b4c3c4c832d3a7e1695bf8f581fac1ba97636cb51a6099",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          1023,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          1028,
+          128
+        ]
+      }
+    },
+    {
+      "name": "window_1023",
+      "step": 6,
+      "phase": "decode",
+      "logical_context_tokens": 1029,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 2.875,
+        "relative_l2": 0.05564948171377182,
+        "different_elements": 94709,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 4.265625,
+        "relative_l2": 0.13101084530353546,
+        "different_elements": 97756,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "32ad19349ec2b8987381383821ba4db8d33549ad0f66874f1804c6cd331412e2",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          1023,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          1029,
+          128
+        ]
+      }
+    },
+    {
+      "name": "window_1023",
+      "step": 7,
+      "phase": "decode",
+      "logical_context_tokens": 1030,
+      "history_verified": true,
+      "atom_vs_hf_cached": {
+        "exact": false,
+        "max_abs": 2.875,
+        "relative_l2": 0.044644828885793686,
+        "different_elements": 97924,
+        "elements": 98304
+      },
+      "hf_cached_vs_uncached": {
+        "exact": false,
+        "max_abs": 4.875,
+        "relative_l2": 0.11132195591926575,
+        "different_elements": 98304,
+        "elements": 98304
+      },
+      "atom_logits_sha256": "cd9e7734891924ec1c4c9f0bcc7ac086dd1dd248b3fc7ea97f425273afe7e420",
+      "hf_cache_key_shapes": {
+        "0": [
+          1,
+          4,
+          1023,
+          128
+        ],
+        "3": [
+          1,
+          4,
+          1030,
+          128
+        ]
+      }
+    }
+  ],
+  "inputs_sha256": "cc7b9dfa9af02546ff971380ba44ce86b13afb5b9a2124e8d506461dfefe1d93",
+  "script_sha256": "250bdfea60085aecacd84af7c92575058d48d1a0b6cab0786c7e3c034b3aca64",
+  "hf_reference_provenance": {
+    "source": "/workspace/results/mellum_decode_validation/20261112T123830320864Z/hf/reference.json",
+    "source_sha256": "8c7c733075547dac0ace71c4e7b5890e3d5eec798a57cd8a1c5241e47f26ae33",
+    "derived_sha256": "295bdb9acfa539df4c904dd69c4200e30e4f04b2091e9d1e2ea3f3c270de3fbf",
+    "metadata_changes": [
+      {
+        "name": "chinese_inventory",
+        "step": 0,
+        "field": "input_ids",
+        "reason": "legacy mutable-list trace snapshot"
+      },
+      {
+        "name": "raw_16",
+        "step": 0,
+        "field": "input_ids",
+        "reason": "legacy mutable-list trace snapshot"
+      },
+      {
+        "name": "raw_17",
+        "step": 0,
+        "field": "input_ids",
+        "reason": "legacy mutable-list trace snapshot"
+      },
+      {
+        "name": "window_1023",
+        "step": 0,
+        "field": "input_ids",
+        "reason": "legacy mutable-list trace snapshot"
+      }
+    ]
+  },
+  "hf_reused_from": "/workspace/results/mellum_decode_validation/20261112T123830320864Z",
+  "atom_run": "/workspace/results/atom_mellum_gpu/20261112T141141924518Z",
+  "atom_configuration": {
+    "MELLUM_QKV_BACKEND": "separate",
+    "MELLUM_MOE_BACKEND": "torch",
+    "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+    "MELLUM_REFERENCE_KV_ROPE": "1",
+    "MELLUM_FORCED_DECODE_PLAN": "/workspace/results/mellum_decode_validation/20261112T141141879416Z/reused_hf_reference.json"
+  },
+  "loading_audit": {
+    "source_tensors": 5631,
+    "successful_parts": 5631,
+    "missing": [],
+    "unexpected": []
+  },
+  "forced_plan_sha256": "295bdb9acfa539df4c904dd69c4200e30e4f04b2091e9d1e2ea3f3c270de3fbf",
+  "first_nonexact": {
+    "name": "chinese_inventory",
+    "step": 1,
+    "phase": "decode",
+    "logical_context_tokens": 33,
+    "history_verified": true,
+    "atom_vs_hf_cached": {
+      "exact": false,
+      "max_abs": 0.25,
+      "relative_l2": 0.0021166130900382996,
+      "different_elements": 17639,
+      "elements": 98304
+    },
+    "hf_cached_vs_uncached": {
+      "exact": false,
+      "max_abs": 0.5,
+      "relative_l2": 0.002293840516358614,
+      "different_elements": 20736,
+      "elements": 98304
+    },
+    "atom_logits_sha256": "9c7accd4fdbc7bf871fe3a6ce6b1ae77f0a12a72dbe575d50e7a91e9fd0206ba",
+    "hf_cache_key_shapes": {
+      "0": [
+        1,
+        4,
+        33,
+        128
+      ],
+      "3": [
+        1,
+        4,
+        33,
+        128
+      ]
+    }
+  }
+}

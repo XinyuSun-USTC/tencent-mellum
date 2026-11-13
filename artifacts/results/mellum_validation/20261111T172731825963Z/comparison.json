@@ -1,0 +1,48 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "arithmetic",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.25,
+      "rms_error": 0.2653868496417999,
+      "top1_exact": true
+    },
+    {
+      "name": "python_add",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.75,
+      "rms_error": 0.7730957865715027,
+      "top1_exact": true
+    }
+  ],
+  "mismatches": [
+    "arithmetic",
+    "python_add"
+  ],
+  "token_summary": {
+    "compared_positions": 128,
+    "matching_positions": 128,
+    "token_match_fraction": 1.0,
+    "exact_sequences": 2,
+    "reference_records": 2
+  }
+}

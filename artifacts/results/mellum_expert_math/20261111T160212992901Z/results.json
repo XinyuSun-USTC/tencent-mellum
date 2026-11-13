@@ -1,0 +1,314 @@
+{
+  "status": "diagnostic_complete",
+  "scope": "Canonical first-layer diagnostic, not engine acceptance",
+  "records": [
+    {
+      "sample": "sample_000000",
+      "variants": {
+        "hf_activation_bf16_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003434823825955391
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.0078125,
+            "relative_l2": 0.0032745033968240023
+          }
+        },
+        "hf_activation_fp32_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.00048828125,
+            "relative_l2": 4.3319516407791525e-05
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004147626925259829
+          }
+        },
+        "hf_activation_fp32_weight_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0022589839063584805
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0038685405161231756
+          }
+        },
+        "fused_activation_bf16_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003863861318677664
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.015625,
+            "relative_l2": 0.0032612483482807875
+          }
+        },
+        "fused_activation_fp32_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.0078125,
+            "relative_l2": 0.002171312225982547
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004140941891819239
+          }
+        },
+        "fused_activation_fp32_weight_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0028268119785934687
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0038058955688029528
+          }
+        }
+      }
+    },
+    {
+      "sample": "sample_000001",
+      "variants": {
+        "hf_activation_bf16_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003432338824495673
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.0078125,
+            "relative_l2": 0.003307476406916976
+          }
+        },
+        "hf_activation_fp32_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.00048828125,
+            "relative_l2": 4.971953603671864e-05
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004132067319005728
+          }
+        },
+        "hf_activation_fp32_weight_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.002250657882541418
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0038533201441168785
+          }
+        },
+        "fused_activation_bf16_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003854460082948208
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.015625,
+            "relative_l2": 0.0032828901894390583
+          }
+        },
+        "fused_activation_fp32_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.0078125,
+            "relative_l2": 0.002178005874156952
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004133150447160006
+          }
+        },
+        "fused_activation_fp32_weight_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0028306974563747644
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003794196993112564
+          }
+        }
+      }
+    },
+    {
+      "sample": "sample_000002",
+      "variants": {
+        "hf_activation_bf16_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0036109050270169973
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0038184099830687046
+          }
+        },
+        "hf_activation_fp32_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.000244140625,
+            "relative_l2": 3.6753874155692756e-05
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004312883596867323
+          }
+        },
+        "hf_activation_fp32_weight_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.00246975920163095
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.0625,
+            "relative_l2": 0.004722371697425842
+          }
+        },
+        "fused_activation_bf16_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004125331062823534
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003744136542081833
+          }
+        },
+        "fused_activation_fp32_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.0078125,
+            "relative_l2": 0.0024132973048835993
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004287407733500004
+          }
+        },
+        "fused_activation_fp32_weight_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0031707435846328735
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.0625,
+            "relative_l2": 0.004660819657146931
+          }
+        }
+      }
+    },
+    {
+      "sample": "sample_000003",
+      "variants": {
+        "hf_activation_bf16_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003607055637985468
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003807552857324481
+          }
+        },
+        "hf_activation_fp32_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.00048828125,
+            "relative_l2": 4.724689279100858e-05
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004277171567082405
+          }
+        },
+        "hf_activation_fp32_weight_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0024561858735978603
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.0625,
+            "relative_l2": 0.0046861013397574425
+          }
+        },
+        "fused_activation_bf16_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004119134973734617
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.0037508837413042784
+          }
+        },
+        "fused_activation_fp32_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.0078125,
+            "relative_l2": 0.0024089524522423744
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.004260005429387093
+          }
+        },
+        "fused_activation_fp32_weight_sum": {
+          "hf": {
+            "exact": false,
+            "max_abs": 0.03125,
+            "relative_l2": 0.003158013103529811
+          },
+          "atom_hf_router": {
+            "exact": false,
+            "max_abs": 0.0625,
+            "relative_l2": 0.004630965180695057
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "status": "blocked_no_gpu",
+  "settings": {
+    "HIP_VISIBLE_DEVICES": "0",
+    "ATOM_LOADER_USE_THREADPOOL": "0",
+    "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "0",
+    "ATOM_ENABLE_ALLREDUCE_RMSNORM_FUSION": "0",
+    "ATOM_USE_UNIFIED_ATTN": "0",
+    "AITER_LOG_LEVEL": "WARNING",
+    "MELLUM_LOAD_AUDIT_PATH": "/workspace/results/atom_mellum_gpu/20261111T085248888768Z/loading_audit.json",
+    "PYTHONPATH": "/workspace/ATOM",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "records": [],
+  "phase": "preflight",
+  "environment": {
+    "python": "/opt/venv/bin/python",
+    "transformers": "5.2.0",
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "visible_gpus": 0
+  }
+}

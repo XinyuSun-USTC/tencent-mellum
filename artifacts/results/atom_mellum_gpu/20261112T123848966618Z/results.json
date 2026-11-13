@@ -1,0 +1,39 @@
+{
+  "status": "started",
+  "settings": {
+    "HIP_VISIBLE_DEVICES": "0",
+    "ATOM_LOADER_USE_THREADPOOL": "0",
+    "MELLUM_MOE_BACKEND": "torch",
+    "MELLUM_QKV_BACKEND": "separate",
+    "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+    "MELLUM_STAGE_LAYER": "0",
+    "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "0",
+    "ATOM_ENABLE_ALLREDUCE_RMSNORM_FUSION": "0",
+    "ATOM_USE_UNIFIED_ATTN": "0",
+    "AITER_LOG_LEVEL": "WARNING",
+    "MELLUM_LOAD_AUDIT_PATH": "/workspace/results/atom_mellum_gpu/20261112T123848966618Z/loading_audit.json",
+    "PYTHONPATH": "/workspace/ATOM",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "MELLUM_FORCED_DECODE_PLAN": "/workspace/results/mellum_decode_validation/20261112T123830320864Z/hf/reference.json",
+    "MELLUM_FORCED_DECODE_DIR": "/workspace/results/atom_mellum_gpu/20261112T123848966618Z/decode",
+    "MELLUM_PREFILL_LOGITS_DIR": "/workspace/results/atom_mellum_gpu/20261112T123848966618Z/logits"
+  },
+  "records": [],
+  "phase": "generation",
+  "scope": "forced_history_diagnostic_not_generation_acceptance",
+  "reference": "/workspace/results/mellum_decode_validation/20261112T123830320864Z/hf/reference.json",
+  "max_model_len": 1040,
+  "environment": {
+    "python": "/opt/venv/bin/python",
+    "transformers": "5.2.0",
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "visible_gpus": 1
+  },
+  "loading_audit": {
+    "source_tensors": 5631,
+    "successful_parts": 5631,
+    "missing": [],
+    "unexpected": []
+  }
+}

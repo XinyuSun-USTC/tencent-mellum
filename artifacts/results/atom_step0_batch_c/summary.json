@@ -1,0 +1,20 @@
+{
+  "status": "cpu_checks_passed_gpu_pending",
+  "tests_config_and_model": 21,
+  "tests_existing_quant": 46,
+  "index_mapped_slots": 5631,
+  "expert_slots": 5376,
+  "qkv_slots": 84,
+  "source_sha256": {
+    "ATOM/atom/models/mellum.py": "c9caad300b8bd4a02d972c8a94e43b152785da5a382c57d803b3901ec8c125c8",
+    "ATOM/atom/model_config/mellum_utils.py": "a85148ca6a6d01fbed93060993a5a2227ea0ff0e1c841d3c693296f6ad6f0d4f",
+    "ATOM/atom/model_engine/model_runner.py": "438460528e140b5f56e0055ff12a8977fdd310d5d34bbf01355b7f3ecf427c71",
+    "scripts/check_atom_mellum.py": "b95c1e59ce39ee3aa427d6124ce889f09aa35375981780748877f05786d308d4"
+  },
+  "limits": [
+    "GPU operators not constructed or run",
+    "real loading audit not executed",
+    "no HF/ATOM token comparison yet",
+    "no complete packed tensor numeric test"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "stage_layer": 9,
+  "prefill_backend": "sdpa_rope_diagnostic",
+  "suite": "short",
+  "status": "comparison_failed",
+  "output": "/workspace/results/mellum_validation/20261111T205654256595Z",
+  "phase": "atom",
+  "returncode": 1,
+  "atom_run": "/workspace/results/atom_mellum_gpu/20261111T205716526285Z",
+  "critical": [
+    "python_add"
+  ],
+  "token_summary": {
+    "compared_positions": 128,
+    "matching_positions": 101,
+    "token_match_fraction": 0.7890625,
+    "exact_sequences": 1,
+    "reference_records": 2
+  },
+  "logits_errors": {
+    "arithmetic": 1.5,
+    "python_add": 2.984375
+  }
+}

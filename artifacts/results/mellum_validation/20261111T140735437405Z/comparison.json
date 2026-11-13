@@ -1,0 +1,90 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "h_0_prefix_0",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 1,
+        "matching_positions": 1,
+        "common_prefix_tokens": 1,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.75,
+      "rms_error": 0.19407199323177338,
+      "top1_exact": true
+    },
+    {
+      "name": "h_0_prefix_14",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 1,
+        "matching_positions": 0,
+        "common_prefix_tokens": 0,
+        "token_match_fraction": 0.0
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 0
+      },
+      "max_abs_error": 1.40625,
+      "rms_error": 0.4081139862537384,
+      "top1_exact": false
+    },
+    {
+      "name": "h_1_prefix_0",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 1,
+        "matching_positions": 1,
+        "common_prefix_tokens": 1,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.75,
+      "rms_error": 0.20257532596588135,
+      "top1_exact": true
+    },
+    {
+      "name": "h_1_prefix_9",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 1,
+        "matching_positions": 0,
+        "common_prefix_tokens": 0,
+        "token_match_fraction": 0.0
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 0
+      },
+      "max_abs_error": 0.875,
+      "rms_error": 0.40869131684303284,
+      "top1_exact": true
+    }
+  ],
+  "mismatches": [
+    "h_0_prefix_0",
+    "h_0_prefix_14",
+    "h_1_prefix_0",
+    "h_1_prefix_9"
+  ],
+  "token_summary": {
+    "compared_positions": 4,
+    "matching_positions": 2,
+    "token_match_fraction": 0.5,
+    "exact_sequences": 2,
+    "reference_records": 4
+  }
+}

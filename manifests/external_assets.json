@@ -1,0 +1,54 @@
+{
+  "model_weights": "External /data/models; weight payloads are not copied or hashed by this manifest",
+  "environments": [
+    "/opt/venv",
+    "/workspace/venvs/hf-reference"
+  ],
+  "assets": [
+    {
+      "path": "/data/models/Mellum2.1-12B-A2.5B-Thinking/config.json",
+      "size_bytes": 2329,
+      "sha256": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541"
+    },
+    {
+      "path": "/data/models/Mellum2.1-12B-A2.5B-Thinking/generation_config.json",
+      "size_bytes": 111,
+      "sha256": "a9dc104ca398a2ef376d3f2fbb03037d99950ddb2db0cd041b98398cf1fc8d7c"
+    },
+    {
+      "path": "/data/models/Mellum2.1-12B-A2.5B-Thinking/model.safetensors.index.json",
+      "size_bytes": 526510,
+      "sha256": "a6ad930e5bb35ea92d5b734c4df4649bfcfdcd899f64b0a83efe40fe0ab9b60e"
+    },
+    {
+      "path": "/data/datasets/HumanEval.jsonl",
+      "size_bytes": 214438,
+      "sha256": "1d49078ba3e2b196b9344535bef34a43021f038fad9561d6ee7c53450609a6a2"
+    },
+    {
+      "path": "/data/datasets/HumanEval.jsonl.gz",
+      "size_bytes": 44877,
+      "sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef"
+    },
+    {
+      "path": "/data/datasets/baseline.json",
+      "size_bytes": 1070,
+      "sha256": "14674cbbc641709358e197bd5ad71c3cac8f41ed3932b3091266f5636b0dd6c8"
+    },
+    {
+      "path": "/data/datasets/humaneval_bf16.json",
+      "size_bytes": 43788,
+      "sha256": "399354335c6da2f1e57ca0f14133a509b60b8e99d7588b4bd97011dad2b9287b"
+    },
+    {
+      "path": "/data/datasets/scenario_a_prompts.jsonl",
+      "size_bytes": 7974512,
+      "sha256": "f5cb156bb468757841a321142c8813d281c0732b494d70d3c59d5b415bf7489d"
+    },
+    {
+      "path": "/data/datasets/scenario_c_prompts.jsonl",
+      "size_bytes": 13415546,
+      "sha256": "38fc340a76fd48c025bf5806376bdabbc7762f6b5c48d4509bbb109af2cfe265"
+    }
+  ]
+}

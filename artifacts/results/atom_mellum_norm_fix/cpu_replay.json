@@ -1,0 +1,38 @@
+{
+  "rows": [
+    {
+      "sample": "sample_000000",
+      "old_atom_equals_fp32_product_truncation": true,
+      "old_truncation_match_fraction": 1.0,
+      "corrected_equals_official_cpu": true,
+      "corrected_vs_captured_hf_gpu_max_abs": 0.0001220703125,
+      "old_atom_vs_captured_hf_gpu_max_abs": 0.0009765625
+    },
+    {
+      "sample": "sample_000001",
+      "old_atom_equals_fp32_product_truncation": true,
+      "old_truncation_match_fraction": 1.0,
+      "corrected_equals_official_cpu": true,
+      "corrected_vs_captured_hf_gpu_max_abs": 0.0001220703125,
+      "old_atom_vs_captured_hf_gpu_max_abs": 0.0009765625
+    },
+    {
+      "sample": "sample_000002",
+      "old_atom_equals_fp32_product_truncation": false,
+      "old_truncation_match_fraction": 0.999975860118866,
+      "corrected_equals_official_cpu": true,
+      "corrected_vs_captured_hf_gpu_max_abs": 0.0001220703125,
+      "old_atom_vs_captured_hf_gpu_max_abs": 0.0009765625
+    },
+    {
+      "sample": "sample_000003",
+      "old_atom_equals_fp32_product_truncation": false,
+      "old_truncation_match_fraction": 0.9999819397926331,
+      "corrected_equals_official_cpu": true,
+      "corrected_vs_captured_hf_gpu_max_abs": 0.0001220703125,
+      "old_atom_vs_captured_hf_gpu_max_abs": 0.0009765625
+    }
+  ],
+  "cuda_initialized": false,
+  "scope": "CPU formula replay, GPU end-to-end regression still pending"
+}

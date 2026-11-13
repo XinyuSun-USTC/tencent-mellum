@@ -1,0 +1,37 @@
+{
+  "suite": "expanded",
+  "status": "comparison_failed",
+  "output": "/workspace/results/mellum_validation/20261111T173427695865Z",
+  "phase": "atom",
+  "returncode": 1,
+  "atom_run": "/workspace/results/atom_mellum_gpu/20261111T173519833603Z",
+  "critical": [
+    "binary_search",
+    "frequencies",
+    "h_0",
+    "h_100",
+    "long_16384",
+    "long_8192",
+    "window_1025"
+  ],
+  "token_summary": {
+    "compared_positions": 704,
+    "matching_positions": 513,
+    "token_match_fraction": 0.7286931818181818,
+    "exact_sequences": 4,
+    "reference_records": 11
+  },
+  "logits_errors": {
+    "binary_search": 0.75,
+    "frequencies": 1.90625,
+    "h_0": 1.875,
+    "h_1": 0.5,
+    "h_10": 1.0,
+    "h_100": 0.75,
+    "long_16384": 5.375,
+    "long_8192": 2.75,
+    "multiply": 3.5,
+    "window_1025": 1.25,
+    "word_problem": 0.75
+  }
+}

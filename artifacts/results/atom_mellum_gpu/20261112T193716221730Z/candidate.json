@@ -1,0 +1,977 @@
+{
+  "schema_version": 1,
+  "model_config_sha256": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541",
+  "records": [
+    {
+      "name": "python_add",
+      "rendered_prompt": "<|im_start|>user\nWrite a Python function add(a, b) that returns their sum.<|im_end|>\n<|im_start|>assistant\n",
+      "input_ids": [
+        [
+          27,
+          1397,
+          233,
+          3969,
+          255,
+          99,
+          2717,
+          669,
+          846,
+          42,
+          99,
+          46,
+          321,
+          43,
+          410,
+          2565,
+          708,
+          1572,
+          48,
+          28,
+          233,
+          27,
+          8091,
+          233
+        ]
+      ],
+      "attention_mask": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "generation_settings": {
+        "do_sample": false,
+        "max_new_tokens": 64,
+        "eos_token_id": 28,
+        "pad_token_id": 0
+      },
+      "enable_thinking": true,
+      "position_ids": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ]
+      ],
+      "generation_experts_by_forward": [
+        "grouped_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm"
+      ],
+      "generated_ids": [
+        [
+          23,
+          233,
+          2116,
+          895,
+          333,
+          6246,
+          434,
+          255,
+          99,
+          2717,
+          669,
+          4492,
+          48,
+          470,
+          1297,
+          13094,
+          60,
+          392,
+          3969,
+          255,
+          99,
+          2717,
+          669,
+          846,
+          42,
+          99,
+          46,
+          321,
+          43,
+          410,
+          2565,
+          708,
+          1572,
+          1748,
+          56672,
+          7958,
+          48,
+          11993,
+          1493,
+          1234,
+          2250,
+          48,
+          33239,
+          1641,
+          60,
+          233,
+          233,
+          910,
+          846,
+          42,
+          99,
+          46,
+          321,
+          800,
+          233,
+          308,
+          587,
+          255,
+          99,
+          523,
+          321,
+          233,
+          233,
+          5704
+        ]
+      ],
+      "prefill_logits": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/logits/prefill_000000.pt",
+      "prefill_logits_sha256": "0026ae684f2f2edc3a8dc9cbd5f8843a46ee917db415f23ac595f7a57c77c202",
+      "logits_semantics": "last_prompt_position_full_vocab",
+      "generation_logits": [
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_000_logits.pt",
+          "sha256": "f736961580c6d03bd814a8f284b1f136e78d39455ee6810be14459a1bd2eda03"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_001_logits.pt",
+          "sha256": "b658b6da5bf0382d9c42ffbf8b93151657775933dda036511b71e0ca299e7c52"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_002_logits.pt",
+          "sha256": "76dea869ecc14235f823b0b4d08e1efe7f0ce6c0f8b4648d8a6ceed9b74a6f5d"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_003_logits.pt",
+          "sha256": "2537dc3b0ee8855de63c3320b1549585201d6fca9c1d73ff72178b3c50be8e0d"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_004_logits.pt",
+          "sha256": "64568960c39fcb703e462215557be939094f96801e5f86a78e3bb7e00efb4297"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_005_logits.pt",
+          "sha256": "f901a481391412b26f4835c21a5fa5ed5bf024c81138b161a860c355abdbc9f8"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_006_logits.pt",
+          "sha256": "56d0965988a331615b6a01ab59e4af0d7802b93d3a75d795cc73bbc934b96d9f"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_007_logits.pt",
+          "sha256": "d5c6ffd9f731b90d2e4dcfbdf20328630af4bcc5c46cdef66b1d3a980a0aef06"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_008_logits.pt",
+          "sha256": "bf64d510e758e9927989d6b02f2f68c09b8e1286e62f63f57da1c3b05d1e866e"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_009_logits.pt",
+          "sha256": "14a69c4469ca31e06c0317e3f88879008f8bf58563ba681a77b56a399f7b6052"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_010_logits.pt",
+          "sha256": "369e4303bd34dc1ad38491891534de62a56226e30402d3bd9ac17cc92f83c950"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_011_logits.pt",
+          "sha256": "b7cc2a615cddc09190b852a3b4c1202dca40868c6c0d66d31b734556401abb96"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_012_logits.pt",
+          "sha256": "2f5b87997d3713896fac17216fcc1481d5bd07305d8611591f2181890d1b702b"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_013_logits.pt",
+          "sha256": "7ab28ad4249d48d2a2e03948b45f06d4002a17ccd64adf336a928a99fbc4a8c6"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_014_logits.pt",
+          "sha256": "15ca3f3dff54a1ae758c0759b13b6082e653a7097109beb4d4b3b742c192a322"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_015_logits.pt",
+          "sha256": "2651f3f2fc94d95f1fb4365717e56034d5b6b36a8c83874187861f0da01bf629"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_016_logits.pt",
+          "sha256": "b6456101cf716cff7dbb1ad806ab2bdf5786407c9bbf1a89f20c46d38bbd19c0"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_017_logits.pt",
+          "sha256": "03881f73d3470a54f91d64f4fc046098d8458eb4a3b2e2ad908ae28db53ed99d"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_018_logits.pt",
+          "sha256": "e61599eaad229249ac80c09018f1165925cee2276703c1c07d5c0c8071503f80"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_019_logits.pt",
+          "sha256": "fb0296a67afe489164c1f929f1782b95694290c916282bb423f8aae4ba82a079"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_020_logits.pt",
+          "sha256": "3587375ee85eaeec8a35324c450ced8baf7413f42ce874e9214ea5f2768efd4c"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_021_logits.pt",
+          "sha256": "aadec922ac37ea9eb760a01efaa848d26f82ee466a6b2e84de3ba8efc57464f3"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_022_logits.pt",
+          "sha256": "4d438d56f56ea670e0fa1923dfb9c0826a6936a68a2d5105c204e4f90e6c5fc7"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_023_logits.pt",
+          "sha256": "b64083b8d65345eaf3af82e5831e70da96db945a0b3fe0bb98c82fbf9fae180f"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_024_logits.pt",
+          "sha256": "fc6ddbf5a83f493812a1979916057cbc6ca0d863b30d7d5ce9a365c2a04ae467"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_025_logits.pt",
+          "sha256": "92febf5abf90c2f979dd59bce28cbc039f86e9c53407e67d032736425749c463"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_026_logits.pt",
+          "sha256": "7982d56154210b8dafd2b6e06ddc40412e54a3975fb6b1c6bd0e694d035a94ac"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_027_logits.pt",
+          "sha256": "3236a38bbee4635a0a28d5f245eb680a22cddedd5688b23b7e64037df9694815"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_028_logits.pt",
+          "sha256": "95fd3109692c0e1786264ade29d71c1334be331ccec22e4629cc4c2764fab240"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_029_logits.pt",
+          "sha256": "e4dbefc6e72d3af8964175a5ea1e228f54ea1004049989b36f2d1fabbf28a1ec"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_030_logits.pt",
+          "sha256": "eea955dd943ff03f676ff52c78076e4b0575ccac014f7a4e2fdc37b228401b7f"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_031_logits.pt",
+          "sha256": "9947ea2a0bc60f246445b8a1279653466bb5d2a46bd89d798bf91e31e0303d8c"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_032_logits.pt",
+          "sha256": "2602144c1b6512aaf60291148058854b2e4dc8f64cfe7f8eb25c5f25ca5bd04e"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_033_logits.pt",
+          "sha256": "78446734a8e1697d5160307780ef64f511c33bd47d32bf6d93e74912ba88e24d"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_034_logits.pt",
+          "sha256": "5a3d84d134649dc6651653622cf2aef2aa9f0d452fd5f90dff4c4d8678728d2d"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_035_logits.pt",
+          "sha256": "279a6539948e8ad28122eee3accf6131c4e6d01843270f6a495e0587368ab991"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_036_logits.pt",
+          "sha256": "c81c3cc26ea0f6e3028f110f138399fc72c86f738084a0b5fe73966681ff0ceb"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_037_logits.pt",
+          "sha256": "4c6e53f687e577265ebb3efb602f50a5024b156589285b1df6054c5298865136"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_038_logits.pt",
+          "sha256": "91b2ded5898e59183ed8977de5c8fa45b8efa51dcb0425e6fa4fb3200245a1be"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_039_logits.pt",
+          "sha256": "c95670354d118ca613a830026738d4b6dc926b2ce4a7e192e01dd0134a4e9e7c"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_040_logits.pt",
+          "sha256": "e4a94a4cd017b4f298c0c6ba7507dcf2717fea2829fd6ef8f8a0706653ddc980"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_041_logits.pt",
+          "sha256": "710c61ba724b9179a2eaaeede82552521bd9ba7543be1072f8771e7381cfac5c"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_042_logits.pt",
+          "sha256": "f31b865c2161202a41e08f164947cad5fcba61b102676355f60b536b04589ccb"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_043_logits.pt",
+          "sha256": "02861efd4cb5ca96e1fb186e25184df6a6108df915fd0973f034e8197269c68e"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_044_logits.pt",
+          "sha256": "56700504c21c2e26cedb053753d825a8661100b29f0713e6ad828e0b06260d16"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_045_logits.pt",
+          "sha256": "ffd81fc8869e4a4b6dfa15a63fde9f6a6ee2cd1d9fa38e91912966c2a021b0c1"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_046_logits.pt",
+          "sha256": "e1a3ede59be77038878469a7ca3ab9936ab0c5c40edd67e3592d39645d069db2"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_047_logits.pt",
+          "sha256": "d46510628d681a86882f310fc03750bd01bebd1c3a0b1d2f2e0034edb01bd7ca"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_048_logits.pt",
+          "sha256": "14f22a7bf8fb8eb2950fe6794bf0a16c91d61f944d159312fff60e4558da53b5"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_049_logits.pt",
+          "sha256": "ded022456ee6009023c8c4d50da53772e9fe22674b2275e2b04c4261b7272287"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_050_logits.pt",
+          "sha256": "7c6a6454283d5d4aa11b82eafbc34c6a6a304074cfc6d528732020cca5c89b67"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_051_logits.pt",
+          "sha256": "286066185193d48b2798bcba7c484af3c110e573d004ba830483b979e31251e7"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_052_logits.pt",
+          "sha256": "7df9346511f342973c3ffc512bcf9ee0bf8756eb0edfae9b8580a0eafebe5e3b"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_053_logits.pt",
+          "sha256": "de2b656d0d612c2f75e057b3184ff6c8cf36d0ecf21566075268cf8614e6c4f3"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_054_logits.pt",
+          "sha256": "3d1c8678268f7d6d80fbffa3f6106b6e369d91818dc4897a9d5dbbef34fe259a"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_055_logits.pt",
+          "sha256": "1092f545d3cd70078e295cafdb6ba093f9f3900216a0a9461537714efb7338ff"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_056_logits.pt",
+          "sha256": "3b9d3b7b6c6b41c1c79d3809ce4a677480ff787d4d2430090b1ac9df06c7a454"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_057_logits.pt",
+          "sha256": "96f4f7d5deabcab0fef447a18c75bc662cfa1b9ec97ead5710e88263bf2f03e8"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_058_logits.pt",
+          "sha256": "1a866f9eb4516ff1d878325180c4ba873a0b2c3eebd6791960a139b3c6032c3a"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_059_logits.pt",
+          "sha256": "7da81a362cf72ead361611127adc7718288514e36f1642053e6d87b2527c72b6"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_060_logits.pt",
+          "sha256": "7fc6dbc3744130ca222c2cd7b15d15164227747218b65317a9ee8edfd17b8f8c"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_061_logits.pt",
+          "sha256": "6c9bb0c7f47fef0eb9db350082a4ef6bd48e3a9316e378946af55e071e5c1da8"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_062_logits.pt",
+          "sha256": "88783efb1e4a36e5d751d3fdb69d60dcb42e28067062b88aa0f34d79a8456f82"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000000/step_063_logits.pt",
+          "sha256": "b312161f18814a1ed9d9514b12e894b58912d5eeef4270374fd1c1f314b9b487"
+        }
+      ]
+    },
+    {
+      "name": "arithmetic",
+      "rendered_prompt": "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n",
+      "input_ids": [
+        [
+          27,
+          1397,
+          233,
+          2821,
+          359,
+          255,
+          51,
+          57,
+          523,
+          255,
+          52,
+          55,
+          65,
+          28,
+          233,
+          27,
+          8091,
+          233
+        ]
+      ],
+      "attention_mask": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "generation_settings": {
+        "do_sample": false,
+        "max_new_tokens": 64,
+        "eos_token_id": 28,
+        "pad_token_id": 0
+      },
+      "enable_thinking": true,
+      "position_ids": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "generation_experts_by_forward": [
+        "grouped_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm",
+        "batched_mm"
+      ],
+      "generated_ids": [
+        [
+          23,
+          233,
+          20320,
+          46,
+          302,
+          1297,
+          359,
+          11090,
+          1186,
+          255,
+          51,
+          57,
+          8583,
+          255,
+          52,
+          55,
+          359,
+          48,
+          2778,
+          776,
+          1797,
+          48,
+          3531,
+          637,
+          255,
+          99,
+          12972,
+          3423,
+          1354,
+          48,
+          397,
+          895,
+          333,
+          846,
+          255,
+          51,
+          57,
+          335,
+          255,
+          52,
+          55,
+          3301,
+          48,
+          2778,
+          776,
+          2313,
+          496,
+          1803,
+          48,
+          255,
+          51,
+          57,
+          359,
+          255,
+          51,
+          50,
+          8583,
+          255,
+          57,
+          46,
+          335,
+          255,
+          52,
+          55
+        ]
+      ],
+      "prefill_logits": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/logits/prefill_000001.pt",
+      "prefill_logits_sha256": "4748e27931ff33df7c8c674cec170aa80d5eab3f946244accc412806c6120a5d",
+      "logits_semantics": "last_prompt_position_full_vocab",
+      "generation_logits": [
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_000_logits.pt",
+          "sha256": "2d431b800f4526c0fc8e00a479d6f4a3c30b2a66eef29c841a3a0ad50177f611"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_001_logits.pt",
+          "sha256": "9b0bfee2796ba9854fa3fbc5111056073fcc118438342da70e8348ddfaddde5a"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_002_logits.pt",
+          "sha256": "2fbc290d94ec373da695d115e6e21ac18cafcee3bc30eb0e1b09a6d3a25e89c9"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_003_logits.pt",
+          "sha256": "931948ec5c176262ea16c74f34e0d8bda36b9cd213266d809719e3c7ca74b9fe"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_004_logits.pt",
+          "sha256": "af474320e599b2c4116b242d8bc387066e287ddf9f1df61fcfd320d6b6f29d85"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_005_logits.pt",
+          "sha256": "81768eac44c8fb0be755231a3b1d972839c94c655093f00552570e6a18de6f37"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_006_logits.pt",
+          "sha256": "0b6dca9fa327e6ccf67a16e64c418cbb9e6e0b83be3161911425922b8dccd628"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_007_logits.pt",
+          "sha256": "138ac2cf93a76808643bf01663713af70d53735ebdcf3f58a2b1b1573d35bbcc"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_008_logits.pt",
+          "sha256": "635ab49ca07cfb404c262775a011de212f6dff50dd545adda4d04026706e568c"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_009_logits.pt",
+          "sha256": "95ae94dcc0abc3d5e986ceb78bafbd74d8f8901a300235bc48680edef89d3d59"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_010_logits.pt",
+          "sha256": "9dd9cd8139f7bb5f3140219465d7a2ea78715b3f3e0ce50933e420802d942815"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_011_logits.pt",
+          "sha256": "a37e076e190af144904e72d2137f0e8964addde0b13db63f3c4ebf4760b8547a"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_012_logits.pt",
+          "sha256": "1dc508b41b2da32e361dd42bb2639a42f1a3f659f061d85201a9dd05fb7a8034"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_013_logits.pt",
+          "sha256": "94377f36d1c9184dae12e792ec527dc2afda1255b64fa8b463bba1f7e535f72e"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_014_logits.pt",
+          "sha256": "5a91bd4b6917d56d33b2aba6a1eedbbfe9fd24b9be8ea0a4897f1a0c265b467e"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_015_logits.pt",
+          "sha256": "17472de3c9228df28686cf968da07626b817fba6ff2deb58ae587e0642f64a6b"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_016_logits.pt",
+          "sha256": "37d1c678abc8c077a250d78eae5862aa5f3f06c0660c422a292aac14e68041d2"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_017_logits.pt",
+          "sha256": "651bd4cf8dc2fc181319edae1acf518db5a672fff38a2869a0e8d6ad3be599d1"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_018_logits.pt",
+          "sha256": "a66e0108538e993eda6bc932ce00050fe3f4813b64e35465df0bb3754093be71"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_019_logits.pt",
+          "sha256": "732591dc256836ec39792b9c4c322e01bc7d929b8410eb4322ada2a470e8dbe5"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_020_logits.pt",
+          "sha256": "ec314fe455edaecb9ad251dd5d122887e26ac166442346b5edcea04cf70bad2f"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_021_logits.pt",
+          "sha256": "08296c3b12e2adba33051dd4625b36174ca452207f6e532fbe2c4e9023d147e3"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_022_logits.pt",
+          "sha256": "2b86d3575de784f46a92c5370244a2c3634dcff599800ef87875e4f8dba135b9"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_023_logits.pt",
+          "sha256": "b22bf93695149ef2d1dae7315f9fe2f0ba29dd2ba08b752203a65940b640993b"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_024_logits.pt",
+          "sha256": "8509f89d7ee55e6c392240f80960228ec591d6268c8f118c5944c799cda3271f"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_025_logits.pt",
+          "sha256": "dd9554a000d0a5dcbc8b7e9f304c25c7f6c37704f5ebbfebbe666e04a1588551"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_026_logits.pt",
+          "sha256": "952ff8e140483644f8554aacf494618600ec4eb9a3c7be032fed082988bf2a17"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_027_logits.pt",
+          "sha256": "a61ecf0e7accc1314e438d8d29947502e2d281ccf15d97631ebdb031f9022da4"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_028_logits.pt",
+          "sha256": "2bc90738a0afcbf1974ce8bb72174c83c0911e76056f25938019a70d4e9b4936"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_029_logits.pt",
+          "sha256": "548e2f8865ae09a17df951cb7242acba02ed545cf9478e423410e12c5dcd75bc"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_030_logits.pt",
+          "sha256": "4e1a734aa3583a61b13d4f5fdb0e8093ccdb502de2a0413921aa9f0101bb5e9d"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_031_logits.pt",
+          "sha256": "b79a5fed51ae5b2f82da18f0a4d8e0507235568622e196cf154c996cb9f09d4f"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_032_logits.pt",
+          "sha256": "094c8311c9e23cd7bcd40d1c40c22b317166f0664ce75ea866740ce9e0b0af8f"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_033_logits.pt",
+          "sha256": "b5eadd065884aaaf878efc9e3d25a5133d66c149c0fa31cd107cef7f0ba48689"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_034_logits.pt",
+          "sha256": "fc91e32927424492e08fa7a79118f5a814d37bff95576b632ed7375bc6fab44b"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_035_logits.pt",
+          "sha256": "9c7b744afb34a529076c79f1f117e51e04ac75538a6d86bca65f6deb90824e88"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_036_logits.pt",
+          "sha256": "fcc2fd3aafa084ab5c6d5518e411898e2b58a7768394cf9f65f3fef8a8ce810d"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_037_logits.pt",
+          "sha256": "05920da8275bfd4d2f5ffca13e138d91be0d77c48188009a437cb0dee9625bdd"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_038_logits.pt",
+          "sha256": "d940452f4aaba37bd4e80c844eafebd3710bad61f2dce663366f0bcdf5995555"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_039_logits.pt",
+          "sha256": "1d99dbd2e44274ae5889d977e93e51d12bbef963f8a2bcecc8b1c76dbf2ebc3e"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_040_logits.pt",
+          "sha256": "8adc930402f4b620b91caac717e80c2cc0f43d14997cb4cfd2d27e44e5eb6eaf"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_041_logits.pt",
+          "sha256": "17dc98a736bfb83001a2ce490f135ec2ecec940f86b4ed71c31448a89dcdccc9"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_042_logits.pt",
+          "sha256": "c160ac9cc632c8e459aeee7aaf4e1126cbef4e4e2d438c082de629775614693a"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_043_logits.pt",
+          "sha256": "6e2cbc655405d3353a4b7b2e60422084199e444a8d80d46f897a4413429a1517"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_044_logits.pt",
+          "sha256": "45208f6c6a57bb309f6595cf5a15ec1426de35a1663981bffde7306779455a7c"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_045_logits.pt",
+          "sha256": "d23a057e2bc059cfc986e7de7f9bdf217a24947889a3387a097518e5d3364bf2"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_046_logits.pt",
+          "sha256": "64e88a390efc8deeae04bc55ceb4fff302a44aa9f92872b8801691306c684522"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_047_logits.pt",
+          "sha256": "b2b424272dc93cf25506fe601dcf561a1ea8d30256673ad9113e58ae2f728b07"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_048_logits.pt",
+          "sha256": "75a89a79c5555cfb8878e9968a4d07d8af9daa98045803f1dd7b79e12ad00c1c"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_049_logits.pt",
+          "sha256": "53bf6f79cccd7cba05eb32b9b608ba8af2167a889cabea18b2a25b41fab3fd34"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_050_logits.pt",
+          "sha256": "f1c3f6f28a29eabedc8a20fc475be3df815e465e792abdc7d65b3c56b3e090ff"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_051_logits.pt",
+          "sha256": "cd614fc4f1a9f9336d15cc542e97fdcdfc08dc7c0f6f4a407b643e7019ab0ea3"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_052_logits.pt",
+          "sha256": "fc446e054f3df37a78dc21dd17a254ff25d292efd04b6ae124e788a186d867db"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_053_logits.pt",
+          "sha256": "c72573002271711deb4678dc9f0e20b014706ddbefdf7e1787201ee4e284eac7"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_054_logits.pt",
+          "sha256": "7724dc35f8a2a34d89e0c0657e1131123819e5b1b71d3382c981bb28bfe91d43"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_055_logits.pt",
+          "sha256": "e17c04c8a8885b0583c5469f8c1daf37d0402cd1ef3fe1a4b9f5a7d36b7b7b55"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_056_logits.pt",
+          "sha256": "8b3bf289659d2114fbddec442d8e229ebfe6c7f3b805641ff3041a16761ce346"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_057_logits.pt",
+          "sha256": "a41e6dd7a92b3cf02db35a94ca66e0acaf2dcea906553c4595428b5a240fd1e0"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_058_logits.pt",
+          "sha256": "5cbd47984eaf6be13fa325d2af5765233b4ea7ad48ecc153018404d57dfaa418"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_059_logits.pt",
+          "sha256": "3d4f0269ed23cfd40969d05ce6ea45b7da6c683daeb8b49addd0feb516ea0c20"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_060_logits.pt",
+          "sha256": "4565e88f3fd4d623c72f8d37859735024095fb66ba9b3285ec38a2b5090c93a8"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_061_logits.pt",
+          "sha256": "f8025091458a5667e8e57ff29ded37d5b03db7a365356b9c9d24e489406eeb76"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_062_logits.pt",
+          "sha256": "7cf51c1e9bd24a13a890bd64bd0626fa8994a2f42cf3e583a88a96814cb10080"
+        },
+        {
+          "path": "/workspace/results/atom_mellum_gpu/20261112T193716221730Z/generation_logits/sample_000001/step_063_logits.pt",
+          "sha256": "f15f469ddae1eee760d12eac181b68c018f4886f3fa4c7a21c2f9752e88dddbc"
+        }
+      ]
+    }
+  ],
+  "suite": "short",
+  "scope": "developer_regression_not_official",
+  "producer": "atom",
+  "environment": {
+    "python": "/opt/venv/bin/python",
+    "transformers": "5.2.0",
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "visible_gpus": 1
+  }
+}

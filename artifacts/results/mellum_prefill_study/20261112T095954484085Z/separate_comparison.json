@@ -1,0 +1,80 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "h_0_prefix_0",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 1,
+        "matching_positions": 1,
+        "common_prefix_tokens": 1,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.0,
+      "rms_error": 0.26032671332359314,
+      "top1_exact": true
+    },
+    {
+      "name": "h_0_prefix_14",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 1,
+        "matching_positions": 1,
+        "common_prefix_tokens": 1,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.1875,
+      "rms_error": 0.6427958011627197,
+      "top1_exact": true
+    },
+    {
+      "name": "h_1_prefix_0",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 1,
+        "matching_positions": 1,
+        "common_prefix_tokens": 1,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.75,
+      "rms_error": 0.20431095361709595,
+      "top1_exact": true
+    },
+    {
+      "name": "h_1_prefix_9",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 1,
+        "matching_positions": 1,
+        "common_prefix_tokens": 1,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.03125,
+      "rms_error": 0.49042874574661255,
+      "top1_exact": true
+    }
+  ],
+  "mismatches": [
+    "h_0_prefix_0",
+    "h_0_prefix_14",
+    "h_1_prefix_0",
+    "h_1_prefix_9"
+  ],
+  "token_summary": {
+    "compared_positions": 4,
+    "matching_positions": 4,
+    "token_match_fraction": 1.0,
+    "exact_sequences": 4,
+    "reference_records": 4
+  }
+}

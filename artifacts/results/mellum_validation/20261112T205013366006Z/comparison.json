@@ -1,0 +1,160 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "chinese_inventory",
+      "mismatches": [],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "top1_exact": true
+    },
+    {
+      "name": "identity_explanation",
+      "mismatches": [
+        "generated_ids"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 57,
+        "common_prefix_tokens": 57,
+        "token_match_fraction": 0.890625
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 57
+      },
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "top1_exact": true
+    },
+    {
+      "name": "missing_integer",
+      "mismatches": [],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "top1_exact": true
+    },
+    {
+      "name": "parenthesized_math",
+      "mismatches": [],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "top1_exact": true
+    },
+    {
+      "name": "raw_16",
+      "mismatches": [],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "top1_exact": true
+    },
+    {
+      "name": "raw_17",
+      "mismatches": [],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "top1_exact": true
+    },
+    {
+      "name": "rotate_list",
+      "mismatches": [],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "top1_exact": true
+    },
+    {
+      "name": "stable_unique",
+      "mismatches": [
+        "generated_ids"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 60,
+        "common_prefix_tokens": 59,
+        "token_match_fraction": 0.9375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 59
+      },
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "top1_exact": true
+    },
+    {
+      "name": "window_1023",
+      "mismatches": [],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "top1_exact": true
+    },
+    {
+      "name": "window_1024",
+      "mismatches": [],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "top1_exact": true
+    }
+  ],
+  "mismatches": [
+    "identity_explanation",
+    "stable_unique"
+  ],
+  "token_summary": {
+    "compared_positions": 640,
+    "matching_positions": 629,
+    "token_match_fraction": 0.9828125,
+    "exact_sequences": 8,
+    "reference_records": 10
+  }
+}

@@ -1,0 +1,844 @@
+{
+  "schema_version": 1,
+  "model_config_sha256": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541",
+  "records": [
+    {
+      "name": "python_add",
+      "rendered_prompt": "<|im_start|>user\nWrite a Python function add(a, b) that returns their sum.<|im_end|>\n<|im_start|>assistant\n",
+      "input_ids": [
+        [
+          27,
+          1397,
+          233,
+          3969,
+          255,
+          99,
+          2717,
+          669,
+          846,
+          42,
+          99,
+          46,
+          321,
+          43,
+          410,
+          2565,
+          708,
+          1572,
+          48,
+          28,
+          233,
+          27,
+          8091,
+          233
+        ]
+      ],
+      "attention_mask": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "generation_settings": {
+        "do_sample": false,
+        "max_new_tokens": 64,
+        "eos_token_id": 28,
+        "pad_token_id": 0
+      },
+      "enable_thinking": true,
+      "position_ids": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ]
+      ],
+      "generated_ids": [
+        [
+          23,
+          233,
+          2116,
+          895,
+          333,
+          6246,
+          434,
+          255,
+          99,
+          2717,
+          669,
+          4492,
+          48,
+          470,
+          1297,
+          13094,
+          60,
+          392,
+          3969,
+          255,
+          99,
+          2717,
+          669,
+          846,
+          42,
+          99,
+          46,
+          321,
+          43,
+          410,
+          2565,
+          708,
+          1572,
+          1748,
+          56672,
+          7958,
+          48,
+          11993,
+          1493,
+          1234,
+          2250,
+          48,
+          33239,
+          1641,
+          60,
+          233,
+          233,
+          910,
+          846,
+          42,
+          99,
+          46,
+          321,
+          800,
+          233,
+          308,
+          587,
+          255,
+          99,
+          523,
+          321,
+          233,
+          233,
+          5704
+        ]
+      ],
+      "prefill_logits": "python_add_prefill.pt",
+      "prefill_logits_sha256": "bcb28b76697e14d1b921c740b4ab18989895fcf50276a6788964e22d666d1e54",
+      "logits_semantics": "last_prompt_position_full_vocab",
+      "generation_logits": [
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_000.pt",
+          "sha256": "82b14b419d28dd1f77889a9a01f2b1ee658da2be53c6336bb89de43a639b6dae"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_001.pt",
+          "sha256": "99ae9f7a4a2d6aaf9e4c46365befbb92761102840cf253f48b488ec803f65b14"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_002.pt",
+          "sha256": "a08338646cb2bb0c2745e6f04b60c96a8da16beaa590024c874ba9668774c96a"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_003.pt",
+          "sha256": "283a4dddc12db9f5814e3a0208ae1f85e49210a756ec95501faec0e6829839c3"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_004.pt",
+          "sha256": "eeed5be992a9b02f03e79f6270e2b5f1250935eb3e6aedc07bc62859c97f0a2c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_005.pt",
+          "sha256": "1bd59b63e49e6e04a3ae7405a552cfd3965530d0cb2d13f78cc583b6a9943433"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_006.pt",
+          "sha256": "4b21dd4ad2a660568262d3e67d4e586bfda2abd47b6758960c118deaa54da21c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_007.pt",
+          "sha256": "5e1cf25ae675d2e39bad7cc4cfd579b43481ad286c9ca4f351b6d59c91ab007e"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_008.pt",
+          "sha256": "3fd759740a558612dc3a5d06a62aee3900d8340bcead759e9a07ffa74ae0fa8c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_009.pt",
+          "sha256": "bdeeeb62801b8fc2f7b892e961657883073b19063c1af1b7d3caa0f37a5e98b7"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_010.pt",
+          "sha256": "29cc531ae4e3ecfa6201bbea1c90b83b03e4a78b394a6541322982fcbfcf4ae7"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_011.pt",
+          "sha256": "d5bb590e867ee4aee6254efeaea8d9e2ccb65af318dd53557fd6739420aef20f"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_012.pt",
+          "sha256": "7eb5634a0ecb6e525d25cf549d080c3aea37f7131612248f42a57df27edeb703"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_013.pt",
+          "sha256": "b61fbd52078d9ff88c361a5148f7577f3cd20d72fa4876774e6209487f8546e1"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_014.pt",
+          "sha256": "0fb4bf4aaab9a837a43b52a8e16593d61bee7f8b0b9254068fd782c56c8c793d"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_015.pt",
+          "sha256": "c9f667e04ee80621bb3eec92419e7d9811d299f9aafb11c2577661d380a1b0bd"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_016.pt",
+          "sha256": "a820937b12f3c2e08d175eeb9b7ba4fdfe6c93ff71f6499f3aa5c2e538561a4a"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_017.pt",
+          "sha256": "c3e86e241cc5a12b51f542a44bcce49c6bb46fe41cd9c8911fda29357b524b78"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_018.pt",
+          "sha256": "525b4adea10e19a320e351149de61496abd260dbab9ea241824461cb358dba1e"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_019.pt",
+          "sha256": "5470898d10b42c6e5cda941369f6a1cd06e2895688f7b83e574236571cd4a3c8"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_020.pt",
+          "sha256": "6a00cbae211ae07763da965d78881b5777bf874377bba64dfbbd9cd726aaac46"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_021.pt",
+          "sha256": "ab7f19805fd102e62792e353b7f08f8c3e25a698fadc98c2622eb7d7b2ce74ab"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_022.pt",
+          "sha256": "0935ab26f137312c325d3bb1bc1823ab42b2386f55f24ac927765e65fda48c5e"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_023.pt",
+          "sha256": "3f50a2e68730ae682530bac73120748eb94243782c4deb294c6f35211e571566"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_024.pt",
+          "sha256": "cafed4ba75497f8b517db0d4450f83e831ead2047230eea79bf76841473b3d9c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_025.pt",
+          "sha256": "d3c75098a62d8a07859ee7157f0ca3638173d8c2a6c5d690e3e4aa5115f8517c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_026.pt",
+          "sha256": "2eb6b0ea8bf7566dc3b9445d471016ab3b2039328c5e5ab2732bc578107c76d8"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_027.pt",
+          "sha256": "8fe7f002831ee19e420ff4ea969f78881fffdca6d4814c050da49de9ce1d26e8"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_028.pt",
+          "sha256": "609249b8b43089f85b09e8ccd6d988933e9afe9d4ec0925a51e69b213f752457"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_029.pt",
+          "sha256": "76bbbc96fb59d02b9fad7a7d9f1785db4dde2815fd30535071233bc8b7dd808a"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_030.pt",
+          "sha256": "943eaa0731ce20e858f162f7c1201cc3b6e5a17c92170e99f7a130650965cb2c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_031.pt",
+          "sha256": "f50969b4fde3cf0a21046e36d235e6232d7fc4c9e2c3568edec229c0248eb103"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_032.pt",
+          "sha256": "e3938e84ae8cf267ab5d879879f803e21351634aec5ece95bd35e3360682a1ca"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_033.pt",
+          "sha256": "ad02d20626332b8cafe55efb00ad66d56e86ab563449321b6d4791e9efb40805"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_034.pt",
+          "sha256": "5aa2db08c429b677fa5b31e8fb8d3e52364e6831b4f5ee41e7ca0056ad6dca70"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_035.pt",
+          "sha256": "4bcad38a00355ebecd0126becfebf67649f680907b931dbe22ccb08f506f5989"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_036.pt",
+          "sha256": "534c31f252576b5a2d49a374305c0daf5acf060238f8e61478ed82ddbe94d617"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_037.pt",
+          "sha256": "6fbb8de9307e7c2508065a287df1a0c8bd8fa78871fe219d975f761a9a994600"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_038.pt",
+          "sha256": "102abb9dda85eaf5ae2f3ac69fdb5d83a0de9e6691f97f5fac6aeed41c27125e"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_039.pt",
+          "sha256": "0b4c0221636197d187a35020661e69e522fa1c44f18880bb9245c6eb98659f9e"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_040.pt",
+          "sha256": "aef05d2ff5b950ad3008a3474d11830cbbb09859ed868f3d85fb493c84864d46"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_041.pt",
+          "sha256": "2d1478fdff792ccfd25a416d85b4b5a5a75a121606dcc22abb85d56bb823b2b2"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_042.pt",
+          "sha256": "3fe4d5a4201235283d785ce7b0ffe49744c5426eb73a3e126e9c850c0e26a5b3"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_043.pt",
+          "sha256": "0191259532790a1daa38ab5fff42a2b55cb2061faa65931aa7a5b0a337352f43"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_044.pt",
+          "sha256": "660d06c40582568220efd36e190859494ef9710b7d28fea1a5972b32a755a151"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_045.pt",
+          "sha256": "8213b71f6ccb70c0a30bd6fd4927d250c4aec10436c52284ba19f1e93ccc7fc5"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_046.pt",
+          "sha256": "4810888a80e3f8f499d649d3400f5084f21f63ac0a0bd6556fafeccff3275d97"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_047.pt",
+          "sha256": "4d758fc15e2a114abbef55d4320a05297faabe6c439ddb676a94e6571c34a8c6"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_048.pt",
+          "sha256": "3d4342f4c2bebf3af2ba9717632c43e31b1380b891c91f766dd306a2ea9670e5"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_049.pt",
+          "sha256": "4d8243e0908a84c6efccce09fded07b6f3d9c2512d47e36956aa67105233d46a"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_050.pt",
+          "sha256": "a846326c14ec4f66ea51615dd9ec7b1305baf4c915941aed4d936de2bf93deee"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_051.pt",
+          "sha256": "6e5bf37e307f68036bc718d29b920b450c8d4756f33e4d397b3438150cab14b4"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_052.pt",
+          "sha256": "4d36f7979c05dab7b5bdfd4dd701fb77c5941224363df252edba193a335abf94"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_053.pt",
+          "sha256": "72c33fca68931e9d245736d4e386b76241558c067e2f23a2b102f9e9a051bdb1"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_054.pt",
+          "sha256": "f32dc0c078a5a559343aac293c7d59599066687b4b722d5efe558de7312447fa"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_055.pt",
+          "sha256": "76a426870c27397be5d12aa1302a818c270f635c0d65c64f6641932ea0d3f903"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_056.pt",
+          "sha256": "787190fb33ea678f35570c344a79def3347ee94ff9deddb4cd894f1ce3d23ee7"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_057.pt",
+          "sha256": "ce4eaa7c90fc695e41f71d0560485e2026e2e632d7cc249b1d597c91da44f982"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_058.pt",
+          "sha256": "dbd497881924bec818a9ce106f87a2a874793831c77fc0840fdbf85b3c465989"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_059.pt",
+          "sha256": "a8c8ce11363fa4e2d770e40431a1ef2ad91224445a39f5c8520e5d96659c82f9"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_060.pt",
+          "sha256": "ca0e204faefd362c8b8edf87841c553d26adf060f66b071d98fd1346e3f45b30"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_061.pt",
+          "sha256": "be85c7bb03d85bd491bd5f48ae00ff04bd5b3dc0e1a19e62de15f25234f454db"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_062.pt",
+          "sha256": "13844cbb76a3b4581ec416c0fdae28444c74a9cec1c15f127a3e43ce09455be1"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/python_add_generation_063.pt",
+          "sha256": "ed8fc5af53c893534229979128246dfe09bdf8495ead2b14a661be447de7e7f2"
+        }
+      ]
+    },
+    {
+      "name": "arithmetic",
+      "rendered_prompt": "<|im_start|>user\nWhat is 17 + 25?<|im_end|>\n<|im_start|>assistant\n",
+      "input_ids": [
+        [
+          27,
+          1397,
+          233,
+          2821,
+          359,
+          255,
+          51,
+          57,
+          523,
+          255,
+          52,
+          55,
+          65,
+          28,
+          233,
+          27,
+          8091,
+          233
+        ]
+      ],
+      "attention_mask": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "generation_settings": {
+        "do_sample": false,
+        "max_new_tokens": 64,
+        "eos_token_id": 28,
+        "pad_token_id": 0
+      },
+      "enable_thinking": true,
+      "position_ids": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "generated_ids": [
+        [
+          23,
+          233,
+          20320,
+          46,
+          302,
+          1297,
+          359,
+          11090,
+          1186,
+          255,
+          51,
+          57,
+          8583,
+          255,
+          52,
+          55,
+          359,
+          48,
+          2778,
+          776,
+          1797,
+          48,
+          3531,
+          637,
+          255,
+          99,
+          12972,
+          3423,
+          1354,
+          48,
+          397,
+          895,
+          333,
+          846,
+          255,
+          51,
+          57,
+          335,
+          255,
+          52,
+          55,
+          3301,
+          48,
+          2778,
+          776,
+          2313,
+          496,
+          1803,
+          48,
+          255,
+          51,
+          57,
+          359,
+          255,
+          51,
+          50,
+          8583,
+          255,
+          57,
+          46,
+          335,
+          255,
+          52,
+          55
+        ]
+      ],
+      "prefill_logits": "arithmetic_prefill.pt",
+      "prefill_logits_sha256": "0fa5ee8a30643526cf47f17712cde3b09e117f9c343341f27a44564a7a742ad1",
+      "logits_semantics": "last_prompt_position_full_vocab",
+      "generation_logits": [
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_000.pt",
+          "sha256": "8232c0d8f7e81b59c388bdeb5c4ca31384cafd9502d3d7175fa74936643f4f08"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_001.pt",
+          "sha256": "4b1f2baa4063ae00af280b3e3bd30fa984e2c97187e060d5448f15894df84f88"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_002.pt",
+          "sha256": "e0c28483f0a70432fc88962f1d36315318d742627ca2a8e6e3301367e96d6408"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_003.pt",
+          "sha256": "56a9ec63f5886bcb108977ebc75e9b5ea79cce9a9a2b0227bd3696fe3271dc45"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_004.pt",
+          "sha256": "7f252bd6fe6599a1d3b8ff5495368709cefde90f686e841eaa27976df9a15153"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_005.pt",
+          "sha256": "12c8e373ebeb00937b6a591d56eacd15cfd3a05d63e0463846bb4f81ec540dcf"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_006.pt",
+          "sha256": "554cfa705d035101ea739bd20152b90fe99e01249f15255679d1225df06d26f5"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_007.pt",
+          "sha256": "3cde1e446ca3b5978704e4599988c67ac3828beaac61ef47fe1d74266c298580"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_008.pt",
+          "sha256": "ffb088bda56472d82174f93ffe31a0a67621cefbc9cf087f0baf0087edd2f78f"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_009.pt",
+          "sha256": "2c8d73805404cb8b6abbcc6ae46650646cc113504d6f920146642a3fe3b0b917"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_010.pt",
+          "sha256": "e93bcca179a2eec17bc4de46dc90917c64d1a8b5fcc4c033e0c15c387783be50"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_011.pt",
+          "sha256": "a491a1b8cb9daba5fec9415d64da0f78b8f090fe82562f7914f6d587af44155a"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_012.pt",
+          "sha256": "2cab258302d64bcecbe21247ed78359536d921a3c8214d2328f34b0c4f04de78"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_013.pt",
+          "sha256": "b030c7830ee593c76a9498151c4a2c6ee993768e4921655da1011c9955a1b997"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_014.pt",
+          "sha256": "48d751ee10134220a7856bddaf1f9ceb0e59532ce714588c7c5c47dbed5d22d6"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_015.pt",
+          "sha256": "d54abc0576b9ef4a443ea6a940a0fae7867bcfbde4eb15e14bd5c1ca46fcaee2"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_016.pt",
+          "sha256": "12398aad8f01e213bcd19ae012ecc3d7fc6278234ab0c5bd9842938754b3fec9"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_017.pt",
+          "sha256": "eadcb6748a312adec7cfb00b7058ad30c0c579d072cca1169d0a0d0e4c047b8d"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_018.pt",
+          "sha256": "84e42f18123da46ec4be2f3374a25d6fef065d50b785f4e740d16c7f7367efef"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_019.pt",
+          "sha256": "4f0f7843188728f3e9c5165020c41f4ce4b9bfdda0049f42e3284dfdd75fc3e4"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_020.pt",
+          "sha256": "b2346e8705abd902ec67827337afb0f547d90d2dfddceabcd57e7fdf765a7640"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_021.pt",
+          "sha256": "bce0405a4d15e0031220d429827a444a449374b4df448201e7f22a8469a6b892"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_022.pt",
+          "sha256": "1fa788c833f9ae2c922a8bc020117557185a6ecbd016b783f5c518382eab956a"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_023.pt",
+          "sha256": "388cf788810c04b159a19d9ebd2a448144e15b161fa7de4340b2d261915e5e3b"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_024.pt",
+          "sha256": "423e4cc394e4ef6c54a4d9b0719265e3228639db2c4e66d06c08605fc4d71e6c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_025.pt",
+          "sha256": "103ca0abcb4f4d16052fd5b7b5eefb8b5edead18fe741469805c58445ab4a267"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_026.pt",
+          "sha256": "5a0d89fe2be57d1d1f7df8a1f20e74092d97988da7e9430a5471cbdf2dee85cb"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_027.pt",
+          "sha256": "ca593d6ccc3fe758fbd0abdfae5c889dced83f2dff7e05080abc0ac042cdea1e"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_028.pt",
+          "sha256": "2741fc58b0cf0b78910470c6fe5e9072b1962cbe27b1a4381c3d209466a8b75e"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_029.pt",
+          "sha256": "2ede8850598aa064c15da1908db03a7ad535efe81c5fade2d73c9444712ecfd5"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_030.pt",
+          "sha256": "59208a6372e12f73b4a4fe8c507e8543efc8631d750bd8073bf140c86eeafa70"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_031.pt",
+          "sha256": "5af41b7dcd212162173333b6ccbbab46588d8ab593347c3c6fa71a854f11f20f"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_032.pt",
+          "sha256": "2e9138d6e36760e48f73e68be3fcb63ee0ec66f7a21f0d72722323e466dc98a5"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_033.pt",
+          "sha256": "ff4051f2f3b219b8dee11ffec0d48f1b92124db788ee38b4ac8b7cc8d7a85d0c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_034.pt",
+          "sha256": "326502a0cf7c50eaf94fcbc97ba7db291d061ca509e7a729bd9f624d0452b90c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_035.pt",
+          "sha256": "6bfe2c5de5194e373f5e7e332cef796482dfc71ddc1f81e52399aa5f52442826"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_036.pt",
+          "sha256": "2d1d4863acd36b63546b23d8e1fed446bfd84ac7046840cffc2a0e071d4dfd04"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_037.pt",
+          "sha256": "f4b133a750e86f0e459f5806ed3de824104ce7251bffd1a4d13ec1d363dc5146"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_038.pt",
+          "sha256": "d6b6a207c370f56a1878353480151dd3a0b8b6b9a857e523dec4d3910766d84c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_039.pt",
+          "sha256": "acfb60082127406d283ff803ff30285a339c41a4b61b8fabc60f4c6674e40c56"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_040.pt",
+          "sha256": "9013ab955c7bd1ee1260aad11011d8aecfd5b7c71e6449ea0339617b14f5720c"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_041.pt",
+          "sha256": "45d90adc19829f03894c3a153105ad2e83c6a6af08e1a477466cfad066c8dcdd"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_042.pt",
+          "sha256": "e0a527ad9fa5ca4e6d8f473435c53540563628e47a633ebdd4bdc71eebcc8748"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_043.pt",
+          "sha256": "7b580490039372784741551a83cdfe93e8555fa9f0974cb671c3c9fef8ba2d94"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_044.pt",
+          "sha256": "e6c8a3c37fd5898b24d83a02c98c6c241a0b19bdb326e1a5972651d090d29d03"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_045.pt",
+          "sha256": "08c4dad6a158c69354edd01d9db979be7b3a60db55eb5a5b09a7f909c5c2eba3"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_046.pt",
+          "sha256": "6a417b59a52d6f22cee9945e7ea0a8f47534e927ecddba15d246f00a497af42a"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_047.pt",
+          "sha256": "0d96158dc72e479280b9d107b2a6afd695d071ce055871eccf1599d10a709fa4"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_048.pt",
+          "sha256": "bf20766ff755f975105cb4564587ffdce9fc494a050a3cc67f62a6b6afa47dfb"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_049.pt",
+          "sha256": "1535b898a6f7082d3fe0a35ba5663987eed74c668f5d25a80f80790b374248c2"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_050.pt",
+          "sha256": "6b1376bd1d2aeb432f728f85ae0e6920fb1b773a30b94ae83164284003e83354"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_051.pt",
+          "sha256": "c55e341e5003f7eb13536c45ea73ca41a64a13b1b3d0c63f42911546f0576286"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_052.pt",
+          "sha256": "68a342531396ea6b75e1f7db0ae733fcf5e4904f29cdfb00660480b7386a4cd3"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_053.pt",
+          "sha256": "335925fc7aa18d1e3e6024ce00070fa55709c2cc239dc8ac2991689c637a806d"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_054.pt",
+          "sha256": "6719763978d3006e51796297197b04d25a09e09d9c182ed3267588b08009bd42"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_055.pt",
+          "sha256": "0adb753171fc14149e112b1bd6f9005c65d7c018d0d41e75515e6adf57956093"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_056.pt",
+          "sha256": "d9e9be9d9174745dc34a8438647ffd57ac9e90da6e875e4c269b4e3deef17d83"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_057.pt",
+          "sha256": "847d7c24ab6f5ff85a58137ff0702c0f46d2d042875ccefeda7334968d943e69"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_058.pt",
+          "sha256": "cac337a1615170ba54d80a736c5bd9fae99f3dfe3b732e52801c1afbc93d8111"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_059.pt",
+          "sha256": "70986e0b430b450d57487b3fd346ed96b33959d8e5072ce9fd5bfd0fb0f73885"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_060.pt",
+          "sha256": "b9ab0778016bc1464f7a0de8cb9e4d312c40b08fbfc2c7df73370fa2d672ba09"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_061.pt",
+          "sha256": "b1c7bbcccddfdfaaa7dfe3c3b3256f7da2d521b997188372e1b83042b90ff3f6"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_062.pt",
+          "sha256": "ba81ed8fd60ab7d3b9c090c1c31b405ed0687734519c6f1508422a76440f198b"
+        },
+        {
+          "path": "/workspace/results/mellum_validation/20261112T173200224689Z/hf/arithmetic_generation_063.pt",
+          "sha256": "33c08e9cdd501fd71b58e167cdf570260b047dd249086d89e11c9ac4349e6793"
+        }
+      ]
+    }
+  ],
+  "suite": "short",
+  "scope": "developer_regression_not_official",
+  "producer": "hf",
+  "environment": {
+    "transformers": "5.10.1",
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "experts_implementation": "grouped_mm"
+  }
+}

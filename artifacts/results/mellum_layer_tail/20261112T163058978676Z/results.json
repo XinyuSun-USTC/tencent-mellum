@@ -1,0 +1,121 @@
+{
+  "status": "diagnostic_complete",
+  "source_run": "/workspace/results/mellum_decode_validation/20261112T152156609360Z",
+  "script_sha256": "8336302aad04483fdacb9e848c9606866a109d01e0b9f90d10ad13c198d98964",
+  "layer": 8,
+  "preconditions": {
+    "layer_input_exact": true,
+    "attention_qkv_context_exact": true,
+    "hf_input_sha256": "8176f79e2fc81431590909085f664a9ca54ef09959d21192e984e7bf6dc38a8d",
+    "hf_attention_sha256": "08aebcee9af0445f98ab8885387b60fcf4cb6ccc15365662cbd38c2b28449432"
+  },
+  "comparisons": {
+    "o_projection": {
+      "exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "different_elements": 0,
+      "elements": 2304
+    },
+    "residual": {
+      "exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "different_elements": 0,
+      "elements": 2304
+    },
+    "post_norm": {
+      "exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "different_elements": 0,
+      "elements": 2304
+    },
+    "router_logits": {
+      "exact": false,
+      "max_abs": 0.015625,
+      "relative_l2": 0.00044961419189348817,
+      "different_elements": 1,
+      "elements": 64
+    },
+    "moe_same_reference_input": {
+      "exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "different_elements": 0,
+      "elements": 2304
+    },
+    "moe_natural_input": {
+      "exact": false,
+      "max_abs": 0.03125,
+      "relative_l2": 0.006634271237999201,
+      "different_elements": 1740,
+      "elements": 2304
+    },
+    "hf_layer_replay": {
+      "exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "different_elements": 0,
+      "elements": 2304
+    },
+    "atom_layer_replay": {
+      "exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "different_elements": 0,
+      "elements": 2304
+    }
+  },
+  "routing": {
+    "hf_ids": [
+      [
+        44,
+        17,
+        32,
+        1,
+        14,
+        40,
+        59,
+        30
+      ]
+    ],
+    "atom_ids": [
+      [
+        44,
+        17,
+        32,
+        1,
+        14,
+        40,
+        59,
+        30
+      ]
+    ],
+    "hf_weights": [
+      [
+        0.234375,
+        0.1796875,
+        0.171875,
+        0.12158203125,
+        0.0771484375,
+        0.0771484375,
+        0.07373046875,
+        0.06396484375
+      ]
+    ],
+    "atom_weights": [
+      [
+        0.2314453125,
+        0.1806640625,
+        0.171875,
+        0.1220703125,
+        0.07763671875,
+        0.07763671875,
+        0.07421875,
+        0.064453125
+      ]
+    ]
+  },
+  "interpretation_gate": "inspect_components"
+}
