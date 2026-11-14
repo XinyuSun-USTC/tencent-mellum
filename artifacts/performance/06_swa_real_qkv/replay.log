@@ -1,0 +1,11 @@
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+[aiter] import [mha_varlen_fwd_bf16_nlogits_nbias_mask_nlse_ndropout_nskip_nqscale] under /app/aiter-test/aiter/jit/mha_varlen_fwd_bf16_nlogits_nbias_mask_nlse_ndropout_nskip_nqscale.so
+[aiter] import [module_fmha_v3_varlen_fwd] under /app/aiter-test/aiter/jit/module_fmha_v3_varlen_fwd.so
+[aiter] type hints mismatch, override to --> fmha_v3_varlen_fwd(q: torch.Tensor, k: torch.Tensor, v: torch.Tensor, cu_seqlens_q: torch.Tensor, cu_seqlens_k: torch.Tensor, max_seqlen_q: int, max_seqlen_k: int, min_seqlen_q: int, dropout_p: float, softmax_scale: float, logits_soft_cap: float, zero_tensors: bool, is_causal: bool, window_size_left: int, window_size_right: int, return_softmax_lse: bool, return_dropout_randval: bool, how_v3_bf16_cvt: int, out: Optional[torch.Tensor] = None, block_table: Optional[torch.Tensor] = None, bias: Optional[torch.Tensor] = None, alibi_slopes: Optional[torch.Tensor] = None, q_descale: Optional[torch.Tensor] = None, k_descale: Optional[torch.Tensor] = None, v_descale: Optional[torch.Tensor] = None, gen: Optional[torch.Generator] = None, cu_seqlens_q_padded: Optional[torch.Tensor] = None, cu_seqlens_k_padded: Optional[torch.Tensor] = None) -> List[torch.Tensor]
+[aiter] pciChipId: 0x74a2, CU count: 80
+[aiter] LoadKernel: _ZN5aiter37fmha_fwd_hd128_bf16_causal_rtna_groupE hsaco: /app/aiter-test/hsa//gfx942/fmha_v3_fwd/MI308/fwd_hd128_bf16_causal_rtna_group.co
+/opt/venv/lib/python3.12/site-packages/torch/profiler/profiler.py:217: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+  _warn_once(
+[W1114 14:53:28.159289967 collection.cpp:1148] Warning: ROCTracer produced duplicate flow start: 6 (function operator())

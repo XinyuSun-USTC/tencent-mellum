@@ -4,7 +4,7 @@
 
 ## 当前入口
 
-最新优化结果：[性能05](performance/05_swa_hf_triangulation.md)：Step0与HF 192/192 token及logits精确，候选仅41/192 token一致，分叉已确认由候选引入；当前不采纳，下一步同真实Q/K/V单层诊断。性能收益见[04](performance/04_swa_prefill_abba.md)。
+最新优化诊断：[性能06](performance/06_swa_real_qkv_diagnosis.md)：真实QKV精确回放，CK窗口路径约0.57%差异在1K同可见集合也存在，继续关闭候选；下一步复用QKV筛选替代实现。此前HF分叉见[05](performance/05_swa_hf_triangulation.md)，TTFT潜力见[04](performance/04_swa_prefill_abba.md)。
 
 扩展实测见[性能02](performance/02_expanded_bs1_profile_study.md)：19配置132次计时与10份trace已核验；长prefill优先SWA，decode关注KV/RoPE与专家权重物化。实验协议见[09](../docs/plan/09_expanded_profile_study.md)。
 

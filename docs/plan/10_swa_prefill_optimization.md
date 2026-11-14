@@ -101,3 +101,5 @@ ABBA已实测长输入TTFT有收益，但同后端重复稳定、基线与候选
 ```
 
 预算约1–3分钟（首次编译/机器状态可能延长），capture与replay各900秒上限，15秒心跳；结果目录`/workspace/results/mellum_swa_layer/<id>/`下`replay.json`为主要诊断结果。`diagnostic_complete`仅表示采集/回放完成，不能当候选通过。无新依赖，无正式基准或默认数学后端变化。
+
+真实QKV诊断结果见[性能06](../../report/performance/06_swa_real_qkv_diagnosis.md)：基线精确回放、正确窗口CK Tile路径确认，差异不能仅由窗口差一解释。下一步直接复用保存QKV筛选兼容替代窗口实现，当前候选继续关闭。

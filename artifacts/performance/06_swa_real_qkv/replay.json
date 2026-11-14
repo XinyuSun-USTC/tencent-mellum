@@ -1,0 +1,109 @@
+[
+  {
+    "name": "ctx_1024",
+    "candidate_trace": "/workspace/results/mellum_swa_layer/20261114T145253662684Z/ctx_1024_candidate_trace.json.gz",
+    "kernel_names": [
+      "std::enable_if<!(kattr_no_packed_fp32_ops_v<ck_tile::gfx9_t>), void>::type ck_tile::kentry<ck_tile::gfx9_t, 2, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs>(ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs)"
+    ],
+    "qkv_sha256": "c16e5dd84af0eb9de32b4c5481af79627455992c111f678ae95b7670768a4f81",
+    "reference_replay_exact": true,
+    "reference_vs_fp32": {
+      "exact": false,
+      "max_abs": 0.0006568431854248047,
+      "relative_l2": 0.0016759454738348722
+    },
+    "candidate_vs_reference": {
+      "exact": false,
+      "max_abs": 0.001953125,
+      "relative_l2": 0.005689824465662241
+    },
+    "candidate_vs_fp32": {
+      "exact": false,
+      "max_abs": 0.0017604231834411621,
+      "relative_l2": 0.0055740769021213055
+    },
+    "reference_vs_fp32_rounded_bf16": {
+      "exact": false,
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.0010485785314813256
+    },
+    "candidate_vs_fp32_rounded_bf16": {
+      "exact": false,
+      "max_abs": 0.001953125,
+      "relative_l2": 0.005667766090482473
+    },
+    "last_position_candidate_vs_reference": {
+      "exact": false,
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.005600413773208857
+    },
+    "window_controls_vs_reference": {
+      "1023": {
+        "exact": false,
+        "max_abs": 0.007080078125,
+        "relative_l2": 0.005705713294446468
+      },
+      "1025": {
+        "exact": false,
+        "max_abs": 0.0009765625,
+        "relative_l2": 6.212888547452167e-05
+      }
+    },
+    "full_sdpa_vs_reference": {
+      "exact": false,
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.0005758858751505613
+    }
+  },
+  {
+    "name": "ctx_4096",
+    "candidate_trace": "/workspace/results/mellum_swa_layer/20261114T145253662684Z/ctx_4096_candidate_trace.json.gz",
+    "kernel_names": [
+      "std::enable_if<!(kattr_no_packed_fp32_ops_v<ck_tile::gfx9_t>), void>::type ck_tile::kentry<ck_tile::gfx9_t, 2, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs>(ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs)"
+    ],
+    "qkv_sha256": "b7ba03561c1582209f673badc1e61c5d1d1002a36320be02a3a2f970249098fa",
+    "reference_replay_exact": true,
+    "reference_vs_fp32": {
+      "exact": false,
+      "max_abs": 0.0006774067878723145,
+      "relative_l2": 0.0016741640865802765
+    },
+    "candidate_vs_reference": {
+      "exact": false,
+      "max_abs": 0.001953125,
+      "relative_l2": 0.005689429584890604
+    },
+    "candidate_vs_fp32": {
+      "exact": false,
+      "max_abs": 0.0017604231834411621,
+      "relative_l2": 0.005593651905655861
+    },
+    "reference_vs_fp32_rounded_bf16": {
+      "exact": false,
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.000997047871351242
+    },
+    "candidate_vs_fp32_rounded_bf16": {
+      "exact": false,
+      "max_abs": 0.001953125,
+      "relative_l2": 0.005668049678206444
+    },
+    "last_position_candidate_vs_reference": {
+      "exact": false,
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.005406106822192669
+    },
+    "window_controls_vs_reference": {
+      "1023": {
+        "exact": false,
+        "max_abs": 0.0029296875,
+        "relative_l2": 0.005716325715184212
+      },
+      "1025": {
+        "exact": false,
+        "max_abs": 0.00201416015625,
+        "relative_l2": 0.005712384823709726
+      }
+    }
+  }
+]
