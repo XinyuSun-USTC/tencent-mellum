@@ -60,3 +60,5 @@
 - 优化点1分叉核验准备：新增同ABBA三条输入的HF/候选/Step0三方正常64token对照，严格校验来源并复用同一HF参考，保留与ABBA前缀的比较；同历史logits增加整体偏移、去均值RMS与top1间隔。相关10项CPU通过、prepare-only130643通过；GPU仍不可见，未改模型数学和验收门槛，待用户执行新命令。详见[计划10](../docs/plan/10_swa_prefill_optimization.md)。
 
 - 优化点1三方HF对照：134033完成。Step0与HF三条×64共192token及完整生成logits精确；候选41/192token、0/3序列一致，首差为11/20/12，与ABBA前缀完全复现。首差双方均选自身非并列argmax，去均值RMS仍0.33–0.45，不能用统一偏移或采样器修复。详见[性能05](performance/05_swa_hf_triangulation.md)；候选不采纳，下一步少量真实Q/K/V单层oracle/窗口诊断，暂不扩大200条或重复性能，未启动新GPU。
+
+- 优化点1单层诊断开发：新增显式首层prefill observer及1K/4K真实QKV回放，要求原SDPA输出逐位重现；对照AITER窗口±1、FP32 oracle/最终BF16舍入，并采短trace确认选路。35项CPU通过、prepare-only134928通过；模型默认不安装observer，未启动GPU，用户命令见[计划10](../docs/plan/10_swa_prefill_optimization.md)。

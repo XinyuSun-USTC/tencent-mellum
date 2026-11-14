@@ -161,3 +161,21 @@ def test_swa_candidate_does_not_hide_kernel_failure(monkeypatch):
     monkeypatch.setitem(sys.modules,'aiter',types.SimpleNamespace(flash_attn_varlen_func=fail))
     with pytest.raises(RuntimeError,match='unavailable'):
         aiter_swa_prefill(torch.zeros(8,4,4),torch.zeros(8,2,4),torch.zeros(8,2,4),torch.tensor([0,8]),4,.5)
+
+
+def test_real_qkv_capture_preserves_output_and_saves_once(tmp_path,monkeypatch):
+    from atom.model_config.mellum_swa_capture import install_swa_capture
+    import atom.model_config.mellum_attention as m
+    q=torch.zeros(1024,2,2);k=torch.zeros(1024,1,2);v=torch.ones_like(k)
+    returned=torch.ones_like(q)
+    impl=types.SimpleNamespace(layer_num=0,sliding_window=1024,scale=.5,
+        _mellum_raw_qk=(q,k,torch.arange(1024)),_mellum_cpu_rope=(torch.ones(1),1.),
+        prefill_attention=lambda *args:returned)
+    monkeypatch.setattr(m,'reference_position_rope',lambda *args:(q,k))
+    install_swa_capture(impl,tmp_path)
+    assert impl.prefill_attention(q,k,v) is returned
+    saved=torch.load(tmp_path/'ctx_1024.pt',weights_only=True)
+    assert torch.equal(saved['q'],q) and torch.equal(saved['reference_output'],returned)
+    (tmp_path/'ctx_1024.pt').unlink()
+    assert impl.prefill_attention(q,k,v) is returned
+    assert not (tmp_path/'ctx_1024.pt').exists()

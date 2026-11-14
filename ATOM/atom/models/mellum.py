@@ -198,6 +198,12 @@ class MellumAttention(nn.Module):
                 raise ValueError('Diagnostic SDPA decode requires reference KV rotation')
             from atom.model_config.mellum_attention import install_sdpa_decode
             install_sdpa_decode(self.attn.impl)
+        capture_root = os.getenv('MELLUM_SWA_QKV_CAPTURE_DIR')
+        if capture_root:
+            if prefill_backend != 'sdpa_cpu_rope_diagnostic' or swa_opt != '0':
+                raise ValueError('QKV capture requires the Step0 reference prefill')
+            from atom.model_config.mellum_swa_capture import install_swa_capture
+            install_swa_capture(self.attn.impl, capture_root)
 
     def forward(
         self,

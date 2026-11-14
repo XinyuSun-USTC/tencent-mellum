@@ -85,3 +85,19 @@ ABBA已实测长输入TTFT有收益，但同后端重复稳定、基线与候选
 预计约3–5分钟（实际随机器状态变化），每15秒心跳，HF+候选阶段外层上限为2×900+120秒，内部各900秒，基线900秒。结果位于`/workspace/results/mellum_swa_hf_check/<id>/summary.json`及对照子目录；原始HF/ATOM张量仍保留各自运行目录，不覆盖旧产物。结果到来后再决定同输入同层attention回放或更换候选，不马上扩大完整200条或新增重复性能任务。
 
 三方实际结果见[性能05](../../report/performance/05_swa_hf_triangulation.md)：Step0与HF192/192token及logits精确，候选41/192token且首差复现。当前候选暂不采纳，后续取少量真实Q/K/V做单层oracle和窗口诊断，尚未执行。
+
+## 2026-11-14：单层真实QKV诊断执行工具
+
+新增`diagnose_mellum_swa_layer.py`，复用134033已确认Step0/HF精确的输入及prefill参考，只选择1024/4096、每条输出1token。加载一次Step0模型，显式`MELLUM_SWA_QKV_CAPTURE_DIR`安装首层prefill observer；默认无此observer。observer返回原对象，不改cache或计算结果。由于RoPE位于prefill方法内部，observer使用同一`reference_position_rope`、原始norm后Q/K及实际位置重建旋转后Q/K，保存实际V与原prefill输出。随后回放SDPA必须逐位重现该原输出，否则中止，不能带着采集口径差异解释候选。
+
+采集后引擎关闭，独立GPU进程读取两份QKV：reference SDPA、AITER window1024、AITER window1023/1025控制和显式FP32 oracle。oracle按128个query分块，以FP32 matmul/softmax处理明确causal/window mask，连续Q-head分组映射到KV head，禁用TF32；另比较oracle输出舍入至BF16后的误差，区分最终cast。CPU单元以逐query/逐head的独立FP64公式核对oracle及窗口边界。FP32结果是诊断参考，不声称HF必须更接近它或新设验收阈值。
+
+保存全位置与最后位置误差、原始QKV SHA256、实际reference逐位回放结论、每个长度一份短候选trace及kernel名称。window±1只是边界控制，不自动选择“最接近HF”的窗口更改模型语义。1024处应区分全causal与local的相同可见集合和不同实现选路；4K额外检查真正的滑窗遮罩。此实验不测性能、不证明全模型准确性，也不能直接定位所有后续层误差。
+
+本地35项CPU通过、py_compile与diff检查通过，prepare-only产物`/workspace/results/mellum_swa_layer/20261114T134928748533Z`。GPU仍由用户终端执行：
+
+```bash
+/opt/venv/bin/python /workspace/scripts/diagnose_mellum_swa_layer.py
+```
+
+预算约1–3分钟（首次编译/机器状态可能延长），capture与replay各900秒上限，15秒心跳；结果目录`/workspace/results/mellum_swa_layer/<id>/`下`replay.json`为主要诊断结果。`diagnostic_complete`仅表示采集/回放完成，不能当候选通过。无新依赖，无正式基准或默认数学后端变化。
