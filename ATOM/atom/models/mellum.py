@@ -202,6 +202,16 @@ class MellumAttention(nn.Module):
                 raise ValueError('Diagnostic SDPA decode requires reference KV rotation')
             from atom.model_config.mellum_attention import install_sdpa_decode
             install_sdpa_decode(self.attn.impl)
+        batching=os.getenv('MELLUM_REQUEST_BATCHING','0')
+        if batching not in ('0','1'):
+            raise ValueError('MELLUM_REQUEST_BATCHING must be 0 or 1')
+        if batching=='1':
+            if prefill_backend!='sdpa_cpu_rope_diagnostic' or os.getenv('MELLUM_SDPA_DECODE','0')!='1':
+                raise ValueError('Ragged bridge requires reference CPU RoPE and SDPA decode')
+            if any(os.getenv(name) for name in ('MELLUM_FORCED_DECODE_PLAN','MELLUM_FORCED_DECODE_DIR','MELLUM_SWA_QKV_CAPTURE_DIR','MELLUM_MOE_REPLAY_INPUT_DIR','MELLUM_PREFILL_LOGITS_DIR','MELLUM_FREE_LOGITS_DIR')):
+                raise ValueError('Ragged bridge cannot be combined with forced/capture diagnostics')
+            from atom.model_config.mellum_batch import install_ragged_attention
+            install_ragged_attention(self.attn.impl)
         capture_root = os.getenv('MELLUM_SWA_QKV_CAPTURE_DIR')
         if capture_root:
             if prefill_backend != 'sdpa_cpu_rope_diagnostic' or swa_opt != '0':

@@ -40,3 +40,17 @@ def engine_options(required_tokens, trace_dir):
                 max_num_seqs=1, gpu_memory_utilization=0.35,
                 enable_prefix_caching=False, enable_chunked_prefill=False,
                 torch_profiler_dir=str(trace_dir), mark_trace=False)
+
+
+def apply_serving(gpu,output,batching=False,implementation='reference',audit=False):
+    """Explicit runtime without tensor dumps/profile; shared by server and validation."""
+    if implementation not in ('reference','ck','triton'):raise ValueError(implementation)
+    settings=apply_candidate(gpu,output)
+    for key in ['MELLUM_PROFILE_CONTROL_DIR']:
+        settings.pop(key,None);os.environ.pop(key,None)
+    settings.update(MELLUM_PROFILE_LABELS='0',MELLUM_REQUEST_BATCHING='1' if batching else '0',
+        MELLUM_SWA_PREFILL_OPT='0' if implementation=='reference' else '1',
+        MELLUM_SWA_PREFILL_IMPL='ck' if implementation=='reference' else implementation)
+    if audit:settings['MELLUM_BATCH_AUDIT_PATH']=str(Path(output)/'batches.jsonl')
+    os.environ.update(settings)
+    return settings

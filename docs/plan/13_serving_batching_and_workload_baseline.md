@@ -4,7 +4,7 @@
 
 结束本轮Attention替代实现筛选（[性能09](../../report/performance/09_triton_activation32.md)）。下一阶段首要目标是：以冻结ATOM提供可复现的一条命令启动服务，Mellum真正承载多请求，先完成小规模正确性，再建立场景A并发32及B/C的可测基准。第二个算子优化点由批量profile决定，当前不预选MoE/Graph。
 
-本文件为详细实施计划，不代表服务/批量已经实现或GPU已经通过。本轮只读源码和撰写计划，未启新GPU任务或修改功能代码。保持单卡TP1/DP1、BF16、eager，不同时引入prefix cache、chunked prefill、Graph、量化、MTP或双卡；C虽有共享prefix，先允许不复用prefix运行，再依据实际瓶颈决定是否作为独立优化。
+本文件为详细实施计划，不代表服务/批量已经实现或GPU已经通过。计划制定轮只读源码和撰写计划；后续实现状态见文末，GPU结果仍待验证。保持单卡TP1/DP1、BF16、eager，不同时引入prefix cache、chunked prefill、Graph、量化、MTP或双卡；C虽有共享prefix，先允许不复用prefix运行，再依据实际瓶颈决定是否作为独立优化。
 
 ## 源码确认：已有能力与真实缺口
 
@@ -105,4 +105,44 @@ A/C先完成B0有效基准，再测试点1增量；不要求为进入批量研�
 - 文档：本计划13维护方案，实际GPU结果才新增性能10及后续；worklog继续按自然日记录。维持现有有序编号。
 - 当前不报“几小时即可全完成”的承诺：服务bs1接入、模型批量桥接、实际负载三个可审查里程碑逐个交付。每次用户运行命令前，先完成脚本、CPU检查及prepare-only，再说明GPU预算/超时与产物位置。
 
-当前已完成源码核查与方案；尚未实施多请求功能、尚未安装evalscope、没有新的GPU服务/批量成绩。
+初次计划时只完成源码核查；以下更新记录第一轮代码实施状态。evalscope仍未安装，没有新的GPU服务/批量成绩。
+
+## 第一轮实现交付：待GPU小集核验
+
+已新增`atom/model_config/mellum_batch.py`，由`MellumAttention.__init__`在`MELLUM_REQUEST_BATCHING=1`时安装。单请求直接调用原函数；多请求prefill按cu边界切分raw Q/K与各自positions，沿用原CPU RoPE/窗口SDPA后拼回。multi-decode按context_lens/block_tables/positions逐行调用原cached SDPA。实际K/V仍由原rope_cache与slot_mapping管理；无旁路历史cache，无Scheduler/API改动。prefix/chunk、graph padding/MTP等不兼容元数据显式拒绝；batch与forcing/replay/旧逐样本logits探针不混用。
+
+`apply_serving`复用CANDIDATE参考数学，清除继承的MELLUM诊断环境并关闭profile标签/control；`serve_mellum.py`提供固定CLI、source/config记录、独立HTTP/内部端口、reference/CK/Triton选择。默认reference、max_num_seqs=1，multi需显式`--batching`；优化默认仍关闭。没有改原S0默认配置。
+
+### 第一步：offline ragged smoke
+
+```bash
+/opt/venv/bin/python /workspace/scripts/validate_mellum_batch.py
+```
+
+一次加载max_num_seqs=4，maxlen1152、prefill token预算4096、TP/DP1/eager/BF16、util.35、prefix/chunk关闭。复用现有HF短输入两例及window1023/1025，输出预算16/32/8/8；先4次bs1，再pair、ragged4、反序/块复用及短请求结束后加入新请求。保留实际token与HF前缀比较、结束原因、提交ID映射、pending状态及layer0 batch审计。审计只验证实际cardinality，不把异步末尾额外forward计成额外生成token，也不当性能trace。`batches.jsonl`有CPU/GPU读取及落盘开销，只用于验证，正式性能默认关闭。
+
+输出`results/mellum_batch_validation/<id>/results.json`及阶段audit/log。强制检查至少出现真实multi-request decode，避免只测排队序列化。`batch_smoke_completed`表示执行完成，accuracy_review_required如实标记token差异，不自动宣称题目通过。预计1–3分钟，15秒心跳、1200秒总阶段上限；启动前要求至少80GiB可用。
+
+如基础bs4正常，再按顺序用`--max-seqs 8/16/32`扩大；这些是小输入容量检查，不替代正式A。当前不先让用户跑32，避免用尚未核验的GPU路径扩大成本。
+
+### 第二步：HTTP bs1 smoke
+
+```bash
+/opt/venv/bin/python /workspace/scripts/validate_mellum_http.py
+```
+
+脚本拥有并自动关闭server进程组，默认127.0.0.1:8051/内部8026。端口已占用则拒绝，不复用未知服务；请与offline验证顺序运行。启动后先health连通，再真实生成验证，不把health等同模型已通过。
+
+当前CompletionRequest.prompt是str，故先用本地tokenizer验证rendered_prompt重新encode与HF输入相同；HTTP比对skip_special_tokens=True的参考输出文本、完成token usage、SSE DONE及并发两个HTTP请求。另检查chat普通/stream内容与reasoning_content一致性。此处是文本/协议对照，精确token级检查在offline完成，不声称通过重编码HTTP输出证明全部token相同。
+
+输出`results/mellum_http_validation/<id>/summary.json`、server.log与server/launch.json。`http_smoke_completed`为执行完整，review_required标记文本/usage/stream差异；异常保留日志并清理owned进程。预计1–3分钟，启动等待300秒、请求超时180秒、退出先SIGINT再有限升级清理。HTTP bs1完成后可用`--max-seqs 4`检查桥接服务并发；当前尚未执行GPU，也未验证断连/abort或所有长输入服务边界，不能承诺阶段1–3全部验收通过。
+
+独立长驻服务命令（小集通过后使用）：
+
+```bash
+/opt/venv/bin/python /workspace/scripts/serve_mellum.py --batching --max-num-seqs 4
+```
+
+### 本地完成的检查
+
+相关59项CPU通过（ragged隔离、RoPE raw切片与无self状态修改、两种cache格式/窗口、跨块、重排、原模型与配置、SSE解析及profile回归），仅既有Torch profiler提示。compile/diff检查通过。prepare-only：offline212248、server212249/212719、HTTP212419/212720。fastapi/uvicorn/zmq/httpx已存在，无新依赖安装；工具中cuda_available=False，未启动GPU或服务。当前先交付上述两条短验证命令，取得真实结果后再处理必要问题和扩大容量。

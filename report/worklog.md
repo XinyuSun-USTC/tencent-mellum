@@ -76,3 +76,5 @@
 - Triton32条生成204611完成：实际impl=triton、正常64token、5631加载审计通过；HF匹配1262/2048=61.6211%，完整10/32；CK为1166/2048=56.9336%、7/32。逐题13改善/8下降/11相同，完整新增5条但回退2条。局部数值显著改善未转化同幅生成收益，且较CK慢，按时间边界结束本轮筛选，保留两实现不切默认；下一主线服务/批量，未追加完整200/ABBA/HumanEval。详见[性能09](performance/09_triton_activation32.md)。
 
 - 下一阶段方案核查：已有OpenAI服务、异步提交与prefill/decode分批Scheduler可复用；Mellum参考prefill/decode显式单请求检查为主要接入缺口，批量GEMM/MoE shape和临时权重物化需验证。形成[计划13](../docs/plan/13_serving_batching_and_workload_baseline.md)：bs1服务→ragged桥接→2/4/8/16/32小集/容量→正式A/B/C及批量profile→第二算子优化。区分S0/B0/点1、正常服务配置、原始分页KV及真实并发；evalscope未安装，当前只读核查/文档，无新功能/GPU。
+
+- 服务/多请求第一轮代码：新增opt-in ragged reference attention（bs1原函数回退、按请求raw RoPE切片、实际分页cache逐行decode），保留S0且拒绝不兼容缓存/强制探针；新增apply_serving、固定配置server入口、offline 1/2/4+反序复用/迟到请求验证、自动启动/关闭的HTTP completion/SSE/chat/并发smoke。59项CPU通过，prepare-only多组通过，依赖已在环境，GPU仍不可见，未实际运行/宣称通过。当前先跑offline bs4再HTTP bs1，命令与剩余边界见[计划13](../docs/plan/13_serving_batching_and_workload_baseline.md)。
