@@ -4,7 +4,7 @@
 
 ## 当前阅读入口
 
-当前优化实验：[10 SWA prefill候选实现与验证](plan/10_swa_prefill_optimization.md)。候选、回归开关和ABBA性能工具已实现，GPU数值/收益待用户终端运行。
+当前准确性评测：[11 代表性开发集与HumanEval](plan/11_representative_correctness_and_humaneval.md)：先跑开发200候选及独立HumanEval工具自检，避免以微观数值差异代替题目门槛。实现及GPU测试待执行边界详见该计划。
 
 扩展基线已完成：[性能02](../report/performance/02_expanded_bs1_profile_study.md)；协议见[09](plan/09_expanded_profile_study.md)。
 当前可执行实验：[08 首轮单请求Profile](plan/08_profiling_experiment.md)。首轮三组GPU已完成，实测分析见[性能01](../report/performance/01_bs1_profile_baseline.md)，当前优先评估Attention。

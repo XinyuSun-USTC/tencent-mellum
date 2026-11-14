@@ -64,3 +64,5 @@
 - 优化点1单层诊断开发：新增显式首层prefill observer及1K/4K真实QKV回放，要求原SDPA输出逐位重现；对照AITER窗口±1、FP32 oracle/最终BF16舍入，并采短trace确认选路。35项CPU通过、prepare-only134928通过；模型默认不安装observer，未启动GPU，用户命令见[计划10](../docs/plan/10_swa_prefill_optimization.md)。
 
 - 优化点1单层GPU证据：145253真实1K/4K QKV均精确回放原基线，正确窗口实际trace确认CK Tile。CK vs reference relative L2约0.00569，vs FP32约0.00558；reference vs FP32约0.00167。1K同causal可见集合仍有差异，4K窗口±1不消除，支持数值实现方向但未定位具体舍入步骤。详见[性能06](performance/06_swa_real_qkv_diagnosis.md)及哈希归档；候选继续关闭，下一步复用QKV筛替代实现，无新GPU或数学修改。
+
+- 用户要求以题目门槛而非张量精确决定候选：准备复用HF参考的200条候选对照，拆分168短/32激活长输入（全部来自scenario A）；新HumanEval164提示词73–456，全不激活该优化。开发独立官方工具获取、4题完整生成与固定代码提取、成对pass@1/逐题变化及隔离评分自检，冻结推理环境未改。工具无法连接GitHub、Landlock/chroot能力缺失，未宣称工具安装/隔离已通过；提取5项通过、隔离1项跳过，200/pilot prepare-only通过。当前不启动全164长生成，命令/预算见[计划11](../docs/plan/11_representative_correctness_and_humaneval.md)。
