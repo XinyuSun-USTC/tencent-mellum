@@ -48,3 +48,7 @@
 - 扩展性能实测：190525三阶段完成，19配置132次无profile计时/22617输出token、9短trace+1详细trace，10份trace哈希及配对token核验通过，轻量证据归档performance/02。16K prefill SDPA约72.2%，SWA每层约122ms、Full约36ms；1K×256的50次TPOT均值55.006ms，后段由约54升至56ms，后续需交错计时。未重跑GPU或改模型数学；见[性能02](performance/02_expanded_bs1_profile_study.md)。
 
 - 优化点1实现：根据扩展profile，新增opt-in AITER local SWA prefill，仅替换n≥window的窗口attention，保留reference RoPE/KV/decode/MoE及默认基线。新增HF回归开关、单层诊断及整模型ABBA计时工具；相关54项CPU通过，窗口和性能计划prepare-only通过。工具进程无/dev/kfd、cuda设备数0，未运行GPU、不宣称加速；命令与验收步骤见[10](../docs/plan/10_swa_prefill_optimization.md)。
+
+## 2026-11-14
+
+- 优化点1 GPU单层初测：用户执行013307 micro-only，五长度均完成。4K/16K窗口attention局部加速16.78×/40.07×，>=1024输出relative L2约0.57%–0.62%，未逐位精确；1023候选在整模型并不启用。归档原始JSON/log与源码指纹，见[性能03](performance/03_swa_prefill_micro.md)。下一步HF真实模型窗口/长输入对照，尚无整模型收益或准确率结论；本轮未追加GPU。

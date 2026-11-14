@@ -27,6 +27,8 @@
 | 03 | [Mellum 模型结构、权重与候选组件](research/03_mellum_model.md) |
 | 04 | [正确性资产与参考实现调查](research/04_correctness_reference.md) |
 
+[性能03：SWA单层GPU初测](performance/03_swa_prefill_micro.md)：4K/16K局部收益明显，真实模型正确性及整模型收益待验证。
+
 ## 验证01–10：参考建立与初始适配
 
 | 编号 | 文档 | 阅读说明 |
