@@ -181,6 +181,9 @@ class MellumAttention(nn.Module):
                 self.attn.impl._mellum_cpu_rope = cpu_inverse_frequency(self.rotary_emb)
         elif prefill_backend != 'aiter':
             raise ValueError(f'Unknown Mellum prefill backend: {prefill_backend}')
+        swa_impl = os.getenv('MELLUM_SWA_PREFILL_IMPL', 'ck')
+        if swa_impl not in ('ck', 'triton'):
+            raise ValueError('MELLUM_SWA_PREFILL_IMPL must be ck or triton')
         swa_opt = os.getenv('MELLUM_SWA_PREFILL_OPT', '0')
         if swa_opt not in ('0', '1'):
             raise ValueError('MELLUM_SWA_PREFILL_OPT must be 0 or 1')
@@ -188,6 +191,7 @@ class MellumAttention(nn.Module):
             if prefill_backend != 'sdpa_cpu_rope_diagnostic':
                 raise ValueError('SWA candidate requires reference CPU RoPE prefill')
             self.attn.impl._mellum_swa_prefill_opt = True
+            self.attn.impl._mellum_swa_prefill_impl = swa_impl
         if os.getenv('MELLUM_REFERENCE_KV_ROPE','0')=='1':
             if prefill_backend!='sdpa_cpu_rope_diagnostic':
                 raise ValueError('Reference KV rotation requires the CPU RoPE diagnostic backend')

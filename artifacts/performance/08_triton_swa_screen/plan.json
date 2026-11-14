@@ -1,0 +1,21 @@
+{
+  "gpu": 0,
+  "source_run": "/workspace/results/mellum_swa_layer/20261114T145253662684Z",
+  "qkv": [
+    {
+      "path": "/workspace/results/mellum_swa_layer/20261114T145253662684Z/qkv/ctx_1024.pt",
+      "sha256": "c16e5dd84af0eb9de32b4c5481af79627455992c111f678ae95b7670768a4f81"
+    },
+    {
+      "path": "/workspace/results/mellum_swa_layer/20261114T145253662684Z/qkv/ctx_4096.pt",
+      "sha256": "b7ba03561c1582209f673badc1e61c5d1d1002a36320be02a3a2f970249098fa"
+    }
+  ],
+  "source_sha256": {
+    "/workspace/scripts/screen_mellum_swa_triton.py": "1e617016766ad02876bcc2b42556729c70e9ffa7c670f43f266c770e4df57b9d",
+    "/workspace/tencent-mellum/ATOM/atom/model_config/mellum_swa_triton.py": "f3acfef0a9998b1c74fb651789884032b80078ebd00b2b3d7777d4279ab1061b",
+    "/workspace/tencent-mellum/ATOM/atom/model_config/mellum_attention.py": "9688818035595b3fcb9fbf511c3f772d4c3d92bbb4cc03713c31b16f3169d606",
+    "/app/aiter-test/aiter/ops/triton/attention/mha.py": "d81dc865f02bc27a50f029c4602c2b73ea58ef94c67d49846a8f41c44f8f5c07",
+    "/app/aiter-test/aiter/ops/triton/_triton_kernels/attention/mha.py": "e6afaa9d648a5c3a249a0a1d9fc1ee4a31ec3f866daca0efa2964f0bf2e806fe"
+  }
+}

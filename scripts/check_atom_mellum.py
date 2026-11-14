@@ -18,6 +18,7 @@ def main():
     p.add_argument('--dump-layers',action='store_true')
     p.add_argument('--dump-stages',action='store_true')
     p.add_argument('--moe-backend',choices=['torch','aiter'],default='torch')
+    p.add_argument('--swa-prefill-impl',choices=['ck','triton'],default='ck')
     p.add_argument('--swa-prefill-opt',action='store_true',help='Opt-in local SWA prefill; retain reference other paths')
     p.add_argument('--prefill-backend',choices=['aiter','sdpa_diagnostic','sdpa_rope_diagnostic','sdpa_cpu_rope_diagnostic'],default='aiter')
     p.add_argument('--moe-replay-inputs',type=Path,help='Diagnostic only: replace observed layer-zero MoE inputs')
@@ -34,6 +35,7 @@ def main():
     p.add_argument('--hf-generation-experts',action='store_true',help='Match HF generate grouped prefill/batched decode experts')
     p.add_argument('--dump-generation-logits',action='store_true')
     a=p.parse_args()
+    if a.swa_prefill_impl!='ck' and not a.swa_prefill_opt:p.error('--swa-prefill-impl requires --swa-prefill-opt')
     if a.swa_prefill_opt and a.prefill_backend!='sdpa_cpu_rope_diagnostic':p.error('--swa-prefill-opt requires CPU RoPE prefill')
     if a.hf_generation_experts and a.moe_backend!='torch':p.error('--hf-generation-experts requires torch MoE')
     if a.torch_router and a.moe_backend!='torch':p.error('--torch-router requires --moe-backend torch')
@@ -52,7 +54,7 @@ def main():
        'MELLUM_HF_GENERATION_EXPERTS':'1' if a.hf_generation_experts else '0',
        'MELLUM_MOE_BACKEND':a.moe_backend,'MELLUM_QKV_BACKEND':a.qkv_backend,
        'MELLUM_ROUTER_BACKEND':'torch' if a.torch_router else 'aiter',
-       'MELLUM_PREFILL_BACKEND':a.prefill_backend,'MELLUM_SWA_PREFILL_OPT':'1' if a.swa_prefill_opt else '0','MELLUM_STAGE_LAYER':str(a.stage_layer),
+       'MELLUM_PREFILL_BACKEND':a.prefill_backend,'MELLUM_SWA_PREFILL_OPT':'1' if a.swa_prefill_opt else '0','MELLUM_SWA_PREFILL_IMPL':a.swa_prefill_impl,'MELLUM_STAGE_LAYER':str(a.stage_layer),
        'MELLUM_REFERENCE_KV_ROPE':'1' if a.reference_kv_rope else '0',
        'MELLUM_SDPA_DECODE':'1' if a.sdpa_decode else '0',
        'MELLUM_DECODE_LAYER_CAPTURE':'1' if a.decode_layer_capture else '0',

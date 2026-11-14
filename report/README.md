@@ -4,7 +4,7 @@
 
 ## 当前入口
 
-最新准确性结果：[性能07](performance/07_representative_correctness.md)：开发200 token位置93.11%、完整序列87.5%；激活32条位置56.93%。HumanEval工具自检成功，pilot双方3/4、差0pp但含一题截断。CK保留实验候选，不以bitwise误差否决，尚非正式验收。
+最新候选筛选：[性能08](performance/08_triton_swa_screen.md)：Triton真实1K/4K误差较CK下降、局部仍快于SDPA，进入32条生成对照，未切默认；开发200/HumanEval结果见[07](performance/07_representative_correctness.md)。
 
 扩展实测见[性能02](performance/02_expanded_bs1_profile_study.md)：19配置132次计时与10份trace已核验；长prefill优先SWA，decode关注KV/RoPE与专家权重物化。实验协议见[09](../docs/plan/09_expanded_profile_study.md)。
 

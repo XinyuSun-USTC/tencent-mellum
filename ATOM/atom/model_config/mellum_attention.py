@@ -61,6 +61,9 @@ def sdpa_single_prefill(self, q, k, v, k_cache, v_cache, k_scale, v_scale, fwd_c
     # AITER's local bounds are inclusive: left=W-1 gives exactly W keys.
     if (getattr(self, '_mellum_swa_prefill_opt', False)
             and self.sliding_window > 0 and n >= self.sliding_window):
+        if getattr(self, '_mellum_swa_prefill_impl', 'ck') == 'triton':
+            from atom.model_config.mellum_swa_triton import triton_swa_prefill
+            return triton_swa_prefill(q,k,v,meta.cu_seqlens_q,self.sliding_window,self.scale)
         return aiter_swa_prefill(q, k, v, meta.cu_seqlens_q,
                                  self.sliding_window, self.scale)
     query=q.transpose(0,1)[None];key=k.transpose(0,1)[None];value=v.transpose(0,1)[None]

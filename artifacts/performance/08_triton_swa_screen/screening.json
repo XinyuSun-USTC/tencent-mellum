@@ -1,0 +1,162 @@
+{
+  "status": "screening_complete",
+  "environment": {
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "triton": "3.6.0",
+    "hip": "7.2.53211",
+    "gpu": "AMD Instinct MI308X",
+    "arch": "gfx942:sramecc+:xnack-"
+  },
+  "records": [
+    {
+      "input_tokens": 1024,
+      "qkv_sha256": "c16e5dd84af0eb9de32b4c5481af79627455992c111f678ae95b7670768a4f81",
+      "reference_replay_exact": true,
+      "ck_vs_sdpa": {
+        "exact": false,
+        "max_abs": 0.001953125,
+        "relative_l2": 0.005689824465662241
+      },
+      "triton_vs_sdpa": {
+        "exact": false,
+        "max_abs": 0.0009765625,
+        "relative_l2": 0.0005758564802818
+      },
+      "triton_last_position_vs_sdpa": {
+        "exact": false,
+        "max_abs": 0.00048828125,
+        "relative_l2": 0.000609053997322917
+      },
+      "timing_ms": {
+        "sdpa": [
+          0.6708149909973145,
+          0.5374690294265747,
+          0.5400279760360718,
+          0.5339490175247192,
+          0.5379490256309509,
+          0.5340690016746521,
+          0.5395089983940125,
+          0.541068971157074,
+          0.5382689833641052,
+          0.5390290021896362
+        ],
+        "ck": [
+          0.2190990000963211,
+          0.20250099897384644,
+          0.20890000462532043,
+          0.2023009955883026,
+          0.215939000248909,
+          0.2073799967765808,
+          0.20270000398159027,
+          0.20294000208377838,
+          0.2063400000333786,
+          0.2026599943637848
+        ],
+        "triton": [
+          0.35684600472450256,
+          0.3302080035209656,
+          0.3338080048561096,
+          0.33560800552368164,
+          0.32704898715019226,
+          0.33240801095962524,
+          0.3424080014228821,
+          0.3256889879703522,
+          0.3280879855155945,
+          0.3332889974117279
+        ]
+      },
+      "median_ms": {
+        "sdpa": 0.5386489927768707,
+        "ck": 0.2046400010585785,
+        "triton": 0.3328485041856766
+      },
+      "triton_speedup_vs_sdpa": 1.6183007764889645,
+      "triton_speedup_vs_ck": 0.614814242771606,
+      "trace": "/workspace/results/mellum_swa_triton_screen/20261114T200217286077Z/ctx_1024_triton_trace.json.gz",
+      "trace_sha256": "9885e42f00c80bd0958d77326be290aead369309c3e5d254fcdd15f726bd431c",
+      "kernel_names": [
+        "_attn_fwd_IS_CAUSAL_1_NUM_Q_HEADS_32_NUM_K_HEADS_4_BLOCK_M_128_BLOCK_N_64_BLOCK_DMODEL_128_RETURN_SCORES_0_ENABLE_DROPOUT_0_IS_FP8_0_VARLEN_1_NUM_XCD_8_USE_INT64_STRIDES_1_ENABLE_SINK_0_SLIDING_WINDOW_1023",
+        "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)",
+        "void at::native::vectorized_elementwise_kernel<8, at::native::FillFunctor<c10::BFloat16>, std::array<char*, 1ul> >(int, at::native::FillFunctor<c10::BFloat16>, std::array<char*, 1ul>)"
+      ]
+    },
+    {
+      "input_tokens": 4096,
+      "qkv_sha256": "b7ba03561c1582209f673badc1e61c5d1d1002a36320be02a3a2f970249098fa",
+      "reference_replay_exact": true,
+      "ck_vs_sdpa": {
+        "exact": false,
+        "max_abs": 0.001953125,
+        "relative_l2": 0.005689429584890604
+      },
+      "triton_vs_sdpa": {
+        "exact": false,
+        "max_abs": 0.0009765625,
+        "relative_l2": 1.6113644960569218e-05
+      },
+      "triton_last_position_vs_sdpa": {
+        "exact": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0
+      },
+      "timing_ms": {
+        "sdpa": [
+          13.13210678100586,
+          13.093591690063477,
+          13.097391128540039,
+          13.08331298828125,
+          13.088151931762695,
+          13.089672088623047,
+          13.073874473571777,
+          13.081751823425293,
+          13.078673362731934,
+          13.083792686462402
+        ],
+        "ck": [
+          0.8519189953804016,
+          0.7792450189590454,
+          0.8145220279693604,
+          0.8039630055427551,
+          0.7797660231590271,
+          0.8142020106315613,
+          0.7886450290679932,
+          0.7814850211143494,
+          0.8120430111885071,
+          0.7982839941978455
+        ],
+        "triton": [
+          1.1514899730682373,
+          1.0479799509048462,
+          1.0842570066452026,
+          1.0883760452270508,
+          1.041221022605896,
+          1.0852559804916382,
+          1.0880160331726074,
+          1.043900966644287,
+          1.0784169435501099,
+          1.0873769521713257
+        ]
+      },
+      "median_ms": {
+        "sdpa": 13.085972309112549,
+        "ck": 0.8011234998703003,
+        "triton": 1.0847564935684204
+      },
+      "triton_speedup_vs_sdpa": 12.06351138407558,
+      "triton_speedup_vs_ck": 0.7385284205443384,
+      "trace": "/workspace/results/mellum_swa_triton_screen/20261114T200217286077Z/ctx_4096_triton_trace.json.gz",
+      "trace_sha256": "4ec7e0d03bd005b952bdbe8f2efcab3a9a6a4896fe1f73bebcf6525b3f3b5a2e",
+      "kernel_names": [
+        "_attn_fwd_IS_CAUSAL_1_NUM_Q_HEADS_32_NUM_K_HEADS_4_BLOCK_M_128_BLOCK_N_64_BLOCK_DMODEL_128_RETURN_SCORES_0_ENABLE_DROPOUT_0_IS_FP8_0_VARLEN_1_NUM_XCD_8_USE_INT64_STRIDES_1_ENABLE_SINK_0_SLIDING_WINDOW_1023",
+        "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)",
+        "void at::native::vectorized_elementwise_kernel<8, at::native::FillFunctor<c10::BFloat16>, std::array<char*, 1ul> >(int, at::native::FillFunctor<c10::BFloat16>, std::array<char*, 1ul>)"
+      ]
+    }
+  ],
+  "boundary_probe": {
+    "gqa_first_position_exact": true,
+    "left_boundary_included": true,
+    "outside_window_excluded_exact": true
+  },
+  "interpretation": "Local screening only; no acceptance or production backend switch"
+}

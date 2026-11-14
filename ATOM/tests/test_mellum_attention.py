@@ -179,3 +179,21 @@ def test_real_qkv_capture_preserves_output_and_saves_once(tmp_path,monkeypatch):
     (tmp_path/'ctx_1024.pt').unlink()
     assert impl.prefill_attention(q,k,v) is returned
     assert not (tmp_path/'ctx_1024.pt').exists()
+
+
+def test_triton_selection_only_changes_eligible_prefill_dispatch(monkeypatch):
+    import atom.model_config.mellum_swa_triton as alternative
+    import atom.model_config.mellum_attention as reference
+    calls=[]
+    def selected(q,k,v,*args):calls.append(q.shape[0]);return torch.zeros_like(q)
+    monkeypatch.setattr(alternative,'triton_swa_prefill',selected)
+    def forbidden(*args):raise AssertionError('CK should not be selected')
+    monkeypatch.setattr(reference,'aiter_swa_prefill',forbidden)
+    impl=types.SimpleNamespace(sliding_window=8,scale=.5,_mellum_swa_prefill_opt=True,_mellum_swa_prefill_impl='triton')
+    install_sdpa_prefill(impl)
+    for n in [7,8]:
+        q=torch.randn(n,4,4);k=torch.randn(n,2,4);v=torch.randn_like(k)
+        ctx=types.SimpleNamespace(attn_metadata=types.SimpleNamespace(cu_seqlens_q=torch.tensor([0,n]),cu_seqlens_k=torch.tensor([0,n])))
+        result=impl.prefill_attention(q,k,v,None,None,None,None,ctx)
+        assert result.shape==q.shape
+    assert calls==[8]

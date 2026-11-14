@@ -39,3 +39,7 @@
 ## 当前完成状态
 
 适配器、筛选入口和边界/GQA/无回退CPU检查已完成；相关22项通过，py_compile、diff检查通过。prepare-only：`/workspace/results/mellum_swa_triton_screen/20261114T193745688088Z`。GPU设备在工具中仍不可见，本轮未执行GPU、未宣称筛选结果，需用户终端运行上面命令。数学生产路径与当前优化开关不变。
+
+## 实测与有条件接入
+
+筛选200217完成，见[性能08](../../report/performance/08_triton_swa_screen.md)。边界/GQA探针通过、Triton路径trace确认；1K/4K relative L2分别0.000576/0.0000161，4K局部12.06×对SDPA，但慢于CK。已新增实现选择ck/triton（默认ck且整体优化仍默认关闭），相关44项CPU通过。下一步命令：`/opt/venv/bin/python /workspace/scripts/run_mellum_swa_200.py --eligible-only --swa-prefill-impl triton`，仅32条且复用HF，预计2–3分钟；结果改善明确才补完整200与性能。
