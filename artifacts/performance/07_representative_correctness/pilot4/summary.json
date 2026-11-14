@@ -1,0 +1,37 @@
+{
+  "status": "paired_evaluation_complete",
+  "scope": "Pilot4_not_acceptance",
+  "thinking": true,
+  "max_new_tokens": 2048,
+  "tasks": 4,
+  "swa_eligible_prompts": 0,
+  "dataset_sha256": "1d49078ba3e2b196b9344535bef34a43021f038fad9561d6ee7c53450609a6a2",
+  "inputs_sha256": "13ef3396fcd935a5568f2fa6bd79e1c2beeda34496ec4beb58e2d1222e2f4f45",
+  "source_sha256": {
+    "/workspace/scripts/run_mellum_humaneval.py": "2eed7a166ea097106bc78e9f42715f3ec4fbff1caa44b6dc1e665d410b47abc0",
+    "/workspace/tencent-mellum/scripts/score_mellum_humaneval.py": "07fb02bab5fabf5b83b2b300a12e0631901ffd424c4a415a6ec54ddc5f00d740",
+    "/workspace/tencent-mellum/scripts/humaneval_sandbox.py": "3bbeb9b595e923fde8c8c637ed059656dc9148aec6968d1c7252a3c51cff7eaf",
+    "/workspace/tencent-mellum/ATOM/atom/model_config/mellum_attention.py": "9688818035595b3fcb9fbf511c3f772d4c3d92bbb4cc03713c31b16f3169d606",
+    "/workspace/tencent-mellum/ATOM/atom/models/mellum.py": "88bdb41455180457b9207b5e4937f116ca0274fda81ffe354aa33694bc823e0c"
+  },
+  "candidate_run": "/workspace/results/atom_mellum_gpu/20261114T181350259702Z",
+  "hf_extraction": {
+    "failures": 1,
+    "budget_hits": 1
+  },
+  "candidate_extraction": {
+    "failures": 1,
+    "budget_hits": 1
+  },
+  "scores": {
+    "hf": 0.75,
+    "candidate": 0.75
+  },
+  "absolute_difference_percentage_points": 0.0,
+  "bf16_2pp_local_check": null,
+  "pass_status_changes": [],
+  "interpretation_warnings": [
+    "Local prompt/extraction/budget protocol, not confirmed official evaluator settings",
+    "Generation budget reached: inspect incomplete thinking/code before interpreting scores"
+  ]
+}

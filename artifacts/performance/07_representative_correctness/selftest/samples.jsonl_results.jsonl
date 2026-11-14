@@ -1,0 +1,2 @@
+{"task_id": "HumanEval/0", "completion": "    for idx, elem in enumerate(numbers):\n        for idx2, elem2 in enumerate(numbers):\n            if idx != idx2:\n                distance = abs(elem - elem2)\n                if distance < threshold:\n                    return True\n\n    return False\n", "result": "passed", "passed": true}
+{"task_id": "HumanEval/1", "completion": "\nraise RuntimeError('intentional failure')\n", "result": "failed: intentional failure", "passed": false}

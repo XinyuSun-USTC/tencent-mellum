@@ -66,3 +66,5 @@
 - 优化点1单层GPU证据：145253真实1K/4K QKV均精确回放原基线，正确窗口实际trace确认CK Tile。CK vs reference relative L2约0.00569，vs FP32约0.00558；reference vs FP32约0.00167。1K同causal可见集合仍有差异，4K窗口±1不消除，支持数值实现方向但未定位具体舍入步骤。详见[性能06](performance/06_swa_real_qkv_diagnosis.md)及哈希归档；候选继续关闭，下一步复用QKV筛替代实现，无新GPU或数学修改。
 
 - 用户要求以题目门槛而非张量精确决定候选：准备复用HF参考的200条候选对照，拆分168短/32激活长输入（全部来自scenario A）；新HumanEval164提示词73–456，全不激活该优化。开发独立官方工具获取、4题完整生成与固定代码提取、成对pass@1/逐题变化及隔离评分自检，冻结推理环境未改。工具无法连接GitHub、Landlock/chroot能力缺失，未宣称工具安装/隔离已通过；提取5项通过、隔离1项跳过，200/pilot prepare-only通过。当前不启动全164长生成，命令/预算见[计划11](../docs/plan/11_representative_correctness_and_humaneval.md)。
+
+- 代表性准确性实测：165437开发200位置11918/12800=93.1094%，完整序列175/200=87.5%；32条激活子集位置56.9336%，168条不激活全同。官方HumanEval commit b9453e8及本地164数据逐条一致已核验，181019 chroot/uid65534自检得到0.5。181033四题pilot双方5660token全同、3/4通过、差0pp，第10题均2048截断思考未结束。见[报告07](performance/07_representative_correctness.md)。据此保留CK实验候选，不用张量bitwise或三例分叉增加门槛；尚非正式公开集/全HumanEval通过，暂不启动全量长任务或新GPU。

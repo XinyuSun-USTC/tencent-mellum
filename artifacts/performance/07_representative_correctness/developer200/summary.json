@@ -1,0 +1,38 @@
+{
+  "status": "developer_comparison_complete",
+  "source_run": "/workspace/results/mellum_validation/20261113T104458011376Z",
+  "source_reference_sha256": "407cab507b32e45191f6cd5431709824a5b9f845442936dfc018c3668a4d7df1",
+  "scope": "Developer200, not confirmed official public set; no new logits equality gate",
+  "reference_records": 200,
+  "swa_eligible_records": 32,
+  "candidate_run": "/workspace/results/atom_mellum_gpu/20261114T165437753103Z",
+  "all": {
+    "compared_positions": 12800,
+    "matching_positions": 11918,
+    "token_match_fraction": 0.93109375,
+    "exact_sequences": 175,
+    "reference_records": 200,
+    "exact_sequence_fraction": 0.875
+  },
+  "swa_eligible": {
+    "records": 32,
+    "matching_positions": 1166,
+    "compared_positions": 2048,
+    "token_match_fraction": 0.5693359375,
+    "exact_sequences": 7,
+    "exact_sequence_fraction": 0.21875
+  },
+  "below_window": {
+    "records": 168,
+    "matching_positions": 10752,
+    "compared_positions": 10752,
+    "token_match_fraction": 1.0,
+    "exact_sequences": 168,
+    "exact_sequence_fraction": 1.0
+  },
+  "developer_90_percent_checks": {
+    "token_position_interpretation": true,
+    "whole_sequence_interpretation": false,
+    "note": "Report both interpretations; local developer set does not certify official acceptance"
+  }
+}
