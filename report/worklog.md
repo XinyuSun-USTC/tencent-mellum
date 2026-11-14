@@ -54,3 +54,5 @@
 - 优化点1 GPU单层初测：用户执行013307 micro-only，五长度均完成。4K/16K窗口attention局部加速16.78×/40.07×，>=1024输出relative L2约0.57%–0.62%，未逐位精确；1023候选在整模型并不启用。归档原始JSON/log与源码指纹，见[性能03](performance/03_swa_prefill_micro.md)。下一步HF真实模型窗口/长输入对照，尚无整模型收益或准确率结论；本轮未追加GPU。
 
 - 优化点1真实模型短回归：112559 window 3例×8及112653 long 4例×4，共7/7序列、40/40 token与HF相同；1023 logits精确，启用候选的其余32位置非精确，prefill max_abs 1–5.75。实际开关/正常采样/5631加载审计核对通过，追加[性能03](performance/03_swa_prefill_micro.md)及轻量证据。可进入ABBA性能，但不宣称64token/200条或HumanEval验收通过；未追加GPU和功能修改。
+
+- 优化点1整模型ABBA：121938四阶段60条计时完成，16K TTFT约4.00→1.43秒（2.8×），4K约0.66→0.41秒（1.6×）；1K无明确收益，decode未见加速。1K/4K/16K分别第11/20/12个token首差，重复稳定；前64位置仅10/19/12个相同，故候选暂不采纳，默认Step0不变。详见[性能04](performance/04_swa_prefill_abba.md)及哈希归档；下一步同输入64token HF对照，未追加GPU。

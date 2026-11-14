@@ -1,0 +1,345 @@
+{
+  "status": "candidate_measured",
+  "git_head": "85b51f6f73a29db3e531da0ae9091962b48c9220",
+  "git_status": "",
+  "source_sha256": {
+    "/workspace/scripts/benchmark_mellum_swa.py": "74eeb87f56e113002e55fd6ca39ce2ca25b0b14e9c823a8ba7b8bd7ae83ffa14",
+    "/workspace/tencent-mellum/ATOM/atom/model_config/mellum_attention.py": "9688818035595b3fcb9fbf511c3f772d4c3d92bbb4cc03713c31b16f3169d606",
+    "/workspace/tencent-mellum/ATOM/atom/models/mellum.py": "ef571f28b47e0892e6dae79df03d2dd81d077e4d648217152c26fd74083fe083",
+    "/workspace/tencent-mellum/scripts/mellum_runtime_config.py": "7a61adb0032138c4729b5132fb49dc9cd140e6a9d0e0af1d0c97382475eae2cd",
+    "/workspace/tencent-mellum/scripts/profile_mellum.py": "adc51cb677cc1301de0d09cdef234733e902d053bd34280a3032acf831eda49f"
+  },
+  "order": [
+    "micro",
+    "a0",
+    "b0",
+    "b1",
+    "a1"
+  ],
+  "rows": [
+    {
+      "name": "ctx_1024",
+      "output_tokens": 256,
+      "reference_repeats_exact": true,
+      "candidate_repeats_exact": true,
+      "greedy_matching_positions": 14,
+      "greedy_match_fraction": 0.0546875,
+      "timings": {
+        "request_ttft_seconds": {
+          "reference_median": 0.210831880569458,
+          "candidate_median": 0.2101653814315796,
+          "speedup": 1.0031713079163582,
+          "reference_samples": [
+            0.2098844051361084,
+            0.20971965789794922,
+            0.21522092819213867,
+            0.21099185943603516,
+            0.21067190170288086,
+            0.21148204803466797
+          ],
+          "candidate_samples": [
+            0.20766901969909668,
+            0.21788263320922852,
+            0.2033405303955078,
+            0.21024823188781738,
+            0.2100825309753418,
+            0.220778226852417
+          ]
+        },
+        "request_tpot_seconds": {
+          "reference_median": 0.05587975464615168,
+          "candidate_median": 0.055954629299687406,
+          "speedup": 0.9986618684732106,
+          "reference_samples": [
+            0.0555018144495347,
+            0.055517143361708696,
+            0.055462973725562005,
+            0.056245791678335155,
+            0.05624236593059465,
+            0.05625224861444211
+          ],
+          "candidate_samples": [
+            0.05562005323522231,
+            0.055609362733130364,
+            0.055637454051597444,
+            0.05628150023666083,
+            0.05627180454777736,
+            0.056300842995737115
+          ]
+        },
+        "wall_seconds": {
+          "reference_median": 14.459726484143175,
+          "candidate_median": 14.479006447130814,
+          "speedup": 0.9986684194762923,
+          "reference_samples": [
+            14.36304980609566,
+            14.36678326013498,
+            14.358476216904819,
+            14.553877613972872,
+            14.55266970815137,
+            14.556031948886812
+          ],
+          "candidate_samples": [
+            14.390966203063726,
+            14.398451167158782,
+            14.391070450888947,
+            14.562225709902123,
+            14.559561727102846,
+            14.57769566308707
+          ]
+        }
+      }
+    },
+    {
+      "name": "ctx_4096",
+      "output_tokens": 1,
+      "reference_repeats_exact": true,
+      "candidate_repeats_exact": true,
+      "greedy_matching_positions": 1,
+      "greedy_match_fraction": 1.0,
+      "timings": {
+        "request_ttft_seconds": {
+          "reference_median": 0.6598213911056519,
+          "candidate_median": 0.40494227409362793,
+          "speedup": 1.62942086642476,
+          "reference_samples": [
+            0.6638548374176025,
+            0.658214807510376,
+            0.6633336544036865,
+            0.6603310108184814,
+            0.6593117713928223,
+            0.6592364311218262
+          ],
+          "candidate_samples": [
+            0.40241146087646484,
+            0.4069790840148926,
+            0.4021477699279785,
+            0.4239788055419922,
+            0.4029054641723633,
+            0.4146459102630615
+          ]
+        },
+        "wall_seconds": {
+          "reference_median": 0.6707484009675682,
+          "candidate_median": 0.41586220543831587,
+          "speedup": 1.612910219289113,
+          "reference_samples": [
+            0.6747942271176726,
+            0.6691344459541142,
+            0.6742529878392816,
+            0.6712779409717768,
+            0.6702188609633595,
+            0.6701646761503071
+          ],
+          "candidate_samples": [
+            0.4133338339161128,
+            0.41787904989905655,
+            0.4130297328811139,
+            0.4348975899629295,
+            0.4138453609775752,
+            0.42556652682833374
+          ]
+        }
+      }
+    },
+    {
+      "name": "ctx_4096",
+      "output_tokens": 64,
+      "reference_repeats_exact": true,
+      "candidate_repeats_exact": true,
+      "greedy_matching_positions": 19,
+      "greedy_match_fraction": 0.296875,
+      "timings": {
+        "request_ttft_seconds": {
+          "reference_median": 0.6597858667373657,
+          "candidate_median": 0.4156414270401001,
+          "speedup": 1.5873919773490508,
+          "reference_samples": [
+            0.6637923717498779,
+            0.6582756042480469,
+            0.6636743545532227,
+            0.6598896980285645,
+            0.659196138381958,
+            0.659682035446167
+          ],
+          "candidate_samples": [
+            0.40802884101867676,
+            0.4026939868927002,
+            0.4176292419433594,
+            0.41960644721984863,
+            0.4136536121368408,
+            0.4184119701385498
+          ]
+        },
+        "request_tpot_seconds": {
+          "reference_median": 0.05599775011577303,
+          "candidate_median": 0.05616214918711829,
+          "speedup": 0.9970727781303824,
+          "reference_samples": [
+            0.0556023915608724,
+            0.05564445541018531,
+            0.055601782268948026,
+            0.05641620121304951,
+            0.056389521038721475,
+            0.05635104482136075
+          ],
+          "candidate_samples": [
+            0.05582899139040992,
+            0.055705430015685065,
+            0.055759047705029686,
+            0.056628594322810095,
+            0.056495306983826654,
+            0.0565127758752732
+          ]
+        },
+        "wall_seconds": {
+          "reference_median": 4.188470193417743,
+          "candidate_median": 3.951841212110594,
+          "speedup": 1.0598781602312333,
+          "reference_samples": [
+            4.1669275858439505,
+            4.164062588941306,
+            4.166774890851229,
+            4.214308616006747,
+            4.211936332052574,
+            4.210012800991535
+          ],
+          "candidate_samples": [
+            3.925432021031156,
+            3.9123052831273526,
+            3.9306133061181754,
+            3.9873866359703243,
+            3.9730691181030124,
+            3.9789170818403363
+          ]
+        }
+      }
+    },
+    {
+      "name": "ctx_16384",
+      "output_tokens": 1,
+      "reference_repeats_exact": true,
+      "candidate_repeats_exact": true,
+      "greedy_matching_positions": 1,
+      "greedy_match_fraction": 1.0,
+      "timings": {
+        "request_ttft_seconds": {
+          "reference_median": 3.9966518878936768,
+          "candidate_median": 1.4347401857376099,
+          "speedup": 2.785627619288415,
+          "reference_samples": [
+            4.011732339859009,
+            3.996636152267456,
+            4.001710653305054,
+            3.9966676235198975,
+            3.996554136276245,
+            3.9964559078216553
+          ],
+          "candidate_samples": [
+            1.4328076839447021,
+            1.4366726875305176,
+            1.4414174556732178,
+            1.422659158706665,
+            1.4272065162658691,
+            1.442164421081543
+          ]
+        },
+        "wall_seconds": {
+          "reference_median": 4.008197023416869,
+          "candidate_median": 1.4463100481079891,
+          "speedup": 2.771326264835295,
+          "reference_samples": [
+            4.0233799808193,
+            4.008183308877051,
+            4.013366115046665,
+            4.008210737956688,
+            4.008049672935158,
+            4.008033493999392
+          ],
+          "candidate_samples": [
+            1.444459279999137,
+            1.4481608162168413,
+            1.4529629391618073,
+            1.4341931359376758,
+            1.438667451031506,
+            1.4536730460822582
+          ]
+        }
+      }
+    },
+    {
+      "name": "ctx_16384",
+      "output_tokens": 64,
+      "reference_repeats_exact": true,
+      "candidate_repeats_exact": true,
+      "greedy_matching_positions": 12,
+      "greedy_match_fraction": 0.1875,
+      "timings": {
+        "request_ttft_seconds": {
+          "reference_median": 3.996159076690674,
+          "candidate_median": 1.4264945983886719,
+          "speedup": 2.8013839528061464,
+          "reference_samples": [
+            3.9963855743408203,
+            3.9956202507019043,
+            4.010819911956787,
+            4.001149415969849,
+            3.9948337078094482,
+            3.9959325790405273
+          ],
+          "candidate_samples": [
+            1.4223110675811768,
+            1.4233949184417725,
+            1.4295942783355713,
+            1.4381139278411865,
+            1.4316997528076172,
+            1.421842336654663
+          ]
+        },
+        "request_tpot_seconds": {
+          "reference_median": 0.06052108794923813,
+          "candidate_median": 0.06118978772844587,
+          "speedup": 0.9890717094464297,
+          "reference_samples": [
+            0.060145563549465604,
+            0.060214905511765254,
+            0.06017107055300758,
+            0.060885160688369994,
+            0.06083861229911683,
+            0.060827270386711
+          ],
+          "candidate_samples": [
+            0.06154537579369924,
+            0.06210027043781583,
+            0.06206925710042318,
+            0.060812726853385804,
+            0.060834199663192506,
+            0.060790837757171146
+          ]
+        },
+        "wall_seconds": {
+          "reference_median": 7.814850406604819,
+          "candidate_median": 5.284677152521908,
+          "speedup": 1.4787753690640275,
+          "reference_samples": [
+            7.785781295970082,
+            7.789360642898828,
+            7.80180031619966,
+            7.837115871952847,
+            7.827900497009978,
+            7.828279640991241
+          ],
+          "candidate_samples": [
+            5.299858927028254,
+            5.33588840207085,
+            5.34013069793582,
+            5.269495378015563,
+            5.264468607958406,
+            5.251902915071696
+          ]
+        }
+      }
+    }
+  ],
+  "scope": "Offline ABBA bs1, not official A/B/C or HF acceptance; review numerical and generation diagnostics before adoption"
+}

@@ -4,6 +4,8 @@
 
 ## 当前入口
 
+最新优化结果：[性能04](performance/04_swa_prefill_abba.md)：SWA候选16K TTFT约2.8×，但长生成稳定分叉，暂不采纳；待同输入64token HF核验。
+
 扩展实测见[性能02](performance/02_expanded_bs1_profile_study.md)：19配置132次计时与10份trace已核验；长prefill优先SWA，decode关注KV/RoPE与专家权重物化。实验协议见[09](../docs/plan/09_expanded_profile_study.md)。
 
 [性能01：首轮bs1基线](performance/01_bs1_profile_baseline.md)：GPU采集有效，ROCm镜像区间解析已离线修正；长prefill和decode指向Attention优先，正式并发A/C尚未测。
