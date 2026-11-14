@@ -20,7 +20,16 @@ def compare_generation(reference_path,candidate_path):
             h,a=values
             if h.shape!=a.shape or h.ndim!=1 or not torch.isfinite(h).all() or not torch.isfinite(a).all():
                 raise ValueError('Invalid generation logits')
-            rows.append({'name':ref['name'],'step':step,'logits_exact':torch.equal(h,a),
+            delta=a-h
+            htop=h.topk(2).values;atop=a.topk(2).values
+            diagnostics={'rms':delta.square().mean().sqrt().item(),
+                'mean_shift':delta.mean().item(),
+                'centered_rms':(delta-delta.mean()).square().mean().sqrt().item(),
+                'hf_top1_top2_margin':(htop[0]-htop[1]).item(),
+                'atom_top1_top2_margin':(atop[0]-atop[1]).item(),
+                'hf_preference_hf_minus_atom':(h[wanted[step]]-h[got[step]]).item(),
+                'atom_preference_atom_minus_hf':(a[got[step]]-a[wanted[step]]).item()}
+            rows.append({**diagnostics,'name':ref['name'],'step':step,'logits_exact':torch.equal(h,a),
                 'max_abs':(h-a).abs().max().item(),'hf_selected':wanted[step],'atom_selected':got[step],
                 'both_selected_are_argmax':bool(h[wanted[step]]==h.max() and a[got[step]]==a.max())})
     nonexact=[r for r in rows if not r['logits_exact']]

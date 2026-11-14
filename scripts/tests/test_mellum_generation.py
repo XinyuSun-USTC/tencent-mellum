@@ -23,3 +23,15 @@ def test_same_history_comparison_stops_after_token_fork_and_records_ties(tmp_pat
     candidate=json.loads(data[1].read_text());candidate['records'][0]['generation_logits'][0]['sha256']='bad'
     data[1].write_text(json.dumps(candidate))
     with pytest.raises(ValueError,match='hash mismatch'):compare_generation(*data)
+
+
+def test_same_history_diagnostics_separate_global_logit_shift(tmp_path):
+    paths=[]
+    for name,values in [('hf',[0.,2.,1.]),('atom',[5.,7.,6.])]:
+        file=tmp_path/(name+'.pt');torch.save(torch.tensor(values),file)
+        path=tmp_path/(name+'.json');path.write_text(json.dumps({'records':[{'name':'x','generated_ids':[[1]],
+            'generation_logits':[{'path':str(file),'sha256':hashlib.sha256(file.read_bytes()).hexdigest()}]}]}));paths.append(path)
+    row=compare_generation(*paths)['records'][0]
+    assert row['mean_shift']==5 and row['centered_rms']==0
+    assert row['hf_top1_top2_margin']==row['atom_top1_top2_margin']==1
+    assert row['hf_preference_hf_minus_atom']==0

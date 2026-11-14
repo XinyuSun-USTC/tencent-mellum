@@ -65,3 +65,21 @@ window覆盖1023/1024/1025（各8输出），long覆盖8191/8192/8193/16384（�
 先核对窗口语义、实际候选配置、加载审计和生成差异，再比较关闭profiler的端到端收益。主要观察4K/16K TTFT，1K及decode TPOT检查回退；保留两轮基线与候选原始样本，时段漂移较大时追加交错重复，不仅展示最快值。
 
 如数值差异造成不可接受的greedy匹配，保留失败证据，研究attention归约或其它窗口实现；不同时改RoPE/MoE来掩盖首差。如收益不显著，检查真实内核选路后决定放弃。正式并发A与到达过程C尚未接入，任何bs1收益均不外推为正式吞吐/尾延迟成绩。GPU结果到来后再新增性能03实测报告，不预写收益。
+
+## 2026-11-14：长生成分叉后的三方对照
+
+ABBA已实测长输入TTFT有收益，但同后端重复稳定、基线与候选分别在第11/20/12个token分叉，见[性能04](../../report/performance/04_swa_prefill_abba.md)。候选默认仍关闭；本轮不改attention实现或准确率阈值。
+
+新增`run_mellum_swa_hf_check.py`：严格读取121938 ABBA四阶段一致的plan，校验输入token SHA、原始源文件SHA与模型config SHA，取原样1K/4K/16K三个token序列；decode文本仅供展示，不重新编码、不重新套chat模板。生成协议统一正常greedy最多64token、正常EOS；不加载ABBA生成结果作为模型输入、不强制历史。
+
+执行顺序为一次HF参考与优化候选，再复用该HF参考运行关闭优化的基线；三组模型顺序加载。每组检查实际后端、正常采样及5631加载审计。分别输出HF-vs-candidate/HF-vs-baseline的token位置/序列匹配与同历史logits；同历史比较包含首差当步，首差之后停止。新增诊断字段：平均logits偏移、去均值RMS、top1-top2间隔、双方所选token在对方logits中的偏好差。它们只解释差异，不新增接受阈值。
+
+另将两种正常生成输出与对应ABBA同后端前缀比较，披露正常EOS可能截断、1K原性能预算256与本次64的差别。这样可以区分HF-vs-Step0差异、候选引入差异及运行协议变化。`diagnostic_complete`只表示证据齐全，候选token不一致也会保留结果，不表示验收通过；执行/配置/缺失产物错误才中止。
+
+本地准备记录：`/workspace/results/mellum_swa_hf_check/20261114T130643862112Z`。输入/哈希验证、分叉前比较及偏移诊断相关10项CPU测试通过。工具环境再次核验cuda_available=False、device_count=0，未启动GPU。用户终端命令：
+
+```bash
+/opt/venv/bin/python /workspace/scripts/run_mellum_swa_hf_check.py
+```
+
+预计约3–5分钟（实际随机器状态变化），每15秒心跳，HF+候选阶段外层上限为2×900+120秒，内部各900秒，基线900秒。结果位于`/workspace/results/mellum_swa_hf_check/<id>/summary.json`及对照子目录；原始HF/ATOM张量仍保留各自运行目录，不覆盖旧产物。结果到来后再决定同输入同层attention回放或更换候选，不马上扩大完整200条或新增重复性能任务。
