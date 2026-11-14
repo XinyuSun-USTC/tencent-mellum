@@ -383,6 +383,9 @@ async def generate_async(
             finish_reason = item.get("finish_reason")
             break
 
+    # HTTP callbacks bypass InputOutputProcessor.postprocess(). Release only
+    # completed frontend bookkeeping; this is not an engine abort operation.
+    engine.io_processor.requests.pop(seq.id, None)
     text = tokenizer.decode(all_token_ids, skip_special_tokens=True)
     num_tokens_input = (
         seq.num_prompt_tokens if seq is not None else len(tokenizer.encode(prompt))
@@ -468,6 +471,9 @@ async def generate_async_multimodal(
             finish_reason = item.get("finish_reason")
             break
 
+    # HTTP callbacks bypass InputOutputProcessor.postprocess(). Release only
+    # completed frontend bookkeeping; this is not an engine abort operation.
+    engine.io_processor.requests.pop(seq.id, None)
     text = tokenizer.decode(all_token_ids, skip_special_tokens=True)
     num_tokens_output = len(all_token_ids)
     finished_at = time.time()
@@ -570,6 +576,8 @@ async def generate_async_fanout(
             per_finish_reason[idx] = item.get("finish_reason")
             finished[idx] = True
 
+    for seq in seqs:
+        engine.io_processor.requests.pop(seq.id, None)
     finished_at = time.time()
     outputs: List[Dict[str, Any]] = []
     for i in range(n):

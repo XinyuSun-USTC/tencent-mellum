@@ -146,3 +146,7 @@ A/C先完成B0有效基准，再测试点1增量；不要求为进入批量研�
 ### 本地完成的检查
 
 相关59项CPU通过（ragged隔离、RoPE raw切片与无self状态修改、两种cache格式/窗口、跨块、重排、原模型与配置、SSE解析及profile回归），仅既有Torch profiler提示。compile/diff检查通过。prepare-only：offline212248、server212249/212719、HTTP212419/212720。fastapi/uvicorn/zmq/httpx已存在，无新依赖安装；工具中cuda_available=False，未启动GPU或服务。当前先交付上述两条短验证命令，取得真实结果后再处理必要问题和扩大容量。
+
+## 首轮GPU结果与容量阶梯
+
+214224 offline实际prefill/decode batch4、迟到decode3完成；bs1四例64/64位置精确，多请求234/240=97.5%（少量批量/排列差异待观察，不新增bitwise门槛）。214721 HTTP bs1 completion/SSE/usage及双客户端通过；chat仅reasoning前导换行差异，另发现非流完成请求前端记账未释放，已覆盖三种路径修复并加CPU回归。见[性能10](../../report/performance/10_batch_and_http_smoke.md)，32项相关CPU通过。下一步`validate_mellum_batch.py --max-seqs 32`一次加载依次8/16/32，再`validate_mellum_http.py --max-seqs 4`复核服务桥接和记账；修复后尚无GPU结果，不宣称正式A通过。

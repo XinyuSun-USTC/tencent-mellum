@@ -36,3 +36,12 @@ def test_sse_usage_and_done_without_counting_empty_chunks_as_tokens():
     lines=['data: '+json.dumps({'choices':[{'text':'abc'}]}),'data: '+json.dumps({'choices':[], 'usage':{'completion_tokens':2}}),'data: [DONE]']
     result=parse_sse(lines)
     assert result['text']=='abc' and result['usage']['completion_tokens']==2 and result['done']
+
+
+def test_chat_whitespace_classification_keeps_final_code_content_strict():
+    from validate_mellum_http import compare_chat_renderings
+    left={'content':'','reasoning_content':'Okay'}
+    right={'content':'','reasoning_content':'\nOkay'}
+    assert compare_chat_renderings(left,right)==(False,True)
+    right['content']='\n'
+    assert compare_chat_renderings(left,right)==(False,False)

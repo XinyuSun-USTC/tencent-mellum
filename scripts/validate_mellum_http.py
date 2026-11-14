@@ -1,5 +1,5 @@
 """Owned short HTTP smoke test; real generation, SSE and concurrent requests."""
-import argparse,concurrent.futures,json,os,signal,socket,subprocess,time,traceback
+import argparse,concurrent.futures,json,os,re,signal,socket,subprocess,time,traceback
 from pathlib import Path
 from datetime import datetime,timezone
 from urllib.request import Request,build_opener,ProxyHandler
@@ -20,6 +20,15 @@ def parse_sse(lines):
             delta=choice.get('delta',{})
             for key in chat:chat[key]+=delta.get(key) or ''
     return {'text':''.join(text),'usage':usage,'done':done,'chat':chat}
+
+
+def compare_chat_renderings(message,stream):
+    # Non-stream reasoning extractor explicitly strips outer whitespace; the
+    # stream parser preserves it. Do not normalize final-answer/code content.
+    raw=message==stream
+    normalized=(message['content']==stream['content'] and
+                message['reasoning_content'].strip()==stream['reasoning_content'].strip())
+    return raw,normalized
 
 
 def main():
@@ -76,11 +85,16 @@ def main():
                 'temperature':0,'max_tokens':16,'chat_template_kwargs':{'enable_thinking':True}}
             chat=call('/v1/chat/completions',payload);stream=call('/v1/chat/completions',{**payload,'stream':True})
             message=chat['choices'][0]['message'];wanted={k:message.get(k) or '' for k in ['content','reasoning_content']}
+            raw_match,normalized_match=compare_chat_renderings(wanted,stream['chat'])
             result['chat']={'message':wanted,'stream_message':stream['chat'],'stream_done':stream['done'],
-                'stream_matches':wanted==stream['chat'],'usage':chat.get('usage')}
+                'stream_matches':raw_match,'normalized_stream_matches':normalized_match,
+                'reasoning_whitespace_only':not raw_match and normalized_match,'usage':chat.get('usage')}
             if not any(wanted.values()):raise RuntimeError('Empty chat generation')
+            counts=[int(x) for x in re.findall(r'pending requests: (\d+)',(out/'server.log').read_text())]
+            result['max_logged_pending_requests']=max(counts) if counts else None
+            result['frontend_pending_bound_ok']=max(counts)<=2 if counts else None
             result['status']='http_smoke_completed'
-            result['review_required']=any(not (x['text_exact'] and x['usage_matches'] and (not x['stream'] or x['done'])) for x in result['requests']+result['concurrent_requests']) or not result['chat']['stream_matches'] or not stream['done']
+            result['review_required']=any(not (x['text_exact'] and x['usage_matches'] and (not x['stream'] or x['done'])) for x in result['requests']+result['concurrent_requests']) or not result['chat']['normalized_stream_matches'] or not stream['done'] or result['frontend_pending_bound_ok'] is False
             save()
     except Exception:
         result.update(status='failed',traceback=traceback.format_exc());save();raise

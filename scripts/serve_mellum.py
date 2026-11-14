@@ -23,7 +23,9 @@ def main():
         '--max-num-batched-tokens',str(a.max_batched_tokens),'--max-num-seqs',str(a.max_num_seqs),
         '--gpu-memory-utilization','0.35','--no-enable_prefix_caching','--no-enable_chunked_prefill',
         '--default-chat-template-kwargs','{"enable_thinking":true}']
-    source=[PROJECT/'ATOM/atom/models/mellum.py',PROJECT/'ATOM/atom/model_config/mellum_batch.py',Path(__file__)]
+    source=[PROJECT/'ATOM/atom/models/mellum.py',PROJECT/'ATOM/atom/model_config/mellum_batch.py',
+            PROJECT/'ATOM/atom/model_config/mellum_attention.py',PROJECT/'ATOM/atom/entrypoints/openai/api_server.py',
+            PROJECT/'scripts/mellum_runtime_config.py',Path(__file__)]
     (out/'launch.json').write_text(json.dumps({'settings':settings,'command':command,'source_sha256':{str(f):hashlib.sha256(f.read_bytes()).hexdigest() for f in source}},indent=2)+'\n')
     if a.prepare_only:print('RESULT prepared output',out);return
     print('SERVE output',out,flush=True);os.execv(command[0],command)

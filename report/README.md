@@ -4,7 +4,7 @@
 
 ## 当前入口
 
-最新结果：[性能09](performance/09_triton_activation32.md)：Triton激活32条位置61.62%（CK56.93%）、序列10/32（CK7/32），改善有限且局部较慢；结束有界Attention替代筛选，保留两种实现，转向服务/批量基准。非正式公开集验收。
+最新服务结果：[性能10](performance/10_batch_and_http_smoke.md)：B0实际batch4/动态batch3完成，bs1精确、多请求小集位置97.5%；HTTP completion/usage通过，chat换行已分类，非流完成记账已修复待复测。下一步8→16→32与HTTP batch4，尚无正式吞吐成绩。
 
 扩展实测见[性能02](performance/02_expanded_bs1_profile_study.md)：19配置132次计时与10份trace已核验；长prefill优先SWA，decode关注KV/RoPE与专家权重物化。实验协议见[09](../docs/plan/09_expanded_profile_study.md)。
 
