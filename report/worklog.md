@@ -58,3 +58,5 @@
 - 优化点1整模型ABBA：121938四阶段60条计时完成，16K TTFT约4.00→1.43秒（2.8×），4K约0.66→0.41秒（1.6×）；1K无明确收益，decode未见加速。1K/4K/16K分别第11/20/12个token首差，重复稳定；前64位置仅10/19/12个相同，故候选暂不采纳，默认Step0不变。详见[性能04](performance/04_swa_prefill_abba.md)及哈希归档；下一步同输入64token HF对照，未追加GPU。
 
 - 优化点1分叉核验准备：新增同ABBA三条输入的HF/候选/Step0三方正常64token对照，严格校验来源并复用同一HF参考，保留与ABBA前缀的比较；同历史logits增加整体偏移、去均值RMS与top1间隔。相关10项CPU通过、prepare-only130643通过；GPU仍不可见，未改模型数学和验收门槛，待用户执行新命令。详见[计划10](../docs/plan/10_swa_prefill_optimization.md)。
+
+- 优化点1三方HF对照：134033完成。Step0与HF三条×64共192token及完整生成logits精确；候选41/192token、0/3序列一致，首差为11/20/12，与ABBA前缀完全复现。首差双方均选自身非并列argmax，去均值RMS仍0.33–0.45，不能用统一偏移或采样器修复。详见[性能05](performance/05_swa_hf_triangulation.md)；候选不采纳，下一步少量真实Q/K/V单层oracle/窗口诊断，暂不扩大200条或重复性能，未启动新GPU。

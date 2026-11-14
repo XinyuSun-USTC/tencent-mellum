@@ -83,3 +83,5 @@ ABBA已实测长输入TTFT有收益，但同后端重复稳定、基线与候选
 ```
 
 预计约3–5分钟（实际随机器状态变化），每15秒心跳，HF+候选阶段外层上限为2×900+120秒，内部各900秒，基线900秒。结果位于`/workspace/results/mellum_swa_hf_check/<id>/summary.json`及对照子目录；原始HF/ATOM张量仍保留各自运行目录，不覆盖旧产物。结果到来后再决定同输入同层attention回放或更换候选，不马上扩大完整200条或新增重复性能任务。
+
+三方实际结果见[性能05](../../report/performance/05_swa_hf_triangulation.md)：Step0与HF192/192token及logits精确，候选41/192token且首差复现。当前候选暂不采纳，后续取少量真实Q/K/V做单层oracle和窗口诊断，尚未执行。

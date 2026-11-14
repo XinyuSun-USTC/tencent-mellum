@@ -4,7 +4,7 @@
 
 ## 当前入口
 
-最新优化结果：[性能04](performance/04_swa_prefill_abba.md)：SWA候选16K TTFT约2.8×，但长生成稳定分叉，暂不采纳；待同输入64token HF核验。
+最新优化结果：[性能05](performance/05_swa_hf_triangulation.md)：Step0与HF 192/192 token及logits精确，候选仅41/192 token一致，分叉已确认由候选引入；当前不采纳，下一步同真实Q/K/V单层诊断。性能收益见[04](performance/04_swa_prefill_abba.md)。
 
 扩展实测见[性能02](performance/02_expanded_bs1_profile_study.md)：19配置132次计时与10份trace已核验；长prefill优先SWA，decode关注KV/RoPE与专家权重物化。实验协议见[09](../docs/plan/09_expanded_profile_study.md)。
 

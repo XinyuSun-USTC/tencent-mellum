@@ -1,0 +1,79 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "ctx_1024",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 10,
+        "common_prefix_tokens": 10,
+        "token_match_fraction": 0.15625
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 10
+      },
+      "max_abs_error": 5.75,
+      "rms_error": 3.838977813720703,
+      "top1_exact": true
+    },
+    {
+      "name": "ctx_16384",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 12,
+        "common_prefix_tokens": 11,
+        "token_match_fraction": 0.1875
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 11
+      },
+      "max_abs_error": 4.5,
+      "rms_error": 2.3846867084503174,
+      "top1_exact": true
+    },
+    {
+      "name": "ctx_4096",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 19,
+        "common_prefix_tokens": 19,
+        "token_match_fraction": 0.296875
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 19
+      },
+      "max_abs_error": 2.5,
+      "rms_error": 0.7495802640914917,
+      "top1_exact": true
+    }
+  ],
+  "mismatches": [
+    "ctx_1024",
+    "ctx_16384",
+    "ctx_4096"
+  ],
+  "token_summary": {
+    "compared_positions": 192,
+    "matching_positions": 41,
+    "token_match_fraction": 0.21354166666666666,
+    "exact_sequences": 0,
+    "reference_records": 3
+  }
+}

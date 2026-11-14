@@ -1,0 +1,265 @@
+{
+  "status": "diagnostic_complete",
+  "source_run": "/workspace/results/mellum_swa_optimization/20261114T121938893923Z",
+  "output": "/workspace/results/mellum_swa_hf_check/20261114T134033129558Z",
+  "inputs_sha256": "94a9e3a6504a581aba08472de60a0578fc41e9fe3b3f55c44684b5b0af683e22",
+  "source_summary_sha256": "9524f4c8beeb31b2ae00dc399203b2e009e36cdfedd88762053e963126d3a2f5",
+  "source_plan_sha256": {
+    "a0": "dc4d1e72450224fb3c12cf0c705a5e90907726b2b51daae72e9d114102257133",
+    "b0": "6acc6484616417513af7ba37ef8c2c26657f3c665c441eb6a425e3f96894227f",
+    "b1": "6acc6484616417513af7ba37ef8c2c26657f3c665c441eb6a425e3f96894227f",
+    "a1": "dc4d1e72450224fb3c12cf0c705a5e90907726b2b51daae72e9d114102257133"
+  },
+  "source_sha256": {
+    "/workspace/scripts/run_mellum_swa_hf_check.py": "dd8b4d06e97570faf009c89e7b1131bc89fe9ba4af08c427fb35d68bd877d639",
+    "/workspace/tencent-mellum/scripts/compare_mellum_generation.py": "02fc9f4cd1a9c042c56320914e2d21d1984358047ac6fe90cc343d34ee1f217c",
+    "/workspace/tencent-mellum/scripts/run_mellum_validation.py": "e9e381d02b0091489b04209cd02a7c069485d9c439291d191dc330d99449d2d8",
+    "/workspace/tencent-mellum/scripts/check_atom_mellum.py": "716403895df6b02251be2d0aa9820ff1054d3e7751c0230a974ee0a122bff84d",
+    "/workspace/tencent-mellum/scripts/export_mellum_suite_hf.py": "ff6e36dc1efa3d255aabd88d8c60ab8c89b90b36b9b31e0825ef386586778f77",
+    "/workspace/tencent-mellum/ATOM/atom/models/mellum.py": "ef571f28b47e0892e6dae79df03d2dd81d077e4d648217152c26fd74083fe083",
+    "/workspace/tencent-mellum/ATOM/atom/model_config/mellum_attention.py": "9688818035595b3fcb9fbf511c3f772d4c3d92bbb4cc03713c31b16f3169d606"
+  },
+  "candidate_validation_run": "/workspace/results/mellum_validation/20261114T134036679932Z",
+  "hf_vs_candidate": {
+    "token_summary": {
+      "compared_positions": 192,
+      "matching_positions": 41,
+      "token_match_fraction": 0.21354166666666666,
+      "exact_sequences": 0,
+      "reference_records": 3
+    },
+    "records": [
+      {
+        "name": "ctx_1024",
+        "mismatches": [
+          "generated_ids",
+          "logits_values"
+        ],
+        "token_stats": {
+          "compared_positions": 64,
+          "matching_positions": 10,
+          "common_prefix_tokens": 10,
+          "token_match_fraction": 0.15625
+        },
+        "first_token_difference": {
+          "batch": 0,
+          "position": 10
+        },
+        "max_abs_error": 5.75,
+        "rms_error": 3.838977813720703,
+        "top1_exact": true
+      },
+      {
+        "name": "ctx_16384",
+        "mismatches": [
+          "generated_ids",
+          "logits_values"
+        ],
+        "token_stats": {
+          "compared_positions": 64,
+          "matching_positions": 12,
+          "common_prefix_tokens": 11,
+          "token_match_fraction": 0.1875
+        },
+        "first_token_difference": {
+          "batch": 0,
+          "position": 11
+        },
+        "max_abs_error": 4.5,
+        "rms_error": 2.3846867084503174,
+        "top1_exact": true
+      },
+      {
+        "name": "ctx_4096",
+        "mismatches": [
+          "generated_ids",
+          "logits_values"
+        ],
+        "token_stats": {
+          "compared_positions": 64,
+          "matching_positions": 19,
+          "common_prefix_tokens": 19,
+          "token_match_fraction": 0.296875
+        },
+        "first_token_difference": {
+          "batch": 0,
+          "position": 19
+        },
+        "max_abs_error": 2.5,
+        "rms_error": 0.7495802640914917,
+        "top1_exact": true
+      }
+    ],
+    "generation_summary": {
+      "scope": "Same-history pre-sampling logits; no comparison after the token fork",
+      "compared_positions": 43,
+      "nonexact_positions": 43,
+      "first_nonexact": [
+        {
+          "rms": 3.838977813720703,
+          "mean_shift": 3.818265914916992,
+          "centered_rms": 0.3982425928115845,
+          "hf_top1_top2_margin": 21.40625,
+          "atom_top1_top2_margin": 21.47265625,
+          "hf_preference_hf_minus_atom": 0.0,
+          "atom_preference_atom_minus_hf": 0.0,
+          "name": "ctx_1024",
+          "step": 0,
+          "logits_exact": false,
+          "max_abs": 5.75,
+          "hf_selected": 23,
+          "atom_selected": 23,
+          "both_selected_are_argmax": true
+        }
+      ]
+    },
+    "forks": [
+      {
+        "rms": 0.9298267960548401,
+        "mean_shift": 0.8654835820198059,
+        "centered_rms": 0.33987632393836975,
+        "hf_top1_top2_margin": 0.0625,
+        "atom_top1_top2_margin": 0.1875,
+        "hf_preference_hf_minus_atom": 0.0625,
+        "atom_preference_atom_minus_hf": 0.1875,
+        "name": "ctx_1024",
+        "step": 10,
+        "logits_exact": false,
+        "max_abs": 2.5,
+        "hf_selected": 5843,
+        "atom_selected": 392,
+        "both_selected_are_argmax": true
+      },
+      {
+        "rms": 0.5041304230690002,
+        "mean_shift": 0.3812018632888794,
+        "centered_rms": 0.3298979103565216,
+        "hf_top1_top2_margin": 0.1875,
+        "atom_top1_top2_margin": 0.125,
+        "hf_preference_hf_minus_atom": 0.1875,
+        "atom_preference_atom_minus_hf": 0.125,
+        "name": "ctx_4096",
+        "step": 19,
+        "logits_exact": false,
+        "max_abs": 2.625,
+        "hf_selected": 392,
+        "atom_selected": 9310,
+        "both_selected_are_argmax": true
+      },
+      {
+        "rms": 1.5432697534561157,
+        "mean_shift": 1.474856972694397,
+        "centered_rms": 0.4543988108634949,
+        "hf_top1_top2_margin": 1.375,
+        "atom_top1_top2_margin": 0.25,
+        "hf_preference_hf_minus_atom": 1.375,
+        "atom_preference_atom_minus_hf": 0.25,
+        "name": "ctx_16384",
+        "step": 11,
+        "logits_exact": false,
+        "max_abs": 3.6875,
+        "hf_selected": 46,
+        "atom_selected": 516,
+        "both_selected_are_argmax": true
+      }
+    ]
+  },
+  "baseline_run": "/workspace/results/atom_mellum_gpu/20261114T134152145024Z",
+  "hf_vs_baseline": {
+    "token_summary": {
+      "compared_positions": 192,
+      "matching_positions": 192,
+      "token_match_fraction": 1.0,
+      "exact_sequences": 3,
+      "reference_records": 3
+    },
+    "records": [
+      {
+        "name": "ctx_1024",
+        "mismatches": [],
+        "token_stats": {
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "common_prefix_tokens": 64,
+          "token_match_fraction": 1.0
+        },
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "top1_exact": true
+      },
+      {
+        "name": "ctx_16384",
+        "mismatches": [],
+        "token_stats": {
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "common_prefix_tokens": 64,
+          "token_match_fraction": 1.0
+        },
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "top1_exact": true
+      },
+      {
+        "name": "ctx_4096",
+        "mismatches": [],
+        "token_stats": {
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "common_prefix_tokens": 64,
+          "token_match_fraction": 1.0
+        },
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "top1_exact": true
+      }
+    ],
+    "generation_summary": {
+      "scope": "Same-history pre-sampling logits; no comparison after the token fork",
+      "compared_positions": 192,
+      "nonexact_positions": 0,
+      "first_nonexact": []
+    },
+    "forks": []
+  },
+  "reference_vs_abba": [
+    {
+      "name": "ctx_1024",
+      "normal_output_tokens": 64,
+      "abba_budget": 256,
+      "common_prefix_exact": true
+    },
+    {
+      "name": "ctx_4096",
+      "normal_output_tokens": 64,
+      "abba_budget": 64,
+      "common_prefix_exact": true
+    },
+    {
+      "name": "ctx_16384",
+      "normal_output_tokens": 64,
+      "abba_budget": 64,
+      "common_prefix_exact": true
+    }
+  ],
+  "candidate_vs_abba": [
+    {
+      "name": "ctx_1024",
+      "normal_output_tokens": 64,
+      "abba_budget": 256,
+      "common_prefix_exact": true
+    },
+    {
+      "name": "ctx_4096",
+      "normal_output_tokens": 64,
+      "abba_budget": 64,
+      "common_prefix_exact": true
+    },
+    {
+      "name": "ctx_16384",
+      "normal_output_tokens": 64,
+      "abba_budget": 64,
+      "common_prefix_exact": true
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "swa_prefill_opt": true,
+  "correctness_candidate": true,
+  "sampling_mode": "normal_no_forcing",
+  "qkv_backend": "separate",
+  "stage_layer": 0,
+  "prefill_backend": "sdpa_cpu_rope_diagnostic",
+  "suite": "diagnostic",
+  "status": "comparison_failed",
+  "output": "/workspace/results/mellum_validation/20261114T134036679932Z",
+  "phase": "atom",
+  "returncode": 1,
+  "atom_run": "/workspace/results/atom_mellum_gpu/20261114T134107819233Z",
+  "critical": [
+    "ctx_1024",
+    "ctx_16384",
+    "ctx_4096"
+  ],
+  "generation_logit_summary": {
+    "scope": "Same-history pre-sampling logits; no comparison after the token fork",
+    "compared_positions": 43,
+    "nonexact_positions": 43,
+    "first_nonexact": [
+      {
+        "rms": 3.838977813720703,
+        "mean_shift": 3.818265914916992,
+        "centered_rms": 0.3982425928115845,
+        "hf_top1_top2_margin": 21.40625,
+        "atom_top1_top2_margin": 21.47265625,
+        "hf_preference_hf_minus_atom": 0.0,
+        "atom_preference_atom_minus_hf": 0.0,
+        "name": "ctx_1024",
+        "step": 0,
+        "logits_exact": false,
+        "max_abs": 5.75,
+        "hf_selected": 23,
+        "atom_selected": 23,
+        "both_selected_are_argmax": true
+      }
+    ]
+  },
+  "token_summary": {
+    "compared_positions": 192,
+    "matching_positions": 41,
+    "token_match_fraction": 0.21354166666666666,
+    "exact_sequences": 0,
+    "reference_records": 3
+  },
+  "logits_errors": {
+    "ctx_1024": 5.75,
+    "ctx_16384": 4.5,
+    "ctx_4096": 2.5
+  }
+}
