@@ -4,7 +4,7 @@
 
 ## 当前入口
 
-最新候选筛选：[性能08](performance/08_triton_swa_screen.md)：Triton真实1K/4K误差较CK下降、局部仍快于SDPA，进入32条生成对照，未切默认；开发200/HumanEval结果见[07](performance/07_representative_correctness.md)。
+最新结果：[性能09](performance/09_triton_activation32.md)：Triton激活32条位置61.62%（CK56.93%）、序列10/32（CK7/32），改善有限且局部较慢；结束有界Attention替代筛选，保留两种实现，转向服务/批量基准。非正式公开集验收。
 
 扩展实测见[性能02](performance/02_expanded_bs1_profile_study.md)：19配置132次计时与10份trace已核验；长prefill优先SWA，decode关注KV/RoPE与专家权重物化。实验协议见[09](../docs/plan/09_expanded_profile_study.md)。
 

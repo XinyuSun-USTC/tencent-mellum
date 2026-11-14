@@ -72,3 +72,5 @@
 - 一轮有界替代实现筛选准备：核对冻结AITER Triton default local源码，发现right必须-1，按causal+left1023映射1024窗口；新增筛选适配器（未接模型）、首key脉冲/GQA探针、1K/4K真实QKV的SDPA/CK/Triton轮转计时与短trace。相关22项CPU通过、prepare-only193745通过，未加载模型/执行GPU/改生产路径。只考察这一条替代路线，有优势才测32条激活生成；计划与停止条件见[12](../docs/plan/12_bounded_triton_swa_screening.md)。
 
 - Triton有界筛选200217完成：边界/GQA探针、参考精确回放和实际Triton kernel trace通过。1K/4K relative L2为0.000576/0.0000161（CK约0.00569）；Triton耗时0.333/1.085ms，局部对SDPA1.62×/12.06×，慢于CK。接入独立impl=ck/triton选择，默认仍关闭优化；相关44项CPU通过，32条prepare-only204321通过，待用户GPU正常生成验证。见[性能08](performance/08_triton_swa_screen.md)，未执行新的GPU或切默认。
+
+- Triton32条生成204611完成：实际impl=triton、正常64token、5631加载审计通过；HF匹配1262/2048=61.6211%，完整10/32；CK为1166/2048=56.9336%、7/32。逐题13改善/8下降/11相同，完整新增5条但回退2条。局部数值显著改善未转化同幅生成收益，且较CK慢，按时间边界结束本轮筛选，保留两实现不切默认；下一主线服务/批量，未追加完整200/ABBA/HumanEval。详见[性能09](performance/09_triton_activation32.md)。

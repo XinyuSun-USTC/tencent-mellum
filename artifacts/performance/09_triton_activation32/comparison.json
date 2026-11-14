@@ -1,0 +1,638 @@
+{
+  "status": "failed",
+  "atol": 0.0,
+  "rtol": 0.0,
+  "records": [
+    {
+      "name": "scenario_a_1",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 48,
+        "common_prefix_tokens": 47,
+        "token_match_fraction": 0.75
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 47
+      },
+      "max_abs_error": 2.25,
+      "rms_error": 1.1217880249023438,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_10",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 11,
+        "common_prefix_tokens": 11,
+        "token_match_fraction": 0.171875
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 11
+      },
+      "max_abs_error": 3.25,
+      "rms_error": 1.2762194871902466,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_11",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.75,
+      "rms_error": 0.6661032438278198,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_12",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 21,
+        "common_prefix_tokens": 20,
+        "token_match_fraction": 0.328125
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 20
+      },
+      "max_abs_error": 1.5,
+      "rms_error": 0.44342371821403503,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_13",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 2.0,
+      "rms_error": 0.8694964647293091,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_14",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.75,
+      "rms_error": 0.5989821553230286,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_15",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 47,
+        "common_prefix_tokens": 46,
+        "token_match_fraction": 0.734375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 46
+      },
+      "max_abs_error": 2.75,
+      "rms_error": 0.6492601633071899,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_16",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.75,
+      "rms_error": 0.38201624155044556,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_17",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 62,
+        "common_prefix_tokens": 60,
+        "token_match_fraction": 0.96875
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 60
+      },
+      "max_abs_error": 2.5,
+      "rms_error": 1.1210821866989136,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_18",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.25,
+      "rms_error": 0.3385736048221588,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_19",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 28,
+        "common_prefix_tokens": 27,
+        "token_match_fraction": 0.4375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 27
+      },
+      "max_abs_error": 0.5,
+      "rms_error": 0.13995498418807983,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_2",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 25,
+        "common_prefix_tokens": 25,
+        "token_match_fraction": 0.390625
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 25
+      },
+      "max_abs_error": 2.75,
+      "rms_error": 1.4632233381271362,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_20",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 14,
+        "common_prefix_tokens": 5,
+        "token_match_fraction": 0.21875
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 5
+      },
+      "max_abs_error": 2.125,
+      "rms_error": 1.1421263217926025,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_21",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 16,
+        "common_prefix_tokens": 14,
+        "token_match_fraction": 0.25
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 14
+      },
+      "max_abs_error": 2.0,
+      "rms_error": 0.6426025032997131,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_22",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 20,
+        "common_prefix_tokens": 20,
+        "token_match_fraction": 0.3125
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 20
+      },
+      "max_abs_error": 2.0,
+      "rms_error": 0.4630945920944214,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_23",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 29,
+        "common_prefix_tokens": 28,
+        "token_match_fraction": 0.453125
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 28
+      },
+      "max_abs_error": 1.5,
+      "rms_error": 0.45757511258125305,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_25",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 7,
+        "common_prefix_tokens": 5,
+        "token_match_fraction": 0.109375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 5
+      },
+      "max_abs_error": 1.5,
+      "rms_error": 0.2932838201522827,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_26",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 22,
+        "common_prefix_tokens": 22,
+        "token_match_fraction": 0.34375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 22
+      },
+      "max_abs_error": 2.5,
+      "rms_error": 0.5631222128868103,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_27",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 46,
+        "common_prefix_tokens": 46,
+        "token_match_fraction": 0.71875
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 46
+      },
+      "max_abs_error": 1.25,
+      "rms_error": 0.4843113124370575,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_28",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 0.75,
+      "rms_error": 0.19488397240638733,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_29",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 22,
+        "common_prefix_tokens": 20,
+        "token_match_fraction": 0.34375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 20
+      },
+      "max_abs_error": 1.25,
+      "rms_error": 0.4053311049938202,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_3",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.75,
+      "rms_error": 0.4826394319534302,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_30",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 38,
+        "common_prefix_tokens": 5,
+        "token_match_fraction": 0.59375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 5
+      },
+      "max_abs_error": 0.75,
+      "rms_error": 0.1854228675365448,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_32",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 30,
+        "common_prefix_tokens": 30,
+        "token_match_fraction": 0.46875
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 30
+      },
+      "max_abs_error": 2.25,
+      "rms_error": 0.8737748861312866,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_33",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 2.25,
+      "rms_error": 0.9075962901115417,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_34",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 46,
+        "common_prefix_tokens": 46,
+        "token_match_fraction": 0.71875
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 46
+      },
+      "max_abs_error": 2.25,
+      "rms_error": 0.9705432057380676,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_35",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 2.5,
+      "rms_error": 0.8361267447471619,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_4",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 8,
+        "common_prefix_tokens": 7,
+        "token_match_fraction": 0.125
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 7
+      },
+      "max_abs_error": 1.5,
+      "rms_error": 0.3777710199356079,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_5",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 47,
+        "common_prefix_tokens": 47,
+        "token_match_fraction": 0.734375
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 47
+      },
+      "max_abs_error": 1.75,
+      "rms_error": 0.36631444096565247,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_7",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 26,
+        "common_prefix_tokens": 26,
+        "token_match_fraction": 0.40625
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 26
+      },
+      "max_abs_error": 1.625,
+      "rms_error": 0.3376758098602295,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_8",
+      "mismatches": [
+        "generated_ids",
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 9,
+        "common_prefix_tokens": 9,
+        "token_match_fraction": 0.140625
+      },
+      "first_token_difference": {
+        "batch": 0,
+        "position": 9
+      },
+      "max_abs_error": 0.75,
+      "rms_error": 0.2164594531059265,
+      "top1_exact": true
+    },
+    {
+      "name": "scenario_a_9",
+      "mismatches": [
+        "logits_values"
+      ],
+      "token_stats": {
+        "compared_positions": 64,
+        "matching_positions": 64,
+        "common_prefix_tokens": 64,
+        "token_match_fraction": 1.0
+      },
+      "max_abs_error": 1.75,
+      "rms_error": 0.38925135135650635,
+      "top1_exact": true
+    }
+  ],
+  "mismatches": [
+    "scenario_a_1",
+    "scenario_a_10",
+    "scenario_a_11",
+    "scenario_a_12",
+    "scenario_a_13",
+    "scenario_a_14",
+    "scenario_a_15",
+    "scenario_a_16",
+    "scenario_a_17",
+    "scenario_a_18",
+    "scenario_a_19",
+    "scenario_a_2",
+    "scenario_a_20",
+    "scenario_a_21",
+    "scenario_a_22",
+    "scenario_a_23",
+    "scenario_a_25",
+    "scenario_a_26",
+    "scenario_a_27",
+    "scenario_a_28",
+    "scenario_a_29",
+    "scenario_a_3",
+    "scenario_a_30",
+    "scenario_a_32",
+    "scenario_a_33",
+    "scenario_a_34",
+    "scenario_a_35",
+    "scenario_a_4",
+    "scenario_a_5",
+    "scenario_a_7",
+    "scenario_a_8",
+    "scenario_a_9"
+  ],
+  "token_summary": {
+    "compared_positions": 2048,
+    "matching_positions": 1262,
+    "token_match_fraction": 0.6162109375,
+    "exact_sequences": 10,
+    "reference_records": 32
+  }
+}

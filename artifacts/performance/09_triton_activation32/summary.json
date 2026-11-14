@@ -1,0 +1,40 @@
+{
+  "status": "developer_comparison_complete",
+  "source_run": "/workspace/results/mellum_validation/20261113T104458011376Z",
+  "source_reference_sha256": "407cab507b32e45191f6cd5431709824a5b9f845442936dfc018c3668a4d7df1",
+  "scope": "Developer activation subset",
+  "swa_prefill_impl": "triton",
+  "source_reference_records": 200,
+  "reference_records": 32,
+  "swa_eligible_records": 32,
+  "candidate_run": "/workspace/results/atom_mellum_gpu/20261114T204611897471Z",
+  "all": {
+    "compared_positions": 2048,
+    "matching_positions": 1262,
+    "token_match_fraction": 0.6162109375,
+    "exact_sequences": 10,
+    "reference_records": 32,
+    "exact_sequence_fraction": 0.3125
+  },
+  "swa_eligible": {
+    "records": 32,
+    "matching_positions": 1262,
+    "compared_positions": 2048,
+    "token_match_fraction": 0.6162109375,
+    "exact_sequences": 10,
+    "exact_sequence_fraction": 0.3125
+  },
+  "below_window": {
+    "records": 0,
+    "matching_positions": 0,
+    "compared_positions": 0,
+    "token_match_fraction": null,
+    "exact_sequences": 0,
+    "exact_sequence_fraction": null
+  },
+  "developer_90_percent_checks": {
+    "token_position_interpretation": false,
+    "whole_sequence_interpretation": false,
+    "note": "Activation subset is diagnostic, not a replacement public set"
+  }
+}

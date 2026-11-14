@@ -1,0 +1,213 @@
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+[atom 20:46:16] Engine kwargs: {'trust_remote_code': False, 'tensor_parallel_size': 1, 'data_parallel_size': 1, 'enforce_eager': True, 'enable_prefix_caching': False, 'port': 8006, 'kv_cache_dtype': 'bf16', 'max_model_len': 4192, 'max_num_batched_tokens': 4192, 'attn_prefill_chunk_size': 16384, 'enable_chunked_prefill': False, 'scheduler_delay_factor': 0.0, 'max_num_seqs': 1, 'gpu_memory_utilization': 0.35, 'load_dummy': False, 'enable_expert_parallel': False, 'torch_profiler_dir': None, 'enable_dp_attention': False, 'kv_transfer_config': '{}', 'mark_trace': False, 'online_quant_config': None, 'kv_cache_block_size': 16, 'compilation_config': CompilationConfig(level=0, use_cudagraph=True, local_cache_dir=None, cudagraph_capture_sizes=[1, 2, 4, 8, 16, 32, 48, 64, 128, 256], cuda_graph_sizes=[512], debug_dump_path='', traced_files=set(), cache_dir='', use_inductor=True, cudagraph_mode=None, compilation_time=0.0, splitting_ops=None, cudagraph_copy_inputs=False, inductor_compile_config={}, compile_sizes=None, static_forward_context={}), 'speculative_config': None, 'enable_tbo': False, 'enable_tbo_decode': False, 'enable_low_latency': False}
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are using a model of type `mellum` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+[atom 20:46:16] Engine Core Mgr: Creating EngineCore for DP rank 0/1
+[atom 20:46:16] Creating EngineCore process: DP rank 0, will use GPUs 0 to 0
+[atom 20:46:16] Engine Core Mgr: Starting EngineCore for DP rank 0/1
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+[atom 20:46:25] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 20:46:25] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 20:46:25] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[atom 20:46:25] Create lazy wrapper for FusedMoE to change the naming
+[atom 20:46:25] ModelRunner rank=0, dp_rank_local=0, local_device_rank=0, device=cuda:0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[atom 20:46:26] disable_mmap: False
+Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:   0%|          | 0/5 [00:00<?, ?it/s]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  20%|██        | 1/5 [00:01<00:05,  1.31s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  40%|████      | 2/5 [00:02<00:03,  1.32s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  60%|██████    | 3/5 [00:04<00:02,  1.35s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  80%|████████  | 4/5 [00:05<00:01,  1.26s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]: 100%|██████████| 5/5 [00:06<00:00,  1.31s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]: 100%|██████████| 5/5 [00:06<00:00,  1.31s/it]
+[atom 20:46:32] Mellum loading audit passed: 5631 source tensors
+[atom 20:46:32] Model load done: /data/models/Mellum2.1-12B-A2.5B-Thinking
+[atom 20:46:34] Model Runner0/1: warmup_model 1.48 seconds with 1 reqs 4192 tokens
+[atom 20:46:34] Model warmup done: /data/models/Mellum2.1-12B-A2.5B-Thinking
+[atom 20:46:34] Memory budget: total_gpu=191.98GB, free=166.73GB, utilization=0.35, budget=67.19GB, peak_torch=24.58GB, cudagraph_est=0.00GB, safety=3.84GB, available_for_kv=38.78GB, block_bytes=931840, num_kvcache_blocks=44684
+[atom 20:46:34] Concurrent capacity vs context length (max_model_len=4192, block_size=16, max_slots=1, pool_blocks=44684):
+   10% (    419 tok):     27 blk/req → max_concurrent=1     (bound by slots)
+   30% (   1257 tok):     79 blk/req → max_concurrent=1     (bound by slots)
+   50% (   2096 tok):    131 blk/req → max_concurrent=1     (bound by slots)
+   70% (   2934 tok):    184 blk/req → max_concurrent=1     (bound by slots)
+   90% (   3772 tok):    236 blk/req → max_concurrent=1     (bound by slots)
+  100% (   4192 tok):    262 blk/req → max_concurrent=1     (bound by slots)
+[atom 20:46:34] Binding KV cache for target model starting at layer_id=0
+/opt/venv/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W1114 20:46:34.102091117 ProcessGroupNCCL.cpp:5140] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[atom 20:46:34] Engine Core: load model runner success
+[atom 20:46:34] Engine Core: EngineCore fully initialized and ready
+[atom 20:46:34] Engine Core Mgr: DP rank 0 is fully initialized and ready
+[atom 20:46:34] Engine Core Mgr: All EngineCores are fully initialized and ready
+[atom 20:46:34] Engine Core Mgr: All 1 EngineCores initialized and ready
+[atom 20:46:34] KV transfer config loaded: {}
+[atom 20:46:34] LLMEngine init with 1 data parallel ranks
+[atom 20:46:34] LLMEngine init with 1 data parallel ranks
+[atom 20:46:34] Request 0 arrived, input tokens: 2248, pending requests: 1
+[atom 20:46:34] Scheduled prefill batch: 1 reqs, 2248 new tokens (cached: [0], new: [2248]), req_ids: (0,)
+[atom 20:46:40] Request 0 finished with reason max_tokens. Input tokens: 2248, output tokens: 64, latency: 5.71s, TTFT: 2.163s, TPOT: 0.056s
+scenario_a_1 token exact: False text: '<think>\nWe need to understand the problem. The user gave a description: "Diagnose a race condition and give a focused patch." There\'s no code provided. Possibly the conversation context is missing. The user might be referring to some earlier code snippet that wasn\'t included. However, we need to respond'
+[atom 20:46:40] Request 1 arrived, input tokens: 3857, pending requests: 1
+[atom 20:46:40] Engine Core: output send 1 reqs
+[atom 20:46:40] Scheduled prefill batch: 1 reqs, 3857 new tokens (cached: [0], new: [3857]), req_ids: (1,)
+[atom 20:46:44] Request 1 finished with reason max_tokens. Input tokens: 3857, output tokens: 64, latency: 3.94s, TTFT: 0.413s, TPOT: 0.056s
+[atom 20:46:44] Engine Core: output send 1 reqs
+scenario_a_2 token exact: False text: '<think>\nWe need to understand the problem. The user gave a long string that looks like a Python function or class or something. It says:\n\n"response string class class function request response class string function test python python result service service return class test list string model request test service model result value model python'
+[atom 20:46:44] Request 2 arrived, input tokens: 1582, pending requests: 1
+[atom 20:46:44] Scheduled prefill batch: 1 reqs, 1582 new tokens (cached: [0], new: [1582]), req_ids: (2,)
+[atom 20:46:48] Request 2 finished with reason max_tokens. Input tokens: 1582, output tokens: 64, latency: 3.77s, TTFT: 0.244s, TPOT: 0.056s
+[atom 20:46:48] Engine Core: output send 1 reqs
+scenario_a_3 token exact: True text: '<think>\nWe need to understand the problem. The user says: "Review the following service and propose a minimal bug fix."\n\nWe have a code snippet that appears to be a Python service implementation. It\'s quite messy. Let\'s try to parse it.\n\nThe code seems to define some'
+[atom 20:46:48] Request 3 arrived, input tokens: 3903, pending requests: 1
+[atom 20:46:48] Scheduled prefill batch: 1 reqs, 3903 new tokens (cached: [0], new: [3903]), req_ids: (3,)
+[atom 20:46:51] Request 3 finished with reason max_tokens. Input tokens: 3903, output tokens: 64, latency: 3.96s, TTFT: 0.416s, TPOT: 0.056s
+[atom 20:46:51] Engine Core: output send 1 reqs
+scenario_a_4 token exact: False text: '<think>\nWe need to produce code that is a deterministic parser and unit tests for malformed input. The user gave a prompt: "Write a deterministic parser and unit tests for malformed input."\n\nWe need to respond with something appropriate. Likely they want Python code that parses something, maybe a simple grammar'
+[atom 20:46:52] Request 4 arrived, input tokens: 3515, pending requests: 1
+[atom 20:46:52] Scheduled prefill batch: 1 reqs, 3515 new tokens (cached: [0], new: [3515]), req_ids: (4,)
+[atom 20:46:55] Request 4 finished with reason max_tokens. Input tokens: 3515, output tokens: 64, latency: 3.90s, TTFT: 0.358s, TPOT: 0.056s
+[atom 20:46:55] Engine Core: output send 1 reqs
+scenario_a_5 token exact: False text: '<think>\nWe need to understand the problem. The user says: "Implement a Python function with type hints and explain edge cases."\n\nWe need to produce a Python function with type hints, and explain edge cases. The user didn\'t specify the function signature or behavior. Possibly they want a generic function'
+[atom 20:46:55] Request 5 arrived, input tokens: 3746, pending requests: 1
+[atom 20:46:55] Scheduled prefill batch: 1 reqs, 3746 new tokens (cached: [0], new: [3746]), req_ids: (5,)
+[atom 20:46:59] Request 5 finished with reason max_tokens. Input tokens: 3746, output tokens: 64, latency: 3.94s, TTFT: 0.393s, TPOT: 0.056s
+[atom 20:46:59] Engine Core: output send 1 reqs
+scenario_a_7 token exact: False text: '<think>\nWe need to understand the problem. The user says: "Review the following service and propose a minimal bug fix." But we haven\'t been given any service code. Possibly there is a code snippet that was supposed to be provided but wasn\'t. The user might have intended to provide some code but didn'
+[atom 20:46:59] Request 6 arrived, input tokens: 1660, pending requests: 1
+[atom 20:46:59] Scheduled prefill batch: 1 reqs, 1660 new tokens (cached: [0], new: [1660]), req_ids: (6,)
+[atom 20:47:03] Request 6 finished with reason max_tokens. Input tokens: 1660, output tokens: 64, latency: 3.81s, TTFT: 0.258s, TPOT: 0.056s
+[atom 20:47:03] Engine Core: output send 1 reqs
+scenario_a_8 token exact: False text: '<think>\nWe need to respond to the user request: "Implement a Python function with type hints and explain edge cases." The user gave a long string of seemingly random text, possibly a prompt to generate code. The user request is: "Implement a Python function with type hints and explain edge cases."'
+[atom 20:47:03] Request 7 arrived, input tokens: 4044, pending requests: 1
+[atom 20:47:03] Scheduled prefill batch: 1 reqs, 4044 new tokens (cached: [0], new: [4044]), req_ids: (7,)
+[atom 20:47:07] Request 7 finished with reason max_tokens. Input tokens: 4044, output tokens: 64, latency: 3.98s, TTFT: 0.441s, TPOT: 0.056s
+[atom 20:47:07] Engine Core: output send 1 reqs
+scenario_a_9 token exact: True text: '<think>\nWe need to understand the problem. The user says: "Review the following service and propose a minimal bug fix." But we haven\'t been given any service code or description. Possibly there is hidden context? The user just gave that instruction. Maybe there is a service code in the conversation history? Let'
+[atom 20:47:07] Request 8 arrived, input tokens: 2390, pending requests: 1
+[atom 20:47:07] Scheduled prefill batch: 1 reqs, 2390 new tokens (cached: [0], new: [2390]), req_ids: (8,)
+[atom 20:47:11] Request 8 finished with reason max_tokens. Input tokens: 2390, output tokens: 64, latency: 3.85s, TTFT: 0.316s, TPOT: 0.056s
+[atom 20:47:11] Engine Core: output send 1 reqs
+scenario_a_10 token exact: False text: '<think>\nWe need to understand the problem. The user says: "Review the following service and propose a minimal bug fix." But we haven\'t been given any service code or description. Possibly there is a service definition that was supposed to be included but maybe it\'s missing. The prompt might be incomplete. However'
+[atom 20:47:11] Request 9 arrived, input tokens: 1133, pending requests: 1
+[atom 20:47:11] Scheduled prefill batch: 1 reqs, 1133 new tokens (cached: [0], new: [1133]), req_ids: (9,)
+[atom 20:47:15] Request 9 finished with reason max_tokens. Input tokens: 1133, output tokens: 64, latency: 3.75s, TTFT: 0.203s, TPOT: 0.056s
+[atom 20:47:15] Engine Core: output send 1 reqs
+scenario_a_11 token exact: True text: '<think>\nWe need to understand the problem. The user says: "Review the following service and propose a minimal bug fix."\n\nWe have a code block:\n\n```python\nclass model return class string return function class test input code response response class input string result error class result response input class list'
+[atom 20:47:15] Request 10 arrived, input tokens: 1478, pending requests: 1
+[atom 20:47:15] Scheduled prefill batch: 1 reqs, 1478 new tokens (cached: [0], new: [1478]), req_ids: (10,)
+[atom 20:47:19] Request 10 finished with reason max_tokens. Input tokens: 1478, output tokens: 64, latency: 3.76s, TTFT: 0.218s, TPOT: 0.056s
+[atom 20:47:19] Engine Core: output send 1 reqs
+scenario_a_12 token exact: False text: '<think>\nWe need to produce a Python function with type hints and explain edge cases. The user didn\'t specify exactly what function to implement, but the conversation context includes many mentions of "list input input service list function data list response return model data python data service test request list code test code result data list test value'
+[atom 20:47:19] Request 11 arrived, input tokens: 4065, pending requests: 1
+[atom 20:47:19] Scheduled prefill batch: 1 reqs, 4065 new tokens (cached: [0], new: [4065]), req_ids: (11,)
+[atom 20:47:23] Request 11 finished with reason max_tokens. Input tokens: 4065, output tokens: 64, latency: 3.98s, TTFT: 0.440s, TPOT: 0.056s
+[atom 20:47:23] Engine Core: output send 1 reqs
+scenario_a_13 token exact: True text: '<think>\nWe need to produce a Python function with type hints and explain edge cases. The user didn\'t specify the exact function, but the conversation context includes many mentions of "service request class error code model error input test request return test return input test test request response python python error response service model python data model code'
+[atom 20:47:23] Request 12 arrived, input tokens: 3450, pending requests: 1
+[atom 20:47:23] Scheduled prefill batch: 1 reqs, 3450 new tokens (cached: [0], new: [3450]), req_ids: (12,)
+[atom 20:47:27] Request 12 finished with reason max_tokens. Input tokens: 3450, output tokens: 64, latency: 3.92s, TTFT: 0.366s, TPOT: 0.056s
+[atom 20:47:27] Engine Core: output send 1 reqs
+scenario_a_14 token exact: True text: '<think>\nWe need to parse the problem: "Review the following service and propose a minimal bug fix." The user gave a huge block of text that appears to be some kind of log or output from a Python model, service, error, etc. It\'s garbled. Possibly it\'s a description'
+[atom 20:47:27] Request 13 arrived, input tokens: 4113, pending requests: 1
+[atom 20:47:27] Scheduled prefill batch: 1 reqs, 4113 new tokens (cached: [0], new: [4113]), req_ids: (13,)
+[atom 20:47:31] Request 13 finished with reason max_tokens. Input tokens: 4113, output tokens: 64, latency: 3.98s, TTFT: 0.436s, TPOT: 0.056s
+[atom 20:47:31] Engine Core: output send 1 reqs
+scenario_a_15 token exact: False text: '<think>\nWe need to produce a Python function with type hints and explain edge cases. The user says: "Implement a Python function with type hints and explain edge cases." So we need to write a function, presumably generic? Or maybe they want a specific function? The instruction is vague. We need'
+[atom 20:47:31] Request 14 arrived, input tokens: 3790, pending requests: 1
+[atom 20:47:31] Scheduled prefill batch: 1 reqs, 3790 new tokens (cached: [0], new: [3790]), req_ids: (14,)
+[atom 20:47:35] Request 14 finished with reason max_tokens. Input tokens: 3790, output tokens: 64, latency: 3.94s, TTFT: 0.392s, TPOT: 0.056s
+[atom 20:47:35] Engine Core: output send 1 reqs
+scenario_a_16 token exact: True text: '<think>\nWe need to produce a Python function with type hints and explain edge cases. The user says: "Implement a Python function with type hints and explain edge cases." So we need to write a function, presumably with type hints, and then explain edge cases. The function could be generic, but we'
+[atom 20:47:35] Request 15 arrived, input tokens: 3824, pending requests: 1
+[atom 20:47:35] Scheduled prefill batch: 1 reqs, 3824 new tokens (cached: [0], new: [3824]), req_ids: (15,)
+[atom 20:47:39] Request 15 finished with reason max_tokens. Input tokens: 3824, output tokens: 64, latency: 3.95s, TTFT: 0.403s, TPOT: 0.056s
+[atom 20:47:39] Engine Core: output send 1 reqs
+scenario_a_17 token exact: False text: '<think>\nWe need to understand the problem. The user says: "Review the following service and propose a minimal bug fix."\n\nWe need to see the "following service". Probably there is some code snippet that is provided in the conversation? But we only have this request. There\'s no code shown. Possibly'
+[atom 20:47:39] Request 16 arrived, input tokens: 2977, pending requests: 1
+[atom 20:47:39] Scheduled prefill batch: 1 reqs, 2977 new tokens (cached: [0], new: [2977]), req_ids: (16,)
+[atom 20:47:43] Request 16 finished with reason max_tokens. Input tokens: 2977, output tokens: 64, latency: 3.90s, TTFT: 0.362s, TPOT: 0.056s
+[atom 20:47:43] Engine Core: output send 1 reqs
+scenario_a_18 token exact: True text: '<think>\nWe need to produce a deterministic parser and unit tests for malformed input. The user says: "Write a deterministic parser and unit tests for malformed input."\n\nWe need to interpret what exactly they want. Likely they want code that parses some input (maybe JSON, CSV, or custom format) and'
+[atom 20:47:43] Request 17 arrived, input tokens: 2074, pending requests: 1
+[atom 20:47:43] Scheduled prefill batch: 1 reqs, 2074 new tokens (cached: [0], new: [2074]), req_ids: (17,)
+[atom 20:47:46] Request 17 finished with reason max_tokens. Input tokens: 2074, output tokens: 64, latency: 3.85s, TTFT: 0.305s, TPOT: 0.056s
+[atom 20:47:46] Engine Core: output send 1 reqs
+scenario_a_19 token exact: False text: '<think>\nWe need to understand the problem. The user gave a huge block of text that appears to be some Python code, maybe describing an algorithm, and then says: "Task: Optimize this algorithm while preserving its public API."\n\nWe need to respond appropriately. Likely we need to provide an optimized version of'
+[atom 20:47:46] Request 18 arrived, input tokens: 1289, pending requests: 1
+[atom 20:47:46] Scheduled prefill batch: 1 reqs, 1289 new tokens (cached: [0], new: [1289]), req_ids: (18,)
+[atom 20:47:50] Request 18 finished with reason max_tokens. Input tokens: 1289, output tokens: 64, latency: 3.75s, TTFT: 0.213s, TPOT: 0.056s
+[atom 20:47:50] Engine Core: output send 1 reqs
+scenario_a_20 token exact: False text: '<think>\nWe need to understand the problem. The user gave a prompt: "test return input test python list string return string response return list code function code code python return class return return value response data result service input model data test python function list response input data code input code model response model value result error input model'
+[atom 20:47:50] Request 19 arrived, input tokens: 1293, pending requests: 1
+[atom 20:47:50] Scheduled prefill batch: 1 reqs, 1293 new tokens (cached: [0], new: [1293]), req_ids: (19,)
+[atom 20:47:54] Request 19 finished with reason max_tokens. Input tokens: 1293, output tokens: 64, latency: 3.76s, TTFT: 0.217s, TPOT: 0.056s
+[atom 20:47:54] Engine Core: output send 1 reqs
+scenario_a_21 token exact: False text: '<think>\nWe need to understand the problem. The user gave a very confusing description: "Implement a Python function with type hints and explain edge cases." There\'s also a lot of garbled text that seems like random words, maybe from some previous context. The core request: "Implement a Python function'
+[atom 20:47:54] Request 20 arrived, input tokens: 3802, pending requests: 1
+[atom 20:47:54] Scheduled prefill batch: 1 reqs, 3802 new tokens (cached: [0], new: [3802]), req_ids: (20,)
+[atom 20:47:58] Request 20 finished with reason max_tokens. Input tokens: 3802, output tokens: 64, latency: 3.95s, TTFT: 0.399s, TPOT: 0.056s
+[atom 20:47:58] Engine Core: output send 1 reqs
+scenario_a_22 token exact: False text: "<think>\nWe need to respond with a focused patch to fix a race condition. The user didn't provide the code or context explicitly, but the system gave a long list of possible imports, functions, classes, etc. It seems like the problem is about a race condition in some Python code, maybe"
+[atom 20:47:58] Request 21 arrived, input tokens: 2965, pending requests: 1
+[atom 20:47:58] Scheduled prefill batch: 1 reqs, 2965 new tokens (cached: [0], new: [2965]), req_ids: (21,)
+[atom 20:48:02] Request 21 finished with reason max_tokens. Input tokens: 2965, output tokens: 64, latency: 3.91s, TTFT: 0.362s, TPOT: 0.056s
+[atom 20:48:02] Engine Core: output send 1 reqs
+scenario_a_23 token exact: False text: '<think>\nWe need to understand the problem. The user gave a long string that looks like some kind of encoded or concatenated text, maybe from some system. It includes many lines with words like "result", "error", "request", "input", "function", "request", "string", "value", "'
+[atom 20:48:02] Request 22 arrived, input tokens: 1217, pending requests: 1
+[atom 20:48:02] Scheduled prefill batch: 1 reqs, 1217 new tokens (cached: [0], new: [1217]), req_ids: (22,)
+[atom 20:48:06] Request 22 finished with reason max_tokens. Input tokens: 1217, output tokens: 64, latency: 3.76s, TTFT: 0.216s, TPOT: 0.056s
+[atom 20:48:06] Engine Core: output send 1 reqs
+scenario_a_25 token exact: False text: '<think>\nWe need to produce a focused patch to fix a race condition. The user gave a huge block of text that includes a lot of code snippets, maybe describing a problem. The task: "Diagnose a race condition and give a focused patch."\n\nWe need to output'
+[atom 20:48:06] Request 23 arrived, input tokens: 3843, pending requests: 1
+[atom 20:48:06] Scheduled prefill batch: 1 reqs, 3843 new tokens (cached: [0], new: [3843]), req_ids: (23,)
+[atom 20:48:10] Request 23 finished with reason max_tokens. Input tokens: 3843, output tokens: 64, latency: 3.96s, TTFT: 0.418s, TPOT: 0.056s
+[atom 20:48:10] Engine Core: output send 1 reqs
+scenario_a_26 token exact: False text: '<think>\nWe need to parse the problem. The user gave a long string that appears to be a Python code snippet with many errors, maybe representing some kind of test or service code. The user says: "Diagnose a race condition and give a focused patch."\n\nWe need to interpret what'
+[atom 20:48:10] Request 24 arrived, input tokens: 3444, pending requests: 1
+[atom 20:48:10] Scheduled prefill batch: 1 reqs, 3444 new tokens (cached: [0], new: [3444]), req_ids: (24,)
+[atom 20:48:14] Request 24 finished with reason max_tokens. Input tokens: 3444, output tokens: 64, latency: 3.91s, TTFT: 0.365s, TPOT: 0.056s
+[atom 20:48:14] Engine Core: output send 1 reqs
+scenario_a_27 token exact: False text: '<think>\nWe need to produce a deterministic parser and unit tests for malformed input. The user gave a prompt: "Write a deterministic parser and unit tests for malformed input." The system gave a long string of random characters and code fragments. The assistant must respond appropriately. Likely we need to produce a'
+[atom 20:48:14] Request 25 arrived, input tokens: 3027, pending requests: 1
+[atom 20:48:14] Scheduled prefill batch: 1 reqs, 3027 new tokens (cached: [0], new: [3027]), req_ids: (25,)
+[atom 20:48:18] Request 25 finished with reason max_tokens. Input tokens: 3027, output tokens: 64, latency: 3.90s, TTFT: 0.360s, TPOT: 0.056s
+[atom 20:48:18] Engine Core: output send 1 reqs
+scenario_a_28 token exact: True text: '<think>\nWe need to produce code: "Write a deterministic parser and unit tests for malformed input." The user says: "model class input data python list service error value code string code value request function class class result value input class value string return value class return list class service data result return class response function code input'
+[atom 20:48:18] Request 26 arrived, input tokens: 3072, pending requests: 1
+[atom 20:48:18] Scheduled prefill batch: 1 reqs, 3072 new tokens (cached: [0], new: [3072]), req_ids: (26,)
+[atom 20:48:22] Request 26 finished with reason max_tokens. Input tokens: 3072, output tokens: 64, latency: 3.90s, TTFT: 0.363s, TPOT: 0.056s
+[atom 20:48:22] Engine Core: output send 1 reqs
+scenario_a_29 token exact: False text: "<think>\nWe need to produce a Python function with type hints and explain edge cases. The user didn't specify the function signature. Possibly they want a generic function? But the context includes many references to model result, service request, test etc. Might be they want a function that processes input data, returns"
+[atom 20:48:22] Request 27 arrived, input tokens: 2870, pending requests: 1
+[atom 20:48:22] Scheduled prefill batch: 1 reqs, 2870 new tokens (cached: [0], new: [2870]), req_ids: (27,)
+[atom 20:48:26] Request 27 finished with reason max_tokens. Input tokens: 2870, output tokens: 64, latency: 3.90s, TTFT: 0.358s, TPOT: 0.056s
+[atom 20:48:26] Engine Core: output send 1 reqs
+scenario_a_30 token exact: False text: '<think>\nWe need to produce a deterministic parser and unit tests for malformed input. The user says: "Write a deterministic parser and unit tests for malformed input."\n\nWe need to interpret what exactly is being asked. The user wants a deterministic parser and unit tests for malformed input. Possibly they want code'
+[atom 20:48:26] Request 28 arrived, input tokens: 2652, pending requests: 1
+[atom 20:48:26] Scheduled prefill batch: 1 reqs, 2652 new tokens (cached: [0], new: [2652]), req_ids: (28,)
+[atom 20:48:30] Request 28 finished with reason max_tokens. Input tokens: 2652, output tokens: 64, latency: 3.88s, TTFT: 0.333s, TPOT: 0.056s
+[atom 20:48:30] Engine Core: output send 1 reqs
+scenario_a_32 token exact: False text: '<think>\nWe need to understand the problem. The user gave a long string that looks like code or logs? It seems like a mix of words and code fragments. Possibly it\'s a corrupted log or a description of a bug. The task: "Review the following service and propose a minimal'
+[atom 20:48:30] Request 29 arrived, input tokens: 3485, pending requests: 1
+[atom 20:48:30] Scheduled prefill batch: 1 reqs, 3485 new tokens (cached: [0], new: [3485]), req_ids: (29,)
+[atom 20:48:34] Request 29 finished with reason max_tokens. Input tokens: 3485, output tokens: 64, latency: 3.90s, TTFT: 0.364s, TPOT: 0.056s
+[atom 20:48:34] Engine Core: output send 1 reqs
+scenario_a_33 token exact: True text: '<think>\nWe need to write a Python function that parses input, handles errors, etc. The user asks: "Write a deterministic parser and unit tests for malformed input." They want a function value service response function input error list python input python string function function data code result input function data response response class request'
+[atom 20:48:34] Request 30 arrived, input tokens: 1688, pending requests: 1
+[atom 20:48:34] Scheduled prefill batch: 1 reqs, 1688 new tokens (cached: [0], new: [1688]), req_ids: (30,)
+[atom 20:48:38] Request 30 finished with reason max_tokens. Input tokens: 1688, output tokens: 64, latency: 3.79s, TTFT: 0.249s, TPOT: 0.056s
+[atom 20:48:38] Engine Core: output send 1 reqs
+scenario_a_34 token exact: False text: '<think>\nWe need to understand the problem. The user says: "Review the following service and propose a minimal bug fix."\n\nBut we haven\'t been given any code or description of a service. Possibly there is some context missing. The user might have provided a code snippet earlier, but in this'
+[atom 20:48:38] Request 31 arrived, input tokens: 1075, pending requests: 1
+[atom 20:48:38] Scheduled prefill batch: 1 reqs, 1075 new tokens (cached: [0], new: [1075]), req_ids: (31,)
+[atom 20:48:41] Request 31 finished with reason max_tokens. Input tokens: 1075, output tokens: 64, latency: 3.74s, TTFT: 0.202s, TPOT: 0.056s
+[atom 20:48:41] Engine Core: output send 1 reqs
+scenario_a_35 token exact: True text: '<think>\nWe need to understand the problem: The user gave a huge block of text that appears to be some code or description of a Python class, functions, data structures, etc. The user says: "Optimize this algorithm while preserving its public API."\n\nWe need to respond with an optimized algorithm,'
+[atom 20:48:42] Engine Core Mgr: Shutting down all 1 EngineCores
+[atom 20:48:44] AsyncIOProcManager(ModelRunner): shutdown all runners...
+[atom 20:48:45] AsyncIOProcManager(ModelRunner): All runners are shutdown.
+[atom 20:48:46] Engine Core Mgr: All EngineCores shut down
+RESULT token_mismatch output /workspace/results/atom_mellum_gpu/20261114T204611897471Z
