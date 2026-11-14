@@ -4,7 +4,7 @@
 
 ## 当前阅读入口
 
-当前执行：[12 一轮Triton窗口局部筛选](plan/12_bounded_triton_swa_screening.md)：复用真实QKV，不加载模型；筛选后转向服务/批量能力。
+当前执行：[13 服务、多请求接入与A/B/C基准计划](plan/13_serving_batching_and_workload_baseline.md)。Attention替代筛选已结束，下一里程碑为bs1服务、Mellum ragged多请求参考桥接与小规模GPU验证，之后建立实际负载基准。
 
 当前准确性评测：[11 代表性开发集与HumanEval](plan/11_representative_correctness_and_humaneval.md)：先跑开发200候选及独立HumanEval工具自检，避免以微观数值差异代替题目门槛。实现及GPU测试待执行边界详见该计划。
 

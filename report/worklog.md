@@ -74,3 +74,5 @@
 - Triton有界筛选200217完成：边界/GQA探针、参考精确回放和实际Triton kernel trace通过。1K/4K relative L2为0.000576/0.0000161（CK约0.00569）；Triton耗时0.333/1.085ms，局部对SDPA1.62×/12.06×，慢于CK。接入独立impl=ck/triton选择，默认仍关闭优化；相关44项CPU通过，32条prepare-only204321通过，待用户GPU正常生成验证。见[性能08](performance/08_triton_swa_screen.md)，未执行新的GPU或切默认。
 
 - Triton32条生成204611完成：实际impl=triton、正常64token、5631加载审计通过；HF匹配1262/2048=61.6211%，完整10/32；CK为1166/2048=56.9336%、7/32。逐题13改善/8下降/11相同，完整新增5条但回退2条。局部数值显著改善未转化同幅生成收益，且较CK慢，按时间边界结束本轮筛选，保留两实现不切默认；下一主线服务/批量，未追加完整200/ABBA/HumanEval。详见[性能09](performance/09_triton_activation32.md)。
+
+- 下一阶段方案核查：已有OpenAI服务、异步提交与prefill/decode分批Scheduler可复用；Mellum参考prefill/decode显式单请求检查为主要接入缺口，批量GEMM/MoE shape和临时权重物化需验证。形成[计划13](../docs/plan/13_serving_batching_and_workload_baseline.md)：bs1服务→ragged桥接→2/4/8/16/32小集/容量→正式A/B/C及批量profile→第二算子优化。区分S0/B0/点1、正常服务配置、原始分页KV及真实并发；evalscope未安装，当前只读核查/文档，无新功能/GPU。
