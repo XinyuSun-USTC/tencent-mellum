@@ -22,4 +22,24 @@
 
 日志存在gfx950-only opus模块导入警告，本次所有长度已成功完成；这不表示实际执行调用了gfx950 opus。fmha_v3符号日志同样不足以证明local路径执行了该kernel。
 
-目前只说明候选可执行且局部性能有潜力。还没有真实模型HF token匹配、HumanEval、整模型TTFT/TPOT或正式A/C成绩。下一步运行window边界HF对照，再做long及ABBA整模型性能；不能因为0.6%张量相对差异自动判通过或不通过。默认Step0不变。
+目前只说明候选可执行且局部性能有潜力。初次micro完成时还没有真实模型HF token匹配、HumanEval、整模型TTFT/TPOT或正式A/C成绩（后续短模型验证见下节）。下一步运行window边界HF对照，再做long及ABBA整模型性能；不能因为0.6%张量相对差异自动判通过或不通过。默认Step0不变。
+
+## 后续：真实模型窗口与长输入短回归
+
+2026-11-14用户完成HF对照：window运行`20261114T112559495973Z`，long运行`20261114T112653344802Z`。两者均为`tokens_exact_logits_review_required`；实际MELLUM_SWA_PREFILL_OPT=1，其余Step0组合及正常生成保持，ignore_eos=False，无强制历史；加载5631/5631、missing/unexpected为空。
+
+| 输入 | 输出检查 | token结果 | prefill logits max_abs / RMS |
+| --- | --- | --- | --- |
+| 1023 | 8 | 8/8一致 | 0 / 0 |
+| 1024 | 8 | 8/8一致 | 5.75 / 3.8390 |
+| 1025 | 8 | 8/8一致 | 1.00 / 0.2421 |
+| 8191 | 4 | 4/4一致 | 3.75 / 1.7104 |
+| 8192 | 4 | 4/4一致 | 4.00 / 1.5030 |
+| 8193 | 4 | 4/4一致 | 3.25 / 1.3644 |
+| 16384 | 4 | 4/4一致 | 4.50 / 2.3847 |
+
+合计7/7序列、40/40 token一致。1023未启用局部候选，完整logits仍精确；其余6例的32个生成位置logits均非逐位一致，但选中的greedy token与HF一致。max_abs不能单独解释为采样错误概率，也不将5.75等差异直接称为可忽略误差。
+
+结论是**短边界回归通过，可以进入整模型性能对照**，不是优化版完成准确率验收。当前每条仅4或8输出，可能未暴露后续分叉，尚未覆盖公开集200×64或HumanEval；后续采用既有64token正常生成覆盖核对，无需为了进入性能实测先追求所有logits bitwise一致。
+
+下一步执行`/opt/venv/bin/python /workspace/scripts/benchmark_mellum_swa.py`，获取相同环境ABBA基线/候选的端到端TTFT、TPOT、wall及较长输出token差异，再决定收益与准确率的综合处理。原始轻量记录已加入本报告同一归档manifest，未修改GPU产物或模型代码。

@@ -1,0 +1,42 @@
+{
+  "swa_prefill_opt": true,
+  "correctness_candidate": true,
+  "sampling_mode": "normal_no_forcing",
+  "qkv_backend": "separate",
+  "stage_layer": 0,
+  "prefill_backend": "sdpa_cpu_rope_diagnostic",
+  "suite": "long",
+  "status": "tokens_exact_logits_review_required",
+  "output": "/workspace/results/mellum_validation/20261114T112653344802Z",
+  "phase": "atom",
+  "atom_run": "/workspace/results/atom_mellum_gpu/20261114T112729272979Z",
+  "generation_logit_summary": {
+    "scope": "Same-history pre-sampling logits; no comparison after the token fork",
+    "compared_positions": 16,
+    "nonexact_positions": 16,
+    "first_nonexact": [
+      {
+        "name": "long_8191",
+        "step": 0,
+        "logits_exact": false,
+        "max_abs": 3.75,
+        "hf_selected": 23,
+        "atom_selected": 23,
+        "both_selected_are_argmax": true
+      }
+    ]
+  },
+  "token_summary": {
+    "compared_positions": 16,
+    "matching_positions": 16,
+    "token_match_fraction": 1.0,
+    "exact_sequences": 4,
+    "reference_records": 4
+  },
+  "logits_errors": {
+    "long_16384": 4.5,
+    "long_8191": 3.75,
+    "long_8192": 4.0,
+    "long_8193": 3.25
+  }
+}
