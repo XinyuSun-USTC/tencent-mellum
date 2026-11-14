@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+当前执行：[12 一轮Triton窗口局部筛选](plan/12_bounded_triton_swa_screening.md)：复用真实QKV，不加载模型；筛选后转向服务/批量能力。
+
 当前准确性评测：[11 代表性开发集与HumanEval](plan/11_representative_correctness_and_humaneval.md)：先跑开发200候选及独立HumanEval工具自检，避免以微观数值差异代替题目门槛。实现及GPU测试待执行边界详见该计划。
 
 扩展基线已完成：[性能02](../report/performance/02_expanded_bs1_profile_study.md)；协议见[09](plan/09_expanded_profile_study.md)。
