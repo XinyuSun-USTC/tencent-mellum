@@ -42,7 +42,7 @@ def fingerprint():
     files += [Path(__file__).resolve()]+[PROJECT/'scripts'/n for n in (
         'mellum_runtime_config.py','mellum_process_runner.py','validate_mellum_batch200.py',
         'validate_mellum_batch.py','validate_mellum_http.py','serve_mellum.py','profile_mellum.py','analyze_mellum_profile.py')]
-    files += [p for p in [PROJECT/'scripts/run_mellum_moe_optimization.py',PROJECT/'scripts/mellum_moe_micro.py',PROJECT/'scripts/run_mellum_indexed_d200.py'] if p.exists()]
+    files += [p for p in [PROJECT/'scripts/run_mellum_moe_optimization.py',PROJECT/'scripts/mellum_moe_micro.py',PROJECT/'scripts/run_mellum_indexed_d200.py',PROJECT/'scripts/run_mellum_native_campaign.py'] if p.exists()]
     files += [MODEL/'config.json', MODEL/'model.safetensors.index.json']
     return {str(p):sha(p) for p in sorted(set(files))}
 
@@ -86,9 +86,24 @@ def select_candidates(results, baseline):
             if eligible(results[name],baseline)][:2]
 
 
+def performance_records(cases, outputs):
+    """Fixed-output timing records, deliberately not an HF accuracy score."""
+    if len(cases)!=len(outputs) or any(len(o['token_ids'])!=r['budget'] for r,o in zip(cases,outputs)):
+        raise ValueError('Performance request output budget/count differs')
+    rows=[{'name':r['name'],'actual_ids':o['token_ids'],'input_tokens':len(r['input_ids']),
+           'finish_reason':o.get('finish_reason')} for r,o in zip(cases,outputs)]
+    return rows,{'performance_only':{'requests':len(rows),'output_tokens':sum(len(o['token_ids']) for o in outputs)}}
+
+
 def worker(out):
     plan=json.loads((out/'plan.json').read_text())
     settings=apply_serving(plan['gpu'],out,True,'reference',True)
+    overrides=plan.get('runtime_overrides',{})
+    if set(overrides)-{'MELLUM_MOE_BACKEND','MELLUM_ATTENTION_EXECUTION','MELLUM_SDPA_DECODE','MELLUM_REQUEST_BATCHING'}:
+        raise ValueError('Unsupported native runtime override')
+    settings.update(overrides)
+    if plan.get('native_audit'):settings['MELLUM_NATIVE_AUDIT_PATH']=str(out/'native_calls.jsonl')
+    os.environ.update(settings)
     cfg=dict(plan['control'])
     if plan.get('observe'):cfg['observe']=str(out/'observe')
     if plan.get('cohort_variants'):
@@ -111,8 +126,9 @@ def worker(out):
         raise RuntimeError('Frozen runtime differs')
     from atom.model_engine.arg_utils import EngineArgs
     from atom import SamplingParams
-    options=engine_options(4192,None)
-    options.update(torch_profiler_dir=str(out/'traces') if plan.get('profile') else None,max_num_batched_tokens=16384,max_num_seqs=plan['batch'],port=8026)
+    required=max(len(r['input_ids'])+r['budget']+4 for cases in plan['cohorts'].values() for r in cases)
+    options=engine_options(max(4192,required),None)
+    options.update(torch_profiler_dir=str(out/'traces') if plan.get('profile') else None,max_num_batched_tokens=16384,max_num_seqs=plan['batch'],port=plan.get('engine_port',8026))
     result={'probe_logits':plan['provenance'].get('probe_logits',{}),'status':'started','control':cfg,'settings':settings,'engine_options':options,'cohorts':{},
             'environment':{'torch':torch.__version__,'transformers':transformers.__version__,'hip':torch.version.hip,
                            'device':torch.cuda.get_device_name(0)}}
@@ -143,10 +159,12 @@ def worker(out):
                 def progress(done,*unused):
                     write(out/'progress.json',{'stage':stage,'completed':len(done),'total':len(cases),'elapsed':time.monotonic()-start})
                 submitted({});t=time.monotonic()
-                outputs,subs,comps=drive_window(engine,cases,lambda r:SamplingParams(temperature=0,max_tokens=r['budget'],ignore_eos=False),
+                outputs,subs,comps=drive_window(engine,cases,lambda r:SamplingParams(temperature=0,max_tokens=r['budget'],ignore_eos=plan.get('performance_only',False)),
                                                actual_window,progress,submitted if plan.get('observe') else None)
                 torch.cuda.synchronize();elapsed=time.monotonic()-t
-                rows,groups=summarize(cases,outputs)
+                if plan.get('performance_only'):
+                    rows,groups=performance_records(cases,outputs)
+                else:rows,groups=summarize(cases,outputs)
                 auditfile=out/(stage+'_batches.jsonl');auditfile.write_bytes((out/'batches.jsonl').read_bytes())
                 batches=read_batches(auditfile)
                 observed=batches['decode']['max_batch_size']
@@ -155,7 +173,7 @@ def worker(out):
                         'records':rows,'groups':groups,'actual_batches':batches,'wall_seconds':elapsed,
                         'submissions':subs,'completions':comps}
                 write(out/(stage+'.json'),record);repeats.append(record)
-                print(stage,'fraction',groups['all']['token_match_fraction'],'wall',round(elapsed,2),flush=True)
+                print(stage,'position_match',groups.get('all',{}).get('token_match_fraction','performance_not_scored'),'wall',round(elapsed,2),flush=True)
             stable=stable and all([r['actual_ids'] for r in v['records']]==[r['actual_ids'] for r in repeats[0]['records']] for v in repeats[1:])
             result['cohorts'][cohort]={'groups':repeats[0]['groups'],'repeat_files':[f'{cohort}_r{i}.json' for i in range(len(repeats))],
                                      'wall_seconds':[r['wall_seconds'] for r in repeats]}

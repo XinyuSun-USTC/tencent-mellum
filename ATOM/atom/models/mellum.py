@@ -202,6 +202,16 @@ class MellumAttention(nn.Module):
                 raise ValueError('Diagnostic SDPA decode requires reference KV rotation')
             from atom.model_config.mellum_attention import install_sdpa_decode
             install_sdpa_decode(self.attn.impl)
+        execution=os.getenv('MELLUM_ATTENTION_EXECUTION','reference')
+        if execution not in ('reference','native'):
+            raise ValueError('MELLUM_ATTENTION_EXECUTION must be reference or native')
+        if execution=='native':
+            if os.getenv('MELLUM_REFERENCE_KV_ROPE','0')!='1' or os.getenv('MELLUM_SDPA_DECODE','0')!='0':
+                raise ValueError('Native attention requires reference KV RoPE and disables SDPA decode')
+            if os.getenv('MELLUM_REQUEST_BATCHING','0')!='0':
+                raise ValueError('Native attention cannot install the reference ragged bridge')
+            from atom.model_config.mellum_native import install_native_attention
+            install_native_attention(self.attn.impl)
         batching=os.getenv('MELLUM_REQUEST_BATCHING','0')
         if batching not in ('0','1'):
             raise ValueError('MELLUM_REQUEST_BATCHING must be 0 or 1')
@@ -290,9 +300,13 @@ class MellumDecoderLayer(nn.Module):
         )
 
         backend = os.getenv('MELLUM_MOE_BACKEND', 'torch')
-        if backend not in ('torch', 'aiter'):
+        if backend not in ('torch', 'aiter', 'fused_torch_route'):
             raise ValueError(f'Unknown Mellum MoE backend: {backend}')
-        moe_class = MellumSparseMoeBlock if backend == 'torch' else Qwen3MoeSparseMoeBlock
+        if backend == 'fused_torch_route':
+            from atom.model_config.mellum_native import MellumFusedMoeBlock
+            moe_class = MellumFusedMoeBlock
+        else:
+            moe_class = MellumSparseMoeBlock if backend == 'torch' else Qwen3MoeSparseMoeBlock
         self.mlp = moe_class(
             config, quant_config=self.atom_config.quant_config,
             prefix=f"{prefix}.mlp",

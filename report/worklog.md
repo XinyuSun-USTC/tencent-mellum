@@ -115,3 +115,6 @@
 - GPU1计划19批次`20261115T170157802373Z`完成，4worker累计16.57分钟：候选D200与R200/200输出完全相同（HF位置96.8125%）；配对ABBA短1.00666×、长0.98934×、综合0.99796×，无实质收益，停止候选，不追加ABC/HumanEval。独立90产物/237源码指纹通过，归档性能18；实现保留独立分支c22198d，原配置未切换。
 
 - 按用户要求转向成熟实现复用调研：冻结Qwen3MoE/FusedMoE/gfx942 BF16与分页Attention，公开ATOM main、vLLM v0.23.0 Mellum和SGLang Mellum均做源码对照；发现当前已有aiter MoE开关但与R Torch包装器不兼容，参考ragged桥阻止原生batch/缓存路径。输出研究05、来源清单和计划20，优先整批FusedMoE+原生Attention独立候选，不继续外围小优化；明确未取得上游HEAD/穷尽PR，不能冒称最新完整快照。本轮无推理代码修改、安装或GPU运行。
+
+- 计划20首轮实施在独立worktree tencent-mellum-native：新增Mellum FusedMoE（参考gate/路由、BF16舍入后按AITER要求FP32传权重）与原生varlen/paged Attention（保留参考RoPE/KV写入），拆开E控制与旧ragged桥，默认关闭。交付计划21双track脚本，GPU0/1、端口8226/8326、每track最多3worker/60分钟，先R/候选固定256计时、显著收益才D200，不重跑ABC。GPU未执行，冻结环境未改。
+- 原生候选交付检查：117项相关CPU测试通过，py_compile/diff检查通过；MoE prepare-only 182107通过。AITER FP32路由权重存储要求已按源码修正并保留BF16舍入，增加shuffle和无SDPA回退审计测试。GPU待用户终端执行。

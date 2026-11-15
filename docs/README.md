@@ -36,3 +36,5 @@ Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md
 [03 早期实施计划](plan/03_atom_step0_implementation_and_validation.md)及validation/01–38保留实验发生时的状态。早期“待验证”“Step0未完成”等叙述应按其运行ID和配置理解；当前阶段看39，具体配置看05。
 
 同类文档按目录内两位编号排序；只在[worklog](../report/worklog.md)按日期记简要日志。遵循[文档管理约定](01_document_management.md)。重构前的追加式导航、协议和完整日志已[保留快照](../report/archive/step0_document_snapshots/README.md)，最初研究原文另见[归档](../report/archive/initial_research/README.md)。
+
+主路径实现交付：[21 原生MoE与Attention两卡候选](plan/21_native_runtime_pilot_delivery.md)。独立工作区、默认关闭；GPU结果待采，不将CPU接线测试冒称kernel正确性。
