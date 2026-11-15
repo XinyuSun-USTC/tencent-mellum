@@ -4,7 +4,7 @@
 
 ## 当前阅读入口
 
-当前工作：[18 EvalScope客户端与A/B/C基线接入](plan/18_evalscope_client_and_abc_baseline.md)：客户端安装与实际CPU审计已通过，新增数据兼容插件和smoke→B/A/C单入口；A505有效循环到512、C保留200、B50均1024token，版本差异透明记录。GPU待采，详见计划末节和[性能16](../report/performance/16_abc_protocol_and_client.md)。
+当前工作：[20 原生MoE与Attention主路径改造](plan/20_native_moe_and_attention_routes.md)，依据[研究05源码对照](../report/research/05_optimization_implementation_sources.md)。调研已完成，候选待实施；冻结环境不升级。上一轮[性能17](../report/performance/17_r_abc_baseline.md)记录R的A/B完成、C199超时；[性能18](../report/performance/18_prefill_elementwise.md)记录逐元素合并无收益并停止。
 
 上一轮：[17 直接索引decode一次D200补证](plan/17_indexed_decode_d200_followup.md)：已完成，见[性能15](../report/performance/15_indexed_decode_d200.md)：总体位置78.23%、完整序列53.5%，当前直接索引版本停止晋级。保留共享路由，下一主线prefill专家GEMM/调度开销。
 

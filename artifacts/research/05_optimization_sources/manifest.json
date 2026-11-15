@@ -1,0 +1,1724 @@
+{
+  "research_date": "2026-11-15",
+  "scope": "Read-only source study; no runtime edits, installs or GPU execution",
+  "frozen_atom_base": "26f23a0bdbf50b9010c07ee3a71171189723e767",
+  "local_sources": [
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/models/qwen3_moe.py",
+      "sha256": "fd74a9d09d661f441eaa5e6c8207afee15143fb3c262cc488dac3bfe69367ef9",
+      "symbols": [
+        {
+          "name": "Qwen3MoeMLP",
+          "line": 46,
+          "end_line": 82
+        },
+        {
+          "name": "Qwen3MoeSparseMoeBlock",
+          "line": 85,
+          "end_line": 139
+        },
+        {
+          "name": "Qwen3MoeAttention",
+          "line": 142,
+          "end_line": 262
+        },
+        {
+          "name": "Qwen3MoeDecoderLayer",
+          "line": 265,
+          "end_line": 352
+        },
+        {
+          "name": "Qwen3MoeModel",
+          "line": 356,
+          "end_line": 441
+        },
+        {
+          "name": "Qwen3MoeForCausalLM",
+          "line": 444,
+          "end_line": 529
+        },
+        {
+          "name": "__init__",
+          "line": 47,
+          "end_line": 76
+        },
+        {
+          "name": "forward",
+          "line": 78,
+          "end_line": 82
+        },
+        {
+          "name": "__init__",
+          "line": 86,
+          "end_line": 121
+        },
+        {
+          "name": "forward",
+          "line": 123,
+          "end_line": 139
+        },
+        {
+          "name": "__init__",
+          "line": 143,
+          "end_line": 232
+        },
+        {
+          "name": "forward",
+          "line": 234,
+          "end_line": 262
+        },
+        {
+          "name": "__init__",
+          "line": 266,
+          "end_line": 328
+        },
+        {
+          "name": "forward",
+          "line": 330,
+          "end_line": 352
+        },
+        {
+          "name": "__init__",
+          "line": 357,
+          "end_line": 396
+        },
+        {
+          "name": "get_input_embeddings",
+          "line": 398,
+          "end_line": 399
+        },
+        {
+          "name": "forward",
+          "line": 401,
+          "end_line": 431
+        },
+        {
+          "name": "get_expert_mapping",
+          "line": 433,
+          "end_line": 441
+        },
+        {
+          "name": "__init__",
+          "line": 453,
+          "end_line": 485
+        },
+        {
+          "name": "get_input_embeddings",
+          "line": 487,
+          "end_line": 488
+        },
+        {
+          "name": "forward",
+          "line": 490,
+          "end_line": 505
+        },
+        {
+          "name": "compute_logits",
+          "line": 507,
+          "end_line": 512
+        },
+        {
+          "name": "make_empty_intermediate_tensors",
+          "line": 514,
+          "end_line": 526
+        },
+        {
+          "name": "get_expert_mapping",
+          "line": 528,
+          "end_line": 529
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/models/mixtral.py",
+      "sha256": "094828601fa2c8a000400b5e1d10e6a4f52044c0fb1877752dd037960e5b1626",
+      "symbols": [
+        {
+          "name": "MixtralMoE",
+          "line": 51,
+          "end_line": 106
+        },
+        {
+          "name": "MixtralAttention",
+          "line": 109,
+          "end_line": 194
+        },
+        {
+          "name": "MixtralDecoderLayer",
+          "line": 197,
+          "end_line": 257
+        },
+        {
+          "name": "MixtralModel",
+          "line": 261,
+          "end_line": 337
+        },
+        {
+          "name": "MixtralForCausalLM",
+          "line": 340,
+          "end_line": 390
+        },
+        {
+          "name": "__init__",
+          "line": 60,
+          "end_line": 97
+        },
+        {
+          "name": "forward",
+          "line": 99,
+          "end_line": 106
+        },
+        {
+          "name": "__init__",
+          "line": 111,
+          "end_line": 182
+        },
+        {
+          "name": "forward",
+          "line": 184,
+          "end_line": 194
+        },
+        {
+          "name": "__init__",
+          "line": 199,
+          "end_line": 235
+        },
+        {
+          "name": "forward",
+          "line": 237,
+          "end_line": 257
+        },
+        {
+          "name": "__init__",
+          "line": 263,
+          "end_line": 298
+        },
+        {
+          "name": "get_input_embeddings",
+          "line": 300,
+          "end_line": 301
+        },
+        {
+          "name": "forward",
+          "line": 303,
+          "end_line": 327
+        },
+        {
+          "name": "get_expert_mapping",
+          "line": 329,
+          "end_line": 337
+        },
+        {
+          "name": "__init__",
+          "line": 347,
+          "end_line": 365
+        },
+        {
+          "name": "get_input_embeddings",
+          "line": 367,
+          "end_line": 368
+        },
+        {
+          "name": "forward",
+          "line": 370,
+          "end_line": 380
+        },
+        {
+          "name": "compute_logits",
+          "line": 382,
+          "end_line": 387
+        },
+        {
+          "name": "get_expert_mapping",
+          "line": 389,
+          "end_line": 390
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/models/gpt_oss.py",
+      "sha256": "48a9b412b714227ebb137cc1fbacf72a2dc652ca77cd02e147541b1e39f6bdb8",
+      "symbols": [
+        {
+          "name": "cdiv",
+          "line": 60,
+          "end_line": 61
+        },
+        {
+          "name": "OAIAttention",
+          "line": 64,
+          "end_line": 153
+        },
+        {
+          "name": "_interleave_swiglu_weights",
+          "line": 156,
+          "end_line": 184
+        },
+        {
+          "name": "MLPBlock",
+          "line": 187,
+          "end_line": 262
+        },
+        {
+          "name": "TransformerBlock",
+          "line": 265,
+          "end_line": 324
+        },
+        {
+          "name": "GptOssModel",
+          "line": 328,
+          "end_line": 398
+        },
+        {
+          "name": "GptOssForCausalLM",
+          "line": 401,
+          "end_line": 482
+        },
+        {
+          "name": "__init__",
+          "line": 65,
+          "end_line": 138
+        },
+        {
+          "name": "forward",
+          "line": 140,
+          "end_line": 153
+        },
+        {
+          "name": "__init__",
+          "line": 188,
+          "end_line": 234
+        },
+        {
+          "name": "process_weights_after_loading",
+          "line": 236,
+          "end_line": 239
+        },
+        {
+          "name": "forward",
+          "line": 241,
+          "end_line": 262
+        },
+        {
+          "name": "__init__",
+          "line": 266,
+          "end_line": 304
+        },
+        {
+          "name": "forward",
+          "line": 306,
+          "end_line": 324
+        },
+        {
+          "name": "__init__",
+          "line": 329,
+          "end_line": 362
+        },
+        {
+          "name": "get_input_embeddings",
+          "line": 364,
+          "end_line": 365
+        },
+        {
+          "name": "forward",
+          "line": 367,
+          "end_line": 398
+        },
+        {
+          "name": "__init__",
+          "line": 428,
+          "end_line": 449
+        },
+        {
+          "name": "set_aux_hidden_state_layers",
+          "line": 451,
+          "end_line": 452
+        },
+        {
+          "name": "get_eagle3_aux_hidden_state_layers",
+          "line": 454,
+          "end_line": 456
+        },
+        {
+          "name": "get_input_embeddings",
+          "line": 458,
+          "end_line": 459
+        },
+        {
+          "name": "forward",
+          "line": 461,
+          "end_line": 468
+        },
+        {
+          "name": "compute_logits",
+          "line": 470,
+          "end_line": 472
+        },
+        {
+          "name": "get_expert_mapping",
+          "line": 474,
+          "end_line": 482
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/models/mellum.py",
+      "sha256": "551d3be31bd5319e3ffdf8d160b73368068c67357c15800bcb06ee0f74b2881b",
+      "symbols": [
+        {
+          "name": "MellumSparseMoeBlock",
+          "line": 27,
+          "end_line": 50
+        },
+        {
+          "name": "MellumRMSNorm",
+          "line": 52,
+          "end_line": 70
+        },
+        {
+          "name": "MellumAttention",
+          "line": 73,
+          "end_line": 255
+        },
+        {
+          "name": "MellumDecoderLayer",
+          "line": 258,
+          "end_line": 333
+        },
+        {
+          "name": "MellumModel",
+          "line": 336,
+          "end_line": 453
+        },
+        {
+          "name": "MellumForCausalLM",
+          "line": 456,
+          "end_line": 613
+        },
+        {
+          "name": "__init__",
+          "line": 29,
+          "end_line": 42
+        },
+        {
+          "name": "forward",
+          "line": 44,
+          "end_line": 50
+        },
+        {
+          "name": "__init__",
+          "line": 58,
+          "end_line": 61
+        },
+        {
+          "name": "forward",
+          "line": 64,
+          "end_line": 70
+        },
+        {
+          "name": "__init__",
+          "line": 74,
+          "end_line": 220
+        },
+        {
+          "name": "forward",
+          "line": 222,
+          "end_line": 255
+        },
+        {
+          "name": "__init__",
+          "line": 259,
+          "end_line": 309
+        },
+        {
+          "name": "forward",
+          "line": 311,
+          "end_line": 333
+        },
+        {
+          "name": "__init__",
+          "line": 337,
+          "end_line": 388
+        },
+        {
+          "name": "get_input_embeddings",
+          "line": 390,
+          "end_line": 391
+        },
+        {
+          "name": "forward",
+          "line": 393,
+          "end_line": 443
+        },
+        {
+          "name": "get_expert_mapping",
+          "line": 445,
+          "end_line": 453
+        },
+        {
+          "name": "__init__",
+          "line": 465,
+          "end_line": 499
+        },
+        {
+          "name": "_install_load_audit",
+          "line": 501,
+          "end_line": 516
+        },
+        {
+          "name": "validate_loaded_weights",
+          "line": 518,
+          "end_line": 536
+        },
+        {
+          "name": "get_input_embeddings",
+          "line": 538,
+          "end_line": 539
+        },
+        {
+          "name": "forward",
+          "line": 541,
+          "end_line": 571
+        },
+        {
+          "name": "compute_logits",
+          "line": 573,
+          "end_line": 596
+        },
+        {
+          "name": "make_empty_intermediate_tensors",
+          "line": 598,
+          "end_line": 610
+        },
+        {
+          "name": "get_expert_mapping",
+          "line": 612,
+          "end_line": 613
+        },
+        {
+          "name": "capture_path",
+          "line": 378,
+          "end_line": 384
+        },
+        {
+          "name": "audited",
+          "line": 506,
+          "end_line": 515
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/model_ops/moe.py",
+      "sha256": "0e379efed66652c2d482d5463f75f2ca544f58f7390fe31938a4ab1ac6a013d1",
+      "symbols": [
+        {
+          "name": "FusedMoeWeightScaleSupported",
+          "line": 62,
+          "end_line": 68
+        },
+        {
+          "name": "FusedMoEParallelConfig",
+          "line": 72,
+          "end_line": 148
+        },
+        {
+          "name": "naive_multicast_fake",
+          "line": 151,
+          "end_line": 159
+        },
+        {
+          "name": "naive_multicast",
+          "line": 163,
+          "end_line": 180
+        },
+        {
+          "name": "pad_for_all_gather",
+          "line": 183,
+          "end_line": 202
+        },
+        {
+          "name": "all_gather_with_padding",
+          "line": 205,
+          "end_line": 212
+        },
+        {
+          "name": "reduce_scatter_with_unpadding",
+          "line": 215,
+          "end_line": 229
+        },
+        {
+          "name": "all_gatherv",
+          "line": 232,
+          "end_line": 233
+        },
+        {
+          "name": "reduce_scatterv",
+          "line": 236,
+          "end_line": 237
+        },
+        {
+          "name": "dp_gather_hidden_and_router",
+          "line": 240,
+          "end_line": 286
+        },
+        {
+          "name": "get_max_tokens_across_dispatchers",
+          "line": 290,
+          "end_line": 291
+        },
+        {
+          "name": "FusedMoEMethodBase",
+          "line": 294,
+          "end_line": 504
+        },
+        {
+          "name": "UnquantizedFusedMoEMethod",
+          "line": 507,
+          "end_line": 616
+        },
+        {
+          "name": "rocm_asm_moe_impl",
+          "line": 619,
+          "end_line": 672
+        },
+        {
+          "name": "rocm_aiter_fused_moe_impl",
+          "line": 675,
+          "end_line": 709
+        },
+        {
+          "name": "rocm_aiter_fused_moe_fake",
+          "line": 712,
+          "end_line": 727
+        },
+        {
+          "name": "Mxfp4MoEMethod",
+          "line": 738,
+          "end_line": 1134
+        },
+        {
+          "name": "CompressedTensorsFp8MoEMethod",
+          "line": 1138,
+          "end_line": 1519
+        },
+        {
+          "name": "Fp8MoEMethod",
+          "line": 1522,
+          "end_line": 1862
+        },
+        {
+          "name": "determine_expert_map",
+          "line": 1865,
+          "end_line": 1908
+        },
+        {
+          "name": "moe_forward",
+          "line": 1911,
+          "end_line": 1918
+        },
+        {
+          "name": "moe_forward_fake",
+          "line": 1921,
+          "end_line": 1926
+        },
+        {
+          "name": "FusedMoE",
+          "line": 1939,
+          "end_line": 3154
+        },
+        {
+          "name": "use_all2all_kernels",
+          "line": 84,
+          "end_line": 86
+        },
+        {
+          "name": "use_mori_kernels",
+          "line": 89,
+          "end_line": 90
+        },
+        {
+          "name": "make",
+          "line": 93,
+          "end_line": 148
+        },
+        {
+          "name": "__init__",
+          "line": 295,
+          "end_line": 300
+        },
+        {
+          "name": "create_weights",
+          "line": 303,
+          "end_line": 312
+        },
+        {
+          "name": "apply",
+          "line": 315,
+          "end_line": 334
+        },
+        {
+          "name": "get_fused_moe_quant_config",
+          "line": 337,
+          "end_line": 340
+        },
+        {
+          "name": "_maybe_make_prepare_finalize",
+          "line": 343,
+          "end_line": 461
+        },
+        {
+          "name": "maybe_make_prepare_finalize",
+          "line": 463,
+          "end_line": 470
+        },
+        {
+          "name": "init_prepare_finalize",
+          "line": 474,
+          "end_line": 500
+        },
+        {
+          "name": "using_modular_kernel",
+          "line": 503,
+          "end_line": 504
+        },
+        {
+          "name": "create_weights",
+          "line": 510,
+          "end_line": 541
+        },
+        {
+          "name": "_maybe_pad_weight",
+          "line": 543,
+          "end_line": 544
+        },
+        {
+          "name": "process_weights_after_loading",
+          "line": 546,
+          "end_line": 552
+        },
+        {
+          "name": "get_fused_moe_quant_config",
+          "line": 554,
+          "end_line": 557
+        },
+        {
+          "name": "apply",
+          "line": 560,
+          "end_line": 616
+        },
+        {
+          "name": "__init__",
+          "line": 739,
+          "end_line": 763
+        },
+        {
+          "name": "create_weights",
+          "line": 765,
+          "end_line": 883
+        },
+        {
+          "name": "process_weights_after_loading",
+          "line": 885,
+          "end_line": 950
+        },
+        {
+          "name": "get_fused_moe_quant_config",
+          "line": 952,
+          "end_line": 960
+        },
+        {
+          "name": "apply",
+          "line": 963,
+          "end_line": 1134
+        },
+        {
+          "name": "__init__",
+          "line": 1139,
+          "end_line": 1169
+        },
+        {
+          "name": "create_weights",
+          "line": 1171,
+          "end_line": 1323
+        },
+        {
+          "name": "process_weights_after_loading",
+          "line": 1325,
+          "end_line": 1413
+        },
+        {
+          "name": "get_fused_moe_quant_config",
+          "line": 1415,
+          "end_line": 1438
+        },
+        {
+          "name": "apply",
+          "line": 1441,
+          "end_line": 1519
+        },
+        {
+          "name": "__init__",
+          "line": 1537,
+          "end_line": 1549
+        },
+        {
+          "name": "create_weights",
+          "line": 1551,
+          "end_line": 1678
+        },
+        {
+          "name": "_normalize_weights_and_scales",
+          "line": 1680,
+          "end_line": 1696
+        },
+        {
+          "name": "process_weights_after_loading",
+          "line": 1698,
+          "end_line": 1704
+        },
+        {
+          "name": "_process_block_quant",
+          "line": 1706,
+          "end_line": 1716
+        },
+        {
+          "name": "_process_channel_quant",
+          "line": 1718,
+          "end_line": 1737
+        },
+        {
+          "name": "_process_tensor_quant",
+          "line": 1739,
+          "end_line": 1770
+        },
+        {
+          "name": "get_fused_moe_quant_config",
+          "line": 1772,
+          "end_line": 1790
+        },
+        {
+          "name": "apply",
+          "line": 1793,
+          "end_line": 1862
+        },
+        {
+          "name": "__init__",
+          "line": 1960,
+          "end_line": 2145
+        },
+        {
+          "name": "process_weights_after_loading",
+          "line": 2147,
+          "end_line": 2148
+        },
+        {
+          "name": "_online_quant",
+          "line": 2150,
+          "end_line": 2320
+        },
+        {
+          "name": "tp_size",
+          "line": 2323,
+          "end_line": 2324
+        },
+        {
+          "name": "dp_size",
+          "line": 2327,
+          "end_line": 2328
+        },
+        {
+          "name": "ep_size",
+          "line": 2331,
+          "end_line": 2332
+        },
+        {
+          "name": "tp_rank",
+          "line": 2335,
+          "end_line": 2336
+        },
+        {
+          "name": "dp_rank",
+          "line": 2339,
+          "end_line": 2340
+        },
+        {
+          "name": "ep_rank",
+          "line": 2343,
+          "end_line": 2344
+        },
+        {
+          "name": "use_ep",
+          "line": 2347,
+          "end_line": 2348
+        },
+        {
+          "name": "_load_per_tensor_weight_scale",
+          "line": 2350,
+          "end_line": 2366
+        },
+        {
+          "name": "_load_model_weight_or_group_weight_scale",
+          "line": 2368,
+          "end_line": 2404
+        },
+        {
+          "name": "_load_quant_weight_scale",
+          "line": 2406,
+          "end_line": 2435
+        },
+        {
+          "name": "_load_per_channel_weight_scale",
+          "line": 2437,
+          "end_line": 2472
+        },
+        {
+          "name": "_load_w13",
+          "line": 2474,
+          "end_line": 2537
+        },
+        {
+          "name": "_load_w2",
+          "line": 2539,
+          "end_line": 2579
+        },
+        {
+          "name": "_load_single_value",
+          "line": 2581,
+          "end_line": 2587
+        },
+        {
+          "name": "_load_g_idx",
+          "line": 2589,
+          "end_line": 2607
+        },
+        {
+          "name": "_map_global_expert_id_to_local_expert_id",
+          "line": 2609,
+          "end_line": 2612
+        },
+        {
+          "name": "mxf4_merged_weight_loader",
+          "line": 2614,
+          "end_line": 2724
+        },
+        {
+          "name": "weight_loader",
+          "line": 2726,
+          "end_line": 2859
+        },
+        {
+          "name": "select_experts",
+          "line": 2862,
+          "end_line": 2959
+        },
+        {
+          "name": "forward",
+          "line": 2961,
+          "end_line": 2964
+        },
+        {
+          "name": "forward_impl_graph",
+          "line": 2966,
+          "end_line": 3051
+        },
+        {
+          "name": "forward_impl",
+          "line": 3053,
+          "end_line": 3103
+        },
+        {
+          "name": "make_expert_params_mapping",
+          "line": 3106,
+          "end_line": 3133
+        },
+        {
+          "name": "extra_repr",
+          "line": 3135,
+          "end_line": 3154
+        },
+        {
+          "name": "flatten_tp_across_dp",
+          "line": 96,
+          "end_line": 102
+        },
+        {
+          "name": "check_need_allgather",
+          "line": 2184,
+          "end_line": 2197
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/model_ops/utils.py",
+      "sha256": "77f25e542f783324b1e3c24bac797a7b0d5d827f67133fc6687b637f366ac295",
+      "symbols": [
+        {
+          "name": "atom_parameter",
+          "line": 21,
+          "end_line": 32
+        },
+        {
+          "name": "_has_module",
+          "line": 36,
+          "end_line": 42
+        },
+        {
+          "name": "has_triton_kernels",
+          "line": 45,
+          "end_line": 47
+        },
+        {
+          "name": "per_tensor_dequantize",
+          "line": 53,
+          "end_line": 58
+        },
+        {
+          "name": "normalize_e4m3fn_to_e4m3fnuz",
+          "line": 61,
+          "end_line": 82
+        },
+        {
+          "name": "requantize_with_max_scale",
+          "line": 85,
+          "end_line": 121
+        },
+        {
+          "name": "shuffle_weights",
+          "line": 124,
+          "end_line": 158
+        },
+        {
+          "name": "all_close_1d",
+          "line": 161,
+          "end_line": 163
+        },
+        {
+          "name": "get_and_maybe_dequant_weights",
+          "line": 166,
+          "end_line": 178
+        },
+        {
+          "name": "b_dynamic_mxfp4_quant",
+          "line": 181,
+          "end_line": 184
+        },
+        {
+          "name": "quark_post_load_weights",
+          "line": 187,
+          "end_line": 227
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/model_ops/attention_mha.py",
+      "sha256": "db158659f422101ab8588f5e62d134604a4a8efa057de08369ca36e8fa523e64",
+      "symbols": [
+        {
+          "name": "PagedAttentionImpl",
+          "line": 29,
+          "end_line": 696
+        },
+        {
+          "name": "__init__",
+          "line": 34,
+          "end_line": 87
+        },
+        {
+          "name": "forward_impl_server_mode",
+          "line": 89,
+          "end_line": 122
+        },
+        {
+          "name": "rope_cache",
+          "line": 125,
+          "end_line": 296
+        },
+        {
+          "name": "_gather_prefix_and_concat_kv",
+          "line": 298,
+          "end_line": 392
+        },
+        {
+          "name": "paged_attention_triton",
+          "line": 395,
+          "end_line": 499
+        },
+        {
+          "name": "paged_attention_asm",
+          "line": 502,
+          "end_line": 522
+        },
+        {
+          "name": "paged_attention_persistent_asm",
+          "line": 525,
+          "end_line": 552
+        },
+        {
+          "name": "prefill_attention",
+          "line": 555,
+          "end_line": 579
+        },
+        {
+          "name": "prefill_attention_triton",
+          "line": 581,
+          "end_line": 642
+        },
+        {
+          "name": "dispatch_backend",
+          "line": 644,
+          "end_line": 660
+        },
+        {
+          "name": "forward",
+          "line": 662,
+          "end_line": 696
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/model_loader/loader.py",
+      "sha256": "57032ed3e2fdd159776687d25497f7b494585c682be71bddd18ef646e2e6aa1c",
+      "symbols": [
+        {
+          "name": "WeightsMapper",
+          "line": 57,
+          "end_line": 117
+        },
+        {
+          "name": "default_weight_loader",
+          "line": 120,
+          "end_line": 137
+        },
+        {
+          "name": "safetensors_weights_iterator",
+          "line": 140,
+          "end_line": 189
+        },
+        {
+          "name": "load_model_in_plugin_mode",
+          "line": 195,
+          "end_line": 247
+        },
+        {
+          "name": "_save_online_quant_info",
+          "line": 250,
+          "end_line": 276
+        },
+        {
+          "name": "load_model",
+          "line": 279,
+          "end_line": 727
+        },
+        {
+          "name": "__or__",
+          "line": 64,
+          "end_line": 70
+        },
+        {
+          "name": "_map_name",
+          "line": 72,
+          "end_line": 94
+        },
+        {
+          "name": "apply",
+          "line": 96,
+          "end_line": 103
+        },
+        {
+          "name": "apply_list",
+          "line": 105,
+          "end_line": 110
+        },
+        {
+          "name": "apply_dict",
+          "line": 112,
+          "end_line": 117
+        },
+        {
+          "name": "_empty_cache",
+          "line": 208,
+          "end_line": 212
+        },
+        {
+          "name": "have_shared_expert",
+          "line": 290,
+          "end_line": 295
+        },
+        {
+          "name": "extract_expert_target_and_id",
+          "line": 297,
+          "end_line": 313
+        },
+        {
+          "name": "_submit",
+          "line": 375,
+          "end_line": 379
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/model_config/mellum_attention.py",
+      "sha256": "ddf4a44a56b7e8cfffbc9e8518425d5fb0deccac8c39b9ea76304f799d38c21c",
+      "symbols": [
+        {
+          "name": "stepwise_rope",
+          "line": 9,
+          "end_line": 17
+        },
+        {
+          "name": "cpu_inverse_frequency",
+          "line": 20,
+          "end_line": 26
+        },
+        {
+          "name": "reference_position_rope",
+          "line": 29,
+          "end_line": 40
+        },
+        {
+          "name": "sdpa_single_prefill",
+          "line": 43,
+          "end_line": 81
+        },
+        {
+          "name": "aiter_swa_prefill",
+          "line": 84,
+          "end_line": 101
+        },
+        {
+          "name": "install_sdpa_prefill",
+          "line": 104,
+          "end_line": 106
+        },
+        {
+          "name": "overwrite_reference_keys",
+          "line": 109,
+          "end_line": 118
+        },
+        {
+          "name": "install_reference_kv_rope",
+          "line": 121,
+          "end_line": 132
+        },
+        {
+          "name": "gather_reference_kv",
+          "line": 135,
+          "end_line": 149
+        },
+        {
+          "name": "sdpa_cached_decode",
+          "line": 152,
+          "end_line": 182
+        },
+        {
+          "name": "install_sdpa_decode",
+          "line": 185,
+          "end_line": 193
+        },
+        {
+          "name": "apply",
+          "line": 14,
+          "end_line": 16
+        },
+        {
+          "name": "apply",
+          "line": 37,
+          "end_line": 39
+        },
+        {
+          "name": "corrected",
+          "line": 125,
+          "end_line": 131
+        },
+        {
+          "name": "dispatch",
+          "line": 188,
+          "end_line": 192
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/model_config/mellum_batch.py",
+      "sha256": "52af28b7952ad3261fdac837eeba9c75d0083bcec4905b103eaf6c6225ca1be9",
+      "symbols": [
+        {
+          "name": "proxy",
+          "line": 11,
+          "end_line": 19
+        },
+        {
+          "name": "audit",
+          "line": 22,
+          "end_line": 27
+        },
+        {
+          "name": "ragged_prefill",
+          "line": 30,
+          "end_line": 52
+        },
+        {
+          "name": "ragged_decode",
+          "line": 55,
+          "end_line": 70
+        },
+        {
+          "name": "install_ragged_attention",
+          "line": 73,
+          "end_line": 79
+        },
+        {
+          "name": "dispatch",
+          "line": 76,
+          "end_line": 78
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/model_config/mellum_experts.py",
+      "sha256": "d99e45da3dd13131fa6bfb95b4dfc58be7aba662ffffcf448371b414631c153e",
+      "symbols": [
+        {
+          "name": "grouped_linear",
+          "line": 12,
+          "end_line": 22
+        },
+        {
+          "name": "MellumTorchExperts",
+          "line": 25,
+          "end_line": 91
+        },
+        {
+          "name": "__init__",
+          "line": 26,
+          "end_line": 38
+        },
+        {
+          "name": "weight_loader",
+          "line": 40,
+          "end_line": 52
+        },
+        {
+          "name": "route",
+          "line": 54,
+          "end_line": 64
+        },
+        {
+          "name": "forward",
+          "line": 66,
+          "end_line": 68
+        },
+        {
+          "name": "forward_routed",
+          "line": 70,
+          "end_line": 91
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/ATOM/atom/model_config/mellum_campaign.py",
+      "sha256": "bbbbd8e63387b8e15ac2a609f8174cdfca0d834ab6a4743fcdae416be855e360",
+      "symbols": [
+        {
+          "name": "split_call",
+          "line": 14,
+          "end_line": 27
+        },
+        {
+          "name": "Campaign",
+          "line": 30,
+          "end_line": 183
+        },
+        {
+          "name": "install",
+          "line": 186,
+          "end_line": 196
+        },
+        {
+          "name": "sliced",
+          "line": 17,
+          "end_line": 18
+        },
+        {
+          "name": "combine",
+          "line": 22,
+          "end_line": 26
+        },
+        {
+          "name": "__init__",
+          "line": 31,
+          "end_line": 67
+        },
+        {
+          "name": "wrap",
+          "line": 69,
+          "end_line": 75
+        },
+        {
+          "name": "wrap_head",
+          "line": 77,
+          "end_line": 88
+        },
+        {
+          "name": "begin",
+          "line": 90,
+          "end_line": 132
+        },
+        {
+          "name": "prehook",
+          "line": 134,
+          "end_line": 137
+        },
+        {
+          "name": "install_cache",
+          "line": 139,
+          "end_line": 154
+        },
+        {
+          "name": "hook",
+          "line": 156,
+          "end_line": 166
+        },
+        {
+          "name": "capture",
+          "line": 168,
+          "end_line": 172
+        },
+        {
+          "name": "end",
+          "line": 174,
+          "end_line": 183
+        },
+        {
+          "name": "forward",
+          "line": 71,
+          "end_line": 74
+        },
+        {
+          "name": "forward",
+          "line": 82,
+          "end_line": 87
+        },
+        {
+          "name": "observe",
+          "line": 135,
+          "end_line": 136
+        },
+        {
+          "name": "dispatch",
+          "line": 141,
+          "end_line": 153
+        },
+        {
+          "name": "observe",
+          "line": 157,
+          "end_line": 165
+        },
+        {
+          "name": "observed",
+          "line": 143,
+          "end_line": 152
+        }
+      ]
+    },
+    {
+      "path": "/workspace/tencent-mellum/scripts/mellum_runtime_config.py",
+      "sha256": "3ccafe152011ccc16a579791e65a463214a3680895a662045c28dc0cb4e941db",
+      "symbols": [
+        {
+          "name": "apply_candidate",
+          "line": 20,
+          "end_line": 32
+        },
+        {
+          "name": "engine_options",
+          "line": 35,
+          "end_line": 42
+        },
+        {
+          "name": "apply_serving",
+          "line": 45,
+          "end_line": 56
+        }
+      ]
+    },
+    {
+      "path": "/app/aiter-test/aiter/fused_moe.py",
+      "sha256": "5fbc66e4fec979f22696f7ebd2121e703ae5e91dbfdb1e6fd084004703eb0191",
+      "symbols": [
+        {
+          "name": "_moe_sorting_impl",
+          "line": 37,
+          "end_line": 111
+        },
+        {
+          "name": "moe_sorting",
+          "line": 114,
+          "end_line": 149
+        },
+        {
+          "name": "get_inter_dim",
+          "line": 155,
+          "end_line": 161
+        },
+        {
+          "name": "fused_moe",
+          "line": 164,
+          "end_line": 219
+        },
+        {
+          "name": "fused_moe_fake",
+          "line": 222,
+          "end_line": 254
+        },
+        {
+          "name": "fused_moe_",
+          "line": 258,
+          "end_line": 455
+        },
+        {
+          "name": "fused_moe_1stage",
+          "line": 458,
+          "end_line": 610
+        },
+        {
+          "name": "get_block_size_M",
+          "line": 614,
+          "end_line": 627
+        },
+        {
+          "name": "use_nt",
+          "line": 631,
+          "end_line": 635
+        },
+        {
+          "name": "get_ksplit",
+          "line": 639,
+          "end_line": 662
+        },
+        {
+          "name": "nextPow2",
+          "line": 699,
+          "end_line": 702
+        },
+        {
+          "name": "get_padded_M",
+          "line": 708,
+          "end_line": 714
+        },
+        {
+          "name": "MOEMetadata",
+          "line": 718,
+          "end_line": 727
+        },
+        {
+          "name": "_needs_swiglu_bias_support",
+          "line": 730,
+          "end_line": 731
+        },
+        {
+          "name": "_normalize_bias_for_kernel",
+          "line": 734,
+          "end_line": 741
+        },
+        {
+          "name": "_flydsl_stage1_wrapper",
+          "line": 744,
+          "end_line": 802
+        },
+        {
+          "name": "_flydsl_stage2_wrapper",
+          "line": 805,
+          "end_line": 852
+        },
+        {
+          "name": "get_2stage_cfgs",
+          "line": 856,
+          "end_line": 1509
+        },
+        {
+          "name": "fused_moe_2stages",
+          "line": 1512,
+          "end_line": 1787
+        },
+        {
+          "name": "torch_moe_act",
+          "line": 1790,
+          "end_line": 1795
+        },
+        {
+          "name": "asm_stage1",
+          "line": 1798,
+          "end_line": 1861
+        },
+        {
+          "name": "torch_moe",
+          "line": 1864,
+          "end_line": 1925
+        },
+        {
+          "name": "swiglu",
+          "line": 1929,
+          "end_line": 1937
+        },
+        {
+          "name": "torch_moe_stage1",
+          "line": 1940,
+          "end_line": 2064
+        },
+        {
+          "name": "torch_moe_stage2",
+          "line": 2067,
+          "end_line": 2165
+        },
+        {
+          "name": "ck_moe_stage1",
+          "line": 2168,
+          "end_line": 2224
+        },
+        {
+          "name": "cktile_moe_stage1",
+          "line": 2227,
+          "end_line": 2364
+        },
+        {
+          "name": "cktile_moe_stage2",
+          "line": 2367,
+          "end_line": 2407
+        },
+        {
+          "name": "fused_topk",
+          "line": 2410,
+          "end_line": 2480
+        },
+        {
+          "name": "get_cfg_2stages",
+          "line": 891,
+          "end_line": 922
+        },
+        {
+          "name": "get_flydsl_fallback_cfgs",
+          "line": 926,
+          "end_line": 954
+        },
+        {
+          "name": "MainFunc",
+          "line": 995,
+          "end_line": 1008
+        },
+        {
+          "name": "FinalFunc",
+          "line": 1010,
+          "end_line": 1014
+        },
+        {
+          "name": "_lookup_cfg",
+          "line": 1016,
+          "end_line": 1034
+        },
+        {
+          "name": "get_block_m",
+          "line": 1141,
+          "end_line": 1145
+        }
+      ]
+    },
+    {
+      "path": "/app/aiter-test/aiter/ops/shuffle.py",
+      "sha256": "59973dade4ad07ee26cfb54dd0136b2eb93616a248e86a3ceca88ae7cd47cb67",
+      "symbols": [
+        {
+          "name": "shuffle_weight",
+          "line": 7,
+          "end_line": 50
+        },
+        {
+          "name": "shuffle_weight_a16w4",
+          "line": 53,
+          "end_line": 57
+        },
+        {
+          "name": "shuffle_weight_NK",
+          "line": 60,
+          "end_line": 78
+        },
+        {
+          "name": "shuffle_scale",
+          "line": 81,
+          "end_line": 138
+        },
+        {
+          "name": "shuffle_scale_a16w4",
+          "line": 141,
+          "end_line": 147
+        },
+        {
+          "name": "pack_int8_to_packed_int4",
+          "line": 150,
+          "end_line": 166
+        },
+        {
+          "name": "shuffle_scale_for_int4",
+          "line": 169,
+          "end_line": 191
+        }
+      ]
+    },
+    {
+      "path": "/data/models/Mellum2.1-12B-A2.5B-Thinking/config.json",
+      "sha256": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541"
+    }
+  ],
+  "external_sources": [
+    {
+      "name": "ATOM registry",
+      "url": "https://raw.githubusercontent.com/ROCm/ATOM/main/atom/models/registry.py",
+      "status": "read; Mellum not listed; mutable main, no HEAD SHA established"
+    },
+    {
+      "name": "ATOM Qwen3MoE",
+      "url": "https://raw.githubusercontent.com/ROCm/ATOM/main/atom/models/qwen3_moe.py",
+      "status": "read; FusedMoE path"
+    },
+    {
+      "name": "ATOM MoE",
+      "url": "https://raw.githubusercontent.com/ROCm/ATOM/main/atom/model_ops/moe.py",
+      "status": "read; API has evolved, not a drop-in replacement"
+    },
+    {
+      "name": "ATOM attention",
+      "url": "https://raw.githubusercontent.com/ROCm/ATOM/main/atom/model_ops/attention_mha.py",
+      "status": "read; mutable main, no HEAD SHA established"
+    },
+    {
+      "name": "vLLM Mellum v0.23.0",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.23.0/vllm/model_executor/models/mellum.py",
+      "status": "read; version-tagged primary reference"
+    },
+    {
+      "name": "vLLM Qwen3MoE v0.23.0",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.23.0/vllm/model_executor/models/qwen3_moe.py",
+      "status": "read; Mellum inherited sparse expert block"
+    },
+    {
+      "name": "SGLang Mellum",
+      "url": "https://raw.githubusercontent.com/sgl-project/sglang/main/python/sglang/srt/models/mellum.py",
+      "status": "read; mutable main; hybrid attention and YaRN details"
+    },
+    {
+      "name": "ATOM Mellum conventional path",
+      "url": "https://raw.githubusercontent.com/ROCm/ATOM/main/atom/models/mellum.py",
+      "status": "404; absence at this path does not exhaust branches/PRs"
+    },
+    {
+      "name": "ATOM PR search",
+      "url": "https://github.com/ROCm/ATOM/pulls?q=is%3Apr+Mellum",
+      "status": "web fetch unavailable; search yielded no confirmed matching implementation"
+    }
+  ],
+  "limitations": [
+    "git ls-remote upstream-atom failed at configured localhost proxy 127.0.0.1:11080",
+    "No verified live remote HEAD, complete upstream checkout or exhaustive PR/branch search",
+    "Web main pages have differing cache ages; do not assert same-commit snapshot or latest-tip completeness",
+    "External URLs are citations, not complete downloaded source snapshots; no fabricated SHA for remote raw files"
+  ]
+}

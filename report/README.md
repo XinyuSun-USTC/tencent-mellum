@@ -106,3 +106,5 @@
 
 - [17 R配置A/B/C基线](performance/17_r_abc_baseline.md)：A512/B50全成功，A41.58tokens/s/GPU；C199/200超时，不报告有效C完整尾延迟成绩。
 - [18 GPU1 prefill逐元素合并](performance/18_prefill_elementwise.md)：D200输出与R200/200相同，综合0.998×，停止当前候选。
+
+- [研究05 优化实现源码对照](research/05_optimization_implementation_sources.md)：冻结ATOM复用点、上游版本边界、vLLM/SGLang Mellum、候选兼容性和优先级。
