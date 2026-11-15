@@ -42,3 +42,5 @@ Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md
 下一轮有界拆解：[22 固定MoE回放与Attention分阶段消融](plan/22_bounded_native_phase_diagnostics.md)，GPU0最多15分钟、GPU1最多45分钟，未启动GPU。
 
 当前MoE单一修正：[23 专家贡献独立输出与显式归约](plan/23_isolated_moe_reduction_candidate.md)。逻辑top8保持，native每行top1，局部回放通过才D200，达90%才256性能；尚无GPU结果。
+
+完整功能评估入口：[24 HumanEval164配对](plan/24_full_humaneval_functional_pair.md)。用户确认关闭thinking/2048输出，两卡并行；不使用token位置门槛阻止评分，正式任务要求仍独立报告。

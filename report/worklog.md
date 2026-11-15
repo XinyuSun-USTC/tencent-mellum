@@ -122,3 +122,6 @@
 - 原生候选未过D200后开发计划22：独立诊断工作区，MoE固定layer0输入/路由12次回放、Opus/CK排序两项对照并记录实际stage metadata/单次真实trace；Attention分prefill_only/decode_only各D200，仅通过者做256性能。默认路径保留，不重跑ABC，不自动全模型MoE修正。120项相关CPU测试通过，GPU待用户终端执行。
 
 - 根据CK原子归并证据，在独立tencent-mellum-moe-isolated实现fused_isolated：top8分配展开pseudo-token，以AITER top1/unit权重独立输出后BF16加权和显式top-k求和；保留权重加载shuffle、gate/路由与R Attention/L。增加临时张量，不能保证稳定或HF一致。126项CPU检查及202806 prepare-only通过，计划23单入口最多4worker/45分钟，回放→D200→条件性能，GPU未执行、不改冻结库和原R源码。
+
+- 用户确认将完整HumanEval任务指标纳入实际决策，关闭thinking/最多2048token优先控时；新建独立tencent-mellum-humaneval，开发单入口HF0/候选1并行164题生成与官方隔离评分。候选选择有实测收益的原生FusedMoE，已知token位置低于90%也评分；保留截断/提取失败、逐题增减和2pp检查，不用功能分数替代其它题目指标。当前无GPU运行。
+- 完整HumanEval配对入口CPU核验：10通过、1 Landlock检查因工具限制跳过，终端self-test仍强制；164题/关闭thinking/2048和真实模板后缀核验通过，实际HF模型源码/tokenizer/评测器指纹固定。尚未运行GPU或得到功能分数。
