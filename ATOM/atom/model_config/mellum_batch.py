@@ -29,6 +29,9 @@ def audit(impl,phase,lengths):
 
 def ragged_prefill(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx):
     meta=ctx.attn_metadata
+    if os.getenv('MELLUM_PREFIX_COMPAT','0')=='1' and getattr(meta,'has_cached',False):
+        from atom.model_config.mellum_prefix import cached_prefill
+        return cached_prefill(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx)
     bounds=meta.cu_seqlens_q.tolist();kbounds=meta.cu_seqlens_k.tolist()
     if len(bounds)<2 or bounds[0]!=0 or bounds[-1]!=len(q) or bounds!=kbounds:
         raise ValueError('Ragged prefill requires full uncached request boundaries')
