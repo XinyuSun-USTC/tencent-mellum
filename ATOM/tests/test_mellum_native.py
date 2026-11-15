@@ -83,3 +83,25 @@ def test_native_audit_ignores_dummy_forward(monkeypatch,tmp_path):
     p=tmp_path/'audit.jsonl';monkeypatch.setenv('MELLUM_NATIVE_AUDIT_PATH',str(p))
     record('moe',0,NS(attn_metadata=None,context=NS(is_dummy_run=True)),1,'FusedMoE')
     assert not p.exists()
+
+
+@pytest.mark.parametrize('mode',['prefill_only','decode_only'])
+def test_split_installer_keeps_exactly_one_phase_reference(monkeypatch,mode):
+    import types
+    import atom.model_config.mellum_native as native
+    import atom.model_config.mellum_batch as batch
+    calls=[]
+    def native_pre(self,*args):calls.append('native_pre');return args[0]+10
+    def ref_pre(self,*args):calls.append('ref_pre');return args[0]+20
+    def ref_dec(self,*args):calls.append('ref_dec');return args[0]+30
+    def paged_attention_triton(*args):calls.append('native_dec');return args[0]+40
+    monkeypatch.setattr(native,'native_prefill',native_pre)
+    monkeypatch.setattr(batch,'ragged_prefill',ref_pre);monkeypatch.setattr(batch,'ragged_decode',ref_dec)
+    monkeypatch.setattr(native,'record',lambda *a,**kw:None)
+    impl=NS(layer_num=1,dispatch_backend=lambda ctx:paged_attention_triton)
+    native.install_native_attention(impl,mode)
+    q=torch.zeros(2,3);ctx=NS(context=NS(is_prefill=True),attn_metadata=None)
+    impl.dispatch_backend(ctx)(q,None,None,None,None,None,None,ctx)
+    ctx.context.is_prefill=False;impl.dispatch_backend(ctx)(q,None,None,None,None,None,None,ctx)
+    assert calls==(['native_pre','ref_dec'] if mode=='prefill_only' else ['ref_pre','native_dec'])
+    assert impl._mellum_stepwise_rope==(mode=='decode_only')

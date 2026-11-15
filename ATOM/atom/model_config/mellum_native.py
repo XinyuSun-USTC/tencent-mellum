@@ -81,23 +81,33 @@ def native_prefill(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx):
     return output
 
 
-def install_native_attention(impl):
-    """Retain reference RoPE/K write, replace both ragged attention compute paths."""
+def install_native_attention(impl, mode='both'):
+    """Explicit phase ablations; reference phase is deliberate, never fallback."""
+    if mode not in ('both','prefill_only','decode_only'):
+        raise ValueError('Unknown native attention phase mode')
     original = impl.dispatch_backend
-    impl._mellum_stepwise_rope = False  # native kernels consume corrected q/k from rope_cache
-    impl.prefill_attention = types.MethodType(native_prefill,impl)
+    use_native_prefill = mode != 'decode_only'
+    use_native_decode = mode != 'prefill_only'
+    from atom.model_config.mellum_batch import ragged_prefill,ragged_decode,audit
+    impl._mellum_stepwise_rope = not use_native_prefill
+    impl.prefill_attention = types.MethodType(native_prefill if use_native_prefill else ragged_prefill,impl)
     def dispatch(self,ctx):
         if ctx.context.is_prefill:
-            return self.prefill_attention
-        backend = original(ctx)
-        if 'paged_attention' not in backend.__name__:
+            if use_native_prefill:return self.prefill_attention
+            def prefill(*args):
+                result=self.prefill_attention(*args)
+                record('attention',getattr(self,'layer_num',-1),ctx,len(args[0]),'reference_ragged_prefill',mode=mode)
+                return result
+            return prefill
+        backend = original(ctx) if use_native_decode else types.MethodType(ragged_decode,self)
+        if use_native_decode and 'paged_attention' not in backend.__name__:
             raise ValueError('Native Mellum decode did not select a paged backend')
         def decode(q,k,v,k_cache,v_cache,k_scale,v_scale,fwd_ctx):
-            from atom.model_config.mellum_batch import audit
-            if getattr(self,'layer_num',-1)==0:
+            if use_native_decode and getattr(self,'layer_num',-1)==0:
                 audit(self,'decode',fwd_ctx.attn_metadata.context_lens.tolist())
             result=backend(q,k,v,k_cache,v_cache,k_scale,v_scale,fwd_ctx)
-            record('attention',getattr(self,'layer_num',-1),fwd_ctx,len(q),backend.__name__)
+            name=backend.__name__ if use_native_decode else 'reference_ragged_decode'
+            record('attention',getattr(self,'layer_num',-1),fwd_ctx,len(q),name,mode=mode)
             return result
         return decode
     impl.dispatch_backend = types.MethodType(dispatch,impl)

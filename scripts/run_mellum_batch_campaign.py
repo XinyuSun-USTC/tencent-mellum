@@ -42,7 +42,7 @@ def fingerprint():
     files += [Path(__file__).resolve()]+[PROJECT/'scripts'/n for n in (
         'mellum_runtime_config.py','mellum_process_runner.py','validate_mellum_batch200.py',
         'validate_mellum_batch.py','validate_mellum_http.py','serve_mellum.py','profile_mellum.py','analyze_mellum_profile.py')]
-    files += [p for p in [PROJECT/'scripts/run_mellum_moe_optimization.py',PROJECT/'scripts/mellum_moe_micro.py',PROJECT/'scripts/run_mellum_indexed_d200.py',PROJECT/'scripts/run_mellum_native_campaign.py'] if p.exists()]
+    files += [p for p in [PROJECT/'scripts/run_mellum_moe_optimization.py',PROJECT/'scripts/mellum_moe_micro.py',PROJECT/'scripts/run_mellum_indexed_d200.py',PROJECT/'scripts/run_mellum_native_campaign.py',PROJECT/'scripts/run_mellum_native_diagnostics.py',PROJECT/'scripts/mellum_fused_repeat.py'] if p.exists()]
     files += [MODEL/'config.json', MODEL/'model.safetensors.index.json']
     return {str(p):sha(p) for p in sorted(set(files))}
 

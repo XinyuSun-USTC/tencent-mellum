@@ -203,15 +203,15 @@ class MellumAttention(nn.Module):
             from atom.model_config.mellum_attention import install_sdpa_decode
             install_sdpa_decode(self.attn.impl)
         execution=os.getenv('MELLUM_ATTENTION_EXECUTION','reference')
-        if execution not in ('reference','native'):
-            raise ValueError('MELLUM_ATTENTION_EXECUTION must be reference or native')
-        if execution=='native':
+        if execution not in ('reference','native','native_prefill','native_decode'):
+            raise ValueError('Unknown Mellum attention execution mode')
+        if execution!='reference':
             if os.getenv('MELLUM_REFERENCE_KV_ROPE','0')!='1' or os.getenv('MELLUM_SDPA_DECODE','0')!='0':
                 raise ValueError('Native attention requires reference KV RoPE and disables SDPA decode')
             if os.getenv('MELLUM_REQUEST_BATCHING','0')!='0':
                 raise ValueError('Native attention cannot install the reference ragged bridge')
             from atom.model_config.mellum_native import install_native_attention
-            install_native_attention(self.attn.impl)
+            install_native_attention(self.attn.impl,mode={'native':'both','native_prefill':'prefill_only','native_decode':'decode_only'}[execution])
         batching=os.getenv('MELLUM_REQUEST_BATCHING','0')
         if batching not in ('0','1'):
             raise ValueError('MELLUM_REQUEST_BATCHING must be 0 or 1')

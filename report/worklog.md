@@ -118,3 +118,5 @@
 
 - 计划20首轮实施在独立worktree tencent-mellum-native：新增Mellum FusedMoE（参考gate/路由、BF16舍入后按AITER要求FP32传权重）与原生varlen/paged Attention（保留参考RoPE/KV写入），拆开E控制与旧ragged桥，默认关闭。交付计划21双track脚本，GPU0/1、端口8226/8326、每track最多3worker/60分钟，先R/候选固定256计时、显著收益才D200，不重跑ABC。GPU未执行，冻结环境未改。
 - 原生候选交付检查：117项相关CPU测试通过，py_compile/diff检查通过；MoE prepare-only 182107通过。AITER FP32路由权重存储要求已按源码修正并保留BF16舍入，增加shuffle和无SDPA回退审计测试。GPU待用户终端执行。
+
+- 原生候选未过D200后开发计划22：独立诊断工作区，MoE固定layer0输入/路由12次回放、Opus/CK排序两项对照并记录实际stage metadata/单次真实trace；Attention分prefill_only/decode_only各D200，仅通过者做256性能。默认路径保留，不重跑ABC，不自动全模型MoE修正。120项相关CPU测试通过，GPU待用户终端执行。
