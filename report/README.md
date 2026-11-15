@@ -4,6 +4,8 @@
 
 ## 当前入口
 
+最新批量实验：[性能13](performance/13_batch_accuracy_campaign.md)：一次14-worker批次完成；CPD在真实batch32的developer200位置96.8125%、完整序列87%，HTTP小规模回归通过，但同批短负载慢2.442倍。下一主线是MoE发射/数据搬运开销优化；默认配置未切换。
+
 最新批量准确性：[性能12](performance/12_b0_batch200.md)：真实batch32固定200位置74.84%、序列44%，B0不启用点1仍未达开发门槛；先做少量首差有界定位，暂不运行正式性能。容量/HTTP执行结果见[11](performance/11_batch32_and_http_batch.md)。
 
 扩展实测见[性能02](performance/02_expanded_bs1_profile_study.md)：19配置132次计时与10份trace已核验；长prefill优先SWA，decode关注KV/RoPE与专家权重物化。实验协议见[09](../docs/plan/09_expanded_profile_study.md)。

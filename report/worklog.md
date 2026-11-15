@@ -94,3 +94,5 @@
 - 用户要求减少介入频次：形成[计划15](../docs/plan/15_batch_accuracy_campaign.md)，一次开发batch-aware探针、通用phase/linear/experts shape控制、自动DAG/分析/断点续跑；4规模+最多6控制+2代表性200+2回归/profile，最多14GPU worker，预算30–60分钟/硬上限90分钟。复用HF，按同历史首差分析，不改代码刷数据、不新加bitwise门槛、默认不跑完整A/C或HumanEval。当前仅方案，runner尚未开发，无新GPU。
 
 - 计划15开发交付：新增默认关闭的真实请求shape控制与batch-aware观察器、异步dispatch前ID发布、缓存HF前8步logits核验、4规模+条件矩阵+最多2项D200+候选计时/真实子进程trace/HTTP的统一入口；累计90分钟与14worker预算、hash恢复、失败隔离和自有进程组清理。GPU未运行，默认后端/冻结库未改。CPU假worker覆盖完整14分支、参考复现失败止步、预算/恢复/损坏产物/失败重试、同历史过滤与head/cu语义；28项脚本CPU测试、58项ATOM Mellum回归（合计86项）及prepare-only通过，详见计划15交付记录。下一步用户只需运行总入口并回传根RESULT。
+
+- 批次043721完整执行14个GPU worker、累计1888.67秒；独立核验585产物/232源码指纹及21组重复输出一致，D200每候选仅一轮。CPD两阶段L/E按请求控制达到developer200位置12392/12800=96.8125%、174/200=87%完整序列，长输入93.457%；CE小集改善未泛化（D20072.156%），弃用。K4与CPD HTTP小规模回归通过，默认未切换。独立无probe短负载B0/CPD均值5.489/13.405秒，慢2.442倍；真实子进程trace experts占累计kernel77.33%，下一步优先MoE发射/索引开销，不继续无界bitwise定位。轻量证据约4.4MB，见[性能13](performance/13_batch_accuracy_campaign.md)。本轮只分析归档，无新GPU或数学修改。

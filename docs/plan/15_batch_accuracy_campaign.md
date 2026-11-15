@@ -171,3 +171,7 @@ D阶段一个worker内先固定K4，再分别预热并计时原B0/候选S32两�
 本批不自动实施性能后端替换、不跑正式A/C或完整HumanEval、不修改冻结库，也不自动切换服务默认控制。若预置矩阵不能恢复准确性，根状态为`complete_with_unresolved`；预算耗尽、环境阻塞分别报告，不能将跳过检查当通过。
 
 交付CPU验证：28项相关测试通过（campaign 16项、batch200/serving/process runner回归12项）；最终prepare-only核验S32=32、L32=32、K4=4、D200=200及四目标32份缓存logits，未启动GPU。另有58项ATOM Mellum模型/config/attention/batch/experts/projection回归通过，共86项。最终prepare目录为`/workspace/results/mellum_batch_campaign/20261115T042308376455Z`。额外检查`py_compile`与`git diff --check`通过。实际GPU执行与控制是否改善一致率均待本批验证。
+
+## 批次执行结果
+
+运行`20261115T043721420603Z`已完整完成14个worker，累计约31.48分钟。CPD位置96.8125%、完整序列87%，独立短负载耗时为原B0的2.442倍；CE未通过代表性位置门槛。核验、边界和下一轮MoE建议详见[性能13](../../report/performance/13_batch_accuracy_campaign.md)。本计划已执行，不默认重复整套矩阵。
