@@ -125,3 +125,5 @@
 
 - 用户确认将完整HumanEval任务指标纳入实际决策，关闭thinking/最多2048token优先控时；新建独立tencent-mellum-humaneval，开发单入口HF0/候选1并行164题生成与官方隔离评分。候选选择有实测收益的原生FusedMoE，已知token位置低于90%也评分；保留截断/提取失败、逐题增减和2pp检查，不用功能分数替代其它题目指标。当前无GPU运行。
 - 完整HumanEval配对入口CPU核验：10通过、1 Landlock检查因工具限制跳过，终端self-test仍强制；164题/关闭thinking/2048和真实模板后缀核验通过，实际HF模型源码/tokenizer/评测器指纹固定。尚未运行GPU或得到功能分数。
+
+- HumanEval运行中发现HF loading_info的set序列化遗漏；在独立delivery分支df33885修复，复用既有json_default，6项CPU检查与恢复prepare-only通过；交付HF-only recovery复用原ATOM数据，不修改运行快照/不重跑候选。并行next工作区开发显式服务profiles、thinking/audit开关及C CPU前缀分析：共有3820token，16token块结构复用757792/2039880=37.15%，非实际命中率/加速比；定位reference K覆盖晚于prefix gather，暂不启用缓存。15项CPU服务/profile/前缀测试通过，计划25/研究06记录后续分支。无额外GPU任务。

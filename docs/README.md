@@ -44,3 +44,5 @@ Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md
 当前MoE单一修正：[23 专家贡献独立输出与显式归约](plan/23_isolated_moe_reduction_candidate.md)。逻辑top8保持，native每行top1，局部回放通过才D200，达90%才256性能；尚无GPU结果。
 
 完整功能评估入口：[24 HumanEval164配对](plan/24_full_humaneval_functional_pair.md)。用户确认关闭thinking/2048输出，两卡并行；不使用token位置门槛阻止评分，正式任务要求仍独立报告。
+
+等待期间的并行交付：[25 候选服务接口与后续顺序](plan/25_parallel_preparation_and_delivery.md)、[研究06 场景C前缀复用与兼容性](../report/research/06_parallel_preparation_and_prefix.md)。独立目录开发，运行中的HumanEval不改。

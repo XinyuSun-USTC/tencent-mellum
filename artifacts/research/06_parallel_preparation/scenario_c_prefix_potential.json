@@ -1,0 +1,21 @@
+{
+  "groups": [
+    {
+      "group": "dev-shared-prefix-0",
+      "requests": 200,
+      "min_tokens": 4068,
+      "max_tokens": 16027,
+      "common_prefix_tokens": 3820,
+      "common_full_blocks": 238,
+      "ideal_reusable_tokens_after_first": 757792
+    }
+  ],
+  "total_input_tokens": 2039880,
+  "group_common_prefix_reuse_tokens": 757792,
+  "group_common_prefix_reuse_fraction": 0.37148851893248624,
+  "scope": "Ideal reuse of the common prefix shared by every request in each metadata group, after first request. Excludes eviction/timing. Does not count deeper pairwise/subgroup sharing; not a universal cache-hit upper bound or measured speedup.",
+  "dataset_sha256": "38fc340a76fd48c025bf5806376bdabbc7762f6b5c48d4509bbb109af2cfe265",
+  "tokenizer_path": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+  "thinking": true,
+  "block_size": 16
+}
