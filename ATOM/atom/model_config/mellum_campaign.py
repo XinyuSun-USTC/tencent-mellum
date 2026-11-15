@@ -32,6 +32,7 @@ class Campaign:
         self.config = config
         self.phase = None
         self.active = True
+        self.moe_variant = config.get("moe_optimization", "cpd")
         self.bounds = None
         self.rows = []
         self.history = {}
@@ -50,7 +51,10 @@ class Campaign:
             for name, module in modules.items():
                 group = 'L' if name in ('qkv', 'o', 'router') else 'E' if name == 'experts' else 'N' if name in ('input_norm','post_norm','q_norm','k_norm') else None
                 if group and group in config.get('groups', ''):
-                    self.wrap(module, group)
+                    if group=='E' and config.get('moe_optimization'):
+                        from atom.model_config.mellum_moe_optimization import install_experts
+                        install_experts(self,module,i)
+                    else:self.wrap(module, group)
                 if self.root:
                     self.handles.append(module.register_forward_hook(self.hook(f'{i:02d}.{name}')))
                     if name=='o':
@@ -87,6 +91,10 @@ class Campaign:
         self.bounds = None; self.rows = []; self.current = {}
         if self.config.get('runtime_switch'):
             self.active=json.loads(Path(self.config['runtime_switch']).read_text())['enabled']
+        if self.config.get('moe_switch'):
+            mode=json.loads(Path(self.config['moe_switch']).read_text())
+            if mode['variant'] not in ('cpd','shared_routing','indexed_decode'):raise ValueError('Unknown switched MoE variant')
+            self.moe_variant=mode['variant']
         if batch is None or getattr(ctx.context, 'is_dummy_run', False): return
         self.phase = 'prefill' if ctx.context.is_prefill else 'decode'
         lengths = [int(n) for n in batch.num_scheduled_tokens]
@@ -181,4 +189,8 @@ def install(model):
     config=json.loads(raw)
     if set(config.get('groups',''))-set('LENH') or set(config.get('phases',[]))-{'prefill','decode'}:
         raise ValueError('Unknown campaign control')
+    if config.get('moe_optimization') and (config['moe_optimization'] not in ('cpd','shared_routing','indexed_decode')
+            or not all(c in config.get('groups','') for c in 'LE')
+            or set(config.get('phases',[]))!={'prefill','decode'}):
+        raise ValueError('MoE candidates require full CPD control')
     model._mellum_campaign=Campaign(model,config)

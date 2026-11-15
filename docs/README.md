@@ -4,7 +4,9 @@
 
 ## 当前阅读入口
 
-当前开发计划：[15 一次启动的批量准确性实验批次](plan/15_batch_accuracy_campaign.md)：一次开发观察器、shape控制、DAG调度与分析器，最多14个GPU worker、90分钟总预算，减少逐阶段手工运行。批次已完成，结果见[性能13](../report/performance/13_batch_accuracy_campaign.md)：CPD位置96.81%、完整序列87%，有2.442倍短负载耗时成本，下一主线MoE优化。命令与恢复方法保留在计划末节。
+当前开发计划：[16 MoE路由共享与decode直接索引](plan/16_moe_routing_and_indexed_decode.md)：两个默认关闭候选，微基准→小集→最多两个D200→短/长ABBA→最佳候选trace/HTTP，一个启动入口、最多12worker/90分钟；GPU待运行。
+
+上一批：[15 一次启动的批量准确性实验批次](plan/15_batch_accuracy_campaign.md)：一次开发观察器、shape控制、DAG调度与分析器，最多14个GPU worker、90分钟总预算，减少逐阶段手工运行。批次已完成，结果见[性能13](../report/performance/13_batch_accuracy_campaign.md)：CPD位置96.81%、完整序列87%，有2.442倍短负载耗时成本，下一主线MoE优化。命令与恢复方法保留在计划末节。
 
 当前准确性评测：[11 代表性开发集与HumanEval](plan/11_representative_correctness_and_humaneval.md)：先跑开发200候选及独立HumanEval工具自检，避免以微观数值差异代替题目门槛。实现及GPU测试待执行边界详见该计划。
 

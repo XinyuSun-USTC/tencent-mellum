@@ -96,3 +96,5 @@
 - 计划15开发交付：新增默认关闭的真实请求shape控制与batch-aware观察器、异步dispatch前ID发布、缓存HF前8步logits核验、4规模+条件矩阵+最多2项D200+候选计时/真实子进程trace/HTTP的统一入口；累计90分钟与14worker预算、hash恢复、失败隔离和自有进程组清理。GPU未运行，默认后端/冻结库未改。CPU假worker覆盖完整14分支、参考复现失败止步、预算/恢复/损坏产物/失败重试、同历史过滤与head/cu语义；28项脚本CPU测试、58项ATOM Mellum回归（合计86项）及prepare-only通过，详见计划15交付记录。下一步用户只需运行总入口并回传根RESULT。
 
 - 批次043721完整执行14个GPU worker、累计1888.67秒；独立核验585产物/232源码指纹及21组重复输出一致，D200每候选仅一轮。CPD两阶段L/E按请求控制达到developer200位置12392/12800=96.8125%、174/200=87%完整序列，长输入93.457%；CE小集改善未泛化（D20072.156%），弃用。K4与CPD HTTP小规模回归通过，默认未切换。独立无probe短负载B0/CPD均值5.489/13.405秒，慢2.442倍；真实子进程trace experts占累计kernel77.33%，下一步优先MoE发射/索引开销，不继续无界bitwise定位。轻量证据约4.4MB，见[性能13](performance/13_batch_accuracy_campaign.md)。本轮只分析归档，无新GPU或数学修改。
+
+- 依据性能13开展MoE候选开发：拆分专家route/forward_routed并保留默认数学，新增批内共享路由、decode直接索引canonical权重的Triton GEMV两项opt-in候选，L和prefill专家请求shape仍按CPD。增加单入口微基准/小集/D200/短长ABBA/真实trace/HTTP条件批次，最多12worker/90分钟，复用hash恢复与自有进程组清理。102项相关CPU测试通过；CPU解释器6组地址/stride/repeat检查、gfx942三组离线编译通过（private segment0），尚无GPU数值/性能结果。详见[计划16](../docs/plan/16_moe_routing_and_indexed_decode.md)。默认服务和冻结库未改。

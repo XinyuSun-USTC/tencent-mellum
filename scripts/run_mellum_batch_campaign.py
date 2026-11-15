@@ -42,6 +42,7 @@ def fingerprint():
     files += [Path(__file__).resolve()]+[PROJECT/'scripts'/n for n in (
         'mellum_runtime_config.py','mellum_process_runner.py','validate_mellum_batch200.py',
         'validate_mellum_batch.py','validate_mellum_http.py','serve_mellum.py','profile_mellum.py','analyze_mellum_profile.py')]
+    files += [p for p in [PROJECT/'scripts/run_mellum_moe_optimization.py',PROJECT/'scripts/mellum_moe_micro.py'] if p.exists()]
     files += [MODEL/'config.json', MODEL/'model.safetensors.index.json']
     return {str(p):sha(p) for p in sorted(set(files))}
 
@@ -90,6 +91,10 @@ def worker(out):
     settings=apply_serving(plan['gpu'],out,True,'reference',True)
     cfg=dict(plan['control'])
     if plan.get('observe'):cfg['observe']=str(out/'observe')
+    if plan.get('cohort_variants'):
+        cfg['moe_switch']=str(out/'moe_switch.json')
+        write(out/'moe_switch.json',{'variant':cfg['moe_optimization']})
+    if plan.get('moe_audit'):cfg['moe_audit']=str(out/'moe_calls.jsonl')
     if plan.get('timing_comparison'):
         cfg['runtime_switch']=str(out/'runtime_switch.json');write(out/'runtime_switch.json',{'enabled':True})
     cfg['capture_bytes']=int(plan.get('capture_bytes',768*1024**2))
@@ -121,6 +126,10 @@ def worker(out):
         start=time.monotonic();stable=True;verified=True
         for cohort,cases in plan['cohorts'].items():
             actual_window=plan.get('cohort_windows',{}).get(cohort,plan['batch'])
+            variant=plan.get('cohort_variants',{}).get(cohort,cfg.get('moe_optimization'))
+            if plan.get('cohort_variants'):write(out/'moe_switch.json',{'variant':variant})
+            if plan.get('warmup'):
+                drive_window(engine,[{**r,'budget':2} for r in cases],lambda r:SamplingParams(temperature=0,max_tokens=2),actual_window,lambda *a:None)
             if plan.get('timing_comparison'):
                 write(out/'runtime_switch.json',{'enabled':not cohort.endswith('_baseline')})
                 drive_window(engine,[{**r,'budget':2} for r in cases],lambda r:SamplingParams(temperature=0,max_tokens=2),actual_window,lambda *a:None)
@@ -142,7 +151,7 @@ def worker(out):
                 batches=read_batches(auditfile)
                 observed=batches['decode']['max_batch_size']
                 if observed!=min(actual_window,len(cases)):verified=False
-                record={'outputs':outputs,'control_enabled':not (plan.get('timing_comparison') and cohort.endswith('_baseline')),
+                record={'moe_variant':variant,'outputs':outputs,'control_enabled':not (plan.get('timing_comparison') and cohort.endswith('_baseline')),
                         'records':rows,'groups':groups,'actual_batches':batches,'wall_seconds':elapsed,
                         'submissions':subs,'completions':comps}
                 write(out/(stage+'.json'),record);repeats.append(record)
@@ -252,10 +261,11 @@ def compare_cache(root):
 
 
 class Runner:
-    def __init__(self,out,manifest,budget,job_timeout,executor=run_stage):
+    def __init__(self,out,manifest,budget,job_timeout,executor=run_stage,worker_script=None):
         self.out=out;self.manifest=manifest;self.deadline=time.monotonic()+budget-manifest.get('used_seconds',0)
         self.job_timeout=job_timeout;self.executor=executor;self.limited=False;self.blocked=False
         self.results={};self.launched=0
+        self.worker_script=worker_script or Path(__file__).resolve()
 
     def job(self,name,plan,http=False):
         if self.blocked:return None
@@ -272,7 +282,7 @@ class Runner:
                 raise ValueError('Resume artifact differs: '+name)
             value=json.loads((directory/entry['result_file']).read_text());self.results[name]=value;return value
         remaining=self.deadline-time.monotonic()
-        if remaining<30 or self.manifest.get('started_workers',0)>=MAX_JOBS:
+        if remaining<30 or self.manifest.get('started_workers',0)>=self.manifest.get('max_workers',MAX_JOBS):
             self.limited=True;return None
         attempt=1
         while (directory/f'attempt_{attempt}').exists():attempt+=1
@@ -286,7 +296,7 @@ class Runner:
         write(self.out/'manifest.json',self.manifest);self.launched+=1
         started=time.monotonic()
         with (self.out/'runner.log').open('a') as stream:stream.write(f'{datetime.now(timezone.utc).isoformat()} START {name} attempt {attempt}\n')
-        command=['/opt/venv/bin/python',str(Path(__file__).resolve()),'--worker',str(directory)]
+        command=['/opt/venv/bin/python',str(self.worker_script),'--worker',str(directory)]
         result_file='results.json'
         if http:
             write(directory/'control.json',plan['control']);result_file='http/summary.json'

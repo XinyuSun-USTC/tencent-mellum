@@ -1,0 +1,91 @@
+{
+  "cpu_interpreter": [
+    {
+      "repeat": 1,
+      "k": 11,
+      "n": 7,
+      "max_abs": 9.5367431640625e-07
+    },
+    {
+      "repeat": 1,
+      "k": 896,
+      "n": 23,
+      "max_abs": 2.288818359375e-05
+    },
+    {
+      "repeat": 1,
+      "k": 2304,
+      "n": 13,
+      "max_abs": 5.340576171875e-05
+    },
+    {
+      "repeat": 2,
+      "k": 11,
+      "n": 7,
+      "max_abs": 9.5367431640625e-07
+    },
+    {
+      "repeat": 2,
+      "k": 896,
+      "n": 23,
+      "max_abs": 2.47955322265625e-05
+    },
+    {
+      "repeat": 2,
+      "k": 2304,
+      "n": 13,
+      "max_abs": 4.57763671875e-05
+    }
+  ],
+  "offline_compilation": [
+    {
+      "k": 2304,
+      "n": 1792,
+      "repeat": 8,
+      "target": "gfx942",
+      "kernel_hash": "8690af59f52a1758ba39ea7cb430bec5918c543504a40f01862afb6a9fd59ab3",
+      "shared_bytes": 64,
+      "assembly_resources": {
+        "next_free_vgpr": [
+          "49"
+        ],
+        "private_segment_fixed_size": [
+          "0"
+        ]
+      }
+    },
+    {
+      "k": 896,
+      "n": 2304,
+      "repeat": 1,
+      "target": "gfx942",
+      "kernel_hash": "8be0230b7d7210b76991b1376dfea1dc106248b58e906ff9003f65b64ad194be",
+      "shared_bytes": 64,
+      "assembly_resources": {
+        "next_free_vgpr": [
+          "24"
+        ],
+        "private_segment_fixed_size": [
+          "0"
+        ]
+      }
+    },
+    {
+      "k": 11,
+      "n": 7,
+      "repeat": 2,
+      "target": "gfx942",
+      "kernel_hash": "6ab3172bd9bad280a8496d809f18f581995fc6c3913802bedb803838bebc44ae",
+      "shared_bytes": 0,
+      "assembly_resources": {
+        "next_free_vgpr": [
+          "8"
+        ],
+        "private_segment_fixed_size": [
+          "0"
+        ]
+      }
+    }
+  ],
+  "note": "No GPU execution; CPU interpreter uses FP32 to validate addressing/reduction wiring, not AMD BF16 accuracy"
+}

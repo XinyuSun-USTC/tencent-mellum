@@ -51,7 +51,7 @@ class MellumTorchExperts(nn.Module):
             raise ValueError('Mellum expert checkpoint shape mismatch')
         target.copy_(weight)
 
-    def forward(self, hidden_states, router_logits, batched=False):
+    def route(self, hidden_states, router_logits):
         if self.custom_routing_function is None:
             weights, ids = router_logits.float().softmax(-1).topk(self.top_k, dim=-1)
             if self.renormalize:
@@ -61,6 +61,14 @@ class MellumTorchExperts(nn.Module):
             weights, ids = self.custom_routing_function(hidden_states=hidden_states,
                 gating_output=router_logits, topk=self.top_k, renormalize=self.renormalize)
             weights = weights.to(router_logits.dtype)
+        return weights, ids
+
+    def forward(self, hidden_states, router_logits, batched=False):
+        weights, ids = self.route(hidden_states, router_logits)
+        return self.forward_routed(hidden_states, weights, ids, batched=batched)
+
+    def forward_routed(self, hidden_states, weights, ids, batched=False):
+        """Original expert arithmetic with precomputed routing; layout unchanged."""
         if batched:
             # HF 5.10.1 generate switches grouped_mm to batched_mm for decode.
             selected = hidden_states.repeat_interleave(self.top_k, dim=0)
