@@ -86,3 +86,5 @@
 ## 2026-11-15
 
 - HTTP多请求032334：maxseq4配置实测decode2，顺序completion/SSE/usage均匹配；并发humaneval_0文本分叉、另一条一致，review仍保留。chat仅reasoning前导换行，归一分类通过；pending最大2支持正常完成登记修复。服务正常退出。下一步固定developer200真实batch对照再决定性能基准/有界定位，不直接宣称B0通过或启动完整A/C；本轮只分析/归档，无新GPU或数学修改。
+
+- B0代表性200对照开发：新增固定200原token/HF缓存校验、bounded outstanding32补充请求、显式seq-ID/输入映射与乱序完成记录；B0 reference、正常64token/EOS，审计真实decode32，报告总体/长短/HumanEval/场景A双一致率，提前EOS保留分母。不重跑HF/不存全词表logits，15项相关CPU通过、prepare-only033338通过，未执行GPU/改数学。命令/决策边界见[计划14](../docs/plan/14_b0_batch200_representative_check.md)。
