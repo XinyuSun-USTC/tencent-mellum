@@ -78,3 +78,27 @@ def test_HF_export_normalizes_successful_loading_report_sets(monkeypatch,tmp_pat
     output=json.loads((tmp_path/'generation.json').read_text())
     assert output['status']=='complete' and output['loading_info']['missing_keys']==[]
     assert output['loading_info']['metadata_keys']==['a','b']
+
+
+def test_native_functional_settings_disable_reference_bridge_and_sdpa():
+    from run_mellum_humaneval_pair import attention_settings,validate_native_audit
+    assert attention_settings('native')=={'MELLUM_ATTENTION_EXECUTION':'native','MELLUM_SDPA_DECODE':'0','MELLUM_REQUEST_BATCHING':'0'}
+    rows=[{'kind':'moe','backend':'FusedMoE','phase':'decode'},
+          {'kind':'attention','backend':'aiter_varlen','phase':'prefill'},
+          {'kind':'attention','backend':'paged_attention_triton','phase':'decode'}]
+    validate_native_audit(rows,'fused_torch_route','native')
+    with pytest.raises(ValueError,match='prefill'):validate_native_audit(rows[:1]+rows[2:],'fused_torch_route','native')
+    with pytest.raises(ValueError,match='fallback'):
+        validate_native_audit(rows+[{'kind':'attention','phase':'decode','backend':'reference_ragged_decode'}],'fused_torch_route','native')
+
+
+def test_reused_reference_requires_matching_completion_hash(tmp_path):
+    from run_mellum_humaneval_pair import load_reference,sha
+    (tmp_path/'hf').mkdir();data={'status':'complete','environment':{'transformers':'5.10.1'},
+        'records':[{**inputs()['records'][0],'generated_ids':[[1]]}]}
+    file=tmp_path/'hf/generation.json';file.write_text(json.dumps(data))
+    m={'hf_model_source_sha256':'model','inputs_sha256':'inputs'}
+    (tmp_path/'manifest.json').write_text(json.dumps({**m,'completed_hf_sha256':sha(file)}))
+    assert load_reference(tmp_path,m,inputs())['status']=='complete'
+    file.write_text(json.dumps({**data,'unexpected_change':True}))
+    with pytest.raises(ValueError,match='hash'):load_reference(tmp_path,m,inputs())
