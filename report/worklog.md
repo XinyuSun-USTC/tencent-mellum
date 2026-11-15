@@ -124,3 +124,5 @@
 
 - 计划23交付：独立分支step1/moe-isolated-reduction、commit ee1215c，top8贡献展开为native top1独立输出，外部BF16加权/求和；不复制权重，增加按N*8增长的临时存储。126项CPU检查、py_compile/diff和202806 prepare-only通过；入口GPU0/8526、最多4worker/45分钟，固定回放稳定/finite才D200、达到90%才R/候选256性能。主R仅同步文档，未执行新GPU。
 - 计划23运行203133完成，累计3.84分钟：独立贡献归约三组固定回放各12次精确，消除所测重复变化；D200位置74.18%、完整序列45.5%，相比原native MoE总体+1.82pp但长输入降至52.98%，仍低90%。加载/路径/真实batch32通过，按门槛未跑性能，不套用旧候选加速比；17产物/241源码hash通过，归档性能21。无追加GPU/数学修改。
+
+- 用户确认HumanEval关闭thinking/最多2048token优先控时；交付独立分支step1/humaneval-functional-evaluation、7d6a4ce，一条命令HF/GPU0与FusedMoE/GPU1真实batch32并行164题、统一提取/官方隔离评分，90分钟总预算，保留截断/提取失败和逐题功能变化，不以token位置低于90%阻挡评分。10项CPU通过、1 Landlock检查工具受限跳过（终端仍强制self-test），164输入/模板和205642 prepare-only通过；未运行新GPU，冻结库/原R源码未改。
