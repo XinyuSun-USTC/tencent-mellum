@@ -140,3 +140,5 @@
 - GPU1组合20261115T223459375865Z完成，smoke/A64/C20全成功；A59.612tokens/s较单项+4.58%，C TTFT p99 22.689→3.819秒、TPOT p99 0.44394→0.36259。核验同输入、产物与源码hash，归档性能24。GPU0 prefix继续运行不改；下一步GPU1筛选FusedMoE+完整原生Attention，性能优先，有收益后复用HF作候选功能评估。
 
 - GPU0 prefix_probe 20261115T225622969152Z通过，8次/128token off/on全部一致、实际命中46592；共享ragged5.608→3.571秒、逆序复用5.571→2.108秒（非HTTP收益）。核验源码/加载/命中，归档性能25。服务新增显式prefix开关及逐case命中审计，GPU0独立8251/8926跑FusedMoE+prefix容量计划28，33项CPU检查及实际prepare/hash通过；GPU1 next原生Attention继续运行未改。
+
+- GPU1原生组合20261115T231450301731Z完成，smoke/A64/C20全成功；A121.4966tokens/s，约SWA组合2.04倍；C TTFT/TPOT p99 1.7263/0.13478秒。审计aiter_varlen/paged_attention_triton与FusedMoE、同输入/产物/源码，归档性能26。独立native-functional工作区开发仅GPU1复用HF的完整HumanEval入口，8项CPU检查；GPU0 prefix继续，未改其源码。

@@ -48,3 +48,5 @@ GPU1待运行：[26 候选HTTP容量诊断](plan/26_candidate_http_capacity.md)�
 GPU0待运行：[27 前缀缓存兼容与定向试验](plan/27_prefix_cache_gpu0.md)，独立prefix工作区80cd14c，57项相关CPU检查和真实输入prepare-only通过；GPU1的next工作区不修改。
 
 GPU0待运行：[28 FusedMoE+prefix HTTP](plan/28_prefix_http_capacity.md)，独立prefix工作区，HTTP8251/engine8926；首轮结果见性能25。33项相关CPU检查、输入准备和启动配置核验通过。
+
+GPU1待运行：[29 原生Attention组合完整HumanEval](plan/29_native_attention_functional.md)，独立native-functional工作区；复用已完成HF164，不在GPU0启动生成，8项CPU检查及真实引用prepare通过。性能结果见报告26。
