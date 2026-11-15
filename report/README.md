@@ -4,7 +4,7 @@
 
 ## 当前入口
 
-最新服务结果：[性能11](performance/11_batch32_and_http_batch.md)：decode8/16/32及HTTP真实batch2完成，清理修复pending≤2；bs32小集位置89.45%、批量正确性未验收，下一步固定200真实batch对照，不直接跑完整A/C。
+最新批量准确性：[性能12](performance/12_b0_batch200.md)：真实batch32固定200位置74.84%、序列44%，B0不启用点1仍未达开发门槛；先做少量首差有界定位，暂不运行正式性能。容量/HTTP执行结果见[11](performance/11_batch32_and_http_batch.md)。
 
 扩展实测见[性能02](performance/02_expanded_bs1_profile_study.md)：19配置132次计时与10份trace已核验；长prefill优先SWA，decode关注KV/RoPE与专家权重物化。实验协议见[09](../docs/plan/09_expanded_profile_study.md)。
 

@@ -1,0 +1,129 @@
+{
+  "status": "batch200_comparison_complete",
+  "scope": "B0 developer200, normal greedy64, bounded outstanding window; no official performance/accuracy claim",
+  "settings": {
+    "MELLUM_HF_GENERATION_EXPERTS": "1",
+    "MELLUM_MOE_BACKEND": "torch",
+    "MELLUM_QKV_BACKEND": "separate",
+    "MELLUM_ROUTER_BACKEND": "torch",
+    "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+    "MELLUM_REFERENCE_KV_ROPE": "1",
+    "MELLUM_SDPA_DECODE": "1",
+    "MELLUM_STAGE_LAYER": "0",
+    "MELLUM_DECODE_LAYER_CAPTURE": "0",
+    "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "0",
+    "ATOM_ENABLE_ALLREDUCE_RMSNORM_FUSION": "0",
+    "ATOM_USE_UNIFIED_ATTN": "0",
+    "ATOM_LOADER_USE_THREADPOOL": "0",
+    "AITER_LOG_LEVEL": "WARNING",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HIP_VISIBLE_DEVICES": "0",
+    "PYTHONPATH": "/workspace/tencent-mellum/ATOM",
+    "MELLUM_LOAD_AUDIT_PATH": "/workspace/results/mellum_batch200/20261115T034222073400Z/loading_audit.json",
+    "MELLUM_PROFILE_LABELS": "0",
+    "ATOM_PROFILER_MORE": "0",
+    "MELLUM_REQUEST_BATCHING": "1",
+    "MELLUM_SWA_PREFILL_OPT": "0",
+    "MELLUM_SWA_PREFILL_IMPL": "ck",
+    "MELLUM_BATCH_AUDIT_PATH": "/workspace/results/mellum_batch200/20261115T034222073400Z/batches.jsonl"
+  },
+  "engine_options": {
+    "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+    "tensor_parallel_size": 1,
+    "data_parallel_size": 1,
+    "enforce_eager": true,
+    "level": 0,
+    "kv_cache_dtype": "bf16",
+    "max_model_len": 4192,
+    "max_num_batched_tokens": 16384,
+    "max_num_seqs": 32,
+    "gpu_memory_utilization": 0.35,
+    "enable_prefix_caching": false,
+    "enable_chunked_prefill": false,
+    "torch_profiler_dir": null,
+    "mark_trace": false,
+    "port": 8026
+  },
+  "environment": {
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "transformers": "5.2.0",
+    "hip": "7.2.53211"
+  },
+  "loading_audit": {
+    "source_tensors": 5631,
+    "successful_parts": 5631,
+    "missing": [],
+    "unexpected": []
+  },
+  "completed_requests": 200,
+  "generation_wall_seconds": 147.3086567951832,
+  "groups": {
+    "all": {
+      "records": 200,
+      "matching_positions": 9579,
+      "compared_positions": 12800,
+      "token_match_fraction": 0.748359375,
+      "exact_sequences": 88,
+      "exact_sequence_fraction": 0.44
+    },
+    "below_1024": {
+      "records": 168,
+      "matching_positions": 8339,
+      "compared_positions": 10752,
+      "token_match_fraction": 0.7755766369047619,
+      "exact_sequences": 82,
+      "exact_sequence_fraction": 0.4880952380952381
+    },
+    "at_least_1024": {
+      "records": 32,
+      "matching_positions": 1240,
+      "compared_positions": 2048,
+      "token_match_fraction": 0.60546875,
+      "exact_sequences": 6,
+      "exact_sequence_fraction": 0.1875
+    },
+    "humaneval": {
+      "records": 164,
+      "matching_positions": 8191,
+      "compared_positions": 10496,
+      "token_match_fraction": 0.7803925304878049,
+      "exact_sequences": 80,
+      "exact_sequence_fraction": 0.4878048780487805
+    },
+    "scenario_a": {
+      "records": 36,
+      "matching_positions": 1388,
+      "compared_positions": 2304,
+      "token_match_fraction": 0.6024305555555556,
+      "exact_sequences": 8,
+      "exact_sequence_fraction": 0.2222222222222222
+    }
+  },
+  "actual_batches": {
+    "prefill": {
+      "calls_by_batch_size": {
+        "2": 1,
+        "5": 1,
+        "6": 4,
+        "9": 1,
+        "32": 5
+      },
+      "max_batch_size": 32
+    },
+    "decode": {
+      "calls_by_batch_size": {
+        "8": 64,
+        "32": 384
+      },
+      "max_batch_size": 32
+    }
+  },
+  "submitted_requests": 200,
+  "developer_90_percent_checks": {
+    "token_position_interpretation": false,
+    "whole_sequence_interpretation": false,
+    "scope": "Developer set only, not confirmed official public prompts; no logits equality gate"
+  },
+  "note": "Audit enabled; wall is not official A/B/C performance or a speedup claim"
+}
