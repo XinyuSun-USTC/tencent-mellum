@@ -98,3 +98,5 @@
 - 批次043721完整执行14个GPU worker、累计1888.67秒；独立核验585产物/232源码指纹及21组重复输出一致，D200每候选仅一轮。CPD两阶段L/E按请求控制达到developer200位置12392/12800=96.8125%、174/200=87%完整序列，长输入93.457%；CE小集改善未泛化（D20072.156%），弃用。K4与CPD HTTP小规模回归通过，默认未切换。独立无probe短负载B0/CPD均值5.489/13.405秒，慢2.442倍；真实子进程trace experts占累计kernel77.33%，下一步优先MoE发射/索引开销，不继续无界bitwise定位。轻量证据约4.4MB，见[性能13](performance/13_batch_accuracy_campaign.md)。本轮只分析归档，无新GPU或数学修改。
 
 - 依据性能13开展MoE候选开发：拆分专家route/forward_routed并保留默认数学，新增批内共享路由、decode直接索引canonical权重的Triton GEMV两项opt-in候选，L和prefill专家请求shape仍按CPD。增加单入口微基准/小集/D200/短长ABBA/真实trace/HTTP条件批次，最多12worker/90分钟，复用hash恢复与自有进程组清理。102项相关CPU测试通过；CPU解释器6组地址/stride/repeat检查、gfx942三组离线编译通过（private segment0），尚无GPU数值/性能结果。详见[计划16](../docs/plan/16_moe_routing_and_indexed_decode.md)。默认服务和冻结库未改。
+
+- MoE批次121305实际10worker/1739.80秒完成；独立核验169产物与236源码指纹、重复小集及ABBA稳定，CPD重构后D200与历史200/200相同，R共享路由与当前CPD也200/200相同，维持位置96.8125%/完整序列87%。R短/长ABBA加速1.09154×/1.04675×、几何均值1.06891×，实际子进程trace与HTTP小规模回归通过。I直接索引decode32局部4.892×、额外分配64.20→3.71MiB，但小集94.34%/93.95%相对CPD下降超过预设2个百分点，未跑D200；不等同题目90%失败。约3.6MB证据归档见[性能14](performance/14_moe_routing_and_indexed_decode.md)。默认未切换，本轮仅分析归档；下一步建议I一次固定D200，不重复整批或无限浮点定位。

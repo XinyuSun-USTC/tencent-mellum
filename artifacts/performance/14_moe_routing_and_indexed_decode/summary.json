@@ -1,0 +1,684 @@
+{
+  "status": "complete",
+  "decisions": {
+    "skipped": [],
+    "selected_d200": [
+      "shared_routing"
+    ],
+    "passing_d200": [
+      "shared_routing"
+    ],
+    "historical_screen_match": {
+      "S32": {
+        "exact_sequences": 32,
+        "records": 32
+      },
+      "L32": {
+        "exact_sequences": 32,
+        "records": 32
+      }
+    },
+    "historical_D200_match": {
+      "D200": {
+        "exact_sequences": 200,
+        "records": 200
+      }
+    },
+    "best": "shared_routing",
+    "profile_passed": true,
+    "service_passed": true
+  },
+  "timing": {
+    "shared_routing": {
+      "cohorts": {
+        "S32": {
+          "cpd_seconds": [
+            13.314901278121397,
+            13.406270467909053,
+            13.41687499312684,
+            13.392143368022516
+          ],
+          "candidate_seconds": [
+            12.258487408980727,
+            12.27642812486738,
+            12.292742680991068,
+            12.274492105003446
+          ],
+          "cpd_median_seconds": 13.399206917965785,
+          "candidate_median_seconds": 12.275460114935413,
+          "speedup": 1.0915441696285684,
+          "stable": true
+        },
+        "L32": {
+          "cpd_seconds": [
+            25.079265245003626,
+            25.096769852098078,
+            25.09942311490886,
+            25.104139670962468
+          ],
+          "candidate_seconds": [
+            23.96950156800449,
+            23.975783445872366,
+            23.97841151896864,
+            23.98070671199821
+          ],
+          "cpd_median_seconds": 25.09809648350347,
+          "candidate_median_seconds": 23.977097482420504,
+          "speedup": 1.046752906681255,
+          "stable": true
+        }
+      },
+      "stable": true,
+      "batch_verified": true,
+      "geometric_mean_speedup": 1.068913949918178,
+      "performance_eligible": true
+    }
+  },
+  "matrix": [
+    {
+      "job": "screen_B0",
+      "cohort": "K4",
+      "records": 4,
+      "matching_positions": 62,
+      "compared_positions": 64,
+      "token_match_fraction": 0.96875,
+      "exact_sequences": 3,
+      "exact_sequence_fraction": 0.75,
+      "mean_wall_seconds": 3.1420289269881323
+    },
+    {
+      "job": "screen_B0",
+      "cohort": "S32",
+      "records": 32,
+      "matching_positions": 478,
+      "compared_positions": 512,
+      "token_match_fraction": 0.93359375,
+      "exact_sequences": 28,
+      "exact_sequence_fraction": 0.875,
+      "mean_wall_seconds": 5.468405968975276
+    },
+    {
+      "job": "screen_B0",
+      "cohort": "L32",
+      "records": 32,
+      "matching_positions": 456,
+      "compared_positions": 512,
+      "token_match_fraction": 0.890625,
+      "exact_sequences": 23,
+      "exact_sequence_fraction": 0.71875,
+      "mean_wall_seconds": 17.05286810954567
+    },
+    {
+      "job": "screen_CPD",
+      "cohort": "K4",
+      "records": 4,
+      "matching_positions": 64,
+      "compared_positions": 64,
+      "token_match_fraction": 1.0,
+      "exact_sequences": 4,
+      "exact_sequence_fraction": 1.0,
+      "mean_wall_seconds": 3.937619606498629
+    },
+    {
+      "job": "screen_CPD",
+      "cohort": "S32",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 13.461567241931334
+    },
+    {
+      "job": "screen_CPD",
+      "cohort": "L32",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 25.159082406549715
+    },
+    {
+      "job": "screen_shared_routing",
+      "cohort": "K4",
+      "records": 4,
+      "matching_positions": 64,
+      "compared_positions": 64,
+      "token_match_fraction": 1.0,
+      "exact_sequences": 4,
+      "exact_sequence_fraction": 1.0,
+      "mean_wall_seconds": 3.843724675476551
+    },
+    {
+      "job": "screen_shared_routing",
+      "cohort": "S32",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 12.157637605443597
+    },
+    {
+      "job": "screen_shared_routing",
+      "cohort": "L32",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 23.941052317386493
+    },
+    {
+      "job": "screen_indexed_decode",
+      "cohort": "K4",
+      "records": 4,
+      "matching_positions": 62,
+      "compared_positions": 64,
+      "token_match_fraction": 0.96875,
+      "exact_sequences": 3,
+      "exact_sequence_fraction": 0.75,
+      "mean_wall_seconds": 3.4994010344380513
+    },
+    {
+      "job": "screen_indexed_decode",
+      "cohort": "S32",
+      "records": 32,
+      "matching_positions": 483,
+      "compared_positions": 512,
+      "token_match_fraction": 0.943359375,
+      "exact_sequences": 27,
+      "exact_sequence_fraction": 0.84375,
+      "mean_wall_seconds": 9.353306045522913
+    },
+    {
+      "job": "screen_indexed_decode",
+      "cohort": "L32",
+      "records": 32,
+      "matching_positions": 481,
+      "compared_positions": 512,
+      "token_match_fraction": 0.939453125,
+      "exact_sequences": 26,
+      "exact_sequence_fraction": 0.8125,
+      "mean_wall_seconds": 21.055313295451924
+    },
+    {
+      "job": "D200_CPD",
+      "cohort": "D200",
+      "records": 200,
+      "matching_positions": 12392,
+      "compared_positions": 12800,
+      "token_match_fraction": 0.968125,
+      "exact_sequences": 174,
+      "exact_sequence_fraction": 0.87,
+      "mean_wall_seconds": 310.9093065341003
+    },
+    {
+      "job": "D200_shared_routing",
+      "cohort": "D200",
+      "records": 200,
+      "matching_positions": 12392,
+      "compared_positions": 12800,
+      "token_match_fraction": 0.968125,
+      "exact_sequences": 174,
+      "exact_sequence_fraction": 0.87,
+      "mean_wall_seconds": 279.37094712699763
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "S32_A0",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 13.314901278121397
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "L32_A0",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 25.079265245003626
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "S32_B1",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 12.258487408980727
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "L32_B1",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 23.96950156800449
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "S32_B2",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 12.27642812486738
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "L32_B2",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 23.975783445872366
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "S32_A3",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 13.406270467909053
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "L32_A3",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 25.096769852098078
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "S32_A4",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 13.41687499312684
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "L32_A4",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 25.09942311490886
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "S32_B5",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 12.292742680991068
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "L32_B5",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 23.97841151896864
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "S32_B6",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 12.274492105003446
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "L32_B6",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 23.98070671199821
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "S32_A7",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 13.392143368022516
+    },
+    {
+      "job": "timing_shared_routing",
+      "cohort": "L32_A7",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 25.104139670962468
+    },
+    {
+      "job": "profile_shared_routing",
+      "cohort": "S32_candidate",
+      "records": 32,
+      "matching_positions": 501,
+      "compared_positions": 512,
+      "token_match_fraction": 0.978515625,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 12.307401968166232
+    },
+    {
+      "job": "profile_shared_routing",
+      "cohort": "L32_candidate",
+      "records": 32,
+      "matching_positions": 510,
+      "compared_positions": 512,
+      "token_match_fraction": 0.99609375,
+      "exact_sequences": 31,
+      "exact_sequence_fraction": 0.96875,
+      "mean_wall_seconds": 24.066348725929856
+    }
+  ],
+  "jobs": {
+    "micro": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "worker.log": "f3a2cd6a8dbf925f4632d87b2f029fa29ff396ee46203b85e83ef7fe30adffd4",
+        "plan.json": "552573a043fad66844e4ab01e826ef376330c9c4c704207fb45559b2711bc5a9",
+        "indexed_decode_trace.json.gz": "93533d8c1557bcb3dbed9c87920ec4d7dcded07c378dd300348303ab6673269c",
+        "results.json": "c041235084bf8039fd4f385e43628a68df90f93985e70dda8e692d13bf97c842"
+      },
+      "result_file": "results.json"
+    },
+    "screen_B0": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "K4_r1.json": "da1137040839a9467eb82fe98e4760e1b8b349d2b2bafe59757f23d6b7bb4b0d",
+        "K4_r0.json": "79295eee1ac1892cd9933292f286dba43d2bb4e6f009f05fe5bcf80fe49cc2d0",
+        "K4_r0_batches.jsonl": "d01a10b22e0630f1c9c9c32a03b0e03447b55790e3c9d317b42abd0db9e25473",
+        "batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "worker.log": "8c677ffab020574f33534519ee8a9b0491a651a387c3f488ce124cbcf749db1d",
+        "L32_r1.json": "9ffe0e419a91f6efe4891990eac1554295968bc0d09be59a68c66563307fee29",
+        "plan.json": "1a9d568cd07473b37564d2dda580e3ed8269b325c627b2daa2981f1148c041ec",
+        "S32_r1_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "L32_r1_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "S32_r0.json": "fbaf93ba380a4c5128a2bd0e2b6130be68eea5e178a39a8a7fa59733df6cedb0",
+        "results.json": "7e321f796984b52ad1f01fe4cfb6c4f007722c0abea8ca126997307e18e34e8a",
+        "K4_r1_batches.jsonl": "d01a10b22e0630f1c9c9c32a03b0e03447b55790e3c9d317b42abd0db9e25473",
+        "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+        "S32_r1.json": "ac7668f6b51f40afbe67b6acd75ac8c1f0af33caf6e2516562e8adf64ea85f69",
+        "observe_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "progress.json": "c910ef38635d38984be895a3b4c7ceab28e92e80869864fb6da0633cbdd08969",
+        "L32_r0.json": "5fd4abbca327090683160894e4f184250eee2a6ccc33975e907c99b11a4c64ab",
+        "S32_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "L32_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c"
+      },
+      "result_file": "results.json"
+    },
+    "screen_CPD": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "K4_r1.json": "4063ba1accbc6bb359da48972f366d3e4e45e3c98582d310593a6938cd2c637c",
+        "K4_r0.json": "393657e7ee758f723dd4970c34c0bee3565190b211dc472b68b574c1106a1161",
+        "K4_r0_batches.jsonl": "d01a10b22e0630f1c9c9c32a03b0e03447b55790e3c9d317b42abd0db9e25473",
+        "batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "worker.log": "57eaedc3ba49127fa1eada909c03e2da7b5867fedecb26e5b49c98e6892a1708",
+        "L32_r1.json": "61aeb11f2eda35dad9d24890ca74956bacaab55eaf4421f5e9baf934240a17e3",
+        "plan.json": "8a73d9d357b89acb287dbf09ef1386badf99bf5806c16042a98fbe1c80c4ddba",
+        "S32_r1_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "L32_r1_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "S32_r0.json": "31aab6aa226635f9a218c113e9b1bc330c6707650d1ab3262817312b56de7a6a",
+        "moe_calls.jsonl": "9c2edac5a7abe127b1cea56ab1ea6a2546190eb9bf6be27bb4a3680ed654fbdb",
+        "results.json": "83ed08db3f4405fad253758fec6923673a1f059a0edf5467431bee60cc6a9739",
+        "K4_r1_batches.jsonl": "d01a10b22e0630f1c9c9c32a03b0e03447b55790e3c9d317b42abd0db9e25473",
+        "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+        "S32_r1.json": "2ed5351193508fd9281dd580c41dfb8ae161dedae1dc60b6139182ab2b8cdddf",
+        "observe_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "progress.json": "8f24d150cd769ff15844d27d314e8d0a2ee9ab7e6f8d7cf8116c3467c6054f19",
+        "L32_r0.json": "e9581081cee8f609b79a13a0fffb8c7aadd3db40ea511ef5262bb1f4bef43235",
+        "S32_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "L32_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c"
+      },
+      "result_file": "results.json"
+    },
+    "screen_shared_routing": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "K4_r1.json": "cce39a0a19925b719e13a444fb50f59bb1c625d539a47dd026eafea830d2f8bc",
+        "K4_r0.json": "c4b8b12b1adc89fe0f7c5bdf5602398a56ba072ce76e564ee7bf9d948e895501",
+        "K4_r0_batches.jsonl": "d01a10b22e0630f1c9c9c32a03b0e03447b55790e3c9d317b42abd0db9e25473",
+        "batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "worker.log": "ff05fa75f8941fe062964c3d9004b04691ca3283fdf4014a3e874561c9492437",
+        "L32_r1.json": "305a263a3be5335cfaab6fc94e5d564f4ad2c1daf9e76b3f29c8e0299edb7585",
+        "plan.json": "1d06c48250e4ad7d502120c620549676f3f8369440b6da0759d6c6389802eb55",
+        "S32_r1_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "L32_r1_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "S32_r0.json": "6c0746b183ffd8f1252e46ad9ac22d322e4967734528e7a3739a33682c9c8999",
+        "moe_calls.jsonl": "db867c4eddfb0cbfb648045714c20a6098d0917ed0106c3c1c10bcea82bbc4dc",
+        "results.json": "a5e0b8ddd885b0a356555c6a2e0ff5c1536eae7f77cfc8d8c1de9689b6f6d225",
+        "K4_r1_batches.jsonl": "d01a10b22e0630f1c9c9c32a03b0e03447b55790e3c9d317b42abd0db9e25473",
+        "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+        "S32_r1.json": "370674d8d65acef6d5cb63f63e1e899bb880c6e7cc3dcdf003e6b80f86abaab7",
+        "observe_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "progress.json": "42ebc2b4aec2cb5d6d8c258387ac547f98756eedcef3d192e7d2abae6eee4d70",
+        "L32_r0.json": "7ced8a38facdfedbcc32471734a546ae0750c77d4b432aed9767960c755a0c01",
+        "S32_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "L32_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c"
+      },
+      "result_file": "results.json"
+    },
+    "screen_indexed_decode": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "K4_r1.json": "caa5ad4b8ac8d68b020f45a1bf451a729f2763af8949027ab22858c592cc8ba6",
+        "K4_r0.json": "52ea05283babc4efb55c125148cd140204a8f2d56298f664ade15ad0220b3969",
+        "K4_r0_batches.jsonl": "d01a10b22e0630f1c9c9c32a03b0e03447b55790e3c9d317b42abd0db9e25473",
+        "batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "worker.log": "e60ef0973950022e357c5f28df1bd0602c27e9d64ebcfc6c195c03e94ddad3b1",
+        "L32_r1.json": "b5faaf3754dc0ba885a94a5a098668486e355c8454d561f2a24da5a1452b6aec",
+        "plan.json": "8856e2d86ba74a0f740103ed883a31ec92d0226156fa444b72ffb2ef728ad4d7",
+        "S32_r1_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "L32_r1_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "S32_r0.json": "b973567d9bdb67026b6a5c87a2cf35c5c667ffde2c049e08315800f99374268e",
+        "moe_calls.jsonl": "1421fad6e722ddffa58ad3ad3814b0722ebfc59c52ecc8127d0d199d577d6630",
+        "results.json": "b86122be1b565233766f10ee657c4c27bf4e9ce837165085045ff445ac442c2c",
+        "K4_r1_batches.jsonl": "d01a10b22e0630f1c9c9c32a03b0e03447b55790e3c9d317b42abd0db9e25473",
+        "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+        "S32_r1.json": "46da2dd998ed8e6052de82310c9cce8722c3b978774dceec58d803be8b7b4e36",
+        "observe_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "progress.json": "dda8c8df16b88e6a9f56fca7e2c3fd8274ef0815b5a8d56400a7ece6f2ca60c0",
+        "L32_r0.json": "ac82e5d57a73f573660e1cefe74dff00aa42137914de727947c352914bf339af",
+        "S32_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "L32_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c"
+      },
+      "result_file": "results.json"
+    },
+    "D200_CPD": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "batches.jsonl": "70bba96611d42253f241586c2d7c981bdfa13375a460f378d6d71db72c3c09db",
+        "worker.log": "a3dc8d577b425220529f1e2a298a6ad9901349ba3ccd1b949e75554eafc2bf6c",
+        "D200_r0.json": "66d95067f72d790a85b64a4c80e55163ea3775d12e4ee03899092b9cd07398ff",
+        "plan.json": "115534fa814799fe47ce36aee290e20904a69dc8115fd3d51274694fe294e6e8",
+        "moe_calls.jsonl": "f88502c3753aaadadaf77260a6105a7554b57711136f8f07fa76ec4da61ae11d",
+        "results.json": "8c292ff794079d23668f7bdfa81eaf005b444843b1a224ba98d26f195a608132",
+        "D200_r0_batches.jsonl": "70bba96611d42253f241586c2d7c981bdfa13375a460f378d6d71db72c3c09db",
+        "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+        "observe_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "progress.json": "dabe5c58637ea5949bbb916bab64643c7bb3c985004edf726b1090a117e2cf68"
+      },
+      "result_file": "results.json"
+    },
+    "D200_shared_routing": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "batches.jsonl": "70bba96611d42253f241586c2d7c981bdfa13375a460f378d6d71db72c3c09db",
+        "worker.log": "4776319f2e0f617ecfbfa31ed5abd7ca1cca96c8ef816ba35842ef56dc75bd57",
+        "D200_r0.json": "d2ef973aab87ad1933e9ca901641dfcfb583ee0c2defa84e0076c884971b07c8",
+        "plan.json": "d562622d5f1965ca1b53006e6bee14ffe255b5003f44582bf8cef039809d08ff",
+        "moe_calls.jsonl": "21485a740f384b3bf043e27960724ca605dac37c58330f1ab96184d0e4aa9d23",
+        "results.json": "09abc827cf1eb735acec1446bc0d949134c4e9a9b182686ec143c4ae2d80651b",
+        "D200_r0_batches.jsonl": "70bba96611d42253f241586c2d7c981bdfa13375a460f378d6d71db72c3c09db",
+        "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+        "observe_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "progress.json": "2345e4ec5ea24bb6010e5151551537f347089041df3904427594386c890148d0"
+      },
+      "result_file": "results.json"
+    },
+    "timing_shared_routing": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "S32_B6_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "S32_A0_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "S32_A3_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "worker.log": "5c4e2b2a65fc81cfe71ad2472798075d46024911ea62b90bacbca0b9f888d4f5",
+        "L32_B2_r0.json": "8a75f164084db54e5dd5570d6304a4daea8ed3fbc6ea4038866bfffe72b4b34d",
+        "L32_A3_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "L32_A4_r0.json": "320b882ae9e78d2e57a0d3dba64d278100ca30f6cdffd2e2d8f8b7a282c9d201",
+        "S32_B2_r0.json": "bf6c97f3a184c351bd67200753f981154d351c96066f920b1c2e7c5328f78882",
+        "L32_B6_r0.json": "58142a899a5f04adce66ef42ed8e773b3c6fd2fc59dad80b89390320ec75ee92",
+        "L32_A3_r0.json": "5a712237fde2258e0a0406c9eeabdff766e84611bb73e769176cb3b6f9029078",
+        "L32_B5_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "L32_A7_r0.json": "b38d43d121a7cd0e77e69dbf2221e5d8250241f36ab7e034bc69cd8b5c35054b",
+        "S32_A7_r0.json": "a60994035f8b2075e7914d8c3e0c46479dab71ba6383ee7b6dcd0a3ed7f9f2c4",
+        "S32_B5_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "plan.json": "99568ef3835f0f1c428b4fba986e159acde3a4b81797a62be7fd41bc8b31735d",
+        "S32_A3_r0.json": "c8df8c95601b122b44dfd1814d6238718052af55a67ec7f834243ffc084b8a55",
+        "S32_A0_r0.json": "c2e324ac4e277c9d019a7157a1741f64a66292bda857a7a7c1c3f59e1373ab0a",
+        "S32_B5_r0.json": "65c5f6641a69fd651f7980d210451baeba47aef20a66b051fffc97a49cd265f2",
+        "L32_B1_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "S32_B2_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "S32_A4_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "results.json": "9050f5a0ba8b036a0e0e903e14ffe2f642c9f150b78c29f947ea8819b577542b",
+        "L32_A7_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "L32_B5_r0.json": "72dea0b0d8ef88352b973d06c5408bd0b094d0cad7ff3973b0976ed47bcc7ee2",
+        "S32_A7_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+        "S32_B6_r0.json": "0388f26e13e4507c6e2161efd782419339ffceec67e8a06d27c3eafcae3cf4e2",
+        "L32_A0_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "L32_A0_r0.json": "2ebc8ff36b0bea5f61a3d5b18c5cdf6efcb0f18450ad4387ace80c102a791dfa",
+        "S32_B1_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "observe_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "L32_B2_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "progress.json": "a808829e75e9a8120d8d8c0adb931a2d955042da57fd016ca90ba3718cc777d1",
+        "L32_A4_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "L32_B6_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "L32_B1_r0.json": "622535e5b1867696ab1cc20964781e525c300c567bdf80cac7a0e02877d58840",
+        "S32_B1_r0.json": "9579a6e9d94fbb98de7064c3dc2f222b5388efc8153ea46125413bdd4defc458",
+        "moe_switch.json": "607e2aed226967d9fd39f2f83fe5f52ad0c2b611bf6041905dcc4845ee171ed9",
+        "S32_A4_r0.json": "8b39f41edf90fc666f44001fbf8792e994358b32c888fc2a69aae59a46612d91"
+      },
+      "result_file": "results.json"
+    },
+    "profile_shared_routing": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "batches.jsonl": "e814aa5263fb0ad4c14a12fa489b0da99aed6004d3b4d1fa53988a9b8b19f4df",
+        "worker.log": "abf4c921c7c694057468f8de87f07ac6cecf227955af3a1775307f8e283140a1",
+        "trace_analysis.md": "dfeb97db6caca4731831df0067e5b3c9d31b866c3354232b6f2a57260b234861",
+        "plan.json": "eabdf5293126fb846e9c456ad47459c099d301f21ce9a233f0c878f0a0aeb9e9",
+        "trace_analysis.json": "ec6d79c34a2ecd80d994bd5d58d7a0eeeb9675143bd8bd265d1947dcb5a4b509",
+        "moe_calls.jsonl": "969b751c0e7da56ac6b62c38897203e334c9c3afe276cc97557adb758a32e8a9",
+        "results.json": "80b7c7f73b2c6dec85948f4d756bc64b4f72940dd9165e19d5fc794d728e6d39",
+        "S32_candidate_r0_batches.jsonl": "6379a32923ea984281a58244d223a21999ed126184ede620b0c526b9180ac114",
+        "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+        "observe_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "L32_candidate_r0.json": "0d589df499ade33b278bc5fe05c5d9b62a21858bce1f4b86fbd45d4d95689095",
+        "progress.json": "dfe90507d495067162c6284244a701c9ee1fb65e2787b8594ef8562e3613ca37",
+        "L32_candidate_r0_batches.jsonl": "fa8f546380fc4610055d4fb3503fe2cac1970c3a21f309aaff77a6bb14ce6b4c",
+        "S32_candidate_r0.json": "830aa54d9bf6c0c7ce753c53ddef04aad4a14a0239c0f7847e100ad77529d205",
+        "runtime_switch.json": "aa014142a0168313a765dd1211c4c605eb3f15107ab0e1a27ec472170a5fbeca",
+        "control/rank_0_started_001.json": "7f8c067acdd3eeb1fb33c7a4795f7c0b15d40d270fdb392aad6bd23908300df6",
+        "control/rank_0_stopped_001.json": "e05465e0323af66191c17c817634ca48301bd51363001e02e32166e8e5fff345",
+        "traces/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261115_124005_086.pt.trace.json.gz": "7f1ea33d542f302b5da9b5b4917ddc9e02611e542fe040788455bc50154e88f7"
+      },
+      "result_file": "results.json"
+    },
+    "HTTP_shared_routing": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "worker.log": "d117c5374522376cb092fd53d9fa7b05252c4b52154d9916e53d734b1d0818b6",
+        "plan.json": "38f7dc4d8dc0c9a22c347f555f43047866a829fd6ec2549cd1e6712385c748b8",
+        "control.json": "f5b1f1451ce03566fc01dcd667bc7cd97f5d0dba70ebcfbfc48a85b35c1e3df9",
+        "http/server.log": "1c09ae80dd5db29e23d4781599af6ca6de5b67d91d940cba8497b3d514dcfecf",
+        "http/summary.json": "2a95d800ecc2e4382b77d8ee1bfe1c864895d2803e8777ff1c06f85c1c47c526",
+        "http/server/batches.jsonl": "a95a95a53d88e2fd367504b3da0519866f6cd1aa6e9f14eef30b2aca218048eb",
+        "http/server/launch.json": "9b5a4b6c0488d8f9c6f0fc1a94ca56083ab85974de6c1185a768500fae01e827",
+        "http/server/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9"
+      },
+      "result_file": "http/summary.json"
+    }
+  },
+  "scope": "Developer200 and fixed S32/L32 ABBA only; no official A/C or full HumanEval; defaults unchanged",
+  "correctness_policy": {
+    "small_cohort_min": 0.9,
+    "small_allowed_drop": 0.02,
+    "D200_min": 0.9,
+    "D200_allowed_drop_vs_current_CPD": 0.005,
+    "D200_each_length_group_min": 0.9
+  },
+  "performance_policy": {
+    "min_geomean_speedup": 1.05,
+    "min_each_cohort_speedup": 0.95
+  }
+}

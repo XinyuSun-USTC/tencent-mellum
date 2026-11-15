@@ -1,0 +1,403 @@
+{
+  "moe_variant": "shared_routing",
+  "outputs": [
+    {
+      "text": "<think>\nWe need to complete the Python function has_close_elements. The",
+      "token_ids": [
+        23,
+        233,
+        2116,
+        895,
+        333,
+        3559,
+        302,
+        2717,
+        669,
+        691,
+        97,
+        4794,
+        97,
+        9978,
+        48,
+        470
+      ],
+      "latency": 3.3640644550323486,
+      "finish_reason": "max_tokens",
+      "num_tokens_input": 152,
+      "num_tokens_output": 16,
+      "ttft": 1.8617796897888184,
+      "tpot": 0.10015231768290202
+    },
+    {
+      "text": "<think>\nWe need to implement a function `separate_paren_groups(paren_string: str) -> List[str]` that takes a string",
+      "token_ids": [
+        23,
+        233,
+        2116,
+        895,
+        333,
+        2339,
+        255,
+        99,
+        669,
+        581,
+        54720,
+        97,
+        23593,
+        97,
+        10169,
+        42,
+        23593,
+        97,
+        962,
+        60,
+        622,
+        43,
+        1403,
+        2929,
+        93,
+        543,
+        13748,
+        410,
+        3136,
+        255,
+        99,
+        995
+      ],
+      "latency": 4.692361831665039,
+      "finish_reason": "max_tokens",
+      "num_tokens_input": 142,
+      "num_tokens_output": 32,
+      "ttft": 1.861802101135254,
+      "tpot": 0.09130837840418662
+    },
+    {
+      "text": "<think>\nWe have a prompt that",
+      "token_ids": [
+        23,
+        233,
+        2116,
+        596,
+        255,
+        99,
+        8768,
+        410
+      ],
+      "latency": 2.7129483222961426,
+      "finish_reason": "max_tokens",
+      "num_tokens_input": 1023,
+      "num_tokens_output": 8,
+      "ttft": 1.8617894649505615,
+      "tpot": 0.12159412247794014
+    },
+    {
+      "text": "<think>\nWe have a prompt that",
+      "token_ids": [
+        23,
+        233,
+        2116,
+        596,
+        255,
+        99,
+        8768,
+        410
+      ],
+      "latency": 2.7130682468414307,
+      "finish_reason": "max_tokens",
+      "num_tokens_input": 1025,
+      "num_tokens_output": 8,
+      "ttft": 1.8617792129516602,
+      "tpot": 0.12161271912711007
+    }
+  ],
+  "control_enabled": true,
+  "records": [
+    {
+      "name": "humaneval_0",
+      "prompt_source": "cached_K4",
+      "input_tokens": 152,
+      "actual_ids": [
+        23,
+        233,
+        2116,
+        895,
+        333,
+        3559,
+        302,
+        2717,
+        669,
+        691,
+        97,
+        4794,
+        97,
+        9978,
+        48,
+        470
+      ],
+      "expected_ids": [
+        23,
+        233,
+        2116,
+        895,
+        333,
+        3559,
+        302,
+        2717,
+        669,
+        691,
+        97,
+        4794,
+        97,
+        9978,
+        48,
+        470
+      ],
+      "matching_positions": 16,
+      "compared_positions": 16,
+      "exact": true,
+      "first_difference_zero_based": null,
+      "finish_reason": "max_tokens"
+    },
+    {
+      "name": "humaneval_1",
+      "prompt_source": "cached_K4",
+      "input_tokens": 142,
+      "actual_ids": [
+        23,
+        233,
+        2116,
+        895,
+        333,
+        2339,
+        255,
+        99,
+        669,
+        581,
+        54720,
+        97,
+        23593,
+        97,
+        10169,
+        42,
+        23593,
+        97,
+        962,
+        60,
+        622,
+        43,
+        1403,
+        2929,
+        93,
+        543,
+        13748,
+        410,
+        3136,
+        255,
+        99,
+        995
+      ],
+      "expected_ids": [
+        23,
+        233,
+        2116,
+        895,
+        333,
+        2339,
+        255,
+        99,
+        669,
+        581,
+        54720,
+        97,
+        23593,
+        97,
+        10169,
+        42,
+        23593,
+        97,
+        962,
+        60,
+        622,
+        43,
+        1403,
+        2929,
+        93,
+        543,
+        13748,
+        410,
+        3136,
+        255,
+        99,
+        995
+      ],
+      "matching_positions": 32,
+      "compared_positions": 32,
+      "exact": true,
+      "first_difference_zero_based": null,
+      "finish_reason": "max_tokens"
+    },
+    {
+      "name": "window_1023",
+      "prompt_source": "cached_K4",
+      "input_tokens": 1023,
+      "actual_ids": [
+        23,
+        233,
+        2116,
+        596,
+        255,
+        99,
+        8768,
+        410
+      ],
+      "expected_ids": [
+        23,
+        233,
+        2116,
+        596,
+        255,
+        99,
+        8768,
+        410
+      ],
+      "matching_positions": 8,
+      "compared_positions": 8,
+      "exact": true,
+      "first_difference_zero_based": null,
+      "finish_reason": "max_tokens"
+    },
+    {
+      "name": "window_1025",
+      "prompt_source": "cached_K4",
+      "input_tokens": 1025,
+      "actual_ids": [
+        23,
+        233,
+        2116,
+        596,
+        255,
+        99,
+        8768,
+        410
+      ],
+      "expected_ids": [
+        23,
+        233,
+        2116,
+        596,
+        255,
+        99,
+        8768,
+        410
+      ],
+      "matching_positions": 8,
+      "compared_positions": 8,
+      "exact": true,
+      "first_difference_zero_based": null,
+      "finish_reason": "max_tokens"
+    }
+  ],
+  "groups": {
+    "all": {
+      "records": 4,
+      "matching_positions": 64,
+      "compared_positions": 64,
+      "token_match_fraction": 1.0,
+      "exact_sequences": 4,
+      "exact_sequence_fraction": 1.0
+    },
+    "below_1024": {
+      "records": 3,
+      "matching_positions": 56,
+      "compared_positions": 56,
+      "token_match_fraction": 1.0,
+      "exact_sequences": 3,
+      "exact_sequence_fraction": 1.0
+    },
+    "at_least_1024": {
+      "records": 1,
+      "matching_positions": 8,
+      "compared_positions": 8,
+      "token_match_fraction": 1.0,
+      "exact_sequences": 1,
+      "exact_sequence_fraction": 1.0
+    },
+    "humaneval": {
+      "records": 0,
+      "matching_positions": 0,
+      "compared_positions": 0,
+      "token_match_fraction": null,
+      "exact_sequences": 0,
+      "exact_sequence_fraction": null
+    },
+    "scenario_a": {
+      "records": 0,
+      "matching_positions": 0,
+      "compared_positions": 0,
+      "token_match_fraction": null,
+      "exact_sequences": 0,
+      "exact_sequence_fraction": null
+    }
+  },
+  "actual_batches": {
+    "prefill": {
+      "calls_by_batch_size": {
+        "4": 1
+      },
+      "max_batch_size": 4
+    },
+    "decode": {
+      "calls_by_batch_size": {
+        "1": 16,
+        "2": 8,
+        "4": 8
+      },
+      "max_batch_size": 4
+    }
+  },
+  "wall_seconds": 4.693048643879592,
+  "submissions": [
+    {
+      "elapsed_seconds": 0.00040488108061254025,
+      "seq_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "names": [
+        "humaneval_0",
+        "humaneval_1",
+        "window_1023",
+        "window_1025"
+      ],
+      "outstanding": 4
+    }
+  ],
+  "completions": [
+    {
+      "seq_id": 2,
+      "name": "window_1023",
+      "index": 2,
+      "elapsed_seconds": 2.7132794179487973
+    },
+    {
+      "seq_id": 3,
+      "name": "window_1025",
+      "index": 3,
+      "elapsed_seconds": 2.713281557895243
+    },
+    {
+      "seq_id": 0,
+      "name": "humaneval_0",
+      "index": 0,
+      "elapsed_seconds": 3.364254134008661
+    },
+    {
+      "seq_id": 1,
+      "name": "humaneval_1",
+      "index": 1,
+      "elapsed_seconds": 4.692611964885145
+    }
+  ]
+}

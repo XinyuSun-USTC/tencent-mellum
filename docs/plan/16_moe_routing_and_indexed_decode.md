@@ -117,3 +117,7 @@ S32/L32交替执行两个ABBA周期，每种输入每个配置各4次。每段�
 本批不换冻结库、不启CK/Triton SWA、不改attention/cache/sampler公式，不跑正式A/C或完整HumanEval。两候选只作用通用请求/专家计算，禁止根据题目ID或期望输出作推理分支。若均无收益或准确性不足，停止这轮路线，保留CPD并据完整结果决定下一优化方向。
 
 交付核验：70项ATOM模型/专家/批量等测试及32项脚本/调度回归通过，共102项；`py_compile`和`git diff --check`通过。CPU解释器/离线编译的[轻量证据](../../artifacts/results/mellum_moe_cpu_checks/manifest.json)已保存。最终prepare-only目录：`/workspace/results/mellum_moe_optimization/20261115T120347030797Z`，实际GPU正确性与性能仍待一次批次验证。
+
+## 执行结果
+
+批次`20261115T121305387577Z`实际10worker、约29分钟完成。R与当前CPD的D200逐条200/200相同，位置96.8125%/完整序列87%保持；ABBA短/长1.0915×/1.0468×，HTTP小规模回归通过。I的decode32局部4.892×、额外分配64.20→3.71MiB，但小集相对CPD下降超过预设2个百分点，未跑D200；这不是题目90%门槛失败的证明。详见[性能14](../../report/performance/14_moe_routing_and_indexed_decode.md)。本计划已执行，默认不重复整批。
