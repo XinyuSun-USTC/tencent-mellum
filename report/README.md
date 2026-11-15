@@ -113,3 +113,5 @@
 - [21 MoE贡献独立归约](performance/21_isolated_moe_reduction.md)：三组局部回放12次稳定，D200位置74.18%，未达90%，跳过性能并停止晋级。
 
 - [研究06 并行准备与C前缀复用](research/06_parallel_preparation_and_prefix.md)：服务profiles已完成CPU验证；C公共前缀3820token，结构复用量37.15%，缓存尚未启用。
+
+- [22 FusedMoE完整HumanEval](performance/22_fused_moe_humaneval.md)：HF145/164、候选147/164，差距1.2195pp，本地功能门槛通过；其它公开集要求独立。

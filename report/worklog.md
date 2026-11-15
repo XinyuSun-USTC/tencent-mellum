@@ -130,3 +130,5 @@
 - HumanEval原批次候选164题完成，HF因loading_info的set序列化失败，完整配对尚未得出。在独立delivery提交df33885修复，6项CPU检查及恢复prepare-only通过，HF-only recovery可复用原候选。独立next提交a2cbcce增加显式服务profiles与C前缀CPU分析，15项CPU检查通过；200条C共有3820token，按16token块可复用757792/2039880=37.15%，非实际命中率或加速承诺。参考K覆盖晚于prefix gather，暂不启用缓存；计划25/研究06归档，无额外GPU任务。
 
 - HF恢复运行期间准备GPU1候选HTTP批次：next提交9a3b3ca，复用已审计EvalScope与原ABC worker，显式fused_moe/HTTP8151/engine8726，smoke→A64并发32→长度分层C20率0.3，35分钟执行预算。24项CPU测试及实际输入prepare/current_matches通过，GPU未运行；计划26已归档。保持HF运行工作区不变。
+
+- HF恢复20261115T213706098181Z完成：HF145/164=88.4146%，FusedMoE147/164=89.6341%，绝对差1.2195pp，本地2pp检查通过；增5失3，预算截断4/5，提取失败5/6，均保留164分母。独立核验逐题结果与评分，归档性能22及来源hash，不等同整体题目验收；继续GPU1计划26性能主线。

@@ -42,3 +42,5 @@ Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md
 当前并行准备：[25 功能评估恢复与交付](plan/25_parallel_preparation_and_delivery.md)。原HumanEval候选164题已完成；HF序列化失败需独立恢复。修复提交df33885，服务配置和C前缀分析提交a2cbcce，均在独立工作区，主仓库此轮仅归档文档与CPU证据。
 
 GPU1待运行：[26 候选HTTP容量诊断](plan/26_candidate_http_capacity.md)，独立next工作区提交9a3b3ca；smoke→A64→C20，35分钟执行预算，24项CPU检查与真实输入prepare/hash检查通过，不作为正式ABC成绩。
+
+当前功能结果：[性能22](../report/performance/22_fused_moe_humaneval.md)，完整HumanEval配对达到本地2pp门槛；下一步按计划26完成候选HTTP容量诊断。
