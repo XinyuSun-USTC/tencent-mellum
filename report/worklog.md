@@ -128,3 +128,5 @@
 - 用户确认HumanEval关闭thinking/最多2048token优先控时；交付独立分支step1/humaneval-functional-evaluation、7d6a4ce，一条命令HF/GPU0与FusedMoE/GPU1真实batch32并行164题、统一提取/官方隔离评分，90分钟总预算，保留截断/提取失败和逐题功能变化，不以token位置低于90%阻挡评分。10项CPU通过、1 Landlock检查工具受限跳过（终端仍强制self-test），164输入/模板和205642 prepare-only通过；未运行新GPU，冻结库/原R源码未改。
 
 - HumanEval原批次候选164题完成，HF因loading_info的set序列化失败，完整配对尚未得出。在独立delivery提交df33885修复，6项CPU检查及恢复prepare-only通过，HF-only recovery可复用原候选。独立next提交a2cbcce增加显式服务profiles与C前缀CPU分析，15项CPU检查通过；200条C共有3820token，按16token块可复用757792/2039880=37.15%，非实际命中率或加速承诺。参考K覆盖晚于prefix gather，暂不启用缓存；计划25/研究06归档，无额外GPU任务。
+
+- HF恢复运行期间准备GPU1候选HTTP批次：next提交9a3b3ca，复用已审计EvalScope与原ABC worker，显式fused_moe/HTTP8151/engine8726，smoke→A64并发32→长度分层C20率0.3，35分钟执行预算。24项CPU测试及实际输入prepare/current_matches通过，GPU未运行；计划26已归档。保持HF运行工作区不变。
