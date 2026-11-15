@@ -78,6 +78,10 @@ def hf_worker(out,inputs):
         attn_implementation='sdpa',experts_implementation='grouped_mm',output_loading_info=True)
     if any(info.get(k) for k in ('missing_keys','unexpected_keys','mismatched_keys','error_msgs')):
         raise ValueError('Incomplete HF loading audit')
+    # HF loading reports contain sets even on successful loads. Keep the same
+    # normalized diagnostics used by our original HF validation utility.
+    from validate_hf_mellum_gpu import json_default
+    info=json.loads(json.dumps(info,default=json_default))
     model=model.to('cuda:0').eval()
     result={**inputs,'producer':'hf','status':'started','records':[],'loading_info':info,
             'environment':{'torch':torch.__version__,'transformers':transformers.__version__,'gpu':0,
@@ -183,7 +187,7 @@ def main():
     for f,h in evaluator['files_sha256'].items():
         if sha(Path(evaluator['source'])/f)!=h:raise ValueError('Official evaluator hash differs')
     sources=fingerprint();sources.update({str(PROJECT/'scripts'/f):sha(PROJECT/'scripts'/f) for f in
-        ('run_mellum_humaneval_pair.py','run_mellum_humaneval.py','score_mellum_humaneval.py','humaneval_sandbox.py')})
+        ('run_mellum_humaneval_pair.py','run_mellum_humaneval.py','score_mellum_humaneval.py','humaneval_sandbox.py','validate_hf_mellum_gpu.py')})
     hf_source=Path('/workspace/venvs/hf-reference/lib/python3.12/site-packages/transformers/models/mellum/modeling_mellum.py')
     sources[str(hf_source)]=sha(hf_source)
     for file in ('tokenizer.json','tokenizer_config.json','special_tokens_map.json'):

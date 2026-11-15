@@ -53,3 +53,28 @@ def test_parallel_producers_keep_both_exit_statuses_without_token_gate(tmp_path)
     value=generators(commands,tmp_path,time.monotonic()+10)
     assert value['hf']['completed'] and not value['candidate']['completed']
     assert value['candidate']['returncode']==2
+
+
+def test_HF_export_normalizes_successful_loading_report_sets(monkeypatch,tmp_path):
+    import types,torch
+    import run_mellum_humaneval_pair as pair
+    real_tensor=torch.tensor
+    class Model:
+        config=types.SimpleNamespace(_experts_implementation='grouped_mm')
+        def to(self,*args):return self
+        def eval(self):return self
+        def generate(self,input_ids,**kwargs):return torch.cat([input_ids,real_tensor([[28]])],dim=1)
+    class Loader:
+        @staticmethod
+        def from_pretrained(*args,**kwargs):
+            return Model(),{'missing_keys':set(),'unexpected_keys':set(),'mismatched_keys':set(),
+                            'error_msgs':[],'metadata_keys':{'a','b'}}
+    monkeypatch.setitem(sys.modules,'transformers',types.SimpleNamespace(__version__='5.10.1',MellumForCausalLM=Loader))
+    monkeypatch.setattr(torch.cuda,'is_available',lambda:True)
+    monkeypatch.setattr(torch.cuda,'mem_get_info',lambda *a:(100*1024**3,192*1024**3))
+    monkeypatch.setattr(torch,'tensor',lambda *args,**kwargs:real_tensor(*args,**{k:v for k,v in kwargs.items() if k!='device'}))
+    data=inputs();data['records'][0].update(attention_mask=[[1,1]],generation_settings={'max_new_tokens':2048})
+    pair.hf_worker(tmp_path,data)
+    output=json.loads((tmp_path/'generation.json').read_text())
+    assert output['status']=='complete' and output['loading_info']['missing_keys']==[]
+    assert output['loading_info']['metadata_keys']==['a','b']
