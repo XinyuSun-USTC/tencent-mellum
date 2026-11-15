@@ -115,3 +115,5 @@
 - [研究06 并行准备与C前缀复用](research/06_parallel_preparation_and_prefix.md)：服务profiles已完成CPU验证；C公共前缀3820token，结构复用量37.15%，缓存尚未启用。
 
 - [22 FusedMoE完整HumanEval](performance/22_fused_moe_humaneval.md)：HF145/164、候选147/164，差距1.2195pp，本地功能门槛通过；其它公开集要求独立。
+
+- [23 FusedMoE HTTP容量](performance/23_fused_moe_http_capacity.md)：A64全成功57.00tokens/s，C20全成功TTFT p99 22.69秒；原生路径确认，仍需改善C延迟，非正式ABC。
