@@ -117,3 +117,5 @@
 - [22 FusedMoE完整HumanEval](performance/22_fused_moe_humaneval.md)：HF145/164、候选147/164，差距1.2195pp，本地功能门槛通过；其它公开集要求独立。
 
 - [23 FusedMoE HTTP容量](performance/23_fused_moe_http_capacity.md)：A64全成功57.00tokens/s，C20全成功TTFT p99 22.69秒；原生路径确认，仍需改善C延迟，非正式ABC。
+
+- [24 FusedMoE+SWA CK HTTP](performance/24_fused_moe_swa_http.md)：A64 59.61tokens/s、C20 TTFT p99 3.82秒；相对单项小负载观察改善4.58%/83.17%，非正式ABC。

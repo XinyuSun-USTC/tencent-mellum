@@ -136,3 +136,5 @@
 - GPU1容量20261115T220256351771Z完成：smoke/A64/C20均全成功，A57.0039tokens/s、实际batch32；C TTFT p99 22.6893秒、TPOT p99 0.44394秒、batch19。独立核验产物与源码、5631加载、native调用；归档性能23。用户要求以更多实现/实测效果为主，不以计点讨论阻塞开发；下一步现成Fused+SWA组合与prefix兼容开发，最终只提交最多三个独立点。
 
 - GPU1组合测试期间在独立prefix分支80cd14c开发cached-prefill：reference K先写后gather、共享metadata副本、bottom-right矩形causal/SWA mask、ragged后缀支持；NHD按实际逻辑token读取避免整个缓存池连续化。GPU0 off/on小试验单命令、25分钟预算、三条真实C、每请求16输出，不重跑HF。57项CPU检查与实际输入prepare-only通过，GPU待终端执行；未修改GPU1源码。
+
+- GPU1组合20261115T223459375865Z完成，smoke/A64/C20全成功；A59.612tokens/s较单项+4.58%，C TTFT p99 22.689→3.819秒、TPOT p99 0.44394→0.36259。核验同输入、产物与源码hash，归档性能24。GPU0 prefix继续运行不改；下一步GPU1筛选FusedMoE+完整原生Attention，性能优先，有收益后复用HF作候选功能评估。
