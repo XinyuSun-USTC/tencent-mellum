@@ -108,3 +108,4 @@
 - [18 GPU1 prefill逐元素合并](performance/18_prefill_elementwise.md)：D200输出与R200/200相同，综合0.998×，停止当前候选。
 
 - [研究05 优化实现源码对照](research/05_optimization_implementation_sources.md)：冻结ATOM复用点、上游版本边界、vLLM/SGLang Mellum、候选兼容性和优先级。
+- [19 原生MoE/Attention两卡结果](performance/19_native_runtime_pilots.md)：批量约1.47×/1.45×，D200位置72.36%/71.38%；MoE重复生成存在差异，当前均不晋级。

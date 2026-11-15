@@ -117,3 +117,4 @@
 - 按用户要求转向成熟实现复用调研：冻结Qwen3MoE/FusedMoE/gfx942 BF16与分页Attention，公开ATOM main、vLLM v0.23.0 Mellum和SGLang Mellum均做源码对照；发现当前已有aiter MoE开关但与R Torch包装器不兼容，参考ragged桥阻止原生batch/缓存路径。输出研究05、来源清单和计划20，优先整批FusedMoE+原生Attention独立候选，不继续外围小优化；明确未取得上游HEAD/穷尽PR，不能冒称最新完整快照。本轮无推理代码修改、安装或GPU运行。
 
 - 原生主路径代码在独立commit cb09aed交付：GPU0工作区tencent-mellum-native、GPU1同快照tencent-mellum-native-attention；整批FusedMoE保留Torch gate/路由（BF16舍入后FP32传AITER），原生Attention保留参考RoPE/KV写入、替换varlen/paged计算。117项相关CPU检查通过，两份prepare-only通过，计划21给出命令/60分钟预算；主R工作区只同步文档，冻结库和主R推理源码未改，GPU尚未执行。
+- 原生两卡批次完成：MoE184205累计26.82分钟，批量1.4663×、D200位置72.36%；Attention184214累计26.45分钟，批量1.4507×、D200位置71.38%。均低于90%不晋级。MoE256重复S1/S32/L32分别1/1、31/32、29/32输出变化，Attention全相同；尚不能据此断言具体kernel根因。98产物/476源码hash通过，性能19归档；无追加GPU/数学修改。
