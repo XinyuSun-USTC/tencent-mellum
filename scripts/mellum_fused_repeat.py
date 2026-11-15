@@ -92,7 +92,7 @@ def worker(out,plan):
                     'different_repeat_indices':changes,'repeats_exact':not changes,'repeat_max_abs':max_abs,'finite':finite,
                     'vs_reference':{'max_abs':float(delta.abs().max()),'relative_l2':float(delta.norm()/reference.float().norm().clamp_min(1e-12))},
                     'selected_metadata':list(selected),'sorting_records':list(sorting),
-                    'sorting_order_repeated':all(r==sorting[0] for r in sorting)}
+                    'sorting_order_repeated':all(r['token_ids_sha256']==sorting[0]['token_ids_sha256'] and r['num_valid_ids'][0]==sorting[0]['num_valid_ids'][0] for r in sorting)}
             torch.save({'first':first.cpu(),'reference':reference.cpu(),'input':x.cpu(),'weights':weights.cpu(),'ids':ids.cpu()},out/(name+'.pt'))
             result['records'].append(record);write(out/'results.json',result)
             print(name,'repeats_exact',not changes,'repeat_max_abs',max_abs,'selected',selected,flush=True)
