@@ -51,3 +51,22 @@ def test_launcher_disables_thinking_only_when_explicit_and_records_native_audit(
     data=json.loads((tmp_path/'launch.json').read_text());cmd=data['command']
     assert json.loads(cmd[cmd.index('--default-chat-template-kwargs')+1])=={'enable_thinking':False}
     assert data['settings']['MELLUM_NATIVE_AUDIT_PATH']==str(tmp_path/'native_calls.jsonl')
+
+
+def test_prefix_service_flag_enables_engine_and_records_compatibility(tmp_path):
+    script=Path(__file__).resolve().parents[1]/'serve_mellum.py'
+    p=subprocess.run([sys.executable,str(script),'--profile','fused_moe','--batching',
+        '--prefix-caching','--gpu','0','--server-port','8251','--engine-port','8926',
+        '--prepare-only','--output',str(tmp_path)],capture_output=True,text=True)
+    assert p.returncode==0,p.stderr
+    data=json.loads((tmp_path/'launch.json').read_text())
+    assert '--enable_prefix_caching' in data['command'] and '--no-enable_prefix_caching' not in data['command']
+    assert data['settings']['MELLUM_PREFIX_COMPAT']=='1'
+    assert data['settings']['MELLUM_PREFIX_AUDIT_PATH']==str(tmp_path/'prefix.jsonl')
+
+
+def test_prefix_service_rejects_unvalidated_native_attention_combination(tmp_path):
+    script=Path(__file__).resolve().parents[1]/'serve_mellum.py'
+    p=subprocess.run([sys.executable,str(script),'--profile','native_attention','--batching',
+        '--prefix-caching','--prepare-only','--output',str(tmp_path)],capture_output=True,text=True)
+    assert p.returncode!=0 and 'currently requires' in p.stderr

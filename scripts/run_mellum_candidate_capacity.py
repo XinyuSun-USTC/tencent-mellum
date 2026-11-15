@@ -16,7 +16,7 @@ def select_c(planned,count=20):
     return [ordered[round(i*(len(ordered)-1)/(count-1))] for i in range(count)]
 
 
-def prepare(out,gpu,profile):
+def prepare(out,gpu,profile,prefix_caching=False):
     m=base.prepare(out,gpu,True)
     native=json.loads((out/'inputs/adapter_manifest.json').read_text())
     a=native['scenarios']['A'];c=native['scenarios']['C']
@@ -25,7 +25,7 @@ def prepare(out,gpu,profile):
     source.write_text(''.join(json.dumps(byid[r['id']],ensure_ascii=False)+'\n' for r in selected))
     m['stages'].update(A_small=[{'name':'A64','scenario':'A','number':64,'source':a['source'],'expected':a['planned_requests'][:64]}],
         C_small=[{'name':'C20','scenario':'C','number':20,'source':str(source),'expected':selected}])
-    m.update(profile=profile,server_port=8151,engine_port=8726,
+    m.update(profile=profile,prefix_caching=prefix_caching,server_port=8251 if gpu==0 else 8151,engine_port=8926 if gpu==0 else 8726,
         claim='Diagnostic smoke/B2/A8/C2 then A64/concurrency32 and length-stratified C20/rate0.3. Not formal ABC, not a HumanEval acceptance result.',
         limitations=['Concurrent HF on another GPU may contend for host resources; final measurements require idle environment.',
                     'C20 is length-stratified, not the full C200 arrival/queue distribution.',
@@ -52,7 +52,8 @@ def execute(out,m,budget,executor=run_stage):
             directory=out/stage;directory.mkdir()
             timeout=min(900 if stage=='smoke' else 1200,remaining)
             write(directory/'plan.json',{'stage':stage,'gpu':m['gpu'],'cases':cases,'timeout':timeout,
-                'profile':m['profile'],'server_port':m['server_port'],'engine_port':m['engine_port']})
+                'profile':m['profile'],'server_port':m['server_port'],'engine_port':m['engine_port'],
+                'prefix_caching':m.get('prefix_caching',False)})
             executor(stage,['/opt/venv/bin/python',str(base.PROJECT/'scripts/run_mellum_abc_baseline.py'),'--stage',str(directory)],
                 directory/'stage.log',timeout=timeout)
             current_matches(m,out)
@@ -71,12 +72,14 @@ def execute(out,m,budget,executor=run_stage):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--gpu',type=int,choices=[1],default=1)
+    p=argparse.ArgumentParser();p.add_argument('--gpu',type=int,choices=[0,1],default=1)
     p.add_argument('--profile',choices=PROFILES,default='fused_moe');p.add_argument('--prepare-only',action='store_true')
+    p.add_argument('--prefix-caching',action='store_true')
     p.add_argument('--budget-minutes',type=float,default=35);a=p.parse_args()
     if not 1<=a.budget_minutes<=45:p.error('Budget must be 1..45 minutes')
+    if a.prefix_caching and a.profile not in ('r','fused_moe'):p.error('Prefix study currently supports r/fused_moe only')
     out=Path('/workspace/results/mellum_candidate_capacity')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
-    m=prepare(out,a.gpu,a.profile)
+    m=prepare(out,a.gpu,a.profile,a.prefix_caching)
     if a.prepare_only:print('RESULT capacity_prepared output',out);return 0
     r=execute(out,m,a.budget_minutes*60);print('RESULT',r['status'],'output',out);return 0
 if __name__=='__main__':raise SystemExit(main())

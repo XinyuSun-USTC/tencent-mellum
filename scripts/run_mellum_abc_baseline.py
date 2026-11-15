@@ -142,6 +142,7 @@ def stage_worker(directory):
                    '--engine-port',str(plan.get('engine_port',8026))]
         if plan.get('profile'):servercmd+=['--profile',plan['profile']]
         else:servercmd+=['--campaign-config',str(CONFIG)]
+        if plan.get('prefix_caching'):servercmd+=['--prefix-caching']
         # Inherit this owned stage process group, so outer timeout cleanup reaches
         # server/model workers even when their parent has exited unexpectedly.
         with (directory/'server.log').open('w') as log:server=subprocess.Popen(servercmd,stdout=log,stderr=subprocess.STDOUT)
@@ -163,6 +164,7 @@ def stage_worker(directory):
             cmd=command(spec['scenario'],out/'client',spec['number'],spec.get('source'),plan.get('server_port',8051))
             result['cases'][name]={'command':cmd,'status':'running'};write(directory/'results.json',result)
             auditpath=directory/'server/batches.jsonl';offset=auditpath.stat().st_size if auditpath.exists() else 0
+            prefixpath=directory/'server/prefix.jsonl';prefixoffset=prefixpath.stat().st_size if prefixpath.exists() else 0
             logfile=out/'client.log';print('CLIENT',name,'log',logfile,flush=True)
             with logfile.open('w') as log:client=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT,env=cpu_environment())
             wait_client(client,server,logfile,deadline)
@@ -174,6 +176,13 @@ def stage_worker(directory):
                 measured['actual_decode_max_batch']=max((r['batch_size'] for r in batches if r['phase']=='decode'),default=0)
                 if spec['scenario']=='A' and measured['actual_decode_max_batch']!=min(32,spec['number']):
                     measured['validation_errors'].append('Requested actual A decode concurrency not observed');measured['complete_without_failures']=False
+            if prefixpath.exists():
+                with prefixpath.open('rb') as stream:stream.seek(prefixoffset);prefixbytes=stream.read()
+                (out/'prefix.jsonl').write_bytes(prefixbytes)
+                prefixrows=[json.loads(line) for line in prefixbytes.decode().splitlines() if line.strip()]
+                measured['prefix_cached_tokens']=sum(sum(r['cached_tokens']) for r in prefixrows)
+                measured['prefix_hit_requests']=sum(sum(n>0 for n in r['cached_tokens']) for r in prefixrows)
+                measured['new_tokens_in_cached_batches']=sum(sum(r['new_tokens']) for r in prefixrows)
             result['cases'][name].update(status='complete',metrics=measured);write(directory/'results.json',result)
             print('CLIENT complete',name,'success',measured['successes'],'/',measured['requests'],flush=True)
             if plan['stage']=='smoke' and not measured['complete_without_failures']:

@@ -13,11 +13,14 @@ def main():
     p.add_argument('--max-batched-tokens',type=int,default=16640);p.add_argument('--implementation',choices=['reference','ck','triton'],default='reference')
     p.add_argument('--batching',action='store_true');p.add_argument('--batch-audit',action='store_true');p.add_argument('--output',type=Path);p.add_argument('--prepare-only',action='store_true')
     p.add_argument('--disable-thinking',action='store_true')
+    p.add_argument('--prefix-caching',action='store_true')
     p.add_argument('--campaign-config',type=Path)
     p.add_argument('--profile',choices=PROFILES,help='Explicit experimental execution profile; requires --batching')
     a=p.parse_args()
     if a.profile and (not a.batching or a.campaign_config or a.implementation!='reference'):
         p.error('--profile requires --batching and cannot combine with campaign-config/implementation')
+    if a.prefix_caching and (not a.batching or a.profile not in ('r','fused_moe')):
+        p.error('--prefix-caching currently requires batching and profile r or fused_moe')
     if a.max_num_seqs<1 or a.max_model_len<1 or a.max_batched_tokens<a.max_model_len:p.error('Invalid sequence/token limits')
     if a.max_num_seqs>1 and not a.batching:p.error('Multiple sequences require --batching')
     if a.engine_port==a.server_port:p.error('Engine and HTTP ports must differ')
@@ -26,6 +29,9 @@ def main():
     if a.profile:
         settings.update(profile_settings(a.profile))
         if a.batch_audit:settings['MELLUM_NATIVE_AUDIT_PATH']=str(out/'native_calls.jsonl')
+        os.environ.update(settings)
+    if a.prefix_caching:
+        settings.update(MELLUM_PREFIX_COMPAT='1',MELLUM_PREFIX_AUDIT_PATH=str(out/'prefix.jsonl'))
         os.environ.update(settings)
     if a.campaign_config:
         config=json.loads(a.campaign_config.read_text())
@@ -36,9 +42,9 @@ def main():
         '--host',a.host,'--server-port',str(a.server_port),'--port',str(a.engine_port),'-tp','1','-dp','1',
         '--enforce-eager','--level','0','--kv_cache_dtype','bf16','--max-model-len',str(a.max_model_len),
         '--max-num-batched-tokens',str(a.max_batched_tokens),'--max-num-seqs',str(a.max_num_seqs),
-        '--gpu-memory-utilization','0.35','--no-enable_prefix_caching','--no-enable_chunked_prefill',
+        '--gpu-memory-utilization','0.35','--enable_prefix_caching' if a.prefix_caching else '--no-enable_prefix_caching','--no-enable_chunked_prefill',
         '--default-chat-template-kwargs',json.dumps({'enable_thinking':not a.disable_thinking},separators=(',',':'))]
-    source=[PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'ATOM/atom/model_config/mellum_native.py',PROJECT/'ATOM/atom/models/mellum.py',PROJECT/'ATOM/atom/model_config/mellum_batch.py',
+    source=[PROJECT/'ATOM/atom/model_config/mellum_prefix.py',PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'ATOM/atom/model_config/mellum_native.py',PROJECT/'ATOM/atom/models/mellum.py',PROJECT/'ATOM/atom/model_config/mellum_batch.py',
             PROJECT/'ATOM/atom/model_config/mellum_attention.py',PROJECT/'ATOM/atom/entrypoints/openai/api_server.py',
             PROJECT/'scripts/mellum_runtime_config.py',Path(__file__)]
     (out/'launch.json').write_text(json.dumps({'profile':a.profile,'acceptance':'Experimental profile; do not infer final correctness/performance acceptance from launcher availability','settings':settings,'command':command,'source_sha256':{str(f):hashlib.sha256(f.read_bytes()).hexdigest() for f in source}},indent=2)+'\n')
