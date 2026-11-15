@@ -1,0 +1,122 @@
+{
+  "status": "no_material_speedup",
+  "decisions": {
+    "reference_replay": {
+      "S32": {
+        "records": 32,
+        "exact_sequences": 32
+      },
+      "L32": {
+        "records": 32,
+        "exact_sequences": 32
+      }
+    },
+    "D200_groups": {
+      "all": {
+        "records": 200,
+        "matching_positions": 12392,
+        "compared_positions": 12800,
+        "token_match_fraction": 0.968125,
+        "exact_sequences": 174,
+        "exact_sequence_fraction": 0.87
+      },
+      "below_1024": {
+        "records": 168,
+        "matching_positions": 10478,
+        "compared_positions": 10752,
+        "token_match_fraction": 0.9745163690476191,
+        "exact_sequences": 148,
+        "exact_sequence_fraction": 0.8809523809523809
+      },
+      "at_least_1024": {
+        "records": 32,
+        "matching_positions": 1914,
+        "compared_positions": 2048,
+        "token_match_fraction": 0.9345703125,
+        "exact_sequences": 26,
+        "exact_sequence_fraction": 0.8125
+      },
+      "humaneval": {
+        "records": 164,
+        "matching_positions": 10222,
+        "compared_positions": 10496,
+        "token_match_fraction": 0.9738948170731707,
+        "exact_sequences": 144,
+        "exact_sequence_fraction": 0.8780487804878049
+      },
+      "scenario_a": {
+        "records": 36,
+        "matching_positions": 2170,
+        "compared_positions": 2304,
+        "token_match_fraction": 0.9418402777777778,
+        "exact_sequences": 30,
+        "exact_sequence_fraction": 0.8333333333333334
+      }
+    },
+    "D200_vs_R": {
+      "records": 200,
+      "exact_sequences": 200
+    }
+  },
+  "scope": "Developer workload, no formal ABC or full HumanEval; inference defaults unchanged",
+  "timing": {
+    "cohorts": {
+      "S32": {
+        "candidate_seconds": [
+          12.28919978090562,
+          12.285751973977312,
+          12.309590555960312,
+          12.306028268067166
+        ],
+        "candidate_median_seconds": 12.297614024486393,
+        "speedup": 1.0066614692313351,
+        "stable": true,
+        "R_seconds": [
+          12.316098051844165,
+          12.395216566044837,
+          12.37884346791543,
+          12.38022493594326
+        ],
+        "R_median_seconds": 12.379534201929346
+      },
+      "L32": {
+        "candidate_seconds": [
+          24.329423299059272,
+          24.319751315983012,
+          24.339130701031536,
+          24.509212783072144
+        ],
+        "candidate_median_seconds": 24.334277000045404,
+        "speedup": 0.9893403407708115,
+        "stable": true,
+        "R_seconds": [
+          24.073155651101843,
+          24.070237586973235,
+          24.076608148170635,
+          24.079556598095223
+        ],
+        "R_median_seconds": 24.07488189963624
+      }
+    },
+    "stable": true,
+    "batch_verified": true,
+    "geometric_mean_speedup": 0.9979633264855853,
+    "performance_eligible": false
+  },
+  "budget_limited": false,
+  "blocked": false,
+  "source_run": "/workspace/results/mellum_prefill_optimization/20261115T170157802373Z",
+  "git_head": "c22198d0808432af31ff309f762040c23739bd27",
+  "used_seconds": 994.1277836440131,
+  "integrity": {
+    "artifacts": 90,
+    "sources": 237,
+    "errors": []
+  },
+  "raw_sha256": {
+    "/workspace/results/mellum_prefill_optimization/20261115T170157802373Z/manifest.json": "0a749275a35e3963bb63f5a37d8b5c52bbf799b45ab9a598b13fcf2a83eb401d",
+    "/workspace/results/mellum_prefill_optimization/20261115T170157802373Z/summary.json": "ce2118965762861aed12c348932c592bacf6110fb5b2a3503b0a4e5900ff362a",
+    "/workspace/results/mellum_prefill_optimization/20261115T170157802373Z/jobs/D200_candidate/D200_r0.json": "17d25f5896110dc93a846f1da4e88e90b86c2733a986cb2115876fff533b1513",
+    "/workspace/results/mellum_prefill_optimization/20261115T170157802373Z/jobs/timing/results.json": "d2c1a30ddd19de885c70f6674d717298aa40796b08f0f68d976aa7397c452d04"
+  }
+}

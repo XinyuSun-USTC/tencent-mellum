@@ -105,3 +105,4 @@
 - performance和submission在实际profiling/消融及提交材料产生后建立；最终技术报告≤4页，AI使用说明1页，素材从本阶段总结与后续性能证据提取。
 
 - [17 R配置A/B/C基线](performance/17_r_abc_baseline.md)：A512/B50全成功，A41.58tokens/s/GPU；C199/200超时，不报告有效C完整尾延迟成绩。
+- [18 GPU1 prefill逐元素合并](performance/18_prefill_elementwise.md)：D200输出与R200/200相同，综合0.998×，停止当前候选。
