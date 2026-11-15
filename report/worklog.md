@@ -126,3 +126,5 @@
 - 计划23运行203133完成，累计3.84分钟：独立贡献归约三组固定回放各12次精确，消除所测重复变化；D200位置74.18%、完整序列45.5%，相比原native MoE总体+1.82pp但长输入降至52.98%，仍低90%。加载/路径/真实batch32通过，按门槛未跑性能，不套用旧候选加速比；17产物/241源码hash通过，归档性能21。无追加GPU/数学修改。
 
 - 用户确认HumanEval关闭thinking/最多2048token优先控时；交付独立分支step1/humaneval-functional-evaluation、7d6a4ce，一条命令HF/GPU0与FusedMoE/GPU1真实batch32并行164题、统一提取/官方隔离评分，90分钟总预算，保留截断/提取失败和逐题功能变化，不以token位置低于90%阻挡评分。10项CPU通过、1 Landlock检查工具受限跳过（终端仍强制self-test），164输入/模板和205642 prepare-only通过；未运行新GPU，冻结库/原R源码未改。
+
+- HumanEval原批次候选164题完成，HF因loading_info的set序列化失败，完整配对尚未得出。在独立delivery提交df33885修复，6项CPU检查及恢复prepare-only通过，HF-only recovery可复用原候选。独立next提交a2cbcce增加显式服务profiles与C前缀CPU分析，15项CPU检查通过；200条C共有3820token，按16token块可复用757792/2039880=37.15%，非实际命中率或加速承诺。参考K覆盖晚于prefix gather，暂不启用缓存；计划25/研究06归档，无额外GPU任务。

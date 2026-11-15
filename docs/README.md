@@ -38,3 +38,5 @@ Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md
 同类文档按目录内两位编号排序；只在[worklog](../report/worklog.md)按日期记简要日志。遵循[文档管理约定](01_document_management.md)。重构前的追加式导航、协议和完整日志已[保留快照](../report/archive/step0_document_snapshots/README.md)，最初研究原文另见[归档](../report/archive/initial_research/README.md)。
 
 当前待运行：[22 固定MoE回放与Attention分阶段消融](plan/22_bounded_native_phase_diagnostics.md)。120项CPU检查和两份prepare-only通过，独立工作区未改原R推理代码。
+
+当前并行准备：[25 功能评估恢复与交付](plan/25_parallel_preparation_and_delivery.md)。原HumanEval候选164题已完成；HF序列化失败需独立恢复。修复提交df33885，服务配置和C前缀分析提交a2cbcce，均在独立工作区，主仓库此轮仅归档文档与CPU证据。

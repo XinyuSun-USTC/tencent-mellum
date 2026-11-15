@@ -111,3 +111,5 @@
 - [19 原生MoE/Attention两卡结果](performance/19_native_runtime_pilots.md)：批量约1.47×/1.45×，D200位置72.36%/71.38%；MoE重复生成存在差异，当前均不晋级。
 - [20 固定MoE回放与Attention阶段消融](performance/20_native_phase_diagnostics.md)：排序重复但MoE输出变化，CK原子归并证据；Attention仅prefill72.55%、仅decode77.25%，均停止晋级。
 - [21 MoE贡献独立归约](performance/21_isolated_moe_reduction.md)：三组局部回放12次稳定，D200位置74.18%，未达90%，跳过性能并停止晋级。
+
+- [研究06 并行准备与C前缀复用](research/06_parallel_preparation_and_prefix.md)：服务profiles已完成CPU验证；C公共前缀3820token，结构复用量37.15%，缓存尚未启用。
