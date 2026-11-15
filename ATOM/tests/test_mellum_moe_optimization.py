@@ -62,3 +62,29 @@ def test_candidate_refuses_custom_route_bad_bounds_and_non_decode_layout():
 def test_indexed_api_never_silently_falls_back_to_cpu():
     with pytest.raises(ValueError,match='GPU BF16'):
         indexed_linear(torch.ones(1,11).bfloat16(),torch.tensor([[0]]),torch.ones(2,7,11).bfloat16(),1)
+
+
+@pytest.mark.parametrize('dtype',[torch.float32,torch.bfloat16])
+@pytest.mark.parametrize('normalize',[False,True])
+def test_prefill_shared_elementwise_matches_reference_and_keeps_mm_shapes(dtype,normalize,monkeypatch):
+    import atom.model_config.mellum_experts as impl
+    module=experts(dtype,normalize);x=torch.randn(9,11).to(dtype);logits=torch.randn(9,5).to(dtype)
+    # Includes a one-row request and different expert occupancies.
+    bounds=[0,1,4,9];original=impl.grouped_linear;calls=[]
+    def recorded(x,w,offsets):
+        calls.append((tuple(x.shape),tuple(w.shape),offsets.clone()))
+        return original(x,w,offsets)
+    monkeypatch.setattr(impl,'grouped_linear',recorded)
+    expected=optimized_experts(module,x,logits,bounds,False,'shared_routing');reference=list(calls);calls.clear()
+    actual=optimized_experts(module,x,logits,bounds,False,'prefill_shared_elementwise')
+    torch.testing.assert_close(actual,expected,rtol=0 if dtype==torch.bfloat16 else 1e-5,
+                               atol=0 if dtype==torch.bfloat16 else 1e-8)
+    # CPU FP32 vectorized activation can differ at ~1e-9; not a GPU acceptance gate.
+    # New execution orders gate calls first, then down calls; shapes and offsets unchanged.
+    for a,b in zip(calls,reference[::2]+reference[1::2]):
+        assert a[:2]==b[:2];torch.testing.assert_close(a[2],b[2],rtol=0,atol=0)
+    calls.clear()
+    for mode in ('shared_routing','prefill_shared_elementwise'):
+        value=optimized_experts(module,x,logits,list(range(10)),True,mode)
+        if mode=='shared_routing':decode=value
+        else:torch.testing.assert_close(value,decode,rtol=0,atol=0)

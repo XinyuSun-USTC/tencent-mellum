@@ -5,7 +5,40 @@ from pathlib import Path
 import torch
 from torch.nn import functional as F
 
-VARIANTS = ('cpd', 'shared_routing', 'indexed_decode')
+VARIANTS = ('cpd', 'shared_routing', 'indexed_decode', 'prefill_shared_elementwise')
+
+
+def shared_prefill_elementwise(module, hidden, weights, ids, bounds):
+    """Keep each request's sort and two grouped-mm shapes; share elementwise work.
+
+    No expert weight packing, cross-request GEMM or FP32 activation fusion.
+    Extra temporary storage grows with scheduled tokens, not the context limit.
+    """
+    from atom.model_config.mellum_experts import grouped_linear
+    offsets_parts, permutations, gates, ups = [], [], [], []
+    for a, b in zip(bounds, bounds[1:]):
+        expert_ids, perm = ids[a:b].reshape(-1).sort()
+        selected = hidden[a:b][perm // module.top_k]
+        counts = torch.histc(expert_ids.int() if selected.is_cuda else expert_ids.float(),
+                            bins=module.num_experts, min=0, max=module.num_experts-1)
+        offsets = counts.cumsum(0, dtype=torch.int32)
+        gate, up = grouped_linear(selected, module.w13_weight, offsets).chunk(2, dim=-1)
+        offsets_parts.append(offsets)
+        permutations.append(perm + a * module.top_k)
+        gates.append(gate)
+        ups.append(up)
+    # Preserve the reference's separate BF16 silu and multiplication rounding.
+    activated = F.silu(torch.cat(gates)) * torch.cat(ups)
+    del gates, ups
+    projections = []
+    for a, b, offsets in zip(bounds, bounds[1:], offsets_parts):
+        projections.append(grouped_linear(activated[a*module.top_k:b*module.top_k],
+                                          module.w2_weight, offsets))
+    perm = torch.cat(permutations)
+    weighted = torch.cat(projections) * weights.reshape(-1)[perm, None]
+    inverse = torch.empty_like(perm)
+    inverse[perm] = torch.arange(perm.numel(), device=perm.device)
+    return weighted[inverse].view(len(hidden), module.top_k, -1).sum(1)
 
 
 def optimized_experts(module, hidden, logits, bounds, batched, variant):
@@ -18,6 +51,8 @@ def optimized_experts(module, hidden, logits, bounds, batched, variant):
     if module.custom_routing_function is not None:
         raise ValueError('Shared routing candidate does not support custom routing')
     weights, ids = module.route(hidden, logits)
+    if variant == 'prefill_shared_elementwise' and not batched:
+        return shared_prefill_elementwise(module, hidden, weights, ids, bounds)
     if variant == 'indexed_decode' and batched:
         if any(b-a != 1 for a,b in zip(bounds,bounds[1:])):
             raise ValueError('Indexed decode requires one token per real request')
@@ -50,6 +85,7 @@ def install_experts(campaign, module, layer):
                 stream.write(json.dumps({'phase':campaign.phase,'variant':variant,'rows':len(hidden),
                     'requests':len(campaign.bounds)-1,
                     'backend':'indexed_triton' if variant=='indexed_decode' and batched else
+                              'requestwise_gemm_shared_elementwise' if variant=='prefill_shared_elementwise' and not batched else
                               'requestwise_gemm_shared_route' if variant!='cpd' else 'original_cpd'})+'\n')
         return output
     module.forward=forward

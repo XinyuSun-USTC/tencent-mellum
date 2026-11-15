@@ -110,3 +110,6 @@
 - 用户安装客户端第二次成功144518，冻结推理依赖清单前后不变；实际reasoning SSE/usage/TPOT探针通过。核对发布版源码后新增独立prompt-field dataset插件，保留原生过滤/包装/循环及调度/指标：A505有效循环512、C完整200，原生请求序列CPU核验一致；B原生50条均1024token。开发smoke→独立服务B50/A512/C200单入口、SQLite请求/长度/预算核验、nearest-rank分位、失败保留、阶段hash恢复/累计3小时预算；25项相关CPU测试通过。C指数间隔归一化及客户端版本差异明确披露，不冒称裁判同版。见[计划18](../docs/plan/18_evalscope_client_and_abc_baseline.md)实施更新/[性能16](performance/16_abc_protocol_and_client.md)。工具无GPU且loopback禁止，真实HTTP/GPU待用户一次启动，未修改推理数学或默认配置。
 
 - 首轮ABC smoke 152546：5631张量加载成功，客户端解析阶段因1.15不接受`--stream True`退出，未发起测量请求；修正为等价`--stream`，新增真实已安装解析器A/B/C回归，相关26项CPU测试通过。下一次新批次运行，保留旧失败证据。
+
+- GPU0 ABC并行期间，在独立worktree `/workspace/tencent-mellum-moe-prefill`、分支step1/moe-prefill开发计划19；仅候选prefill_shared_elementwise，保留按请求sort/专家GEMM形状，集中逐元素操作，decode保持R。新增GPU1/8126有界4worker入口、R历史输出复现、条件D200和R配对ABBA；60分钟预算、hash恢复、失败即停止。未改GPU0工作目录或冻结库，未运行GPU；精度/收益待用户终端实测。CPU FP32约1e-9差异如实记录，不升级为GPU正确性判据。
+- 计划19交付核验：110项相关CPU测试通过；prepare-only `20261115T165902806916Z`通过，固定S32/L32/D200的历史R输入预算hash与输出hash；GPU尚未运行。

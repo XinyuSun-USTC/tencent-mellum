@@ -42,7 +42,7 @@ def fingerprint():
     files += [Path(__file__).resolve()]+[PROJECT/'scripts'/n for n in (
         'mellum_runtime_config.py','mellum_process_runner.py','validate_mellum_batch200.py',
         'validate_mellum_batch.py','validate_mellum_http.py','serve_mellum.py','profile_mellum.py','analyze_mellum_profile.py')]
-    files += [p for p in [PROJECT/'scripts/run_mellum_moe_optimization.py',PROJECT/'scripts/mellum_moe_micro.py',PROJECT/'scripts/run_mellum_indexed_d200.py'] if p.exists()]
+    files += [p for p in [PROJECT/'scripts/run_mellum_moe_optimization.py',PROJECT/'scripts/mellum_moe_micro.py',PROJECT/'scripts/run_mellum_indexed_d200.py',PROJECT/'scripts/run_mellum_prefill_optimization.py'] if p.exists()]
     files += [MODEL/'config.json', MODEL/'model.safetensors.index.json']
     return {str(p):sha(p) for p in sorted(set(files))}
 
@@ -112,7 +112,7 @@ def worker(out):
     from atom.model_engine.arg_utils import EngineArgs
     from atom import SamplingParams
     options=engine_options(4192,None)
-    options.update(torch_profiler_dir=str(out/'traces') if plan.get('profile') else None,max_num_batched_tokens=16384,max_num_seqs=plan['batch'],port=8026)
+    options.update(torch_profiler_dir=str(out/'traces') if plan.get('profile') else None,max_num_batched_tokens=16384,max_num_seqs=plan['batch'],port=plan.get('engine_port',8026))
     result={'probe_logits':plan['provenance'].get('probe_logits',{}),'status':'started','control':cfg,'settings':settings,'engine_options':options,'cohorts':{},
             'environment':{'torch':torch.__version__,'transformers':transformers.__version__,'hip':torch.version.hip,
                            'device':torch.cuda.get_device_name(0)}}

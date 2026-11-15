@@ -93,7 +93,7 @@ class Campaign:
             self.active=json.loads(Path(self.config['runtime_switch']).read_text())['enabled']
         if self.config.get('moe_switch'):
             mode=json.loads(Path(self.config['moe_switch']).read_text())
-            if mode['variant'] not in ('cpd','shared_routing','indexed_decode'):raise ValueError('Unknown switched MoE variant')
+            if mode['variant'] not in ('cpd','shared_routing','indexed_decode','prefill_shared_elementwise'):raise ValueError('Unknown switched MoE variant')
             self.moe_variant=mode['variant']
         if batch is None or getattr(ctx.context, 'is_dummy_run', False): return
         self.phase = 'prefill' if ctx.context.is_prefill else 'decode'
@@ -189,7 +189,7 @@ def install(model):
     config=json.loads(raw)
     if set(config.get('groups',''))-set('LENH') or set(config.get('phases',[]))-{'prefill','decode'}:
         raise ValueError('Unknown campaign control')
-    if config.get('moe_optimization') and (config['moe_optimization'] not in ('cpd','shared_routing','indexed_decode')
+    if config.get('moe_optimization') and (config['moe_optimization'] not in ('cpd','shared_routing','indexed_decode','prefill_shared_elementwise')
             or not all(c in config.get('groups','') for c in 'LE')
             or set(config.get('phases',[]))!={'prefill','decode'}):
         raise ValueError('MoE candidates require full CPD control')
