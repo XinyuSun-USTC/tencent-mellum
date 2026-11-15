@@ -1,0 +1,122 @@
+{
+  "status": "no_split_candidate_above_90",
+  "track": "attention",
+  "scope": "Bounded diagnosis only; no formal ABC/HumanEval or default changes",
+  "phase_results": {
+    "native_prefill": {
+      "groups": {
+        "all": {
+          "records": 200,
+          "matching_positions": 9287,
+          "compared_positions": 12800,
+          "token_match_fraction": 0.725546875,
+          "exact_sequences": 89,
+          "exact_sequence_fraction": 0.445
+        },
+        "below_1024": {
+          "records": 168,
+          "matching_positions": 7984,
+          "compared_positions": 10752,
+          "token_match_fraction": 0.7425595238095238,
+          "exact_sequences": 81,
+          "exact_sequence_fraction": 0.48214285714285715
+        },
+        "at_least_1024": {
+          "records": 32,
+          "matching_positions": 1303,
+          "compared_positions": 2048,
+          "token_match_fraction": 0.63623046875,
+          "exact_sequences": 8,
+          "exact_sequence_fraction": 0.25
+        },
+        "humaneval": {
+          "records": 164,
+          "matching_positions": 7897,
+          "compared_positions": 10496,
+          "token_match_fraction": 0.7523818597560976,
+          "exact_sequences": 80,
+          "exact_sequence_fraction": 0.4878048780487805
+        },
+        "scenario_a": {
+          "records": 36,
+          "matching_positions": 1390,
+          "compared_positions": 2304,
+          "token_match_fraction": 0.6032986111111112,
+          "exact_sequences": 9,
+          "exact_sequence_fraction": 0.25
+        }
+      },
+      "execution": {
+        "prefill_backends": [
+          "aiter_varlen"
+        ],
+        "decode_backends": [
+          "reference_ragged_decode"
+        ]
+      }
+    },
+    "native_decode": {
+      "groups": {
+        "all": {
+          "records": 200,
+          "matching_positions": 9888,
+          "compared_positions": 12800,
+          "token_match_fraction": 0.7725,
+          "exact_sequences": 101,
+          "exact_sequence_fraction": 0.505
+        },
+        "below_1024": {
+          "records": 168,
+          "matching_positions": 8667,
+          "compared_positions": 10752,
+          "token_match_fraction": 0.8060825892857143,
+          "exact_sequences": 93,
+          "exact_sequence_fraction": 0.5535714285714286
+        },
+        "at_least_1024": {
+          "records": 32,
+          "matching_positions": 1221,
+          "compared_positions": 2048,
+          "token_match_fraction": 0.59619140625,
+          "exact_sequences": 8,
+          "exact_sequence_fraction": 0.25
+        },
+        "humaneval": {
+          "records": 164,
+          "matching_positions": 8559,
+          "compared_positions": 10496,
+          "token_match_fraction": 0.815453506097561,
+          "exact_sequences": 92,
+          "exact_sequence_fraction": 0.5609756097560976
+        },
+        "scenario_a": {
+          "records": 36,
+          "matching_positions": 1329,
+          "compared_positions": 2304,
+          "token_match_fraction": 0.5768229166666666,
+          "exact_sequences": 9,
+          "exact_sequence_fraction": 0.25
+        }
+      },
+      "execution": {
+        "prefill_backends": [
+          "reference_ragged_prefill"
+        ],
+        "decode_backends": [
+          "paged_attention_triton"
+        ]
+      }
+    }
+  },
+  "passing_modes": [],
+  "source_run": "/workspace/results/mellum_native_attention_diagnosis/20261115T195614914099Z",
+  "used_seconds": 531.3362546511926,
+  "integrity": {
+    "artifacts_verified": 20,
+    "sources_verified": 240
+  },
+  "raw_sha256": {
+    "/workspace/results/mellum_native_attention_diagnosis/20261115T195614914099Z/manifest.json": "000c8cc20ce02ee2b0f11b3c5d508b73e6cb754b7158b8b2f97fbe2f1b60225b",
+    "/workspace/results/mellum_native_attention_diagnosis/20261115T195614914099Z/summary.json": "bfdba18b42d54bbc59b5f562afeeadfacd8f0a7056c7ec7e36f176a6e6279566"
+  }
+}

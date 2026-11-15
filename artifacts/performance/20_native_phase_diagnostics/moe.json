@@ -1,0 +1,909 @@
+{
+  "status": "diagnostic_complete",
+  "track": "moe",
+  "scope": "Bounded diagnosis only; no formal ABC/HumanEval or default changes",
+  "fixed_replay": {
+    "opus": {
+      "status": "complete",
+      "sorting": "opus",
+      "records": [
+        {
+          "name": "prefill_ragged",
+          "rows": 150,
+          "phase": "prefill",
+          "repeats": 12,
+          "different_repeat_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "repeats_exact": false,
+          "repeat_max_abs": 0.015625,
+          "finite": true,
+          "vs_reference": {
+            "max_abs": 0.03125,
+            "relative_l2": 0.004065008368343115
+          },
+          "selected_metadata": [
+            {
+              "token_key": 256,
+              "run_1stage": false,
+              "block_m": 128,
+              "ksplit": 0,
+              "stage1": {
+                "callable": "aiter.fused_moe.ck_moe_stage1",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "dtype": "torch.bfloat16",
+                  "splitk": "0",
+                  "use_non_temporal_load": "True"
+                }
+              },
+              "stage2": {
+                "callable": "aiter.ops.moe_op.ck_moe_stage2_fwd",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "use_non_temporal_load": "True"
+                }
+              }
+            }
+          ],
+          "sorting_records": [
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            }
+          ],
+          "sorting_order_repeated": true
+        },
+        {
+          "name": "decode_1",
+          "rows": 1,
+          "phase": "decode",
+          "repeats": 12,
+          "different_repeat_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "repeats_exact": false,
+          "repeat_max_abs": 0.00390625,
+          "finite": true,
+          "vs_reference": {
+            "max_abs": 0.0078125,
+            "relative_l2": 0.005216909572482109
+          },
+          "selected_metadata": [
+            {
+              "token_key": 1,
+              "run_1stage": false,
+              "block_m": 32,
+              "ksplit": 0,
+              "stage1": {
+                "callable": "aiter.fused_moe.ck_moe_stage1",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "dtype": "torch.bfloat16",
+                  "splitk": "0",
+                  "use_non_temporal_load": "True"
+                }
+              },
+              "stage2": {
+                "callable": "aiter.ops.moe_op.ck_moe_stage2_fwd",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "use_non_temporal_load": "True"
+                }
+              }
+            }
+          ],
+          "sorting_records": [
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            }
+          ],
+          "sorting_order_repeated": true
+        },
+        {
+          "name": "decode_32",
+          "rows": 32,
+          "phase": "decode",
+          "repeats": 12,
+          "different_repeat_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "repeats_exact": false,
+          "repeat_max_abs": 0.0078125,
+          "finite": true,
+          "vs_reference": {
+            "max_abs": 0.0078125,
+            "relative_l2": 0.004108109511435032
+          },
+          "selected_metadata": [
+            {
+              "token_key": 32,
+              "run_1stage": false,
+              "block_m": 128,
+              "ksplit": 0,
+              "stage1": {
+                "callable": "aiter.fused_moe.ck_moe_stage1",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "dtype": "torch.bfloat16",
+                  "splitk": "0",
+                  "use_non_temporal_load": "True"
+                }
+              },
+              "stage2": {
+                "callable": "aiter.ops.moe_op.ck_moe_stage2_fwd",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "use_non_temporal_load": "True"
+                }
+              }
+            }
+          ],
+          "sorting_records": [
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            }
+          ],
+          "sorting_order_repeated": true
+        }
+      ],
+      "frozen_source_sha256": {
+        "/app/aiter-test/aiter/fused_moe.py": "5fbc66e4fec979f22696f7ebd2121e703ae5e91dbfdb1e6fd084004703eb0191"
+      },
+      "environment": {
+        "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+        "transformers": "5.2.0",
+        "device": "AMD Instinct MI308X"
+      },
+      "scope": "Layer0 saved HF prefill vectors and decode-shaped last-row replay; fixed route. Not natural decode trajectories or full-model acceptance.",
+      "all_fixed_repeats_exact": false
+    },
+    "ck": {
+      "status": "complete",
+      "sorting": "ck",
+      "records": [
+        {
+          "name": "prefill_ragged",
+          "rows": 150,
+          "phase": "prefill",
+          "repeats": 12,
+          "different_repeat_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "repeats_exact": false,
+          "repeat_max_abs": 0.015625,
+          "finite": true,
+          "vs_reference": {
+            "max_abs": 0.03125,
+            "relative_l2": 0.004052960779517889
+          },
+          "selected_metadata": [
+            {
+              "token_key": 256,
+              "run_1stage": false,
+              "block_m": 128,
+              "ksplit": 0,
+              "stage1": {
+                "callable": "aiter.fused_moe.ck_moe_stage1",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "dtype": "torch.bfloat16",
+                  "splitk": "0",
+                  "use_non_temporal_load": "True"
+                }
+              },
+              "stage2": {
+                "callable": "aiter.ops.moe_op.ck_moe_stage2_fwd",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "use_non_temporal_load": "True"
+                }
+              }
+            }
+          ],
+          "sorting_records": [
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            },
+            {
+              "num_valid_ids": [
+                5888,
+                150
+              ],
+              "token_ids_sha256": "0b11d796613886bc3e547ec7c10e80f4ed0bcf3602e6c6c3b4bd5c2f0b23a713"
+            }
+          ],
+          "sorting_order_repeated": true
+        },
+        {
+          "name": "decode_1",
+          "rows": 1,
+          "phase": "decode",
+          "repeats": 12,
+          "different_repeat_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "repeats_exact": false,
+          "repeat_max_abs": 0.0078125,
+          "finite": true,
+          "vs_reference": {
+            "max_abs": 0.00390625,
+            "relative_l2": 0.0032786608207970858
+          },
+          "selected_metadata": [
+            {
+              "token_key": 1,
+              "run_1stage": false,
+              "block_m": 32,
+              "ksplit": 0,
+              "stage1": {
+                "callable": "aiter.fused_moe.ck_moe_stage1",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "dtype": "torch.bfloat16",
+                  "splitk": "0",
+                  "use_non_temporal_load": "True"
+                }
+              },
+              "stage2": {
+                "callable": "aiter.ops.moe_op.ck_moe_stage2_fwd",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "use_non_temporal_load": "True"
+                }
+              }
+            }
+          ],
+          "sorting_records": [
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            },
+            {
+              "num_valid_ids": [
+                256,
+                1
+              ],
+              "token_ids_sha256": "1f6d822cc97bce953cf7a45072f2a9b37433dd65b09bcf3cf95933c1455bfc3f"
+            }
+          ],
+          "sorting_order_repeated": true
+        },
+        {
+          "name": "decode_32",
+          "rows": 32,
+          "phase": "decode",
+          "repeats": 12,
+          "different_repeat_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "repeats_exact": false,
+          "repeat_max_abs": 0.0078125,
+          "finite": true,
+          "vs_reference": {
+            "max_abs": 0.0078125,
+            "relative_l2": 0.0045685903169214725
+          },
+          "selected_metadata": [
+            {
+              "token_key": 32,
+              "run_1stage": false,
+              "block_m": 128,
+              "ksplit": 0,
+              "stage1": {
+                "callable": "aiter.fused_moe.ck_moe_stage1",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "dtype": "torch.bfloat16",
+                  "splitk": "0",
+                  "use_non_temporal_load": "True"
+                }
+              },
+              "stage2": {
+                "callable": "aiter.ops.moe_op.ck_moe_stage2_fwd",
+                "keywords": {
+                  "kernelName": "",
+                  "activation": "ActivationType.Silu",
+                  "quant_type": "QuantType.No",
+                  "use_non_temporal_load": "True"
+                }
+              }
+            }
+          ],
+          "sorting_records": [
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            },
+            {
+              "num_valid_ids": [
+                2560,
+                32
+              ],
+              "token_ids_sha256": "44cd85b63138681adbb5a8705ee289527235d458536abdba253898fc0c6798fc"
+            }
+          ],
+          "sorting_order_repeated": true
+        }
+      ],
+      "frozen_source_sha256": {
+        "/app/aiter-test/aiter/fused_moe.py": "5fbc66e4fec979f22696f7ebd2121e703ae5e91dbfdb1e6fd084004703eb0191"
+      },
+      "environment": {
+        "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+        "transformers": "5.2.0",
+        "device": "AMD Instinct MI308X"
+      },
+      "scope": "Layer0 saved HF prefill vectors and decode-shaped last-row replay; fixed route. Not natural decode trajectories or full-model acceptance.",
+      "all_fixed_repeats_exact": false
+    }
+  },
+  "source_run": "/workspace/results/mellum_native_moe_diagnosis/20261115T195607968694Z",
+  "used_seconds": 16.281864960910752,
+  "integrity": {
+    "artifacts_verified": 14,
+    "sources_verified": 240
+  },
+  "raw_sha256": {
+    "/workspace/results/mellum_native_moe_diagnosis/20261115T195607968694Z/manifest.json": "9fdbcd74465ef2eb3c8e38c00886e2cc57afcfb1ba25884e3762128d1a8b111f",
+    "/workspace/results/mellum_native_moe_diagnosis/20261115T195607968694Z/summary.json": "9f4c157339f6f2a070b7aa4f66c548698b904cc7c6b21aab4c45692f26771df1"
+  },
+  "atomic_trace_evidence": {
+    "opus": {
+      "CK_GEMM_present": true,
+      "InMemoryDataOperationEnum_1_present": true
+    },
+    "ck": {
+      "CK_GEMM_present": true,
+      "InMemoryDataOperationEnum_1_present": true
+    }
+  },
+  "CK_source_sha256": {
+    "/app/aiter-test/3rdparty/composable_kernel/include/ck/ck.hpp": "0cd512c5d989167070c8e8966d9530866f8140e7dde7658fffb4b6964401814e",
+    "/app/aiter-test/3rdparty/composable_kernel/include/ck/tensor_operation/gpu/device/impl/device_moe_gemm.hpp": "c1a3974566c56428045d5efcdf838e9eaf5991dbdceb73c20cf33c0644a5017c"
+  }
+}

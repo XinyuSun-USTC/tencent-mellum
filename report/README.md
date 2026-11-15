@@ -109,3 +109,4 @@
 
 - [研究05 优化实现源码对照](research/05_optimization_implementation_sources.md)：冻结ATOM复用点、上游版本边界、vLLM/SGLang Mellum、候选兼容性和优先级。
 - [19 原生MoE/Attention两卡结果](performance/19_native_runtime_pilots.md)：批量约1.47×/1.45×，D200位置72.36%/71.38%；MoE重复生成存在差异，当前均不晋级。
+- [20 固定MoE回放与Attention阶段消融](performance/20_native_phase_diagnostics.md)：排序重复但MoE输出变化，CK原子归并证据；Attention仅prefill72.55%、仅decode77.25%，均停止晋级。
