@@ -4,7 +4,7 @@
 
 ## 当前阅读入口
 
-当前工作：[20 原生MoE与Attention主路径改造](plan/20_native_moe_and_attention_routes.md)，依据[研究05源码对照](../report/research/05_optimization_implementation_sources.md)。调研已完成，两卡候选已在独立快照交付，见[计划21](plan/21_native_runtime_pilot_delivery.md)；GPU待采，冻结环境不升级。上一轮[性能17](../report/performance/17_r_abc_baseline.md)记录R的A/B完成、C199超时；[性能18](../report/performance/18_prefill_elementwise.md)记录逐元素合并无收益并停止。
+当前工作：[23 MoE专家贡献独立输出与显式归约](plan/23_isolated_moe_reduction_candidate.md)，实现位于独立工作区`/workspace/tencent-mellum-moe-isolated`，默认关闭。126项相关CPU检查和prepare-only通过，GPU待采。依据[性能20](../report/performance/20_native_phase_diagnostics.md)的CK原子归并证据，本轮只推进一个修正。
 
 上一轮：[17 直接索引decode一次D200补证](plan/17_indexed_decode_d200_followup.md)：已完成，见[性能15](../report/performance/15_indexed_decode_d200.md)：总体位置78.23%、完整序列53.5%，当前直接索引版本停止晋级。保留共享路由，下一主线prefill专家GEMM/调度开销。
 

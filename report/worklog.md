@@ -121,3 +121,5 @@
 
 - 计划22有界诊断入口交付：独立GPU0固定layer0/路由12次Opus/CK回放、stage metadata和短trace（15分钟）；GPU1仅prefill/仅decode各D200，达到90%者才256性能（45分钟）。120项CPU检查及195403/195402两份prepare-only通过，53b6833及排序前缀补丁1cac5e2/c300a25；主R源码未改，无新GPU实测。
 - 计划22完成：MoE195607累计16.28秒，Opus/CK固定排序下三shape的12次输出均出现重复差异；metadata确认CK two-stage，trace和冻结CK源码确认输出AtomicAdd路径，尚未单独证明全部差异由stage2造成。Attention195614累计8.86分钟，仅prefill位置72.55%、仅decode77.25%，均不达90%，按计划跳过性能。34产物/480源码指纹通过，归档性能20；不原样重跑或追加排序D200，后续若修MoE聚焦贡献输出/归并，不默认继续数值搜索。
+
+- 计划23交付：独立分支step1/moe-isolated-reduction、commit ee1215c，top8贡献展开为native top1独立输出，外部BF16加权/求和；不复制权重，增加按N*8增长的临时存储。126项CPU检查、py_compile/diff和202806 prepare-only通过；入口GPU0/8526、最多4worker/45分钟，固定回放稳定/finite才D200、达到90%才R/候选256性能。主R仅同步文档，未执行新GPU。
