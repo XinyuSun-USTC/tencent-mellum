@@ -1,0 +1,86 @@
+{
+  "status": "prefix_probe_passed",
+  "scope": "Prefix off/on self comparison on three real C prompts. Not public200/HumanEval or formal speedup.",
+  "comparisons": [
+    {
+      "group": "cold_first",
+      "id": "C-0000",
+      "exact": true
+    },
+    {
+      "group": "same_prompt",
+      "id": "C-0000",
+      "exact": true
+    },
+    {
+      "group": "shared_prefix_ragged",
+      "id": "C-0000",
+      "exact": true
+    },
+    {
+      "group": "shared_prefix_ragged",
+      "id": "C-0100",
+      "exact": true
+    },
+    {
+      "group": "shared_prefix_ragged",
+      "id": "C-0199",
+      "exact": true
+    },
+    {
+      "group": "reverse_reuse",
+      "id": "C-0199",
+      "exact": true
+    },
+    {
+      "group": "reverse_reuse",
+      "id": "C-0100",
+      "exact": true
+    },
+    {
+      "group": "reverse_reuse",
+      "id": "C-0000",
+      "exact": true
+    }
+  ],
+  "observed_cached_tokens": 46592,
+  "timings": {
+    "off": [
+      {
+        "name": "cold_first",
+        "seconds": 3.844128523953259
+      },
+      {
+        "name": "same_prompt",
+        "seconds": 2.111540029058233
+      },
+      {
+        "name": "shared_prefix_ragged",
+        "seconds": 5.608137224102393
+      },
+      {
+        "name": "reverse_reuse",
+        "seconds": 5.570865546120331
+      }
+    ],
+    "on": [
+      {
+        "name": "cold_first",
+        "seconds": 3.773114494048059
+      },
+      {
+        "name": "same_prompt",
+        "seconds": 1.2691629379987717
+      },
+      {
+        "name": "shared_prefix_ragged",
+        "seconds": 3.571317506954074
+      },
+      {
+        "name": "reverse_reuse",
+        "seconds": 2.107622880022973
+      }
+    ]
+  },
+  "source_unchanged": true
+}

@@ -138,3 +138,5 @@
 - GPU1组合测试期间在独立prefix分支80cd14c开发cached-prefill：reference K先写后gather、共享metadata副本、bottom-right矩形causal/SWA mask、ragged后缀支持；NHD按实际逻辑token读取避免整个缓存池连续化。GPU0 off/on小试验单命令、25分钟预算、三条真实C、每请求16输出，不重跑HF。57项CPU检查与实际输入prepare-only通过，GPU待终端执行；未修改GPU1源码。
 
 - GPU1组合20261115T223459375865Z完成，smoke/A64/C20全成功；A59.612tokens/s较单项+4.58%，C TTFT p99 22.689→3.819秒、TPOT p99 0.44394→0.36259。核验同输入、产物与源码hash，归档性能24。GPU0 prefix继续运行不改；下一步GPU1筛选FusedMoE+完整原生Attention，性能优先，有收益后复用HF作候选功能评估。
+
+- GPU0 prefix_probe 20261115T225622969152Z通过，8次/128token off/on全部一致、实际命中46592；共享ragged5.608→3.571秒、逆序复用5.571→2.108秒（非HTTP收益）。核验源码/加载/命中，归档性能25。服务新增显式prefix开关及逐case命中审计，GPU0独立8251/8926跑FusedMoE+prefix容量计划28，33项CPU检查及实际prepare/hash通过；GPU1 next原生Attention继续运行未改。

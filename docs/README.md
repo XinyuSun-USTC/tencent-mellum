@@ -46,3 +46,5 @@ GPU1待运行：[26 候选HTTP容量诊断](plan/26_candidate_http_capacity.md)�
 当前功能结果：[性能22](../report/performance/22_fused_moe_humaneval.md)，完整HumanEval配对达到本地2pp门槛；下一步按计划26完成候选HTTP容量诊断。
 
 GPU0待运行：[27 前缀缓存兼容与定向试验](plan/27_prefix_cache_gpu0.md)，独立prefix工作区80cd14c，57项相关CPU检查和真实输入prepare-only通过；GPU1的next工作区不修改。
+
+GPU0待运行：[28 FusedMoE+prefix HTTP](plan/28_prefix_http_capacity.md)，独立prefix工作区，HTTP8251/engine8926；首轮结果见性能25。33项相关CPU检查、输入准备和启动配置核验通过。

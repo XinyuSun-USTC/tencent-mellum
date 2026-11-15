@@ -1,0 +1,308 @@
+{
+  "status": "complete",
+  "prefix_enabled": true,
+  "settings": {
+    "MELLUM_HF_GENERATION_EXPERTS": "1",
+    "MELLUM_MOE_BACKEND": "torch",
+    "MELLUM_QKV_BACKEND": "separate",
+    "MELLUM_ROUTER_BACKEND": "torch",
+    "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+    "MELLUM_REFERENCE_KV_ROPE": "1",
+    "MELLUM_SDPA_DECODE": "1",
+    "MELLUM_STAGE_LAYER": "0",
+    "MELLUM_DECODE_LAYER_CAPTURE": "0",
+    "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "0",
+    "ATOM_ENABLE_ALLREDUCE_RMSNORM_FUSION": "0",
+    "ATOM_USE_UNIFIED_ATTN": "0",
+    "ATOM_LOADER_USE_THREADPOOL": "0",
+    "AITER_LOG_LEVEL": "WARNING",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HIP_VISIBLE_DEVICES": "0",
+    "PYTHONPATH": "/workspace/tencent-mellum-prefix/ATOM",
+    "MELLUM_LOAD_AUDIT_PATH": "/workspace/results/mellum_prefix_probe/20261115T225622969152Z/on/loading_audit.json",
+    "MELLUM_PROFILE_LABELS": "0",
+    "ATOM_PROFILER_MORE": "0",
+    "MELLUM_REQUEST_BATCHING": "1",
+    "MELLUM_SWA_PREFILL_OPT": "0",
+    "MELLUM_SWA_PREFILL_IMPL": "ck",
+    "MELLUM_BATCH_AUDIT_PATH": "/workspace/results/mellum_prefix_probe/20261115T225622969152Z/on/batches.jsonl",
+    "MELLUM_ATTENTION_EXECUTION": "reference",
+    "MELLUM_BATCH_CAMPAIGN_CONFIG": "{\"groups\": \"LE\", \"moe_optimization\": \"shared_routing\", \"phases\": [\"prefill\", \"decode\"]}",
+    "MELLUM_PREFIX_COMPAT": "1",
+    "MELLUM_PREFIX_AUDIT_PATH": "/workspace/results/mellum_prefix_probe/20261115T225622969152Z/on/prefix.jsonl"
+  },
+  "options": {
+    "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+    "tensor_parallel_size": 1,
+    "data_parallel_size": 1,
+    "enforce_eager": true,
+    "level": 0,
+    "kv_cache_dtype": "bf16",
+    "max_model_len": 11072,
+    "max_num_batched_tokens": 11072,
+    "max_num_seqs": 4,
+    "gpu_memory_utilization": 0.35,
+    "enable_prefix_caching": true,
+    "enable_chunked_prefill": false,
+    "torch_profiler_dir": null,
+    "mark_trace": false,
+    "port": 8826
+  },
+  "groups": [
+    {
+      "name": "cold_first",
+      "elapsed_seconds": 3.773114494048059,
+      "records": [
+        {
+          "id": "C-0000",
+          "input_tokens": 7889,
+          "generated_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            5458,
+            302,
+            1354,
+            48,
+            470,
+            1297,
+            7912,
+            255,
+            99,
+            8244,
+            2250
+          ]
+        }
+      ]
+    },
+    {
+      "name": "same_prompt",
+      "elapsed_seconds": 1.2691629379987717,
+      "records": [
+        {
+          "id": "C-0000",
+          "input_tokens": 7889,
+          "generated_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            5458,
+            302,
+            1354,
+            48,
+            470,
+            1297,
+            7912,
+            255,
+            99,
+            8244,
+            2250
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shared_prefix_ragged",
+      "elapsed_seconds": 3.571317506954074,
+      "records": [
+        {
+          "id": "C-0000",
+          "input_tokens": 7889,
+          "generated_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            5458,
+            302,
+            1354,
+            48,
+            470,
+            1297,
+            7912,
+            255,
+            99,
+            8244,
+            2250
+          ]
+        },
+        {
+          "id": "C-0100",
+          "input_tokens": 11039,
+          "generated_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            1948,
+            302,
+            1354,
+            60,
+            470,
+            1297,
+            7912,
+            255,
+            99,
+            1339,
+            995
+          ]
+        },
+        {
+          "id": "C-0199",
+          "input_tokens": 4294,
+          "generated_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            1948,
+            302,
+            1354,
+            48,
+            470,
+            1297,
+            7912,
+            255,
+            99,
+            1339,
+            995
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reverse_reuse",
+      "elapsed_seconds": 2.107622880022973,
+      "records": [
+        {
+          "id": "C-0199",
+          "input_tokens": 4294,
+          "generated_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            1948,
+            302,
+            1354,
+            48,
+            470,
+            1297,
+            7912,
+            255,
+            99,
+            1339,
+            995
+          ]
+        },
+        {
+          "id": "C-0100",
+          "input_tokens": 11039,
+          "generated_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            1948,
+            302,
+            1354,
+            60,
+            470,
+            1297,
+            7912,
+            255,
+            99,
+            1339,
+            995
+          ]
+        },
+        {
+          "id": "C-0000",
+          "input_tokens": 7889,
+          "generated_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            5458,
+            302,
+            1354,
+            48,
+            470,
+            1297,
+            7912,
+            255,
+            99,
+            8244,
+            2250
+          ]
+        }
+      ]
+    }
+  ],
+  "loading_audit": {
+    "source_tensors": 5631,
+    "successful_parts": 5631,
+    "missing": [],
+    "unexpected": []
+  },
+  "prefix_events": [
+    {
+      "new_tokens": [
+        1
+      ],
+      "cached_tokens": [
+        7888
+      ],
+      "key_lengths": [
+        7889
+      ]
+    },
+    {
+      "new_tokens": [
+        1,
+        7231,
+        486
+      ],
+      "cached_tokens": [
+        7888,
+        3808,
+        3808
+      ],
+      "key_lengths": [
+        7889,
+        11039,
+        4294
+      ]
+    },
+    {
+      "new_tokens": [
+        6,
+        15,
+        1
+      ],
+      "cached_tokens": [
+        4288,
+        11024,
+        7888
+      ],
+      "key_lengths": [
+        4294,
+        11039,
+        7889
+      ]
+    }
+  ],
+  "observed_cached_tokens": 46592
+}
