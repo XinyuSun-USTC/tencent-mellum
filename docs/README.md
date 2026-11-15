@@ -4,7 +4,7 @@
 
 ## 当前阅读入口
 
-当前执行：[14 B0固定200条真实batch32对照](plan/14_b0_batch200_representative_check.md)。容量32及HTTP多请求已完成小集运行，先核验代表性准确性，再进入服务/批量性能基准；总体方案见[13](plan/13_serving_batching_and_workload_baseline.md)。
+当前开发计划：[15 一次启动的批量准确性实验批次](plan/15_batch_accuracy_campaign.md)：一次开发观察器、shape控制、DAG调度与分析器，最多14个GPU worker、90分钟总预算，减少逐阶段手工运行。尚未实现总入口；现状依据[性能12](../report/performance/12_b0_batch200.md)。
 
 当前准确性评测：[11 代表性开发集与HumanEval](plan/11_representative_correctness_and_humaneval.md)：先跑开发200候选及独立HumanEval工具自检，避免以微观数值差异代替题目门槛。实现及GPU测试待执行边界详见该计划。
 

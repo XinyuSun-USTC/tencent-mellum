@@ -90,3 +90,5 @@
 - B0代表性200对照开发：新增固定200原token/HF缓存校验、bounded outstanding32补充请求、显式seq-ID/输入映射与乱序完成记录；B0 reference、正常64token/EOS，审计真实decode32，报告总体/长短/HumanEval/场景A双一致率，提前EOS保留分母。不重跑HF/不存全词表logits，15项相关CPU通过、prepare-only033338通过，未执行GPU/改数学。命令/决策边界见[计划14](../docs/plan/14_b0_batch200_representative_check.md)。
 
 - B0 batch200 034222：200提交/完成、最多outstanding32、真实decode32，5631加载审计通过；未启用点1，位置9579/12800=74.8359%、序列88/200=44%，短输入77.56%、长输入60.55%。代表性开发门槛未达，暂不进正式性能基准。归档[性能12](performance/12_b0_batch200.md)，下一轮只做前32中少量最早首差、最多8输出的真实prefill/decode对照，区分逻辑与shape数值原因；未新增GPU或改数学，不追加bitwise门槛。
+
+- 用户要求减少介入频次：形成[计划15](../docs/plan/15_batch_accuracy_campaign.md)，一次开发batch-aware探针、通用phase/linear/experts shape控制、自动DAG/分析/断点续跑；4规模+最多6控制+2代表性200+2回归/profile，最多14GPU worker，预算30–60分钟/硬上限90分钟。复用HF，按同历史首差分析，不改代码刷数据、不新加bitwise门槛、默认不跑完整A/C或HumanEval。当前仅方案，runner尚未开发，无新GPU。
