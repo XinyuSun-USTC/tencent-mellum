@@ -1,0 +1,467 @@
+{
+  "status": "developer_position_below_90",
+  "scope": "Single default-off MoE candidate, no formal ABC/HumanEval acceptance",
+  "replay": {
+    "status": "complete",
+    "sorting": "opus",
+    "variant": "isolated",
+    "records": [
+      {
+        "name": "prefill_ragged",
+        "rows": 150,
+        "phase": "prefill",
+        "repeats": 12,
+        "different_repeat_indices": [],
+        "repeats_exact": true,
+        "repeat_max_abs": 0.0,
+        "finite": true,
+        "vs_reference": {
+          "max_abs": 0.0078125,
+          "relative_l2": 0.0024442188441753387
+        },
+        "selected_metadata": [
+          {
+            "token_key": 2048,
+            "run_1stage": false,
+            "block_m": 128,
+            "ksplit": 0,
+            "stage1": {
+              "callable": "aiter.fused_moe.ck_moe_stage1",
+              "keywords": {
+                "kernelName": "",
+                "activation": "ActivationType.Silu",
+                "quant_type": "QuantType.No",
+                "dtype": "torch.bfloat16",
+                "splitk": "0",
+                "use_non_temporal_load": "True"
+              }
+            },
+            "stage2": {
+              "callable": "aiter.ops.moe_op.ck_moe_stage2_fwd",
+              "keywords": {
+                "kernelName": "",
+                "activation": "ActivationType.Silu",
+                "quant_type": "QuantType.No",
+                "use_non_temporal_load": "True"
+              }
+            }
+          }
+        ],
+        "sorting_records": [
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          },
+          {
+            "num_valid_ids": [
+              5888,
+              1200
+            ],
+            "token_ids_sha256": "8a6543cd5ada483e7854644dc2b20cb476b9849efdca349460cc0044aa1aa946"
+          }
+        ],
+        "sorting_order_repeated": true
+      },
+      {
+        "name": "decode_1",
+        "rows": 1,
+        "phase": "decode",
+        "repeats": 12,
+        "different_repeat_indices": [],
+        "repeats_exact": true,
+        "repeat_max_abs": 0.0,
+        "finite": true,
+        "vs_reference": {
+          "max_abs": 0.000244140625,
+          "relative_l2": 0.0017094507347792387
+        },
+        "selected_metadata": [
+          {
+            "token_key": 8,
+            "run_1stage": false,
+            "block_m": 32,
+            "ksplit": 0,
+            "stage1": {
+              "callable": "aiter.fused_moe.ck_moe_stage1",
+              "keywords": {
+                "kernelName": "",
+                "activation": "ActivationType.Silu",
+                "quant_type": "QuantType.No",
+                "dtype": "torch.bfloat16",
+                "splitk": "0",
+                "use_non_temporal_load": "True"
+              }
+            },
+            "stage2": {
+              "callable": "aiter.ops.moe_op.ck_moe_stage2_fwd",
+              "keywords": {
+                "kernelName": "",
+                "activation": "ActivationType.Silu",
+                "quant_type": "QuantType.No",
+                "use_non_temporal_load": "True"
+              }
+            }
+          }
+        ],
+        "sorting_records": [
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          },
+          {
+            "num_valid_ids": [
+              256,
+              8
+            ],
+            "token_ids_sha256": "318b92985611779b7c596e00abed39aa2a57495158cae302e33ff5c7e041e8ed"
+          }
+        ],
+        "sorting_order_repeated": true
+      },
+      {
+        "name": "decode_32",
+        "rows": 32,
+        "phase": "decode",
+        "repeats": 12,
+        "different_repeat_indices": [],
+        "repeats_exact": true,
+        "repeat_max_abs": 0.0,
+        "finite": true,
+        "vs_reference": {
+          "max_abs": 0.0078125,
+          "relative_l2": 0.0035100476816296577
+        },
+        "selected_metadata": [
+          {
+            "token_key": 256,
+            "run_1stage": false,
+            "block_m": 128,
+            "ksplit": 0,
+            "stage1": {
+              "callable": "aiter.fused_moe.ck_moe_stage1",
+              "keywords": {
+                "kernelName": "",
+                "activation": "ActivationType.Silu",
+                "quant_type": "QuantType.No",
+                "dtype": "torch.bfloat16",
+                "splitk": "0",
+                "use_non_temporal_load": "True"
+              }
+            },
+            "stage2": {
+              "callable": "aiter.ops.moe_op.ck_moe_stage2_fwd",
+              "keywords": {
+                "kernelName": "",
+                "activation": "ActivationType.Silu",
+                "quant_type": "QuantType.No",
+                "use_non_temporal_load": "True"
+              }
+            }
+          }
+        ],
+        "sorting_records": [
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          },
+          {
+            "num_valid_ids": [
+              2560,
+              256
+            ],
+            "token_ids_sha256": "4ba322bd4d5b4e803692ebcca57ed91d8ac650a05a2b1eb3ac4928372be298b5"
+          }
+        ],
+        "sorting_order_repeated": true
+      }
+    ],
+    "frozen_source_sha256": {
+      "/app/aiter-test/aiter/fused_moe.py": "5fbc66e4fec979f22696f7ebd2121e703ae5e91dbfdb1e6fd084004703eb0191"
+    },
+    "environment": {
+      "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+      "transformers": "5.2.0",
+      "device": "AMD Instinct MI308X"
+    },
+    "scope": "Layer0 saved HF prefill vectors and decode-shaped last-row replay; fixed route. Not natural decode trajectories or full-model acceptance.",
+    "all_fixed_repeats_exact": true
+  },
+  "execution": {
+    "calls": 460,
+    "native_topk": 1,
+    "logical_topk": 8,
+    "decode_max_requests": 32
+  },
+  "D200_groups": {
+    "all": {
+      "records": 200,
+      "matching_positions": 9495,
+      "compared_positions": 12800,
+      "token_match_fraction": 0.741796875,
+      "exact_sequences": 91,
+      "exact_sequence_fraction": 0.455
+    },
+    "below_1024": {
+      "records": 168,
+      "matching_positions": 8410,
+      "compared_positions": 10752,
+      "token_match_fraction": 0.7821800595238095,
+      "exact_sequences": 84,
+      "exact_sequence_fraction": 0.5
+    },
+    "at_least_1024": {
+      "records": 32,
+      "matching_positions": 1085,
+      "compared_positions": 2048,
+      "token_match_fraction": 0.52978515625,
+      "exact_sequences": 7,
+      "exact_sequence_fraction": 0.21875
+    },
+    "humaneval": {
+      "records": 164,
+      "matching_positions": 8302,
+      "compared_positions": 10496,
+      "token_match_fraction": 0.7909679878048781,
+      "exact_sequences": 83,
+      "exact_sequence_fraction": 0.5060975609756098
+    },
+    "scenario_a": {
+      "records": 36,
+      "matching_positions": 1193,
+      "compared_positions": 2304,
+      "token_match_fraction": 0.5177951388888888,
+      "exact_sequences": 8,
+      "exact_sequence_fraction": 0.2222222222222222
+    }
+  },
+  "source_run": "/workspace/results/mellum_isolated_moe/20261115T203133310423Z",
+  "used_seconds": 230.1414537029341,
+  "integrity": {
+    "artifacts_verified": 17,
+    "sources_verified": 241
+  },
+  "raw_sha256": {
+    "/workspace/results/mellum_isolated_moe/20261115T203133310423Z/manifest.json": "dab964dc1fa8789a0bb230f003bcdd04258804b51c3f8ed585e49268dd81e4fd",
+    "/workspace/results/mellum_isolated_moe/20261115T203133310423Z/summary.json": "90593db3db36185bb6f9b86f365da2a0098ae32d179e9a17e16f69fa1f794d7d",
+    "/workspace/results/mellum_isolated_moe/20261115T203133310423Z/jobs/D200_candidate/D200_r0.json": "af01a009c1fb8e4aeb05a3f7aeaa54583d61c3dd47f65d67870c551d7a41accf"
+  }
+}
