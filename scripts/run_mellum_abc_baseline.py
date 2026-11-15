@@ -48,10 +48,10 @@ def validate_client(audit_run=AUDIT):
             'source_sha256':{r['path']:r['sha256'] for r in audit['source_sha256'].values()}}
 
 
-def command(scenario,directory,number,source=None):
+def command(scenario,directory,number,source=None,server_port=8051):
     # Literal PDF command is retained separately in the manifest. Changes here:
     # namespaced prompt-field plugin for A/C, paths for output, deterministic seed.
-    cmd=literal_command(scenario,'http://127.0.0.1:8051/v1/chat/completions',directory)
+    cmd=literal_command(scenario,f'http://127.0.0.1:{server_port}/v1/chat/completions',directory)
     cmd[:1]=[str(CLIENT),str(ADAPTER)]
     cmd[cmd.index('--number')+1]=str(number)
     # EvalScope 1.15 uses BooleanOptionalAction, unlike the PDF's value syntax.
@@ -135,10 +135,13 @@ def stage_worker(directory):
     deadline=time.monotonic()+plan['timeout']-35
     try:
         with socket.socket() as sock:
-            if sock.connect_ex(('127.0.0.1',8051))==0:raise RuntimeError('Port 8051 already in use; refuse unowned server')
+            if sock.connect_ex(('127.0.0.1',plan.get('server_port',8051)))==0:raise RuntimeError('HTTP port already in use; refuse unowned server')
         servercmd=['/opt/venv/bin/python',str(PROJECT/'scripts/serve_mellum.py'),'--gpu',str(plan['gpu']),
                    '--batching','--batch-audit','--max-num-seqs','32','--max-model-len','16640','--max-batched-tokens','16640',
-                   '--campaign-config',str(CONFIG),'--output',str(directory/'server')]
+                   '--output',str(directory/'server'),'--server-port',str(plan.get('server_port',8051)),
+                   '--engine-port',str(plan.get('engine_port',8026))]
+        if plan.get('profile'):servercmd+=['--profile',plan['profile']]
+        else:servercmd+=['--campaign-config',str(CONFIG)]
         # Inherit this owned stage process group, so outer timeout cleanup reaches
         # server/model workers even when their parent has exited unexpectedly.
         with (directory/'server.log').open('w') as log:server=subprocess.Popen(servercmd,stdout=log,stderr=subprocess.STDOUT)
@@ -146,7 +149,7 @@ def stage_worker(directory):
         while True:
             if server.poll() is not None:raise RuntimeError('Server exited during initialization')
             try:
-                with opener.open('http://127.0.0.1:8051/health',timeout=2) as response:
+                with opener.open(f"http://127.0.0.1:{plan.get('server_port',8051)}/health",timeout=2) as response:
                     if response.status==200:break
             except Exception:pass
             if time.monotonic()-started>300:raise TimeoutError('Server readiness exceeded 300 seconds')
@@ -157,7 +160,7 @@ def stage_worker(directory):
             raise ValueError('Model loading audit differs')
         for spec in plan['cases']:
             name=spec['name'];out=directory/name;out.mkdir()
-            cmd=command(spec['scenario'],out/'client',spec['number'],spec.get('source'))
+            cmd=command(spec['scenario'],out/'client',spec['number'],spec.get('source'),plan.get('server_port',8051))
             result['cases'][name]={'command':cmd,'status':'running'};write(directory/'results.json',result)
             auditpath=directory/'server/batches.jsonl';offset=auditpath.stat().st_size if auditpath.exists() else 0
             logfile=out/'client.log';print('CLIENT',name,'log',logfile,flush=True)
