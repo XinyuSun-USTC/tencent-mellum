@@ -44,3 +44,5 @@ Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md
 GPU1待运行：[26 候选HTTP容量诊断](plan/26_candidate_http_capacity.md)，独立next工作区提交9a3b3ca；smoke→A64→C20，35分钟执行预算，24项CPU检查与真实输入prepare/hash检查通过，不作为正式ABC成绩。
 
 当前功能结果：[性能22](../report/performance/22_fused_moe_humaneval.md)，完整HumanEval配对达到本地2pp门槛；下一步按计划26完成候选HTTP容量诊断。
+
+GPU0待运行：[27 前缀缓存兼容与定向试验](plan/27_prefix_cache_gpu0.md)，独立prefix工作区80cd14c，57项相关CPU检查和真实输入prepare-only通过；GPU1的next工作区不修改。
