@@ -4,7 +4,9 @@
 
 ## 当前阅读入口
 
-当前实验：[17 直接索引decode一次D200补证](plan/17_indexed_decode_d200_followup.md)：已完成，见[性能15](../report/performance/15_indexed_decode_d200.md)：总体位置78.23%、完整序列53.5%，当前直接索引版本停止晋级。保留共享路由，下一主线prefill专家GEMM/调度开销。
+当前工作：[18 EvalScope客户端与A/B/C基线接入](plan/18_evalscope_client_and_abc_baseline.md)：已准备独立安装器、实际源码/请求/流式探针、原题命令和长度清单；工具网络受限，先由用户终端安装并CPU审计，暂不启动正式GPU负载。
+
+上一轮：[17 直接索引decode一次D200补证](plan/17_indexed_decode_d200_followup.md)：已完成，见[性能15](../report/performance/15_indexed_decode_d200.md)：总体位置78.23%、完整序列53.5%，当前直接索引版本停止晋级。保留共享路由，下一主线prefill专家GEMM/调度开销。
 
 上一批MoE：[16 MoE路由共享与decode直接索引](plan/16_moe_routing_and_indexed_decode.md)：批次已完成，见[性能14](../report/performance/14_moe_routing_and_indexed_decode.md)：共享路由D200与CPD逐条200/200相同，短/长ABBA加速1.092×/1.047×；直接索引候选局部快，但尚无D200结论。默认未切换。
 

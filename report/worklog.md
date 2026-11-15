@@ -104,3 +104,5 @@
 - 按性能14建议准备indexed_decode一次D200补证：新增独立入口，核对与上批相同ATOM数学源码/配置、200输入hash及HF/CPD/R缓存；仅一个GPU job、正常greedy64与实际indexed_triton/batch32审计。分支只看总体位置≥90%，序列/长短/来源单列，不使用原CPD相对下降筛选，不自动追加性能或服务任务。CPU入口/恢复/判定测试及prepare-only通过；候选数学未改，GPU尚未运行。详见[计划17](../docs/plan/17_indexed_decode_d200_followup.md)。
 
 - indexed D200补证133034：一个GPU worker/227.38秒完成，200条全部64token；10产物/237源码及226条与上批一致的推理指纹核验通过，实际indexed_triton decode32/8正常，5631加载审计通过。总体10013/12800=78.2266%、完整107/200=53.5%，短81.2593%/长62.3047%；当前版本明确未过本地90%位置门槛。相同200输出前16/32/64token匹配95.34%/89.16%/78.23%，说明短生成不能外推完整64。按计划停止I版本晋级，不追加ABBA/HTTP/功能长测，保留R与CPD，下一主线prefill专家GEMM/调度开销。见[性能15](performance/15_indexed_decode_d200.md)。本轮只分析归档，无新GPU或数学修改。
+
+- 按题目转入A/B/C基线接入：重新提取PDF第4–6页命令，核对官方EvalScope源码发现A的dataset路径/注册插件及JSONL请求语义需适配，C180秒为每请求超时。原始A512/C200 prompt均含换行；A裸507/chat505条满足512–4096，不能静默丢弃或改长度。开发独立客户端安装器（evalscope1.15.0、客户端TF5.10.1）、实际安装源码/请求/B随机长度/SSE reasoning计时审计、CPU协议manifest及稳定R配置。工具网络Operation not permitted且本地未安装，真实安装需用户终端；GPU runner须待真实发布包审计后完成，未冒称已可正式测量。见[计划18](../docs/plan/18_evalscope_client_and_abc_baseline.md)。本轮无GPU或推理数学修改；12项协议/服务CPU回归及prepare-only通过，实际发布包探针待用户终端安装后运行。
