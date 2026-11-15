@@ -1833,6 +1833,11 @@ class ModelRunner:
         bs = context.batch_size
         is_prefill = context.is_prefill
         positions = context.positions
+        campaign = getattr(self.model, "_mellum_campaign", None)
+        if campaign is not None:
+            if not self.enforce_eager:
+                raise ValueError("Mellum campaign requires eager execution")
+            campaign.begin(batch, forward_context, input_ids)
 
         if (
             is_prefill
@@ -1923,6 +1928,8 @@ class ModelRunner:
                 else:
                     logits = self.model.compute_logits(hidden_states)
 
+        if campaign is not None:
+            campaign.end(logits)
         return logits, hidden_states
 
     def postprocess(

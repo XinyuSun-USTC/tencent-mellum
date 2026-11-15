@@ -29,7 +29,7 @@ def prepare(source=SOURCE):
         'model_config_sha256':data['model_config_sha256'],'reference_environment':data['environment']}
 
 
-def drive_window(engine,cases,params,window,on_progress):
+def drive_window(engine,cases,params,window,on_progress,on_submit=None):
     """Map live seq IDs explicitly, replenish only after requests complete."""
     next_index=0;mapping={};results={};submissions=[];completions=[];start=time.monotonic()
     if engine.io_processor.requests:raise RuntimeError('Engine is not initially idle')
@@ -40,7 +40,24 @@ def drive_window(engine,cases,params,window,on_progress):
         group=cases[next_index:next_index+capacity]
         if not group:return
         before=set(engine.io_processor.requests)
-        engine.add_request([r['input_ids'] for r in group],[params(r) for r in group])
+        if on_submit is None:
+            engine.add_request([r['input_ids'] for r in group],[params(r) for r in group])
+        else:
+            # EngineCore runs asynchronously: publish observer identity BEFORE
+            # dispatch, not after add_request (which can race first prefill).
+            original=engine.core_mgr.add_request
+            def dispatch(reqs):
+                if len(reqs)!=len(group):raise RuntimeError('Pre-dispatch request count differs')
+                anticipated=dict(mapping)
+                for offset,(req,row) in enumerate(zip(reqs,group)):
+                    if list(req.token_ids[:len(row['input_ids'])])!=row['input_ids']:
+                        raise RuntimeError('Pre-dispatch input mapping differs')
+                    anticipated[req.id]=next_index+offset
+                on_submit({seq_id:cases[index] for seq_id,index in anticipated.items()})
+                return original(reqs)
+            engine.core_mgr.add_request=dispatch
+            try:engine.add_request([r['input_ids'] for r in group],[params(r) for r in group])
+            finally:engine.core_mgr.add_request=original
         ids=sorted(set(engine.io_processor.requests)-before)
         if len(ids)!=len(group):raise RuntimeError('Submission identity mismatch')
         for offset,(seq_id,row) in enumerate(zip(ids,group)):

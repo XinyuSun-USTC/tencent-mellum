@@ -122,3 +122,52 @@ CP/CD/CPD最多3个worker先跑，两组各16token；CL/CE最多再2个。若A�
 5. 只有以上检查完成，才提供真实入口（拟名`run_mellum_batch_campaign.py`，**当前尚不存在、不可执行**）。不让用户在每个小组件完成后就手工试跑。
 
 本轮无新的GPU命令；完整批次开发交付后再一次启动。
+
+## 开发交付（2026-11-15）
+
+以上“当前尚不存在”描述保留为立项时状态。现已实现总入口：[run_mellum_batch_campaign.py](../../scripts/run_mellum_batch_campaign.py)。本轮未运行GPU；首次GPU结果仍可能暴露环境或数值问题，实验完成不保证自动修复。
+
+一次启动：
+
+```bash
+/opt/venv/bin/python /workspace/scripts/run_mellum_batch_campaign.py
+```
+
+默认使用逻辑GPU0，顺序运行，累计GPU worker预算90分钟，最多14次启动；先按30–60分钟估算。每15秒输出当前worker耗时、日志大小。默认每job上限1200秒，受剩余总预算约束。正常结束只需回传根`RESULT ... output ...`路径，报告、矩阵、首差及各job原始结果均在该目录。
+
+只准备输入、来源和调度说明（不导入ATOM/启动GPU）：
+
+```bash
+/opt/venv/bin/python /workspace/scripts/run_mellum_batch_campaign.py --prepare-only
+```
+
+中断后恢复：
+
+```bash
+/opt/venv/bin/python /workspace/scripts/run_mellum_batch_campaign.py --resume /workspace/results/mellum_batch_campaign/实际批次目录
+```
+
+恢复验证输入、HF目标logits、相关源码、模型配置与索引、GPU逻辑选择及成功产物hash；已完成job不会重跑。累计已记录耗时/worker次数不会因resume重置；失败尝试移动到`attempt_N/`。源码修改后应创建新批次，不跨数学版本恢复。硬中断发生在计时落盘前时，该次未落盘尾段无法精确计入累计时长，这一边界需人工留意。
+
+### 已落地的控制与观察
+
+- [mellum_campaign.py](../../ATOM/atom/model_config/mellum_campaign.py)：仅显式`MELLUM_BATCH_CAMPAIGN_CONFIG`安装，默认不存在任何hook或shape控制。CP/CD/CPD、CL/CE按真实请求边界切分L/E；可选norm/head均事先实现。head先按全局cu选择末行，再按请求调用原TP1 tuned GEMM，避免原head重复选行。
+- [ModelRunner.run_model](../../ATOM/atom/model_engine/model_runner.py)：在真实ScheduledBatch和forward context均可取得的位置开始/结束观察。旧单请求layer dump的保护保持原样。所有控制要求eager，无Graph/TP扩展。
+- 观察bs1/32的原样自然生成，目标固定HumanEval 2/13/21与L32第一条；每组重复两次、每目标前8步。保存last-row hidden/norm/QKV、attention context与O、router/experts、residual两分量与materialized sum、全词表目标logits、实际req/row/slot/block元数据。这里的“首差”是**所观察末行边界的首差**，不宣称遍历全部prefill token后找到全网络最早变化。
+- 映射在`core_mgr.add_request`实际dispatch前原子发布，避免异步EngineCore抢先prefill。只在探针worker临时包装该次提交函数，不改变默认提交方式。
+- 原HF四目标前8步logits文件在prepare时核验sha，分析时再核验；同历史才计算bs1/bs32/HF误差、均值漂移、中心化RMS、top2及margin。relative-L2超过1e-3仅作定位标注，**不是正确性验收条件**。
+- 若首个观察差异为attention context，使用唯一可选CX配额做目标层真实paged KV跟进：同worker依次bs1/32、相同S32/L32自然生成，保留同历史的目标层窗口KV；该分支不同时加norm/head扩展。每探针worker最多768MiB张量，三个观察worker合计至多2.25GiB，为trace留空间；截断明确标记覆盖不足。数值差异不能单独证明缓存映射错误。
+
+### 自动决策与输出边界
+
+bs1需复现S32/L32全部参考前16token且重复稳定，bs32需重复稳定且实测decode32，才进入依赖它们的shape归因。该条件仅决定**诊断能否作因果对照**，不是把题目90%门槛升级为100%。独立A规模对照仍完成。
+
+CP/CD/CPD跑完，取两组较差一致率更高的phase方案决定CL/CE隔离phase。候选需两组均不回退、至少一组改善、重复稳定和实际batch核验通过，最多两项进入D200。若原B0两组已≥90%，允许其作为D200对照。D200位置≥90%只表示本地开发口径可进入后续分支，完整序列比例仍单列。
+
+D阶段一个worker内先固定K4，再分别预热并计时原B0/候选S32两次；所有计时均关闭张量probe与活动profiler。为同模型切换控制，两个配置均承担相同的控制文件读取/边界管理开销，因此仅作开发代价对照，不冒充无插桩正式吞吐。随后用ATOM原生start/stop profile及rank0回执，在**ModelRunner子进程**采集另一段batch32、2输出token trace；检查真实GPU kernel和模块标记后才接受trace。HTTP worker携带同候选配置，复用已有顺序/SSE/并发/chat/pending回归。
+
+每job结果记录逐请求输出、完成顺序、实际batch、两次稳定性、原始TTFT/TPOT/latency及墙钟；根目录输出`manifest.json`、`summary.json`、`report.md`、`matrix.csv`、`first_difference.json`和`runner.log`。失败编译隔离，OOM/HIP/无GPU等环境问题停止依赖任务；进程清理只针对本runner新建的进程组，包括父进程已退出的遗留子进程。
+
+本批不自动实施性能后端替换、不跑正式A/C或完整HumanEval、不修改冻结库，也不自动切换服务默认控制。若预置矩阵不能恢复准确性，根状态为`complete_with_unresolved`；预算耗尽、环境阻塞分别报告，不能将跳过检查当通过。
+
+交付CPU验证：28项相关测试通过（campaign 16项、batch200/serving/process runner回归12项）；最终prepare-only核验S32=32、L32=32、K4=4、D200=200及四目标32份缓存logits，未启动GPU。另有58项ATOM Mellum模型/config/attention/batch/experts/projection回归通过，共86项。最终prepare目录为`/workspace/results/mellum_batch_campaign/20261115T042308376455Z`。额外检查`py_compile`与`git diff --check`通过。实际GPU执行与控制是否改善一致率均待本批验证。

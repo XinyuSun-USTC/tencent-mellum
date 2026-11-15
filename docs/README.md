@@ -4,7 +4,7 @@
 
 ## 当前阅读入口
 
-当前开发计划：[15 一次启动的批量准确性实验批次](plan/15_batch_accuracy_campaign.md)：一次开发观察器、shape控制、DAG调度与分析器，最多14个GPU worker、90分钟总预算，减少逐阶段手工运行。尚未实现总入口；现状依据[性能12](../report/performance/12_b0_batch200.md)。
+当前开发计划：[15 一次启动的批量准确性实验批次](plan/15_batch_accuracy_campaign.md)：一次开发观察器、shape控制、DAG调度与分析器，最多14个GPU worker、90分钟总预算，减少逐阶段手工运行。总入口已实现并通过CPU检查，等待一次GPU批次，命令与恢复方法见计划末节；现状依据[性能12](../report/performance/12_b0_batch200.md)。
 
 当前准确性评测：[11 代表性开发集与HumanEval](plan/11_representative_correctness_and_humaneval.md)：先跑开发200候选及独立HumanEval工具自检，避免以微观数值差异代替题目门槛。实现及GPU测试待执行边界详见该计划。
 

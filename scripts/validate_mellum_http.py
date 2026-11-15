@@ -34,7 +34,8 @@ def compare_chat_renderings(message,stream):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--gpu',type=int,default=0);p.add_argument('--server-port',type=int,default=8051)
     p.add_argument('--engine-port',type=int,default=8026);p.add_argument('--max-seqs',type=int,choices=[1,4],default=1);p.add_argument('--prepare-only',action='store_true')
-    a=p.parse_args();out=Path('/workspace/results/mellum_http_validation')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
+    p.add_argument('--campaign-config',type=Path);p.add_argument('--output',type=Path)
+    a=p.parse_args();out=a.output or Path('/workspace/results/mellum_http_validation')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
     cases=prepare()[:2]
     from transformers import AutoTokenizer
     tokenizer=AutoTokenizer.from_pretrained(MODEL,local_files_only=True,trust_remote_code=False)
@@ -44,6 +45,7 @@ def main():
         '--server-port',str(a.server_port),'--engine-port',str(a.engine_port),'--max-num-seqs',str(a.max_seqs),
         '--max-model-len','1152','--max-batched-tokens','4096','--output',str(out/'server')]
     if a.max_seqs>1:command+=['--batching','--batch-audit']
+    if a.campaign_config:command+=['--campaign-config',str(a.campaign_config)]
     result={'status':'prepared','scope':'Small HTTP smoke, not A/B/C performance or public accuracy acceptance',
             'command':command,'cases':cases,'requests':[]}
     def save():(out/'summary.json').write_text(json.dumps(result,indent=2)+'\n')

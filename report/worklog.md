@@ -92,3 +92,5 @@
 - B0 batch200 034222：200提交/完成、最多outstanding32、真实decode32，5631加载审计通过；未启用点1，位置9579/12800=74.8359%、序列88/200=44%，短输入77.56%、长输入60.55%。代表性开发门槛未达，暂不进正式性能基准。归档[性能12](performance/12_b0_batch200.md)，下一轮只做前32中少量最早首差、最多8输出的真实prefill/decode对照，区分逻辑与shape数值原因；未新增GPU或改数学，不追加bitwise门槛。
 
 - 用户要求减少介入频次：形成[计划15](../docs/plan/15_batch_accuracy_campaign.md)，一次开发batch-aware探针、通用phase/linear/experts shape控制、自动DAG/分析/断点续跑；4规模+最多6控制+2代表性200+2回归/profile，最多14GPU worker，预算30–60分钟/硬上限90分钟。复用HF，按同历史首差分析，不改代码刷数据、不新加bitwise门槛、默认不跑完整A/C或HumanEval。当前仅方案，runner尚未开发，无新GPU。
+
+- 计划15开发交付：新增默认关闭的真实请求shape控制与batch-aware观察器、异步dispatch前ID发布、缓存HF前8步logits核验、4规模+条件矩阵+最多2项D200+候选计时/真实子进程trace/HTTP的统一入口；累计90分钟与14worker预算、hash恢复、失败隔离和自有进程组清理。GPU未运行，默认后端/冻结库未改。CPU假worker覆盖完整14分支、参考复现失败止步、预算/恢复/损坏产物/失败重试、同历史过滤与head/cu语义；28项脚本CPU测试、58项ATOM Mellum回归（合计86项）及prepare-only通过，详见计划15交付记录。下一步用户只需运行总入口并回传根RESULT。

@@ -494,6 +494,9 @@ class MellumForCausalLM(nn.Module):
             self.model.make_empty_intermediate_tensors
         )
         self._install_load_audit()
+        if os.getenv("MELLUM_BATCH_CAMPAIGN_CONFIG"):
+            from atom.model_config.mellum_campaign import install
+            install(self)
 
     def _install_load_audit(self):
         from atom.model_loader.loader import default_weight_loader

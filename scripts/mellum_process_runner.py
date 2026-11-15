@@ -38,3 +38,8 @@ def run_stage(stage,command,log_path,timeout=300,heartbeat=15,allowed_exit_codes
                     try:os.killpg(child.pid,signal.SIGKILL)
                     except ProcessLookupError:pass
                     child.wait(timeout=3)
+
+            # A failed parent can leave its owned model workers alive. The
+            # session belongs to this stage; never clean up other GPU processes.
+            try:os.killpg(child.pid,signal.SIGKILL)
+            except ProcessLookupError:pass
