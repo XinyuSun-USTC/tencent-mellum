@@ -118,3 +118,5 @@
 
 - 原生主路径代码在独立commit cb09aed交付：GPU0工作区tencent-mellum-native、GPU1同快照tencent-mellum-native-attention；整批FusedMoE保留Torch gate/路由（BF16舍入后FP32传AITER），原生Attention保留参考RoPE/KV写入、替换varlen/paged计算。117项相关CPU检查通过，两份prepare-only通过，计划21给出命令/60分钟预算；主R工作区只同步文档，冻结库和主R推理源码未改，GPU尚未执行。
 - 原生两卡批次完成：MoE184205累计26.82分钟，批量1.4663×、D200位置72.36%；Attention184214累计26.45分钟，批量1.4507×、D200位置71.38%。均低于90%不晋级。MoE256重复S1/S32/L32分别1/1、31/32、29/32输出变化，Attention全相同；尚不能据此断言具体kernel根因。98产物/476源码hash通过，性能19归档；无追加GPU/数学修改。
+
+- 计划22有界诊断入口交付：独立GPU0固定layer0/路由12次Opus/CK回放、stage metadata和短trace（15分钟）；GPU1仅prefill/仅decode各D200，达到90%者才256性能（45分钟）。120项CPU检查及195403/195402两份prepare-only通过，53b6833及排序前缀补丁1cac5e2/c300a25；主R源码未改，无新GPU实测。
