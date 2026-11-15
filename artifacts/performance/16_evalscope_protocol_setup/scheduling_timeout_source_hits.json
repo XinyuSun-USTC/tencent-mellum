@@ -1,0 +1,112 @@
+[
+  {
+    "file": "perf/arguments.py",
+    "line": 94,
+    "text": "total_timeout: Optional[int] = 6 * 60 * 60"
+  },
+  {
+    "file": "perf/arguments.py",
+    "line": 164,
+    "text": "open_loop: bool = False"
+  },
+  {
+    "file": "perf/arguments.py",
+    "line": 543,
+    "text": "if self.exclude_warmup_overlap and (self.open_loop or self.multi_turn or self.scenario):"
+  },
+  {
+    "file": "perf/arguments.py",
+    "line": 729,
+    "text": "if self.multi_turn and self.open_loop:"
+  },
+  {
+    "file": "perf/arguments.py",
+    "line": 735,
+    "text": "if self.open_loop:"
+  },
+  {
+    "file": "perf/arguments.py",
+    "line": 736,
+    "text": "self._validate_open_loop_sweep_params()"
+  },
+  {
+    "file": "perf/arguments.py",
+    "line": 740,
+    "text": "def _validate_open_loop_sweep_params(self) -> None:"
+  },
+  {
+    "file": "perf/core/http_client.py",
+    "line": 34,
+    "text": "self.total_timeout = args.total_timeout"
+  },
+  {
+    "file": "perf/core/http_client.py",
+    "line": 52,
+    "text": "client_timeout = aiohttp.ClientTimeout("
+  },
+  {
+    "file": "perf/core/http_client.py",
+    "line": 53,
+    "text": "total=self.total_timeout, connect=self.connect_timeout, sock_read=self.read_timeout"
+  },
+  {
+    "file": "perf/core/http_client.py",
+    "line": 104,
+    "text": "f'TimeoutError: total_timeout: {self.total_timeout}, connect_timeout: {self.connect_timeout}, read_timeout: {self.read_timeout}. Please set longer timeout.'  # noqa: E501"
+  },
+  {
+    "file": "perf/core/strategies/__init__.py",
+    "line": 4,
+    "text": "from evalscope.perf.core.strategies.open_loop import OpenLoopStrategy"
+  },
+  {
+    "file": "perf/core/strategies/closed_loop.py",
+    "line": 238,
+    "text": "intervals = np.random.exponential(1.0 / rate, size=n)"
+  },
+  {
+    "file": "perf/core/strategies/closed_loop.py",
+    "line": 270,
+    "text": "last_target += float(np.random.exponential(1.0 / rate))"
+  },
+  {
+    "file": "perf/core/strategies/multi_turn.py",
+    "line": 148,
+    "text": "interval = np.random.exponential(1.0 / self.args.rate)"
+  },
+  {
+    "file": "perf/core/strategies/open_loop.py",
+    "line": 19,
+    "text": "async def _send_request_open_loop("
+  },
+  {
+    "file": "perf/core/strategies/open_loop.py",
+    "line": 78,
+    "text": "``await asyncio.sleep(np.random.exponential(1/rate))`` in every"
+  },
+  {
+    "file": "perf/core/strategies/open_loop.py",
+    "line": 127,
+    "text": "_send_request_open_loop("
+  },
+  {
+    "file": "perf/core/strategies/open_loop.py",
+    "line": 139,
+    "text": "_send_request_open_loop(request, is_warmup, self.queue, self.client, self.track_gpu_memory)"
+  },
+  {
+    "file": "perf/core/strategies/open_loop.py",
+    "line": 144,
+    "text": "intervals = np.random.exponential(1.0 / rate, size=n)"
+  },
+  {
+    "file": "perf/core/strategies/open_loop.py",
+    "line": 148,
+    "text": "#    This eliminates the 1-2% bias that ``np.random.exponential``"
+  },
+  {
+    "file": "perf/core/strategies/open_loop.py",
+    "line": 180,
+    "text": "_send_request_open_loop(request, is_warmup, self.queue, self.client, self.track_gpu_memory)"
+  }
+]

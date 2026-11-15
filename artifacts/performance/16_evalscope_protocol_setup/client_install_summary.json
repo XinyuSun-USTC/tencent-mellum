@@ -1,0 +1,758 @@
+{
+  "status": "client_audit_complete",
+  "python": "/workspace/venvs/evalscope-perf/bin/python",
+  "evalscope": "1.15.0",
+  "transformers": "5.10.1",
+  "source": "https://pypi.org/project/evalscope/1.15.0/",
+  "gpu_inference_started": false,
+  "scope": "Client installation/source and protocol audit only; no GPU benchmark",
+  "install_command": [
+    "/workspace/venvs/evalscope-perf/bin/python",
+    "-m",
+    "pip",
+    "install",
+    "--retries",
+    "1",
+    "--timeout",
+    "30",
+    "--report",
+    "/workspace/results/mellum_perf_client/20261115T144518825402Z/pip_report.json",
+    "evalscope[perf]==1.15.0",
+    "transformers==5.10.1"
+  ],
+  "audit": {
+    "status": "audit_complete",
+    "python": "/workspace/venvs/evalscope-perf/bin/python",
+    "prefix": "/workspace/venvs/evalscope-perf",
+    "versions": {
+      "evalscope": "1.15.0",
+      "transformers": "5.10.1",
+      "aiohttp": "3.14.0",
+      "pydantic": "2.13.4",
+      "numpy": "2.4.6"
+    },
+    "gpu_inference_started": false,
+    "issues": [
+      "A literal --dataset filepath is not a registered dataset in this release",
+      "A original JSONL is not transmitted as its prompt field",
+      "C original JSONL is not transmitted as its prompt field",
+      "A has prompts outside length bounds after chat rendering; filter/cycle behavior must be explicit",
+      "Pinned release is a local client choice; assessment did not specify evaluator version. Full GPU command translation awaits source review."
+    ],
+    "protocol_ready_for_full_gpu": false,
+    "package": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope",
+    "source_sha256": {
+      "perf/__init__.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "perf/arguments.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/arguments.py",
+        "sha256": "d58c9bcfb5e208b5d510591000b34b4f0df158215ca74a46c80c0a625c6488e9"
+      },
+      "perf/benchmark.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/benchmark.py",
+        "sha256": "38bdaf8cbfa44c7af0246dfc85bab894acb60f2eee079d9a6b624938abf2514d"
+      },
+      "perf/core/__init__.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/__init__.py",
+        "sha256": "4d55f9139f5df2f4a32306ebd5c7769c00d2573d95f948863aac66db5b80063f"
+      },
+      "perf/core/http_client.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/http_client.py",
+        "sha256": "ee23c6280028a03c9995d9f0d69b90d975e244936465560ee019d1efba71d5e0"
+      },
+      "perf/core/metrics_consumer.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/metrics_consumer.py",
+        "sha256": "f63e0d8c3bc42944ddbbb347a73c3cb52c0a2e746ee80098c92f0ac48743a3b3"
+      },
+      "perf/core/pipeline.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/pipeline.py",
+        "sha256": "51fe66546160edf7f377b3b4f0374ffaa9467d937ced073cf0845eea36f43fb8"
+      },
+      "perf/core/strategies/__init__.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/strategies/__init__.py",
+        "sha256": "5be4099503b33bc101d2081abde03535e7b47069a6bd2adefe94c66579712654"
+      },
+      "perf/core/strategies/base.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/strategies/base.py",
+        "sha256": "3eccd333dcfa554c91c209a9637e4c850ff39d3c1551e5a84b56c9c83891b610"
+      },
+      "perf/core/strategies/closed_loop.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/strategies/closed_loop.py",
+        "sha256": "bc1bb35fea8a9cc915d91a59116f82dbec8505001493ec103e5299f32d6d70d1"
+      },
+      "perf/core/strategies/multi_turn.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py",
+        "sha256": "4d0ff847431bb1cce71429d164125fbb0d4430ab859e8585be282edb07fd1149"
+      },
+      "perf/core/strategies/open_loop.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/strategies/open_loop.py",
+        "sha256": "de5a17d8a696e4c0fe5e24a283cf998abb4579a7f1d8eb94f094c548cba2418a"
+      },
+      "perf/main.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/main.py",
+        "sha256": "4b099fad85a1e11ea7443a4a276775ff704bd4d2c7aaecf27c5b0375374da26a"
+      },
+      "perf/multi_turn_args.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/multi_turn_args.py",
+        "sha256": "22911a0e4c8363857a8a4abf953ecc980f97fddfcc018dcb31026ff8b577a17d"
+      },
+      "perf/multi_turn_benchmark.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/multi_turn_benchmark.py",
+        "sha256": "79257bc258da42f59fca53615b1ca0dceeecf6fed2540454eaf26e2aaf68a696"
+      },
+      "perf/plugin/__init__.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/__init__.py",
+        "sha256": "ac4bb826dc88c9acb7d6fb9f0d006aa21ef8808506f35bd0ee7119bc3ad5abe8"
+      },
+      "perf/plugin/api/__init__.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/__init__.py",
+        "sha256": "1def18d5795fbf804c174191769edc0c6ac5efbe63a4e45ddfaa616ac9ca6fbf"
+      },
+      "perf/plugin/api/base.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/base.py",
+        "sha256": "80f459071cbfb4f4d5cac20c9f6cd3c2b556a5c1c29b9e491828ad520ed99bf9"
+      },
+      "perf/plugin/api/custom_api.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/custom_api.py",
+        "sha256": "af5f27cfa19103e696628a74e45c94b70aa56324d726ff0767c72d1c6066c267"
+      },
+      "perf/plugin/api/dashscope_api.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/dashscope_api.py",
+        "sha256": "d94b74618d9c5f4925a8dacd98dbb3604ff8a3b4171e166bedf06d0f0c0300ff"
+      },
+      "perf/plugin/api/decision_api.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/decision_api.py",
+        "sha256": "e94d732410b00f299ad6e484fb418708dd88d1e7275a0a696684edc67e8c2987"
+      },
+      "perf/plugin/api/default_api.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py",
+        "sha256": "1499d3fde6c560fec3a1019b184f70ddfe2a667dcdca3f55f336485f39fa8384"
+      },
+      "perf/plugin/api/openai_api.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/openai_api.py",
+        "sha256": "37e8d3447913c136c3555ac88e052589e48c46d1cfda85911cf245165a47c913"
+      },
+      "perf/plugin/api/openai_embedding_api.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/openai_embedding_api.py",
+        "sha256": "b21c33047d91628592f5a61a88d82bfb82597e14ca8314caec6153c3e7480302"
+      },
+      "perf/plugin/api/openai_rerank_api.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/openai_rerank_api.py",
+        "sha256": "b11a81c9dff8cdc305e789bbe4700c5aa24d4e6aa77dc095efc263315cb2e105"
+      },
+      "perf/plugin/api/openai_responses_api.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/openai_responses_api.py",
+        "sha256": "5afcc45ef2eed23ff757531994edfb33b03e9c35b0d61d9cbbd73e202e2fd5ab"
+      },
+      "perf/plugin/datasets/__init__.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/__init__.py",
+        "sha256": "0c91f468c7516cc768824c1fbf14e91fbe1ab9d7b60512b8fa002d2d45e15e88"
+      },
+      "perf/plugin/datasets/base.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/base.py",
+        "sha256": "6f80a14597b5cfda98c47fc6f3a3b6711b1126b7191068682e6c9c183715dd07"
+      },
+      "perf/plugin/datasets/custom.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/custom.py",
+        "sha256": "8759039cef172900479399bc132f587f54cdf064966268132ea985f03cd59888"
+      },
+      "perf/plugin/datasets/dataset_args.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/dataset_args.py",
+        "sha256": "2c7332ce71fd63c417051da0307768bb1251e05dd2df3486747a1eee71d8d8bc"
+      },
+      "perf/plugin/datasets/embedding_dataset.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/embedding_dataset.py",
+        "sha256": "a695965b1fd6eaa29a900744b67713b4319eb62b55d0ad292d37a3c5252967f6"
+      },
+      "perf/plugin/datasets/flickr8k.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/flickr8k.py",
+        "sha256": "9fad8384779e4d56a31c13d884e6359962f66ef07393b4c9a7831dea5c23cb0f"
+      },
+      "perf/plugin/datasets/kontext_bench.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/kontext_bench.py",
+        "sha256": "8a6cff23a73563c4d07f8f7f2f0a3e05ada53ea7473b897249a44678783eba8c"
+      },
+      "perf/plugin/datasets/line_by_line.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/line_by_line.py",
+        "sha256": "ff0cbcfbf6510a18734be884c4e4868c5b847f56ba7ccff1739892dd7669f208"
+      },
+      "perf/plugin/datasets/longalpaca.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/longalpaca.py",
+        "sha256": "2ceceef86cf4d1406d49316c5a101aa2400f83e47ad367c9c071c7da4dbcb485"
+      },
+      "perf/plugin/datasets/mmmu_multi_image.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/mmmu_multi_image.py",
+        "sha256": "53d8ad35498abd12a7ee0599a250c8860a483d85a9188dec330ceaf95569d976"
+      },
+      "perf/plugin/datasets/multi_turn.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/multi_turn.py",
+        "sha256": "a2019c6c4603b435502c5159cc861fabdf404451e5143a4c8cc48ac96a801255"
+      },
+      "perf/plugin/datasets/open_decisions.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/open_decisions.py",
+        "sha256": "82606fbcb747080cf388e83a3cb3169123920ae42b90ac4926b8d79cdf6b6d9d"
+      },
+      "perf/plugin/datasets/openqa.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/openqa.py",
+        "sha256": "a96d2bf8c3af58ef9ebe609a839cb907550fad12e4d9dae1cfad84e50919b5fe"
+      },
+      "perf/plugin/datasets/random_dataset.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/random_dataset.py",
+        "sha256": "a3d6f4be3c73c3541b35260166bdc08a1aab2064c8383379fa4acec3b2e7071c"
+      },
+      "perf/plugin/datasets/random_vl_dataset.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/random_vl_dataset.py",
+        "sha256": "a73abca20093395acee085b7bb686eba4e7bcd01989bbfec2020765c789ccf1b"
+      },
+      "perf/plugin/datasets/rerank_dataset.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/rerank_dataset.py",
+        "sha256": "6c248d30943c1434bf21bc87ac2c03b1cae60e6f6ff96c14f87a35c0c855aecc"
+      },
+      "perf/plugin/datasets/share_gpt.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/share_gpt.py",
+        "sha256": "697e80962c39e74f11e20a9314b6b7a5e8cc4986c48049d998d91453ef21e110"
+      },
+      "perf/plugin/datasets/speed_benchmark.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/speed_benchmark.py",
+        "sha256": "d16d7f5c6492ab6cfe308cde7e433316f23496da84990008411763b5f4a3b6f1"
+      },
+      "perf/plugin/datasets/swe_smith.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/swe_smith.py",
+        "sha256": "9f03db868d157edcbbb81d385ebcf1f2f9c6facaf5434c158907f2c3966918d0"
+      },
+      "perf/plugin/datasets/trie.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/trie.py",
+        "sha256": "a02623a3f6a5db85ea0f6829204360fd3ff181377917a24d0c07a4fb8ed4500d"
+      },
+      "perf/plugin/datasets/utils.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/utils.py",
+        "sha256": "f0d2f2ec9ceda4fb601f768b3a3c59a5e8f6f3a45c33d34adcc25390b7e0ac43"
+      },
+      "perf/plugin/datasets/workload_trace.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/workload_trace.py",
+        "sha256": "b4582847d05f25a9c3757f5fad5171e3941d1b37ba2d1fd7f12e1a66e8b6a3af"
+      },
+      "perf/plugin/registry.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/registry.py",
+        "sha256": "2ad76bb29d61ab6645c460534df614f19acdade24b64af69bad73fa85b535580"
+      },
+      "perf/scenarios/__init__.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/scenarios/__init__.py",
+        "sha256": "3d3316d356b7c0fd6e7b9d56d3b7413fd779b4de9ab2e5c93ca8250e7f7e05b6"
+      },
+      "perf/scenarios/agentx.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/scenarios/agentx.py",
+        "sha256": "96c6fbcfaea77a381794326888133dc1b779c6391f7a553defc2f2b16e3c6e96"
+      },
+      "perf/sla/__init__.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/sla/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "perf/sla/sla_criterion.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/sla/sla_criterion.py",
+        "sha256": "6148efcfc194570bb43f37ad05236cc2d044ffe5e72f3d7d3384eaa4cbae8a3b"
+      },
+      "perf/sla/sla_models.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/sla/sla_models.py",
+        "sha256": "482cf837ddf85ae43fd61045b6f0afc227c9569d56421babdbde649c991adba0"
+      },
+      "perf/sla/sla_run.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/sla/sla_run.py",
+        "sha256": "b86f20888e8444f4383f24b199f94d98b189231522d0f1ca79cb35a96bbdbcd6"
+      },
+      "perf/utils/__init__.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "perf/utils/analysis_result.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/analysis_result.py",
+        "sha256": "a5acaf6f91a71c41e054f13075cf1df4e7fc2b2fdb22cb2dfe4b6b6e52ccfa68"
+      },
+      "perf/utils/benchmark_util.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/benchmark_util.py",
+        "sha256": "53c9e3cf092c0b98b92a31cf8fbf132f87d3be7700f1d036f071df361b34b100"
+      },
+      "perf/utils/body_meta.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/body_meta.py",
+        "sha256": "427d9630cbb606aed9ea73fe5a91e01142f4c40b5605be9821d87b52db97d05e"
+      },
+      "perf/utils/db_util.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/db_util.py",
+        "sha256": "c5c54682b4dc3180b7e2d3508cf996532557057eea09ad3be0d5daac87c88f3b"
+      },
+      "perf/utils/handler.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/handler.py",
+        "sha256": "336da4c35173b10469aadefd17997464de9746737d6d0588a8d3d4d16b313825"
+      },
+      "perf/utils/local_server.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/local_server.py",
+        "sha256": "8ebe9df359315638897cb3f612ddef24bf0a45aa008beb1f6133ab85da9ff4b9"
+      },
+      "perf/utils/log_utils.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/log_utils.py",
+        "sha256": "63eb602789640f52ee6796b9f2e571a6c335803889ab08025e30cf9f3f890852"
+      },
+      "perf/utils/perf_constants.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/perf_constants.py",
+        "sha256": "0fe2a02b6c8b1c4c39920e48d4d26aa10e078416083a684cdbb449d90fe47bb9"
+      },
+      "perf/utils/perf_models.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/perf_models.py",
+        "sha256": "6b861d86201c3507033339748838b97ec9905e88b3190b5b7b8dae73e51c6bc7"
+      },
+      "perf/utils/report/__init__.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/report/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "perf/utils/report/generate_report.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/report/generate_report.py",
+        "sha256": "7a6fd1ea908f1472d48082aedd6ce1ca54ecf4fe0bfb60f84bc236234867596a"
+      },
+      "perf/utils/report/perf_charts.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/report/perf_charts.py",
+        "sha256": "e94f5e9f4c8a31031c06daae81db3474699a7a75e84f934325a315d1a82d6b12"
+      },
+      "perf/utils/report/perf_data.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/report/perf_data.py",
+        "sha256": "001349552dfce27087a5ff8add1185d89cc274cf4040a69aa4bb5e12a25a147b"
+      },
+      "perf/utils/report/summary.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/report/summary.py",
+        "sha256": "cfe8e99cc6dfb889592dbe75784b6a83e02b119f095743b2cf2c2ed29f6b05ca"
+      },
+      "perf/utils/rich_display.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/rich_display.py",
+        "sha256": "d082a1876807038b877fd9a5321b2195cf5494db43ff14e9f9998565cc553039"
+      },
+      "perf/utils/trace_metrics.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/trace_metrics.py",
+        "sha256": "e38898c792d623d3ad88027987e5947d1a33a4f269ae3e84e0b1d3f572517843"
+      },
+      "perf/utils/worker_util.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/worker_util.py",
+        "sha256": "9f981bacf9bec58b357064739e5721b4aaad78d5f9f88d7479772f8e4ba0005e"
+      },
+      "perf/utils/workload_timeline.py": {
+        "path": "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/workload_timeline.py",
+        "sha256": "405ae72a0ffdf7937b861cddc7d906be3b098eee8e8233951944a721946e7f90"
+      }
+    },
+    "help_exit_code": 0,
+    "required_flags": {
+      "--open-loop": true,
+      "--rate": true,
+      "--total-timeout": true,
+      "--dataset-path": true,
+      "--stream": true,
+      "--min-tokens": true
+    },
+    "dataset_summary": {
+      "A": {
+        "source": "/data/datasets/scenario_a_prompts.jsonl",
+        "source_sha256": "f5cb156bb468757841a321142c8813d281c0732b494d70d3c59d5b415bf7489d",
+        "records": 512,
+        "proposed_messages_file": "/workspace/results/mellum_perf_client/20261115T144518825402Z/audit/datasets/scenario_a_messages.jsonl",
+        "proposed_messages_sha256": "1eebfb8ee22d568bc469d3fb7099ac078d62413f57759d42a194b80d8f1d9829",
+        "raw_min_max": [
+          540,
+          4113
+        ],
+        "chat_min_max": [
+          548,
+          4121
+        ],
+        "A_range_valid_raw": 507,
+        "A_range_valid_chat": 505,
+        "note": "Derived messages preserve full prompt including newlines; metadata removed from API body. Proposed adaptation, not silently substituted into official commands."
+      },
+      "C": {
+        "source": "/data/datasets/scenario_c_prompts.jsonl",
+        "source_sha256": "38fc340a76fd48c025bf5806376bdabbc7762f6b5c48d4509bbb109af2cfe265",
+        "records": 200,
+        "proposed_messages_file": "/workspace/results/mellum_perf_client/20261115T144518825402Z/audit/datasets/scenario_c_messages.jsonl",
+        "proposed_messages_sha256": "80991b8b3f1ef4eecab23e9fb3b95988ae966f28679c102d32c2e501be057477",
+        "raw_min_max": [
+          4060,
+          16019
+        ],
+        "chat_min_max": [
+          4068,
+          16027
+        ],
+        "A_range_valid_raw": 2,
+        "A_range_valid_chat": 2,
+        "note": "Derived messages preserve full prompt including newlines; metadata removed from API body. Proposed adaptation, not silently substituted into official commands."
+      }
+    },
+    "literal_A_dataset_registered": false,
+    "literal_A_dataset_error": "Dataset plugin '/data/datasets/scenario_a_prompts.jsonl' is not registered.",
+    "request_probes": {
+      "A_original_jsonl": {
+        "sample_count": 3,
+        "queries": [
+          {
+            "keys": [
+              "id",
+              "ignore_eos",
+              "intended_words",
+              "max_tokens",
+              "min_tokens",
+              "model",
+              "prompt",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": false,
+            "source_prompt_preserved": false,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          },
+          {
+            "keys": [
+              "id",
+              "ignore_eos",
+              "intended_words",
+              "max_tokens",
+              "min_tokens",
+              "model",
+              "prompt",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": false,
+            "source_prompt_preserved": false,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          },
+          {
+            "keys": [
+              "id",
+              "ignore_eos",
+              "intended_words",
+              "max_tokens",
+              "min_tokens",
+              "model",
+              "prompt",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": false,
+            "source_prompt_preserved": false,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          }
+        ],
+        "apply_chat_template": true
+      },
+      "A_proposed_messages": {
+        "sample_count": 3,
+        "queries": [
+          {
+            "keys": [
+              "ignore_eos",
+              "max_tokens",
+              "messages",
+              "min_tokens",
+              "model",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": true,
+            "source_prompt_preserved": true,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          },
+          {
+            "keys": [
+              "ignore_eos",
+              "max_tokens",
+              "messages",
+              "min_tokens",
+              "model",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": true,
+            "source_prompt_preserved": true,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          },
+          {
+            "keys": [
+              "ignore_eos",
+              "max_tokens",
+              "messages",
+              "min_tokens",
+              "model",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": true,
+            "source_prompt_preserved": true,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          }
+        ],
+        "apply_chat_template": true
+      },
+      "C_original_jsonl": {
+        "sample_count": 3,
+        "queries": [
+          {
+            "keys": [
+              "id",
+              "ignore_eos",
+              "intended_words",
+              "max_tokens",
+              "min_tokens",
+              "model",
+              "prompt",
+              "shared_prefix_group",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": false,
+            "source_prompt_preserved": false,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          },
+          {
+            "keys": [
+              "id",
+              "ignore_eos",
+              "intended_words",
+              "max_tokens",
+              "min_tokens",
+              "model",
+              "prompt",
+              "shared_prefix_group",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": false,
+            "source_prompt_preserved": false,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          },
+          {
+            "keys": [
+              "id",
+              "ignore_eos",
+              "intended_words",
+              "max_tokens",
+              "min_tokens",
+              "model",
+              "prompt",
+              "shared_prefix_group",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": false,
+            "source_prompt_preserved": false,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          }
+        ],
+        "apply_chat_template": true
+      },
+      "C_proposed_messages": {
+        "sample_count": 3,
+        "queries": [
+          {
+            "keys": [
+              "ignore_eos",
+              "max_tokens",
+              "messages",
+              "min_tokens",
+              "model",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": true,
+            "source_prompt_preserved": true,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          },
+          {
+            "keys": [
+              "ignore_eos",
+              "max_tokens",
+              "messages",
+              "min_tokens",
+              "model",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": true,
+            "source_prompt_preserved": true,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          },
+          {
+            "keys": [
+              "ignore_eos",
+              "max_tokens",
+              "messages",
+              "min_tokens",
+              "model",
+              "stream",
+              "stream_options",
+              "temperature"
+            ],
+            "valid_chat_messages": true,
+            "source_prompt_preserved": true,
+            "stream": true,
+            "max_tokens": 3,
+            "ignore_eos": true,
+            "temperature": 0.0
+          }
+        ],
+        "apply_chat_template": true
+      },
+      "B_random": {
+        "queries": [
+          {
+            "query": {
+              "keys": [
+                "ignore_eos",
+                "max_tokens",
+                "messages",
+                "min_tokens",
+                "model",
+                "stream",
+                "stream_options",
+                "temperature"
+              ],
+              "valid_chat_messages": true,
+              "source_prompt_preserved": null,
+              "stream": true,
+              "max_tokens": 3,
+              "ignore_eos": true,
+              "temperature": 0.0
+            },
+            "chat_tokens": 1024
+          },
+          {
+            "query": {
+              "keys": [
+                "ignore_eos",
+                "max_tokens",
+                "messages",
+                "min_tokens",
+                "model",
+                "stream",
+                "stream_options",
+                "temperature"
+              ],
+              "valid_chat_messages": true,
+              "source_prompt_preserved": null,
+              "stream": true,
+              "max_tokens": 3,
+              "ignore_eos": true,
+              "temperature": 0.0
+            },
+            "chat_tokens": 1024
+          },
+          {
+            "query": {
+              "keys": [
+                "ignore_eos",
+                "max_tokens",
+                "messages",
+                "min_tokens",
+                "model",
+                "stream",
+                "stream_options",
+                "temperature"
+              ],
+              "valid_chat_messages": true,
+              "source_prompt_preserved": null,
+              "stream": true,
+              "max_tokens": 3,
+              "ignore_eos": true,
+              "temperature": 0.0
+            },
+            "chat_tokens": 1024
+          }
+        ],
+        "apply_chat_template": true
+      }
+    },
+    "stream_probe": {
+      "observed": {
+        "success": true,
+        "error": null,
+        "prompt_tokens": 7,
+        "completion_tokens": 3,
+        "generated_text": "thinking continuesanswer",
+        "first_chunk_latency": 0.05178868304938078,
+        "query_latency": 0.35206654598005116,
+        "time_per_output_token": 0.1501389314653352
+      },
+      "checks": {
+        "success": true,
+        "reasoning_text_preserved": true,
+        "usage_counts_preserved": true,
+        "first_observable_output_timed": true,
+        "last_content_observed": true,
+        "note": "Synthetic local SSE, three output chunks; not a GPU or model correctness test"
+      },
+      "request": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "hello"
+            }
+          ],
+          "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+          "max_tokens": 3,
+          "min_tokens": 3,
+          "stream": true,
+          "stream_options": {
+            "include_usage": true
+          },
+          "temperature": 0.0,
+          "ignore_eos": true
+        }
+      ]
+    },
+    "torch_cuda_initialized": false
+  },
+  "frozen_runtime_distributions_unchanged": true
+}

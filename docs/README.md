@@ -4,7 +4,7 @@
 
 ## 当前阅读入口
 
-当前工作：[18 EvalScope客户端与A/B/C基线接入](plan/18_evalscope_client_and_abc_baseline.md)：已准备独立安装器、实际源码/请求/流式探针、原题命令和长度清单；工具网络受限，先由用户终端安装并CPU审计，暂不启动正式GPU负载。
+当前工作：[18 EvalScope客户端与A/B/C基线接入](plan/18_evalscope_client_and_abc_baseline.md)：客户端安装与实际CPU审计已通过，新增数据兼容插件和smoke→B/A/C单入口；A505有效循环到512、C保留200、B50均1024token，版本差异透明记录。GPU待采，详见计划末节和[性能16](../report/performance/16_abc_protocol_and_client.md)。
 
 上一轮：[17 直接索引decode一次D200补证](plan/17_indexed_decode_d200_followup.md)：已完成，见[性能15](../report/performance/15_indexed_decode_d200.md)：总体位置78.23%、完整序列53.5%，当前直接索引版本停止晋级。保留共享路由，下一主线prefill专家GEMM/调度开销。
 

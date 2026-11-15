@@ -87,3 +87,59 @@
 - EvalScope官方[Arguments](https://github.com/modelscope/evalscope/blob/main/evalscope/perf/arguments.py)、[benchmark数据生成](https://github.com/modelscope/evalscope/blob/main/evalscope/perf/benchmark.py)、[line_by_line插件](https://github.com/modelscope/evalscope/blob/main/evalscope/perf/plugin/datasets/line_by_line.py)、[默认API流式解析](https://github.com/modelscope/evalscope/blob/main/evalscope/perf/plugin/api/default_api.py)、[包信息](https://pypi.org/project/evalscope/)。这些main源码只作为安装前研究依据，最终以安装包源码/hash审计为准。
 
 本轮无GPU性能结果，不升级冻结推理依赖。交付CPU验证：12项协议/服务回归通过，`py_compile`和`git diff --check`通过；R配置与已验证D200控制逐项一致。CPU协议prepare目录`/workspace/results/mellum_perf_protocol/20261115T143111840944Z`，安装计划目录`/workspace/results/mellum_perf_client/20261115T142520310848Z`；[轻量CPU证据](../../artifacts/results/mellum_perf_protocol/20261115T143111840944Z/provenance.json)。实际EvalScope导入、请求探针和SSE客户端测试均须安装后执行，未冒称通过。
+
+## 安装完成后的实施更新：单入口基线已准备
+
+用户终端第二次安装成功：`results/mellum_perf_client/20261115T144518825402Z`，EvalScope1.15.0/客户端Transformers5.10.1，冻结`/opt/venv`distribution清单前后相同。第一次失败是下载超时/代理拒绝连接，不是推理环境被改坏。实际reasoning SSE探针TTFT约0.052秒、总延迟约0.352秒、usage7输入/3输出及TPOT约0.150秒，均符合预设合成流；torch CUDA未初始化。
+
+新增[evalscope_mellum_adapter.py](../../scripts/evalscope_mellum_adapter.py)与[run_mellum_abc_baseline.py](../../scripts/run_mellum_abc_baseline.py)。前文“GPU runner尚未交付”为安装前边界；**现已实现并通过CPU准备/假worker测试，真实GPU/HTTP运行待用户执行。**
+
+### 适配是如何确定的
+
+只增加命名空间dataset插件，不改EvalScope安装源码：从原JSONL读取完整`prompt`，交给其`DatasetPluginBase.prepare_messages`做原生chat包装和长度过滤。A/C执行命令改为`--dataset mellum_assessment_jsonl --dataset-path 原始文件`；B仍为原生random。model、tokenizer、stream、ignore_eos、temperature、输出预算、并发、请求数、C rate与timeout不改。增加seed42与结果目录以便复现，题目未指定seed。
+
+实际发行版原生过滤与`benchmark.get_requests`均已在CPU执行核验：
+
+- A：505条有效，按原生循环取样达到512；排除ID为A-0015/0105/0176/0298/0382/0383/0403；循环前7条有效记录。输入未裁剪/补长，完整请求ID/hash/token清单保存。
+- C：200条全部保留、不套A过滤、不截断内容；原生生成200个请求与清单一致。
+- B：seed42，原生生成50条请求，逐条chat token长度均1024。
+
+运行后从官方SQLite `result`表独立核验实际请求多重集（允许乱序完成）、服务端usage输入长度、256输出、stream/greedy设置与记录数，避免命令参数看似正确但实际负载不同。
+
+**C发行版行为需披露**：1.15.0使用指数间隔后，将累计间隔整体缩放至`n/r`；请求无信号量背压，HTTP每请求timeout180秒。它不等于严格无条件独立Poisson间隔。本轮保留该官方发行版行为，既不私改调度器，也不声称与未指定版本的裁判完全同版。输出定位为“注明版本/适配差异的本地题目规模复现”。
+
+### 一次启动
+
+```bash
+/opt/venv/bin/python /workspace/scripts/run_mellum_abc_baseline.py
+```
+
+默认顺序：
+
+1. 一个smoke服务，依次B2条、A8条、C2条（含最大16k输入）；仍输出256token，C保持rate0.30。smoke不作正式成绩，出现参数/计数/实际并发问题就停止完整负载。
+2. smoke通过后，分别启动独立R服务完成B50、A512、C200；不同场景重启，避免超时请求遗留到下一场景。
+3. 每项保留客户端数据库/summary/percentile、服务/客户端日志、实际batch、加载审计、源码与数据hash。失败/超时保留在总数；有失败的阶段不生成有效完整官方Baseline比值，成功子集p99不掩盖失败率。
+
+这是首次完整基线，不默认把所有历史候选或每阶段三遍一起跑。预计约1–2小时，实际由当前参考式后端决定；总预算3小时，smoke/B/A/C单阶段上限分别15/30/90/30分钟。C调度本身约11分钟再等待在途请求，不能因为日志短期不增长就认为挂死。每15秒有runner及client心跳；只清理本次拥有的进程组，不杀其它GPU任务。
+
+没有活动profiler、张量probe或MoE逐步audit。保留少量layer0 batch元数据审计用于证明真实并发，其开销与配置如实记录；此处不会宣称完全零插桩。
+
+如仅想跑连通检查：
+
+```bash
+/opt/venv/bin/python /workspace/scripts/run_mellum_abc_baseline.py --smoke-only
+```
+
+完整模式中断恢复：
+
+```bash
+/opt/venv/bin/python /workspace/scripts/run_mellum_abc_baseline.py --resume /workspace/results/mellum_abc_baseline/实际运行目录
+```
+
+完成且hash有效的阶段跳过；失败尝试归档再重跑，源码、客户端、原数据、输入清单和选项需相同。累计已记录预算不重置；硬中断落盘前尾段仍有既有计时边界。`--smoke-only`批次与完整批次不混合恢复。其他安装记录可通过`--client-audit`显式指定。
+
+结果状态区分complete、complete_with_failures、smoke_failed、stage_failed、partial_budget_limited、smoke_passed；根`summary.json/report.md`含A吞吐、B TTFT/TPOT p50/p99、C尾延迟及失败统计。百分位按该发行版nearest-rank，原始官方JSON与数据库保留，不自行换算法。官方target_g字段为空，不编造计分函数。
+
+本工具环境仍无GPU且禁止loopback socket，无法代跑实际HTTP/GPU；已完成真实客户端CPU请求生成和CLI help、假SQLite/调度/恢复/预算/失败分支检查，真实连通由命令的smoke阶段验证。
+
+最终交付核验：25项相关CPU测试通过，完整模式prepare-only成功，目录`/workspace/results/mellum_abc_baseline/20261115T151514998080Z`；尚无本轮GPU性能结果。

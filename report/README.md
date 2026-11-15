@@ -4,6 +4,8 @@
 
 ## 当前入口
 
+当前基线接入：[性能16](performance/16_abc_protocol_and_client.md)：EvalScope客户端安装/CPU审计通过，题目数据适配与smoke→B/A/C入口准备完成，尚无正式GPU负载成绩。
+
 最新补证：[性能15](performance/15_indexed_decode_d200.md)：直接索引当前版本D200位置78.2266%、完整序列53.5%，未达到90%；执行/后端审计正常，停止当前版本晋级。共享路由保留，下一主线prefill专家计算开销。
 
 最新MoE实验：[性能14](performance/14_moe_routing_and_indexed_decode.md)：共享路由D200与CPD逐条相同、短/长ABBA加速1.092×/1.047×；直接索引decode局部4.892×，但因自设小集保守筛选未测D200，不能据此判题目90%不通过。默认未切换。
