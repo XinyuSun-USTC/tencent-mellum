@@ -115,3 +115,5 @@
 - GPU1计划19批次`20261115T170157802373Z`完成，4worker累计16.57分钟：候选D200与R200/200输出完全相同（HF位置96.8125%）；配对ABBA短1.00666×、长0.98934×、综合0.99796×，无实质收益，停止候选，不追加ABC/HumanEval。独立90产物/237源码指纹通过，归档性能18；实现保留独立分支c22198d，原配置未切换。
 
 - 按用户要求转向成熟实现复用调研：冻结Qwen3MoE/FusedMoE/gfx942 BF16与分页Attention，公开ATOM main、vLLM v0.23.0 Mellum和SGLang Mellum均做源码对照；发现当前已有aiter MoE开关但与R Torch包装器不兼容，参考ragged桥阻止原生batch/缓存路径。输出研究05、来源清单和计划20，优先整批FusedMoE+原生Attention独立候选，不继续外围小优化；明确未取得上游HEAD/穷尽PR，不能冒称最新完整快照。本轮无推理代码修改、安装或GPU运行。
+
+- 原生主路径代码在独立commit cb09aed交付：GPU0工作区tencent-mellum-native、GPU1同快照tencent-mellum-native-attention；整批FusedMoE保留Torch gate/路由（BF16舍入后FP32传AITER），原生Attention保留参考RoPE/KV写入、替换varlen/paged计算。117项相关CPU检查通过，两份prepare-only通过，计划21给出命令/60分钟预算；主R工作区只同步文档，冻结库和主R推理源码未改，GPU尚未执行。
