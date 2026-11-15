@@ -59,6 +59,50 @@ class MellumFusedMoeBlock(torch.nn.Module):
         return result
 
 
+def isolated_fused_experts(hidden, weights, ids, w13, w2):
+    """One pseudo-token per route; no cross-expert accumulation in native output.
+
+    The native kernel may still use atomic instructions, but only one logical
+    expert contributes to each pseudo-token. This is not a claim about its
+    internal split-K implementation or numerical equivalence to reference GEMM.
+    """
+    from aiter.fused_moe import fused_moe
+    from aiter import ActivationType,QuantType
+    if hidden.ndim!=2 or weights.shape!=ids.shape or len(ids)!=len(hidden) or ids.ndim!=2:
+        raise ValueError('Invalid isolated expert route geometry')
+    if hidden.dtype!=torch.bfloat16 or w13.dtype!=hidden.dtype or w2.dtype!=hidden.dtype:
+        raise ValueError('Isolated experts require unquantized BF16')
+    if ids.dtype!=torch.int32 or weights.dtype!=torch.float32:
+        raise ValueError('Isolated experts require AITER int32 IDs and FP32 route storage')
+    n,k=ids.shape
+    expanded=hidden.repeat_interleave(k,dim=0)
+    assigned=ids.reshape(-1,1).contiguous()
+    unit=torch.ones((n*k,1),dtype=torch.float32,device=hidden.device)
+    contributions=fused_moe(expanded,w13,w2,unit,assigned,
+                            activation=ActivationType.Silu,quant_type=QuantType.No)
+    if contributions.shape!=(n*k,hidden.shape[1]):raise ValueError('Unexpected isolated native output geometry')
+    # Match reference's BF16 weighting, then a fixed top-k reduction tree.
+    weighted=contributions.view(n,k,-1)*weights.to(hidden.dtype).unsqueeze(-1)
+    return weighted.sum(1)
+
+
+class MellumIsolatedMoeBlock(MellumFusedMoeBlock):
+    """Retain canonical loading/shuffle; bypass only native expert combination."""
+    def forward(self, hidden_states):
+        logits=self.gate(hidden_states)
+        weights,ids=hf_route(hidden_states,logits,self.experts.top_k,self.experts.renormalize)
+        result=isolated_fused_experts(hidden_states,weights,ids,
+                                     self.experts.w13_weight,self.experts.w2_weight)
+        if os.getenv('MELLUM_NATIVE_AUDIT_PATH') and self.layer_num==0:
+            from atom.utils.forward_context import get_forward_context
+            record('moe',0,get_forward_context(),len(hidden_states),'isolated_fused_experts',
+                   expanded_rows=ids.numel(),logical_topk=ids.shape[1],native_topk=1,
+                   quant_method=type(self.experts.quant_method).__name__,
+                   shuffled_w13=bool(getattr(self.experts.w13_weight,'is_shuffled',False)),
+                   shuffled_w2=bool(getattr(self.experts.w2_weight,'is_shuffled',False)))
+        return result
+
+
 def native_prefill(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx):
     """Uncached ragged GQA prefill, window counts history excluding current token."""
     import aiter

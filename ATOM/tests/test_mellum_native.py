@@ -105,3 +105,25 @@ def test_split_installer_keeps_exactly_one_phase_reference(monkeypatch,mode):
     ctx.context.is_prefill=False;impl.dispatch_backend(ctx)(q,None,None,None,None,None,None,ctx)
     assert calls==(['native_pre','ref_dec'] if mode=='prefill_only' else ['ref_pre','native_dec'])
     assert impl._mellum_stepwise_rope==(mode=='decode_only')
+
+
+def test_isolated_experts_use_one_unit_weight_route_then_reference_weighting(monkeypatch):
+    from atom.model_config.mellum_native import isolated_fused_experts
+    calls=[]
+    def fused(x,w13,w2,weights,ids,**kwargs):
+        calls.append((x.clone(),weights.clone(),ids.clone()))
+        return x*(ids+1).to(x.dtype)
+    monkeypatch.setitem(sys.modules,'aiter',NS(ActivationType=NS(Silu=0),QuantType=NS(No=0)))
+    monkeypatch.setitem(sys.modules,'aiter.fused_moe',NS(fused_moe=fused))
+    x=torch.tensor([[1.,2.,3.],[4.,5.,6.]]).bfloat16()
+    ids=torch.tensor([[2,0],[0,1]],dtype=torch.int32)
+    weights=torch.tensor([[.25,.75],[.5,.5]],dtype=torch.float32)
+    w13=torch.zeros(3,8,3).bfloat16();w2=torch.zeros(3,3,4).bfloat16()
+    got=isolated_fused_experts(x,weights,ids,w13,w2)
+    expected=torch.stack([torch.stack([x[i]*(int(ids[i,j])+1)*weights[i,j].bfloat16() for j in range(2)]).sum(0) for i in range(2)])
+    torch.testing.assert_close(got,expected,rtol=0,atol=0)
+    assert torch.equal(calls[0][0],x.repeat_interleave(2,0))
+    assert calls[0][1].shape==(4,1) and torch.equal(calls[0][1],torch.ones(4,1))
+    assert torch.equal(calls[0][2],ids.reshape(4,1))
+    with pytest.raises(ValueError,match='FP32 route storage'):
+        isolated_fused_experts(x,weights.bfloat16(),ids,w13,w2)

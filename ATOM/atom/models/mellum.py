@@ -300,11 +300,11 @@ class MellumDecoderLayer(nn.Module):
         )
 
         backend = os.getenv('MELLUM_MOE_BACKEND', 'torch')
-        if backend not in ('torch', 'aiter', 'fused_torch_route'):
+        if backend not in ('torch', 'aiter', 'fused_torch_route', 'fused_isolated'):
             raise ValueError(f'Unknown Mellum MoE backend: {backend}')
-        if backend == 'fused_torch_route':
-            from atom.model_config.mellum_native import MellumFusedMoeBlock
-            moe_class = MellumFusedMoeBlock
+        if backend in ('fused_torch_route','fused_isolated'):
+            from atom.model_config.mellum_native import MellumFusedMoeBlock,MellumIsolatedMoeBlock
+            moe_class = MellumIsolatedMoeBlock if backend=='fused_isolated' else MellumFusedMoeBlock
         else:
             moe_class = MellumSparseMoeBlock if backend == 'torch' else Qwen3MoeSparseMoeBlock
         self.mlp = moe_class(

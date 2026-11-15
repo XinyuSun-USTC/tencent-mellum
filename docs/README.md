@@ -40,3 +40,5 @@ Step1规划入口：[06 可选优化路线](plan/06_step1_optimization_routes.md
 主路径实现交付：[21 原生MoE与Attention两卡候选](plan/21_native_runtime_pilot_delivery.md)。独立工作区、默认关闭；GPU结果待采，不将CPU接线测试冒称kernel正确性。
 
 下一轮有界拆解：[22 固定MoE回放与Attention分阶段消融](plan/22_bounded_native_phase_diagnostics.md)，GPU0最多15分钟、GPU1最多45分钟，未启动GPU。
+
+当前MoE单一修正：[23 专家贡献独立输出与显式归约](plan/23_isolated_moe_reduction_candidate.md)。逻辑top8保持，native每行top1，局部回放通过才D200，达90%才256性能；尚无GPU结果。

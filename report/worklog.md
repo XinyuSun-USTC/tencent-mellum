@@ -120,3 +120,5 @@
 - 原生候选交付检查：117项相关CPU测试通过，py_compile/diff检查通过；MoE prepare-only 182107通过。AITER FP32路由权重存储要求已按源码修正并保留BF16舍入，增加shuffle和无SDPA回退审计测试。GPU待用户终端执行。
 
 - 原生候选未过D200后开发计划22：独立诊断工作区，MoE固定layer0输入/路由12次回放、Opus/CK排序两项对照并记录实际stage metadata/单次真实trace；Attention分prefill_only/decode_only各D200，仅通过者做256性能。默认路径保留，不重跑ABC，不自动全模型MoE修正。120项相关CPU测试通过，GPU待用户终端执行。
+
+- 根据CK原子归并证据，在独立tencent-mellum-moe-isolated实现fused_isolated：top8分配展开pseudo-token，以AITER top1/unit权重独立输出后BF16加权和显式top-k求和；保留权重加载shuffle、gate/路由与R Attention/L。增加临时张量，不能保证稳定或HF一致。126项CPU检查及202806 prepare-only通过，计划23单入口最多4worker/45分钟，回放→D200→条件性能，GPU未执行、不改冻结库和原R源码。

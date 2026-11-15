@@ -18,7 +18,7 @@ def worker(out,plan):
     import torch,transformers
     from safetensors import safe_open
     from atom.model_config.mellum_experts import MellumTorchExperts
-    from atom.model_config.mellum_native import hf_route
+    from atom.model_config.mellum_native import hf_route,isolated_fused_experts
     from atom.model_ops.utils import shuffle_weights
     from aiter import ActivationType,QuantType
     fm=importlib.import_module('aiter.fused_moe')
@@ -50,7 +50,7 @@ def worker(out,plan):
     for count in (1,32):
         cases.append((f'decode_{count}',torch.cat([samples[i%4][0][-1:] for i in range(count)]),
                       torch.cat([samples[i%4][1][-1:] for i in range(count)]),True))
-    result={'status':'started','sorting':plan['sorting'],'records':[],
+    result={'status':'started','sorting':plan['sorting'],'variant':plan.get('variant','native'),'records':[],
             'frozen_source_sha256':{str(Path(fm.__file__)):sha(fm.__file__)},
             'environment':{'torch':torch.__version__,'transformers':transformers.__version__,'device':torch.cuda.get_device_name(0)},
             'scope':'Layer0 saved HF prefill vectors and decode-shaped last-row replay; fixed route. Not natural decode trajectories or full-model acceptance.'}
@@ -76,7 +76,9 @@ def worker(out,plan):
         for name,x,logits,batched in cases:
             weights,ids=hf_route(x,logits,config.num_experts_per_tok,config.norm_topk_prob)
             frozen=(x.clone(),weights.clone(),ids.clone())
-            def call():return fm.fused_moe(x,w13,w2,weights,ids,activation=ActivationType.Silu,quant_type=QuantType.No)
+            def call():
+                if plan.get('variant')=='isolated':return isolated_fused_experts(x,weights,ids,w13,w2)
+                return fm.fused_moe(x,w13,w2,weights,ids,activation=ActivationType.Silu,quant_type=QuantType.No)
             call();torch.cuda.synchronize();selected.clear();sorting.clear()
             reference=canonical.forward_routed(x,weights.to(x.dtype),ids.long(),batched=batched)
             first=None;changes=[];max_abs=0.;finite=True
