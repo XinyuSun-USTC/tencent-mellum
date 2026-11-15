@@ -143,3 +143,5 @@
 本工具环境仍无GPU且禁止loopback socket，无法代跑实际HTTP/GPU；已完成真实客户端CPU请求生成和CLI help、假SQLite/调度/恢复/预算/失败分支检查，真实连通由命令的smoke阶段验证。
 
 最终交付核验：25项相关CPU测试通过，完整模式prepare-only成功，目录`/workspace/results/mellum_abc_baseline/20261115T151514998080Z`；尚无本轮GPU性能结果。
+
+2026-11-15 首轮GPU smoke修复：`20261115T152546775665Z`服务加载审计成功，但客户端在发请求前拒绝`--stream True`。发布版1.15使用BooleanOptionalAction，执行命令现改为`--stream`，保留PDF字面命令与差异记录；真实安装客户端解析器已核验A/B/C全部命令通过。不是模型精度或性能失败，尚无完整性能成绩。源码hash已改变，下一次须新建批次，不恢复该失败目录。

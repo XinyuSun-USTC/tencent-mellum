@@ -108,3 +108,5 @@
 - 按题目转入A/B/C基线接入：重新提取PDF第4–6页命令，核对官方EvalScope源码发现A的dataset路径/注册插件及JSONL请求语义需适配，C180秒为每请求超时。原始A512/C200 prompt均含换行；A裸507/chat505条满足512–4096，不能静默丢弃或改长度。开发独立客户端安装器（evalscope1.15.0、客户端TF5.10.1）、实际安装源码/请求/B随机长度/SSE reasoning计时审计、CPU协议manifest及稳定R配置。工具网络Operation not permitted且本地未安装，真实安装需用户终端；GPU runner须待真实发布包审计后完成，未冒称已可正式测量。见[计划18](../docs/plan/18_evalscope_client_and_abc_baseline.md)。本轮无GPU或推理数学修改；12项协议/服务CPU回归及prepare-only通过，实际发布包探针待用户终端安装后运行。
 
 - 用户安装客户端第二次成功144518，冻结推理依赖清单前后不变；实际reasoning SSE/usage/TPOT探针通过。核对发布版源码后新增独立prompt-field dataset插件，保留原生过滤/包装/循环及调度/指标：A505有效循环512、C完整200，原生请求序列CPU核验一致；B原生50条均1024token。开发smoke→独立服务B50/A512/C200单入口、SQLite请求/长度/预算核验、nearest-rank分位、失败保留、阶段hash恢复/累计3小时预算；25项相关CPU测试通过。C指数间隔归一化及客户端版本差异明确披露，不冒称裁判同版。见[计划18](../docs/plan/18_evalscope_client_and_abc_baseline.md)实施更新/[性能16](performance/16_abc_protocol_and_client.md)。工具无GPU且loopback禁止，真实HTTP/GPU待用户一次启动，未修改推理数学或默认配置。
+
+- 首轮ABC smoke 152546：5631张量加载成功，客户端解析阶段因1.15不接受`--stream True`退出，未发起测量请求；修正为等价`--stream`，新增真实已安装解析器A/B/C回归，相关26项CPU测试通过。下一次新批次运行，保留旧失败证据。

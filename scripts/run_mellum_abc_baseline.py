@@ -54,6 +54,9 @@ def command(scenario,directory,number,source=None):
     cmd=literal_command(scenario,'http://127.0.0.1:8051/v1/chat/completions',directory)
     cmd[:1]=[str(CLIENT),str(ADAPTER)]
     cmd[cmd.index('--number')+1]=str(number)
+    # EvalScope 1.15 uses BooleanOptionalAction, unlike the PDF's value syntax.
+    stream=cmd.index('--stream')
+    if cmd[stream+1]=='True':del cmd[stream+1]
     if scenario in ('A','C'):
         old=cmd.index('--dataset');cmd[old+1]='mellum_assessment_jsonl'
         if '--dataset-path' in cmd:cmd[cmd.index('--dataset-path')+1]=str(source)
@@ -210,6 +213,7 @@ def prepare(out,gpu,smoke_only,audit_run=AUDIT):
         'differences':['A/C prompt-field dataset adapter, using native prepare_messages filter/wrapping',
           'A native eligible requests cycle to512; explicit ID/token manifest retained',
           'Seed42 and output paths recorded; inference defaults not changed',
+          'PDF --stream True translated to EvalScope1.15 --stream; streaming remains enabled',
           'EvalScope1.15 open-loop exponentials are rescaled to total n/r, not strict unconditioned Poisson'],
         'claim':'Local assessment-scale reproduction, not asserted identical to unspecified judge EvalScope version'}
     write(out/'manifest.json',manifest);return manifest

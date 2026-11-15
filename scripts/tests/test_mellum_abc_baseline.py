@@ -48,6 +48,7 @@ def test_literal_load_parameters_preserved_and_dataset_translation_explicit(tmp_
         assert cmd[:3]==[str(study.CLIENT),str(study.ADAPTER),'perf']
         assert cmd[cmd.index('--number')+1]==str(n)
         assert cmd[cmd.index('--max-tokens')+1]=='256'
+        assert '--stream' in cmd and 'True' not in cmd
         if scenario=='C':assert cmd[cmd.index('--rate')+1]=='0.3' and '--open-loop' in cmd
         if scenario in ('A','C'):assert cmd[cmd.index('--dataset')+1]=='mellum_assessment_jsonl'
         else:assert cmd[cmd.index('--dataset')+1]=='random' and cmd[cmd.index('--parallel')+1]=='1'
@@ -101,3 +102,11 @@ def test_server_client_tokenization_drift_is_not_accepted(tmp_path):
     result=study.inspect_result(tmp_path/'client','C',1,planned)
     assert not result['complete_without_failures']
     assert 'Server/client rendered input token lengths differ' in result['validation_errors']
+
+
+def test_generated_commands_parse_with_installed_client(tmp_path):
+    import subprocess
+    if not study.CLIENT.exists():pytest.skip('Independent client not installed')
+    commands=[study.command(s,tmp_path,n,'/data/source.jsonl')[3:] for s,n in [('A',512),('B',50),('C',200)]]
+    code="import argparse,json,sys;from evalscope.perf.arguments import add_argument;p=argparse.ArgumentParser();add_argument(p);args=[p.parse_args(x) for x in json.loads(sys.argv[1])];assert all(a.stream for a in args)"
+    subprocess.run([str(study.CLIENT),'-c',code,json.dumps(commands)],env=study.cpu_environment(),check=True,capture_output=True,text=True,timeout=90)
