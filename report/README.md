@@ -4,7 +4,7 @@
 
 ## 当前入口
 
-最新服务结果：[性能10](performance/10_batch_and_http_smoke.md)：B0实际batch4/动态batch3完成，bs1精确、多请求小集位置97.5%；HTTP completion/usage通过，chat换行已分类，非流完成记账已修复待复测。下一步8→16→32与HTTP batch4，尚无正式吞吐成绩。
+最新服务结果：[性能11](performance/11_batch32_and_http_batch.md)：decode8/16/32及HTTP真实batch2完成，清理修复pending≤2；bs32小集位置89.45%、批量正确性未验收，下一步固定200真实batch对照，不直接跑完整A/C。
 
 扩展实测见[性能02](performance/02_expanded_bs1_profile_study.md)：19配置132次计时与10份trace已核验；长prefill优先SWA，decode关注KV/RoPE与专家权重物化。实验协议见[09](../docs/plan/09_expanded_profile_study.md)。
 

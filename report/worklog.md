@@ -80,3 +80,9 @@
 - 服务/多请求第一轮代码：新增opt-in ragged reference attention（bs1原函数回退、按请求raw RoPE切片、实际分页cache逐行decode），保留S0且拒绝不兼容缓存/强制探针；新增apply_serving、固定配置server入口、offline 1/2/4+反序复用/迟到请求验证、自动启动/关闭的HTTP completion/SSE/chat/并发smoke。59项CPU通过，prepare-only多组通过，依赖已在环境，GPU仍不可见，未实际运行/宣称通过。当前先跑offline bs4再HTTP bs1，命令与剩余边界见[计划13](../docs/plan/13_serving_batching_and_workload_baseline.md)。
 
 - B0首轮GPU：214224实际prefill/decode batch4及迟到batch3完成，bs1四例全同、多请求234/240位置=97.5%，reverse全同；214721 HTTP bs1 completion/usage/SSE与两个客户端正常，chat只有reasoning开头换行差异。按题目指标保留批量差异，不新增bitwise阻塞。核查发现非流完成请求前端登记漏释放，修复文本/多模态/fanout成功完成路径，已有stream清理保留；32项CPU通过，HTTP脚本保留raw差异并分类reasoning空白、观察pending上界。详见[性能10](performance/10_batch_and_http_smoke.md)，下一步容量8→16→32及HTTP batch4，未运行新GPU。
+
+- B0容量阶梯235336：真实decode8/16/32完成，无本轮执行错误；小集位置128/128、254/256、458/512（89.45%），单请求四例精确、迟到decode3及反序复用完成。容量成功不等于batch准确性验收，bs32同输入副本分叉待代表性检查。见[性能11](performance/11_batch32_and_http_batch.md)。
+
+## 2026-11-15
+
+- HTTP多请求032334：maxseq4配置实测decode2，顺序completion/SSE/usage均匹配；并发humaneval_0文本分叉、另一条一致，review仍保留。chat仅reasoning前导换行，归一分类通过；pending最大2支持正常完成登记修复。服务正常退出。下一步固定developer200真实batch对照再决定性能基准/有界定位，不直接宣称B0通过或启动完整A/C；本轮只分析/归档，无新GPU或数学修改。

@@ -150,3 +150,7 @@ A/C先完成B0有效基准，再测试点1增量；不要求为进入批量研�
 ## 首轮GPU结果与容量阶梯
 
 214224 offline实际prefill/decode batch4、迟到decode3完成；bs1四例64/64位置精确，多请求234/240=97.5%（少量批量/排列差异待观察，不新增bitwise门槛）。214721 HTTP bs1 completion/SSE/usage及双客户端通过；chat仅reasoning前导换行差异，另发现非流完成请求前端记账未释放，已覆盖三种路径修复并加CPU回归。见[性能10](../../report/performance/10_batch_and_http_smoke.md)，32项相关CPU通过。下一步`validate_mellum_batch.py --max-seqs 32`一次加载依次8/16/32，再`validate_mellum_http.py --max-seqs 4`复核服务桥接和记账；修复后尚无GPU结果，不宣称正式A通过。
+
+## 容量32及HTTP复测结果
+
+见[性能11](../../report/performance/11_batch32_and_http_batch.md)：235336真实decode8/16/32均完成，分别位置100%/99.22%/89.45%，bs32同输入副本存在分叉；不能将容量执行当作准确性通过。032334 HTTP maxseq4设置下实际decode2，顺序completion/SSE/usage正确，并发一条文本分叉；reasoning空白分类成立、pending最大2，正常完成记账修复得到支持。下一步先复用HF做固定developer200的B0真实batch32正常64token对照，再决定有界定位或进入性能基准；不立即跑完整A/C，也不新增bitwise门槛。
