@@ -1,0 +1,205 @@
+{
+  "status": "developer_position_below_90",
+  "scope": "One normal greedy64 D200 run, frozen indexed candidate; no performance/functional acceptance claim",
+  "groups": {
+    "all": {
+      "records": 200,
+      "matching_positions": 10013,
+      "compared_positions": 12800,
+      "token_match_fraction": 0.782265625,
+      "exact_sequences": 107,
+      "exact_sequence_fraction": 0.535
+    },
+    "below_1024": {
+      "records": 168,
+      "matching_positions": 8737,
+      "compared_positions": 10752,
+      "token_match_fraction": 0.8125930059523809,
+      "exact_sequences": 99,
+      "exact_sequence_fraction": 0.5892857142857143
+    },
+    "at_least_1024": {
+      "records": 32,
+      "matching_positions": 1276,
+      "compared_positions": 2048,
+      "token_match_fraction": 0.623046875,
+      "exact_sequences": 8,
+      "exact_sequence_fraction": 0.25
+    },
+    "humaneval": {
+      "records": 164,
+      "matching_positions": 8537,
+      "compared_positions": 10496,
+      "token_match_fraction": 0.8133574695121951,
+      "exact_sequences": 96,
+      "exact_sequence_fraction": 0.5853658536585366
+    },
+    "scenario_a": {
+      "records": 36,
+      "matching_positions": 1476,
+      "compared_positions": 2304,
+      "token_match_fraction": 0.640625,
+      "exact_sequences": 11,
+      "exact_sequence_fraction": 0.3055555555555556
+    }
+  },
+  "decision": {
+    "developer_position_90_percent_passed": false,
+    "developer_sequence_90_percent_passed": false,
+    "long_position_fraction": 0.623046875,
+    "short_position_fraction": 0.8125930059523809,
+    "policy": "Only aggregate position >=90% determines this follow-up branch; sequence and length groups reported separately. No CPD-relative drop gate.",
+    "scope": "Unconfirmed developer200, not official public-set or HumanEval acceptance"
+  },
+  "baseline_comparison": {
+    "CPD": {
+      "baseline_groups": {
+        "all": {
+          "records": 200,
+          "matching_positions": 12392,
+          "compared_positions": 12800,
+          "token_match_fraction": 0.968125,
+          "exact_sequences": 174,
+          "exact_sequence_fraction": 0.87
+        },
+        "below_1024": {
+          "records": 168,
+          "matching_positions": 10478,
+          "compared_positions": 10752,
+          "token_match_fraction": 0.9745163690476191,
+          "exact_sequences": 148,
+          "exact_sequence_fraction": 0.8809523809523809
+        },
+        "at_least_1024": {
+          "records": 32,
+          "matching_positions": 1914,
+          "compared_positions": 2048,
+          "token_match_fraction": 0.9345703125,
+          "exact_sequences": 26,
+          "exact_sequence_fraction": 0.8125
+        },
+        "humaneval": {
+          "records": 164,
+          "matching_positions": 10222,
+          "compared_positions": 10496,
+          "token_match_fraction": 0.9738948170731707,
+          "exact_sequences": 144,
+          "exact_sequence_fraction": 0.8780487804878049
+        },
+        "scenario_a": {
+          "records": 36,
+          "matching_positions": 2170,
+          "compared_positions": 2304,
+          "token_match_fraction": 0.9418402777777778,
+          "exact_sequences": 30,
+          "exact_sequence_fraction": 0.8333333333333334
+        }
+      },
+      "position_percentage_point_change": -18.585937500000004,
+      "output_exact_sequences": 105,
+      "improved_cases": 8,
+      "regressed_cases": 85
+    },
+    "shared_routing": {
+      "baseline_groups": {
+        "all": {
+          "records": 200,
+          "matching_positions": 12392,
+          "compared_positions": 12800,
+          "token_match_fraction": 0.968125,
+          "exact_sequences": 174,
+          "exact_sequence_fraction": 0.87
+        },
+        "below_1024": {
+          "records": 168,
+          "matching_positions": 10478,
+          "compared_positions": 10752,
+          "token_match_fraction": 0.9745163690476191,
+          "exact_sequences": 148,
+          "exact_sequence_fraction": 0.8809523809523809
+        },
+        "at_least_1024": {
+          "records": 32,
+          "matching_positions": 1914,
+          "compared_positions": 2048,
+          "token_match_fraction": 0.9345703125,
+          "exact_sequences": 26,
+          "exact_sequence_fraction": 0.8125
+        },
+        "humaneval": {
+          "records": 164,
+          "matching_positions": 10222,
+          "compared_positions": 10496,
+          "token_match_fraction": 0.9738948170731707,
+          "exact_sequences": 144,
+          "exact_sequence_fraction": 0.8780487804878049
+        },
+        "scenario_a": {
+          "records": 36,
+          "matching_positions": 2170,
+          "compared_positions": 2304,
+          "token_match_fraction": 0.9418402777777778,
+          "exact_sequences": 30,
+          "exact_sequence_fraction": 0.8333333333333334
+        }
+      },
+      "position_percentage_point_change": -18.585937500000004,
+      "output_exact_sequences": 105,
+      "improved_cases": 8,
+      "regressed_cases": 85
+    }
+  },
+  "indexed_decode_calls_verified": 448,
+  "actual_batches": {
+    "prefill": {
+      "calls_by_batch_size": {
+        "2": 1,
+        "5": 1,
+        "6": 4,
+        "9": 1,
+        "32": 5
+      },
+      "max_batch_size": 32
+    },
+    "decode": {
+      "calls_by_batch_size": {
+        "8": 64,
+        "32": 384
+      },
+      "max_batch_size": 32
+    }
+  },
+  "loading_audit": {
+    "source_tensors": 5631,
+    "successful_parts": 5631,
+    "missing": [],
+    "unexpected": []
+  },
+  "environment": {
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "transformers": "5.2.0",
+    "hip": "7.2.53211",
+    "device": "AMD Instinct MI308X"
+  },
+  "generation_wall_seconds": 199.0865672531072,
+  "note": "One run; stable field is not repeated stability. Audit-enabled wall is not an ABBA speedup.",
+  "jobs": {
+    "indexed_D200": {
+      "status": "complete",
+      "attempt": 1,
+      "artifacts": {
+        "batches.jsonl": "70bba96611d42253f241586c2d7c981bdfa13375a460f378d6d71db72c3c09db",
+        "worker.log": "2232dcc059cb06583e87afa2f1437f289209c2beb9c8c8a052272962a06aa130",
+        "D200_r0.json": "5cd052879f2a8761cded690b65c979b2002a7ea83a3c92bff8cf4cbf67890a5f",
+        "plan.json": "322a915ac82935036c8fdd03c52797cc7eac1a31b07f942fef7935c917175a77",
+        "moe_calls.jsonl": "e25b282f32b870ded94e9f88e0d3d5244940f840f82d12798f20c344ed5930f0",
+        "results.json": "3af8eabcaa46f4f2a84c658658456dc514af1f3bdb2c183c55d2f3b6e930ce17",
+        "D200_r0_batches.jsonl": "70bba96611d42253f241586c2d7c981bdfa13375a460f378d6d71db72c3c09db",
+        "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+        "observe_control.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "progress.json": "f1e97df646c68408980eb74d4e19379cff30cfbc70b77b86fcca6b68a3a43767"
+      },
+      "result_file": "results.json"
+    }
+  }
+}

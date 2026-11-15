@@ -61,3 +61,7 @@
 本轮只改脚本入口与指纹覆盖，没有数学实现变更。CPU测试覆盖：90%精确边界、序列/分层不替代总体门槛、单worker无下游分支、GPU环境失败不记准确性失败、完成后恢复不再启动GPU；同时回归既有MoE/批次调度测试。prepare-only验证原200输入与候选/基线hash。
 
 本工具环境无`/dev/kfd`，真实GPU运行仍由用户终端执行。24项相关CPU测试通过（新入口4项、既有MoE/批次调度20项），`py_compile`与`git diff --check`通过。最终prepare-only目录：`/workspace/results/mellum_indexed_d200/20261115T132810810022Z`。
+
+## 执行结果
+
+运行`20261115T133034290474Z`一个worker、约3.79分钟完成，200条均64token，实际indexed decode/batch32通过审计。总体位置78.2266%、完整序列53.5%，未达到本轮90%位置门槛。按预定边界停止当前版本晋级，无追加性能/HTTP/HumanEval。详见[性能15](../../report/performance/15_indexed_decode_d200.md)。本计划已执行，不默认重跑。

@@ -1,0 +1,2102 @@
+{
+  "CPD": {
+    "baseline_groups": {
+      "all": {
+        "records": 200,
+        "matching_positions": 12392,
+        "compared_positions": 12800,
+        "token_match_fraction": 0.968125,
+        "exact_sequences": 174,
+        "exact_sequence_fraction": 0.87
+      },
+      "below_1024": {
+        "records": 168,
+        "matching_positions": 10478,
+        "compared_positions": 10752,
+        "token_match_fraction": 0.9745163690476191,
+        "exact_sequences": 148,
+        "exact_sequence_fraction": 0.8809523809523809
+      },
+      "at_least_1024": {
+        "records": 32,
+        "matching_positions": 1914,
+        "compared_positions": 2048,
+        "token_match_fraction": 0.9345703125,
+        "exact_sequences": 26,
+        "exact_sequence_fraction": 0.8125
+      },
+      "humaneval": {
+        "records": 164,
+        "matching_positions": 10222,
+        "compared_positions": 10496,
+        "token_match_fraction": 0.9738948170731707,
+        "exact_sequences": 144,
+        "exact_sequence_fraction": 0.8780487804878049
+      },
+      "scenario_a": {
+        "records": 36,
+        "matching_positions": 2170,
+        "compared_positions": 2304,
+        "token_match_fraction": 0.9418402777777778,
+        "exact_sequences": 30,
+        "exact_sequence_fraction": 0.8333333333333334
+      }
+    },
+    "records": [
+      {
+        "name": "humaneval_0",
+        "matching_positions_delta_vs_hf": -50,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_1",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_2",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_3",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_4",
+        "matching_positions_delta_vs_hf": -31,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_5",
+        "matching_positions_delta_vs_hf": -19,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_6",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_7",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_8",
+        "matching_positions_delta_vs_hf": -7,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_9",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_10",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_11",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_12",
+        "matching_positions_delta_vs_hf": -21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_13",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_14",
+        "matching_positions_delta_vs_hf": -26,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_15",
+        "matching_positions_delta_vs_hf": -12,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_16",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_17",
+        "matching_positions_delta_vs_hf": -50,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_18",
+        "matching_positions_delta_vs_hf": -3,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_19",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_20",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_21",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_22",
+        "matching_positions_delta_vs_hf": -58,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_23",
+        "matching_positions_delta_vs_hf": -13,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_24",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_25",
+        "matching_positions_delta_vs_hf": -7,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_26",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_27",
+        "matching_positions_delta_vs_hf": -6,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_28",
+        "matching_positions_delta_vs_hf": -21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_29",
+        "matching_positions_delta_vs_hf": -44,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_30",
+        "matching_positions_delta_vs_hf": -27,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_31",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_32",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_33",
+        "matching_positions_delta_vs_hf": -36,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_34",
+        "matching_positions_delta_vs_hf": -43,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_35",
+        "matching_positions_delta_vs_hf": -48,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_36",
+        "matching_positions_delta_vs_hf": 21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_37",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_38",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_39",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_40",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_41",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_42",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_43",
+        "matching_positions_delta_vs_hf": -44,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_44",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_45",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_46",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_47",
+        "matching_positions_delta_vs_hf": -15,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_48",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_49",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_50",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_51",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_52",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_53",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_54",
+        "matching_positions_delta_vs_hf": -23,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_55",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_56",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_57",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_58",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_59",
+        "matching_positions_delta_vs_hf": -35,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_60",
+        "matching_positions_delta_vs_hf": 21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_61",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_62",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_63",
+        "matching_positions_delta_vs_hf": -48,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_64",
+        "matching_positions_delta_vs_hf": -45,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_65",
+        "matching_positions_delta_vs_hf": -44,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_66",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_67",
+        "matching_positions_delta_vs_hf": -21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_68",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_69",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_70",
+        "matching_positions_delta_vs_hf": -9,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_71",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_72",
+        "matching_positions_delta_vs_hf": -56,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_73",
+        "matching_positions_delta_vs_hf": -8,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_74",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_75",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_76",
+        "matching_positions_delta_vs_hf": -1,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_77",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_78",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_79",
+        "matching_positions_delta_vs_hf": -59,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_80",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_81",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_82",
+        "matching_positions_delta_vs_hf": -23,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_83",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_84",
+        "matching_positions_delta_vs_hf": -43,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_85",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_86",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_87",
+        "matching_positions_delta_vs_hf": -14,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_88",
+        "matching_positions_delta_vs_hf": 1,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_89",
+        "matching_positions_delta_vs_hf": -47,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_90",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_91",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_92",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_93",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_94",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_95",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_96",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_97",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_98",
+        "matching_positions_delta_vs_hf": -1,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_99",
+        "matching_positions_delta_vs_hf": 35,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_100",
+        "matching_positions_delta_vs_hf": -18,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_101",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_102",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_103",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_104",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_105",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_106",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_107",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_108",
+        "matching_positions_delta_vs_hf": -11,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_109",
+        "matching_positions_delta_vs_hf": -30,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_110",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_111",
+        "matching_positions_delta_vs_hf": -51,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_112",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_113",
+        "matching_positions_delta_vs_hf": -48,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_114",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_115",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_116",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_117",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_118",
+        "matching_positions_delta_vs_hf": 7,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_119",
+        "matching_positions_delta_vs_hf": -58,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_120",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_121",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_122",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_123",
+        "matching_positions_delta_vs_hf": -7,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_124",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_125",
+        "matching_positions_delta_vs_hf": -45,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_126",
+        "matching_positions_delta_vs_hf": -16,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_127",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_128",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_129",
+        "matching_positions_delta_vs_hf": -19,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_130",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_131",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_132",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_133",
+        "matching_positions_delta_vs_hf": -12,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_134",
+        "matching_positions_delta_vs_hf": -5,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_135",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_136",
+        "matching_positions_delta_vs_hf": -58,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_137",
+        "matching_positions_delta_vs_hf": -46,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_138",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_139",
+        "matching_positions_delta_vs_hf": -43,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_140",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_141",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_142",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_143",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_144",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_145",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_146",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_147",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_148",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_149",
+        "matching_positions_delta_vs_hf": -43,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_150",
+        "matching_positions_delta_vs_hf": -25,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_151",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_152",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_153",
+        "matching_positions_delta_vs_hf": -58,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_154",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_155",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_156",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_157",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_158",
+        "matching_positions_delta_vs_hf": -1,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_159",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_160",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_161",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_162",
+        "matching_positions_delta_vs_hf": -33,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_163",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_0",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_1",
+        "matching_positions_delta_vs_hf": 21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_2",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_3",
+        "matching_positions_delta_vs_hf": -2,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_4",
+        "matching_positions_delta_vs_hf": -57,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_5",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_6",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_7",
+        "matching_positions_delta_vs_hf": -26,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_8",
+        "matching_positions_delta_vs_hf": -32,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_9",
+        "matching_positions_delta_vs_hf": 22,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_10",
+        "matching_positions_delta_vs_hf": -45,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_11",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_12",
+        "matching_positions_delta_vs_hf": -18,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_13",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_14",
+        "matching_positions_delta_vs_hf": 10,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_15",
+        "matching_positions_delta_vs_hf": -18,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_16",
+        "matching_positions_delta_vs_hf": -44,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_17",
+        "matching_positions_delta_vs_hf": -36,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_18",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_19",
+        "matching_positions_delta_vs_hf": -23,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_20",
+        "matching_positions_delta_vs_hf": -50,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_21",
+        "matching_positions_delta_vs_hf": -57,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_22",
+        "matching_positions_delta_vs_hf": -44,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_23",
+        "matching_positions_delta_vs_hf": -24,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_24",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_25",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_26",
+        "matching_positions_delta_vs_hf": -40,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_27",
+        "matching_positions_delta_vs_hf": -18,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_28",
+        "matching_positions_delta_vs_hf": -38,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_29",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_30",
+        "matching_positions_delta_vs_hf": -21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_31",
+        "matching_positions_delta_vs_hf": -56,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_32",
+        "matching_positions_delta_vs_hf": -34,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_33",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_34",
+        "matching_positions_delta_vs_hf": -18,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_35",
+        "matching_positions_delta_vs_hf": -29,
+        "output_exact_to_baseline": false
+      }
+    ],
+    "position_percentage_point_change": -18.585937500000004,
+    "output_exact_sequences": 105,
+    "improved_cases": 8,
+    "regressed_cases": 85
+  },
+  "shared_routing": {
+    "baseline_groups": {
+      "all": {
+        "records": 200,
+        "matching_positions": 12392,
+        "compared_positions": 12800,
+        "token_match_fraction": 0.968125,
+        "exact_sequences": 174,
+        "exact_sequence_fraction": 0.87
+      },
+      "below_1024": {
+        "records": 168,
+        "matching_positions": 10478,
+        "compared_positions": 10752,
+        "token_match_fraction": 0.9745163690476191,
+        "exact_sequences": 148,
+        "exact_sequence_fraction": 0.8809523809523809
+      },
+      "at_least_1024": {
+        "records": 32,
+        "matching_positions": 1914,
+        "compared_positions": 2048,
+        "token_match_fraction": 0.9345703125,
+        "exact_sequences": 26,
+        "exact_sequence_fraction": 0.8125
+      },
+      "humaneval": {
+        "records": 164,
+        "matching_positions": 10222,
+        "compared_positions": 10496,
+        "token_match_fraction": 0.9738948170731707,
+        "exact_sequences": 144,
+        "exact_sequence_fraction": 0.8780487804878049
+      },
+      "scenario_a": {
+        "records": 36,
+        "matching_positions": 2170,
+        "compared_positions": 2304,
+        "token_match_fraction": 0.9418402777777778,
+        "exact_sequences": 30,
+        "exact_sequence_fraction": 0.8333333333333334
+      }
+    },
+    "records": [
+      {
+        "name": "humaneval_0",
+        "matching_positions_delta_vs_hf": -50,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_1",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_2",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_3",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_4",
+        "matching_positions_delta_vs_hf": -31,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_5",
+        "matching_positions_delta_vs_hf": -19,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_6",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_7",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_8",
+        "matching_positions_delta_vs_hf": -7,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_9",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_10",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_11",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_12",
+        "matching_positions_delta_vs_hf": -21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_13",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_14",
+        "matching_positions_delta_vs_hf": -26,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_15",
+        "matching_positions_delta_vs_hf": -12,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_16",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_17",
+        "matching_positions_delta_vs_hf": -50,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_18",
+        "matching_positions_delta_vs_hf": -3,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_19",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_20",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_21",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_22",
+        "matching_positions_delta_vs_hf": -58,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_23",
+        "matching_positions_delta_vs_hf": -13,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_24",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_25",
+        "matching_positions_delta_vs_hf": -7,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_26",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_27",
+        "matching_positions_delta_vs_hf": -6,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_28",
+        "matching_positions_delta_vs_hf": -21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_29",
+        "matching_positions_delta_vs_hf": -44,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_30",
+        "matching_positions_delta_vs_hf": -27,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_31",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_32",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_33",
+        "matching_positions_delta_vs_hf": -36,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_34",
+        "matching_positions_delta_vs_hf": -43,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_35",
+        "matching_positions_delta_vs_hf": -48,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_36",
+        "matching_positions_delta_vs_hf": 21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_37",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_38",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_39",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_40",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_41",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_42",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_43",
+        "matching_positions_delta_vs_hf": -44,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_44",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_45",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_46",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_47",
+        "matching_positions_delta_vs_hf": -15,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_48",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_49",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_50",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_51",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_52",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_53",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_54",
+        "matching_positions_delta_vs_hf": -23,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_55",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_56",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_57",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_58",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_59",
+        "matching_positions_delta_vs_hf": -35,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_60",
+        "matching_positions_delta_vs_hf": 21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_61",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_62",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_63",
+        "matching_positions_delta_vs_hf": -48,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_64",
+        "matching_positions_delta_vs_hf": -45,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_65",
+        "matching_positions_delta_vs_hf": -44,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_66",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_67",
+        "matching_positions_delta_vs_hf": -21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_68",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_69",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_70",
+        "matching_positions_delta_vs_hf": -9,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_71",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_72",
+        "matching_positions_delta_vs_hf": -56,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_73",
+        "matching_positions_delta_vs_hf": -8,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_74",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_75",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_76",
+        "matching_positions_delta_vs_hf": -1,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_77",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_78",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_79",
+        "matching_positions_delta_vs_hf": -59,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_80",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_81",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_82",
+        "matching_positions_delta_vs_hf": -23,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_83",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_84",
+        "matching_positions_delta_vs_hf": -43,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_85",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_86",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_87",
+        "matching_positions_delta_vs_hf": -14,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_88",
+        "matching_positions_delta_vs_hf": 1,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_89",
+        "matching_positions_delta_vs_hf": -47,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_90",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_91",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_92",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_93",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_94",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_95",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_96",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_97",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_98",
+        "matching_positions_delta_vs_hf": -1,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_99",
+        "matching_positions_delta_vs_hf": 35,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_100",
+        "matching_positions_delta_vs_hf": -18,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_101",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_102",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_103",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_104",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_105",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_106",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_107",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_108",
+        "matching_positions_delta_vs_hf": -11,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_109",
+        "matching_positions_delta_vs_hf": -30,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_110",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_111",
+        "matching_positions_delta_vs_hf": -51,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_112",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_113",
+        "matching_positions_delta_vs_hf": -48,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_114",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_115",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_116",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_117",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_118",
+        "matching_positions_delta_vs_hf": 7,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_119",
+        "matching_positions_delta_vs_hf": -58,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_120",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_121",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_122",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_123",
+        "matching_positions_delta_vs_hf": -7,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_124",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_125",
+        "matching_positions_delta_vs_hf": -45,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_126",
+        "matching_positions_delta_vs_hf": -16,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_127",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_128",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_129",
+        "matching_positions_delta_vs_hf": -19,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_130",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_131",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_132",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_133",
+        "matching_positions_delta_vs_hf": -12,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_134",
+        "matching_positions_delta_vs_hf": -5,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_135",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_136",
+        "matching_positions_delta_vs_hf": -58,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_137",
+        "matching_positions_delta_vs_hf": -46,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_138",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_139",
+        "matching_positions_delta_vs_hf": -43,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_140",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_141",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_142",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_143",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_144",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_145",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_146",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_147",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_148",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_149",
+        "matching_positions_delta_vs_hf": -43,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_150",
+        "matching_positions_delta_vs_hf": -25,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_151",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_152",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_153",
+        "matching_positions_delta_vs_hf": -58,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_154",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_155",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_156",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_157",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_158",
+        "matching_positions_delta_vs_hf": -1,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_159",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_160",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_161",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "humaneval_162",
+        "matching_positions_delta_vs_hf": -33,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "humaneval_163",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_0",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_1",
+        "matching_positions_delta_vs_hf": 21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_2",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_3",
+        "matching_positions_delta_vs_hf": -2,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_4",
+        "matching_positions_delta_vs_hf": -57,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_5",
+        "matching_positions_delta_vs_hf": -17,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_6",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_7",
+        "matching_positions_delta_vs_hf": -26,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_8",
+        "matching_positions_delta_vs_hf": -32,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_9",
+        "matching_positions_delta_vs_hf": 22,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_10",
+        "matching_positions_delta_vs_hf": -45,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_11",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_12",
+        "matching_positions_delta_vs_hf": -18,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_13",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_14",
+        "matching_positions_delta_vs_hf": 10,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_15",
+        "matching_positions_delta_vs_hf": -18,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_16",
+        "matching_positions_delta_vs_hf": -44,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_17",
+        "matching_positions_delta_vs_hf": -36,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_18",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_19",
+        "matching_positions_delta_vs_hf": -23,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_20",
+        "matching_positions_delta_vs_hf": -50,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_21",
+        "matching_positions_delta_vs_hf": -57,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_22",
+        "matching_positions_delta_vs_hf": -44,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_23",
+        "matching_positions_delta_vs_hf": -24,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_24",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_25",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_26",
+        "matching_positions_delta_vs_hf": -40,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_27",
+        "matching_positions_delta_vs_hf": -18,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_28",
+        "matching_positions_delta_vs_hf": -38,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_29",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_30",
+        "matching_positions_delta_vs_hf": -21,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_31",
+        "matching_positions_delta_vs_hf": -56,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_32",
+        "matching_positions_delta_vs_hf": -34,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_33",
+        "matching_positions_delta_vs_hf": 0,
+        "output_exact_to_baseline": true
+      },
+      {
+        "name": "scenario_a_34",
+        "matching_positions_delta_vs_hf": -18,
+        "output_exact_to_baseline": false
+      },
+      {
+        "name": "scenario_a_35",
+        "matching_positions_delta_vs_hf": -29,
+        "output_exact_to_baseline": false
+      }
+    ],
+    "position_percentage_point_change": -18.585937500000004,
+    "output_exact_sequences": 105,
+    "improved_cases": 8,
+    "regressed_cases": 85
+  }
+}
