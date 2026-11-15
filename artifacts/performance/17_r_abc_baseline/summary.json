@@ -1,0 +1,169 @@
+{
+  "source_run": "/workspace/results/mellum_abc_baseline/20261115T154407018497Z",
+  "status": "complete_with_failures",
+  "used_seconds": 5154.325267384062,
+  "stages": {
+    "B": {
+      "requests": 50,
+      "successes": 50,
+      "failures": 0,
+      "ttft_p50_s": 0.2830247550737113,
+      "ttft_p99_s": 0.46446272102184594,
+      "tpot_p50_s": 0.058726790984727294,
+      "tpot_p99_s": 0.0588047690707825,
+      "output_tokens_per_s_gpu": 16.7759,
+      "vendor_summary": {
+        "Test Duration (s)": 762.9993,
+        "Concurrency": 1,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 50,
+        "Success Requests": 50,
+        "Failed Requests": 0,
+        "Stream Requests": 50,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.0655,
+        "Avg Latency (s)": 15.2598,
+        "Avg Input Tokens": 1024.0,
+        "Output Throughput (tok/s)": 16.7759,
+        "Total Throughput (tok/s)": 83.8795,
+        "Avg TTFT (ms)": 287.16,
+        "Avg TPOT (ms)": 58.72,
+        "Avg ITL (ms)": 58.98,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0,
+        "Avg Decoded Tok/Iter": 1.0059,
+        "Spec. Accept Rate": 0.0059
+      },
+      "request_start_span_s": 747.7433435439598,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 1,
+      "database_counts": [
+        [
+          1,
+          50,
+          256,
+          256
+        ]
+      ]
+    },
+    "A": {
+      "requests": 512,
+      "successes": 512,
+      "failures": 0,
+      "ttft_p50_s": 11.578693154966459,
+      "ttft_p99_s": 13.25224804203026,
+      "tpot_p50_s": 0.7296906105133102,
+      "tpot_p99_s": 0.746156465313306,
+      "output_tokens_per_s_gpu": 41.5797,
+      "vendor_summary": {
+        "Test Duration (s)": 3152.3096,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 512,
+        "Success Requests": 512,
+        "Failed Requests": 0,
+        "Stream Requests": 512,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.1624,
+        "Avg Latency (s)": 197.0035,
+        "Avg Input Tokens": 2346.7461,
+        "Output Throughput (tok/s)": 41.5797,
+        "Total Throughput (tok/s)": 422.7396,
+        "Avg TTFT (ms)": 11639.06,
+        "Avg TPOT (ms)": 726.92,
+        "Avg ITL (ms)": 730.87,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0,
+        "Avg Decoded Tok/Iter": 1.286,
+        "Spec. Accept Rate": 0.2224
+      },
+      "request_start_span_s": 2958.802170729963,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 32,
+      "database_counts": [
+        [
+          1,
+          512,
+          256,
+          256
+        ]
+      ]
+    },
+    "C": {
+      "requests": 200,
+      "successes": 1,
+      "failures": 199,
+      "ttft_p50_s": 1.3221044160891324,
+      "ttft_p99_s": 1.3221044160891324,
+      "tpot_p50_s": 0.4237618946744239,
+      "tpot_p99_s": 0.4237618946744239,
+      "output_tokens_per_s_gpu": 0.3029,
+      "vendor_summary": {
+        "Test Duration (s)": 845.0973,
+        "Concurrency": -1,
+        "Request Rate (req/s)": 0.3,
+        "Total Requests": 200,
+        "Success Requests": 1,
+        "Failed Requests": 199,
+        "Stream Requests": 200,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.0012,
+        "Avg Latency (s)": 109.3814,
+        "Avg Input Tokens": 7889.0,
+        "Output Throughput (tok/s)": 0.3029,
+        "Total Throughput (tok/s)": 9.6379,
+        "Avg TTFT (ms)": 1322.1,
+        "Avg TPOT (ms)": 423.76,
+        "Avg ITL (ms)": 425.43,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "request_start_span_s": 665.0134195561986,
+      "validation_errors": [],
+      "complete_without_failures": false,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 32,
+      "database_counts": [
+        [
+          0,
+          199,
+          null,
+          null
+        ],
+        [
+          1,
+          1,
+          256,
+          256
+        ]
+      ]
+    }
+  },
+  "comparisons": {
+    "A_throughput_ratio_vs_official": 0.065143075996582
+  },
+  "protocol_differences": [
+    "A/C prompt-field dataset adapter, using native prepare_messages filter/wrapping",
+    "A native eligible requests cycle to512; explicit ID/token manifest retained",
+    "Seed42 and output paths recorded; inference defaults not changed",
+    "PDF --stream True translated to EvalScope1.15 --stream; streaming remains enabled",
+    "EvalScope1.15 open-loop exponentials are rescaled to total n/r, not strict unconditioned Poisson"
+  ],
+  "integrity": {
+    "artifact_checks": 94,
+    "source_checks": 231,
+    "errors": []
+  },
+  "source_evidence": {
+    "/workspace/results/mellum_abc_baseline/20261115T154407018497Z/manifest.json": "78673ea091c1b35d075078bbd3f198f2ac6d6cfa9875604258d8ad58ff021527",
+    "/workspace/results/mellum_abc_baseline/20261115T154407018497Z/summary.json": "d76877fa4fe667c6641ff53372e67746538505148c539660ba8273f9ce06f395",
+    "/workspace/results/mellum_abc_baseline/20261115T154407018497Z/report.md": "166629d9a940df9c6ca85c0c8c4382fc83f2ec88b2fdda651fa1ef50c72642a6",
+    "/workspace/results/mellum_abc_baseline/20261115T154407018497Z/C/C/client.log": "9bce67d980dea35096df3941fdca8055ab37fae8b5373125927ec141e2df16c3",
+    "/workspace/results/mellum_abc_baseline/20261115T154407018497Z/C/server.log": "f4e2d4e76578552186f2e155f6c7c7089e2395e38b214567aabe68353793cf7f"
+  },
+  "scope": "R configuration; local assessment-scale reproduction. C 199 failures; success-only C tails not a valid complete score. No new GPU runs."
+}

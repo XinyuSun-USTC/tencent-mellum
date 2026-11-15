@@ -110,3 +110,5 @@
 - 用户安装客户端第二次成功144518，冻结推理依赖清单前后不变；实际reasoning SSE/usage/TPOT探针通过。核对发布版源码后新增独立prompt-field dataset插件，保留原生过滤/包装/循环及调度/指标：A505有效循环512、C完整200，原生请求序列CPU核验一致；B原生50条均1024token。开发smoke→独立服务B50/A512/C200单入口、SQLite请求/长度/预算核验、nearest-rank分位、失败保留、阶段hash恢复/累计3小时预算；25项相关CPU测试通过。C指数间隔归一化及客户端版本差异明确披露，不冒称裁判同版。见[计划18](../docs/plan/18_evalscope_client_and_abc_baseline.md)实施更新/[性能16](performance/16_abc_protocol_and_client.md)。工具无GPU且loopback禁止，真实HTTP/GPU待用户一次启动，未修改推理数学或默认配置。
 
 - 首轮ABC smoke 152546：5631张量加载成功，客户端解析阶段因1.15不接受`--stream True`退出，未发起测量请求；修正为等价`--stream`，新增真实已安装解析器A/B/C回归，相关26项CPU测试通过。下一次新批次运行，保留旧失败证据。
+
+- GPU0 R配置ABC `20261115T154407018497Z`流程结束，累计85.9分钟：B50/50、A512/512成功，A41.5797tokens/s/GPU为官方6.5143%；C仅1/200成功，其余客户端180秒超时，服务无日志崩溃/OOM证据。状态complete_with_failures不代表性能通过，C成功子集p99不可用；独立94产物/231源码hash通过，归档性能17。未追加GPU或修改数学，不原样重跑ABC，优先显著性能瓶颈。

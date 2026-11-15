@@ -103,3 +103,5 @@
 - [最初研究归档](archive/initial_research/README.md)：原始批次文档与迁移清单。
 - [Step0收尾前文档快照](archive/step0_document_snapshots/README.md)：追加式导航、协议与完整日志原文。
 - performance和submission在实际profiling/消融及提交材料产生后建立；最终技术报告≤4页，AI使用说明1页，素材从本阶段总结与后续性能证据提取。
+
+- [17 R配置A/B/C基线](performance/17_r_abc_baseline.md)：A512/B50全成功，A41.58tokens/s/GPU；C199/200超时，不报告有效C完整尾延迟成绩。
