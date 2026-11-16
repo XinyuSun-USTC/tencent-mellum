@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+并行CPU准备：[41 prefill元数据复用与完整ABC批次](plan/41_prefill_metadata_and_full_load_campaign.md)：独立campaign分支实现当次forward校验复用及显式profile的完整ABC、失败继续/恢复，GPU待当前两批结果后决定。
+
 当前实验：[40 融合结果与组合调度](plan/40_fusion_results_and_combined_scheduling.md)，scheduling分支ee3e238。QK融合A64为1062.46tokens/s、路由ABBA均值+7.39%；下一批GPU0组合重复、GPU1prefix/chunk性能筛选，仍不逐项跑HF。
 
 并行CPU开发：[39 Graph前缀缓存与chunked prefill](plan/39_graph_prefix_and_chunked_prefill.md)，独立scheduling分支12087e7。40项CPU检查通过，GPU待空闲后筛选，不修改正在运行的fusion目录。
