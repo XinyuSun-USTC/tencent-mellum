@@ -1,7 +1,7 @@
 """Explicit, default-off serving profiles for existing measured execution routes."""
 import json
 
-FAST_PROFILES=('fast_resident','fast_norm','fast_packed','fast_combined')
+FAST_PROFILES=('fast_resident','fast_norm','fast_packed','fast_combined','sprint_clean','sprint_graph','sprint_unpacked','sprint_router')
 PROFILES=FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
 
 
@@ -22,6 +22,12 @@ def profile_settings(name):
             'MELLUM_SWA_PREFILL_OPT':'1' if swa else '0','MELLUM_SWA_PREFILL_IMPL':'ck',
             'MELLUM_BATCH_CAMPAIGN_CONFIG':json.dumps(control,sort_keys=True)}
 
+    if name.startswith('sprint_'):
+        result.update(MELLUM_BATCH_CAMPAIGN_CONFIG='',MELLUM_NORM_BACKEND='aiter',
+            MELLUM_QKV_BACKEND='separate' if name=='sprint_unpacked' else 'packed',
+            MELLUM_RESIDENT_ROPE='1',MELLUM_NATIVE_ROUTING='1' if name=='sprint_router' else '0',
+            MELLUM_DECODE_GRAPH='1' if name=='sprint_graph' else '0')
+        return result
     if fast:
         result.update(MELLUM_NORM_BACKEND='aiter' if name in ('fast_norm','fast_combined') else 'reference',
             MELLUM_QKV_BACKEND='packed' if name in ('fast_packed','fast_combined') else 'separate',

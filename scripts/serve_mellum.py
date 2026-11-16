@@ -40,6 +40,11 @@ def main():
         '--max-num-batched-tokens',str(a.max_batched_tokens),'--max-num-seqs',str(a.max_num_seqs),
         '--gpu-memory-utilization','0.35','--no-enable_prefix_caching','--no-enable_chunked_prefill',
         '--default-chat-template-kwargs',json.dumps({'enable_thinking':not a.disable_thinking},separators=(',',':'))]
+    if settings.get('MELLUM_DECODE_GRAPH')=='1':
+        command.remove('--enforce-eager')
+        command.extend(['--cudagraph-capture-sizes','[1,2,4,8,16,32]'])
+        settings['MELLUM_GRAPH_AUDIT_PATH']=str(out/'graph_replays.jsonl')
+        os.environ.update(settings)
     source=[PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'ATOM/atom/model_config/mellum_native.py',PROJECT/'ATOM/atom/models/mellum.py',PROJECT/'ATOM/atom/model_config/mellum_batch.py',
             PROJECT/'ATOM/atom/model_config/mellum_attention.py',PROJECT/'ATOM/atom/entrypoints/openai/api_server.py',
             PROJECT/'scripts/mellum_runtime_config.py',Path(__file__)]

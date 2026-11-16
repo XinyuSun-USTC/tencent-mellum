@@ -18,7 +18,7 @@ def hf_route(hidden_states, gating_output, topk, renormalize):
 
 def record(kind, layer, ctx, rows, backend, **extra):
     path = os.getenv('MELLUM_NATIVE_AUDIT_PATH')
-    if not path or layer != 0:
+    if not path or layer != 0 or getattr(ctx,'in_hipgraph',False):
         return
     meta = ctx.attn_metadata
     if meta is None or getattr(ctx.context,'is_dummy_run',False):
@@ -43,7 +43,7 @@ class MellumFusedMoeBlock(torch.nn.Module):
         self.experts = FusedMoE(num_experts=config.num_experts,top_k=config.num_experts_per_tok,
             hidden_size=config.hidden_size,intermediate_size=config.moe_intermediate_size,
             reduce_results=False,renormalize=config.norm_topk_prob,quant_config=quant_config,
-            use_grouped_topk=False,has_bias=False,custom_routing_function=hf_route,
+            use_grouped_topk=False,has_bias=False,custom_routing_function=None if os.getenv('MELLUM_NATIVE_ROUTING','0')=='1' else hf_route,
             prefix=f'{prefix}.experts',config=config)
         self.layer_num = int(prefix.split('.layers.')[-1].split('.')[0]) if '.layers.' in prefix else -1
 
@@ -53,7 +53,7 @@ class MellumFusedMoeBlock(torch.nn.Module):
         if os.getenv('MELLUM_NATIVE_AUDIT_PATH') and self.layer_num == 0:
             from atom.utils.forward_context import get_forward_context
             record('moe',self.layer_num,get_forward_context(),len(hidden_states),'FusedMoE',
-                   quant_method=type(self.experts.quant_method).__name__,routing='torch_softmax_topk',
+                   quant_method=type(self.experts.quant_method).__name__,routing='aiter_native' if os.getenv('MELLUM_NATIVE_ROUTING','0')=='1' else 'torch_softmax_topk',
                    shuffled_w13=bool(getattr(self.experts.w13_weight,'is_shuffled',False)),
                    shuffled_w2=bool(getattr(self.experts.w2_weight,'is_shuffled',False)))
         return result
@@ -147,7 +147,7 @@ def install_native_attention(impl, mode='both'):
         if use_native_decode and 'paged_attention' not in backend.__name__:
             raise ValueError('Native Mellum decode did not select a paged backend')
         def decode(q,k,v,k_cache,v_cache,k_scale,v_scale,fwd_ctx):
-            if use_native_decode and getattr(self,'layer_num',-1)==0:
+            if use_native_decode and getattr(self,'layer_num',-1)==0 and not getattr(fwd_ctx,'in_hipgraph',False):
                 audit(self,'decode',fwd_ctx.attn_metadata.context_lens.tolist())
             result=backend(q,k,v,k_cache,v_cache,k_scale,v_scale,fwd_ctx)
             name=backend.__name__ if use_native_decode else 'reference_ragged_decode'

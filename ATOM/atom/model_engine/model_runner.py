@@ -1914,7 +1914,25 @@ class ModelRunner:
                 graph_bs = context.graph_bs
                 max_q_len = forward_context.attn_metadata.max_seqlen_q
                 graph_key = (graph_bs, max_q_len)
+                # Keep the same optional per-step batch evidence as eager, outside capture.
+                import os as _batch_os
+                if _batch_os.getenv("MELLUM_BATCH_AUDIT_PATH"):
+                    from types import SimpleNamespace as _BatchNS
+                    from atom.model_config.mellum_batch import audit as _batch_audit
+                    _batch_audit(_BatchNS(layer_num=0), "decode",
+                                 forward_context.attn_metadata.context_lens[:bs].tolist())
                 self.graphs[graph_key].replay()
+                # Sprint evidence: host-side receipt after real replay, once per key.
+                import os as _mellum_os
+                _audit = _mellum_os.getenv("MELLUM_GRAPH_AUDIT_PATH")
+                if _audit and graph_key not in getattr(self, "_mellum_replay_seen", set()):
+                    import json as _mellum_json
+                    with open(_audit, "a") as _stream:
+                        _stream.write(_mellum_json.dumps({"graph_key": list(graph_key),
+                            "actual_batch": bs, "event": "replayed"}) + "\n")
+                    if not hasattr(self, "_mellum_replay_seen"):
+                        self._mellum_replay_seen = set()
+                    self._mellum_replay_seen.add(graph_key)
                 num_tokens = context.batch_size * max_q_len
                 hidden_states = self.forward_vars["outputs"][:num_tokens]
                 if graph_key in self.graph_aux_hidden:
