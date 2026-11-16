@@ -16,6 +16,8 @@ DERIVED={
     'sprint_graph_qk_chunk4096':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_CHUNK_BUDGET':'4096'},
 }
 AGREEMENT={
+    'agree_fast_norms':{'MELLUM_HF_QK_ROUNDING':'1','MELLUM_NORM_BACKEND':'triton_hf'},
+    'agree_fast_norms_route':{'MELLUM_HF_QK_ROUNDING':'1','MELLUM_NORM_BACKEND':'triton_hf','MELLUM_NATIVE_ROUTING':'0'},
     'agree_qk_round':{'MELLUM_HF_QK_ROUNDING':'1'},
     'agree_norms':{'MELLUM_HF_QK_ROUNDING':'1','MELLUM_NORM_BACKEND':'reference'},
     'agree_norms_route':{'MELLUM_HF_QK_ROUNDING':'1','MELLUM_NORM_BACKEND':'reference','MELLUM_NATIVE_ROUTING':'0'},

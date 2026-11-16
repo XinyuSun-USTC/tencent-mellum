@@ -8,6 +8,9 @@ from collections import Counter
 def make_norm(reference,dim,eps=1e-6,fused_allreduce=False):
     backend=os.getenv('MELLUM_NORM_BACKEND','reference')
     if backend=='reference':return reference(dim,eps=eps,fused_allreduce=fused_allreduce)
+    if backend=='triton_hf':
+        from atom.model_config.mellum_hf_norm import HFCompatibleRMSNorm
+        return HFCompatibleRMSNorm(dim,eps=eps,fused_allreduce=fused_allreduce)
     if backend!='aiter':raise ValueError('Unknown Mellum norm backend')
     from atom.model_ops.layernorm import RMSNorm
     return RMSNorm(dim,eps=eps,fused_allreduce=fused_allreduce)

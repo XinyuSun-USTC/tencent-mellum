@@ -8,24 +8,27 @@ from mellum_process_runner import run_stage
 from mellum_execution_profiles import profile_settings
 from run_mellum_full_campaign import audit_backend
 from run_mellum_batch_campaign import write
-TRACKS={'norm':[(n,n,32) for n in ['sprint_graph_qk_router_prefix_metadata','agree_qk_round','agree_norms','agree_norms_route']],
+TRACKS={'hf_norm':[(n,n,32) for n in ['agree_norms','agree_fast_norms']],
+        'hf_norm_route':[(n,n,32) for n in ['agree_norms_route','agree_fast_norms_route']],
+        'norm':[(n,n,32) for n in ['sprint_graph_qk_router_prefix_metadata','agree_qk_round','agree_norms','agree_norms_route']],
         'systems':[(n,n,32) for n in ['sprint_graph_qk_router_prefix_metadata','agree_no_prefix','agree_route','agree_projection']]+
                   [('single','sprint_graph_qk_router_prefix_metadata',1),('reference_control','r',1)]}
 
 
 def prepare(out,track):
-    jobs={};gpu=0 if track=='norm' else 1
+    jobs={};gpu=0 if track in ('norm','hf_norm') else 1
     for name,profile,batch in TRACKS[track]:
         directory=out/name;directory.mkdir();plan=acceptance.prepare(directory,profile,gpu)
         plan.update(diagnostic_batch=batch,diagnostic_suites=['tokens','long']);write(directory/'manifest.json',plan)
         jobs[name]={'profile':profile,'batch':batch,'plan_sha256':sha(directory/'manifest.json')}
-    m={'track':track,'jobs':jobs,'source':str(Path(__file__).resolve()),'source_sha256':sha(__file__),
+    m={'track':track,'jobs':jobs,'source':str(Path(__file__).resolve()),'source_sha256':sha(__file__),'kernel_source_sha256':sha(Path(__file__).with_name('check_mellum_hf_norm.py')),
        'scope':'Greedy200 and long regression only; no HE or throughput acceptance'}
     write(out/'manifest.json',m);return m
 
 
 def current(out,m):
     if sha(m['source'])!=m['source_sha256']:raise ValueError('Recovery source changed')
+    if sha(Path(__file__).with_name('check_mellum_hf_norm.py'))!=m['kernel_source_sha256']:raise ValueError('Kernel smoke source changed')
     for name,job in m['jobs'].items():
         if sha(out/name/'manifest.json')!=job['plan_sha256']:raise ValueError('Job configuration changed')
         acceptance.current(json.loads((out/name/'manifest.json').read_text()))
@@ -66,14 +69,25 @@ def execute(out,m,budget):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--track',choices=TRACKS);p.add_argument('--worker',type=Path)
+    p.add_argument('--evidence',type=Path)
     p.add_argument('--prepare-only',action='store_true');p.add_argument('--budget-minutes',type=float,default=45);a=p.parse_args()
     if a.worker:
         plan=json.loads((a.worker/'manifest.json').read_text())
         acceptance.worker(a.worker,suites=plan['diagnostic_suites'],batch_size=plan['diagnostic_batch']);return
     if not a.track:p.error('--track required')
     if not 1<=a.budget_minutes<=90:p.error('Budget1..90min')
+    if a.track.startswith('hf_norm') and not a.prepare_only:
+        if not a.evidence:p.error('HF fast Norm is conditional: --evidence completed recovery run required')
+        prior=json.loads((a.evidence/'summary.json').read_text());control=TRACKS[a.track][0][0]
+        if not prior.get('source_unchanged') or not prior.get('jobs',{}).get(control,{}).get('tokens',{}).get('all',{}).get('at_least_90_percent'):
+            raise ValueError('Reference-Norm branch has not reached90%; do not expand this branch')
     out=Path('/workspace/results/mellum_greedy_recovery')/(datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')+'_'+a.track);out.mkdir(parents=True)
     m=prepare(out,a.track)
     if a.prepare_only:print('RESULT greedy_recovery_prepared output',out);return
-    r=execute(out,m,a.budget_minutes*60);print('RESULT',r['status'],'output',out)
+    execution_start=time.monotonic()
+    if a.track.startswith('hf_norm'):
+        current(out,m)
+        run_stage('HF_norm_kernel',['/opt/venv/bin/python',str(Path(__file__).with_name('check_mellum_hf_norm.py')),
+            '--gpu','0' if a.track=='hf_norm' else '1','--output',str(out/'kernel_smoke.json')],out/'kernel_smoke.log',timeout=300)
+    r=execute(out,m,a.budget_minutes*60-(time.monotonic()-execution_start));print('RESULT',r['status'],'output',out)
 if __name__=='__main__':main()
