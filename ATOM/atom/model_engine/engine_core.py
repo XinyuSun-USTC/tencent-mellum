@@ -3,6 +3,7 @@
 
 import enum
 import logging
+import os
 import pickle
 import queue
 import threading
@@ -73,6 +74,7 @@ class EngineCore:
         )
         self.input_thread.start()
 
+        self._mellum_phase_audit = os.getenv('MELLUM_ENGINE_PHASE_AUDIT')
         self.profile_enbaled = config.torch_profiler_dir is not None
         self.mark_trace = getattr(config, "mark_trace", False)
         init_exit_handler(self)
@@ -191,6 +193,7 @@ class EngineCore:
                 self._process_engine_step()
 
     def _process_engine_step(self):
+        audit_start = time.monotonic_ns() if self._mellum_phase_audit else None
         result = self.scheduler.schedule()
 
         # Surface admit-rejected seqs (those `_unschedulable_reason` flags in
@@ -235,6 +238,8 @@ class EngineCore:
                 "forward", scheduled_batch, wait_out=True
             )
 
+        audit_forward_done = time.monotonic_ns() if self._mellum_phase_audit else None
+
         # Aggregate KV transfer status from all workers (only when PD disaggregation is active)
         if self.kv_transfer_enabled:
             kvoutput = self.runner_mgr.call_func_with_aggregation(
@@ -266,6 +271,9 @@ class EngineCore:
 
         if finished_seqs:
             self.output_queue.put_nowait(finished_seqs)
+        if self._mellum_phase_audit:
+            from atom.model_engine.mellum_service_audit import record_step
+            record_step(self._mellum_phase_audit,scheduled_batch,self.scheduler,audit_start,audit_forward_done,finished_seqs)
         return True
 
     def pull_and_process_input_queue(self):

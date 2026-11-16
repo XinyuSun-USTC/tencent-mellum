@@ -12,6 +12,7 @@ def main():
     p.add_argument('--max-num-seqs',type=int,default=1);p.add_argument('--max-model-len',type=int,default=16640)
     p.add_argument('--max-batched-tokens',type=int,default=16640);p.add_argument('--implementation',choices=['reference','ck','triton'],default='reference')
     p.add_argument('--batching',action='store_true');p.add_argument('--batch-audit',action='store_true');p.add_argument('--output',type=Path);p.add_argument('--prepare-only',action='store_true')
+    p.add_argument('--phase-audit',action='store_true',help='Diagnostic EngineCore host timestamps; not final performance mode')
     p.add_argument('--disable-thinking',action='store_true')
     p.add_argument('--campaign-config',type=Path)
     p.add_argument('--profile',choices=PROFILES,help='Explicit experimental execution profile; requires --batching')
@@ -27,6 +28,7 @@ def main():
         settings.update(profile_settings(a.profile))
         if a.batch_audit:settings['MELLUM_NATIVE_AUDIT_PATH']=str(out/'native_calls.jsonl')
         os.environ.update(settings)
+    if a.phase_audit:settings['MELLUM_ENGINE_PHASE_AUDIT']=str(out/'engine_steps.jsonl')
     settings['MELLUM_FASTPATH_AUDIT_PATH']=str(out/'fastpaths.json')
     os.environ.update(settings)
     if a.campaign_config:
@@ -64,7 +66,7 @@ def main():
         os.environ.update(settings)
     source=[PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'ATOM/atom/model_config/mellum_native.py',PROJECT/'ATOM/atom/models/mellum.py',PROJECT/'ATOM/atom/model_config/mellum_batch.py',
             PROJECT/'ATOM/atom/model_config/mellum_attention.py',PROJECT/'ATOM/atom/entrypoints/openai/api_server.py',
-            PROJECT/'scripts/mellum_runtime_config.py',Path(__file__)]
+            PROJECT/'scripts/mellum_runtime_config.py',PROJECT/'ATOM/atom/model_engine/engine_core.py',PROJECT/'ATOM/atom/model_engine/mellum_service_audit.py',Path(__file__)]
     (out/'launch.json').write_text(json.dumps({'profile':a.profile,'acceptance':'Experimental profile; do not infer final correctness/performance acceptance from launcher availability','settings':settings,'command':command,'source_sha256':{str(f):hashlib.sha256(f.read_bytes()).hexdigest() for f in source}},indent=2)+'\n')
     if a.prepare_only:print('RESULT prepared output',out);return
     print('SERVE output',out,flush=True);os.execv(command[0],command)
