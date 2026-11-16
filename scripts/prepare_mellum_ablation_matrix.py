@@ -5,9 +5,11 @@ from datetime import datetime,timezone
 from mellum_execution_profiles import ABLATION_BASE,ABLATIONS,profile_settings
 from mellum_perf_protocol import sha
 from run_mellum_batch_campaign import write
+from serve_mellum_step0_snapshot import describe
 
 
 def prepare(out):
+    snapshot=describe(Path('/workspace/tencent-mellum-step0-repro'),0,'127.0.0.1',8751,9726,out/'step0')
     anchor=profile_settings(ABLATION_BASE);rows=[]
     for name in [ABLATION_BASE,*ABLATIONS]:
         settings=profile_settings(name)
@@ -22,7 +24,7 @@ def prepare(out):
             'direct_kv':'fused QK and cached suffixes depend on this write bridge',
             'torch_experts':'reference expert route has dynamic CPU metadata, unsupported in this graph path',
             'reference_attention':'ragged reference route has dynamic shapes/host operations; requires eager'},
-        'historical_step0':{'tag':'step0-local-validated','commit':subprocess.check_output(['git','rev-parse','step0-local-validated^{commit}'],cwd=Path(__file__).resolve().parents[1],text=True).strip(),
+        'historical_step0':{'tag':'step0-local-validated','commit':snapshot['snapshot_commit'],
             'snapshot':'/workspace/tencent-mellum-step0-repro','max_num_seqs':1,'source_unchanged':True,
             'note':'No batching bridge in historical tag. R includes later work and must not be relabeled Step0.'},
         'source_sha256':{str(p):sha(p) for p in [Path(__file__).resolve(),Path(__file__).with_name('mellum_execution_profiles.py'),Path(__file__).with_name('serve_mellum_step0_snapshot.py')]}}
