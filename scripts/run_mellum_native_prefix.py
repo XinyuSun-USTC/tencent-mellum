@@ -9,7 +9,7 @@ from run_mellum_batch_campaign import write
 import run_mellum_prefix_probe as probe
 import run_mellum_candidate_capacity as capacity
 
-PROFILE='fused_moe_native_attention'
+PROFILE='fused_moe_native_batched'
 
 
 def kernel_worker(out):

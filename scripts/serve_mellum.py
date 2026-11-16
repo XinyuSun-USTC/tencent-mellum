@@ -19,7 +19,7 @@ def main():
     a=p.parse_args()
     if a.profile and (not a.batching or a.campaign_config or a.implementation!='reference'):
         p.error('--profile requires --batching and cannot combine with campaign-config/implementation')
-    if a.prefix_caching and (not a.batching or a.profile not in ('r','fused_moe','fused_moe_native_attention')):
+    if a.prefix_caching and (not a.batching or a.profile not in ('r','fused_moe','fused_moe_native_attention','fused_moe_native_batched')):
         p.error('--prefix-caching currently requires batching and profile r, fused_moe or fused_moe_native_attention')
     if a.max_num_seqs<1 or a.max_model_len<1 or a.max_batched_tokens<a.max_model_len:p.error('Invalid sequence/token limits')
     if a.max_num_seqs>1 and not a.batching:p.error('Multiple sequences require --batching')

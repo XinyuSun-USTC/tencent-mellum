@@ -67,7 +67,7 @@ def worker(out,plan,enabled):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--prepare-only',action='store_true');p.add_argument('--worker',type=Path)
-    p.add_argument('--profile',choices=['r','fused_moe_native_attention'],default='r')
+    p.add_argument('--profile',choices=['r','fused_moe_native_attention','fused_moe_native_batched'],default='r')
     p.add_argument('--prefix',action='store_true');p.add_argument('--budget-minutes',type=float,default=25);a=p.parse_args()
     if a.worker:
         plan=json.loads((a.worker.parent/'plan.json').read_text());worker(a.worker,plan,a.prefix);return 0

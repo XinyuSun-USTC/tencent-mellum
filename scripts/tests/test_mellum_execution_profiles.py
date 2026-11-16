@@ -8,7 +8,7 @@ from mellum_execution_profiles import PROFILES,profile_settings
 @pytest.mark.parametrize('name',PROFILES)
 def test_profiles_preserve_required_model_semantics_and_do_not_split_fused_experts(name):
     env=profile_settings(name);cfg=json.loads(env['MELLUM_BATCH_CAMPAIGN_CONFIG'])
-    if env['MELLUM_MOE_BACKEND']!='torch':assert cfg['groups']=='L' and 'moe_optimization' not in cfg
+    if env['MELLUM_MOE_BACKEND']!='torch':assert cfg['groups']==('' if name=='fused_moe_native_batched' else 'L') and 'moe_optimization' not in cfg
     else:assert cfg['groups']=='LE' and cfg['moe_optimization']=='shared_routing'
     assert env['MELLUM_REFERENCE_KV_ROPE']=='1' and env['MELLUM_PREFILL_BACKEND']=='sdpa_cpu_rope_diagnostic'
     if env['MELLUM_ATTENTION_EXECUTION']=='native':
@@ -82,3 +82,14 @@ def test_native_prefix_service_disables_old_bridge_and_enables_cache(tmp_path):
     assert '--enable_prefix_caching' in d['command']
     assert d['settings']['MELLUM_PREFIX_COMPAT']=='1'
     assert d['settings']['MELLUM_REQUEST_BATCHING']==d['settings']['MELLUM_SDPA_DECODE']=='0'
+
+
+def test_batched_prefix_launcher_keeps_native_attention_and_releases_linear_control(tmp_path):
+    script=Path(__file__).resolve().parents[1]/'serve_mellum.py'
+    p=subprocess.run([sys.executable,str(script),'--profile','fused_moe_native_batched','--batching',
+        '--prefix-caching','--gpu','0','--prepare-only','--output',str(tmp_path)],capture_output=True,text=True)
+    assert p.returncode==0,p.stderr
+    d=json.loads((tmp_path/'launch.json').read_text());e=d['settings']
+    assert e['MELLUM_PREFIX_COMPAT']=='1' and e['MELLUM_ATTENTION_EXECUTION']=='native'
+    assert json.loads(e['MELLUM_BATCH_CAMPAIGN_CONFIG'])['groups']==''
+    assert '--enable_prefix_caching' in d['command']
