@@ -1,4 +1,6 @@
-# 主版本ABC测量及C场景容量问题
+# 旧参考 r32 的 ABC 与 C 容量失败记录
+
+> 历史结果记录：下文配置、主版本称谓和后续安排对应当时状态，不定义当前最终方案。当前状态见 [交付核对](02_delivery_audit.md) 与 [补测安排](03_completion_experiments.md)。
 
 运行`/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary`，单卡GPU0、参考路径r、max_num_seqs=32。结果`incomplete_or_failed`来自C请求失败，不是测量中断。62项产物SHA256一致，源码未变。
 

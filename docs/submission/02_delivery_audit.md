@@ -1,73 +1,37 @@
-# 交付材料与复现说明
+# 当前交付核对表
 
-核对依据：`docs/requirements/01_assessment_summary.md`及题目第7节。根目录三份报告用于直接审阅，内部研究、规划和诊断记录保留于`docs/`与`report/`。
+本页与根目录正式材料共同维护当前状态，历史方案不作为默认执行指令。重构前版本保留在 `report/archive/submission_document_snapshots/20261116_before_current_scheme/`。
 
-## 1. 材料清单
+## 材料与当前状态
 
-| 材料 | 仓库位置 | 内容 |
+| 交付要求 | 位置 | 当前状态 |
 |---|---|---|
-| 适配与优化源码 | `ATOM/` | 模型实现、权重映射、原生计算路径及性能机制 |
-| 服务启动入口 | `start_server.sh` | 单命令启动，参考/优化配置选择；独立组件开关见 README |
-| 技术报告 | `TECHNICAL_REPORT.md` | Profiling、优化依据、收益、正确性及累计消融 |
-| AI 使用说明 | `AI_USAGE.md` | 工具分工、错误修正与结果核验 |
-| 每日工作日志 | `WORKLOG.md` | D1—D7 的工作、阻碍与决策；详细记录见 `report/worklog.md` |
-| 实验依据 | `artifacts/submission/index.json` | 归档结果、SHA256 与原始文件路径 |
-| 来源说明 | `docs/submission/01_sources_and_licenses.md` | 上游实现与许可证归属 |
+| ATOM 适配源码与冻结环境 | `ATOM/`、`configs/submission/environment.json` | 已有参考适配；新候选分布于独立分支，尚待最终集成 |
+| 一条命令启动服务 | `start_server.sh` | 现默认仍为旧 r；新候选入口已做 CPU 准备，GPU 启动待测 |
+| 各优化独立开关 | `release/qualified-entrypoint` | 专家分组、KV 和分段开关已准备；分段当前依赖 direct KV，须披露组合限制 |
+| ≤4 页技术报告 | `TECHNICAL_REPORT.md` | 已按当前方案重写，数据缺口留空，作者最终确认页数 |
+| 一页 AI 使用说明 | `AI_USAGE.md` | 已更新方法、错误与责任，作者最终确认页数 |
+| D1—D7 日志与完整 Git 历史 | `WORKLOG.md` | 已统一每日记录，历史详细记录归档；不 squash |
+| Profiling 证据 | `artifacts/submission/profiling/` | 已归档，不等同于正式吞吐测量 |
+| 同配置完整 ABC 与累计消融 | 正式报告第 3 节 | 尚缺最终方案；未以缩减或激进路线数据补表 |
+| 来源和许可证 | `01_sources_and_licenses.md` | 已保留，候选最终集成后再核对增量 |
 
-**总体结论：主版本（参考路径、32槽）已通过完整本地正确性验收；同配置ABC已测、C场景仅1/200成功；完整累计消融仍待完成。激进版本单独报告。**
+## 候选证据与不可替代关系
 
-文档以中文 Markdown 为主稿。技术报告按四页内容组织，AI 说明按一页篇幅编写；目前尚未核对排版导出页数，≤4页/1页的版面要求仍需最终确认。本次交付不包含早期英文PDF预览。
+- 参考组合 `r_expert_decode4_kv_once`：developer200 96.8125%，长组 256/256，16k 64/64，HumanEval 148/164 对 HF145/164，绝对差1.8293个百分点，本地通过；C200仅1/200成功。归档为 `reference_combination_acceptance/` 与 `reference_combination_c200/`。
+- 四轮配额分段：C60成功21–24/60，包含16k的小样本生成通过；没有完整候选正确性或C通过声明。见 `report/performance/38_c_chunked_prefill_screen.md`。
+- 一轮配额与前缀缓存：正在测，结果待填。CPU检查不等于GPU验收。
+- 旧 aggressive：已有完整ABC和缩减对照，但未通过正确性。其数据不放入新方案累计消融。
+- 旧保守r：单槽和32槽本地正确性均通过；r32容量失败。旧标签不代表当前最终候选。
 
-## 2. 实现与验证状态
+最终公开集与位置/序列匹配口径未由裁判确认，本地两种分母同时保留。MTP关闭、推理单卡，附加条件不适用。隐藏集、空闲机器三次中位数由裁判执行，不是本地已完成项目。
 
-交付入口的两种配置均已通过启动检查，运行编号为 `20261116T152441526820Z`。检查范围包括 5,631 个源权重张量的加载、普通 HTTP 请求及 SSE 流式响应和 usage 统计；测试配置为 512 token 上下文、单调度槽和 8 个输出 token。证据保存在 `artifacts/submission/smoke/`。
+## 最终晋级与交付顺序
 
-| 验收项目 | 当前结果 |
-|---|---|
-| 本地 200 条前 64 token 一致率 | 主版本96.8125%，通过逐位置门槛；激进版本62.85%，未通过 |
-| BF16 HumanEval | 主版本148/164，HF145/164，绝对差1.829个百分点，通过；激进版本150/164，差3.05个百分点，不通过 |
-| 16k 输入 | 参考配置 64/64，优化组合 63/64；其余长输入结果见技术报告 |
-| MTP、双卡推理 | 未启用，相关附加检查不适用 |
-| 事前量化收益预测 | 已有定性假设，缺少统一的事前数值估计；报告据实说明 |
-| 报告页数 | Markdown已按四页内容分段；实际导出版面尚未核验 |
-| 规定的完整累计消融 | 尚未完成；组件对照和缩减规模测试分别记录 |
-| 隐藏集、空闲机器三次中位数 | 待裁判测量 |
+1. 核验已结束实验的状态、请求分母、实际功能调用和产物/源码哈希。
+2. 选择有容量改善的候选，跑同配置 C200；完成最终完整本地正确性。
+3. 集成自包含源码与默认预设，检查独立开关及兼容限制，运行真实入口的普通/SSE检查。
+4. 补同配置 A512/B50 和规定累计消融，最后一行必须等于最终主配置；失败行保留失败，缺失数据留空。
+5. 更新根目录报告、证据索引、提交和新的最终标签。旧标签不移动，不借用旧正确性或性能结论。
 
-主版本完整验收运行为`20261116T160221792307Z_batch32`，20项产物哈希一致，来源见`artifacts/submission/primary_acceptance_batch32/`。主版本自身性能已测：A41.3351 token/s/GPU，B50全部成功；C仅1/200成功，199请求超时，不具备有效C尾延迟成绩。证据见`artifacts/submission/primary_abc/`，不继承附加版本性能。
-
-## 3. 主版本性能与附加实验
-
-主版本通过验收后的同配置完整ABC：
-
-```bash
-/opt/venv/bin/python scripts/run_mellum_completion_benchmarks.py --track primary --gpu 0 --acceptance-run /workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32 --budget-minutes 180
-```
-
-此前激进附加版本完整ABC已完成，其结果独立保留。
-
-缩减规模累计对照：
-
-```bash
-/opt/venv/bin/python scripts/run_submission_ablation.py --gpu 1 --budget-minutes 20
-```
-
-后者采用 A32/B6/C8，控制行为原生快速配置，与历史 Step0 不同。该对照已完成，12个阶段均成功，运行编号为`20261116T153235801902Z`，结果见`artifacts/submission/delivery_ablation/matrix.md`。其结果用于补充组件收益分析，不替代题目规定的完整累计消融。完整ABC复测已完成，运行编号为`20261116T153025780336Z`，A512/B50/C200全部成功，结果见`artifacts/submission/delivery_abc/`。
-
-## 4. 版本与打包
-
-交付分支为 `release/submission`，当前主版本正确性标签为`primary-correctness-20261116-r32`，此前材料标签为 `submission-20261116-final`，历史 Step0 标签为 `step0-local-validated`。Git 保留提交和合并历史。技术报告、AI 说明、WORKLOG 与证据索引均随代码交付；模型权重、虚拟环境及大体积张量文件保留在外部环境中。
-
-工作树提交完成后，执行：
-
-```bash
-/opt/venv/bin/python scripts/verify_submission.py
-/opt/venv/bin/python scripts/package_submission.py
-```
-
-输出目录为 `/workspace/delivery/<时间>_<提交>/`，包含源码 ZIP、完整本地 Git 历史 bundle、版本清单和 SHA256。ZIP 用于直接查阅，bundle 可用于恢复版本历史：
-
-```bash
-git clone tencent-mellum-history.bundle -b release/submission
-```
-
-服务运行仍依赖题给模型及冻结的软件环境。
+`verify_submission.py`可检查文件、部分链接与证据索引，但其通过不代表GPU或题目验收通过。打包前必须在选定的最终工作树运行检查并确认打包脚本选择正确分支；当前默认脚本仍面向旧release/submission，不能直接打包充当新方案。完整Git历史可另存bundle；模型权重、虚拟环境与大型张量通过外部资产清单引用。不要在候选仍测试时提前冻结“最终合格版本”。

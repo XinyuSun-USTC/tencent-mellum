@@ -1,8 +1,22 @@
 # 内部研发文档导航
 
-正式交付入口为根目录的 [README](../README.md)、[技术报告](../TECHNICAL_REPORT.md)、[AI使用说明](../AI_USAGE.md) 和 [WORKLOG](../WORKLOG.md)。本目录及`report/`保存研究、计划和诊断过程，以下阶段记录按原文保留；其中“当前”“下一步”等表述仅对应记录时点。
+正式材料位于根目录：[README](../README.md)、[技术报告](../TECHNICAL_REPORT.md)、[AI 使用说明](../AI_USAGE.md)、[每日工作日志](../WORKLOG.md)。本目录与 `report/` 保存内部方案、主题分析和历史记录，不另行维护重复日报。
 
-## 阶段性记录
+## 当前方案与证据
+
+| 主题 | 文档 |
+|---|---|
+| 交付状态与材料缺口 | [交付核对](submission/02_delivery_audit.md)、[当前补测](submission/03_completion_experiments.md) |
+| 参考组合完整正确性与短负载收益 | [性能37](../report/performance/37_reference_kv_and_expert_groups.md) |
+| 四轮配额分段 C60 结果 | [性能38](../report/performance/38_c_chunked_prefill_screen.md) |
+| 准入等待与前缀计量 | [性能39](../report/performance/39_c_admission_and_prefix_accounting.md) |
+| 一轮配额与前缀缓存，实验待结果 | [计划57](plan/57_c_prefix_and_decode_quota.md) |
+| 候选服务入口，CPU准备 | [计划56](plan/56_qualified_entrypoint_staging.md) |
+| 原题与来源 | [题目摘要](requirements/01_assessment_summary.md)、[来源说明](submission/01_sources_and_licenses.md) |
+
+以下“最新”“下一步”等措辞属于历史原文，不代表当前任务或最终交付指令。旧激进路线未通过正确性，旧参考r的C容量失败；不能根据旧页面标题将其视为当前合格主版本。
+
+## 历史阶段导航（保留记录时点）
 
 最新：[验证44 阶段定位](../report/validation/44_prefill_decode_phase_diagnosis.md)、[50 最后确认与兜底](plan/50_last_confirmation_and_delivery_fallback.md)。20条各阶段均未到90，专家prefill最接近86.88%；独立confirmation提交d4b2573准备原200确认及R批32保守验证，不继续新增算法。
 

@@ -1,4 +1,4 @@
-# Sources and licenses
+# 来源与许可证
 
 - ATOM：仓库 `ATOM/`，保留上游源码与 LICENSE，通过非squash导入保留上游历史。本项目在冻结容器版本上修改；未替换框架、Torch或AITER依赖。
 - AITER：容器 `/app/aiter-test`，本项目调用已有 attention、MoE、Norm、routing 与 RoPE 相关接口，未把第三方内核宣称为原创。实际调用记录和本项目适配/融合见 `ATOM/atom/model_config/mellum_native.py`、`mellum_fastpaths.py`、`mellum_fused_rope.py` 等。
@@ -8,4 +8,6 @@
 - 参考阅读涉及 vLLM/SGLang/新版ATOM 的范围、路径与修订信息，见 `report/research/05_optimization_implementation_sources.md`；不是将这些框架替换为提交运行时。
 - 题目原件在 `docs/requirements/`。模型与数据由容器 `/data` 提供，不在本仓库重新分发模型权重。
 
-原创工作范围：Mellum在冻结ATOM的配置/权重映射与加载审计、参考数值兼容路径、适配到原生批处理/分页KV/graph、专用融合与元数据兼容、实验/验收工具及文档。调用的上游算法和内核按其来源归属，优化效果由实际测量给出。
+本项目实现范围：Mellum在冻结ATOM的配置/权重映射与加载审计、参考数值兼容路径、适配到原生批处理/分页KV/graph、专用融合与元数据兼容、实验/验收工具及文档。调用的上游算法和内核按其来源归属，优化效果由实际测量给出。
+
+当前参考兼容路线主要复用 HF 数值语义、ATOM 分页块管理与调度基础设施，以及 AITER 现有缓存写入接口。新增专家分组、参考缓存后缀桥接、分段服务配额和实验工具属于本项目适配工作；未宣称重新实现上游 SDPA、MoE 底层内核或块哈希算法。原生内核、graph 和融合的历史实现仍保留，但不因此成为当前已通过方案。各候选的来源说明应在最终集成时随实际保留范围再次核对。
