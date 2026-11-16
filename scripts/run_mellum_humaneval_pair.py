@@ -26,10 +26,42 @@ def validate_records(inputs,data):
             raise ValueError('Invalid output budget/shape')
 
 
-def atom_worker(out,inputs,backend):
-    settings=apply_serving(1,out,True,'reference',True)
+def attention_settings(attention,prefix=False):
+    if attention not in ('reference','native'):raise ValueError('Unknown functional attention path')
+    native=attention=='native'
+    if prefix and not native:raise ValueError('Functional prefix path requires native attention')
+    settings={'MELLUM_ATTENTION_EXECUTION':attention,'MELLUM_SDPA_DECODE':'0' if native else '1',
+            'MELLUM_REQUEST_BATCHING':'0' if native else '1'}
+    if prefix:settings['MELLUM_PREFIX_COMPAT']='1'
+    return settings
+
+
+def validate_native_audit(rows,backend,attention):
+    target='FusedMoE' if backend=='fused_torch_route' else 'isolated_fused_experts'
+    moe=[r for r in rows if r['kind']=='moe']
+    if not moe or any(r['backend']!=target for r in moe):raise ValueError('Candidate native MoE audit failed')
+    if attention=='native':
+        attn=[r for r in rows if r['kind']=='attention']
+        if not any(r['phase']=='prefill' and r['backend']=='aiter_varlen' for r in attn):raise ValueError('Native prefill audit missing')
+        if not any(r['phase']=='decode' and r['backend'].startswith('paged_attention') for r in attn):raise ValueError('Native decode audit missing')
+        if any(r['backend']!='aiter_varlen' and not r['backend'].startswith('paged_attention') for r in attn):raise ValueError('Reference attention fallback observed')
+
+
+def load_reference(run,manifest,inputs):
+    old=json.loads((run/'manifest.json').read_text());file=run/'hf/generation.json'
+    if old.get('hf_model_source_sha256')!=manifest['hf_model_source_sha256']:raise ValueError('HF model source differs from reused reference')
+    if old['inputs_sha256']!=manifest['inputs_sha256'] or old.get('completed_hf_sha256')!=sha(file):raise ValueError('Reused HF input/completion hash differs')
+    cached=json.loads(file.read_text());validate_records(inputs,cached)
+    if cached.get('status')!='complete' or cached['environment']['transformers']!='5.10.1':raise ValueError('Reused HF incomplete/wrong environment')
+    return cached
+
+
+def atom_worker(out,inputs,backend,attention='reference',gpu=1,prefix=False):
+    settings=apply_serving(gpu,out,True,'reference',True)
     settings.update(MELLUM_MOE_BACKEND=backend,MELLUM_NATIVE_AUDIT_PATH=str(out/'native_calls.jsonl'),
         MELLUM_BATCH_CAMPAIGN_CONFIG=json.dumps({'groups':'L','phases':['prefill','decode']}))
+    settings.update(attention_settings(attention,prefix))
+    if prefix:settings['MELLUM_PREFIX_AUDIT_PATH']=str(out/'prefix.jsonl')
     os.environ.update(settings);sys.path.insert(0,str(PROJECT/'ATOM'))
     import torch,transformers
     from atom.model_engine.arg_utils import EngineArgs
@@ -37,12 +69,13 @@ def atom_worker(out,inputs,backend):
     from validate_mellum_batch200 import drive_window,read_batches
     if not torch.cuda.is_available():raise RuntimeError('No visible GPU')
     if transformers.__version__!='5.2.0':raise RuntimeError('Frozen ATOM interpreter required')
-    if torch.cuda.mem_get_info(0)[0]<80*1024**3:raise RuntimeError('Require80GiB free on GPU1')
+    if torch.cuda.mem_get_info(0)[0]<80*1024**3:raise RuntimeError('Require80GiB free on selected GPU')
     cases=[{'name':r['name'],'input_ids':r['input_ids'][0],'budget':r['generation_settings']['max_new_tokens']} for r in inputs['records']]
     opts=engine_options(max(len(r['input_ids'])+r['budget'] for r in cases),None)
-    opts.update(max_num_seqs=32,max_num_batched_tokens=16384,port=8626)
+    opts.update(max_num_seqs=32,max_num_batched_tokens=16384,port=9126 if gpu==0 else 8626,
+        enable_prefix_caching=prefix)
     result={**inputs,'producer':'atom','records':[],'settings':settings,
-            'environment':{'torch':torch.__version__,'transformers':transformers.__version__,'gpu':1}}
+            'environment':{'torch':torch.__version__,'transformers':transformers.__version__,'gpu':gpu},'prefix_caching':prefix}
     engine=None
     try:
         engine=EngineArgs(**opts).create_engine()
@@ -60,8 +93,12 @@ def atom_worker(out,inputs,backend):
         result.update(status='complete',submissions=subs,completions=comps,actual_batches=read_batches(out/'batches.jsonl'))
         if result['actual_batches']['decode']['max_batch_size']!=32:raise ValueError('Actual batch32 not observed')
         native=[json.loads(l) for l in (out/'native_calls.jsonl').read_text().splitlines()]
-        target='FusedMoE' if backend=='fused_torch_route' else 'isolated_fused_experts'
-        if not native or any(r['backend']!=target for r in native):raise ValueError('Candidate native backend audit failed')
+        validate_native_audit(native,backend,attention)
+        if prefix:
+            events=[json.loads(x) for x in (out/'prefix.jsonl').read_text().splitlines()] if (out/'prefix.jsonl').exists() else []
+            if any(e.get('backend')!='aiter_varlen_cached' for e in events):raise ValueError('Cached prefill did not use native backend')
+            result['prefix_reuse']={'events':len(events),'cached_tokens':sum(sum(e['cached_tokens']) for e in events),
+                'hit_requests':sum(sum(n>0 for n in e['cached_tokens']) for e in events)}
         validate_records(inputs,result);write(out/'generation.json',result)
     finally:
         if engine is not None:engine.close()
@@ -163,6 +200,9 @@ def paired_scores(left,right):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--thinking',action='store_true')
     p.add_argument('--max-new-tokens',type=int,default=2048);p.add_argument('--budget-minutes',type=float,default=90)
+    p.add_argument('--candidate-gpu',type=int,choices=[0,1],default=1)
+    p.add_argument('--prefix-caching',action='store_true')
+    p.add_argument('--attention',choices=['reference','native'],default='reference')
     p.add_argument('--candidate',choices=['fused_torch_route','fused_isolated'],default='fused_torch_route')
     p.add_argument('--prepare-only',action='store_true');p.add_argument('--reuse-hf-run',type=Path)
     p.add_argument('--worker',choices=['hf','candidate']);p.add_argument('--output',type=Path)
@@ -170,10 +210,13 @@ def main():
     if a.worker:
         inputs=json.loads((a.output.parent/'inputs.json').read_text());a.output.mkdir(parents=True,exist_ok=True)
         try:
-            (hf_worker if a.worker=='hf' else lambda o,i:atom_worker(o,i,a.candidate))(a.output,inputs)
+            (hf_worker if a.worker=='hf' else lambda o,i:atom_worker(o,i,a.candidate,a.attention,a.candidate_gpu,a.prefix_caching))(a.output,inputs)
         except Exception:
             write(a.output/'failure.json',{'traceback':traceback.format_exc()});raise
         return 0
+    if a.candidate_gpu==0 and not a.reuse_hf_run:p.error('GPU0 candidate requires reused HF; refuse simultaneous HF launch')
+    if a.prefix_caching and (a.attention!='native' or a.candidate!='fused_torch_route'):p.error('Prefix evaluation requires native Attention and fused_torch_route')
+    if a.attention=='native' and not a.reuse_hf_run:p.error('Native functional follow-up requires --reuse-hf-run; no HF/GPU0 launch')
     if not 256<=a.max_new_tokens<=8192 or not 0<a.budget_minutes<=240:p.error('Budget tokens256..8192; time>0 <=240min')
     out=Path('/workspace/results/mellum_humaneval_pair')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
     from transformers import AutoTokenizer
@@ -192,13 +235,14 @@ def main():
     sources[str(hf_source)]=sha(hf_source)
     for file in ('tokenizer.json','tokenizer_config.json','special_tokens_map.json'):
         if (MODEL/file).exists():sources[str(MODEL/file)]=sha(MODEL/file)
-    m={'status':'prepared','tasks':164,'thinking':a.thinking,'max_new_tokens':a.max_new_tokens,'candidate':a.candidate,
-       'hf_model_source_sha256':sha(hf_source),'candidate_batch':32,'hf_gpu':0,'candidate_gpu':1,'inputs_sha256':sha(out/'inputs.json'),
+    m={'status':'prepared','tasks':164,'thinking':a.thinking,'max_new_tokens':a.max_new_tokens,'candidate':a.candidate,'attention':a.attention,'prefix_caching':a.prefix_caching,
+       'hf_model_source_sha256':sha(hf_source),'candidate_batch':32,'hf_gpu':None if a.reuse_hf_run else 0,'candidate_gpu':a.candidate_gpu,'inputs_sha256':sha(out/'inputs.json'),
        'dataset_sha256':sha('/data/datasets/HumanEval.jsonl'),'evaluator':evaluator,'source_sha256':sources,
        'protocol':'Local paired chat/full-code extraction protocol, official HumanEval scorer; not asserted judge-identical',
        'token_position_gate':False,'tensor_equality_gate':False,'time_budget_minutes':a.budget_minutes,
        'template_suffix':inputs['records'][0]['rendered_prompt'][-160:]}
     write(out/'manifest.json',m)
+    cached=load_reference(a.reuse_hf_run,m,inputs) if a.reuse_hf_run else None
     if a.prepare_only:print('RESULT humaneval_pair_prepared output',out);return 0
     summary={'status':'started','protocol':m['protocol']};deadline=time.monotonic()+a.budget_minutes*60
     def remaining():
@@ -207,13 +251,9 @@ def main():
         return value
     try:
         run_stage('evaluator_selftest',['/opt/venv/bin/python',str(PROJECT/'scripts/score_mellum_humaneval.py'),'--self-test'],out/'selftest.log',timeout=min(600,remaining()))
-        commands={'candidate':['/opt/venv/bin/python',str(Path(__file__).resolve()),'--worker','candidate','--candidate',a.candidate,'--output',str(out/'candidate')]}
+        commands={'candidate':['/opt/venv/bin/python',str(Path(__file__).resolve()),'--worker','candidate','--candidate',a.candidate,'--attention',a.attention,'--candidate-gpu',str(a.candidate_gpu),'--output',str(out/'candidate')]}
+        if a.prefix_caching:commands['candidate'].append('--prefix-caching')
         if a.reuse_hf_run:
-            old=json.loads((a.reuse_hf_run/'manifest.json').read_text());file=a.reuse_hf_run/'hf/generation.json'
-            if old.get('hf_model_source_sha256')!=m['hf_model_source_sha256']:raise ValueError('HF model source differs from reused reference')
-            if old['inputs_sha256']!=m['inputs_sha256'] or old.get('completed_hf_sha256')!=sha(file):raise ValueError('Reused HF input/completion hash differs')
-            cached=json.loads(file.read_text());validate_records(inputs,cached)
-            if cached.get('status')!='complete' or cached['environment']['transformers']!='5.10.1':raise ValueError('Reused HF incomplete/wrong environment')
             (out/'hf').mkdir();write(out/'hf/generation.json',cached);summary['reused_hf']=str(a.reuse_hf_run)
         else:commands['hf']=['/workspace/venvs/hf-reference/bin/python',str(Path(__file__).resolve()),'--worker','hf','--output',str(out/'hf')]
         summary['generation_stages']=generators(commands,out,deadline)
@@ -235,6 +275,8 @@ def main():
                 if abs(official-summary['pass_at_1'][name])>1e-12:raise ValueError('Official pass@1 and task verdicts differ')
             hf=json.loads((out/'hf/generation.json').read_text());atom=json.loads((out/'candidate/generation.json').read_text())
             if hf['environment']['torch']!=atom['environment']['torch']:raise ValueError('HF/ATOM Torch environment differs')
+            summary['candidate_configuration']={'gpu':a.candidate_gpu,'attention':a.attention,'prefix_caching':a.prefix_caching,'moe':a.candidate}
+            if a.prefix_caching:summary['candidate_prefix_reuse']=atom.get('prefix_reuse')
             summary['exact_full_sequences']=sum(a['generated_ids']==b['generated_ids'] for a,b in zip(hf['records'],atom['records']))
             summary['interpretation_notes']=['Token differences do not gate functional scoring; public200 and16k remain independent requirements',
                 'Local thinking/prompt/extraction/budget protocol; compare truncation and reference quality before interpreting pass@1',
