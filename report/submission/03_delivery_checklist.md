@@ -1,44 +1,65 @@
-# 交付清单与验收边界
+# 交付材料与复现说明
 
-## 当前可交付
+## 1. 材料清单
 
-- `ATOM/`完整适配与优化源码，保留上游许可证、正常Git提交/合并历史与`step0-local-validated`标签。
-- 根目录 `start_server.sh`：保守默认/激进显式模式，独立组件关闭开关，固定环境检查及实际配置/源码哈希记录。
-- 实际交付入口两种模式均通过 GPU 加载、HTTP非流式、SSE流式与usage冒烟：`20261116T152441526820Z`，证据在`artifacts/submission/smoke/`。范围为512上下文、槽1、8输出token。
-- 正式文档均为可编辑中文Markdown：`01_technical_report.md`（按四页内容分段）、`02_ai_usage.md`（一页篇幅）及根目录`WORKLOG.md`。已有英文PDF仅为可选预览；修改Markdown后需重新导出、核验页数，不自动同步。
-- 根目录 `WORKLOG.md`每日摘要；`report/worklog.md`保留详细研发日志。
-- `artifacts/submission/index.json`精选原始证据、SHA256及原始路径；大张量/模型/环境不纳入普通Git。
-- `SOURCES.md`来源说明；`scripts/verify_submission.py`进行CPU交付完整性检查。
+| 材料 | 仓库位置 | 内容 |
+|---|---|---|
+| 适配与优化源码 | `ATOM/` | 模型实现、权重映射、原生计算路径及性能机制 |
+| 服务启动入口 | `start_server.sh` | 单命令启动，参考/优化配置选择；独立组件开关见 README |
+| 技术报告 | `report/submission/01_technical_report.md` | Profiling、优化依据、收益、正确性及累计消融 |
+| AI 使用说明 | `report/submission/02_ai_usage.md` | 工具分工、错误修正与结果核验 |
+| 每日工作日志 | `WORKLOG.md` | D1—D7 的工作、阻碍与决策；详细记录见 `report/worklog.md` |
+| 实验依据 | `artifacts/submission/index.json` | 归档结果、SHA256 与原始文件路径 |
+| 来源说明 | `SOURCES.md` | 上游实现与许可证归属 |
 
-## 正在补测
+文档以中文 Markdown 为主稿。技术报告按四页内容组织，AI 说明按一页篇幅编写；导出时需核对实际页数。仓库中的英文 PDF 是较早版本的预览。
 
-最终交付工作树的完整ABC：`run_mellum_full_campaign.py --gpu 0 --profiles sprint_graph_qk_router_prefix_metadata --budget-minutes 25`。
+## 2. 实现与验证状态
 
-短累计矩阵：`run_submission_ablation.py --gpu 1 --budget-minutes 20`，A32/B6/C8，控制行是native fast control，不是历史Step0；不能替代正式全规模累计消融。
+交付入口的两种配置均已通过启动检查，运行编号为 `20261116T152441526820Z`。检查范围包括 5,631 个源权重张量的加载、普通 HTTP 请求及 SSE 流式响应和 usage 统计；测试配置为 512 token 上下文、单调度槽和 8 个输出 token。证据保存在 `artifacts/submission/smoke/`。
 
-结果返回后追加原始数据与短更新，不将正在运行写为已经测得。测量期间不修改被manifest绑定的ATOM/性能入口源码。
-
-## 明确未通过或未完成
-
-| 题目要求 | 状态 |
+| 验收项目 | 当前结果 |
 |---|---|
-| 公开200条前64token一致率≥90% | 精确官方集口径待确认；本地conservative为100%，aggressive为62.85%失败 |
-| BF16 HumanEval差距≤2pp | 激进150/164、HF145/164，绝对差3.05pp，不按字面宣称通过；保守精确预设未单独测量 |
-| 16k单列 | 保守64/64，激进63/64；完整长组另列 |
-| MTP、双卡配置额外一致性 | 未启用MTP/双卡推理，不主张支持 |
-| Step0及三点累计完整ABC | 尚不齐备；局部和短规模数据单列，不填充缺失正式行 |
-| 最终空闲隐藏集3次中位数 | 裁判执行，本地未完成 |
+| 本地 200 条前 64 token 一致率 | 参考配置 100%；优化组合 62.85%，未达到 90% |
+| BF16 HumanEval | 优化组合 150/164，HF 145/164；按绝对差≤2个百分点的口径不通过。参考配置的精确预设未单独测量 |
+| 16k 输入 | 参考配置 64/64，优化组合 63/64；其余长输入结果见技术报告 |
+| MTP、双卡推理 | 未启用，相关附加检查不适用 |
+| 规定的完整累计消融 | 尚未完成；组件对照和缩减规模测试分别记录 |
+| 隐藏集、空闲机器三次中位数 | 待裁判测量 |
 
-本交付不宣称考核整体通过；不拼接保守正确性与激进速度。独立模式开关用于保留可用实现与研究成果，不是规避题目门槛的办法。
+当前材料保留了参考实现与优化结果，但尚不能判定整体考核通过。各项性能和正确性结论均对应其实际配置。
 
-## 提交方式
+## 3. 最终版本复测
 
-提交代码仓库的`release/submission`分支及最终标签，附技术报告和AI说明的Markdown主稿、README、WORKLOG与证据索引；如需PDF，按润色后的Markdown导出并核对页数。源代码压缩包便于离线阅读；Git bundle用于保留版本历史。不要只交一个不含Git历史的源码压缩包，也不要以尚未更新的远端main作为最终版本。
-
-离线打包命令（Git工作树须干净）：
+完整 ABC：
 
 ```bash
+/opt/venv/bin/python scripts/run_mellum_full_campaign.py --gpu 0 --profiles sprint_graph_qk_router_prefix_metadata --budget-minutes 25
+```
+
+缩减规模累计对照：
+
+```bash
+/opt/venv/bin/python scripts/run_submission_ablation.py --gpu 1 --budget-minutes 20
+```
+
+后者采用 A32/B6/C8，控制行为原生快速配置，与历史 Step0 不同。其结果用于补充组件收益分析，不替代题目规定的完整累计消融。复测结果完成后，随运行配置和来源索引一同归档。
+
+## 4. 版本与打包
+
+交付分支为 `release/submission`，历史 Step0 标签为 `step0-local-validated`。Git 保留提交和合并历史。技术报告、AI 说明、WORKLOG 与证据索引均随代码交付；模型权重、虚拟环境及大体积张量文件保留在外部环境中。
+
+工作树提交完成后，执行：
+
+```bash
+/opt/venv/bin/python scripts/verify_submission.py
 /opt/venv/bin/python scripts/package_submission.py
 ```
 
-输出在`/workspace/delivery/<时间>_<提交>/`，包含源码ZIP、保留所有本地refs历史的Git bundle、版本清单及SHA256。ZIP与bundle角色不同：前者打开即读，后者可`git clone tencent-mellum-history.bundle -b release/submission`恢复源码和历史。推理仍需题给模型与冻结容器环境。
+输出目录为 `/workspace/delivery/<时间>_<提交>/`，包含源码 ZIP、完整本地 Git 历史 bundle、版本清单和 SHA256。ZIP 用于直接查阅，bundle 可用于恢复版本历史：
+
+```bash
+git clone tencent-mellum-history.bundle -b release/submission
+```
+
+服务运行仍依赖题给模型及冻结的软件环境。

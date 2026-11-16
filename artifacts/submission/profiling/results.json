@@ -1,0 +1,24 @@
+{
+  "status": "complete",
+  "cases": [
+    {
+      "batch": 1,
+      "context": 1024,
+      "trace_decode_tokens": 8,
+      "unprofiled_16_token_seconds": 0.8702996659558266,
+      "profiled_8_token_seconds": 0.6601372321601957,
+      "trace": "/workspace/results/mellum_fastpaths/20261116T112501628142Z_resident/trace/traces/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261116_112553_647.pt.trace.json.gz",
+      "trace_sha256": "cb809d67df37bf163e8a95e683d5b51955df2b887a2ea277a9cf2483568e965b"
+    },
+    {
+      "batch": 32,
+      "context": 1024,
+      "trace_decode_tokens": 8,
+      "unprofiled_16_token_seconds": 2.268502409104258,
+      "profiled_8_token_seconds": 2.0534088970161974,
+      "trace": "/workspace/results/mellum_fastpaths/20261116T112501628142Z_resident/trace/traces/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261116_112603_521.pt.trace.json.gz",
+      "trace_sha256": "3573ee2ccf73712112ace3f9492fefcb96ae6aab340197ea02b8f9fe419eecc8"
+    }
+  ],
+  "scope": "Short diagnostic traces; profile time is not throughput"
+}

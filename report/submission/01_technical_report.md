@@ -1,83 +1,108 @@
-# Mellum/ATOM 阶段技术报告（交付版）
+# Mellum 2.1 在 ATOM 上的适配与推理优化
 
-作者：XinyuSun-USTC。环境：题给 ROCm7.2.4/Torch2.10、ATOM、AITER；Mellum2.1-12B-A2.5B-Thinking BF16，单卡。本 Markdown 为正式中文主稿，按四页内容分段，便于修改；最终导出页数取决于字体、页边距和排版。完整研究记录另附，不计入精简报告。现有英文PDF仅为先前预览，不是本稿修改后的自动同步版本。
+**作者：** XinyuSun-USTC
 
-<!-- 第1页内容；导出时检查实际页数 -->
+**实验对象：** Mellum2.1-12B-A2.5B-Thinking，BF16，单卡推理
 
-## 1. 完成内容与交付边界
+**运行环境：** 题目提供的 ATOM、AITER、ROCm 7.2.4 和 PyTorch 2.10
 
-完成 Mellum 配置注册、模型实现、权重映射和5631源tensor完整加载审计，以及 ATOM OpenAI server 的一键启动。历史 Step0 通过本地参考对比并保存标签；后续性能工作形成原生后端、调度/graph、融合和cache兼容实现。默认 `conservative` 为后期reference control，保留正确性复现基础；`aggressive` 为快速实验组合。模式开关独立于 Step0/优化点，不据此增加优化点数量。
+<!-- 正式中文主稿，按四页内容组织；导出时核对页数。英文PDF为较早版本的预览。 -->
 
-**未完成整体正确性门槛下的性能闭环。** 激进组合在developer200前64 token仅62.85%，因此其速度不能作为通过题目门槛的最终成绩。保守预设此精确配置没有单独HumanEval及完整ABC；不能拼接两种配置成绩。正式公开集口径、隐藏集3次取中位数由裁判确认；本地结果只作为开发证据。
+## 1. 适配实现与性能分析
 
-代码入口：`scripts/serve_submission.py:build/main`、`start_server.sh`；模型：`ATOM/atom/models/mellum.py` 中 `MellumAttention`、`MellumDecoderLayer`、`MellumForCausalLM.validate_loaded_weights`。接口同时覆盖非流式/流式输出及usage；冒烟检查使用真实交付入口。
+本项目在冻结的软件环境中实现 Mellum 模型适配，并围绕计算内核、解码执行和缓存复用开展优化。适配内容包括模型配置注册、网络结构实现、检查点权重映射，以及 ATOM 调度器和 OpenAI 兼容接口的接入。`MellumForCausalLM.validate_loaded_weights` 对 5,631 个源权重张量进行完整性检查；模型主要实现位于 `ATOM/atom/models/mellum.py` 的 `MellumAttention`、`MellumDecoderLayer` 和 `MellumForCausalLM`。
 
-## 2. Profiling 与优化选择
+正确性参考采用独立环境中的 Transformers 5.10.1 原生 `MellumForCausalLM`，推理环境保持题给 Transformers 5.2.0。交付代码提供参考计算配置（`conservative`）和性能实验配置（`aggressive`），用于分别保留数值兼容实现与优化实现。该配置选择独立于 Step0 和优化点计数。
 
-Torch profiler先按模型组件标注，再用固定输入微基准、AB/ABBA和全量ABC逐步验证。bs1 trace有18627个kernel，组件归因98.3%；活跃kernel170.569ms/跨度641.084ms，间隙470.515ms（间隙不全等同CPU时间）。MoE58.372ms、SWA41.228ms、QKV20.007ms、两处Norm合计25.183ms。bs32活跃1573.961ms/跨度2027.532ms，其中MoE714.275ms、QKV331.458ms、SWA258.752ms。该trace以prefill工作为主，不能直接解释为纯decode占比。
+### 1.1 Profiling 结果
+
+使用 Torch profiler 采集执行轨迹，并按模型组件归类；随后通过固定输入回放、微基准及同卡对照实验定位开销。下表列出一组以 prefill 为主的轨迹统计，单位均为 ms。
+
+| 指标 | 批大小 1 | 批大小 32 |
+|---|---:|---:|
+| 轨迹总跨度 | 641.084 | 2027.532 |
+| GPU 内核累计活跃时间 | 170.569 | 1573.961 |
+| MoE 专家计算 | 58.372 | 714.275 |
+| 滑动窗口注意力（SWA） | 41.228 | 258.752 |
+| QKV 投影 | 20.007 | 331.458 |
+
+批大小 1 的轨迹包含 18,627 次内核执行，组件归因覆盖率为 98.3%；两处归一化操作累计耗时 25.183 ms。较小批次存在较多执行间隙，较大批次则主要受专家计算、投影和注意力开销影响。执行间隙包含同步与调度等因素，不能全部归因于 CPU 开销；上述统计也不代表纯 decode 阶段的耗时分布。
+
+原始轨迹位于 `mellum_fastpaths/20261116T112501628142Z_resident/trace/`；归档分析见 `artifacts/submission/profiling/`。早期长输入分析另见 `artifacts/performance/02_expanded_profile/trace/ctx_16384_analysis.json`。
 
 <!-- pagebreak -->
 
-<!-- 第2页内容 -->
+## 2. 优化方案及选择依据
 
-工程探索机制较多；以下按三个瓶颈方向叙述，而不是声称已经完成三组独立合格优化及题面累计消融。
+根据上述瓶颈，将优化工作归纳为三个方向。事前计划主要给出收益来源与作用场景，未形成统一的量化收益预测；下表据实保留这一区别。实测结果来自不同阶段的受控实验，不构成可直接连乘的加速链。
 
-| 方向 | 实现、预期与实测 | 关闭方式 |
+| 优化方向 | 事前预期 | 对照实验结果 |
 |---|---|---|
-| 原生批处理/专家/attention及数据路径 | 复用AITER原生专家、attention，按连续token执行投影，直接写分页KV，减少逐请求与布局操作。A64原生批处理439.67，相比前一原生L约121.5为3.62x；directKV进一步499.64，+13.64%。不同数学路径有BF16差异，核心矩阵显示attention与专家均贡献分叉 | disable-native-moe / disable-native-attention / disable-direct-kv / separate-qkv / reference-norm |
-| decode graph与融合 | 减少多层小kernel的host launch与中间访存。graph同卡screen620.995→943.26，+51.9%；QK Norm+RoPE融合941.63→1062.46，+12.83%；native routing ABBA均值939.49→1008.94，+7.39%。这些是不同受控实验，百分比不可直接连乘 | disable-graph / disable-qk-fusion / disable-native-routing / disable-resident-rope |
-| prefix兼容与元数据复用 | 复用KV前缀和prefill元数据，改善长共享前缀TTFT；不是缓存输出。完整ABC从无prefix组合到最终组合：C TTFTp99 1.4883→1.0260s，改善31.06%；A1129.38→1139.78，+0.92%。两机制在这组全量数据中一起变化，不能分别归因 | disable-prefix / disable-metadata-reuse |
+| ① 原生计算与 KV 数据通路 | 通过 AITER 专家/注意力内核、批量投影与分页 KV 直接写入，减少逐请求调用、布局转换和中间数据搬运。未设定事前数值目标 | A64 测试中，原生批量投影为 439.67 token/s，前一逐请求投影配置约为 121.5 token/s；加入 KV 直接写入后达到 499.64 token/s，较前者提高 13.64% |
+| ② 解码图执行与算子融合 | 利用 graph replay 降低解码启动开销；融合 Q/K Norm 与 RoPE、使用原生路由以减少小算子和中间访存。未设定事前数值目标 | A64 同卡测试中，graph 为 620.995→943.26 token/s（+51.9%）；QK 融合为 941.63→1062.46（+12.83%）；路由 ABBA 对照均值为 939.49→1008.94（+7.39%） |
+| ③ 前缀缓存与元数据复用 | 复用共享前缀 KV 和 prefill 元数据，主要改善共享长前缀场景的 TTFT。未设定事前数值目标 | 完整 ABC 测试中，同时加入两项机制后，C 的 TTFT p99 从 1.4883 s 降至 1.0260 s（−31.06%）；A 从 1129.38 升至 1139.78 token/s（+0.92%） |
 
-来源：冻结ATOM已有模型、AITER kernel与HF原生Mellum数值语义；vLLM/SGLang/新版ATOM用于阅读参考。第三方kernel不主张原创。具体来源与许可证见根目录SOURCES.md，源码拆分见 `ATOM/atom/model_config/mellum_{native,fastpaths,direct_kv,fused_rope,prefix,prefill_metadata}.py`；graph接入见 `ATOM/atom/model_engine/model_runner.py`（以仓库实际路径为准）。
+**方向①** 对应 `mellum_native.py`、`mellum_projection.py`、`mellum_direct_kv.py` 和 `mellum_fastpaths.py`。原生内核改善了吞吐，但专家和注意力路径的数值变化也影响了 greedy 输出，是当前正确性问题的主要排查对象。
 
-放弃/未选：chunk2048/4096造成吞吐/TTFT退化；indexed专家、仅prefill替换等未形成满意收益；CK/Triton SWA有数值分叉；reference Norm与阶段混合能改善局部token但未达到最终90%。双份专家权重只用于诊断，不用于交付预设。未为了通过公开集改变答案或缓存生成输出。
+**方向②** 通过 `ATOM/atom/model_engine/model_runner.py` 接入图执行，融合与路由实现位于 `mellum_fused_rope.py`、`mellum_fastpaths.py` 和 `mellum_native.py`。对路由采用 ABBA 顺序重复测量，以降低运行顺序和短时波动的影响。
+
+**方向③** 对应 `mellum_prefix.py` 和 `mellum_prefill_metadata.py`。完整 C 场景记录了 199 次缓存后缀执行事件、共 757,792 个缓存 token。该对照同时改变了前缀缓存与元数据复用，尚不能分离两者各自的贡献。
+
+以上 `mellum_*.py` 文件均位于 `ATOM/atom/model_config/`。各机制可通过交付入口独立关闭，具体参数见根目录 README。实现复用了冻结 ATOM/AITER 的基础设施，并参考 HF 的数值计算语义；上游来源与许可证见 `SOURCES.md`。
+
+### 未采用的方案
+
+Chunked prefill 的 2,048/4,096 token 预算配置导致吞吐或 TTFT 退化，未纳入最终组合；indexed 专家计算未表现出足够收益。CK/Triton SWA 内核具有局部性能优势，但会引起生成分叉。参考归一化和 prefill/decode 混合后端改善了部分样本的一致率，仍未得到满足 90% 门槛的高速配置，因此保留为诊断方案。
 
 <!-- pagebreak -->
 
-<!-- 第3页内容 -->
+## 3. 性能结果与消融实验
 
-## 3. 性能测量与累计消融缺口
+性能实验采用单卡、32 个调度槽，最终配置为 `sprint_graph_qk_router_prefix_metadata`。完整负载包括 A 场景 512 个请求、B 场景 50 个请求和 C 场景 200 个请求。以下结果来自运行 `20261116T134727613186Z`，三个场景均无请求失败。
 
-最终激进profile `sprint_graph_qk_router_prefix_metadata`，单卡槽32，A512/B50/C200；源配置与后端执行审计留存。独立EvalScope1.15客户端对题面命令做版本兼容适配：数据字段、A筛选循环至512、stream参数、Poisson归一化等均记录；不声称与裁判隐藏集完全等价。另一张GPU可能同时做验证，非裁判空闲机三次中位数。
-
-| 指标 | 题给baseline | 本地激进最终 | 比较 |
+| 指标 | 题给 baseline | 优化组合实测 | 相对变化 |
 |---|---:|---:|---:|
-| A token/s/GPU | 638.282724 | 1139.7781 | +78.57% |
-| B TPOTp50 | 未提供 | 4.865ms | 不计算提升 |
-| C TPOTp99 | 41.265ms | 11.502ms | 延迟下降72.13% |
-| C TTFTp99 | 993.549ms | 1025.998ms | 延迟增加3.27% |
+| A 吞吐（token/s/GPU） | 638.282724 | 1139.7781 | +78.57% |
+| B TPOT p50（ms） | 未提供 | 4.865 | — |
+| C TPOT p99（ms） | 41.265 | 11.502 | −72.13% |
+| C TTFT p99（ms） | 993.549 | 1025.998 | +3.27% |
 
-A512、B50、C200均成功，无请求失败；C吞吐76.8348受到达率约束，不作为独立饱和性能宣传。prefix实际199事件、757792缓存token；图回放与原生routing/QK融合均有实际事件，非只设置环境变量。
+优化组合在 A 吞吐和 C 的 TPOT p99 上优于题给 baseline，但 C 的 TTFT p99 仍略高。C 的输出吞吐为 76.8348 token/s，受固定到达率约束，不能作为饱和吞吐指标。由于该配置尚未通过 token 一致率门槛，上述数值属于性能实验结果。
 
-题面要求的累计消融表必须保留缺口，而不拿不同实验规模填满：
+评测使用独立的 EvalScope 1.15 客户端，并保留题面命令和实际命令。兼容调整包括 prompt 字段适配、A 场景筛选后循环补足 512 个请求、流式参数语法以及随机种子设置；C 场景的指数到达间隔归一化至总时长 n/r，与未归一化的 Poisson 到达过程存在差异。测量时另一张卡可能同时执行验证，结果不等同于裁判在空闲机器上运行隐藏集三次所得的中位数。
 
-| 题面累计行 | A token/s/GPU | B TPOTp50 | C TPOTp99 / TTFTp99 | 状态 |
+### 累计消融表
+
+| 题目要求的配置 | A token/s/GPU | B TPOT p50 | C TPOT p99 / TTFT p99 | 完成情况 |
 |---|---:|---:|---:|---|
-| 历史Step0，1卡 | 未测 | 未测 | 未测 | 标签f382471保留，不以reference-control替代 |
-| Step0+优化1 | 未完成同口径全ABC | 未测 | 未测 | 有局部screen，不能冒充累计消融 |
-| Step0+优化1+2 | 未完成同口径全ABC | 未测 | 未测 | 有graph/融合受控实验 |
-| Step0+优化1+2+3 | 1139.7781* | 4.865ms* | 11.502 / 1025.998ms* | *仅最终实验组合，尚非已认证三点累计行；token门槛失败 |
+| Step0，单卡 | — | — | — | 历史标签已保留，未完成该版本的完整 ABC |
+| Step0 + 优化① | — | — | — | 已有局部对照，缺少同规模完整测量 |
+| Step0 + 优化①② | — | — | — | 已有 graph/融合对照，缺少同规模完整测量 |
+| Step0 + 优化①②③ | — | — | — | 最终组合已测；尚未按前三行建立完整累计对照 |
 
-因此提交的是可运行代码、正确性回退配置和已量化的优化探索；不是宣称所有必填实验已经齐备。
+表中“—”表示缺少符合该行配置与负载口径的测量。上一表给出最终组合的完整 ABC，第二节给出组件对照；两类结果不能补作上述累计消融。最终交付工作树的 ABC 复测及 A32/B6/C8 缩减规模矩阵正在补充，完成后将单独记录其配置、规模与来源。
+
+性能数据、运行配置和 SHA256 索引见 `artifacts/submission/aggressive_abc/` 与 `artifacts/submission/index.json`。
 
 <!-- pagebreak -->
 
-<!-- 第4页内容 -->
+## 4. 正确性验证与结论
 
-## 4. 正确性、诊断与复现
+验证流程固定输入 token，以 HF 输出为参考，比较 greedy 解码前 64 个 token；发生差异时，进一步使用相同前缀、强制历史解码、逐层采样及相同 QKV/专家输入回放，定位首个数值差异。权重加载完整性检查独立于生成对比。HumanEval 使用官方 `openai/human-eval` 套件，关闭 thinking，输出上限为 2,048 token。
 
-HF5.10.1独立参考虚拟环境与冻结推理环境隔离。固定token输入，先比较greedy前64，再用同前缀/teacher-forcing、逐层hook、同QKV与同专家输入回放区分累计误差与首个算子差异。精确加载审计覆盖全部5631源tensor；未仅凭能生成文本判定正确。
+| 验证项目 | 参考计算配置 | 优化组合 | 判定 |
+|---|---|---|---|
+| 本地 200 条，前 64 token | 12800/12800，100%；200 条序列完全一致 | 8045/12800，62.85%；65 条序列完全一致 | 参考配置本地通过；优化组合未达 90% |
+| 长输入组：8191/8192/8193/16384 token | 256/256 | 138/256 | 长输入回归统计 |
+| 16k 输入单列 | 64/64 | 63/64 | 按要求单独报告 |
+| HumanEval pass@1 | 该精确预设未单独测量 | 150/164（91.46%）；HF 为145/164（88.41%） | 绝对差 3.05 个百分点，按绝对差≤2的口径不通过 |
+| MTP 一致性 | 未启用 | 未启用 | 不适用 |
+| 双卡并行一致性 | 单卡推理 | 单卡推理 | 不适用 |
 
-| 门槛 | conservative r槽1 | aggressive最终 |
-|---|---|---|
-| developer200前64 | 12800/12800，200序列精确 | 8045/12800，65序列精确，失败 |
-| 长输入8191/8192/8193/16384 | 256/256 | 138/256；各55/9/11/63 |
-| 16k单列 | 64/64 | 63/64 |
-| HumanEval164，thinking off，2048 | 该精确预设未测 | 150/164=91.46%；HF145/164=88.41% |
-| MTP / 双卡推理 | 未启用/未使用，不主张支持 | 同左 |
+本地 200 条集合记为 developer200，其与正式公开集的精确口径仍待确认。参考计算配置为后期 `r` 配置、单调度槽，并非历史 Step0 标签。长输入组整体 90% 是内部附加检查，题面仅要求将 16k 组单独统计。HumanEval 上优化组合较 HF 多通过 5 题，但该结果不能替代独立的 token 一致率门槛。
 
-HumanEval候选提升5题，但绝对差3.05pp大于题面BF16 2pp，不能自行改成“只限制退化”而宣称通过。200条逐位置对齐与HumanEval功能指标是两个不同门槛；功能好不能豁免前者。长组整体90%为内部额外检查，题面要求16k单列，本报告不把它另造为官方独立门槛。
+诊断表明，专家 grouped_mm、激活与归约精度，以及投影布局、RoPE 系数和生成语义均可能影响结果。修复后的参考专家路径在相同输入回放中达到精确一致。进一步对 20 条诊断样本进行注意力/专家后端组合实验，一致率分别为：原生/原生 69.84%、原生/Torch 71.17%、参考/原生 77.03%、参考/参考 100%。阶段混合方案最高为 86.875%。这些结果支持继续检查原生注意力和专家计算的组合误差，尚不足以给出合格的高速配置。
 
-专家同输入回放曾定位grouped_mm/激活/FP32归约，修复后exact；投影packing、RoPE系数构造和HF生成语义也曾造成差异。最终核心20条矩阵：native/native69.84%、native/Torch71.17%、reference/native77.03%、reference/reference100%。阶段混合最好86.875%，仍未提供合格高速组合证据；不因诊断集规模小宣称完整失败定理。
+**结论：** 项目已完成模型适配、服务接入及多项性能优化实验。交付入口的两种配置均通过权重加载、普通请求和流式请求的启动检查；优化组合取得了明显的吞吐与解码延迟收益，但尚未满足本地 token 一致率门槛，规定的完整累计消融也未完成。因此，当前成果不能判定为整体考核通过。后续应优先获得同一配置下的正确性与性能证据，再完成规定规模的累计消融。
 
-复现：`./start_server.sh --mode conservative`；激进显式`--mode aggressive`。每组件开关见README；启动时launch.json固定实际配置/源码哈希。`scripts/smoke_submission.py`验证真实入口加载/HTTP/SSE，不能代替完整验收。证据见artifacts/submission/index.json；原始tensor与外部模型不进Git。完整Git历史、Step0标签、每日WORKLOG、报告与AI说明一起交付。后续首要缺口是同配置满足token门槛，再做规定的三点累计ABC和裁判复测。
+复现入口为 `./start_server.sh --mode conservative` 或 `--mode aggressive`。启动参数、源码哈希、实际后端事件及验证结果均随仓库保留，完整历史见 Git 与 `WORKLOG.md`。
