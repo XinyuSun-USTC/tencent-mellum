@@ -1,0 +1,35 @@
+{
+  "commit": "68a4086",
+  "scope": "CPU checks/preparation only; new GPU work not executed",
+  "related_cpu_tests_passed": 90,
+  "prepared_manifests": {
+    "resident": {
+      "path": "/workspace/results/mellum_fastpaths/20261116T111854790570Z_resident/manifest.json",
+      "sha256": "400bb775c13e14564e300fb85491b4a4d43fffd5357a83eaf25ac132207026f0"
+    },
+    "kernels": {
+      "path": "/workspace/results/mellum_fastpaths/20261116T111854801973Z_kernels/manifest.json",
+      "sha256": "5ae3d3d54f49084eddb886610d88d458e1e8f5491eeacd69754a21b29015c096"
+    }
+  },
+  "candidates": [
+    "baseline direct KV",
+    "GPU resident inverse frequency",
+    "native RMSNorm",
+    "packed QKV",
+    "combined"
+  ],
+  "unchanged": [
+    "BF16 precision",
+    "inference packages",
+    "TP/DP1",
+    "eager level0",
+    "official small-workload protocol"
+  ],
+  "verification": [
+    "source/input/client fingerprints for all six jobs",
+    "shared read-only input links resolve correctly",
+    "actual backend constructor audit added",
+    "GPU resident constant audit added"
+  ]
+}

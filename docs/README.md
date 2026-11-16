@@ -1,10 +1,10 @@
 # Mellum on ATOM 文档导航
 
-当前阶段：**Step1优化与组合收敛。** Step0本地生成验证已归档；整批投影开发A64为439.67tokens/s，HumanEval149/164（HF145/164，原绝对差检查False如实保留）。当前推进prefix整合与直接KV写入，最终配置和独立门槛待验收。
+当前阶段：**Step1基础执行路径恢复与组合收敛。** 最新开发A64为499.64tokens/s；各配置功能与性能证据独立保留，最终配置和完整规模复测待收敛。
 
 ## 当前阅读入口
 
-当前工作：[34 整批投影＋prefix与直接KV写入两卡批次](plan/34_batched_prefix_and_direct_kv.md)。GPU0独立batched-prefix e4cfb91，GPU1独立direct-kv b4e77d9；74/59项CPU检查及真实数据准备通过，GPU待终端运行。
+当前工作：[35 基础快路径优先](plan/35_basic_fastpaths_first.md)。独立fastpaths提交68a4086：GPU0短trace/常量驻留，GPU1融合Norm/packed QKV/组合，90项CPU检查及两track真实数据准备通过，待GPU终端运行。
 
 上一轮：[17 直接索引decode一次D200补证](plan/17_indexed_decode_d200_followup.md)：已完成，见[性能15](../report/performance/15_indexed_decode_d200.md)：总体位置78.23%、完整序列53.5%，当前直接索引版本停止晋级。保留共享路由，下一主线prefill专家GEMM/调度开销。
 

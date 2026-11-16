@@ -166,3 +166,5 @@
 - 两卡批次34完成：GPU0 batched-prefix 20261116T101213244110Z，A64 438.8336tokens/s近似持平、C20 TTFT/TPOT p99 1.01427/0.07378秒、19/20命中72352；结构探针精确，off/on3/8序列同如实记录，功能待整体评估。GPU1 direct-kv 20261116T101221209827Z，布局/跨块/负slot/strided V GPU探针全部精确，A64 499.6429tokens/s（较439.67约+13.64%）、C20 TPOT p99 0.07040秒；实际prefill/decode单次写入审计通过。独立核验产物、源码、输入与5631加载，归档性能34/35。下一步合并有效机制，补整体功能；有界试decode Graph，再固定配置完整ABC。
 
 - 根据用户对朴素Baseline差距的质疑，只读审计当前执行路径并归档研究08：L拆分和重复KV已有3.62倍/+13.64%实证；仍有113处手写Norm、3路F.linear+cat、每层CPU inverse-frequency上传及审计tolist。确认官方eager，不能把缺Graph当全部差距理由；建议下一批优先短trace和基础快路径恢复，保留协议/硬件干扰核对，不猜测官方源码或宣称已达硬件上限。无新GPU或代码修改。
+
+- 根据研究08重排优先级，交付独立fastpaths分支68a4086/计划35：默认保留reference，新增113处Norm工厂切换原ATOM RMSNorm、既有packed QKV、GPU inverse-frequency驻留及组合profile；实际构造类/投影属性/驻留device单独审计。GPU0短bs1/32 trace及基线/驻留HTTP，GPU1基线/Norm/packed/组合四项HTTP；一次准备复用只读输入、独立失败保留，组件失败跳过组合，不重跑HF/完整ABC。90项相关CPU检查、py_compile/diff、真实两track prepare及全部job源码/输入/客户端指纹通过。未运行GPU、未升级依赖/修改既有装饰模型；Graph后移至基础路径实测后再决定。
