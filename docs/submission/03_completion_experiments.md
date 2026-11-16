@@ -30,3 +30,7 @@
 ## 下一阶段工具已准备
 
 [计划58](../plan/58_c_decode_and_disconnect_diagnosis.md)在独立分支`step1/c-service-diagnosis`实现批量decode与真实HTTP断连诊断。155项CPU检查及两个track的prepare-only通过，GPU结果尚待获得。使用参考组合，不重跑HumanEval/C200；按实测决定是优先优化批量decode，还是修复主线程安全取消和资源回收。阶段记录为主机计时，不当作GPU kernel时间或最终吞吐成绩。
+
+## 诊断已完成，进入单卡实现筛查
+
+隔离decode批32约43.68token/s；真实断连后仍有236/253个新步骤。单卡主线已明确，[计划60](../plan/60_single_gpu_decode_and_abort_candidates.md)准备SWA解码分组/元数据复用及安全取消两个独立候选，等待GPU筛查。原诊断运行归档于`c_isolated_decode/`、`c_disconnect_diagnosis/`，没有因诊断完成而晋级正式主配置。

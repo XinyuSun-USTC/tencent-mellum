@@ -1,0 +1,46 @@
+{
+  "mode": "close_after_token",
+  "status": "disconnect_observed",
+  "server_command": [
+    "/opt/venv/bin/python",
+    "/workspace/tencent-mellum-c-service-diagnosis/scripts/serve_mellum.py",
+    "--gpu",
+    "1",
+    "--batching",
+    "--profile",
+    "r_expert_decode4_kv_once",
+    "--max-num-seqs",
+    "32",
+    "--max-model-len",
+    "16640",
+    "--max-batched-tokens",
+    "16640",
+    "--phase-audit",
+    "--server-port",
+    "19851",
+    "--engine-port",
+    "15026",
+    "--output",
+    "/workspace/results/mellum_c_service_diagnosis/20261116T221223452847Z_disconnect/close_after_token/server"
+  ],
+  "client_start_ns": 1779159815467391,
+  "client_close_ns": 1779162615516093,
+  "done_received": false,
+  "frames": [
+    {
+      "time_ns": 1779159861231525,
+      "payload": "{\"id\": \"chatcmpl-bb002526c5684335bbdb17256f866326\", \"object\": \"chat.completion.chunk\", \"created\": 1794867263, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"role\": \"assistant\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1779162615491755,
+      "payload": "{\"id\": \"chatcmpl-bb002526c5684335bbdb17256f866326\", \"object\": \"chat.completion.chunk\", \"created\": 1794867266, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"\\n\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    }
+  ],
+  "request_id": 0,
+  "engine_steps_started_after_close": 253,
+  "inflight_steps_spanning_close": 1,
+  "continued_host_step_seconds": 13.752816123,
+  "engine_completion_observed": true,
+  "verdict": "engine_work_continued_after_disconnect",
+  "scope": "Live transport close, no abort repair. Observed subsequent engine steps, not exact GPU wasted time or full C causal contribution."
+}

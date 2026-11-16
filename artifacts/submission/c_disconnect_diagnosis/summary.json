@@ -1,0 +1,204 @@
+{
+  "status": "disconnect_diagnosis_complete",
+  "scope": "Diagnostic isolated decode or live disconnect, no correctness/capacity promotion; no model math changed.",
+  "cases": {
+    "normal": {
+      "mode": "normal",
+      "status": "disconnect_observed",
+      "server_command": [
+        "/opt/venv/bin/python",
+        "/workspace/tencent-mellum-c-service-diagnosis/scripts/serve_mellum.py",
+        "--gpu",
+        "1",
+        "--batching",
+        "--profile",
+        "r_expert_decode4_kv_once",
+        "--max-num-seqs",
+        "32",
+        "--max-model-len",
+        "16640",
+        "--max-batched-tokens",
+        "16640",
+        "--phase-audit",
+        "--server-port",
+        "19851",
+        "--engine-port",
+        "15026",
+        "--output",
+        "/workspace/results/mellum_c_service_diagnosis/20261116T221223452847Z_disconnect/normal/server"
+      ],
+      "client_start_ns": 1779068232724893,
+      "client_close_ns": 1779071317353052,
+      "done_received": true,
+      "frames": [
+        {
+          "time_ns": 1779068280982125,
+          "payload": "{\"id\": \"chatcmpl-36998c277c2540c5826784c5267d09a3\", \"object\": \"chat.completion.chunk\", \"created\": 1794867172, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"role\": \"assistant\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        },
+        {
+          "time_ns": 1779071011101340,
+          "payload": "{\"id\": \"chatcmpl-36998c277c2540c5826784c5267d09a3\", \"object\": \"chat.completion.chunk\", \"created\": 1794867175, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"\\n\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        },
+        {
+          "time_ns": 1779071061801320,
+          "payload": "{\"id\": \"chatcmpl-36998c277c2540c5826784c5267d09a3\", \"object\": \"chat.completion.chunk\", \"created\": 1794867175, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"We\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        },
+        {
+          "time_ns": 1779071112659784,
+          "payload": "{\"id\": \"chatcmpl-36998c277c2540c5826784c5267d09a3\", \"object\": \"chat.completion.chunk\", \"created\": 1794867175, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" need\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        },
+        {
+          "time_ns": 1779071163878214,
+          "payload": "{\"id\": \"chatcmpl-36998c277c2540c5826784c5267d09a3\", \"object\": \"chat.completion.chunk\", \"created\": 1794867175, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" to\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        },
+        {
+          "time_ns": 1779071214851328,
+          "payload": "{\"id\": \"chatcmpl-36998c277c2540c5826784c5267d09a3\", \"object\": \"chat.completion.chunk\", \"created\": 1794867175, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" parse\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        },
+        {
+          "time_ns": 1779071265633809,
+          "payload": "{\"id\": \"chatcmpl-36998c277c2540c5826784c5267d09a3\", \"object\": \"chat.completion.chunk\", \"created\": 1794867175, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" the\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        },
+        {
+          "time_ns": 1779071316843030,
+          "payload": "{\"id\": \"chatcmpl-36998c277c2540c5826784c5267d09a3\", \"object\": \"chat.completion.chunk\", \"created\": 1794867175, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" problem\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        },
+        {
+          "time_ns": 1779071316906744,
+          "payload": "{\"id\": \"chatcmpl-36998c277c2540c5826784c5267d09a3\", \"object\": \"chat.completion.chunk\", \"created\": 1794867175, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {}, \"finish_reason\": \"stop\", \"logprobs\": null}]}"
+        },
+        {
+          "time_ns": 1779071317340103,
+          "payload": "{\"id\": \"chatcmpl-36998c277c2540c5826784c5267d09a3\", \"object\": \"chat.completion.chunk\", \"created\": 1794867175, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"usage\": {\"prompt_tokens\": 7889, \"completion_tokens\": 8, \"total_tokens\": 7897}}"
+        },
+        {
+          "time_ns": 1779071317352302,
+          "payload": "[DONE]"
+        }
+      ],
+      "request_id": 0,
+      "engine_steps_started_after_close": 0,
+      "inflight_steps_spanning_close": 0,
+      "continued_host_step_seconds": 0.0,
+      "engine_completion_observed": true,
+      "verdict": "no_post_close_step_observed",
+      "scope": "Live transport close, no abort repair. Observed subsequent engine steps, not exact GPU wasted time or full C causal contribution."
+    },
+    "close_after_role": {
+      "mode": "close_after_role",
+      "status": "disconnect_observed",
+      "server_command": [
+        "/opt/venv/bin/python",
+        "/workspace/tencent-mellum-c-service-diagnosis/scripts/serve_mellum.py",
+        "--gpu",
+        "1",
+        "--batching",
+        "--profile",
+        "r_expert_decode4_kv_once",
+        "--max-num-seqs",
+        "32",
+        "--max-model-len",
+        "16640",
+        "--max-batched-tokens",
+        "16640",
+        "--phase-audit",
+        "--server-port",
+        "19851",
+        "--engine-port",
+        "15026",
+        "--output",
+        "/workspace/results/mellum_c_service_diagnosis/20261116T221223452847Z_disconnect/close_after_role/server"
+      ],
+      "client_start_ns": 1779115525195761,
+      "client_close_ns": 1779115570652560,
+      "done_received": false,
+      "frames": [
+        {
+          "time_ns": 1779115570637871,
+          "payload": "{\"id\": \"chatcmpl-a544fcde49ef4c83af308c3a54c419ea\", \"object\": \"chat.completion.chunk\", \"created\": 1794867219, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"role\": \"assistant\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        }
+      ],
+      "request_id": 0,
+      "engine_steps_started_after_close": 236,
+      "inflight_steps_spanning_close": 1,
+      "continued_host_step_seconds": 13.4579905,
+      "engine_completion_observed": false,
+      "verdict": "engine_work_continued_after_disconnect",
+      "scope": "Live transport close, no abort repair. Observed subsequent engine steps, not exact GPU wasted time or full C causal contribution."
+    },
+    "close_after_token": {
+      "mode": "close_after_token",
+      "status": "disconnect_observed",
+      "server_command": [
+        "/opt/venv/bin/python",
+        "/workspace/tencent-mellum-c-service-diagnosis/scripts/serve_mellum.py",
+        "--gpu",
+        "1",
+        "--batching",
+        "--profile",
+        "r_expert_decode4_kv_once",
+        "--max-num-seqs",
+        "32",
+        "--max-model-len",
+        "16640",
+        "--max-batched-tokens",
+        "16640",
+        "--phase-audit",
+        "--server-port",
+        "19851",
+        "--engine-port",
+        "15026",
+        "--output",
+        "/workspace/results/mellum_c_service_diagnosis/20261116T221223452847Z_disconnect/close_after_token/server"
+      ],
+      "client_start_ns": 1779159815467391,
+      "client_close_ns": 1779162615516093,
+      "done_received": false,
+      "frames": [
+        {
+          "time_ns": 1779159861231525,
+          "payload": "{\"id\": \"chatcmpl-bb002526c5684335bbdb17256f866326\", \"object\": \"chat.completion.chunk\", \"created\": 1794867263, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"role\": \"assistant\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        },
+        {
+          "time_ns": 1779162615491755,
+          "payload": "{\"id\": \"chatcmpl-bb002526c5684335bbdb17256f866326\", \"object\": \"chat.completion.chunk\", \"created\": 1794867266, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"\\n\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+        }
+      ],
+      "request_id": 0,
+      "engine_steps_started_after_close": 253,
+      "inflight_steps_spanning_close": 1,
+      "continued_host_step_seconds": 13.752816123,
+      "engine_completion_observed": true,
+      "verdict": "engine_work_continued_after_disconnect",
+      "scope": "Live transport close, no abort repair. Observed subsequent engine steps, not exact GPU wasted time or full C causal contribution."
+    }
+  },
+  "source_unchanged": true,
+  "artifact_sha256": {
+    "manifest.json": "c05dd2d776ef9093e30e9be08cedf74c54aecb1faa189f0e24e3ce3323a31f7a",
+    "close_after_token/server.log": "b36cfd40b1ba48589f844cc64e7305c30a6a80323bbee92ce0097d4af2720932",
+    "close_after_token/worker.log": "e35758c8137c1da42591c3cef992384be9b20fb770c65e3c191746218251f151",
+    "close_after_token/plan.json": "80697cebdfad3cd569d5eb8cc580222206a9c9ac6eba30d9e448315858bae654",
+    "close_after_token/results.json": "7d79231714b7a4e5d5fe2fa1f02c6482083a0c97ebe5216afa8e5b6048028930",
+    "close_after_role/server.log": "38b53d0c862fdc1b75e0d51a28ef952c18f06ef90b85a05fc2db812eb1ecab67",
+    "close_after_role/worker.log": "f23ebf3661831f0517b13d709c646f707f109a122a1a4ba4c05441f503cad68e",
+    "close_after_role/plan.json": "beb3f2ab428558c70072e41690b4e866f445821bfd4201db36ee0d782ddf0ef7",
+    "close_after_role/results.json": "bb45406ebab59e799b44a28013baaf33e0673a98a9fc46997587522c3d90581a",
+    "normal/server.log": "7630f3a8c262ee59b56ced99811b1d1bfa53f10ba40765c1b5915699856fd2dd",
+    "normal/worker.log": "612a0937a94191b5ec0584014f384ad4fc4e082fb0143bbf967893548cb84788",
+    "normal/plan.json": "be9c784646123083d2fcf21f5843954ab43bee0f12e1471e6aac1fc790ce26bc",
+    "normal/results.json": "d88255bbc283264625f70d5d7db8ebde8abf0f6f7efb95c703ef23b22b0c3df6",
+    "close_after_token/server/launch.json": "28575d82abac6e036e951dac76b08e3d385d9396e0a8e6927e8030d76908e0a0",
+    "close_after_token/server/fastpaths.json": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+    "close_after_token/server/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "close_after_token/server/engine_steps.jsonl": "3f8449524f6097594ea178c7980128b6a253e650a69978f25ec0c4732fce0401",
+    "close_after_role/server/launch.json": "b305e98f65c0809373134419ddae9120fe1843c62f9e0be6f682a8ed6bc9c3ce",
+    "close_after_role/server/fastpaths.json": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+    "close_after_role/server/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "close_after_role/server/engine_steps.jsonl": "42cb0f5fbaa7b3f13358ede4d418b67ab39249da9c4ddaf829c418f5b93c307f",
+    "normal/server/launch.json": "c60d89a149b9bdc6db26b5c8b408b5ed77b4257f439c6896b14ab0c3ebffc329",
+    "normal/server/fastpaths.json": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+    "normal/server/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "normal/server/engine_steps.jsonl": "c9adc22cb8f7a56c0282e85fd362204216b6198a34884c15fbbf6f3895f45011"
+  }
+}
