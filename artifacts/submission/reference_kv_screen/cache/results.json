@@ -1,0 +1,182 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "kind": "full_attention",
+      "tokens": 1,
+      "window": -1,
+      "cache_layout": "SHUFFLE",
+      "v_is_contiguous": true,
+      "checks": {
+        "query_exact": true,
+        "returned_key_exact": true,
+        "full_k_cache_exact": true,
+        "full_v_cache_exact": true,
+        "layout_exact": true,
+        "gathered_keys_exact": true,
+        "gathered_values_exact": true,
+        "untouched_slots": true,
+        "candidate_input_unchanged": true,
+        "packed_v_layout_covered": true
+      },
+      "old_ms": 0.5942193984985351,
+      "new_ms": 0.3621535062789917,
+      "local_speedup": 1.6407942714788109
+    },
+    {
+      "kind": "full_attention",
+      "tokens": 6,
+      "window": -1,
+      "cache_layout": "SHUFFLE",
+      "v_is_contiguous": false,
+      "checks": {
+        "query_exact": true,
+        "returned_key_exact": true,
+        "full_k_cache_exact": true,
+        "full_v_cache_exact": true,
+        "layout_exact": true,
+        "gathered_keys_exact": true,
+        "gathered_values_exact": true,
+        "untouched_slots": true,
+        "candidate_input_unchanged": true,
+        "packed_v_layout_covered": true
+      },
+      "old_ms": 0.6094581127166748,
+      "new_ms": 0.3612657070159912,
+      "local_speedup": 1.6870079303976049
+    },
+    {
+      "kind": "full_attention",
+      "tokens": 32,
+      "window": -1,
+      "cache_layout": "SHUFFLE",
+      "v_is_contiguous": false,
+      "checks": {
+        "query_exact": true,
+        "returned_key_exact": true,
+        "full_k_cache_exact": true,
+        "full_v_cache_exact": true,
+        "layout_exact": true,
+        "gathered_keys_exact": true,
+        "gathered_values_exact": true,
+        "untouched_slots": true,
+        "candidate_input_unchanged": true,
+        "packed_v_layout_covered": true
+      },
+      "old_ms": 0.6042065143585205,
+      "new_ms": 0.35822598934173583,
+      "local_speedup": 1.6866629790562941
+    },
+    {
+      "kind": "full_attention",
+      "tokens": 1024,
+      "window": -1,
+      "cache_layout": "SHUFFLE",
+      "v_is_contiguous": false,
+      "checks": {
+        "query_exact": true,
+        "returned_key_exact": true,
+        "full_k_cache_exact": true,
+        "full_v_cache_exact": true,
+        "layout_exact": true,
+        "gathered_keys_exact": true,
+        "gathered_values_exact": true,
+        "untouched_slots": true,
+        "candidate_input_unchanged": true,
+        "packed_v_layout_covered": true
+      },
+      "old_ms": 0.6037624835968017,
+      "new_ms": 0.3770920991897583,
+      "local_speedup": 1.6011008581035786
+    },
+    {
+      "kind": "sliding_attention",
+      "tokens": 1,
+      "window": 1024,
+      "cache_layout": "NHD",
+      "v_is_contiguous": true,
+      "checks": {
+        "query_exact": true,
+        "returned_key_exact": true,
+        "full_k_cache_exact": true,
+        "full_v_cache_exact": true,
+        "layout_exact": true,
+        "gathered_keys_exact": true,
+        "gathered_values_exact": true,
+        "untouched_slots": true,
+        "candidate_input_unchanged": true,
+        "packed_v_layout_covered": true
+      },
+      "old_ms": 0.5935434818267822,
+      "new_ms": 0.3542663097381592,
+      "local_speedup": 1.6754161079146208
+    },
+    {
+      "kind": "sliding_attention",
+      "tokens": 6,
+      "window": 1024,
+      "cache_layout": "NHD",
+      "v_is_contiguous": false,
+      "checks": {
+        "query_exact": true,
+        "returned_key_exact": true,
+        "full_k_cache_exact": true,
+        "full_v_cache_exact": true,
+        "layout_exact": true,
+        "gathered_keys_exact": true,
+        "gathered_values_exact": true,
+        "untouched_slots": true,
+        "candidate_input_unchanged": true,
+        "packed_v_layout_covered": true
+      },
+      "old_ms": 0.5835444927215576,
+      "new_ms": 0.35411829948425294,
+      "local_speedup": 1.6478800829311757
+    },
+    {
+      "kind": "sliding_attention",
+      "tokens": 32,
+      "window": 1024,
+      "cache_layout": "NHD",
+      "v_is_contiguous": false,
+      "checks": {
+        "query_exact": true,
+        "returned_key_exact": true,
+        "full_k_cache_exact": true,
+        "full_v_cache_exact": true,
+        "layout_exact": true,
+        "gathered_keys_exact": true,
+        "gathered_values_exact": true,
+        "untouched_slots": true,
+        "candidate_input_unchanged": true,
+        "packed_v_layout_covered": true
+      },
+      "old_ms": 0.5888840198516846,
+      "new_ms": 0.3544543027877808,
+      "local_speedup": 1.661382060311063
+    },
+    {
+      "kind": "sliding_attention",
+      "tokens": 1024,
+      "window": 1024,
+      "cache_layout": "NHD",
+      "v_is_contiguous": false,
+      "checks": {
+        "query_exact": true,
+        "returned_key_exact": true,
+        "full_k_cache_exact": true,
+        "full_v_cache_exact": true,
+        "layout_exact": true,
+        "gathered_keys_exact": true,
+        "gathered_values_exact": true,
+        "untouched_slots": true,
+        "candidate_input_unchanged": true,
+        "packed_v_layout_covered": true
+      },
+      "old_ms": 0.6318799018859863,
+      "new_ms": 0.37565228939056394,
+      "local_speedup": 1.6820871846970795
+    }
+  ],
+  "scope": "Actual old/new RoPE-cache and full physical-cache comparison; timings include identical input reset; not model speed"
+}
