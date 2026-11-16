@@ -9,6 +9,7 @@ from urllib.request import build_opener,ProxyHandler
 from mellum_runtime_config import PROJECT,MODEL
 from mellum_perf_protocol import literal_command,sha,load_rows
 from mellum_process_runner import run_stage
+from mellum_execution_profiles import PROFILES
 from run_mellum_batch_campaign import write
 
 CLIENT=Path('/workspace/venvs/evalscope-perf/bin/python')
@@ -26,7 +27,7 @@ def cpu_environment():
 
 def sources():
     paths=list((PROJECT/'ATOM/atom').rglob('*.py'))+[CONFIG,ADAPTER,Path(__file__).resolve()]
-    paths += [PROJECT/'scripts'/name for name in ('serve_mellum.py','mellum_runtime_config.py','mellum_perf_protocol.py','mellum_process_runner.py','setup_mellum_perf_client.py')]
+    paths += [PROJECT/'scripts'/name for name in ('serve_mellum.py','mellum_execution_profiles.py','mellum_runtime_config.py','mellum_perf_protocol.py','mellum_process_runner.py','setup_mellum_perf_client.py')]
     return {str(p):sha(p) for p in sorted(set(paths))}
 
 
@@ -248,7 +249,8 @@ def execute(out,manifest,budget,executor=run_stage):
                 archive=directory/f'attempt_{n}';archive.mkdir()
                 for file in list(directory.iterdir()):
                     if file!=archive and not file.name.startswith('attempt_'):file.rename(archive/file.name)
-            timeout=min(remaining,LIMITS[stage]);plan={'stage':stage,'gpu':manifest['gpu'],'cases':specs,'timeout':timeout}
+            timeout=min(remaining,LIMITS[stage]);plan={'stage':stage,'gpu':manifest['gpu'],'cases':specs,'timeout':timeout,
+                'profile':manifest.get('profile'),'server_port':manifest.get('server_port',8051),'engine_port':manifest.get('engine_port',8026)}
             write(directory/'plan.json',plan);manifest['jobs'][stage]={'status':'running'};write(out/'manifest.json',manifest)
             started=time.monotonic()
             try:
@@ -281,7 +283,7 @@ def execute(out,manifest,budget,executor=run_stage):
     summary={'status':status,'error':error,'stages':results,'comparisons':comparisons,'scope':manifest['claim'],
              'protocol_differences':manifest['differences'],'note':'No score invented from null target_g fields; failures and partial-success tails preserved.'}
     write(out/'summary.json',summary)
-    lines=['# R单卡A/B/C基线','','状态：`'+status+'`。这是注明客户端适配与版本差异的本地题目负载复现。','',
+    lines=['# '+(manifest.get('profile') or 'R')+' 单卡A/B/C本地复测','','状态：`'+status+'`。这是注明客户端适配与版本差异的本地题目负载复现。','',
            '| 阶段 | 成功/请求 | tokens/s/GPU | TTFT p50秒 | TTFT p99秒 | TPOT p50秒 | TPOT p99秒 |','| --- | --- | --- | --- | --- | --- | --- |']
     for stage,value in results.items():
         for name,case in value.get('cases',{}).items():
@@ -294,15 +296,23 @@ def execute(out,manifest,budget,executor=run_stage):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--gpu',type=int,default=0);p.add_argument('--prepare-only',action='store_true')
     p.add_argument('--smoke-only',action='store_true');p.add_argument('--resume',type=Path);p.add_argument('--stage',type=Path)
+    p.add_argument('--profile',choices=PROFILES)
+    p.add_argument('--server-port',type=int,default=8051);p.add_argument('--engine-port',type=int,default=8026)
     p.add_argument('--client-audit',type=Path,default=AUDIT)
     p.add_argument('--budget-minutes',type=float,default=180);a=p.parse_args()
     if a.stage:stage_worker(a.stage);return 0
+    if not 1<=a.server_port<=65535 or not 1<=a.engine_port<=65535 or a.server_port==a.engine_port:p.error('Distinct valid HTTP/engine ports required')
     if not 0<a.budget_minutes<=180:p.error('Total budget must be positive and <=180 minutes')
-    out=a.resume or Path('/workspace/results/mellum_abc_baseline')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True,exist_ok=True)
+    out=a.resume or Path('/workspace/results/mellum_abc_optimized' if a.profile else '/workspace/results/mellum_abc_baseline')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True,exist_ok=True)
     if a.resume:
         manifest=json.loads((out/'manifest.json').read_text());current_matches(manifest,out)
-        if manifest['gpu']!=a.gpu or manifest['smoke_only']!=a.smoke_only:raise ValueError('Resume options differ')
-    else:manifest=prepare(out,a.gpu,a.smoke_only,a.client_audit)
+        if (manifest['gpu']!=a.gpu or manifest['smoke_only']!=a.smoke_only or manifest.get('profile')!=a.profile
+            or manifest.get('server_port',8051)!=a.server_port or manifest.get('engine_port',8026)!=a.engine_port):raise ValueError('Resume options differ')
+    else:
+        manifest=prepare(out,a.gpu,a.smoke_only,a.client_audit)
+        manifest.update(profile=a.profile,server_port=a.server_port,engine_port=a.engine_port,
+            measurement_note='Single local full-load reproduction; concurrent GPU jobs may contend for shared host resources. Final idle-machine repetitions are separate.')
+        write(out/'manifest.json',manifest)
     if a.prepare_only:print('RESULT abc_baseline_prepared output',out);return 0
     result=execute(out,manifest,a.budget_minutes*60)
     print('RESULT',result['status'],'output',out);return 0

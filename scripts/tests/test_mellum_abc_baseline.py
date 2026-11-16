@@ -110,3 +110,14 @@ def test_generated_commands_parse_with_installed_client(tmp_path):
     commands=[study.command(s,tmp_path,n,'/data/source.jsonl')[3:] for s,n in [('A',512),('B',50),('C',200)]]
     code="import argparse,json,sys;from evalscope.perf.arguments import add_argument;p=argparse.ArgumentParser();add_argument(p);args=[p.parse_args(x) for x in json.loads(sys.argv[1])];assert all(a.stream for a in args)"
     subprocess.run([str(study.CLIENT),'-c',code,json.dumps(commands)],env=study.cpu_environment(),check=True,capture_output=True,text=True,timeout=90)
+
+
+def test_full_scale_worker_receives_chosen_profile_and_isolated_ports(tmp_path,monkeypatch):
+    monkeypatch.setattr(study,'current_matches',lambda *a:None)
+    plan=manifest();plan.update(profile='fused_moe_native_attention',server_port=8351,engine_port=9026,gpu=1)
+    def fake(stage,command,log,timeout):
+        actual=json.loads((log.parent/'plan.json').read_text())
+        assert actual['profile']=='fused_moe_native_attention' and actual['gpu']==1
+        assert actual['server_port']==8351 and actual['engine_port']==9026
+        log.write_text('ok');write(log.parent/'results.json',{'status':'complete','cases':{stage:{'metrics':metrics()}}})
+    assert study.execute(tmp_path,plan,1000,fake)['status']=='complete'
