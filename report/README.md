@@ -141,3 +141,5 @@
 
 - [34 整批投影+prefix](performance/34_batched_prefix.md)：A64 438.83近似持平，C20 TTFT p99 1.014秒，19/20命中。
 - [35 单次KV写入](performance/35_direct_kv.md)：A64 499.64tokens/s（+13.64%），C20 TPOT p99 70.40ms，实际缓存布局与写入路径通过。
+
+- [研究08 官方Baseline差距审计](research/08_official_baseline_gap_audit.md)：已证实的诊断兼容成本、113处手写Norm、独立QKV、常量传输与审计读取；建议先恢复基础高效路径，未假定官方具体实现。

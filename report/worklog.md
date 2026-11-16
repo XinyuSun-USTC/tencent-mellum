@@ -164,3 +164,5 @@
 - 按计划交付两卡新批次：GPU0 batched-prefix e4cfb91整合整批投影与原生缓存，74项CPU检查/真实数据prepare/源码输入客户端指纹通过，45分钟自动结构探针→off/on→HTTP；GPU1 direct-kv b4e77d9新增参考K/V单次AITER写入，保留BF16 NHD/SHUFFLE与QK公式，拒绝缓存/融合norm等未支持配置，59项CPU检查（含跨块/负slot/非连续V/非法shape）及真实prepare/指纹通过，40分钟自动布局探针→HTTP。未开Graph、未运行GPU或修改冻结库；计划34与交付指纹归档，导航顶部更新到当前阶段。
 
 - 两卡批次34完成：GPU0 batched-prefix 20261116T101213244110Z，A64 438.8336tokens/s近似持平、C20 TTFT/TPOT p99 1.01427/0.07378秒、19/20命中72352；结构探针精确，off/on3/8序列同如实记录，功能待整体评估。GPU1 direct-kv 20261116T101221209827Z，布局/跨块/负slot/strided V GPU探针全部精确，A64 499.6429tokens/s（较439.67约+13.64%）、C20 TPOT p99 0.07040秒；实际prefill/decode单次写入审计通过。独立核验产物、源码、输入与5631加载，归档性能34/35。下一步合并有效机制，补整体功能；有界试decode Graph，再固定配置完整ABC。
+
+- 根据用户对朴素Baseline差距的质疑，只读审计当前执行路径并归档研究08：L拆分和重复KV已有3.62倍/+13.64%实证；仍有113处手写Norm、3路F.linear+cat、每层CPU inverse-frequency上传及审计tolist。确认官方eager，不能把缺Graph当全部差距理由；建议下一批优先短trace和基础快路径恢复，保留协议/硬件干扰核对，不猜测官方源码或宣称已达硬件上限。无新GPU或代码修改。
