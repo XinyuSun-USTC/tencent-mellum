@@ -25,7 +25,7 @@ def prepare(out,gpu,profile):
     source.write_text(''.join(json.dumps(byid[r['id']],ensure_ascii=False)+'\n' for r in selected))
     m['stages'].update(A_small=[{'name':'A64','scenario':'A','number':64,'source':a['source'],'expected':a['planned_requests'][:64]}],
         C_small=[{'name':'C20','scenario':'C','number':20,'source':str(source),'expected':selected}])
-    m.update(profile=profile,server_port=8151,engine_port=8726,
+    m.update(profile=profile,server_port=8251 if gpu==0 else 8151,engine_port=8926 if gpu==0 else 8726,
         claim='Diagnostic smoke/B2/A8/C2 then A64/concurrency32 and length-stratified C20/rate0.3. Not formal ABC, not a HumanEval acceptance result.',
         limitations=['Concurrent HF on another GPU may contend for host resources; final measurements require idle environment.',
                     'C20 is length-stratified, not the full C200 arrival/queue distribution.',
@@ -71,7 +71,7 @@ def execute(out,m,budget,executor=run_stage):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--gpu',type=int,choices=[1],default=1)
+    p=argparse.ArgumentParser();p.add_argument('--gpu',type=int,choices=[0,1],default=1)
     p.add_argument('--profile',choices=PROFILES,default='fused_moe');p.add_argument('--prepare-only',action='store_true')
     p.add_argument('--budget-minutes',type=float,default=35);a=p.parse_args()
     if not 1<=a.budget_minutes<=45:p.error('Budget must be 1..45 minutes')

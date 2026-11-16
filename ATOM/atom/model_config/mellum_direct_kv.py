@@ -1,11 +1,13 @@
 # SPDX-License-Identifier: MIT
 """Write reference-rotated BF16 K/V once with the existing AITER cache kernel."""
 import types
+import os
 import torch
 
 
 def install_direct_kv_rope(impl,inv,factor):
     from atom.model_config.mellum_attention import reference_position_rope
+    resident=os.getenv('MELLUM_RESIDENT_ROPE','0')=='1'
     def direct(self,q,k,v,qkv,position,ctx):
         if (getattr(self,'use_flash_layout',False) or self.kv_cache_dtype!='bf16'
                 or self.q_norm is not None or self.k_norm is not None):
@@ -21,7 +23,14 @@ def install_direct_kv_rope(impl,inv,factor):
                 or kc.shape[1]!=k.shape[1] or kc.shape[2]*kc.shape[4]!=k.shape[2]
                 or vc.numel()!=kc.numel()):
             raise ValueError('Direct reference KV token/head/cache shape mismatch')
-        qr,kr=reference_position_rope(q,k,position,inv,factor)
+        frequency=inv
+        if resident:
+            cached=getattr(self,'_mellum_gpu_inverse_frequency',None)
+            if cached is None or cached.device!=q.device:
+                cached=inv.to(device=q.device,dtype=torch.float32)
+                self._mellum_gpu_inverse_frequency=cached
+            frequency=cached
+        qr,kr=reference_position_rope(q,k,position,frequency,factor)
         self.use_triton_attn=(self.sliding_window!=-1 or self.head_dim!=128 or self.num_heads==self.num_kv_heads)
         asm_layout=not (self.use_triton_attn and vc.dim()!=5)
         self._cache_format='SHUFFLE' if asm_layout else 'NHD'
@@ -34,7 +43,7 @@ def install_direct_kv_rope(impl,inv,factor):
             seen=getattr(self,'_mellum_direct_kv_audited',set())
             if phase not in seen:
                 from atom.model_config.mellum_native import record
-                record('kv_write',self.layer_num,ctx,len(q),'aiter_reference_kv_once',cache_format=self._cache_format)
+                record('kv_write',self.layer_num,ctx,len(q),'aiter_reference_kv_once',cache_format=self._cache_format,resident_inverse=resident,inverse_device=str(frequency.device))
                 seen.add(phase);self._mellum_direct_kv_audited=seen
         return qr,kr,v,kc,vc,ks,vs
     impl.rope_cache=types.MethodType(direct,impl)

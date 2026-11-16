@@ -27,6 +27,8 @@ def main():
         settings.update(profile_settings(a.profile))
         if a.batch_audit:settings['MELLUM_NATIVE_AUDIT_PATH']=str(out/'native_calls.jsonl')
         os.environ.update(settings)
+    settings['MELLUM_FASTPATH_AUDIT_PATH']=str(out/'fastpaths.json')
+    os.environ.update(settings)
     if a.campaign_config:
         config=json.loads(a.campaign_config.read_text())
         if config.get('observe'):raise ValueError('HTTP campaign must disable observer')

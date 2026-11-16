@@ -70,6 +70,11 @@ class MellumRMSNorm(nn.Module):
         return output if residual is None else (output, combined)
 
 
+def make_mellum_norm(dim,eps=1e-6,fused_allreduce=False):
+    from atom.model_config.mellum_fastpaths import make_norm
+    return make_norm(MellumRMSNorm,dim,eps,fused_allreduce)
+
+
 class MellumAttention(nn.Module):
     def __init__(
         self,
@@ -151,8 +156,8 @@ class MellumAttention(nn.Module):
                 persistent=False,
             )
 
-        self.q_norm = MellumRMSNorm(self.head_dim, eps=rms_norm_eps)
-        self.k_norm = MellumRMSNorm(self.head_dim, eps=rms_norm_eps)
+        self.q_norm = make_mellum_norm(self.head_dim, eps=rms_norm_eps)
+        self.k_norm = make_mellum_norm(self.head_dim, eps=rms_norm_eps)
 
         self.attn = Attention(
             self.num_heads,
@@ -311,12 +316,12 @@ class MellumDecoderLayer(nn.Module):
             config, quant_config=self.atom_config.quant_config,
             prefix=f"{prefix}.mlp",
         )
-        self.input_layernorm = MellumRMSNorm(
+        self.input_layernorm = make_mellum_norm(
             config.hidden_size,
             eps=config.rms_norm_eps,
             fused_allreduce=ENABLE_ALLREDUCE_RMSNORM_FUSION and self.layer_idx > 0,
         )
-        self.post_attention_layernorm = MellumRMSNorm(
+        self.post_attention_layernorm = make_mellum_norm(
             config.hidden_size,
             eps=config.rms_norm_eps,
             fused_allreduce=ENABLE_ALLREDUCE_RMSNORM_FUSION,
@@ -376,7 +381,7 @@ class MellumModel(nn.Module):
             layer_num_offset=0,
         )
         if get_pp_group().is_last_rank:
-            self.norm = MellumRMSNorm(
+            self.norm = make_mellum_norm(
                 self.config.hidden_size,
                 eps=self.config.rms_norm_eps,
                 fused_allreduce=ENABLE_ALLREDUCE_RMSNORM_FUSION,
@@ -508,6 +513,8 @@ class MellumForCausalLM(nn.Module):
             self.model.make_empty_intermediate_tensors
         )
         self._install_load_audit()
+        from atom.model_config.mellum_fastpaths import write_audit
+        write_audit(self)
         if os.getenv("MELLUM_BATCH_CAMPAIGN_CONFIG"):
             from atom.model_config.mellum_campaign import install
             install(self)

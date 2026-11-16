@@ -7,7 +7,9 @@ from atom.model_config.mellum_attention import reference_position_rope,gather_re
 
 
 @pytest.mark.parametrize('window',[-1,1024])
-def test_direct_write_keeps_reference_rotation_and_slot_layout(monkeypatch,window):
+@pytest.mark.parametrize('resident',[False,True])
+def test_direct_write_keeps_reference_rotation_and_slot_layout(monkeypatch,window,resident):
+    monkeypatch.setenv('MELLUM_RESIDENT_ROPE','1' if resident else '0')
     torch.manual_seed(71);n=4;h=2;d=128;bs=16;x=8
     kc=torch.full((3,h,d//x,bs,x),-7,dtype=torch.bfloat16)
     vc=torch.full((3,h,d,bs),-9,dtype=torch.bfloat16)
@@ -32,6 +34,7 @@ def test_direct_write_keeps_reference_rotation_and_slot_layout(monkeypatch,windo
     expected=reference_position_rope(q,k,positions,inv,1.)
     torch.testing.assert_close(actual[0],expected[0],rtol=0,atol=0)
     torch.testing.assert_close(actual[1],expected[1],rtol=0,atol=0)
+    assert hasattr(impl,'_mellum_gpu_inverse_frequency')==resident
     assert len(calls)==1 and calls[0]['asm_layout']==(window==-1)
     keys,values=gather_reference_kv(kc,vc,torch.tensor([0,1,2]),0,48,impl._cache_format)
     for i,slot in enumerate(slots.tolist()):

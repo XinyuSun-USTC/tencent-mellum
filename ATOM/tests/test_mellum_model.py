@@ -14,7 +14,7 @@ MODEL=Path('/data/models/Mellum2.1-12B-A2.5B-Thinking')
 
 def classes():
     tree=ast.parse((ROOT/'atom/models/mellum.py').read_text())
-    nodes=[n for n in tree.body if isinstance(n,ast.ClassDef)]
+    nodes=[n for n in tree.body if isinstance(n,ast.ClassDef) or isinstance(n,ast.FunctionDef) and n.name=='make_mellum_norm']
     ns={'nn':torch.nn,'torch':torch,'json':json,'Path':Path,'os':__import__('os'),
         'logging':__import__('logging'),'aiter_rope_parameters':aiter_rope_parameters,
         'mellum_load_target':mellum_load_target}
