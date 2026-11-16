@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+最新：[验证44 阶段定位](../report/validation/44_prefill_decode_phase_diagnosis.md)、[50 最后确认与兜底](plan/50_last_confirmation_and_delivery_fallback.md)。20条各阶段均未到90，专家prefill最接近86.88%；独立confirmation提交d4b2573准备原200确认及R批32保守验证，不继续新增算法。
+
 最新：[验证43 四格结果](../report/validation/43_core_attention_expert_matrix.md)、[49 阶段拆分](plan/49_phase_attention_and_experts.md)。仅参考/参考20条100%；独立attn-phase提交b699065准备两卡各两项prefill/decode短定位，53项CPU检查通过。
 
 最新控制：[验证42 systems完成](../report/validation/42_systems_reference_control.md)：参考数学batch1为200/长组全100%；其它快速分支均未达90%。GPU0四格矩阵进行中，空闲GPU1保留用于有效组合完整200确认。
