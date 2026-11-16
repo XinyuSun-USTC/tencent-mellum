@@ -1,0 +1,135 @@
+{
+  "run": "/workspace/results/mellum_native_prefix/20261116T101213244110Z",
+  "baseline_run": "/workspace/results/mellum_candidate_capacity/20261116T043117581045Z",
+  "status": "complete",
+  "kernel": {
+    "status": "passed",
+    "cases": [
+      {
+        "window": -1,
+        "finite": true,
+        "max_abs": 0.0,
+        "structural_check": true
+      },
+      {
+        "window": 4,
+        "finite": true,
+        "max_abs": 0.0,
+        "structural_check": true
+      },
+      {
+        "window": 1024,
+        "finite": true,
+        "max_abs": 0.0,
+        "structural_check": true
+      }
+    ],
+    "scope": "Synthetic bottom-right/GQA/window structural check, not formal accuracy acceptance"
+  },
+  "probe": {
+    "cached_tokens": 46592,
+    "exact_sequences": 3,
+    "sequences": 8,
+    "note": "Free-generation equality is reported, not a gate for numerically different native paths."
+  },
+  "verified_artifacts": 104,
+  "source_unchanged": true,
+  "profile": "fused_moe_native_batched",
+  "cases": {
+    "smoke_B": {
+      "requests": 2,
+      "successes": 2,
+      "failures": 0,
+      "ttft_p50_s": 0.21107937092892826,
+      "ttft_p99_s": 0.23030169820412993,
+      "tpot_p50_s": 0.05462930251332913,
+      "tpot_p99_s": 0.05471214225113976,
+      "output_tokens_per_s_gpu": 18.0768,
+      "request_start_span_s": 14.160997518105432,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 1
+    },
+    "smoke_A": {
+      "requests": 8,
+      "successes": 8,
+      "failures": 0,
+      "ttft_p50_s": 1.152661489089951,
+      "ttft_p99_s": 1.154072514967993,
+      "tpot_p50_s": 0.05520300804363454,
+      "tpot_p99_s": 0.05520325613701168,
+      "output_tokens_per_s_gpu": 134.4621,
+      "request_start_span_s": 0.0022109190467745066,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 8
+    },
+    "smoke_C": {
+      "requests": 2,
+      "successes": 2,
+      "failures": 0,
+      "ttft_p50_s": 0.5471150609664619,
+      "ttft_p99_s": 0.9777998020872474,
+      "tpot_p50_s": 0.057490177391389126,
+      "tpot_p99_s": 0.06058662951759556,
+      "output_tokens_per_s_gpu": 23.9201,
+      "request_start_span_s": 5.766824743011966,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 2,
+      "prefix_cached_tokens": 3808,
+      "prefix_hit_requests": 1,
+      "new_tokens_in_cached_batches": 12219
+    },
+    "A64": {
+      "requests": 64,
+      "successes": 64,
+      "failures": 0,
+      "ttft_p50_s": 3.2938799320254475,
+      "ttft_p99_s": 4.017857913859189,
+      "tpot_p50_s": 0.05887109023500599,
+      "tpot_p99_s": 0.05889901483121018,
+      "output_tokens_per_s_gpu": 438.8336,
+      "request_start_span_s": 19.052124426933005,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 32
+    },
+    "C20": {
+      "requests": 20,
+      "successes": 20,
+      "failures": 0,
+      "ttft_p50_s": 0.6082829760853201,
+      "ttft_p99_s": 1.0142700460273772,
+      "tpot_p50_s": 0.0598200838191106,
+      "tpot_p99_s": 0.07378138616115001,
+      "output_tokens_per_s_gpu": 63.949,
+      "request_start_span_s": 64.95257637207396,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 9,
+      "prefix_cached_tokens": 72352,
+      "prefix_hit_requests": 19,
+      "new_tokens_in_cached_batches": 127410
+    }
+  },
+  "native_audits": {
+    "A_small": {
+      "attention/aiter_varlen/prefill": 13,
+      "moe/FusedMoE/prefill": 13,
+      "attention/paged_attention_triton/decode": 768,
+      "moe/FusedMoE/decode": 768
+    },
+    "C_small": {
+      "attention/aiter_varlen/prefill": 21,
+      "moe/FusedMoE/prefill": 21,
+      "attention/paged_attention_triton/decode": 1552,
+      "moe/FusedMoE/decode": 1552
+    }
+  }
+}

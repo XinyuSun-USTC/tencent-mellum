@@ -138,3 +138,6 @@
 - [32 原生prefix完整HumanEval](performance/32_native_prefix_humaneval.md)：GPU0候选147/164，对HF145/164，差1.2195pp，132个请求实际命中；此配置仍L请求级投影，整批版本待独立评估。
 
 - [33 整批投影HumanEval](performance/33_batched_projection_humaneval.md)：候选149/164、HF145/164，高2.4390pp；原脚本绝对差检查False，保留原判定并解释方向，不改门槛，继续性能主线。
+
+- [34 整批投影+prefix](performance/34_batched_prefix.md)：A64 438.83近似持平，C20 TTFT p99 1.014秒，19/20命中。
+- [35 单次KV写入](performance/35_direct_kv.md)：A64 499.64tokens/s（+13.64%），C20 TPOT p99 70.40ms，实际缓存布局与写入路径通过。
