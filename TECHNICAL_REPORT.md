@@ -12,7 +12,7 @@
 
 本项目在冻结的软件环境中实现 Mellum 模型适配，并围绕计算内核、解码执行和缓存复用开展优化。适配内容包括模型配置注册、网络结构实现、检查点权重映射，以及 ATOM 调度器和 OpenAI 兼容接口的接入。`MellumForCausalLM.validate_loaded_weights` 对 5,631 个源权重张量进行完整性检查；模型主要实现位于 `ATOM/atom/models/mellum.py` 的 `MellumAttention`、`MellumDecoderLayer` 和 `MellumForCausalLM`。
 
-正确性参考采用独立环境中的 Transformers 5.10.1 原生 `MellumForCausalLM`，推理环境保持题给 Transformers 5.2.0。交付代码提供参考计算配置（`conservative`）和性能实验配置（`aggressive`），参考配置（32调度槽）已通过完整本地正确性验收，作为主交付版本；激进配置作为附加性能实验版本。该配置选择独立于 Step0 和优化点计数。
+正确性参考采用独立环境中的 Transformers 5.10.1 原生 `MellumForCausalLM`，推理环境保持题给 Transformers 5.2.0。交付代码提供参考计算配置（`conservative`）和性能实验配置（`aggressive`），参考配置（32调度槽）已通过完整本地正确性验收，作为正确性基准与性能修复起点；其C场景未通过负载完成性检查；激进配置作为附加性能实验版本。该配置选择独立于 Step0 和优化点计数。
 
 ### 1.1 Profiling 结果
 
