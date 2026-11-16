@@ -1,4 +1,4 @@
-"""Read-only CPU verification of delivery files, evidence hashes and PDF page caps."""
+"""Read-only CPU verification of delivery files, evidence hashes and Markdown structure."""
 import hashlib,json,re,subprocess
 from pathlib import Path
 from urllib.parse import unquote
@@ -17,9 +17,9 @@ def main():
  index=json.loads((ROOT/'artifacts/submission/index.json').read_text())
  for name,item in index['files'].items():
   p=ROOT/name;check(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==item['sha256'],'Evidence hash differs: '+name)
- for name,expected in [('01_technical_report.pdf',4),('02_ai_usage.pdf',1)]:
-  p=ROOT/'report/submission'/name;data=p.read_bytes() if p.exists() else b''
-  count=len(re.findall(rb'/Type\s*/Page\b',data));check(data.startswith(b'%PDF') and count==expected,f'Invalid PDF/page count {name}: {count}')
+ report=(ROOT/'report/submission/01_technical_report.md').read_text()
+ check(len(re.findall(r'^## [1-4]\. ',report,re.M))==4,'Technical report must retain four main sections')
+ check(report.count('<!-- pagebreak -->')==3,'Technical report must retain four content divisions')
  for name in ['README.md','WORKLOG.md']:
   p=ROOT/name
   for target in re.findall(r'\]\(([^)]+)\)',p.read_text()):
@@ -29,6 +29,6 @@ def main():
   d=json.loads((ROOT/'configs/submission'/f'{mode}.json').read_text())
   check(d['num_gpus']==1 and not d['mode_is_optimization_point'],'Invalid mode declaration')
  check((ROOT/'start_server.sh').stat().st_mode & 0o111,'Launcher is not executable')
- result={'status':'passed' if not errors else 'failed','checks':checks,'errors':errors,'scope':'CPU files/hashes/links/PDF caps; not GPU acceptance'}
+ result={'status':'passed' if not errors else 'failed','checks':checks,'errors':errors,'scope':'CPU files/hashes/links/Markdown structure; exported page count and GPU acceptance are separate'}
  print(json.dumps(result,ensure_ascii=False,indent=2));return bool(errors)
 if __name__=='__main__':raise SystemExit(main())

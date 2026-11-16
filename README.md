@@ -68,7 +68,7 @@ HumanEval 关闭 thinking、上限2048、官方 openai/human-eval 评测套件�
 - [Step0总结](report/validation/39_step0_summary.md)、[完整ABC](report/performance/36_combined_full_abc.md)、[最终候选验收](report/validation/40_optimized_candidate_acceptance.md)。
 - [题目原件](docs/requirements/2026%20CSIG云一计算加速团队实习校招面试题.pdf)、[历史文档索引](docs/README.md)。历史计划中的“下一步”以交付说明为准。
 
-正式文档以中文 Markdown 为准，便于修改润色。技术报告按四页内容分段，AI说明按一页篇幅编写；最终导出页数取决于排版。现有英文PDF仅为可选历史预览，Markdown修改后须重新导出核对，不能假定二者自动同步。
+正式文档以中文 Markdown 为准，便于修改润色。技术报告按四页内容分段，AI说明按一页篇幅编写；最终导出页数取决于排版。如需导出PDF，应以润色后的Markdown为准并重新核对页数。
 
 冻结推理版本见 `configs/submission/environment.json`。CPU 交付检查：
 
