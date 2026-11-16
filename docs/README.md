@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+当前实验：[38 Graph路由ABBA与QK/RoPE融合](plan/38_graph_routing_and_qk_fusion.md)，独立fusion分支2dc21b2；上一批Graph A64达到943.26tokens/s，同卡较eager提升51.9%。新批仅性能筛选，不逐项跑HF。
+
 当前实验：[37 连续优化批次](plan/37_optimization_sprint.md)，独立sprint分支3f81b6d：GPU0空观察器移除/decode Graph，GPU1Packed消融/原生路由，集中性能筛选，完整正确性留最终组合。
 
 交付收敛：[36 提交与版本验收](plan/36_submission_and_version_acceptance.md)：核对原题Git历史、单命令server、≤4页报告、消融、AI说明与WORKLOG要求，区分最终提交缺口与内部整理建议。
