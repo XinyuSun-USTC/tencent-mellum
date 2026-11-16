@@ -30,3 +30,23 @@
 ## 结果更新
 
 实测完成后归档输入配置、实际执行记录、评分和客户端数据，并更新主版本配置、技术报告与发布标签。未通过时继续修复或选择已有实测合格配置，不以更改验收规则获得通过。页数由作者最终手工核对。
+
+## 排队执行
+
+卡1在单槽完整验收通过后，自动测量同一批大小的主配置ABC：
+
+```bash
+/opt/venv/bin/python scripts/run_mellum_completion_benchmarks.py --track primary --gpu 1 --acceptance-run /workspace/results/mellum_reference_acceptance/20261116T160211830830Z_batch1 --wait-minutes 180 --budget-minutes 120
+```
+
+卡0等待当前32槽验收任务释放GPU，再测完整累计消融：
+
+```bash
+/opt/venv/bin/python scripts/run_mellum_completion_benchmarks.py --track cumulative --gpu 0 --after-run /workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32 --wait-minutes 180 --budget-minutes 180
+```
+
+等待时间不计入性能执行预算。累计配置的报告顺序仍为Step0、+①、+①②、+①②③，实际执行先完成三个优化配置，再测慢速历史Step0。运行顺序在manifest中记录。正式客户端并发保持32；历史Step0与单槽主版本允许内部decode批大小为1，不使用开发工具额外的“实际decode必须32”条件拒绝该测量，其他请求完整性检查保持不变。
+
+## 结果处理
+
+完整验收返回后检查所有任务数、输入协议、评分分母及源文件哈希。通过的配置才能记录为主版本“本地验收通过”；若两种批大小都通过，结合性能结果选择主版本容量并同步启动预设。激进配置继续作为附加实验，不将其性能赋予主版本。性能与累计消融仅填入实际完成的数据；失败阶段可据原始日志修复并重跑，不用预测或不同规模结果补表。版面页数由作者最终确认。
