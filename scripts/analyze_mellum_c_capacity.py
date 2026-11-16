@@ -51,6 +51,23 @@ def batches(path):
             'note':'Batch audit has no timestamps; this measures ordering, not stall duration. Server warmup may be included.'}
 
 
+def lifecycle(path):
+    rows=[json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    aborted=set();violations=[];removed=set();receipts=0;released=0
+    for row in rows:
+        if row.get('kind')=='abort':
+            receipts+=1
+            ids=set(row['removed']);aborted.update(ids);removed.update(ids)
+            released+=row['kv_free_after']-row['kv_free_before']
+        elif row.get('kind')=='engine_step':
+            overlap=aborted.intersection(row['request_ids'])
+            if overlap:violations.append({'request_ids':sorted(overlap),'start_ns':row['start_ns']})
+    return {'abort_receipts':receipts,'removed_requests':len(removed),
+            'net_blocks_released_at_abort':released,'steps_after_abort_with_removed_ids':violations,
+            'lifecycle_receipts_consistent':not violations,
+            'note':'File-order audit of removed IDs; no abort receipt is inconclusive about cancellation. Reclaimed blocks do not make timed-out requests successful.'}
+
+
 def analyze(root):
     summary_path=root/'summary.json';s=json.loads(summary_path.read_text())
     if s.get('status') in ('started','running') or not s.get('source_unchanged') or not s.get('artifact_sha256'):
@@ -70,10 +87,11 @@ def analyze(root):
             info=database(db[0])
             # Worker writes one audit copy beside the case client directory.
             audit=client.parent/'batches.jsonl'
-            items.append({'profile':value.get('server_command',[name])[-1] if '--profile' in value.get('server_command',[]) else name,
+            items.append({'profile':value['server_command'][value['server_command'].index('--profile')+1] if '--profile' in value.get('server_command',[]) else name,
                           'case':stage,'metrics':{k:metric.get(k) for k in ['requests','successes','failures','ttft_p50_s','ttft_p99_s','tpot_p50_s','tpot_p99_s','actual_decode_max_batch','complete_without_failures']},
                           'tail_valid_for_complete_score':info['failures']==0,'database':str(db[0]),'database_evidence':info,
-                          'batch_evidence':batches(audit) if audit.exists() else None})
+                          'batch_evidence':batches(audit) if audit.exists() else None,
+                          'lifecycle_evidence':lifecycle(client.parent.parent/'server/engine_steps.jsonl') if (client.parent.parent/'server/engine_steps.jsonl').exists() else None})
     return {'run':str(root),'status':s['status'],'verified_artifacts':len(s['artifact_sha256']),'cases':items,
             'unmeasured_candidates':{name:c.get('traceback',c.get('status')) for name,c in candidates.items() if not (c.get('capacity') or c.get('results'))}}
 

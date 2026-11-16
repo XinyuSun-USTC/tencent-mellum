@@ -28,3 +28,17 @@ def test_batch_order_does_not_invent_timestamps(tmp_path):
 def test_running_evidence_is_rejected(tmp_path):
     (tmp_path/'summary.json').write_text('{"status":"started"}')
     with pytest.raises(ValueError,match='completed run'):analyze(tmp_path)
+
+
+def test_abort_receipts_detect_post_removal_scheduling(tmp_path):
+    from analyze_mellum_c_capacity import lifecycle
+    p=tmp_path/'engine_steps.jsonl'
+    rows=[{'kind':'engine_step','request_ids':[1,2],'start_ns':1},
+          {'kind':'abort','removed':[2],'kv_free_before':10,'kv_free_after':30},
+          {'kind':'engine_step','request_ids':[1],'start_ns':3}]
+    p.write_text(''.join(json.dumps(r)+'\n' for r in rows))
+    d=lifecycle(p)
+    assert d['lifecycle_receipts_consistent'] and d['net_blocks_released_at_abort']==20
+    rows.append({'kind':'engine_step','request_ids':[2],'start_ns':4})
+    p.write_text(''.join(json.dumps(r)+'\n' for r in rows))
+    assert not lifecycle(p)['lifecycle_receipts_consistent']
