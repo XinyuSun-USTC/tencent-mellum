@@ -10,7 +10,8 @@
     "smoke": "/workspace/tencent-mellum-delivery-final/results/submission_smoke/20261116T152441526820Z",
     "profiling": "/workspace/results/mellum_fastpaths/20261116T112501628142Z_resident/trace",
     "delivery_ablation": "/workspace/results/mellum_submission_ablation/20261116T153235801902Z",
-    "delivery_abc": "/workspace/results/mellum_full_campaign/20261116T153025780336Z"
+    "delivery_abc": "/workspace/results/mellum_full_campaign/20261116T153025780336Z",
+    "primary_acceptance_batch32": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32"
   },
   "files": {
     "artifacts/submission/aggressive_abc/manifest.json": {
@@ -2422,6 +2423,91 @@
       "sha256": "e30e814597138a17dd65f75e7a94c92410f85cfdab8a8e8d89294b61e36e6f85",
       "bytes": 183593,
       "original": "/workspace/results/mellum_full_campaign/20261116T153025780336Z/template/manifest.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/batch_evidence.json": {
+      "sha256": "ee497c692e22f7814aa983139a96f57528366cce2353e2e2b6134f00df1010e8",
+      "bytes": 746,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/batch_evidence.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate/batches.jsonl": {
+      "sha256": "d6e8083ea5ba20d1b008dca07cb2783927185deb4db8a914a1dfac37a3d1cd13",
+      "bytes": 496346,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate/batches.jsonl"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate/fastpaths.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate/loading_audit.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate.log": {
+      "sha256": "f570d625f039eb2c27fe49f40cd1244ecee6bfe66ad825764f7c9cc91d22e115",
+      "bytes": 117954,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate.log"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate_extraction.json": {
+      "sha256": "4d77efe1b82b802da8492817160ac0b3868f2e68d6e77f21389d6c1ab758e8d1",
+      "bytes": 357272,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate_extraction.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate_samples.jsonl": {
+      "sha256": "78d389839a4263d6ee1fb967aac93e7adc3c5b8850c4a9a48ccfe86a87f05f66",
+      "bytes": 155278,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate_samples.jsonl"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate_score/evaluation.log": {
+      "sha256": "d168d8ca55673a62e9711c0e8ebd420ca1bc046e8072c3c4b64075762b2af679",
+      "bytes": 1256,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate_score/evaluation.log"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate_score/evaluator_manifest.json": {
+      "sha256": "ffe13c3c02260781d36d960c2e43a856b27e792c7a3beb7d2d28e18b3eb9b555",
+      "bytes": 752,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate_score/evaluator_manifest.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate_score/samples.jsonl_results.jsonl": {
+      "sha256": "9f514b57f3f96976b88f77b2618309553b42a170fdb1104d7801a2616c41afae",
+      "bytes": 161433,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate_score/samples.jsonl_results.jsonl"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate_score/score.json": {
+      "sha256": "4ee6771051a05591bdc79ee7a3733db8b8c24ece6e9d6e9a16f7e2ffa776b7c9",
+      "bytes": 189,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate_score/score.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/candidate_score.log": {
+      "sha256": "f1dd63339370c89c8a9f917044f86a5a94e423c5f153e11421c74df9b06b9f50",
+      "bytes": 125,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/candidate_score.log"
+    },
+    "artifacts/submission/primary_acceptance_batch32/humaneval_generation.json": {
+      "sha256": "5b14249e8c7786b63cbf81c693f8c009c48517d0a91ee1b3c2064a2ada160540",
+      "bytes": 2233208,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/humaneval_generation.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/long_generation.json": {
+      "sha256": "73499bf1832714ca53e3dfa41721c18da3d6d281a65bde3627be071411bd3bf4",
+      "bytes": 1939573,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/long_generation.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/manifest.json": {
+      "sha256": "d507099eddc5f7cca8c5bce8cc52de361f2ddfe0ad2070f5ea955e89ad1e686c",
+      "bytes": 42431,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/manifest.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/runtime.json": {
+      "sha256": "f89fac459335fd473020a8121e54212c24ad4478a0587b807b06f2efa9b987de",
+      "bytes": 2749,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/runtime.json"
+    },
+    "artifacts/submission/primary_acceptance_batch32/summary.json": {
+      "sha256": "5d4bf94ae5de51f3afdf4e8ad393db2db6508522cc3290cf8f9a62d73511b790",
+      "bytes": 38865,
+      "original": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32/summary.json"
     }
   }
 }

@@ -1,12 +1,13 @@
 {
   "mode": "conservative",
   "profile": "r",
-  "max_num_seqs": 1,
+  "max_num_seqs": 32,
   "max_model_len": 16640,
   "max_num_batched_tokens": 16640,
   "gpu_memory_utilization": 0.35,
   "precision": "bf16",
   "num_gpus": 1,
-  "status": "developer200_and_long_exact_batch1;HumanEval_not_verified_for_this_preset",
-  "mode_is_optimization_point": false
+  "status": "local_correctness_passed;developer200_positions_96.8125_percent;HumanEval_absolute_gap_1.8293pp",
+  "mode_is_optimization_point": false,
+  "acceptance_evidence": "artifacts/submission/primary_acceptance_batch32/summary.json"
 }

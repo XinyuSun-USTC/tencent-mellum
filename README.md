@@ -1,6 +1,6 @@
 # Mellum 2.1 在 ATOM 上的适配与推理优化
 
-Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目提供的冻结 ATOM、AITER、ROCm 和 PyTorch 环境。交付分支：`release/submission`；最新发布标签：`submission-20261116-final`。
+Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目提供的冻结 ATOM、AITER、ROCm 和 PyTorch 环境。交付分支：`release/submission`；主版本正确性标签：`primary-correctness-20261116-r32`；此前材料标签为`submission-20261116-final`。
 
 ## 交付材料
 
@@ -13,7 +13,7 @@ Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目
 
 文档均为可编辑中文 Markdown。技术报告按四页内容分段，AI 说明按一页篇幅组织；实际导出页数仍需排版核验。
 
-**主交付候选采用参考计算配置，激进配置作为附加性能实验版本。** 主候选正在补跑完整验收；实测通过前仍标记为待验收。 参考计算配置在本地200条前64 token及长输入组上完全一致；优化组合的一致率为62.85%，未达到90%。正式Step0累计消融仍不完整。详细核对见[交付审查](docs/submission/02_delivery_audit.md)。
+**主版本为参考计算路径、32调度槽，已通过完整本地正确性验收。** 200条前64 token一致率为96.8125%，长输入组和16k样本均完全一致；HumanEval为148/164，HF为145/164，绝对差1.829个百分点。主版本自身的完整ABC待测；激进配置继续作为附加性能实验。规定的完整累计消融仍在补测，详见[交付审查](docs/submission/02_delivery_audit.md)。
 
 ## 启动服务
 
@@ -34,7 +34,7 @@ Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目
 ./start_server.sh --mode conservative --dry-run
 ```
 
-两种配置的上下文上限均为16640，默认调度槽分别为1和32。模式选择是独立的交付配置开关，不计作Step0或一个优化点。启动器记录实际配置、软件版本与源码哈希；`--audit`增加后端、图回放、缓存和元数据执行记录。
+两种配置的上下文上限均为16640，默认调度槽均为32；两者采用不同的计算后端。模式选择是独立的交付配置开关，不计作Step0或一个优化点。启动器记录实际配置、软件版本与源码哈希；`--audit`增加后端、图回放、缓存和元数据执行记录。
 
 ## 优化组件开关
 
@@ -53,7 +53,7 @@ Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目
 
 容量参数为`--max-num-seqs`、`--max-model-len`、`--max-batched-tokens`，其中batched tokens须不小于model len。关闭组件仅改变相应执行路径，不自动切换参考/优化模式。
 
-## 最终版本测量
+## 附加激进配置的性能测量
 
 | 指标 | 优化配置实测 | 题给baseline |
 |---|---:|---:|
@@ -65,7 +65,7 @@ Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目
 
 最终源码的A512/B50/C200全部成功，运行编号为`20261116T153025780336Z`；四组A32/B6/C8缩减对照也已完成，运行编号为`20261116T153235801902Z`。前者见[完整ABC结果](artifacts/submission/delivery_abc/summary.json)，后者见[缩减对照矩阵](artifacts/submission/delivery_ablation/matrix.md)。缩减对照的控制配置已包含原生优化，与历史Step0不同。
 
-上述性能配置未达到token一致率门槛。HumanEval为150/164，HF为145/164；按绝对差≤2个百分点的口径不通过。参考配置的精确预设尚未单独完成HumanEval和完整ABC。两张卡用于独立并行实验，交付推理为单卡，MTP关闭。
+上述性能配置未达到token一致率门槛。HumanEval为150/164，HF为145/164；按绝对差≤2个百分点的口径不通过。主版本已通过完整本地正确性验收，其自身ABC正在安排，不能使用本节激进配置的数据替代。两张卡用于独立并行实验，交付推理为单卡，MTP关闭。
 
 ## 检查与复现
 
@@ -107,3 +107,5 @@ Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目
 `docs/`与`report/`中的方案、研究和逐轮诊断用于追溯开发过程，不属于正式报告正文。模型权重、虚拟环境及大型张量输出不纳入普通Git。
 
 主版本的完整正确性验收、同配置性能和历史Step0累计补测，见[补充实验安排](docs/submission/03_completion_experiments.md)。
+
+主版本正确性证据：[完整验收结果](artifacts/submission/primary_acceptance_batch32/summary.json)。200条另有174/200条序列完全一致（87%），报告同时保留逐位置及整序列统计；门槛判定按逐token位置比例。

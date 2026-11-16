@@ -14,7 +14,7 @@
 | 实验依据 | `artifacts/submission/index.json` | 归档结果、SHA256 与原始文件路径 |
 | 来源说明 | `docs/submission/01_sources_and_licenses.md` | 上游实现与许可证归属 |
 
-**总体结论：交付材料已形成，实验验收仍有未通过或未完成项，不能判定为完全符合题目要求。**
+**总体结论：主版本（参考路径、32槽）已通过完整本地正确性验收；同配置ABC与完整累计消融待补齐。激进版本单独报告。**
 
 文档以中文 Markdown 为主稿。技术报告按四页内容组织，AI 说明按一页篇幅编写；目前尚未核对排版导出页数，≤4页/1页的版面要求仍需最终确认。本次交付不包含早期英文PDF预览。
 
@@ -24,8 +24,8 @@
 
 | 验收项目 | 当前结果 |
 |---|---|
-| 本地 200 条前 64 token 一致率 | 参考配置 100%；优化组合 62.85%，未达到 90% |
-| BF16 HumanEval | 优化组合 150/164，HF 145/164；按绝对差≤2个百分点的口径不通过。参考配置的精确预设未单独测量 |
+| 本地 200 条前 64 token 一致率 | 主版本96.8125%，通过逐位置门槛；激进版本62.85%，未通过 |
+| BF16 HumanEval | 主版本148/164，HF145/164，绝对差1.829个百分点，通过；激进版本150/164，差3.05个百分点，不通过 |
 | 16k 输入 | 参考配置 64/64，优化组合 63/64；其余长输入结果见技术报告 |
 | MTP、双卡推理 | 未启用，相关附加检查不适用 |
 | 事前量化收益预测 | 已有定性假设，缺少统一的事前数值估计；报告据实说明 |
@@ -33,15 +33,17 @@
 | 规定的完整累计消融 | 尚未完成；组件对照和缩减规模测试分别记录 |
 | 隐藏集、空闲机器三次中位数 | 待裁判测量 |
 
-当前材料保留了参考实现与优化结果，但尚不能判定整体考核通过。各项性能和正确性结论均对应其实际配置。
+主版本完整验收运行为`20261116T160221792307Z_batch32`，20项产物哈希一致，来源见`artifacts/submission/primary_acceptance_batch32/`。主版本自身性能待测，不继承附加版本的性能结果。
 
-## 3. 最终版本复测
+## 3. 主版本性能与附加实验
 
-完整 ABC：
+主版本通过验收后的同配置完整ABC：
 
 ```bash
-/opt/venv/bin/python scripts/run_mellum_full_campaign.py --gpu 0 --profiles sprint_graph_qk_router_prefix_metadata --budget-minutes 25
+/opt/venv/bin/python scripts/run_mellum_completion_benchmarks.py --track primary --gpu 0 --acceptance-run /workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32 --budget-minutes 180
 ```
+
+此前激进附加版本完整ABC已完成，其结果独立保留。
 
 缩减规模累计对照：
 
@@ -53,7 +55,7 @@
 
 ## 4. 版本与打包
 
-交付分支为 `release/submission`，发布标签为 `submission-20261116-final`，历史 Step0 标签为 `step0-local-validated`。Git 保留提交和合并历史。技术报告、AI 说明、WORKLOG 与证据索引均随代码交付；模型权重、虚拟环境及大体积张量文件保留在外部环境中。
+交付分支为 `release/submission`，当前主版本正确性标签为`primary-correctness-20261116-r32`，此前材料标签为 `submission-20261116-final`，历史 Step0 标签为 `step0-local-validated`。Git 保留提交和合并历史。技术报告、AI 说明、WORKLOG 与证据索引均随代码交付；模型权重、虚拟环境及大体积张量文件保留在外部环境中。
 
 工作树提交完成后，执行：
 

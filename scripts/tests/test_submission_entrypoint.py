@@ -15,7 +15,7 @@ def test_modes_and_independent_overrides(tmp_path,monkeypatch):
     monkeypatch.setattr(s.os,'environ',dict(s.os.environ))
     c=s.build(args('conservative'),tmp_path)
     a=s.build(args('aggressive'),tmp_path)
-    assert c['effective_max_num_seqs']==1 and '--enforce-eager' in c['command']
+    assert c['effective_max_num_seqs']==32 and '--enforce-eager' in c['command']
     assert a['effective_max_num_seqs']==32 and '--enforce-eager' not in a['command']
     assert c['settings']['MELLUM_MOE_BACKEND']=='torch' and a['settings']['MELLUM_FUSED_QK_ROPE']=='1'
     x=args('aggressive');x.disable_graph=True;x.disable_prefix=True
@@ -57,3 +57,15 @@ def test_short_ablation_preserves_counts_and_hashes(tmp_path):
     new=Path(stages['C'][0]['source'])
     assert len(new.read_text().splitlines())==8 and str(new) in plan['template']['input_sha256']
     assert 'NOT historical Step0' in plan['scope']
+
+
+def test_primary_preset_matches_measured_acceptance(tmp_path,monkeypatch):
+    monkeypatch.setattr(s.os,'environ',dict(s.os.environ))
+    launch=s.build(args('conservative'),tmp_path)
+    saved=json.loads((s.PROJECT/'artifacts/submission/primary_acceptance_batch32/runtime.json').read_text())
+    for key,value in saved['settings'].items():
+        if key.endswith('_PATH'):continue
+        assert launch['settings'].get(key)==value,key
+    assert launch['effective_max_num_seqs']==saved['engine_options']['max_num_seqs']==32
+    verdict=json.loads((s.PROJECT/launch['preset']['acceptance_evidence']).read_text())
+    assert verdict['status']=='local_candidate_checks_passed' and all(verdict['local_checks'].values())
