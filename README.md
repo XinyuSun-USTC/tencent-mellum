@@ -2,7 +2,7 @@
 
 冻结AMD ROCm环境中的Mellum2.1-12B-A2.5B-Thinking适配与优化项目。
 
-**Step0适配开发完成，本地生成一致性验证通过，进入Step1规划。** 200条开发prompt前64token全部一致；16k长输入64token回归通过。出题方正式HumanEval及公开集口径待补证，不能将开发验证冒称正式验收。
+**Step0本地验证已完成，当前开展Step1性能优化与交付收敛。** 最新实验分布在独立分支，当前目录尚不是最终交付版本；历史Step0结论见阶段总结，最终配置须绑定自身验证证据。提交缺口与收敛顺序见[36 提交与版本验收](docs/plan/36_submission_and_version_acceptance.md)。
 
 ## 阅读入口
 

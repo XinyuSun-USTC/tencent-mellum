@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+交付收敛：[36 提交与版本验收](plan/36_submission_and_version_acceptance.md)：核对原题Git历史、单命令server、≤4页报告、消融、AI说明与WORKLOG要求，区分最终提交缺口与内部整理建议。
+
 当前工作：[35 基础快路径优先](plan/35_basic_fastpaths_first.md)。独立fastpaths提交68a4086：GPU0短trace/常量驻留，GPU1融合Norm/packed QKV/组合，90项CPU检查及两track真实数据准备通过，待GPU终端运行。
 
 上一轮：[17 直接索引decode一次D200补证](plan/17_indexed_decode_d200_followup.md)：已完成，见[性能15](../report/performance/15_indexed_decode_d200.md)：总体位置78.23%、完整序列53.5%，当前直接索引版本停止晋级。保留共享路由，下一主线prefill专家GEMM/调度开销。

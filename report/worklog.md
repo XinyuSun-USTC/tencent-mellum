@@ -168,3 +168,5 @@
 - 根据用户对朴素Baseline差距的质疑，只读审计当前执行路径并归档研究08：L拆分和重复KV已有3.62倍/+13.64%实证；仍有113处手写Norm、3路F.linear+cat、每层CPU inverse-frequency上传及审计tolist。确认官方eager，不能把缺Graph当全部差距理由；建议下一批优先短trace和基础快路径恢复，保留协议/硬件干扰核对，不猜测官方源码或宣称已达硬件上限。无新GPU或代码修改。
 
 - 根据研究08重排优先级，交付独立fastpaths分支68a4086/计划35：默认保留reference，新增113处Norm工厂切换原ATOM RMSNorm、既有packed QKV、GPU inverse-frequency驻留及组合profile；实际构造类/投影属性/驻留device单独审计。GPU0短bs1/32 trace及基线/驻留HTTP，GPU1基线/Norm/packed/组合四项HTTP；一次准备复用只读输入、独立失败保留，组件失败跳过组合，不重跑HF/完整ABC。90项相关CPU检查、py_compile/diff、真实两track prepare及全部job源码/输入/客户端指纹通过。未运行GPU、未升级依赖/修改既有装饰模型；Graph后移至基础路径实测后再决定。
+
+- 核对原始题目第2、6–8页与当前仓库，形成计划36：保留真实非squash历史，后续独立集成交付版本；当前main/缓存远端仍为Step0、实验分散分支，缺统一启动入口、最终消融及4页报告/1页AI说明。明确完整ABC与开发缩减负载、最终组合与组件证据的边界，更新陈旧首页状态。本轮仅文档审计，未改运行代码、合并分支或推送。
