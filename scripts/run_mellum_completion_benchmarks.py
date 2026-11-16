@@ -83,10 +83,11 @@ def main():
  manifest={'track':a.track,'gpu':a.gpu,'rows':rows,'source_sha256':source,'template':prepared,
   'acceptance_run':str(a.acceptance_run) if a.acceptance_run else None,'jobs':{},
   'scope':'Full A512/B50/C200; explicit historical Step0 or acceptance-gated primary; not hidden-set median'}
+ manifest['execution_order']=[r[0] for r in (rows[1:]+rows[:1] if a.track=='cumulative' else rows)]
  write(out/'manifest.json',manifest)
  if a.prepare_only:print('RESULT completion_benchmarks_prepared output',out);return
  end=time.monotonic()+a.budget_minutes*60
- for row,profile,slots in rows:
+ for row,profile,slots in (rows[1:]+rows[:1] if a.track=='cumulative' else rows):
   for stage,cases in prepared['stages'].items():
    current();remaining=end-time.monotonic()
    if remaining<60:break
