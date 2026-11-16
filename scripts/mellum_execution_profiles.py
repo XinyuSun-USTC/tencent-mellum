@@ -15,11 +15,23 @@ DERIVED={
     'sprint_graph_qk_chunk2048':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_CHUNK_BUDGET':'2048'},
     'sprint_graph_qk_chunk4096':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_CHUNK_BUDGET':'4096'},
 }
-PROFILES=tuple(DERIVED)+FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
+ABLATION_BASE='sprint_graph_qk_router_prefix_metadata'
+ABLATIONS={
+    'ablate_graph':{'MELLUM_DECODE_GRAPH':'0'},
+    'ablate_qk':{'MELLUM_FUSED_QK_ROPE':'0'},
+    'ablate_route':{'MELLUM_NATIVE_ROUTING':'0'},
+    'ablate_prefix':{'MELLUM_PREFIX_ENABLED':'0'},
+    'ablate_metadata':{'MELLUM_PREFILL_METADATA_REUSE':'0'},
+    'ablate_packed':{'MELLUM_QKV_BACKEND':'separate'},
+    'ablate_norms':{'MELLUM_NORM_BACKEND':'reference','MELLUM_FUSED_QK_ROPE':'0'},
+}
+PROFILES=tuple(ABLATIONS)+tuple(DERIVED)+FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
 
 
 def profile_settings(name):
     if name not in PROFILES:raise ValueError('Unknown Mellum execution profile')
+    if name in ABLATIONS:
+        result=profile_settings(ABLATION_BASE);result.update(ABLATIONS[name]);return result
     if name in DERIVED:
         result=profile_settings('sprint_graph_qk');result.update(DERIVED[name]);return result
     fast=name in FAST_PROFILES
