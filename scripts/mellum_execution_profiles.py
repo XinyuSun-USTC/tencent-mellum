@@ -1,7 +1,7 @@
 """Explicit, default-off serving profiles for existing measured execution routes."""
 import json
 
-FAST_PROFILES=('fast_resident','fast_norm','fast_packed','fast_combined','sprint_clean','sprint_graph','sprint_unpacked','sprint_router','sprint_graph_router','sprint_graph_rope','sprint_graph_qk')
+FAST_PROFILES=('fast_resident','fast_norm','fast_packed','fast_combined','sprint_clean','sprint_graph','sprint_unpacked','sprint_router','sprint_graph_router','sprint_graph_rope','sprint_graph_qk','sprint_graph_prefix','sprint_graph_chunk2048','sprint_graph_chunk4096')
 PROFILES=FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
 
 
@@ -26,9 +26,12 @@ def profile_settings(name):
         result.update(MELLUM_BATCH_CAMPAIGN_CONFIG='',MELLUM_NORM_BACKEND='aiter',
             MELLUM_QKV_BACKEND='separate' if name=='sprint_unpacked' else 'packed',
             MELLUM_RESIDENT_ROPE='1',MELLUM_NATIVE_ROUTING='1' if name in ('sprint_router','sprint_graph_router') else '0',
-            MELLUM_DECODE_GRAPH='1' if name in ('sprint_graph','sprint_graph_router','sprint_graph_rope','sprint_graph_qk') else '0')
+            MELLUM_DECODE_GRAPH='1' if name in ('sprint_graph','sprint_graph_router','sprint_graph_rope','sprint_graph_qk','sprint_graph_prefix','sprint_graph_chunk2048','sprint_graph_chunk4096') else '0')
         result.update(MELLUM_FUSED_ROPE='1' if name=='sprint_graph_rope' else '0',
             MELLUM_FUSED_QK_ROPE='1' if name=='sprint_graph_qk' else '0')
+        result.update(MELLUM_PREFIX_COMPAT='1' if name in ('sprint_graph_prefix','sprint_graph_chunk2048','sprint_graph_chunk4096') else '0',
+            MELLUM_PREFIX_ENABLED='1' if name=='sprint_graph_prefix' else '0',
+            MELLUM_CHUNK_BUDGET='2048' if name=='sprint_graph_chunk2048' else '4096' if name=='sprint_graph_chunk4096' else '0')
         return result
     if fast:
         result.update(MELLUM_NORM_BACKEND='aiter' if name in ('fast_norm','fast_combined') else 'reference',

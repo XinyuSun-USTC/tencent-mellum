@@ -40,6 +40,15 @@ def main():
         '--max-num-batched-tokens',str(a.max_batched_tokens),'--max-num-seqs',str(a.max_num_seqs),
         '--gpu-memory-utilization','0.35','--no-enable_prefix_caching','--no-enable_chunked_prefill',
         '--default-chat-template-kwargs',json.dumps({'enable_thinking':not a.disable_thinking},separators=(',',':'))]
+    if settings.get('MELLUM_PREFIX_COMPAT')=='1':
+        settings['MELLUM_PREFIX_AUDIT_PATH']=str(out/'prefix.jsonl')
+        if settings.get('MELLUM_PREFIX_ENABLED')=='1':
+            command[command.index('--no-enable_prefix_caching')]='--enable_prefix_caching'
+        chunk=int(settings.get('MELLUM_CHUNK_BUDGET','0'))
+        if chunk:
+            command[command.index('--no-enable_chunked_prefill')]='--enable_chunked_prefill'
+            command[command.index('--max-num-batched-tokens')+1]=str(chunk)
+        os.environ.update(settings)
     if settings.get('MELLUM_DECODE_GRAPH')=='1':
         command.remove('--enforce-eager')
         command.extend(['--cudagraph-capture-sizes','[1,2,4,8,16,32]'])
