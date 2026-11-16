@@ -24,11 +24,23 @@ AGREEMENT={
     'agree_projection':{'MELLUM_QKV_BACKEND':'separate'},
 }
 
-PROFILES=tuple(AGREEMENT)+tuple(DERIVED)+FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
+CORE_PROFILES=('core_nn','core_nt','core_tn','core_tt')
+
+PROFILES=CORE_PROFILES+tuple(AGREEMENT)+tuple(DERIVED)+FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
 
 
 def profile_settings(name):
     if name not in PROFILES:raise ValueError('Unknown Mellum execution profile')
+    if name in CORE_PROFILES:
+        native_attention=name[5]=='n';native_experts=name[6]=='n'
+        result=profile_settings('agree_norms_route')
+        result.update(MELLUM_DECODE_GRAPH='0',MELLUM_QKV_BACKEND='separate',MELLUM_FUSED_QK_ROPE='0',
+            MELLUM_PREFIX_ENABLED='0',MELLUM_PREFIX_COMPAT='0',MELLUM_PREFILL_METADATA_REUSE='0',
+            MELLUM_MOE_BACKEND='fused_torch_route' if native_experts else 'torch',
+            MELLUM_ATTENTION_EXECUTION='native' if native_attention else 'reference',
+            MELLUM_SDPA_DECODE='0' if native_attention else '1',MELLUM_REQUEST_BATCHING='0' if native_attention else '1',
+            MELLUM_DIRECT_KV_WRITE='1' if native_attention else '0')
+        return result
     if name in AGREEMENT:
         result=profile_settings('sprint_graph_qk_router_prefix_metadata');result.update(AGREEMENT[name]);return result
     if name in DERIVED:
