@@ -27,11 +27,15 @@ AGREEMENT={
 CORE_PROFILES=('core_nn','core_nt','core_tn','core_tt')
 
 PHASE_PROFILES=('phase_prefill','phase_decode','expert_prefill','expert_decode')
-PROFILES=PHASE_PROFILES+CORE_PROFILES+tuple(AGREEMENT)+tuple(DERIVED)+FAST_PROFILES+('r_prefix_only','r_prefix_chunk1024_d1','r_prefix_chunk2048_d1','r_chunk1024_d1','r_chunk2048_d1','r_chunk512_d4','r_chunk1024_d4','r_chunk2048_d4','r_expert_decode4_kv_once','r_expert_decode2','r_expert_decode4','r_reference_kv_once','r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
+PROFILES=PHASE_PROFILES+CORE_PROFILES+tuple(AGREEMENT)+tuple(DERIVED)+FAST_PROFILES+('r_abort','r_prefix_only','r_prefix_chunk1024_d1','r_prefix_chunk2048_d1','r_chunk1024_d1','r_chunk2048_d1','r_chunk512_d4','r_chunk1024_d4','r_chunk2048_d4','r_expert_decode4_kv_once','r_expert_decode2','r_expert_decode4','r_reference_kv_once','r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
 
 
 def profile_settings(name):
     if name not in PROFILES:raise ValueError('Unknown Mellum execution profile')
+    if name=='r_abort':
+        result=profile_settings('r_expert_decode4_kv_once')
+        result['MELLUM_ABORT_ON_DISCONNECT']='1'
+        return result
     if name in ('r_prefix_only','r_prefix_chunk1024_d1','r_prefix_chunk2048_d1'):
         parent='r_expert_decode4_kv_once' if name=='r_prefix_only' else name.replace('r_prefix_chunk','r_chunk')
         result=profile_settings(parent)

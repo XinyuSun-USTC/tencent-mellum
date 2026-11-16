@@ -924,6 +924,24 @@ class Scheduler:
         )
         return (decode_batch, scheduled_seqs)
 
+    def abort_requests(self, request_ids):
+        """Main-thread removal only; EngineCore must synchronize active GPU work first."""
+        if self.kv_connector is not None:
+            raise ValueError('Abort candidate does not support KV transfer')
+        wanted=set(request_ids);removed=[]
+        for queue_name in ('waiting','running'):
+            container=getattr(self,queue_name)
+            keep=[]
+            for seq in container:
+                if seq.id not in wanted:keep.append(seq);continue
+                if seq.is_partial_prefill:
+                    seq.is_partial_prefill=False;self._partial_prefill_count-=1
+                if seq.block_table:self.block_manager.deallocate(seq)
+                seq.status=SequenceStatus.FINISHED;seq.leave_reason='aborted'
+                removed.append(seq.id)
+            setattr(self,queue_name,deque(keep))
+        return removed
+
     def preempt(self, seq: Sequence):
         seq.status = SequenceStatus.WAITING
         # Strip placeholder + rejected draft tokens added by postprocess.

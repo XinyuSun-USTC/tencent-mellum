@@ -49,6 +49,10 @@ class EngineCoreRequestType(enum.Enum):
 
 class EngineCore:
     def __init__(self, config: Config, input_address: str, output_address: str):
+        self._mellum_abort_enabled = os.getenv('MELLUM_ABORT_ON_DISCONNECT','0')=='1'
+        if self._mellum_abort_enabled and (config.tensor_parallel_size!=1 or config.parallel_config.data_parallel_size!=1
+                or not config.enforce_eager or config.speculative_config is not None or config.kv_transfer_config):
+            raise ValueError('Disconnect abort candidate requires TP1/DP1/eager/noMTP/noKVtransfer')
         self.label = "Engine Core"
         self.input_queue = queue.Queue[Sequence]()
         self.output_queue = queue.Queue[List[Sequence]]()
@@ -278,8 +282,12 @@ class EngineCore:
 
     def pull_and_process_input_queue(self):
         recv_reqs = []
+        abort_ids = set()
         while not self.input_queue.empty():
             seqs = self.input_queue.get_nowait()
+            if isinstance(seqs,tuple) and len(seqs)==2 and seqs[0]==EngineCoreRequestType.ABORT:
+                if self._mellum_abort_enabled:abort_ids.update(seqs[1])
+                continue
             for seq in seqs:
                 if seq.status == SequenceStatus.EXIT_ENGINE:
                     logger.debug(f"{self.label}: input_queue get exit engine")
@@ -288,6 +296,16 @@ class EngineCore:
         if len(recv_reqs) > 0:
             logger.debug(f"{self.label}: put {len(recv_reqs)} reqs to scheduler")
             self.scheduler.extend(recv_reqs)
+        if abort_ids:
+            active=any(seq.id in abort_ids for seq in self.scheduler.running)
+            if active:self.runner_mgr.call_func('mellum_abort_barrier',wait_out=True)
+            free_before=len(self.scheduler.block_manager.free_block_ids_set)
+            removed=self.scheduler.abort_requests(abort_ids)
+            if self._mellum_phase_audit:
+                import json
+                with open(self._mellum_phase_audit,'a') as stream:
+                    stream.write(json.dumps({'kind':'abort','time_ns':time.monotonic_ns(),'requested':sorted(abort_ids),'removed':removed,
+                        'barrier_used':active,'kv_free_before':free_before,'kv_free_after':len(self.scheduler.block_manager.free_block_ids_set),'waiting':len(self.scheduler.waiting),'running':len(self.scheduler.running)})+'\n')
         return False
 
     def process_input_sockets(self, input_address: str):
@@ -316,6 +334,9 @@ class EngineCore:
                             f"{self.label}: input get {request_type} {req_ids}"
                         )
                         self.input_queue.put_nowait(reqs)
+                    elif request_type == EngineCoreRequestType.ABORT:
+                        if self._mellum_abort_enabled:
+                            self.input_queue.put_nowait((EngineCoreRequestType.ABORT,[int(x) for x in reqs]))
                     elif request_type == EngineCoreRequestType.UTILITY:
                         # Handle utility commands like start_profile/stop_profile
                         cmd = reqs.get("cmd") if isinstance(reqs, dict) else None
