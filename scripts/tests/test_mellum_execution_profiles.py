@@ -8,7 +8,7 @@ from mellum_execution_profiles import PROFILES,profile_settings
 @pytest.mark.parametrize('name',PROFILES)
 def test_profiles_preserve_required_model_semantics_and_do_not_split_fused_experts(name):
     env=profile_settings(name);cfg=json.loads(env['MELLUM_BATCH_CAMPAIGN_CONFIG'])
-    if env['MELLUM_MOE_BACKEND']!='torch':assert cfg['groups']==('' if name=='fused_moe_native_batched' else 'L') and 'moe_optimization' not in cfg
+    if env['MELLUM_MOE_BACKEND']!='torch':assert cfg['groups']==('' if name in ('fused_moe_native_batched','fused_moe_native_batched_direct_kv') else 'L') and 'moe_optimization' not in cfg
     else:assert cfg['groups']=='LE' and cfg['moe_optimization']=='shared_routing'
     assert env['MELLUM_REFERENCE_KV_ROPE']=='1' and env['MELLUM_PREFILL_BACKEND']=='sdpa_cpu_rope_diagnostic'
     if env['MELLUM_ATTENTION_EXECUTION']=='native':
@@ -59,3 +59,9 @@ def test_batched_projection_candidate_releases_only_requestwise_linear_controls(
     assert {k:v for k,v in a.items() if k!=key}=={k:v for k,v in b.items() if k!=key}
     old=json.loads(a[key]);new=json.loads(b[key]);assert old['groups']=='L' and new['groups']==''
     assert old['phases']==new['phases']==['prefill','decode']
+
+
+def test_direct_kv_profile_only_adds_the_direct_write_switch():
+    a=profile_settings('fused_moe_native_batched');b=profile_settings('fused_moe_native_batched_direct_kv')
+    assert a['MELLUM_DIRECT_KV_WRITE']=='0' and b['MELLUM_DIRECT_KV_WRITE']=='1'
+    assert {k:v for k,v in a.items() if k!='MELLUM_DIRECT_KV_WRITE'}=={k:v for k,v in b.items() if k!='MELLUM_DIRECT_KV_WRITE'}

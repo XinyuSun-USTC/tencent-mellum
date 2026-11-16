@@ -122,6 +122,10 @@ def install_reference_kv_rope(impl):
     """One-variable diagnostic: correct Q/K rotation and K slots; retain V/decode kernels."""
     original=impl.rope_cache
     inv,factor=cpu_inverse_frequency(impl.rotary_emb)
+    if os.getenv('MELLUM_DIRECT_KV_WRITE','0')=='1':
+        from atom.model_config.mellum_direct_kv import install_direct_kv_rope
+        install_direct_kv_rope(impl,inv,factor)
+        return
     def corrected(self,q,k,v,qkv,position,fwd_ctx):
         if getattr(self,'use_flash_layout',False):
             raise ValueError('Reference KV diagnostic does not support flash-layout cache')
