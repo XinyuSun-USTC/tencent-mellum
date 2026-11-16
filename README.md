@@ -1,96 +1,107 @@
-# Mellum 2.1 on ATOM — delivery
+# Mellum 2.1 在 ATOM 上的适配与推理优化
 
-冻结 AMD ROCm 环境中的 Mellum2.1-12B-A2.5B-Thinking BF16 适配与性能实验。交付分支：`release/submission`；发布标签：`submission-20261116`。单卡运行，MTP 关闭。
+Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目提供的冻结 ATOM、AITER、ROCm 和 PyTorch 环境。交付分支：`release/submission`；最新发布标签：`submission-20261116-final`。
 
-**默认保守模式已在本地 200×64 token 和长输入组逐 token 完全一致。激进模式有性能收益，但未通过本地 90% token 一致率门槛，因此不能宣称整体考核通过。** 两种运行策略的选择是独立交付开关，不算作 Step0 或一个优化点。
+## 交付材料
 
-## 一条命令启动
+| 题目要求 | 文件 | 内容 |
+|---|---|---|
+| 技术报告，≤4页 | **[TECHNICAL_REPORT.md](TECHNICAL_REPORT.md)** | Profiling、选点依据、预期与实测收益、正确性结果、消融表 |
+| AI 使用说明，1页 | **[AI_USAGE.md](AI_USAGE.md)** | 工具用途、人工分工、错误与发现过程 |
+| D1—D7 工作日志 | **[WORKLOG.md](WORKLOG.md)** | 每天的工作、阻碍和决策 |
+| 一条命令启动及优化开关 | **[start_server.sh](start_server.sh)**、本页下文 | 默认参考配置、显式优化配置及组件开关 |
 
-在题目给定容器中，从本仓库根目录执行：
+文档均为可编辑中文 Markdown。技术报告按四页内容分段，AI 说明按一页篇幅组织；实际导出页数仍需排版核验。
+
+**验收状态：尚未完全满足题目要求。** 参考计算配置在本地200条前64 token及长输入组上完全一致；优化组合的一致率为62.85%，未达到90%。正式Step0累计消融仍不完整。详细核对见[交付审查](docs/submission/02_delivery_audit.md)。
+
+## 启动服务
+
+在题目提供的容器中，从仓库根目录执行：
 
 ```bash
 ./start_server.sh --mode conservative --gpu 0
 ```
 
-OpenAI 接口 `http://127.0.0.1:8000/v1`，健康检查 `/health`。默认模型 `/data/models/Mellum2.1-12B-A2.5B-Thinking`；可用 `--model PATH` 替换同架构 BF16 checkpoint。推理解释器固定 `/opt/venv/bin/python`；无需安装新版 Transformers、无需 HF 参考虚拟环境、无需其他实验工作树。`ATOM/` 是完整源码而非 submodule。启动器清理继承的 Mellum 实验变量，写入实际配置、源文件哈希和版本记录。
+服务地址：`http://127.0.0.1:8000/v1`；健康检查：`/health`。默认使用 `/opt/venv/bin/python` 与 `/data/models/Mellum2.1-12B-A2.5B-Thinking`，可通过 `--model PATH` 指定兼容的 BF16 检查点。`ATOM/` 包含完整源码；启动不依赖其他实验工作树或 HF 参考虚拟环境。
 
 ```bash
-# 激进实验配置：显式选择；未通过 token 门槛
+# 性能实验配置：尚未通过本地 token 一致率门槛
 ./start_server.sh --mode aggressive --gpu 0 --audit
-# 换 HTTP/引擎端口；两者必须不同
+# 更换 HTTP 和引擎端口
 ./start_server.sh --mode conservative --port 8001 --engine-port 8027
-# 只检查配置与版本，不启动 GPU
+# 检查配置与冻结版本，不启动 GPU
 ./start_server.sh --mode conservative --dry-run
-# 实际启动两种模式，验证权重加载、HTTP、流式接口并关闭自有进程
-/opt/venv/bin/python scripts/smoke_submission.py --gpu 0
 ```
 
-生产默认上下文上限 16640；保守模式调度槽 1，激进模式 32。冒烟检查为节省时间使用 512 上下文、槽 1、生成 8 token，不能替代生产规模验收。输出位于 `results/submission_server/` 与 `results/submission_smoke/`，不纳入普通 Git。
+两种配置的上下文上限均为16640，默认调度槽分别为1和32。模式选择是独立的交付配置开关，不计作Step0或一个优化点。启动器记录实际配置、软件版本与源码哈希；`--audit`增加后端、图回放、缓存和元数据执行记录。
 
-## 模式与验收边界
+## 优化组件开关
 
-| 配置 | 本地 200 条前64 token | 长输入组 | HumanEval | 完整 ABC |
-|---|---:|---:|---|---|
-| conservative，profile r，槽1 | 12800/12800，100% | 256/256，100%；16k 64/64 | 此精确预设未单独测量 | 此精确预设未测量 |
-| aggressive，最终组合，槽32 | 8045/12800，62.85%，不通过 | 138/256；16k 63/64 | 150/164；HF145/164 | A1137.08 token/s/GPU；B TPOTp50 4.941ms；C TPOTp99 11.396ms、TTFTp99 1024.0ms |
+在 `--mode aggressive` 后追加下列参数。配置改变后应按对应组合重新验证；已有结果只适用于其记录的配置。
 
-HumanEval 关闭 thinking、上限2048、官方 openai/human-eval 评测套件。候选较 HF 高5题/+3.05个百分点；按题面“差距”绝对值≤2pp的字面口径，仍不宣称通过。公开200条的官方精确口径未完全确认，本地集称 developer200。最终裁判的隐藏集、空闲机三次中位数未由本项目完成。两卡用于并行独立实验，交付推理为单卡，不主张双卡并行或 MTP 支持。
+| 优化方向 | 组件关闭参数 | 作用 |
+|---|---|---|
+| 原生计算与数据通路 | `--disable-native-moe` | 专家计算改用Torch后端 |
+| 同上 | `--disable-native-attention` | 注意力改用参考路径，同时关闭KV直接写入 |
+| 同上 | `--disable-direct-kv` | 单独关闭分页KV直接写入 |
+| 同上 | `--separate-qkv`、`--reference-norm` | 分别恢复分离投影与参考归一化 |
+| 解码执行与融合 | `--disable-graph` | 关闭decode graph，使用eager执行 |
+| 同上 | `--disable-qk-fusion`、`--disable-native-routing` | 分别关闭QK Norm/RoPE融合与原生路由 |
+| 同上 | `--disable-resident-rope` | 关闭常驻RoPE系数路径 |
+| 前缀与元数据复用 | `--disable-prefix`、`--disable-metadata-reuse` | 分别关闭KV前缀缓存与prefill元数据复用 |
 
-**不得把保守模式的正确性与激进模式的速度拼接成同一版本通过证据。** 保守模式是后期 reference control，不等于历史 `step0-local-validated` 标签的原始 Step0。
+容量参数为`--max-num-seqs`、`--max-model-len`、`--max-batched-tokens`，其中batched tokens须不小于model len。关闭组件仅改变相应执行路径，不自动切换参考/优化模式。
 
-## 独立组件开关
+## 最终版本测量
 
-在 `--mode aggressive` 后追加下列开关。它们用于关闭组件、复现和消融；任意新组合均不自动继承已有正确性结论。
+| 指标 | 优化配置实测 | 题给baseline |
+|---|---:|---:|
+| A 吞吐（token/s/GPU） | 1137.0824 | 638.282724 |
+| B TTFT p50 / p99（ms） | 69.442 / 89.525 | 未提供 |
+| B TPOT p50 / p99（ms） | 4.941 / 5.610 | 未提供 |
+| C TPOT p99（ms） | 11.396 | 41.265 |
+| C TTFT p99（ms） | 1024.007 | 993.549 |
 
-| 开关 | 关闭/替代内容 |
-|---|---|
-| `--disable-graph` | 关闭 decode graph，使用 eager |
-| `--disable-qk-fusion` | 关闭融合 Q/K Norm+RoPE |
-| `--disable-native-routing` | 关闭原生 AITER routing |
-| `--disable-prefix` | 关闭 KV prefix caching |
-| `--disable-metadata-reuse` | 关闭 prefill 元数据复用 |
-| `--separate-qkv` | packed QKV 改为分离投影 |
-| `--disable-native-attention` | 使用参考 attention，关闭 direct KV 写入 |
-| `--disable-native-moe` | 使用 Torch 专家后端 |
-| `--reference-norm` | 使用参考 Norm |
-| `--disable-direct-kv` | 关闭直接写入分页 KV |
-| `--disable-resident-rope` | 关闭常驻 RoPE 系数路径 |
+最终源码的A512/B50/C200全部成功，运行编号为`20261116T153025780336Z`；四组A32/B6/C8缩减对照也已完成，运行编号为`20261116T153235801902Z`。前者见[完整ABC结果](artifacts/submission/delivery_abc/summary.json)，后者见[缩减对照矩阵](artifacts/submission/delivery_ablation/matrix.md)。缩减对照的控制配置已包含原生优化，与历史Step0不同。
 
-`--max-num-seqs`、`--max-model-len`、`--max-batched-tokens` 可调整容量；后两者须满足 batched tokens≥model len。`--audit` 保存实际执行后端、graph replay、prefix/metadata 事件；默认不记录逐层张量。
+上述性能配置未达到token一致率门槛。HumanEval为150/164，HF为145/164；按绝对差≤2个百分点的口径不通过。参考配置的精确预设尚未单独完成HumanEval和完整ABC。两张卡用于独立并行实验，交付推理为单卡，MTP关闭。
 
-## 交付材料与复现
-
-- [技术报告 Markdown 主稿（按四页内容组织）](report/submission/01_technical_report.md)。
-- [AI 使用说明 Markdown 主稿（约一页）](report/submission/02_ai_usage.md)。
-- [交付清单与缺口](report/submission/03_delivery_checklist.md)。
-- [每日简报 WORKLOG](WORKLOG.md)；[完整研发日志](report/worklog.md)。
-- [提交依据与哈希](artifacts/submission/index.json)，[来源与许可证](SOURCES.md)。
-- [Step0总结](report/validation/39_step0_summary.md)、[完整ABC](report/performance/36_combined_full_abc.md)、[最终候选验收](report/validation/40_optimized_candidate_acceptance.md)。
-- [题目原件](docs/requirements/2026%20CSIG云一计算加速团队实习校招面试题.pdf)、[历史文档索引](docs/README.md)。历史计划中的“下一步”以交付说明为准。
-
-正式文档以中文 Markdown 为准，便于修改润色。技术报告按四页内容分段，AI说明按一页篇幅编写；最终导出页数取决于排版。如需导出PDF，应以润色后的Markdown为准并重新核对页数。
-
-冻结推理版本见 `configs/submission/environment.json`。CPU 交付检查：
+## 检查与复现
 
 ```bash
-/opt/venv/bin/python -m pytest -q scripts/tests/test_submission_entrypoint.py
+# 文件、链接及证据完整性检查
 /opt/venv/bin/python scripts/verify_submission.py
-```
-
-完整性能复现（评测客户端需按已有独立环境脚本准备，不改变推理环境）：
-
-```bash
+# 实际启动两种配置，检查加载、普通请求与流式响应
+/opt/venv/bin/python scripts/smoke_submission.py --gpu 0
+# 完整 ABC；评测客户端使用已有独立环境
 /opt/venv/bin/python scripts/run_mellum_full_campaign.py --gpu 0 --profiles sprint_graph_qk_router_prefix_metadata --budget-minutes 90
-```
-
-本地使用 EvalScope1.15 的兼容适配，A512/B50/C200；保存实际参数与统计。数据/模型在 `/data`，原始大张量、虚拟环境和模型不进 Git。精选结果随仓库提供，其余记录原路径及 SHA256，原始日志可在当前容器核验。历史实验脚本可能引用 `/workspace/results` 和独立评测环境，不是启动服务的依赖。
-
-短累计消融（独立卡运行，A32/B6/C8；非题面完整消融、非历史Step0控制）：
-
-```bash
+# 缩减规模累计对照
 /opt/venv/bin/python scripts/run_submission_ablation.py --gpu 1 --budget-minutes 20
 ```
 
-生成各行实际指标与 `matrix.md`，完成数据按 `scripts/archive_submission_run.py --run RUN --label LABEL` 归档；归档不会根据预期补齐失败/缺失项。
+两种配置均已通过真实交付入口的启动检查。该检查采用512上下文、单槽和8个输出token，覆盖权重加载、HTTP与SSE/usage；不替代完整验收。冻结推理版本见`configs/submission/environment.json`。
 
-最终交付源码完整 ABC 复测：`artifacts/submission/delivery_abc/summary.json`；A512/B50/C200 全部成功。缩减规模累计对照：`artifacts/submission/delivery_ablation/matrix.md`，四组配置、12个阶段全部成功。正式累计消融的缺口与正确性结果见技术报告。
+性能复现采用EvalScope1.15的兼容适配。实际命令、输入和到达过程差异均保留在运行记录及技术报告中；本地结果不等同于裁判的空闲机器隐藏集三次中位数。
+
+## 仓库结构与补充资料
+
+| 路径 | 内容 |
+|---|---|
+| `ATOM/`、`configs/` | 实现源码及运行配置 |
+| `scripts/` | 启动、验证、性能测试和归档工具 |
+| `artifacts/submission/` | 交付证据、实际配置和SHA256索引 |
+| `docs/submission/` | 交付核对及上游来源说明 |
+| `docs/requirements/` | 题目原件与要求摘要 |
+| `docs/plan/`、`report/` | 内部计划、研究、诊断及历史实验记录 |
+| `manifests/` | 外部资产与大体积产物索引 |
+
+[来源与许可证](docs/submission/01_sources_and_licenses.md) · [内部文档索引](docs/README.md) · [完整研发日志](report/worklog.md) · [证据索引](artifacts/submission/index.json)
+
+模型权重、虚拟环境和大体积张量不纳入Git。历史Step0保留于`step0-local-validated`，研发提交和合并历史未squash。离线材料可通过`scripts/package_submission.py`生成源码ZIP与完整历史bundle，具体说明见交付审查。
+
+## 补充资料
+
+[交付审查与复现清单](docs/submission/02_delivery_audit.md) · [实现来源与许可证](docs/submission/01_sources_and_licenses.md) · [实验依据索引](artifacts/submission/index.json) · [内部研发文档](docs/README.md)
+
+`docs/`与`report/`中的方案、研究和逐轮诊断用于追溯开发过程，不属于正式报告正文。模型权重、虚拟环境及大型张量输出不纳入普通Git。

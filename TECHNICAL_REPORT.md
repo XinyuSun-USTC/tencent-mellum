@@ -48,7 +48,7 @@
 
 **方向③** 对应 `mellum_prefix.py` 和 `mellum_prefill_metadata.py`。完整 C 场景记录了 199 次缓存后缀执行事件、共 757,792 个缓存 token。该对照同时改变了前缀缓存与元数据复用，尚不能分离两者各自的贡献。
 
-以上 `mellum_*.py` 文件均位于 `ATOM/atom/model_config/`。各机制可通过交付入口独立关闭，具体参数见根目录 README。实现复用了冻结 ATOM/AITER 的基础设施，并参考 HF 的数值计算语义；上游来源与许可证见 `SOURCES.md`。
+以上 `mellum_*.py` 文件均位于 `ATOM/atom/model_config/`。各机制可通过交付入口独立关闭，具体参数见根目录 README。实现复用了冻结 ATOM/AITER 的基础设施，并参考 HF 的数值计算语义；上游来源与许可证见 `docs/submission/01_sources_and_licenses.md`。
 
 ### 未采用的方案
 
@@ -63,7 +63,10 @@ Chunked prefill 的 2,048/4,096 token 预算配置导致吞吐或 TTFT 退化，
 | 指标 | 题给 baseline | 优化组合实测 | 相对变化 |
 |---|---:|---:|---:|
 | A 吞吐（token/s/GPU） | 638.282724 | 1137.0824 | +78.15% |
+| B TTFT p50（ms） | 未提供 | 69.442 | — |
+| B TTFT p99（ms） | 未提供 | 89.525 | — |
 | B TPOT p50（ms） | 未提供 | 4.941 | — |
+| B TPOT p99（ms） | 未提供 | 5.610 | — |
 | C TPOT p99（ms） | 41.265 | 11.396 | −72.38% |
 | C TTFT p99（ms） | 993.549 | 1024.007 | +3.07% |
 

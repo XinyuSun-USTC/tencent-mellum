@@ -10,17 +10,17 @@ def main():
   nonlocal checks
   checks+=1
   if not ok:errors.append(message)
- for name in ['start_server.sh','scripts/serve_submission.py','scripts/smoke_submission.py','README.md','WORKLOG.md','SOURCES.md',
-              'report/submission/01_technical_report.md','report/submission/02_ai_usage.md','report/submission/03_delivery_checklist.md']:
+ for name in ['start_server.sh','scripts/serve_submission.py','scripts/smoke_submission.py','README.md','WORKLOG.md','docs/submission/01_sources_and_licenses.md',
+              'TECHNICAL_REPORT.md','AI_USAGE.md','docs/submission/02_delivery_audit.md']:
   check((ROOT/name).is_file(),'Missing '+name)
  check(not subprocess.check_output(['git','ls-files','-u'],cwd=ROOT,text=True).strip(),'Unresolved Git merge conflict')
  index=json.loads((ROOT/'artifacts/submission/index.json').read_text())
  for name,item in index['files'].items():
   p=ROOT/name;check(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==item['sha256'],'Evidence hash differs: '+name)
- report=(ROOT/'report/submission/01_technical_report.md').read_text()
+ report=(ROOT/'TECHNICAL_REPORT.md').read_text()
  check(len(re.findall(r'^## [1-4]\. ',report,re.M))==4,'Technical report must retain four main sections')
  check(report.count('<!-- pagebreak -->')==3,'Technical report must retain four content divisions')
- for name in ['README.md','WORKLOG.md']:
+ for name in ['README.md','WORKLOG.md','TECHNICAL_REPORT.md','AI_USAGE.md']:
   p=ROOT/name
   for target in re.findall(r'\]\(([^)]+)\)',p.read_text()):
    if '://' in target or target.startswith('#'):continue

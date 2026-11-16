@@ -1,8 +1,8 @@
-# Mellum on ATOM 文档导航
+# 内部研发文档导航
 
-当前阶段：**Step1基础执行路径恢复与组合收敛。** 最新开发A64为499.64tokens/s；各配置功能与性能证据独立保留，最终配置和完整规模复测待收敛。
+正式交付入口为根目录的 [README](../README.md)、[技术报告](../TECHNICAL_REPORT.md)、[AI使用说明](../AI_USAGE.md) 和 [WORKLOG](../WORKLOG.md)。本目录及`report/`保存研究、计划和诊断过程，以下阶段记录按原文保留；其中“当前”“下一步”等表述仅对应记录时点。
 
-## 当前阅读入口
+## 阶段性记录
 
 最新：[验证44 阶段定位](../report/validation/44_prefill_decode_phase_diagnosis.md)、[50 最后确认与兜底](plan/50_last_confirmation_and_delivery_fallback.md)。20条各阶段均未到90，专家prefill最接近86.88%；独立confirmation提交d4b2573准备原200确认及R批32保守验证，不继续新增算法。
 
