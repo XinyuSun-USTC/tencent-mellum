@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+并行CPU准备：[43 最终组合一次性验证](plan/43_combined_candidate_acceptance.md)，独立acceptance提交25350e6。按profile保留Graph/路由/融合/缓存，一次加载候选检查开发200、长组与HE164，复用已核验HF，不逐组件重跑参考。
+
 当前实验：[42 组合结果与完整ABC](plan/42_combination_results_and_full_abc.md)，campaign提交22597b2。QK+原生路由A64两次1124.91/1127.32；prefix改善C20，chunk两档退化停止。下一批GPU0完整ABC，GPU1最快组合上的prefix/元数据最后筛选。
 
 并行CPU准备：[41 prefill元数据复用与完整ABC批次](plan/41_prefill_metadata_and_full_load_campaign.md)：独立campaign分支实现当次forward校验复用及显式profile的完整ABC、失败继续/恢复，GPU待当前两批结果后决定。
