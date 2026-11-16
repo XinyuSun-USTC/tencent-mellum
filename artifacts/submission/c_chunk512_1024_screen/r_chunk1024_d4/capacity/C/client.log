@@ -1,0 +1,1112 @@
+2026-11-16 20:58:05 - evalscope - [32mINFO[0m: open-loop mode enabled: concurrency is unbounded (parallel set to -1 / INF). Rate sweep: [0.3], number sweep: [60].[0m
+2026-11-16 20:58:07 - evalscope - [32mINFO[0m: Save the result to: /workspace/results/mellum_c_chunk_screen/20261116T204832193530Z/r_chunk1024_d4/capacity/C/client/Scenario_C_Poisson_N1[0m
+Running[perf-open-loop]:   0%|          | 0/1 [00:00<?, ?it/s]                                                              2026-11-16 20:58:07 - evalscope - [32mINFO[0m: Starting benchmark with args: [0m
+Running[perf-open-loop]:   0%|          | 0/1 [00:00<?, ?it/s]                                                              2026-11-16 20:58:07 - evalscope - [32mINFO[0m: {
+    "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+    "model_id": "Mellum2.1-12B-A2.5B-Thinking",
+    "attn_implementation": null,
+    "api": "openai",
+    "tokenizer_path": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+    "port": 8877,
+    "url": "127.0.0.1:9551",
+    "headers": {},
+    "connect_timeout": null,
+    "read_timeout": null,
+    "total_timeout": 180,
+    "api_key": null,
+    "no_test_connection": false,
+    "scenario": null,
+    "number": 60,
+    "parallel": -1,
+    "rate": 0.3,
+    "warmup_num": 0,
+    "enable_pd_metrics": false,
+    "exclude_warmup_overlap": false,
+    "open_loop": true,
+    "sleep_interval": 5,
+    "duration": null,
+    "sla_auto_tune": false,
+    "sla_variable": "parallel",
+    "sla_params": null,
+    "sla_num_runs": 3,
+    "sla_upper_bound": 65536,
+    "sla_lower_bound": 1,
+    "sla_fixed_parallel": null,
+    "sla_number_multiplier": null,
+    "db_commit_interval": 1000,
+    "queue_size_multiplier": 5,
+    "in_flight_task_multiplier": 2,
+    "num_workers": 0,
+    "log_every_n_query": 100,
+    "debug": false,
+    "enable_progress_tracker": false,
+    "visualizer": null,
+    "wandb_api_key": null,
+    "swanlab_api_key": null,
+    "swanlab_host": null,
+    "name": "Scenario_C_Poisson_N1",
+    "alias": null,
+    "outputs_dir": "/workspace/results/mellum_c_chunk_screen/20261116T204832193530Z/r_chunk1024_d4/capacity/C/client/Scenario_C_Poisson_N1",
+    "no_timestamp": true,
+    "max_prompt_length": 131072,
+    "min_prompt_length": 0,
+    "prefix_length": 0,
+    "prefix_count": 1,
+    "prompt": null,
+    "query_template": null,
+    "apply_chat_template": true,
+    "image_width": 224,
+    "image_height": 224,
+    "image_format": "RGB",
+    "image_num": 1,
+    "image_patch_size": 28,
+    "dataset": "mellum_assessment_jsonl",
+    "dataset_path": "/workspace/results/mellum_c_chunk_screen/20261116T204832193530Z/template/inputs/C60.jsonl",
+    "data_source": null,
+    "dataset_offset": 0,
+    "dataset_args": null,
+    "frequency_penalty": null,
+    "repetition_penalty": null,
+    "logprobs": null,
+    "max_tokens": 256,
+    "min_tokens": 256,
+    "n_choices": null,
+    "seed": 42,
+    "stop": null,
+    "stop_token_ids": null,
+    "stream": true,
+    "temperature": 0.0,
+    "top_p": null,
+    "top_k": null,
+    "extra_args": {
+        "ignore_eos": true,
+        "temperature": 0.0
+    },
+    "tokenize_prompt": false,
+    "multi_turn": false,
+    "min_turns": 1,
+    "max_turns": null,
+    "multi_turn_args": null
+}[0m
+Running[perf-open-loop]:   0%|          | 0/1 [00:00<?, ?it/s]                                                              2026-11-16 20:58:07 - evalscope - [32mINFO[0m: uvloop event loop policy installed (asyncio.sleep precision improved)[0m
+Running[perf-open-loop]:   0%|          | 0/1 [00:00<?, ?it/s]                                                              2026-11-16 20:58:24 - evalscope - [32mINFO[0m: Test connection successful.[0m
+Running[perf-open-loop]:   0%|          | 0/1 [00:17<?, ?it/s]
+Generating[requests]:   0%|          | 0/60 [00:00<?, ?it/s][A
+Generating[requests]:   7%|▋         | 4/60 [00:00<00:01, 37.02it/s][A
+Generating[requests]:  15%|█▌        | 9/60 [00:00<00:01, 44.33it/s][A
+Generating[requests]:  25%|██▌       | 15/60 [00:00<00:00, 51.29it/s][A
+Generating[requests]:  37%|███▋      | 22/60 [00:00<00:00, 54.00it/s][A
+Generating[requests]:  47%|████▋     | 28/60 [00:00<00:00, 50.59it/s][A
+Generating[requests]:  57%|█████▋    | 34/60 [00:00<00:00, 52.92it/s][A
+Generating[requests]:  67%|██████▋   | 40/60 [00:00<00:00, 53.72it/s][A
+Generating[requests]:  78%|███████▊  | 47/60 [00:00<00:00, 57.18it/s][A
+Generating[requests]:  88%|████████▊ | 53/60 [00:01<00:00, 53.81it/s][A
+Generating[requests]:  98%|█████████▊| 59/60 [00:01<00:00, 50.47it/s][A                                                              
+                                                                     [A2026-11-16 20:58:25 - evalscope - [32mINFO[0m: Generating[requests]  98%| 59/60 [Elapsed: 00:01 < Remaining: 00:00, 50.47it/s][0m
+Running[perf-open-loop]:   0%|          | 0/1 [00:18<?, ?it/s]
+Generating[requests]:  98%|█████████▊| 59/60 [00:01<00:00, 50.47it/s][AGenerating[requests]:  98%|█████████▊| 59/60 [00:01<00:00, 50.52it/s]
+                                                              2026-11-16 20:58:25 - evalscope - [32mINFO[0m: Save the data base to: /workspace/results/mellum_c_chunk_screen/20261116T204832193530Z/r_chunk1024_d4/capacity/C/client/Scenario_C_Poisson_N1/rate_0.3_number_60/benchmark_data.db[0m
+Running[perf-open-loop]:   0%|          | 0/1 [00:18<?, ?it/s]
+Processing[rate_0.3_number_60]:   0%|          | 0/60 [00:00<?, ?it/s][A
+Processing[rate_0.3_number_60]:   2%|▏         | 1/60 [00:20<19:54, 20.24s/it][A
+Processing[rate_0.3_number_60]:   3%|▎         | 2/60 [00:58<29:40, 30.69s/it][A
+Processing[rate_0.3_number_60]:   5%|▌         | 3/60 [01:08<20:19, 21.40s/it][A                                                              
+                                                                              [A2026-11-16 20:59:34 - evalscope - [32mINFO[0m: Processing[rate_0.3_number_60]   5%| 3/60 [Elapsed: 01:08 < Remaining: 20:19, 21.40s/it][0m
+Running[perf-open-loop]:   0%|          | 0/1 [01:27<?, ?it/s]
+Processing[rate_0.3_number_60]:   5%|▌         | 3/60 [01:08<20:19, 21.40s/it][A
+Processing[rate_0.3_number_60]:   7%|▋         | 4/60 [01:13<13:54, 14.91s/it][A
+Processing[rate_0.3_number_60]:   8%|▊         | 5/60 [01:21<11:25, 12.46s/it][A
+Processing[rate_0.3_number_60]:  10%|█         | 6/60 [01:28<09:33, 10.62s/it][A
+Processing[rate_0.3_number_60]:  12%|█▏        | 7/60 [01:39<09:29, 10.75s/it][A
+Processing[rate_0.3_number_60]:  13%|█▎        | 8/60 [01:48<08:44, 10.09s/it][A
+Processing[rate_0.3_number_60]:  15%|█▌        | 9/60 [01:59<08:57, 10.54s/it][A
+Processing[rate_0.3_number_60]:  17%|█▋        | 10/60 [02:13<09:33, 11.47s/it][A                                                              
+                                                                               [A2026-11-16 21:00:39 - evalscope - [32mINFO[0m: Processing[rate_0.3_number_60]  17%| 10/60 [Elapsed: 02:13 < Remaining: 09:33, 11.47s/it][0m
+Running[perf-open-loop]:   0%|          | 0/1 [02:32<?, ?it/s]
+Processing[rate_0.3_number_60]:  17%|█▋        | 10/60 [02:13<09:33, 11.47s/it][A
+Processing[rate_0.3_number_60]:  18%|█▊        | 11/60 [02:26<09:40, 11.84s/it][A
+Processing[rate_0.3_number_60]:  20%|██        | 12/60 [02:30<07:44,  9.68s/it][A
+Processing[rate_0.3_number_60]:  22%|██▏       | 13/60 [02:35<06:24,  8.18s/it][A
+Processing[rate_0.3_number_60]:  23%|██▎       | 14/60 [02:44<06:29,  8.48s/it][A
+Processing[rate_0.3_number_60]:  25%|██▌       | 15/60 [02:51<05:52,  7.82s/it][A
+Processing[rate_0.3_number_60]:  27%|██▋       | 16/60 [03:04<06:57,  9.49s/it][A
+Processing[rate_0.3_number_60]:  28%|██▊       | 17/60 [03:09<05:53,  8.23s/it][A
+Processing[rate_0.3_number_60]:  30%|███       | 18/60 [03:14<05:04,  7.26s/it][A                                                              
+                                                                               [A2026-11-16 21:01:40 - evalscope - [32mINFO[0m: Processing[rate_0.3_number_60]  30%| 18/60 [Elapsed: 03:14 < Remaining: 05:04,  7.26s/it][0m
+Running[perf-open-loop]:   0%|          | 0/1 [03:33<?, ?it/s]
+Processing[rate_0.3_number_60]:  30%|███       | 18/60 [03:14<05:04,  7.26s/it][A
+Processing[rate_0.3_number_60]:  32%|███▏      | 19/60 [03:19<04:28,  6.56s/it][A
+Processing[rate_0.3_number_60]:  33%|███▎      | 20/60 [03:29<04:55,  7.39s/it][A
+Processing[rate_0.3_number_60]:  35%|███▌      | 21/60 [03:36<04:49,  7.43s/it][A
+Processing[rate_0.3_number_60]:  37%|███▋      | 22/60 [03:48<05:37,  8.87s/it][A
+Processing[rate_0.3_number_60]:  38%|███▊      | 23/60 [03:58<05:38,  9.14s/it][A
+Processing[rate_0.3_number_60]:  40%|████      | 24/60 [04:09<05:51,  9.76s/it][A                                                              
+                                                                               [A2026-11-16 21:02:39 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:32<?, ?it/s]
+Processing[rate_0.3_number_60]:  40%|████      | 24/60 [04:13<05:51,  9.76s/it][A
+Processing[rate_0.3_number_60]:  42%|████▏     | 25/60 [04:13<04:37,  7.93s/it][A                                                              
+                                                                               [A2026-11-16 21:02:45 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:38<?, ?it/s]
+Processing[rate_0.3_number_60]:  42%|████▏     | 25/60 [04:19<04:37,  7.93s/it][A
+Processing[rate_0.3_number_60]:  43%|████▎     | 26/60 [04:19<04:09,  7.35s/it][A                                                              
+                                                                               [A2026-11-16 21:02:45 - evalscope - [32mINFO[0m: Processing[rate_0.3_number_60]  43%| 26/60 [Elapsed: 04:19 < Remaining: 04:09,  7.35s/it][0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:38<?, ?it/s]
+Processing[rate_0.3_number_60]:  43%|████▎     | 26/60 [04:19<04:09,  7.35s/it][A                                                              
+                                                                               [A2026-11-16 21:02:46 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:39<?, ?it/s]
+Processing[rate_0.3_number_60]:  43%|████▎     | 26/60 [04:20<04:09,  7.35s/it][A
+Processing[rate_0.3_number_60]:  45%|████▌     | 27/60 [04:20<02:59,  5.45s/it][A                                                              
+                                                                               [A2026-11-16 21:02:48 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:41<?, ?it/s]
+Processing[rate_0.3_number_60]:  45%|████▌     | 27/60 [04:22<02:59,  5.45s/it][A
+Processing[rate_0.3_number_60]:  47%|████▋     | 28/60 [04:22<02:21,  4.41s/it][A                                                              
+                                                                               [A2026-11-16 21:02:51 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:44<?, ?it/s]
+Processing[rate_0.3_number_60]:  47%|████▋     | 28/60 [04:25<02:21,  4.41s/it][A
+Processing[rate_0.3_number_60]:  48%|████▊     | 29/60 [04:25<02:03,  3.99s/it][A                                                              
+                                                                               [A2026-11-16 21:02:52 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:45<?, ?it/s]
+Processing[rate_0.3_number_60]:  48%|████▊     | 29/60 [04:26<02:03,  3.99s/it][A
+Processing[rate_0.3_number_60]:  50%|█████     | 30/60 [04:26<01:32,  3.09s/it][A                                                              
+                                                                               [A2026-11-16 21:02:55 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:48<?, ?it/s]
+Processing[rate_0.3_number_60]:  50%|█████     | 30/60 [04:29<01:32,  3.09s/it][A
+Processing[rate_0.3_number_60]:  52%|█████▏    | 31/60 [04:29<01:28,  3.06s/it][A                                                              
+                                                                               [A2026-11-16 21:02:56 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:49<?, ?it/s]
+Processing[rate_0.3_number_60]:  52%|█████▏    | 31/60 [04:30<01:28,  3.06s/it][A                                                              
+                                                                               [A2026-11-16 21:02:56 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:49<?, ?it/s]
+Processing[rate_0.3_number_60]:  52%|█████▏    | 31/60 [04:30<01:28,  3.06s/it][A
+Processing[rate_0.3_number_60]:  53%|█████▎    | 32/60 [04:30<01:08,  2.44s/it][A                                                              
+                                                                               [A2026-11-16 21:03:06 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [04:59<?, ?it/s]
+Processing[rate_0.3_number_60]:  55%|█████▌    | 33/60 [04:40<01:06,  2.44s/it][A
+Processing[rate_0.3_number_60]:  57%|█████▋    | 34/60 [04:40<01:34,  3.62s/it][A                                                              
+                                                                               [A2026-11-16 21:03:18 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:11<?, ?it/s]
+Processing[rate_0.3_number_60]:  57%|█████▋    | 34/60 [04:52<01:34,  3.62s/it][A
+Processing[rate_0.3_number_60]:  58%|█████▊    | 35/60 [04:52<02:22,  5.70s/it][A                                                              
+                                                                               [A2026-11-16 21:03:24 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:17<?, ?it/s]
+Processing[rate_0.3_number_60]:  58%|█████▊    | 35/60 [04:58<02:22,  5.70s/it][A
+Processing[rate_0.3_number_60]:  60%|██████    | 36/60 [04:58<02:18,  5.78s/it][A                                                              
+                                                                               [A2026-11-16 21:03:25 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:18<?, ?it/s]
+Processing[rate_0.3_number_60]:  60%|██████    | 36/60 [04:59<02:18,  5.78s/it][A
+Processing[rate_0.3_number_60]:  62%|██████▏   | 37/60 [04:59<01:43,  4.48s/it][A                                                              
+                                                                               [A2026-11-16 21:03:26 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:19<?, ?it/s]
+Processing[rate_0.3_number_60]:  62%|██████▏   | 37/60 [05:00<01:43,  4.48s/it][A
+Processing[rate_0.3_number_60]:  63%|██████▎   | 38/60 [05:00<01:17,  3.51s/it][A                                                              
+                                                                               [A2026-11-16 21:03:30 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:23<?, ?it/s]
+Processing[rate_0.3_number_60]:  63%|██████▎   | 38/60 [05:04<01:17,  3.51s/it][A
+Processing[rate_0.3_number_60]:  65%|██████▌   | 39/60 [05:04<01:16,  3.65s/it][A                                                              
+                                                                               [A2026-11-16 21:03:32 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:25<?, ?it/s]
+Processing[rate_0.3_number_60]:  65%|██████▌   | 39/60 [05:06<01:16,  3.65s/it][A                                                              
+                                                                               [A2026-11-16 21:03:32 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:25<?, ?it/s]
+Processing[rate_0.3_number_60]:  65%|██████▌   | 39/60 [05:06<01:16,  3.65s/it][A
+Processing[rate_0.3_number_60]:  67%|██████▋   | 40/60 [05:06<01:03,  3.17s/it][A                                                              
+                                                                               [A2026-11-16 21:03:35 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:28<?, ?it/s]
+Processing[rate_0.3_number_60]:  68%|██████▊   | 41/60 [05:09<01:00,  3.17s/it][A                                                              
+                                                                               [A2026-11-16 21:03:35 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:28<?, ?it/s]
+Processing[rate_0.3_number_60]:  68%|██████▊   | 41/60 [05:09<01:00,  3.17s/it][A
+Processing[rate_0.3_number_60]:  70%|███████   | 42/60 [05:09<00:43,  2.41s/it][A                                                              
+                                                                               [A2026-11-16 21:03:43 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:36<?, ?it/s]
+Processing[rate_0.3_number_60]:  72%|███████▏  | 43/60 [05:17<00:41,  2.41s/it][A
+Processing[rate_0.3_number_60]:  73%|███████▎  | 44/60 [05:17<00:48,  3.04s/it][A                                                              
+                                                                               [A2026-11-16 21:03:44 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:37<?, ?it/s]
+Processing[rate_0.3_number_60]:  73%|███████▎  | 44/60 [05:18<00:48,  3.04s/it][A
+Processing[rate_0.3_number_60]:  75%|███████▌  | 45/60 [05:18<00:38,  2.59s/it][A                                                              
+                                                                               [A2026-11-16 21:03:48 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:41<?, ?it/s]
+Processing[rate_0.3_number_60]:  75%|███████▌  | 45/60 [05:22<00:38,  2.59s/it][A
+Processing[rate_0.3_number_60]:  77%|███████▋  | 46/60 [05:22<00:40,  2.93s/it][A                                                              
+                                                                               [A2026-11-16 21:03:48 - evalscope - [32mINFO[0m: Processing[rate_0.3_number_60]  77%| 46/60 [Elapsed: 05:22 < Remaining: 00:40,  2.93s/it][0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:41<?, ?it/s]
+Processing[rate_0.3_number_60]:  77%|███████▋  | 46/60 [05:22<00:40,  2.93s/it][A                                                              
+                                                                               [A2026-11-16 21:03:50 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:43<?, ?it/s]
+Processing[rate_0.3_number_60]:  77%|███████▋  | 46/60 [05:24<00:40,  2.93s/it][A
+Processing[rate_0.3_number_60]:  78%|███████▊  | 47/60 [05:24<00:34,  2.69s/it][A                                                              
+                                                                               [A2026-11-16 21:03:52 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:45<?, ?it/s]
+Processing[rate_0.3_number_60]:  78%|███████▊  | 47/60 [05:26<00:34,  2.69s/it][A
+Processing[rate_0.3_number_60]:  80%|████████  | 48/60 [05:26<00:30,  2.51s/it][A                                                              
+                                                                               [A2026-11-16 21:03:55 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:48<?, ?it/s]
+Processing[rate_0.3_number_60]:  80%|████████  | 48/60 [05:29<00:30,  2.51s/it][A
+Processing[rate_0.3_number_60]:  82%|████████▏ | 49/60 [05:29<00:29,  2.64s/it][A                                                              
+                                                                               [A2026-11-16 21:03:56 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [05:49<?, ?it/s]
+Processing[rate_0.3_number_60]:  82%|████████▏ | 49/60 [05:30<00:29,  2.64s/it][A
+Processing[rate_0.3_number_60]:  83%|████████▎ | 50/60 [05:30<00:21,  2.18s/it][A                                                              
+                                                                               [A2026-11-16 21:04:08 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:01<?, ?it/s]
+Processing[rate_0.3_number_60]:  83%|████████▎ | 50/60 [05:42<00:21,  2.18s/it][A
+Processing[rate_0.3_number_60]:  85%|████████▌ | 51/60 [05:42<00:45,  5.00s/it][A                                                              
+                                                                               [A2026-11-16 21:04:13 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:06<?, ?it/s]
+Processing[rate_0.3_number_60]:  85%|████████▌ | 51/60 [05:47<00:45,  5.00s/it][A
+Processing[rate_0.3_number_60]:  87%|████████▋ | 52/60 [05:47<00:40,  5.00s/it][A                                                              
+                                                                               [A2026-11-16 21:04:23 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:16<?, ?it/s]
+Processing[rate_0.3_number_60]:  87%|████████▋ | 52/60 [05:57<00:40,  5.00s/it][A
+Processing[rate_0.3_number_60]:  88%|████████▊ | 53/60 [05:57<00:45,  6.47s/it][A                                                              
+                                                                               [A2026-11-16 21:04:31 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:24<?, ?it/s]
+Processing[rate_0.3_number_60]:  88%|████████▊ | 53/60 [06:05<00:45,  6.47s/it][A
+Processing[rate_0.3_number_60]:  90%|█████████ | 54/60 [06:05<00:41,  6.92s/it][A                                                              
+                                                                               [A2026-11-16 21:04:34 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:27<?, ?it/s]
+Processing[rate_0.3_number_60]:  90%|█████████ | 54/60 [06:08<00:41,  6.92s/it][A
+Processing[rate_0.3_number_60]:  92%|█████████▏| 55/60 [06:08<00:28,  5.76s/it][A                                                              
+                                                                               [A2026-11-16 21:04:43 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:36<?, ?it/s]
+Processing[rate_0.3_number_60]:  92%|█████████▏| 55/60 [06:17<00:28,  5.76s/it][A
+Processing[rate_0.3_number_60]:  93%|█████████▎| 56/60 [06:17<00:26,  6.72s/it][A                                                              
+                                                                               [A2026-11-16 21:04:44 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:37<?, ?it/s]
+Processing[rate_0.3_number_60]:  93%|█████████▎| 56/60 [06:18<00:26,  6.72s/it][A
+Processing[rate_0.3_number_60]:  95%|█████████▌| 57/60 [06:18<00:15,  5.02s/it][A                                                              
+                                                                               [A2026-11-16 21:04:45 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:38<?, ?it/s]
+Processing[rate_0.3_number_60]:  95%|█████████▌| 57/60 [06:19<00:15,  5.02s/it][A                                                              
+                                                                               [A2026-11-16 21:04:45 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:38<?, ?it/s]
+Processing[rate_0.3_number_60]:  95%|█████████▌| 57/60 [06:19<00:15,  5.02s/it][A
+Processing[rate_0.3_number_60]:  97%|█████████▋| 58/60 [06:19<00:07,  3.81s/it][A                                                              
+                                                                               [A2026-11-16 21:04:46 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 180, in process_request
+    async for chunk_bytes in response.content.iter_any():
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 46, in __anext__
+    rv = await self.read_func()
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/streams.py", line 364, in _wait
+    with self._timer:
+  File "/opt/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 737, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:39<?, ?it/s]
+Processing[rate_0.3_number_60]:  98%|█████████▊| 59/60 [06:20<00:03,  3.81s/it][A
+Processing[rate_0.3_number_60]: 100%|██████████| 60/60 [06:20<00:00,  2.29s/it][A                                                              
+                                                                               [A2026-11-16 21:04:46 - evalscope - [32mINFO[0m: Processing[rate_0.3_number_60] 100%| 60/60 [Elapsed: 06:20 < Remaining: 00:00,  2.29s/it][0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:39<?, ?it/s]
+Processing[rate_0.3_number_60]: 100%|██████████| 60/60 [06:20<00:00,  2.29s/it][AProcessing[rate_0.3_number_60]: 100%|██████████| 60/60 [06:20<00:00,  6.34s/it]
+                                                              2026-11-16 21:04:46 - evalscope - [33mWARNING[0m: KV cache hit rate is unavailable: 0/24 successful requests reported cached_tokens (0.0% of requests, 0.0% of input tokens). Missing values are unknown, not cache misses.[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:39<?, ?it/s]                                                              2026-11-16 21:04:46 - evalscope - [32mINFO[0m: 
+Benchmarking summary:
+┌───────────────────────────┬──────────────┐
+│ Metric                    │        Value │
+├───────────────────────────┼──────────────┤
+│ ── General ──             │              │
+│ Test Duration (s)         │       378.74 │
+│ Concurrency               │           -1 │
+│ Request Rate (req/s)      │          0.3 │
+│ Total / Success / Failed  │ 60 / 24 / 36 │
+│ Req Throughput (req/s)    │         0.06 │
+│ ── Latency ──             │              │
+│ Avg Latency (s)           │      104.393 │
+│ Avg TTFT (ms)             │     51854.05 │
+│ Avg TPOT (ms)             │       206.03 │
+│ Avg ITL (ms)              │       206.84 │
+│ ── Tokens ──              │              │
+│ Avg Input Tokens          │      10269.7 │
+│ Avg Output Tokens         │          256 │
+│ Output Throughput (tok/s) │        16.22 │
+│ Total Throughput (tok/s)  │       666.99 │
+└───────────────────────────┴──────────────┘[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:39<?, ?it/s]                                                              2026-11-16 21:04:46 - evalscope - [32mINFO[0m: 
+Percentile results:
+┌────────────────┬─────────┬─────────┬─────────┬─────────┬──────────┬──────────┬─────────┬───────────┬───────────┬──────────┬──────────┐
+│ Metric         │     min │      1% │      5% │     10% │      25% │      50% │     75% │       90% │       95% │      99% │      max │
+├────────────────┼─────────┼─────────┼─────────┼─────────┼──────────┼──────────┼─────────┼───────────┼───────────┼──────────┼──────────┤
+│ Latency (s)    │  18.577 │  18.577 │  45.942 │  51.625 │   67.315 │  102.132 │ 133.471 │   160.388 │   168.924 │  178.514 │  178.514 │
+│ TTFT (ms)      │ 1388.91 │ 1388.91 │ 4868.89 │ 5216.67 │ 15575.48 │ 44385.93 │ 75477.2 │ 106752.17 │ 116317.42 │ 125717.6 │ 125717.6 │
+│ ITL (ms)       │   52.04 │   52.42 │   101.2 │  133.97 │   163.63 │   181.02 │  224.75 │    361.31 │    373.92 │   403.11 │   450.39 │
+│ TPOT (ms)      │   67.41 │   67.41 │  161.07 │  180.81 │    202.9 │   210.34 │  226.46 │    229.82 │    230.34 │   230.55 │   230.55 │
+│ Input tokens   │    4376 │    4376 │    5097 │    5584 │     6756 │    10640 │   13156 │     15181 │     15202 │    15239 │    15239 │
+│ Output tokens  │     256 │     256 │     256 │     256 │      256 │      256 │     256 │       256 │       256 │      256 │      256 │
+│ Output (tok/s) │    1.43 │    1.43 │    1.52 │     1.6 │     1.88 │     2.35 │    3.28 │      4.96 │      5.57 │    13.78 │    13.78 │
+│ Total (tok/s)  │   43.75 │   43.75 │   45.35 │   51.41 │    58.69 │   100.47 │  152.47 │    235.41 │    279.57 │   438.44 │   438.44 │
+│ Decode (tok/s) │    4.34 │    4.34 │    4.34 │    4.35 │      4.4 │     4.67 │    4.85 │      5.53 │      6.21 │    14.84 │    14.84 │
+└────────────────┴─────────┴─────────┴─────────┴─────────┴──────────┴──────────┴─────────┴───────────┴───────────┴──────────┴──────────┘[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:39<?, ?it/s]                                                              2026-11-16 21:04:46 - evalscope - [32mINFO[0m: 
+Workload throughput (24 samples):
+┌─────────────────────┬───────────┬────────────┬─────────────────────┐
+│ Metric (tok/s)      │   Overall │   Last 30s │   Steady (drop 20%) │
+├─────────────────────┼───────────┼────────────┼─────────────────────┤
+│ Total Prompt tok/s  │    993.56 │    1249.76 │             1039.61 │
+│ New Prompt tok/s    │    993.56 │    1249.76 │             1039.61 │
+│ Cached Prompt tok/s │         0 │          0 │                   0 │
+│ Completion tok/s    │     24.77 │      23.14 │               25.66 │
+└─────────────────────┴───────────┴────────────┴─────────────────────┘[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:39<?, ?it/s]                                                              2026-11-16 21:04:46 - evalscope - [32mINFO[0m: Save the summary to: /workspace/results/mellum_c_chunk_screen/20261116T204832193530Z/r_chunk1024_d4/capacity/C/client/Scenario_C_Poisson_N1/rate_0.3_number_60[0m
+Running[perf-open-loop]:   0%|          | 0/1 [06:39<?, ?it/s]Running[perf-open-loop]: 100%|██████████| 1/1 [06:39<00:00, 399.17s/it]                                                                       2026-11-16 21:04:46 - evalscope - [32mINFO[0m: Running[perf-open-loop] 100%| 1/1 [Elapsed: 06:39 < Remaining: 00:00, 399.17s/it][0m
+Running[perf-open-loop]: 100%|██████████| 1/1 [06:39<00:00, 399.17s/it]Running[perf-open-loop]: 100%|██████████| 1/1 [06:39<00:00, 399.17s/it]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Performance Test Summary Report                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Basic Information:
+┌───────────────────────┬──────────────────────────────────────────────────────┐
+│ Model                 │ Mellum2.1-12B-A2.5B-Thinking                         │
+│ Test Dataset          │ mellum_assessment_jsonl                              │
+│ API Type              │ openai                                               │
+│ Endpoint              │ 127.0.0.1:9551                                       │
+│ Total Generated       │ 6,144.0 tokens                                       │
+│ Avg Output Rate       │ 16.22 tok/s                                          │
+│ Total Test Time       │ 378.74 s                                             │
+│ Output Path           │ /workspace/results/mellum_c_chunk_screen/20261116T2… │
+└───────────────────────┴──────────────────────────────────────────────────────┘
+
+
+            Performance Overview             
+┏━━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━━━┳━━━━━━━━┓
+┃Conc. ┃ Rate ┃ Num ┃  RPS ┃ Gen/s ┃ Success┃
+┡━━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━━━╇━━━━━━━━┩
+│    - │  0.3 │  60 │ 0.06 │ 16.22 │     40%│
+└──────┴──────┴─────┴──────┴───────┴────────┘
+
+
+                           Per-Request Metrics                            
+┏━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┓
+┃Conc. ┃ Rate ┃ Metric        ┃      avg ┃      p50 ┃      p99 ┃      max┃
+┡━━━━━━╇━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━┩
+│    - │  0.3 │ Latency (s)   │  104.393 │  102.132 │  178.514 │  178.514│
+│      │      │ TTFT (ms)     │ 51854.05 │ 44385.93 │ 125717.6 │ 125717.6│
+│      │      │ TPOT (ms)     │   206.03 │   210.34 │   230.55 │   230.55│
+│      │      │ Input Tokens  │    10270 │    10640 │    15239 │    15239│
+│      │      │ Output Tokens │      256 │      256 │      256 │      256│
+│      │      │ Decode toks/s │     4.85 │        - │        - │        -│
+└──────┴──────┴───────────────┴──────────┴──────────┴──────────┴─────────┘
+
+
+                             Workload Throughput                             
+┏━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┓
+┃Conc. ┃ Rate ┃ Metric (tok/s)      ┃ Overall ┃ Last 30s ┃ Steady (drop 20%)┃
+┡━━━━━━╇━━━━━━╇━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━┩
+│    - │  0.3 │ Total Prompt tok/s  │  993.56 │  1249.76 │           1039.61│
+│      │      │ New Prompt tok/s    │  993.56 │  1249.76 │           1039.61│
+│      │      │ Cached Prompt tok/s │       0 │        0 │                 0│
+│      │      │ Completion tok/s    │   24.77 │    23.14 │             25.66│
+└──────┴──────┴─────────────────────┴─────────┴──────────┴──────────────────┘
+2026-11-16 21:04:46 - evalscope - [32mINFO[0m: Performance summary saved to: /workspace/results/mellum_c_chunk_screen/20261116T204832193530Z/r_chunk1024_d4/capacity/C/client/Scenario_C_Poisson_N1/performance_summary.txt[0m
+2026-11-16 21:04:46 - evalscope - [32mINFO[0m: HTML report generated: /workspace/results/mellum_c_chunk_screen/20261116T204832193530Z/r_chunk1024_d4/capacity/C/client/Scenario_C_Poisson_N1/perf_report.html[0m
