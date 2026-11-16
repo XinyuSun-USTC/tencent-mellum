@@ -6,7 +6,7 @@ completed acceptance. Both retain rate0.3, output256 and per-request timeout180.
 import argparse,json,sys,time,traceback,hashlib
 from pathlib import Path
 from datetime import datetime,timezone
-ALLOWED=('r_reference_kv_once','r_expert_decode2','r_expert_decode4')
+ALLOWED=('r_reference_kv_once','r_expert_decode2','r_expert_decode4','r_expert_decode4_kv_once')
 
 
 def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -17,7 +17,11 @@ def read_screen(directory,profile,source):
     if result.get('status')!='screen_passed_full_acceptance_pending' or not result.get('source_unchanged'):
         raise ValueError('Require a completed passing screen')
     if profile not in ALLOWED:raise ValueError('Unsupported screened profile')
-    if profile=='r_reference_kv_once':
+    if profile=='r_expert_decode4_kv_once':
+        if plan['profile']!=profile or not result.get('generation',{}).get('developer200_gate'):
+            raise ValueError('Combined candidate did not pass')
+        path=directory/'manifest.json'
+    elif profile=='r_reference_kv_once':
         if plan['profile']!=profile or not result['generation']['developer200_gate']:raise ValueError('Candidate did not pass')
         path=Path(plan['candidate_plan'])
         if digest(path)!=plan['candidate_plan_sha256']:raise ValueError('Screen candidate plan changed')
@@ -62,6 +66,8 @@ def load_environment(source):
 
 
 def verify_feature(out,profile):
+    if profile=='r_expert_decode4_kv_once':
+        return verify_feature(out,'r_reference_kv_once')+verify_feature(out,'r_expert_decode4')
     target=out/'candidate'
     if profile=='r_reference_kv_once':
         rows=[json.loads(l) for l in (target/'native_calls.jsonl').read_text().splitlines() if l]

@@ -54,3 +54,20 @@ def test_full_capacity_requires_same_accepted_source_and_scheduler_size(tmp_path
     with pytest.raises(ValueError,match='source worktree'):f.read_accepted_run(directory,profile,tmp_path/'different_source')
     data=json.loads(manifest.read_text());data['batch_size']=1;manifest.write_text(json.dumps(data))
     with pytest.raises(ValueError,match='capacity differs'):f.read_accepted_run(directory,profile,root)
+
+
+def test_combination_uses_its_flat_manifest_and_requires_both_feature_receipts(tmp_path):
+    source,screen,_=fixture(tmp_path)
+    profile='r_expert_decode4_kv_once'
+    candidate=json.loads((screen/'candidate.json').read_text());candidate['profile']=profile
+    (screen/'manifest.json').write_text(json.dumps(candidate))
+    assert f.read_screen(screen,profile,source)[0]['profile']==profile
+    target=screen/'candidate';target.mkdir()
+    events=[{'kind':'kv_write','phase':phase,'backend':'aiter_reference_kv_once','rope_backend':'torch','resident_inverse':False} for phase in ['prefill','decode']]
+    (target/'native_calls.jsonl').write_text(''.join(json.dumps(x)+'\n' for x in events))
+    groups=[{'phase':'decode','requests':32,'decode_group_size':4,'expert_groups':8}]
+    (target/'expert_groups.jsonl').write_text(json.dumps(groups[0])+'\n')
+    assert f.verify_feature(screen,profile)==3
+    events[0]['backend']='different'
+    (target/'native_calls.jsonl').write_text(''.join(json.dumps(x)+'\n' for x in events))
+    with pytest.raises(ValueError,match='KV feature receipt'):f.verify_feature(screen,profile)
