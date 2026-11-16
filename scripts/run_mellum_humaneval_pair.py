@@ -26,10 +26,42 @@ def validate_records(inputs,data):
             raise ValueError('Invalid output budget/shape')
 
 
-def atom_worker(out,inputs,backend):
+def attention_settings(attention):
+    if attention not in ('reference','native'):raise ValueError('Unknown functional attention path')
+    native=attention=='native'
+    return {'MELLUM_ATTENTION_EXECUTION':attention,'MELLUM_SDPA_DECODE':'0' if native else '1',
+            'MELLUM_REQUEST_BATCHING':'0' if native else '1'}
+
+
+def validate_native_audit(rows,backend,attention):
+    target='FusedMoE' if backend=='fused_torch_route' else 'isolated_fused_experts'
+    moe=[r for r in rows if r['kind']=='moe']
+    if not moe or any(r['backend']!=target for r in moe):raise ValueError('Candidate native MoE audit failed')
+    if attention=='native':
+        attn=[r for r in rows if r['kind']=='attention']
+        if not any(r['phase']=='prefill' and r['backend']=='aiter_varlen' for r in attn):raise ValueError('Native prefill audit missing')
+        if not any(r['phase']=='decode' and r['backend'].startswith('paged_attention') for r in attn):raise ValueError('Native decode audit missing')
+        if any(r['backend']!='aiter_varlen' and not r['backend'].startswith('paged_attention') for r in attn):raise ValueError('Reference attention fallback observed')
+
+
+def load_reference(run,manifest,inputs):
+    old=json.loads((run/'manifest.json').read_text());file=run/'hf/generation.json'
+    if old.get('hf_model_source_sha256')!=manifest['hf_model_source_sha256']:raise ValueError('HF model source differs from reused reference')
+    if old['inputs_sha256']!=manifest['inputs_sha256'] or old.get('completed_hf_sha256')!=sha(file):raise ValueError('Reused HF input/completion hash differs')
+    cached=json.loads(file.read_text());validate_records(inputs,cached)
+    if cached.get('status')!='complete' or cached['environment']['transformers']!='5.10.1':raise ValueError('Reused HF incomplete/wrong environment')
+    return cached
+
+
+def projection_control(batched=False):
+    return {'groups':'' if batched else 'L','phases':['prefill','decode']}
+
+
+def atom_worker(out,inputs,backend,attention='reference',batched=False):
     settings=apply_serving(1,out,True,'reference',True)
     settings.update(MELLUM_MOE_BACKEND=backend,MELLUM_NATIVE_AUDIT_PATH=str(out/'native_calls.jsonl'),
-        MELLUM_BATCH_CAMPAIGN_CONFIG=json.dumps({'groups':'L','phases':['prefill','decode']}))
+        MELLUM_BATCH_CAMPAIGN_CONFIG=json.dumps(projection_control(batched)))
+    settings.update(attention_settings(attention))
     os.environ.update(settings);sys.path.insert(0,str(PROJECT/'ATOM'))
     import torch,transformers
     from atom.model_engine.arg_utils import EngineArgs
@@ -60,8 +92,7 @@ def atom_worker(out,inputs,backend):
         result.update(status='complete',submissions=subs,completions=comps,actual_batches=read_batches(out/'batches.jsonl'))
         if result['actual_batches']['decode']['max_batch_size']!=32:raise ValueError('Actual batch32 not observed')
         native=[json.loads(l) for l in (out/'native_calls.jsonl').read_text().splitlines()]
-        target='FusedMoE' if backend=='fused_torch_route' else 'isolated_fused_experts'
-        if not native or any(r['backend']!=target for r in native):raise ValueError('Candidate native backend audit failed')
+        validate_native_audit(native,backend,attention)
         validate_records(inputs,result);write(out/'generation.json',result)
     finally:
         if engine is not None:engine.close()
@@ -163,6 +194,8 @@ def paired_scores(left,right):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--thinking',action='store_true')
     p.add_argument('--max-new-tokens',type=int,default=2048);p.add_argument('--budget-minutes',type=float,default=90)
+    p.add_argument('--batched-projections',action='store_true')
+    p.add_argument('--attention',choices=['reference','native'],default='reference')
     p.add_argument('--candidate',choices=['fused_torch_route','fused_isolated'],default='fused_torch_route')
     p.add_argument('--prepare-only',action='store_true');p.add_argument('--reuse-hf-run',type=Path)
     p.add_argument('--worker',choices=['hf','candidate']);p.add_argument('--output',type=Path)
@@ -170,10 +203,12 @@ def main():
     if a.worker:
         inputs=json.loads((a.output.parent/'inputs.json').read_text());a.output.mkdir(parents=True,exist_ok=True)
         try:
-            (hf_worker if a.worker=='hf' else lambda o,i:atom_worker(o,i,a.candidate))(a.output,inputs)
+            (hf_worker if a.worker=='hf' else lambda o,i:atom_worker(o,i,a.candidate,a.attention,a.batched_projections))(a.output,inputs)
         except Exception:
             write(a.output/'failure.json',{'traceback':traceback.format_exc()});raise
         return 0
+    if a.batched_projections and (a.attention!='native' or a.candidate!='fused_torch_route'):p.error('Batched projection follow-up requires native attention and fused_torch_route')
+    if a.attention=='native' and not a.reuse_hf_run:p.error('Native functional follow-up requires --reuse-hf-run; no HF/GPU0 launch')
     if not 256<=a.max_new_tokens<=8192 or not 0<a.budget_minutes<=240:p.error('Budget tokens256..8192; time>0 <=240min')
     out=Path('/workspace/results/mellum_humaneval_pair')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
     from transformers import AutoTokenizer
@@ -192,13 +227,14 @@ def main():
     sources[str(hf_source)]=sha(hf_source)
     for file in ('tokenizer.json','tokenizer_config.json','special_tokens_map.json'):
         if (MODEL/file).exists():sources[str(MODEL/file)]=sha(MODEL/file)
-    m={'status':'prepared','tasks':164,'thinking':a.thinking,'max_new_tokens':a.max_new_tokens,'candidate':a.candidate,
+    m={'status':'prepared','tasks':164,'thinking':a.thinking,'max_new_tokens':a.max_new_tokens,'candidate':a.candidate,'attention':a.attention,'batched_projections':a.batched_projections,
        'hf_model_source_sha256':sha(hf_source),'candidate_batch':32,'hf_gpu':0,'candidate_gpu':1,'inputs_sha256':sha(out/'inputs.json'),
        'dataset_sha256':sha('/data/datasets/HumanEval.jsonl'),'evaluator':evaluator,'source_sha256':sources,
        'protocol':'Local paired chat/full-code extraction protocol, official HumanEval scorer; not asserted judge-identical',
        'token_position_gate':False,'tensor_equality_gate':False,'time_budget_minutes':a.budget_minutes,
        'template_suffix':inputs['records'][0]['rendered_prompt'][-160:]}
     write(out/'manifest.json',m)
+    cached=load_reference(a.reuse_hf_run,m,inputs) if a.reuse_hf_run else None
     if a.prepare_only:print('RESULT humaneval_pair_prepared output',out);return 0
     summary={'status':'started','protocol':m['protocol']};deadline=time.monotonic()+a.budget_minutes*60
     def remaining():
@@ -207,13 +243,9 @@ def main():
         return value
     try:
         run_stage('evaluator_selftest',['/opt/venv/bin/python',str(PROJECT/'scripts/score_mellum_humaneval.py'),'--self-test'],out/'selftest.log',timeout=min(600,remaining()))
-        commands={'candidate':['/opt/venv/bin/python',str(Path(__file__).resolve()),'--worker','candidate','--candidate',a.candidate,'--output',str(out/'candidate')]}
+        commands={'candidate':['/opt/venv/bin/python',str(Path(__file__).resolve()),'--worker','candidate','--candidate',a.candidate,'--attention',a.attention,'--output',str(out/'candidate')]}
+        if a.batched_projections:commands['candidate'].append('--batched-projections')
         if a.reuse_hf_run:
-            old=json.loads((a.reuse_hf_run/'manifest.json').read_text());file=a.reuse_hf_run/'hf/generation.json'
-            if old.get('hf_model_source_sha256')!=m['hf_model_source_sha256']:raise ValueError('HF model source differs from reused reference')
-            if old['inputs_sha256']!=m['inputs_sha256'] or old.get('completed_hf_sha256')!=sha(file):raise ValueError('Reused HF input/completion hash differs')
-            cached=json.loads(file.read_text());validate_records(inputs,cached)
-            if cached.get('status')!='complete' or cached['environment']['transformers']!='5.10.1':raise ValueError('Reused HF incomplete/wrong environment')
             (out/'hf').mkdir();write(out/'hf/generation.json',cached);summary['reused_hf']=str(a.reuse_hf_run)
         else:commands['hf']=['/workspace/venvs/hf-reference/bin/python',str(Path(__file__).resolve()),'--worker','hf','--output',str(out/'hf')]
         summary['generation_stages']=generators(commands,out,deadline)
@@ -235,6 +267,7 @@ def main():
                 if abs(official-summary['pass_at_1'][name])>1e-12:raise ValueError('Official pass@1 and task verdicts differ')
             hf=json.loads((out/'hf/generation.json').read_text());atom=json.loads((out/'candidate/generation.json').read_text())
             if hf['environment']['torch']!=atom['environment']['torch']:raise ValueError('HF/ATOM Torch environment differs')
+            summary['candidate_configuration']={'gpu':1,'attention':a.attention,'moe':a.candidate,'batched_projections':a.batched_projections,'prefix_caching':False}
             summary['exact_full_sequences']=sum(a['generated_ids']==b['generated_ids'] for a,b in zip(hf['records'],atom['records']))
             summary['interpretation_notes']=['Token differences do not gate functional scoring; public200 and16k remain independent requirements',
                 'Local thinking/prompt/extraction/budget protocol; compare truncation and reference quality before interpreting pass@1',
