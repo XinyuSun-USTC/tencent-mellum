@@ -84,3 +84,11 @@ HumanEval 关闭 thinking、上限2048、官方 openai/human-eval 评测套件�
 ```
 
 本地使用 EvalScope1.15 的兼容适配，A512/B50/C200；保存实际参数与统计。数据/模型在 `/data`，原始大张量、虚拟环境和模型不进 Git。精选结果随仓库提供，其余记录原路径及 SHA256，原始日志可在当前容器核验。历史实验脚本可能引用 `/workspace/results` 和独立评测环境，不是启动服务的依赖。
+
+短累计消融（独立卡运行，A32/B6/C8；非题面完整消融、非历史Step0控制）：
+
+```bash
+/opt/venv/bin/python scripts/run_submission_ablation.py --gpu 1 --budget-minutes 20
+```
+
+生成各行实际指标与 `matrix.md`，完成数据按 `scripts/archive_submission_run.py --run RUN --label LABEL` 归档；归档不会根据预期补齐失败/缺失项。

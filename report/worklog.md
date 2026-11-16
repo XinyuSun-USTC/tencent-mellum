@@ -204,3 +204,9 @@
 - GPU0四格20261116T144338670827Z完成，52项哈希与实际28层后端/5631加载通过；20条原生/原生69.84%、原生Attention/参考专家71.17%、参考Attention/原生专家77.03%、参考/参考100%。不能只归单模块；独立attn-phase提交b699065准备两卡各两项阶段定位，专家诊断保留原Fused加载后shuffle及canonical参考副本、192分片就绪审计，明示额外内存仅诊断。53项CPU检查与实际20条准备通过，未启动新GPU，原20条不代替200验收。
 
 - 两卡阶段诊断完成，54项hash一致及实际backend/192分片审计通过；20条专家prefill86.875%、decode83.906%，Attention prefill73.672%、decode78.672%，均未达90。子集A占40%而原200占18%，不直接判全量失败或以重加权当通过。独立confirmation提交d4b2573只准备最后原200/长组：最接近expert_prefill batch1与R参考batch32并行，55项CPU检查通过；异步询问实际截止以限制实验预算，若不足即冻结已验证保守基础与显式激进实验版，绝不混用指标。
+
+### 11-16 交付收敛（15:24–15:38 UTC）
+
+在独立`release/submission`工作树整合实现与证据，保留正常合并历史；增加`start_server.sh`及独立conservative/aggressive模式与组件关闭开关。真实交付入口两模式GPU smoke均通过，运行`20261116T152441526820Z`，覆盖5631权重加载、HTTP、SSE/usage；不作为完整正确性验收。CPU相关59项通过，干净克隆文件/证据校验及两模式dry-run通过。正式交付文档按用户要求以中文Markdown主稿为准，PDF仅预览。
+
+最终源码完整ABC运行`/workspace/results/mellum_full_campaign/20261116T153025780336Z`；短A32/B6/C8累计screen运行`/workspace/results/mellum_submission_ablation/20261116T153235801902Z`。两任务运行期间不修改被manifest绑定的ATOM/性能入口。短screen控制是native fast control，不是历史Step0；不会替代完整累计消融。初版离线源码ZIP/完整历史bundle已生成，最终结果归档后重打包。工具环境github.com DNS失败，远端上传需用户在容器终端执行。
