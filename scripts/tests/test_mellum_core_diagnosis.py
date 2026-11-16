@@ -22,3 +22,17 @@ def test_subset_selection_depends_on_source_and_length_not_expected_outputs():
     for r in rows:r['generated_ids']=[[999]]
     assert len(chosen)==20 and [r['name'] for r in select(rows)]==names
     assert sum(r['prompt_source']=='HumanEval' for r in chosen)==12
+
+
+def test_attention_phase_controls_change_only_dispatch_mode():
+    base=profile_settings('core_nt')
+    for name,mode in [('phase_prefill','native_prefill'),('phase_decode','native_decode')]:
+        s=profile_settings(name)
+        assert s=={**base,'MELLUM_ATTENTION_EXECUTION':mode}
+        assert s['MELLUM_MOE_BACKEND']=='torch' and s['MELLUM_FUSED_QK_ROPE']=='0'
+
+
+def test_expert_phase_profiles_only_change_expert_block():
+    base=profile_settings('core_tn')
+    for name,phase in [('expert_prefill','prefill'),('expert_decode','decode')]:
+        assert profile_settings(name)=={**base,'MELLUM_MOE_BACKEND':'phase_hybrid','MELLUM_NATIVE_EXPERT_PHASE':phase}

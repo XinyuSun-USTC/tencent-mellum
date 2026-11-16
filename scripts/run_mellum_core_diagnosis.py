@@ -3,7 +3,7 @@ import argparse,json,time,traceback
 from pathlib import Path
 from datetime import datetime,timezone
 import run_mellum_candidate_acceptance as a
-from mellum_execution_profiles import CORE_PROFILES
+from mellum_execution_profiles import CORE_PROFILES,PHASE_PROFILES
 from mellum_perf_protocol import sha
 from mellum_process_runner import run_stage
 from run_mellum_batch_campaign import write
@@ -18,10 +18,10 @@ def select(rows):
     return [r for r in rows if r['name'] in names]
 
 
-def prepare(out,gpu):
+def prepare(out,gpu,profiles=CORE_PROFILES):
     m={'gpu':gpu,'scope':'20 fixed length/source-stratified diagnostics, not public200 acceptance','jobs':{},
        'source':str(Path(__file__).resolve()),'source_sha256':sha(__file__)}
-    for name in CORE_PROFILES:
+    for name in profiles:
         d=out/name;d.mkdir();p=a.prepare(d,name,gpu)
         ref=json.loads(Path(p['references']['tokens']).read_text());ref['records']=select(ref['records'])
         f=d/'diagnostic_reference.json';write(f,ref)
@@ -52,9 +52,20 @@ def execute(out,m,budget):
             run_stage(name,['/opt/venv/bin/python',str(Path(__file__).resolve()),'--worker',str(d)],d/'worker.log',timeout=min(600,remaining))
             p=json.loads((d/'manifest.json').read_text());r=a.token_comparison(json.loads(Path(p['references']['tokens']).read_text()),json.loads((d/'tokens_generation.json').read_text()))
             audit=json.loads((d/'candidate/fastpaths.json').read_text());load=json.loads((d/'candidate/loading_audit.json').read_text())
-            expected='MellumFusedMoeBlock' if name[6]=='n' else 'MellumSparseMoeBlock'
-            prefill='native_prefill' if name[5]=='n' else 'ragged_prefill'
+            expected='MellumPhaseMoeBlock' if name.startswith('expert_') else 'MellumSparseMoeBlock' if name in PHASE_PROFILES else 'MellumFusedMoeBlock' if name[6]=='n' else 'MellumSparseMoeBlock'
+            prefill=('native_prefill' if name=='phase_prefill' else 'ragged_prefill') if name in PHASE_PROFILES else ('native_prefill' if name[5]=='n' else 'ragged_prefill')
             if audit['moe_classes']!={expected:28} or audit['prefill_functions']!={prefill:28} or load['successful_parts']!=5631:raise ValueError('Actual core paths differ')
+            if name.startswith('phase_'):
+                calls=[json.loads(x) for x in (d/'candidate/native_calls.jsonl').read_text().splitlines()]
+                expected_decode='reference_ragged_decode' if name=='phase_prefill' else 'paged_attention'
+                if not any(x.get('kind')=='attention' and x.get('phase')=='decode' and expected_decode in x.get('backend','') for x in calls):
+                    raise ValueError('Actual attention phase did not match selected native/reference decode')
+            if name.startswith('expert_'):
+                calls=[json.loads(x) for x in (d/'candidate/native_calls.jsonl').read_text().splitlines()]
+                for phase in ['prefill','decode']:
+                    wanted='FusedMoE' if name=='expert_'+phase else 'MellumTorchExperts'
+                    if not any(x.get('kind')=='moe_phase' and x.get('phase')==phase and x.get('backend')==wanted and x.get('reference_loaded_parts')==192 for x in calls):
+                        raise ValueError('Expert phase switch or canonical weight copy audit differs')
             result['jobs'][name]={'status':'complete','tokens':r,'backend_audit':audit}
             print(name,'diagnostic_position_agreement',r['all']['position_match_fraction'],flush=True)
         except Exception:result['jobs'][name]={'status':'failed','traceback':traceback.format_exc()}
@@ -67,11 +78,12 @@ def execute(out,m,budget):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--gpu',type=int,choices=[0,1],default=0);p.add_argument('--worker',type=Path)
+    p.add_argument('--profiles',choices=CORE_PROFILES+PHASE_PROFILES,nargs='+',default=list(CORE_PROFILES))
     p.add_argument('--prepare-only',action='store_true');p.add_argument('--budget-minutes',type=float,default=25);v=p.parse_args()
     if v.worker:a.worker(v.worker,suites=['tokens'],batch_size=1);return
     if not 1<=v.budget_minutes<=45:p.error('Budget1..45min')
     out=Path('/workspace/results/mellum_core_diagnosis')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
-    m=prepare(out,v.gpu)
+    m=prepare(out,v.gpu,v.profiles)
     if v.prepare_only:print('RESULT core_diagnosis_prepared output',out);return
     r=execute(out,m,v.budget_minutes*60);print('RESULT',r['status'],'output',out)
 if __name__=='__main__':main()
