@@ -14,7 +14,7 @@ def install_direct_kv_rope(impl,inv,factor):
             raise ValueError('Direct reference KV requires BF16 non-flash cache and separate QK norm')
         meta=ctx.attn_metadata
         cached_suffix=bool(getattr(meta,'has_cached',False)) and ctx.context.is_prefill
-        reference_chunk=os.getenv('MELLUM_REFERENCE_CHUNKED','0')=='1'
+        reference_chunk=(os.getenv('MELLUM_REFERENCE_CHUNKED','0')=='1' or os.getenv('MELLUM_REFERENCE_PREFIX','0')=='1')
         if cached_suffix and not reference_chunk and os.getenv('MELLUM_PREFIX_COMPAT','0')!='1':
             raise ValueError('Direct KV cached/chunked prefill requires explicit prefix compatibility')
         data=ctx.kv_cache_data[f'layer_{self.layer_num}']

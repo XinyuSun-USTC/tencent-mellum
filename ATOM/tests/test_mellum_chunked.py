@@ -81,3 +81,20 @@ def test_cached_prefill_reads_physical_blocks_and_absolute_windows(layout,window
     start=max(0,cached-window+1) if window>0 else 0
     expected=torch.nn.functional.scaled_dot_product_attention(q.transpose(0,1)[None],k[start:].transpose(0,1)[None].repeat_interleave(2,1),v[start:].transpose(0,1)[None].repeat_interleave(2,1),attn_mask=mask,scale=impl.scale)[0].transpose(0,1)
     assert torch.equal(got,expected)
+
+
+
+def test_prefix_hashes_publish_only_completed_blocks(seq_factory):
+    from atom.model_engine.block_manager import BlockManager
+    bm=BlockManager(MockConfig(num_kvcache_blocks=100,kv_cache_block_size=4,enable_prefix_caching=True))
+    cold=seq_factory(list(range(14)));bm.allocate(cold)
+    probe=seq_factory(list(range(8))+[101,102,103,104])
+    assert bm.can_allocate(probe)==0
+    bm.hash_blocks(cold,5);cold.num_cached_tokens=5
+    assert bm.can_allocate(probe)==1
+    bm.hash_blocks(cold,3);cold.num_cached_tokens=8
+    assert bm.can_allocate(probe)==2
+    bm.deallocate(cold)
+    assert bm.can_allocate(probe)==2
+    bm.allocate(probe,2)
+    assert probe.num_cached_tokens==8

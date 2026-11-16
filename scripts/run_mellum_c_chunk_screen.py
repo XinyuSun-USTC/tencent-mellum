@@ -8,7 +8,7 @@ from mellum_perf_protocol import sha,load_rows
 from mellum_process_runner import run_stage
 from run_mellum_batch_campaign import write
 import run_mellum_abc_baseline as perf
-PROFILES=('r_expert_decode4_kv_once','r_chunk512_d4','r_chunk1024_d4','r_chunk2048_d4')
+PROFILES=('r_prefix_only','r_prefix_chunk1024_d1','r_prefix_chunk2048_d1','r_chunk1024_d1','r_chunk2048_d1','r_expert_decode4_kv_once','r_chunk512_d4','r_chunk1024_d4','r_chunk2048_d4')
 
 
 def current(plan):
@@ -47,11 +47,13 @@ def smoke_worker(directory):
     from atom import SamplingParams
     chunked=settings.get('MELLUM_REFERENCE_CHUNKED')=='1'
     options=engine_options(16640,None);options.update(max_num_seqs=32,port=12826+100*job['gpu'],torch_profiler_dir=None,
-             enable_chunked_prefill=chunked,max_num_batched_tokens=int(settings.get('MELLUM_CHUNK_BUDGET','16640')))
+             enable_prefix_caching=settings.get('MELLUM_REFERENCE_PREFIX')=='1',enable_chunked_prefill=chunked,max_num_batched_tokens=int(settings.get('MELLUM_CHUNK_BUDGET','16640')))
     engine=None;result={'status':'started','profile':job['profile'],'settings':settings,'options':options,'stages':[]}
     try:
         engine=EngineArgs(**options).create_engine()
-        for label,cases in [(f'single_{i}',[c]) for i,c in enumerate(job['cases'])]+[('ragged4',job['cases'])]:
+        for label,cases in [(f'single_{i}',[c]) for i,c in enumerate(job['cases'])]+[('ragged4',job['cases']),('repeat_first',job['cases'][:1])]:
+            audit_file=directory/'batches.jsonl'
+            before=len(audit_file.read_text().splitlines()) if audit_file.exists() else 0
             start=time.monotonic();outputs=engine.generate([c['input_ids'] for c in cases],[SamplingParams(temperature=0,max_tokens=8,ignore_eos=True) for c in cases])
             if len(outputs)!=len(cases):raise ValueError('Missing smoke outputs')
             records=[]
@@ -59,11 +61,19 @@ def smoke_worker(directory):
                 ids=o['token_ids']
                 if len(ids)!=8:raise ValueError('Incomplete generation')
                 records.append({'name':c['name'],'input_tokens':len(c['input_ids']),'actual_ids':ids,'expected_ids':c['expected_ids'],'matching_positions':sum(a==b for a,b in zip(ids,c['expected_ids']))})
-            result['stages'].append({'name':label,'elapsed':time.monotonic()-start,'records':records});write(directory/'results.json',result)
+            actual=[json.loads(x) for x in audit_file.read_text().splitlines()[before:]]
+            cache_rows=[r for r in actual if r['phase']=='prefill' and any(n>0 for n in r.get('cached_tokens') or [])]
+            result['stages'].append({'name':label,'elapsed':time.monotonic()-start,'records':records,'cached_prefill_batches':len(cache_rows),'cached_token_counts':[r['cached_tokens'] for r in cache_rows]});write(directory/'results.json',result)
             print(label,'completed',flush=True)
         audits=[json.loads(x) for x in (directory/'batches.jsonl').read_text().splitlines()]
         cached=[r for r in audits if r['phase']=='prefill' and any(n>0 for n in r.get('cached_tokens') or [])]
-        if chunked and not cached:raise ValueError('No actual cached prefill observed')
+        if (chunked or settings.get('MELLUM_REFERENCE_PREFIX')=='1') and not cached:raise ValueError('No actual cached prefill observed')
+        if settings.get('MELLUM_REFERENCE_PREFIX')=='1':
+            repeat=result['stages'][-1]['records'][0]
+            first=result['stages'][0]['records'][0]
+            if repeat['actual_ids']!=first['actual_ids']:raise ValueError('Repeated prefix generation differs from cold output')
+            if result['stages'][-1]['cached_prefill_batches']<1:
+                raise ValueError('No short repeated-prefix cache hit observed')
         result.update(status='chunk_generation_smoke_completed',cached_prefill_batches=len(cached),accuracy_note='Small smoke only; mismatches recorded, no official gate inferred')
     except Exception:result.update(status='failed',traceback=traceback.format_exc());raise
     finally:

@@ -29,7 +29,7 @@ def audit(impl,phase,lengths,cached=None):
 
 def ragged_prefill(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx):
     meta=ctx.attn_metadata
-    if os.getenv('MELLUM_REFERENCE_CHUNKED','0')=='1':
+    if os.getenv('MELLUM_REFERENCE_CHUNKED','0')=='1' or os.getenv('MELLUM_REFERENCE_PREFIX','0')=='1':
         from atom.model_config.mellum_chunked import cached_prefill
         lengths=meta.cu_seqlens_q.diff().tolist();audit(self,'prefill',lengths,(meta.cu_seqlens_k.diff()-meta.cu_seqlens_q.diff()).tolist())
         return cached_prefill(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx)

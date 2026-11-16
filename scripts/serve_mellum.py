@@ -52,6 +52,8 @@ def main():
             command[command.index('--no-enable_chunked_prefill')]='--enable_chunked_prefill'
             command[command.index('--max-num-batched-tokens')+1]=str(chunk)
         os.environ.update(settings)
+    if settings.get('MELLUM_REFERENCE_PREFIX')=='1':
+        command[command.index('--no-enable_prefix_caching')]='--enable_prefix_caching'
     if settings.get('MELLUM_REFERENCE_CHUNKED')=='1':
         command[command.index('--no-enable_chunked_prefill')]='--enable_chunked_prefill'
         command[command.index('--max-num-batched-tokens')+1]=settings['MELLUM_CHUNK_BUDGET']
