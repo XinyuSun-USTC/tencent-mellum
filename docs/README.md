@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+并行CPU开发：[39 Graph前缀缓存与chunked prefill](plan/39_graph_prefix_and_chunked_prefill.md)，独立scheduling分支12087e7。40项CPU检查通过，GPU待空闲后筛选，不修改正在运行的fusion目录。
+
 当前实验：[38 Graph路由ABBA与QK/RoPE融合](plan/38_graph_routing_and_qk_fusion.md)，独立fusion分支2dc21b2；上一批Graph A64达到943.26tokens/s，同卡较eager提升51.9%。新批仅性能筛选，不逐项跑HF。
 
 当前实验：[37 连续优化批次](plan/37_optimization_sprint.md)，独立sprint分支3f81b6d：GPU0空观察器移除/decode Graph，GPU1Packed消融/原生路由，集中性能筛选，完整正确性留最终组合。

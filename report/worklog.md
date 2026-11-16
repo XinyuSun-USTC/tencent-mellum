@@ -174,3 +174,5 @@
 - 基础快路径两批结果核验532项哈希/5631加载完整，GPU1组合A64达到625.616tokens/s，较同卡507.7752提升23.2%；C20 TPOT/TTFT p99为57.912ms/1.02807s。按用户要求暂停逐项完整正确性，独立sprint提交3f81b6d实现空观察器移除、既有decode Graph接入与实际replay回执、原生路由及Packed消融；27项CPU检查通过，准备两卡A64/C20批量实验。未运行GPU或预先宣称新收益。
 
 - 优化sprint两批完成，266项产物哈希一致且全部请求成功。GPU0clean620.9951→Graph943.2600tokens/s（+51.9%），C20 TPOT p99降至22.841ms，真实回放证据完整；GPU1关闭Packed退化、原生路由约+2.8%。独立fusion分支2dc21b2实现Graph路由ABBA和Triton仅RoPE/QK-Norm+RoPE两级候选，37项CPU检查、两专门化gfx942离线编译通过。局部GPU数学冒烟后直接A64/C20筛选，完整模型正确性留最终组合，未运行GPU或宣称新融合收益。
+
+- 当前fusion两卡运行期间，独立scheduling分支12087e7完成Graph+direct-KV前缀兼容桥接、prefix开关及2048/4096 chunk内部调度候选。复用此前矩形Attention与缓存逻辑，SHUFFLE调用原生gather、NHD只读本批逻辑token，避免整个KV池转换；40项CPU检查通过，含跨块、写后gather及调度配置，准备CPU数据。未占GPU、未改fusion运行工作区，完整正确性留最终组合。
