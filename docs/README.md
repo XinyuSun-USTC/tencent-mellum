@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+并行CPU后备：[47 HF语义融合Norm](plan/47_conditional_hf_norm_fusion.md)，独立hf-norm提交d9345c7。仅当当前参考Norm分支实测≥90%才允许GPU后续；49项CPU检查、4种gfx942离线编译通过，未跑GPU。
+
 当前诊断：[46 有界恢复greedy一致率](plan/46_greedy_agreement_recovery.md)，独立agreement提交6485506。只测原200/长组，不重跑HF/HE/ABC；GPU0 HF Norm舍入及组合，GPU1prefix/路由/投影/batch与按需参考控制。
 
 最新结果：[性能36](../report/performance/36_combined_full_abc.md)、[验证40](../report/validation/40_optimized_candidate_acceptance.md)。最终组合A512=1139.78（官方+78.57%）、C TPOT p99=11.50ms/TTFT=1.026s；HE150对145，但开发200位置62.85%未达90%，整体尚未通过。
