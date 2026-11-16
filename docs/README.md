@@ -1,10 +1,10 @@
 # Mellum on ATOM 文档导航
 
-当前阶段：**Step0适配开发完成，本地生成一致性验证通过，进入Step1准备。** 200条开发prompt前64token全部一致，16k输入64token回归通过；HumanEval pass@1与出题方公开集口径待正式补证。当前不追加同类数值定位实验。
+当前阶段：**Step1优化与组合收敛。** Step0本地生成验证已归档；整批投影开发A64为439.67tokens/s，HumanEval149/164（HF145/164，原绝对差检查False如实保留）。当前推进prefix整合与直接KV写入，最终配置和独立门槛待验收。
 
 ## 当前阅读入口
 
-当前工作：[24 完整HumanEval164功能配对](plan/24_full_humaneval_functional_pair.md)。用户确认关闭thinking/2048，独立工作区两卡并行HF与有实测收益的FusedMoE；不以token位置门槛阻止功能评分。完整生成/评分待终端运行，其它题目指标仍独立报告。
+当前工作：[34 整批投影＋prefix与直接KV写入两卡批次](plan/34_batched_prefix_and_direct_kv.md)。GPU0独立batched-prefix e4cfb91，GPU1独立direct-kv b4e77d9；74/59项CPU检查及真实数据准备通过，GPU待终端运行。
 
 上一轮：[17 直接索引decode一次D200补证](plan/17_indexed_decode_d200_followup.md)：已完成，见[性能15](../report/performance/15_indexed_decode_d200.md)：总体位置78.23%、完整序列53.5%，当前直接索引版本停止晋级。保留共享路由，下一主线prefill专家GEMM/调度开销。
 
