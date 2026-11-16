@@ -5,6 +5,8 @@ from pathlib import Path
 from mellum_runtime_config import PROJECT,MODEL,apply_serving
 from mellum_execution_profiles import profile_settings
 
+QUALIFIED_PROFILES=('r','r_expert_decode4','r_expert_decode4_kv_once','r_chunk512_d4','r_chunk1024_d4','r_chunk2048_d4')
+
 
 def build(args,out):
     preset=json.loads((PROJECT/'configs/submission'/f'{args.mode}.json').read_text())
@@ -16,7 +18,11 @@ def build(args,out):
     tokens=args.max_batched_tokens or preset['max_num_batched_tokens']
     if seq<1 or length<1 or tokens<length:raise ValueError('Invalid sequence or token limits')
     settings=apply_serving(args.gpu,out,True,'reference',args.audit)
-    settings.update(profile_settings(preset['profile']))
+    selected=getattr(args,'profile',None)
+    if selected and (args.mode!='conservative' or selected not in QUALIFIED_PROFILES):
+        raise ValueError('Explicit qualified profile requires conservative mode and a supported profile')
+    effective_profile=selected or preset['profile']
+    settings.update(profile_settings(effective_profile))
     for flag,key,value in [('disable_graph','MELLUM_DECODE_GRAPH','0'),('disable_qk_fusion','MELLUM_FUSED_QK_ROPE','0'),
         ('disable_native_routing','MELLUM_NATIVE_ROUTING','0'),('disable_prefix','MELLUM_PREFIX_ENABLED','0'),
         ('disable_metadata_reuse','MELLUM_PREFILL_METADATA_REUSE','0'),('separate_qkv','MELLUM_QKV_BACKEND','separate'),
@@ -25,6 +31,19 @@ def build(args,out):
         if getattr(args,flag):settings[key]=value
     if args.disable_native_attention:
         settings.update(MELLUM_ATTENTION_EXECUTION='reference',MELLUM_SDPA_DECODE='1',MELLUM_REQUEST_BATCHING='1',MELLUM_DIRECT_KV_WRITE='0')
+    if getattr(args,'disable_expert_grouping',False):
+        raw=settings.get('MELLUM_BATCH_CAMPAIGN_CONFIG')
+        cfg=json.loads(raw) if raw else {}
+        if cfg.get('moe_optimization')!='shared_routing':raise ValueError('Expert group ablation requires shared reference routing')
+        cfg.pop('decode_expert_group_size',None)
+        settings['MELLUM_BATCH_CAMPAIGN_CONFIG']=json.dumps(cfg,sort_keys=True)
+    if getattr(args,'disable_chunked_prefill',False):
+        settings.update(MELLUM_REFERENCE_CHUNKED='0',MELLUM_CHUNK_BUDGET='0',MELLUM_C_DECODE_STEPS='0')
+    chunked=settings.get('MELLUM_REFERENCE_CHUNKED')=='1'
+    if chunked and settings.get('MELLUM_DIRECT_KV_WRITE')!='1':
+        raise ValueError('Current reference chunk bridge requires direct KV; disable chunked prefill before disabling direct KV')
+    chunk_budget=int(settings.get('MELLUM_CHUNK_BUDGET','0')) if chunked else 0
+    if chunked and not 1<=chunk_budget<=tokens:raise ValueError('Invalid reference chunk budget')
     settings['MELLUM_FASTPATH_AUDIT_PATH']=str(out/'fastpaths.json')
     if args.audit:
         settings.update(MELLUM_NATIVE_AUDIT_PATH=str(out/'native_calls.jsonl'),MELLUM_GRAPH_AUDIT_PATH=str(out/'graph_replays.jsonl'),
@@ -34,13 +53,16 @@ def build(args,out):
         '--max-model-len',str(length),'--max-num-batched-tokens',str(tokens),'--max-num-seqs',str(seq),
         '--gpu-memory-utilization',str(preset['gpu_memory_utilization']),
         '--enable_prefix_caching' if settings.get('MELLUM_PREFIX_ENABLED')=='1' else '--no-enable_prefix_caching',
-        '--no-enable_chunked_prefill','--default-chat-template-kwargs','{"enable_thinking":true}']
+        '--enable_chunked_prefill' if chunked else '--no-enable_chunked_prefill','--default-chat-template-kwargs','{"enable_thinking":true}']
+    if chunked:command[command.index('--max-num-batched-tokens')+1]=str(chunk_budget)
     if settings.get('MELLUM_DECODE_GRAPH')=='1':command+=['--cudagraph-capture-sizes','[1,2,4,8,16,32]']
     else:command+=['--enforce-eager']
     source=[PROJECT/'scripts/serve_submission.py',PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'scripts/mellum_runtime_config.py',
         PROJECT/'configs/submission'/f'{args.mode}.json',PROJECT/'ATOM/atom/models/mellum.py']
-    return {'mode':args.mode,'preset':preset,'versions':versions,'settings':settings,'command':command,
-        'declared_gpus':1,'effective_max_num_seqs':seq,'component_overrides':[f for f in ['disable_graph','disable_qk_fusion','disable_native_routing','disable_prefix','disable_metadata_reuse','separate_qkv','disable_native_moe','disable_native_attention','reference_norm','disable_direct_kv','disable_resident_rope'] if getattr(args,f)],
+    source+=list((PROJECT/'ATOM/atom/model_config').glob('mellum*.py'))+[PROJECT/'ATOM/atom/model_engine/scheduler.py']
+    return {'effective_profile':effective_profile,'profile_override':selected,'profile_acceptance':'Explicit candidate profile; use its own acceptance and capacity evidence, not preset status' if selected else preset['status'],
+        'effective_prefill_token_budget':chunk_budget or tokens,'mode':args.mode,'preset':preset,'versions':versions,'settings':settings,'command':command,
+        'declared_gpus':1,'effective_max_num_seqs':seq,'component_overrides':[f for f in ['disable_graph','disable_qk_fusion','disable_native_routing','disable_prefix','disable_metadata_reuse','separate_qkv','disable_native_moe','disable_native_attention','reference_norm','disable_direct_kv','disable_resident_rope','disable_expert_grouping','disable_chunked_prefill'] if getattr(args,f,False)],
         'source_sha256':{str(p.relative_to(PROJECT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in source},
         'note':'Mode selects a documented runtime policy; it is not Step0 or an optimization-point claim. Accuracy and speed results must use the same effective configuration.'}
 
@@ -51,13 +73,15 @@ def main():
     p.add_argument('--host',default='0.0.0.0');p.add_argument('--port','--server-port',dest='port',type=int,default=8000)
     p.add_argument('--engine-port',type=int,default=8026);p.add_argument('--max-num-seqs',type=int)
     p.add_argument('--max-model-len',type=int);p.add_argument('--max-batched-tokens',type=int)
+    p.add_argument('--profile',choices=QUALIFIED_PROFILES,help='Explicit candidate; does not promote it or inherit conservative acceptance')
+    p.add_argument('--disable-expert-grouping',action='store_true');p.add_argument('--disable-chunked-prefill',action='store_true')
     p.add_argument('--audit',action='store_true');p.add_argument('--dry-run',action='store_true');p.add_argument('--output',type=Path)
     for f in ['disable-graph','disable-qk-fusion','disable-native-routing','disable-prefix','disable-metadata-reuse','separate-qkv','disable-native-moe','disable-native-attention','reference-norm','disable-direct-kv','disable-resident-rope']:p.add_argument('--'+f,action='store_true')
     args=p.parse_args()
     if not 1<=args.port<=65535 or not 1<=args.engine_port<=65535 or args.port==args.engine_port:p.error('Distinct valid HTTP and engine ports required')
     out=args.output or PROJECT/'results/submission_server'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     out.mkdir(parents=True,exist_ok=True);d=build(args,out);(out/'launch.json').write_text(json.dumps(d,indent=2)+'\n')
-    print('MODE',args.mode,'STATUS',d['preset']['status'],'LOG_DIR',out,flush=True)
+    print('MODE',args.mode,'PROFILE',d['effective_profile'],'STATUS',d['profile_acceptance'],'LOG_DIR',out,flush=True)
     if args.dry_run:return
     os.environ.update(d['settings']);os.execv(d['command'][0],d['command'])
 if __name__=='__main__':main()

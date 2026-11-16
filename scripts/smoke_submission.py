@@ -19,13 +19,18 @@ def parse_sse(lines):
     return {'done':done,'usage':usage,'text':text}
 
 
-def run(mode,gpu,out,timeout):
+def run(mode,gpu,out,timeout,profile=None):
     out.mkdir(parents=True);port=18751 if mode=='conservative' else 18752;engine=19426 if mode=='conservative' else 19427
     with socket.socket() as sock:
         if sock.connect_ex(('127.0.0.1',port))==0:raise RuntimeError('Refuse unowned occupied smoke port')
     command=[str(PROJECT/'start_server.sh'),'--mode',mode,'--gpu',str(gpu),'--host','127.0.0.1','--port',str(port),
         '--engine-port',str(engine),'--max-model-len','512','--max-batched-tokens','512','--max-num-seqs','1','--audit','--output',str(out/'server')]
-    result={'mode':mode,'status':'started','command':command,'scope':'Submission-entrypoint load/HTTP/SSE smoke only; not correctness or ABC'}
+    if profile:
+        if mode!='conservative':raise ValueError('Candidate smoke requires conservative mode')
+        command+=['--profile',profile]
+        for flag,value in [('--max-model-len','16640'),('--max-batched-tokens','16640'),('--max-num-seqs','32')]:
+            command[command.index(flag)+1]=value
+    result={'profile':profile,'mode':mode,'status':'started','command':command,'scope':'Submission-entrypoint load/HTTP/SSE smoke only; not correctness or ABC'}
     (out/'result.json').write_text(json.dumps(result,indent=2)+'\n');proc=None
     opener=build_opener(ProxyHandler({}));url=f'http://127.0.0.1:{port}'
     def call(path,payload=None):
@@ -46,6 +51,10 @@ def run(mode,gpu,out,timeout):
             models=call('/v1/models');model=models['data'][0]['id']
             payload={'model':model,'messages':[{'role':'user','content':'Write a Python function add(a, b) that returns their sum.'}],
                      'temperature':0,'max_tokens':8,'ignore_eos':True}
+            if profile:
+                # Public input only; no model output is cached or hardcoded.
+                source=Path('/data/datasets/scenario_c_prompts.jsonl')
+                with source.open() as stream:payload['messages'][0]['content']=json.loads(stream.readline())['prompt']
             raw=call('/v1/chat/completions',payload)
             message=raw['choices'][0]['message'];text=(message.get('content') or '')+(message.get('reasoning_content') or '')
             if not text or raw.get('usage',{}).get('completion_tokens')!=8:raise ValueError('Non-stream response/usage invalid')
@@ -72,15 +81,18 @@ def run(mode,gpu,out,timeout):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--gpu',type=int,choices=[0,1],default=0)
     p.add_argument('--modes',nargs='+',choices=['conservative','aggressive'],default=['conservative','aggressive'])
+    from serve_submission import QUALIFIED_PROFILES
+    p.add_argument('--profile',choices=QUALIFIED_PROFILES)
     p.add_argument('--startup-timeout',type=int,default=240);p.add_argument('--output',type=Path);a=p.parse_args()
+    if a.profile and a.modes!=['conservative']:p.error('Candidate smoke requires --modes conservative')
     out=a.output or PROJECT/'results/submission_smoke'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
     results={}
     for mode in a.modes:
         print('STAGE submission_smoke',mode,'log',out/mode/'server.log',flush=True)
-        results[mode]=run(mode,a.gpu,out/mode,a.startup_timeout)
+        results[mode]=run(mode,a.gpu,out/mode,a.startup_timeout,a.profile)
         print(mode,results[mode]['status'],flush=True)
     d={'status':'smoke_passed' if all(r['status']=='smoke_passed' for r in results.values()) else 'smoke_failed','results':results,
-       'scope':'Actual delivery launcher, 512 context, one scheduler slot, 8 generated tokens; not complete acceptance'}
+       'scope':('Candidate delivery launcher,16640 context,32 slots,C prompt,8 output tokens; not full acceptance' if a.profile else 'Actual delivery launcher,512 context,one slot,8 output tokens; not full acceptance')}
     (out/'summary.json').write_text(json.dumps(d,indent=2)+'\n');print('RESULT',d['status'],'output',out)
     return 0 if d['status']=='smoke_passed' else 1
 if __name__=='__main__':raise SystemExit(main())

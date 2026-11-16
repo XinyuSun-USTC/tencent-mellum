@@ -70,3 +70,35 @@ def test_primary_preset_matches_measured_acceptance(tmp_path,monkeypatch):
     assert launch['effective_max_num_seqs']==saved['engine_options']['max_num_seqs']==32
     verdict=json.loads((s.PROJECT/launch['preset']['acceptance_evidence']).read_text())
     assert verdict['status']=='local_candidate_checks_passed' and all(verdict['local_checks'].values())
+
+
+def test_qualified_profile_chunk_budget_and_independent_group_ablation(tmp_path,monkeypatch):
+    monkeypatch.setattr(s.os,'environ',dict(s.os.environ))
+    x=args('conservative');x.profile='r_chunk1024_d4'
+    d=s.build(x,tmp_path)
+    assert d['effective_profile']==x.profile and d['profile_override']==x.profile
+    assert d['effective_prefill_token_budget']==1024
+    assert '--enable_chunked_prefill' in d['command']
+    assert d['command'][d['command'].index('--max-model-len')+1]=='16640'
+    assert d['command'][d['command'].index('--max-num-batched-tokens')+1]=='1024'
+    assert 'candidate' in d['profile_acceptance']
+    x.disable_expert_grouping=True
+    e=s.build(x,tmp_path)
+    assert 'decode_expert_group_size' not in json.loads(e['settings']['MELLUM_BATCH_CAMPAIGN_CONFIG'])
+    assert e['settings']['MELLUM_REFERENCE_CHUNKED']=='1' and e['settings']['MELLUM_DIRECT_KV_WRITE']=='1'
+    x.disable_chunked_prefill=True
+    f=s.build(x,tmp_path)
+    assert '--no-enable_chunked_prefill' in f['command']
+    assert f['effective_prefill_token_budget']==16640
+    assert f['settings']['MELLUM_C_DECODE_STEPS']=='0'
+
+
+def test_chunk_kv_dependency_is_explicit_and_invalid_mode_rejected(tmp_path,monkeypatch):
+    import pytest
+    monkeypatch.setattr(s.os,'environ',dict(s.os.environ))
+    x=args('conservative');x.profile='r_chunk1024_d4';x.disable_direct_kv=True
+    with pytest.raises(ValueError,match='requires direct KV'):s.build(x,tmp_path)
+    x.disable_chunked_prefill=True
+    assert s.build(x,tmp_path)['settings']['MELLUM_DIRECT_KV_WRITE']=='0'
+    x=args('aggressive');x.profile='r_chunk1024_d4'
+    with pytest.raises(ValueError,match='conservative mode'):s.build(x,tmp_path)
