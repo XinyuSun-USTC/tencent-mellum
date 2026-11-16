@@ -47,3 +47,12 @@ def test_screen_pass_remains_distinct_from_final_acceptance(tmp_path,monkeypatch
     result=s.execute(tmp_path,plan,120,execute)
     assert result['status']=='screen_passed_full_acceptance_pending'
     assert json.loads((tmp_path/'summary.json').read_text())['status']==result['status']
+
+
+def test_single_token_v_is_not_misclassified_as_a_cache_failure():
+    class V:
+        def __init__(self,n,contiguous):self.shape=(n,4,128);self.contiguous=contiguous
+        def is_contiguous(self):return self.contiguous
+    assert s.packed_v_layout_covered(V(1,True))
+    assert s.packed_v_layout_covered(V(6,False))
+    assert not s.packed_v_layout_covered(V(6,True))

@@ -28,6 +28,12 @@ def settings(gpu,out,candidate=True):
     os.environ.update(env);return env
 
 
+def packed_v_layout_covered(v):
+    # Singleton leading dimensions can legally be contiguous despite a packed
+    # source. Multi-token cases must exercise a genuinely strided V view.
+    return v.shape[0]==1 or not v.is_contiguous()
+
+
 def cache_worker(out,gpu):
     settings(gpu,out,False);sys.path.insert(0,str(PROJECT/'ATOM'))
     import torch
@@ -74,7 +80,7 @@ def cache_worker(out,gpu):
                 'gathered_keys_exact':torch.equal(keys[written],y1[1][valid]),
                 'gathered_values_exact':torch.equal(values[written],a1[2][valid]),
                 'untouched_slots':bool((keys[untouched]==-7).all() and (values[untouched]==-9).all()),
-                'candidate_input_unchanged':torch.equal(p1,seed),'strided_v':not a1[2].is_contiguous()}
+                'candidate_input_unchanged':torch.equal(p1,seed),'packed_v_layout_covered':packed_v_layout_covered(a1[2])}
             # Identical input reset is included in BOTH timings to avoid repeated
             # in-place rotations in the reference kernel changing input values.
             def measure(impl,packed,args):
@@ -87,7 +93,7 @@ def cache_worker(out,gpu):
                     end.record();end.synchronize();samples.append(start.elapsed_time(end)/10)
                 return sorted(samples)[1]
             old_ms=measure(old,p0,a0);new_ms=measure(new,p1,a1)
-            row={'kind':kind,'tokens':n,'window':window,'cache_layout':new._cache_format,'checks':checks,'old_ms':old_ms,'new_ms':new_ms,'local_speedup':old_ms/new_ms}
+            row={'kind':kind,'tokens':n,'window':window,'cache_layout':new._cache_format,'v_is_contiguous':a1[2].is_contiguous(),'checks':checks,'old_ms':old_ms,'new_ms':new_ms,'local_speedup':old_ms/new_ms}
             results.append(row);write(out/'results.json',{'status':'running','cases':results});print('CACHE',kind,n,'checks',all(checks.values()),'ratio',old_ms/new_ms,flush=True)
             if not all(checks.values()):raise ValueError('Reference cache A/B mismatch; no model test launched')
     write(out/'results.json',{'status':'passed','cases':results,'scope':'Actual old/new RoPE-cache and full physical-cache comparison; timings include identical input reset; not model speed'})
