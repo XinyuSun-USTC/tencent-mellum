@@ -1,0 +1,28 @@
+{
+  "scope": "CPU preparation only; no new GPU experiment executed by tool",
+  "commits": {
+    "native_prefix": "c34a96a",
+    "native_abc": "cd2c3e3"
+  },
+  "cpu_checks": {
+    "native_prefix": 72,
+    "native_abc": 22
+  },
+  "prepared_manifests": {
+    "GPU0": {
+      "path": "/workspace/results/mellum_native_prefix/20261116T024450955015Z/manifest.json",
+      "sha256": "592592a83b8cffffb50c0977fa77953ea87988025a616fd1d1d2a043b116d20a"
+    },
+    "GPU1": {
+      "path": "/workspace/results/mellum_abc_optimized/20261116T023922941355Z/manifest.json",
+      "sha256": "bf08db4f1e776893dafa10724cae4d1d99c97f890180ca5fce0ffa93513c2aea"
+    }
+  },
+  "checks": [
+    "model/source hashes unchanged",
+    "input hashes checked",
+    "pinned client audit and frozen distributions checked",
+    "GPU0 prefix/native profile and GPU1 full50/512/200 counts checked",
+    "distinct GPU/HTTP/engine ports"
+  ]
+}
