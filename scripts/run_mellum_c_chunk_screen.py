@@ -8,7 +8,7 @@ from mellum_perf_protocol import sha,load_rows
 from mellum_process_runner import run_stage
 from run_mellum_batch_campaign import write
 import run_mellum_abc_baseline as perf
-PROFILES=('r_prefix_only','r_prefix_chunk1024_d1','r_prefix_chunk2048_d1','r_chunk1024_d1','r_chunk2048_d1','r_expert_decode4_kv_once','r_chunk512_d4','r_chunk1024_d4','r_chunk2048_d4')
+PROFILES=('r_swa4_abort','r_swa4_abort_prefix','r_swa4_abort_prefix_chunk1024_d4','r_prefix_only','r_prefix_chunk1024_d1','r_prefix_chunk2048_d1','r_chunk1024_d1','r_chunk2048_d1','r_expert_decode4_kv_once','r_chunk512_d4','r_chunk1024_d4','r_chunk2048_d4')
 
 
 def current(plan):
@@ -32,7 +32,7 @@ def prepare(out,gpu,profiles,count):
     rows={r['id']:r for r in load_rows(case['source'])};subset=template/'inputs'/f'C{count}.jsonl'
     subset.write_text(''.join(json.dumps(rows[r['id']],ensure_ascii=False)+'\n' for r in case['expected']))
     case['source']=str(subset);external[str(subset)]=sha(subset)
-    files=list((PROJECT/'ATOM/atom/model_config').glob('mellum*.py'))+[PROJECT/'ATOM/atom/model_engine/scheduler.py',PROJECT/'ATOM/atom/models/mellum.py',Path(__file__).resolve(),PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'scripts/serve_mellum.py',PROJECT/'scripts/run_mellum_abc_baseline.py']
+    files=list((PROJECT/'ATOM/atom/model_config').glob('mellum*.py'))+[PROJECT/'ATOM/atom/model_engine/engine_core.py',PROJECT/'ATOM/atom/model_engine/engine_core_mgr.py',PROJECT/'ATOM/atom/model_engine/model_runner.py',PROJECT/'ATOM/atom/entrypoints/openai/serving_chat.py',PROJECT/'ATOM/atom/entrypoints/openai/api_server.py',PROJECT/'ATOM/atom/model_engine/scheduler.py',PROJECT/'ATOM/atom/models/mellum.py',Path(__file__).resolve(),PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'scripts/serve_mellum.py',PROJECT/'scripts/run_mellum_abc_baseline.py']
     plan={'gpu':gpu,'profiles':profiles,'count':count,'cases':cases,'capacity_case':case,'source_sha256':{str(p):sha(p) for p in files},'external_sha256':external,
           'scope':f'Exploratory reference chunking; four-prompt smoke + C{count}, rate0.3 output256 timeout180. Not full correctness acceptance or idle judge median.'}
     write(out/'manifest.json',plan);return plan
@@ -108,7 +108,16 @@ def main():
     p.add_argument('--profiles',nargs='+',choices=PROFILES,default=['r_chunk1024_d4']);p.add_argument('--count',type=int,choices=[20,60,200],default=60)
     p.add_argument('--budget-minutes',type=float,default=40);p.add_argument('--prepare-only',action='store_true');p.add_argument('--smoke-worker',type=Path);p.add_argument('--capacity-worker',type=Path);a=p.parse_args()
     if a.smoke_worker:smoke_worker(a.smoke_worker);return
-    if a.capacity_worker:perf.stage_worker(a.capacity_worker);return
+    if a.capacity_worker:
+        # C60 is diagnostic; include actual step/abort receipts.
+        original=perf.subprocess.Popen
+        def launch(command,*args,**kwargs):
+            if any(str(x).endswith('/serve_mellum.py') for x in command) and '--phase-audit' not in command:command.append('--phase-audit')
+            return original(command,*args,**kwargs)
+        perf.subprocess.Popen=launch
+        try:perf.stage_worker(a.capacity_worker)
+        finally:perf.subprocess.Popen=original
+        return
     if not 5<=a.budget_minutes<=120:p.error('Budget5..120min')
     out=Path('/workspace/results/mellum_c_chunk_screen')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
     plan=prepare(out,a.gpu,a.profiles,a.count)
