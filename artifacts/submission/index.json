@@ -18,7 +18,8 @@
     "reference_kv_screen": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z",
     "expert_group_screen": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z",
     "expert_group4_c20": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4",
-    "reference_combination_screen": "/workspace/results/mellum_reference_combination/20261116T194929892323Z"
+    "reference_combination_screen": "/workspace/results/mellum_reference_combination/20261116T194929892323Z",
+    "reference_combination_acceptance": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once"
   },
   "files": {
     "artifacts/submission/aggressive_abc/manifest.json": {
@@ -5125,6 +5126,101 @@
       "sha256": "3f9e29a63436031df8e37401505f441bdd9bb465544c4c7083b6d06427e50ccf",
       "bytes": 56474,
       "original": "/workspace/results/mellum_reference_combination/20261116T194929892323Z/worker.log"
+    },
+    "artifacts/submission/reference_combination_acceptance/batch_evidence.json": {
+      "sha256": "ee497c692e22f7814aa983139a96f57528366cce2353e2e2b6134f00df1010e8",
+      "bytes": 746,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/batch_evidence.json"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate/batches.jsonl": {
+      "sha256": "d6e8083ea5ba20d1b008dca07cb2783927185deb4db8a914a1dfac37a3d1cd13",
+      "bytes": 496346,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate/batches.jsonl"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate/expert_groups.jsonl": {
+      "sha256": "a84e90ae0eca1a79e0fb38a70e5b45a229c954722a5b98aaecdba40b6c75fb84",
+      "bytes": 560326,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate/expert_groups.jsonl"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate/fastpaths.json"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate/loading_audit.json"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate/native_calls.jsonl": {
+      "sha256": "874afd97268631be4262efc70e8223ede1aa98fb4735c524ada0182c525fc792",
+      "bytes": 415,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate/native_calls.jsonl"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate.log": {
+      "sha256": "edeb4020d1bb5efa4fca9d546b10f0f1b744ce16af1321e22eb05526ea93f3f6",
+      "bytes": 117921,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate.log"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate_extraction.json": {
+      "sha256": "4d77efe1b82b802da8492817160ac0b3868f2e68d6e77f21389d6c1ab758e8d1",
+      "bytes": 357272,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate_extraction.json"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate_samples.jsonl": {
+      "sha256": "78d389839a4263d6ee1fb967aac93e7adc3c5b8850c4a9a48ccfe86a87f05f66",
+      "bytes": 155278,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate_samples.jsonl"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate_score/evaluation.log": {
+      "sha256": "977b729307292c0ee3fa19e4f842c8335e58b707e79ba25cbe9ffa7aa951b11d",
+      "bytes": 1318,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate_score/evaluation.log"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate_score/evaluator_manifest.json": {
+      "sha256": "ffe13c3c02260781d36d960c2e43a856b27e792c7a3beb7d2d28e18b3eb9b555",
+      "bytes": 752,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate_score/evaluator_manifest.json"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate_score/samples.jsonl_results.jsonl": {
+      "sha256": "9f514b57f3f96976b88f77b2618309553b42a170fdb1104d7801a2616c41afae",
+      "bytes": 161433,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate_score/samples.jsonl_results.jsonl"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate_score/score.json": {
+      "sha256": "4ee6771051a05591bdc79ee7a3733db8b8c24ece6e9d6e9a16f7e2ffa776b7c9",
+      "bytes": 189,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate_score/score.json"
+    },
+    "artifacts/submission/reference_combination_acceptance/candidate_score.log": {
+      "sha256": "3988eba5560afb2e74ce58ea78f9ef86d8fdbb483a0ff8e49063933a34ffe941",
+      "bytes": 151,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/candidate_score.log"
+    },
+    "artifacts/submission/reference_combination_acceptance/humaneval_generation.json": {
+      "sha256": "1716801903d94ed2510b444d15e7c4955fb03ae259fd43e6d71d8c37c4fef56e",
+      "bytes": 2233231,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/humaneval_generation.json"
+    },
+    "artifacts/submission/reference_combination_acceptance/long_generation.json": {
+      "sha256": "12f171ad453bbd65e7ae862cd16eded2cefbffb5adcced66398563d8507359dd",
+      "bytes": 1939596,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/long_generation.json"
+    },
+    "artifacts/submission/reference_combination_acceptance/manifest.json": {
+      "sha256": "e94205cf2a8b9bde562159fa3f6f7aca1be069761fa371583a19b23f79a372ef",
+      "bytes": 44409,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/manifest.json"
+    },
+    "artifacts/submission/reference_combination_acceptance/runtime.json": {
+      "sha256": "765c2769d873b9cae87ea5c8e3e22eb527e3565c9cbc0dfc79804752c7f9eae0",
+      "bytes": 3125,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/runtime.json"
+    },
+    "artifacts/submission/reference_combination_acceptance/summary.json": {
+      "sha256": "d92e937ff84ccb5fa5531fff510c55728ac90640eb8977b62e3299f7dfb3ba19",
+      "bytes": 39100,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once/summary.json"
     }
   }
 }
