@@ -224,3 +224,7 @@
 ### 11-16 32槽主配置通过完整本地验收
 
 `/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32`为local_candidate_checks_passed、source_unchanged=true，20项产物哈希一致。200条12392/12800（96.8125%），174/200整序列；长组256/256、16k64/64；HumanEval148/164对HF145/164，绝对差1.829个百分点。实际prefill/decode均观测到32请求批次。决定将参考路径r、max_num_seqs=32确定为主配置，激进版保留为附加；主预设与已测runtime的关键环境变量及槽数通过CPU检查。GPU0优先测该主配置自身ABC，单槽补验保留作对照；不使用激进版性能替代。
+
+### 11-16 单槽参考对照通过完整验收
+
+`20261116T160211830830Z_batch1`为local_candidate_checks_passed。20项产物SHA256、246项源码、19项外部资产和3份输入均核对一致。200条12800/12800、200/200序列；长组256/256、16k64/64；HumanEval145/164，与HF逐题判定完全一致。额外逐条核对164道HumanEval完整生成token序列，全同，共54,436 token；5条提取失败/4条预算耗尽保留在164题分母。决定将单槽保留为数值精确对照及备用容量，不替换已通过的32槽主配置，不中断在跑性能实验。证据归档reference_acceptance_batch1，主ABC与累计消融仍按实际完成结果补充。

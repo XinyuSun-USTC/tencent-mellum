@@ -109,3 +109,5 @@ Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目
 主版本的完整正确性验收、同配置性能和历史Step0累计补测，见[补充实验安排](docs/submission/03_completion_experiments.md)。
 
 主版本正确性证据：[完整验收结果](artifacts/submission/primary_acceptance_batch32/summary.json)。200条另有174/200条序列完全一致（87%），报告同时保留逐位置及整序列统计；门槛判定按逐token位置比例。
+
+参考路径的单槽与32槽均已通过完整本地验收；[容量配置对照](docs/submission/04_reference_capacity_acceptance.md)记录两套独立证据。单槽HumanEval的164条完整生成序列与HF全部一致，可作为精确对照及备用容量；当前主配置仍为32槽。
