@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+下一短对照：[48 专家/Attention最小矩阵](plan/48_core_attention_expert_diagnosis.md)，独立core-diagnosis提交29063ee，使用空闲GPU0；GPU1慢参考控制保持运行。20条固定分层仅作定位，不冒充200验收。
+
 最新诊断：[验证41 Norm恢复](../report/validation/41_norm_greedy_recovery.md)：本轮200位置65.23→66.98→71.85→72.91%，仍低于90%；暂停快速HF Norm后备，等待systems控制组定位其它因素。
 
 并行CPU后备：[47 HF语义融合Norm](plan/47_conditional_hf_norm_fusion.md)，独立hf-norm提交d9345c7。仅当当前参考Norm分支实测≥90%才允许GPU后续；49项CPU检查、4种gfx942离线编译通过，未跑GPU。
