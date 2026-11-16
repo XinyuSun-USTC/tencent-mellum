@@ -11,6 +11,7 @@
 | 四轮配额分段 C60 结果 | [性能38](../report/performance/38_c_chunked_prefill_screen.md) |
 | 准入等待与前缀计量 | [性能39](../report/performance/39_c_admission_and_prefix_accounting.md) |
 | 一轮配额与前缀缓存，C60仍失败 | [计划57](plan/57_c_prefix_and_decode_quota.md) |
+| SWA分组与交错取消结果 | [结果43](../report/performance/43_swa_decode_groups_and_abort_interleaving.md) |
 | 断连修复检查 | [结果42](../report/performance/42_disconnect_abort_check.md) |
 | 单卡后续：SWA分组与取消修复 | [计划60](plan/60_single_gpu_decode_and_abort_candidates.md)、[诊断41](../report/performance/41_isolated_decode_and_live_disconnect.md) |
 | 候选：解码元数据与P/D可行性 | [计划59](plan/59_pd_feasibility_and_decode_candidates.md) |

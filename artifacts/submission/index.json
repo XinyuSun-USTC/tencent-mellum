@@ -28,7 +28,9 @@
     "c_reference_prefix_screen": "/workspace/results/mellum_c_chunk_screen/20261116T212008871299Z",
     "c_isolated_decode": "/workspace/results/mellum_c_service_diagnosis/20261116T221216213089Z_decode",
     "c_disconnect_diagnosis": "/workspace/results/mellum_c_service_diagnosis/20261116T221223452847Z_disconnect",
-    "c_disconnect_abort_check": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect"
+    "c_disconnect_abort_check": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect",
+    "swa_decode_group_screen": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z",
+    "abort_interleaving_check": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z"
   },
   "files": {
     "artifacts/submission/aggressive_abc/manifest.json": {
@@ -6877,6 +6879,506 @@
       "sha256": "1f6eb6c7e236775e8012fed84ecd7447412abaccc3bc9e7eddf314f0fce5e3d6",
       "bytes": 12496,
       "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/summary.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/manifest.json": {
+      "sha256": "4f414fcbe2fa58a30b4d8890c64d85502dce45a5e2e21f2e3d36077076e19a42",
+      "bytes": 41644,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/manifest.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_decode_meta/generation/batch_evidence.json": {
+      "sha256": "4037090d72b228d14721036f97758e8f81e77abfcc161c9e5aa63795a266a019",
+      "bytes": 294,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_decode_meta/generation/batch_evidence.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_decode_meta/generation/candidate/batches.jsonl": {
+      "sha256": "a2cbd82a555b071af0c6007b53c60652deddfb56ca1fc0d3a01c07b21d91e893",
+      "bytes": 107386,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_decode_meta/generation/candidate/batches.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_decode_meta/generation/candidate/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_decode_meta/generation/candidate/fastpaths.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_decode_meta/generation/candidate/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_decode_meta/generation/candidate/loading_audit.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_decode_meta/generation/candidate/native_calls.jsonl": {
+      "sha256": "697bf4a2f6302dddb289e7102f6d2d21ddc184f6c93caf16aa66aad09b9975fa",
+      "bytes": 415,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_decode_meta/generation/candidate/native_calls.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_decode_meta/generation/long_generation.json": {
+      "sha256": "e1d3c5ee7114f3d11bb1dbcbb0bf44f4c445ea6c8a766bcfe80cb006545cbbba",
+      "bytes": 1939585,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_decode_meta/generation/long_generation.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_decode_meta/generation/manifest.json": {
+      "sha256": "de5afe7d61b7256b4c2c7239cbd948e6c3f80a4ed101195fad40af645f57544a",
+      "bytes": 43677,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_decode_meta/generation/manifest.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_decode_meta/generation/runtime.json": {
+      "sha256": "dff28f9ccac6ad8cef7bf982312260ac2ea803426dc29fa212309a520879dd8e",
+      "bytes": 2919,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_decode_meta/generation/runtime.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_decode_meta/generation/summary.json": {
+      "sha256": "65ba02c3291cb56a63a53ec735f23a31c0663ebf25e38115e8062b2b296ec32a",
+      "bytes": 40178,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_decode_meta/generation/summary.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_decode_meta/generation/worker.log": {
+      "sha256": "11e30e5be3d728dfe391adda6d6578a4f700365f3526a69479e523e82c561fb0",
+      "bytes": 56474,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_decode_meta/generation/worker.log"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode2/generation/batch_evidence.json": {
+      "sha256": "4037090d72b228d14721036f97758e8f81e77abfcc161c9e5aa63795a266a019",
+      "bytes": 294,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode2/generation/batch_evidence.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode2/generation/candidate/batches.jsonl": {
+      "sha256": "a2cbd82a555b071af0c6007b53c60652deddfb56ca1fc0d3a01c07b21d91e893",
+      "bytes": 107386,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode2/generation/candidate/batches.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode2/generation/candidate/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode2/generation/candidate/fastpaths.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode2/generation/candidate/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode2/generation/candidate/loading_audit.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode2/generation/candidate/native_calls.jsonl": {
+      "sha256": "d00cdc13b9303ab0283c2b7cb87a43f1e090d257e84535e54af61cdf586a1770",
+      "bytes": 907,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode2/generation/candidate/native_calls.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode2/generation/long_generation.json": {
+      "sha256": "400a00fb20441cdda77a004f6de2114fe84db039964c16594cf00cbdc10f02de",
+      "bytes": 1939585,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode2/generation/long_generation.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode2/generation/manifest.json": {
+      "sha256": "a940dc93b3d81b55efe527c5c1ccb5786e018fb528d0da49e7ec578ee0393f78",
+      "bytes": 43677,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode2/generation/manifest.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode2/generation/runtime.json": {
+      "sha256": "c35fe8a66c12ee9600a29c05f097c9c017dd457d3b7f2949624665a851db722c",
+      "bytes": 2955,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode2/generation/runtime.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode2/generation/summary.json": {
+      "sha256": "229eda4a025b79220a7d728e2e48f22eb35cf225fdd432695a026dce0262c554",
+      "bytes": 40216,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode2/generation/summary.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode2/generation/worker.log": {
+      "sha256": "596fb2d3bf2e1ba6fcaa8c69d6fc58cc86f8e9b2a2bee8d838fa49d62061db33",
+      "bytes": 56474,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode2/generation/worker.log"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode4/generation/batch_evidence.json": {
+      "sha256": "4037090d72b228d14721036f97758e8f81e77abfcc161c9e5aa63795a266a019",
+      "bytes": 294,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode4/generation/batch_evidence.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode4/generation/candidate/batches.jsonl": {
+      "sha256": "a2cbd82a555b071af0c6007b53c60652deddfb56ca1fc0d3a01c07b21d91e893",
+      "bytes": 107386,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode4/generation/candidate/batches.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode4/generation/candidate/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode4/generation/candidate/fastpaths.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode4/generation/candidate/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode4/generation/candidate/loading_audit.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode4/generation/candidate/native_calls.jsonl": {
+      "sha256": "50c72ec8bb0223df6fddea208bd1b6b1ef81c20377e474fdcb242a664ba5ce41",
+      "bytes": 906,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode4/generation/candidate/native_calls.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode4/generation/long_generation.json": {
+      "sha256": "8e40b50ebc4d9a7cc85189e43db4f9fff48767a1b61e2058d0a70e667c318460",
+      "bytes": 1939585,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode4/generation/long_generation.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode4/generation/manifest.json": {
+      "sha256": "c87895e5ff3bb16b8f6fb5c0350520d612acff367d1a55cb78b1523664b8ca41",
+      "bytes": 43677,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode4/generation/manifest.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode4/generation/runtime.json": {
+      "sha256": "d55e50ec21b6aa3918b8b207c29cfe58dc7253195c27f6b2d8bc585b591328cc",
+      "bytes": 2955,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode4/generation/runtime.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode4/generation/summary.json": {
+      "sha256": "4ea965c3b25fdc1a76df9607d06ef8a9e3745aafe7f82145db769e4b5de8a814",
+      "bytes": 40216,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode4/generation/summary.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/r_swa_decode4/generation/worker.log": {
+      "sha256": "974df2e40def2e4e57a8a8bbcbd4b094582384f08e42e19a7123ebd8a19315ec",
+      "bytes": 56474,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/r_swa_decode4/generation/worker.log"
+    },
+    "artifacts/submission/swa_decode_group_screen/summary.json": {
+      "sha256": "6c9d32eb8428feff42b6cdb4c32945304de44d2b5f136877821ffb632adf943e",
+      "bytes": 182667,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/summary.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R1/batches.jsonl": {
+      "sha256": "43ea4f8f8517b425bd558829a159570bbf3b22ba47775effe567a6ee1184a147",
+      "bytes": 29944,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R1/batches.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R1/decode_batch32_callbacks.json": {
+      "sha256": "a33cc054847572ee6b1d14a6c0e0d2479b883c352a19e06914175c4a11d39b51",
+      "bytes": 256235,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R1/decode_batch32_callbacks.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R1/decode_batch32_steps.json": {
+      "sha256": "1274e97cff1b2254730941e30571cd1e0906d303aab1cd6de5e89d5c0df928e8",
+      "bytes": 100990,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R1/decode_batch32_steps.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R1/decode_batch8_callbacks.json": {
+      "sha256": "9b78c9d9334fbbf481f1c6103d2c03f440738ba4881111543474df92d6efd68c",
+      "bytes": 63733,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R1/decode_batch8_callbacks.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R1/decode_batch8_steps.json": {
+      "sha256": "24e022c36d52c1a1a3214a7dc144875d4af71c7dd7cab462b478eb7d195d937f",
+      "bytes": 42478,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R1/decode_batch8_steps.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R1/decode_results.json": {
+      "sha256": "7343d4803e430702f6183acf1616aad959fd71183f4f5cf487c4d0830b35d4db",
+      "bytes": 3459,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R1/decode_results.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R1/engine_steps.jsonl": {
+      "sha256": "f45a455ebb3a7c25cdba679fb3b5121a52419ef8226c6952f2e8f800aaa0847a",
+      "bytes": 86553,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R1/engine_steps.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R1/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R1/loading_audit.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R1/native_calls.jsonl": {
+      "sha256": "9f4ac60b02cd1950ba9e88a859fc25355dcbc690901cac8be8389e874743afd0",
+      "bytes": 412,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R1/native_calls.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R1/worker.log": {
+      "sha256": "4a52b22e2fc08621d588b5d2a9f082751c45a2007c426522421090e86cd62c9b",
+      "bytes": 21218,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R1/worker.log"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R2/batches.jsonl": {
+      "sha256": "43ea4f8f8517b425bd558829a159570bbf3b22ba47775effe567a6ee1184a147",
+      "bytes": 29944,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R2/batches.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R2/decode_batch32_callbacks.json": {
+      "sha256": "8f4790cd5595a860f050770b86698b2080e9f05f575b1ff2bab03181c14dc3ec",
+      "bytes": 256235,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R2/decode_batch32_callbacks.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R2/decode_batch32_steps.json": {
+      "sha256": "c234f5fbf0e6e912a9e462f5333c3ddb1637ae445f69971057a01f9fcbf9beb3",
+      "bytes": 100990,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R2/decode_batch32_steps.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R2/decode_batch8_callbacks.json": {
+      "sha256": "887db900e8a7975f328058c8333d9eec4af922791fa3f7f1b0c6a85323bfa974",
+      "bytes": 63733,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R2/decode_batch8_callbacks.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R2/decode_batch8_steps.json": {
+      "sha256": "f0e6d2525877d61fd155aa5ca27c7b8cb95f470f3581d0ea8990afbe259202f5",
+      "bytes": 42478,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R2/decode_batch8_steps.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R2/decode_results.json": {
+      "sha256": "4404c0aae313c1166f4cb6ba6f523ad8f6f34727e069c419117d1b7c373110bd",
+      "bytes": 3458,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R2/decode_results.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R2/engine_steps.jsonl": {
+      "sha256": "a1c6781960ed0549961a8c761fd84c7bf4001c797d3eea3602db0c4c0ba99bb9",
+      "bytes": 86553,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R2/engine_steps.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R2/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R2/loading_audit.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R2/native_calls.jsonl": {
+      "sha256": "9f4ac60b02cd1950ba9e88a859fc25355dcbc690901cac8be8389e874743afd0",
+      "bytes": 412,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R2/native_calls.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/R2/worker.log": {
+      "sha256": "3e3fdfe873da349e3ef72ff6c79a3d8acb1679c06d71086d931f18d4fa6d8e0b",
+      "bytes": 21217,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/R2/worker.log"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_decode_meta/batches.jsonl": {
+      "sha256": "43ea4f8f8517b425bd558829a159570bbf3b22ba47775effe567a6ee1184a147",
+      "bytes": 29944,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_decode_meta/batches.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_decode_meta/decode_batch32_callbacks.json": {
+      "sha256": "ca7a5a49351c59c0586e5a26a8e4d8ae4acc6cc8a677d0bf9423c25e238bcdcd",
+      "bytes": 256235,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_decode_meta/decode_batch32_callbacks.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_decode_meta/decode_batch32_steps.json": {
+      "sha256": "60d35c3df7e1cbc2ee7f0834ffa8a525684eb578bde39dc1ba463506b98e532c",
+      "bytes": 100990,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_decode_meta/decode_batch32_steps.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_decode_meta/decode_batch8_callbacks.json": {
+      "sha256": "b6e9df7a26353f88206ab5a85b4d0404fec1b59659e95117d1e75ba35b9ab1bd",
+      "bytes": 63733,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_decode_meta/decode_batch8_callbacks.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_decode_meta/decode_batch8_steps.json": {
+      "sha256": "ca9f40368cbca73a4bbf79a1deb6561885203f35602a93d05cce68c2b4ad2722",
+      "bytes": 42478,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_decode_meta/decode_batch8_steps.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_decode_meta/decode_results.json": {
+      "sha256": "a253d11ddf4d1ad3bbb7e95bf4bf57068c551952b6cc1fc4759fe6cc9d4e3840",
+      "bytes": 3446,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_decode_meta/decode_results.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_decode_meta/engine_steps.jsonl": {
+      "sha256": "1541281b6ac9fcb083438b6f08c67bad44225d5a20a9e261d41775385db530e9",
+      "bytes": 86553,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_decode_meta/engine_steps.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_decode_meta/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_decode_meta/loading_audit.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_decode_meta/native_calls.jsonl": {
+      "sha256": "9f4ac60b02cd1950ba9e88a859fc25355dcbc690901cac8be8389e874743afd0",
+      "bytes": 412,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_decode_meta/native_calls.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_decode_meta/worker.log": {
+      "sha256": "93caac11fbd0078ff3514b2af7c322af1033d77215def82b78c4fe37862e24a6",
+      "bytes": 21217,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_decode_meta/worker.log"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode2/batches.jsonl": {
+      "sha256": "43ea4f8f8517b425bd558829a159570bbf3b22ba47775effe567a6ee1184a147",
+      "bytes": 29944,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode2/batches.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode2/decode_batch32_callbacks.json": {
+      "sha256": "6352890617ce138b594a6118fb7ad00feb12b3b2bd2e5299d215359b9ae79abb",
+      "bytes": 256235,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode2/decode_batch32_callbacks.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode2/decode_batch32_steps.json": {
+      "sha256": "1714aabb7fd786600e76460d4f538b0471d49b1ae4c91c606cabed94f3cace0a",
+      "bytes": 100990,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode2/decode_batch32_steps.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode2/decode_batch8_callbacks.json": {
+      "sha256": "c4f53607a91ec5abf1895ed181639e8b44c33e01c4822d5af4c9020627dae6b5",
+      "bytes": 63733,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode2/decode_batch8_callbacks.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode2/decode_batch8_steps.json": {
+      "sha256": "d5ca4e49e44147f364ccd0be332339984dee6829bb79d7061256e52408d40de4",
+      "bytes": 42478,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode2/decode_batch8_steps.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode2/decode_results.json": {
+      "sha256": "14ff9bb4ff7c757a38771e40c3e3c570f01e8f00ebffb4d9284c98be6223acb7",
+      "bytes": 3449,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode2/decode_results.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode2/engine_steps.jsonl": {
+      "sha256": "7b168522c02053bc1c3fa435b8545c08c5eaf2339495393cda990631dca1a6c8",
+      "bytes": 86553,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode2/engine_steps.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode2/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode2/loading_audit.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode2/native_calls.jsonl": {
+      "sha256": "88f576c7b038ecbe085331e2c1f5e5f2089c57f470f09e003d596e74c4e6231a",
+      "bytes": 741,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode2/native_calls.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode2/worker.log": {
+      "sha256": "7e63cda3b33a79e581fe403141ca7623ef3decb786f65cb5c0357d4959a1768c",
+      "bytes": 21186,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode2/worker.log"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode4/batches.jsonl": {
+      "sha256": "43ea4f8f8517b425bd558829a159570bbf3b22ba47775effe567a6ee1184a147",
+      "bytes": 29944,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode4/batches.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode4/decode_batch32_callbacks.json": {
+      "sha256": "5e19d92fe1ebd68e1471de219c535580c563a42e687b1ee4989bb31102d052c6",
+      "bytes": 256235,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode4/decode_batch32_callbacks.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode4/decode_batch32_steps.json": {
+      "sha256": "65ae56eb60f3759bd14e895716a3ce34711c4ac29c53b4389f25fe2156f190cf",
+      "bytes": 100990,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode4/decode_batch32_steps.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode4/decode_batch8_callbacks.json": {
+      "sha256": "364651ef41b80957a4ca63bdde01a04e49d0d7d62233e2b40753f668d8d005a6",
+      "bytes": 63733,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode4/decode_batch8_callbacks.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode4/decode_batch8_steps.json": {
+      "sha256": "5b76f577867c031ecff10c9f797aaeb3bde6690de134b9bd8092f4bbfc9b0522",
+      "bytes": 42478,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode4/decode_batch8_steps.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode4/decode_results.json": {
+      "sha256": "2e8ef577e20da123f75935a00ac5bba5f448d20080f6c950ca5e9b643b0b16a1",
+      "bytes": 3444,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode4/decode_results.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode4/engine_steps.jsonl": {
+      "sha256": "a213e7cbfc0cc4cd8074a93e99e4b2b5b50c8d6aea51de8e37fbc096c1990016",
+      "bytes": 86553,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode4/engine_steps.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode4/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode4/loading_audit.json"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode4/native_calls.jsonl": {
+      "sha256": "9439de370211f9eeb869a3fba0011383def4d78c1144447f1c2d30479ed5ca9f",
+      "bytes": 740,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode4/native_calls.jsonl"
+    },
+    "artifacts/submission/swa_decode_group_screen/timing/r_swa_decode4/worker.log": {
+      "sha256": "96008b16bb643b647d49025dd9669113c6ae26d1451355c9b820c7ed9a784ffa",
+      "bytes": 21185,
+      "original": "/workspace/results/mellum_swa_decode_groups/20261116T223748152712Z/timing/r_swa_decode4/worker.log"
+    },
+    "artifacts/submission/abort_interleaving_check/manifest.json": {
+      "sha256": "4faad15fb3d8172d43296dfc5767606ab6bf30f682dad853945d0b47c10343fb",
+      "bytes": 140538,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/manifest.json"
+    },
+    "artifacts/submission/abort_interleaving_check/role/plan.json": {
+      "sha256": "2c52839228aa3c756f8a9c912007bebb3a14797a6997c42b6f6f81de507338b7",
+      "bytes": 140556,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/role/plan.json"
+    },
+    "artifacts/submission/abort_interleaving_check/role/results.json": {
+      "sha256": "2feb2c066551137c1c6e364065ae57d611abfd421bfdd1b7c5c9637630cee140",
+      "bytes": 105793,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/role/results.json"
+    },
+    "artifacts/submission/abort_interleaving_check/role/server/engine_steps.jsonl": {
+      "sha256": "b14bdf3fa21576012bb18d727dc4b639e82e1886255fa57f28170c1e4c8a39ab",
+      "bytes": 82468,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/role/server/engine_steps.jsonl"
+    },
+    "artifacts/submission/abort_interleaving_check/role/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/role/server/fastpaths.json"
+    },
+    "artifacts/submission/abort_interleaving_check/role/server/launch.json": {
+      "sha256": "7b787028a56043a6c985195dba2f3762194e978df2a1fcd38a79ec7e566ead27",
+      "bytes": 4010,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/role/server/launch.json"
+    },
+    "artifacts/submission/abort_interleaving_check/role/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/role/server/loading_audit.json"
+    },
+    "artifacts/submission/abort_interleaving_check/role/server.log": {
+      "sha256": "aa1892af04d092b62031577ffc4f6c18c7afdbefaed3ca12531c1b69397ebc48",
+      "bytes": 9799,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/role/server.log"
+    },
+    "artifacts/submission/abort_interleaving_check/role/worker.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/role/worker.log"
+    },
+    "artifacts/submission/abort_interleaving_check/summary.json": {
+      "sha256": "a5191e68e318c8e405269653ce06cd7d878cbb92750d7db79c0dc04abe38cc61",
+      "bytes": 223404,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/summary.json"
+    },
+    "artifacts/submission/abort_interleaving_check/token/plan.json": {
+      "sha256": "b39a305977d307e65f58c5899d3e54d31d0cfbbcc018fc3a4e2a9f658f87e619",
+      "bytes": 140557,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/token/plan.json"
+    },
+    "artifacts/submission/abort_interleaving_check/token/results.json": {
+      "sha256": "5b924402027ba9b343655f01ef8c29b106eacc09407e697641c159ce2b597d95",
+      "bytes": 106161,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/token/results.json"
+    },
+    "artifacts/submission/abort_interleaving_check/token/server/engine_steps.jsonl": {
+      "sha256": "c7ea63d616d94af463a1bcb0e0269688aa90b85fe67007dcead6343cb35e3f77",
+      "bytes": 82507,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/token/server/engine_steps.jsonl"
+    },
+    "artifacts/submission/abort_interleaving_check/token/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/token/server/fastpaths.json"
+    },
+    "artifacts/submission/abort_interleaving_check/token/server/launch.json": {
+      "sha256": "c9f86ba207b009ed8745c13995a7f626e05ad46ae2c476a08c48ccf1c1137d62",
+      "bytes": 4013,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/token/server/launch.json"
+    },
+    "artifacts/submission/abort_interleaving_check/token/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/token/server/loading_audit.json"
+    },
+    "artifacts/submission/abort_interleaving_check/token/server.log": {
+      "sha256": "aa03b6ad6289b35f313b89e6781d1dd5bf871ae3e568c2943087c208644baccc",
+      "bytes": 9800,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/token/server.log"
+    },
+    "artifacts/submission/abort_interleaving_check/token/worker.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "original": "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/token/worker.log"
     }
   }
 }
