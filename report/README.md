@@ -130,3 +130,5 @@
 
 - [29 原生prefix组合](performance/29_native_prefix.md)：C20 TTFT p99 1.123秒，19/20命中；组合功能待评。
 - [30 原生完整ABC](performance/30_native_full_abc.md)：A512/B50/C200全成功，A121.28tokens/s为官方19.0%，C完整尾延迟仍落后，继续削减批量执行开销。
+
+- [研究07 Graph与KV写入后续核查](research/07_graph_and_cache_write_followup.md)：空campaign阻止非eager、动态K索引、重复RoPE/KV写入及审计tolist先求值；源码依据与最小后续边界，无新性能宣称。
