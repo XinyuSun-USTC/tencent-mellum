@@ -18,6 +18,7 @@ This module provides:
 from __future__ import annotations
 
 import logging
+import os
 import time
 from collections import deque
 from typing import Optional
@@ -434,6 +435,10 @@ class Scheduler:
         self.prev_time = 0.0
         # Did we schedule a prompt at previous step?
         self.prev_prompt = False
+        self._mellum_decode_quota = int(os.getenv('MELLUM_C_DECODE_STEPS','0'))
+        if not 0 <= self._mellum_decode_quota <= 32:
+            raise ValueError('MELLUM_C_DECODE_STEPS must be0..32')
+        self._mellum_decode_remaining = 0
         # Latency of the last prompt step
         self.last_prompt_latency = 0.0
         self.delay_factor = config.scheduler_delay_factor
@@ -654,6 +659,10 @@ class Scheduler:
         if not self.running and not self.waiting:
             return None
 
+        if (self._mellum_decode_quota and self._mellum_decode_remaining > 0
+                and any(not seq.is_partial_prefill for seq in self.running)):
+            _delayer_allows_prefill = False
+
         # ---- Phase 1: resume partial prefills from running ----
         # Gated by `_delayer_allows_prefill` so cross-DP alignment still
         # holds when one rank is mid-chunked-prefill: a delayer veto skips
@@ -811,6 +820,7 @@ class Scheduler:
                 f"req_ids: {tuple(scheduled_seqs.keys())}"
             )
             self.prev_prompt = True
+            self._mellum_decode_remaining = self._mellum_decode_quota
             # lip: TODO for prefill/decode mixed batch
 
             connector_meta_output = None
@@ -837,10 +847,14 @@ class Scheduler:
         num_new_tokens = self.mtp_k + 1
         remote_kv_blocks: set[int] = set()
         remote_kv_seq_blocks: dict[int, list[int]] = {}
+        held_partial = []
         while self.running and num_seqs_decode < self.max_num_seqs:
             if num_decode_tokens + tokens_per_decode_seq > self.max_num_batched_tokens:
                 break
             seq = self.running.popleft()
+            if self._mellum_decode_quota and seq.is_partial_prefill:
+                held_partial.append(seq)
+                continue
             while not self.block_manager.can_append(seq, num_new_tokens):
                 if self.running:
                     self.preempt(self.running.pop())
@@ -882,6 +896,9 @@ class Scheduler:
                 num_scheduled_tokens.append(num_new_tokens)
                 seq.is_first_decode = False
 
+        self.running.extendleft(reversed(held_partial))
+        if num_seqs_decode > 0:
+            self._mellum_decode_remaining = max(0,self._mellum_decode_remaining-1)
         total_tokens_num_decode = sum(num_scheduled_tokens)
 
         if scheduled_seqs:

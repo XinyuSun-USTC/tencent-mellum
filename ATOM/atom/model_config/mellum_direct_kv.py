@@ -14,7 +14,8 @@ def install_direct_kv_rope(impl,inv,factor):
             raise ValueError('Direct reference KV requires BF16 non-flash cache and separate QK norm')
         meta=ctx.attn_metadata
         cached_suffix=bool(getattr(meta,'has_cached',False)) and ctx.context.is_prefill
-        if cached_suffix and os.getenv('MELLUM_PREFIX_COMPAT','0')!='1':
+        reference_chunk=os.getenv('MELLUM_REFERENCE_CHUNKED','0')=='1'
+        if cached_suffix and not reference_chunk and os.getenv('MELLUM_PREFIX_COMPAT','0')!='1':
             raise ValueError('Direct KV cached/chunked prefill requires explicit prefix compatibility')
         data=ctx.kv_cache_data[f'layer_{self.layer_num}']
         kc,vc,ks,vs=data.k_cache,data.v_cache,data.k_scale,data.v_scale
@@ -52,7 +53,7 @@ def install_direct_kv_rope(impl,inv,factor):
                 from atom.model_config.mellum_native import record
                 record('kv_write',self.layer_num,ctx,len(q),'aiter_reference_kv_once',cache_format=self._cache_format,resident_inverse=resident,inverse_device=str(frequency.device),rope_backend='triton_qk_norm_rope' if hasattr(self,'_mellum_fused_norms') else 'triton_rope' if fused else 'torch')
                 seen.add(phase);self._mellum_direct_kv_audited=seen
-        if cached_suffix:
+        if cached_suffix and not reference_chunk:
             from atom.model_config.mellum_prefix import gather_direct_prefix
             return gather_direct_prefix(self,qr,kr,v,kc,vc,ks,vs,ctx)
         return qr,kr,v,kc,vc,ks,vs

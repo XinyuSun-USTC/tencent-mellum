@@ -52,6 +52,9 @@ def main():
             command[command.index('--no-enable_chunked_prefill')]='--enable_chunked_prefill'
             command[command.index('--max-num-batched-tokens')+1]=str(chunk)
         os.environ.update(settings)
+    if settings.get('MELLUM_REFERENCE_CHUNKED')=='1':
+        command[command.index('--no-enable_chunked_prefill')]='--enable_chunked_prefill'
+        command[command.index('--max-num-batched-tokens')+1]=settings['MELLUM_CHUNK_BUDGET']
     if settings.get('MELLUM_DECODE_GRAPH')=='1':
         command.remove('--enforce-eager')
         command.extend(['--cudagraph-capture-sizes','[1,2,4,8,16,32]'])

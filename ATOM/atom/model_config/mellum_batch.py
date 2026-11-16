@@ -19,16 +19,20 @@ def proxy(impl):
     return result
 
 
-def audit(impl,phase,lengths):
+def audit(impl,phase,lengths,cached=None):
     path=os.getenv('MELLUM_BATCH_AUDIT_PATH')
     if not path or getattr(impl,'layer_num',-1)!=0:return
     target=Path(path);target.parent.mkdir(parents=True,exist_ok=True)
     with target.open('a') as stream:
-        stream.write(json.dumps({'phase':phase,'batch_size':len(lengths),'lengths':lengths})+'\n')
+        stream.write(json.dumps({'phase':phase,'batch_size':len(lengths),'lengths':lengths,'cached_tokens':cached})+'\n')
 
 
 def ragged_prefill(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx):
     meta=ctx.attn_metadata
+    if os.getenv('MELLUM_REFERENCE_CHUNKED','0')=='1':
+        from atom.model_config.mellum_chunked import cached_prefill
+        lengths=meta.cu_seqlens_q.diff().tolist();audit(self,'prefill',lengths,(meta.cu_seqlens_k.diff()-meta.cu_seqlens_q.diff()).tolist())
+        return cached_prefill(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx)
     bounds=meta.cu_seqlens_q.tolist();kbounds=meta.cu_seqlens_k.tolist()
     if len(bounds)<2 or bounds[0]!=0 or bounds[-1]!=len(q) or bounds!=kbounds:
         raise ValueError('Ragged prefill requires full uncached request boundaries')
