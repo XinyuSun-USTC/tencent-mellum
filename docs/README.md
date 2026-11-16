@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+当前实验：[40 融合结果与组合调度](plan/40_fusion_results_and_combined_scheduling.md)，scheduling分支ee3e238。QK融合A64为1062.46tokens/s、路由ABBA均值+7.39%；下一批GPU0组合重复、GPU1prefix/chunk性能筛选，仍不逐项跑HF。
+
 并行CPU开发：[39 Graph前缀缓存与chunked prefill](plan/39_graph_prefix_and_chunked_prefill.md)，独立scheduling分支12087e7。40项CPU检查通过，GPU待空闲后筛选，不修改正在运行的fusion目录。
 
 当前实验：[38 Graph路由ABBA与QK/RoPE融合](plan/38_graph_routing_and_qk_fusion.md)，独立fusion分支2dc21b2；上一批Graph A64达到943.26tokens/s，同卡较eager提升51.9%。新批仅性能筛选，不逐项跑HF。

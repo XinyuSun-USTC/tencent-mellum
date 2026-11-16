@@ -176,3 +176,5 @@
 - 优化sprint两批完成，266项产物哈希一致且全部请求成功。GPU0clean620.9951→Graph943.2600tokens/s（+51.9%），C20 TPOT p99降至22.841ms，真实回放证据完整；GPU1关闭Packed退化、原生路由约+2.8%。独立fusion分支2dc21b2实现Graph路由ABBA和Triton仅RoPE/QK-Norm+RoPE两级候选，37项CPU检查、两专门化gfx942离线编译通过。局部GPU数学冒烟后直接A64/C20筛选，完整模型正确性留最终组合，未运行GPU或宣称新融合收益。
 
 - 当前fusion两卡运行期间，独立scheduling分支12087e7完成Graph+direct-KV前缀兼容桥接、prefix开关及2048/4096 chunk内部调度候选。复用此前矩形Attention与缓存逻辑，SHUFFLE调用原生gather、NHD只读本批逻辑token，避免整个KV池转换；40项CPU检查通过，含跨块、写后gather及调度配置，准备CPU数据。未占GPU、未改fusion运行工作区，完整正确性留最终组合。
+
+- fusion两批完成并核验322项哈希/5631加载/Graph回放及后端：GPU0路由ABBA均值939.49→1008.94tokens/s（+7.39%），GPU1基线941.63→RoPE1032.72→QK融合1062.46（+12.83%），C20 TPOT p99至18.639ms，局部数学冒烟通过。scheduling分支ee3e238准备QK+路由组合ABBA及QK基线上的prefix/chunk2048/4096四项筛选，41项CPU检查通过。保持完整正确性集中到最终组合，不按单项收益叠乘或宣称正式ABC通过。
