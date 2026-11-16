@@ -10,7 +10,8 @@
 | 参考组合完整正确性与短负载收益 | [性能37](../report/performance/37_reference_kv_and_expert_groups.md) |
 | 四轮配额分段 C60 结果 | [性能38](../report/performance/38_c_chunked_prefill_screen.md) |
 | 准入等待与前缀计量 | [性能39](../report/performance/39_c_admission_and_prefix_accounting.md) |
-| 一轮配额与前缀缓存，实验待结果 | [计划57](plan/57_c_prefix_and_decode_quota.md) |
+| 一轮配额与前缀缓存，C60仍失败 | [计划57](plan/57_c_prefix_and_decode_quota.md) |
+| 新诊断：隔离decode与真实断连 | [计划58](plan/58_c_decode_and_disconnect_diagnosis.md) |
 | 候选服务入口，CPU准备 | [计划56](plan/56_qualified_entrypoint_staging.md) |
 | 答辩备查：profiling、选点、收益、消融、AI | [证据06](submission/06_profiling_evidence.md)、[决策07](submission/07_optimization_decisions.md)、[台账08](submission/08_estimates_and_ablation.md)、[AI案例09](submission/09_ai_collaboration_cases.md) |
 | 原题与来源 | [题目摘要](requirements/01_assessment_summary.md)、[来源说明](submission/01_sources_and_licenses.md) |
