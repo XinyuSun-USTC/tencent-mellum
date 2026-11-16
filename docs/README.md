@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+当前实验：[44 完整ABC与最终候选](plan/44_full_abc_results_and_final_candidate.md)：A512=1129.38tokens/s/GPU（官方1.769倍），C200 TPOT p99=13.66ms、TTFT p99=1.488s；下一批prefix+metadata完整ABC及一次性组合正确性。
+
 并行CPU准备：[43 最终组合一次性验证](plan/43_combined_candidate_acceptance.md)，独立acceptance提交25350e6。按profile保留Graph/路由/融合/缓存，一次加载候选检查开发200、长组与HE164，复用已核验HF，不逐组件重跑参考。
 
 当前实验：[42 组合结果与完整ABC](plan/42_combination_results_and_full_abc.md)，campaign提交22597b2。QK+原生路由A64两次1124.91/1127.32；prefix改善C20，chunk两档退化停止。下一批GPU0完整ABC，GPU1最快组合上的prefix/元数据最后筛选。
