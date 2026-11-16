@@ -8,6 +8,15 @@ from torch.nn import functional as F
 VARIANTS = ('cpd', 'shared_routing', 'indexed_decode')
 
 
+def decode_expert_bounds(bounds, group_size, batched):
+    if type(group_size) is not int or group_size not in (1,2,4):
+        raise ValueError('Decode expert grouping supports1/2/4 requests')
+    if not batched or group_size==1:return bounds
+    if not bounds or bounds[0]!=0 or any(b-a!=1 for a,b in zip(bounds,bounds[1:])):
+        raise ValueError('Grouped expert decode needs one token per real request')
+    return [bounds[0],*bounds[group_size:-1:group_size],bounds[-1]]
+
+
 def optimized_experts(module, hidden, logits, bounds, batched, variant):
     if variant not in VARIANTS: raise ValueError('Unknown MoE variant')
     if bounds[0] != 0 or bounds[-1] != len(hidden) or any(b<=a for a,b in zip(bounds,bounds[1:])):
@@ -34,6 +43,8 @@ def optimized_experts(module, hidden, logits, bounds, batched, variant):
 
 def install_experts(campaign, module, layer):
     original=module.forward
+    group_size=campaign.config.get('decode_expert_group_size',1)
+    decode_expert_bounds([0,1],group_size,False)
     # Reference CPD calls must bypass this wrapper to avoid recursive dispatch.
     class Original:
         def __getattr__(self,name):return getattr(module,name)
@@ -43,12 +54,17 @@ def install_experts(campaign, module, layer):
         if not (campaign.active and campaign.bounds and campaign.phase in campaign.config.get('phases',[])):
             return original(hidden,logits,batched=batched)
         variant=campaign.moe_variant
-        output=optimized_experts(reference,hidden,logits,campaign.bounds,batched,variant)
+        if group_size>1 and variant!='shared_routing':
+            raise ValueError('Grouped decode requires the reference shared routing variant')
+        bounds=decode_expert_bounds(campaign.bounds,group_size,batched)
+        output=optimized_experts(reference,hidden,logits,bounds,batched,variant)
         audit=campaign.config.get('moe_audit')
         if audit and layer==0:
             with Path(audit).open('a') as stream:
                 stream.write(json.dumps({'phase':campaign.phase,'variant':variant,'rows':len(hidden),
                     'requests':len(campaign.bounds)-1,
+                    'expert_groups':len(bounds)-1,
+                    'decode_group_size':group_size if batched else 1,
                     'backend':'indexed_triton' if variant=='indexed_decode' and batched else
                               'requestwise_gemm_shared_route' if variant!='cpd' else 'original_cpd'})+'\n')
         return output
