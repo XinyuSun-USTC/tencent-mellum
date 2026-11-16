@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+并行CPU准备：[45 消融与历史Step0](plan/45_ablation_and_historical_step0.md)，独立ablation分支2ca737d。明确R不是原始Step0，提供干净tag启动器与受约束组件矩阵；47项CPU检查及准备通过，不自动启动GPU消融。
+
 当前实验：[44 完整ABC与最终候选](plan/44_full_abc_results_and_final_candidate.md)：A512=1129.38tokens/s/GPU（官方1.769倍），C200 TPOT p99=13.66ms、TTFT p99=1.488s；下一批prefix+metadata完整ABC及一次性组合正确性。
 
 并行CPU准备：[43 最终组合一次性验证](plan/43_combined_candidate_acceptance.md)，独立acceptance提交25350e6。按profile保留Graph/路由/融合/缓存，一次加载候选检查开发200、长组与HE164，复用已核验HF，不逐组件重跑参考。

@@ -186,3 +186,5 @@
 - 完整ABC/finish运行期间，独立acceptance分支25350e6准备最终profile的一次加载验证入口：复用已核验HF200/长组/HumanEval164，保留Graph、路由、融合及缓存开关，原始IDs避免HTTP再分词；按题目位置率和HE功能分差独立报告，无tensor精确门槛。44项CPU检查及实际参考输入准备/指纹通过，冻结候选环境、评分沙箱和HE164分母不变。未占GPU或改campaign运行目录，待最终候选确定后运行一次。
 
 - 完整ABC/finish完成，210项产物哈希核验通过。sprint_graph_qk_router：A512/B50/C200全成功，A1129.3798tokens/s/GPU为官方1.7694倍；B TPOT p50=4.9299ms；C TPOT p99=13.6623ms改善66.89%，但TTFT p99=1.48832s比官方慢49.80%。GPU1prefix+metadata C20 TTFT/TPOT p99至0.70070s/12.4346ms，实际复用回执存在。选该组合补完整ABC及统一200/16k/HE验证；两工作区模型/runtime无差异，无新模型改动或GPU启动，不以小规模结果代替最终通过。
+
+- 最终ABC/统一验证运行期间，独立ablation分支2ca737d准备组件开关矩阵与历史Step0只读复现入口。核对tag=f382471，历史SDPA仅单请求、没有批处理服务桥接，不能把后来的R冒称Step0；新启动器校验精确tag及干净状态、PYTHONPATH指向detached快照、max_num_seqs1，客户端并发不改。47项相关CPU检查及快照/矩阵准备通过，3项来源检查复验通过；不自动跑全部消融，正式最多3点的累加表与内部组件证据明确分开。未占GPU或修改运行工作区。
