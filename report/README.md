@@ -123,3 +123,5 @@
 - [25 Prefix GPU0试验](performance/25_prefix_probe.md)：8请求/128token开关全一致，真实复用46592token；重复/共享请求耗时改善，下一步真实HTTP。
 
 - [26 FusedMoE+原生Attention HTTP](performance/26_native_attention_http.md)：A64 121.50tokens/s，C20 TTFT/TPOT p99 1.726秒/0.13478秒，进入复用HF的完整功能评估。
+
+- [27 FusedMoE+prefix HTTP](performance/27_prefix_http.md)：C20 19/20命中、复用72352token，TTFT p99 19.51秒；有效但弱于原生Attention主线。
