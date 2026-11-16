@@ -12,7 +12,8 @@
     "delivery_ablation": "/workspace/results/mellum_submission_ablation/20261116T153235801902Z",
     "delivery_abc": "/workspace/results/mellum_full_campaign/20261116T153025780336Z",
     "primary_acceptance_batch32": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32",
-    "reference_acceptance_batch1": "/workspace/results/mellum_reference_acceptance/20261116T160211830830Z_batch1"
+    "reference_acceptance_batch1": "/workspace/results/mellum_reference_acceptance/20261116T160211830830Z_batch1",
+    "primary_abc": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary"
   },
   "files": {
     "artifacts/submission/aggressive_abc/manifest.json": {
@@ -2589,6 +2590,291 @@
       "sha256": "72d0b7c4e79581ca8b033f6b157c6d7c719faeb823795c7d8ed61f4c2c7d6896",
       "bytes": 38117,
       "original": "/workspace/results/mellum_reference_acceptance/20261116T160211830830Z_batch1/summary.json"
+    },
+    "artifacts/submission/primary_abc/manifest.json": {
+      "sha256": "248614953c43825c2b479db9ef3efb983e3ad9b1ef131b3f9a61a9c791b3be6f",
+      "bytes": 217863,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/manifest.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/A/batches.jsonl": {
+      "sha256": "dc73971d3979e52bc8fd03c151a7fbfef9af245b6c425f4c95b8589636de44d2",
+      "bytes": 1006440,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/A/batches.jsonl"
+    },
+    "artifacts/submission/primary_abc/primary/A/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "aba57605c47457dc44318709caa6ddcb145dbd6e57bcd00802a53698afe9fb64",
+      "bytes": 15321,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/primary_abc/primary/A/A/client/Scenario_A_N1/parallel_32_number_512/benchmark_args.json": {
+      "sha256": "1377861268f6b68a5194d4e2aaf9e4a140e4c0c760039713c1e97006fb37ea08",
+      "bytes": 2477,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/A/client/Scenario_A_N1/parallel_32_number_512/benchmark_args.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/A/client/Scenario_A_N1/parallel_32_number_512/benchmark_percentile.json": {
+      "sha256": "aa89fe76e3440f7c04d285982849809352a61694b7f82ab68e8a3ca104a1b6f3",
+      "bytes": 3668,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/A/client/Scenario_A_N1/parallel_32_number_512/benchmark_percentile.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/A/client/Scenario_A_N1/parallel_32_number_512/benchmark_summary.json": {
+      "sha256": "5049fa18cf79d71a33dbcf348d79c0ec2a1714f3e549740e5203e43faf8fb0c6",
+      "bytes": 650,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/A/client/Scenario_A_N1/parallel_32_number_512/benchmark_summary.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/A/client/Scenario_A_N1/parallel_32_number_512/workload_throughput.json": {
+      "sha256": "b205ca1ba80d1cee57d1b1e8e0bc1dd22454a82a0f2bf168904f903a03e555a7",
+      "bytes": 876,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/A/client/Scenario_A_N1/parallel_32_number_512/workload_throughput.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/A/client/Scenario_A_N1/parallel_32_number_512/workload_timeline.json": {
+      "sha256": "44413b72661db6927263504b14756c78d00c34b2ab4fe7487e532ed0860d659b",
+      "bytes": 82388,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/A/client/Scenario_A_N1/parallel_32_number_512/workload_timeline.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "d14e5458191f1769e5f63d0ec26499c26e4b28f44cd5d22fc9194b252bbc5e99",
+      "bytes": 5220,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/primary_abc/primary/A/A/client.log": {
+      "sha256": "5695dcbf90fe76c56ff0b497a9afff8483c81f29cbe52a9c80d00c32e34e45f6",
+      "bytes": 33227,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/A/client.log"
+    },
+    "artifacts/submission/primary_abc/primary/A/plan.json": {
+      "sha256": "ee54dedbf3f9195212c6ce5e5e74455c48352ba23cb1a7d4f88fa5067eadc5fc",
+      "bytes": 85790,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/plan.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/results.json": {
+      "sha256": "fefbc1fd7ee9202b1f9af51790261282b04d235083ade2d2ab447324b5375fde",
+      "bytes": 7859,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/results.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/server/batches.jsonl": {
+      "sha256": "dc73971d3979e52bc8fd03c151a7fbfef9af245b6c425f4c95b8589636de44d2",
+      "bytes": 1006440,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/server/batches.jsonl"
+    },
+    "artifacts/submission/primary_abc/primary/A/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/server/fastpaths.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/server/launch.json": {
+      "sha256": "7c10c7f958a0423a62118000ce54b6b8a85b0ea27e1e6df4daf4dbf5f780870a",
+      "bytes": 4316,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/server/launch.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/server/loading_audit.json"
+    },
+    "artifacts/submission/primary_abc/primary/A/server.log": {
+      "sha256": "2089bd1ec4258c74ce3763051a4e39c7e91ff371e804b5252d13c4d0dfa8bfbc",
+      "bytes": 150701,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/server.log"
+    },
+    "artifacts/submission/primary_abc/primary/A/stage.log": {
+      "sha256": "fad18bdc9550d8b74960ee12a2d3f0905feafa118dacb0c83b003ccc07e328c9",
+      "bytes": 9749,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/A/stage.log"
+    },
+    "artifacts/submission/primary_abc/primary/B/B/batches.jsonl": {
+      "sha256": "0b40004f1d85e0fe686365ebd8a3835f286f51241badbc24301d7e00f583ec91",
+      "bytes": 733694,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/B/batches.jsonl"
+    },
+    "artifacts/submission/primary_abc/primary/B/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "158ff550117ca35fc274af7707bb2b7da0b6412360d1283f892423f35ab1272b",
+      "bytes": 11088,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/primary_abc/primary/B/B/client/Scenario_B_SingleStream/parallel_1_number_50/benchmark_args.json": {
+      "sha256": "33ad1ec69ee0dd9a3dc6809e9b2d5d03518d9813831a7fd79037e8d1a6e6a235",
+      "bytes": 2440,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/B/client/Scenario_B_SingleStream/parallel_1_number_50/benchmark_args.json"
+    },
+    "artifacts/submission/primary_abc/primary/B/B/client/Scenario_B_SingleStream/parallel_1_number_50/benchmark_percentile.json": {
+      "sha256": "8eae61b93c032c92bb653ab602e88f3870f567750f9c5cc61280c9673231998f",
+      "bytes": 3644,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/B/client/Scenario_B_SingleStream/parallel_1_number_50/benchmark_percentile.json"
+    },
+    "artifacts/submission/primary_abc/primary/B/B/client/Scenario_B_SingleStream/parallel_1_number_50/benchmark_summary.json": {
+      "sha256": "b60eb5a24f27777a0f8ebeb4ddf70de0c5c177b85ca5b2a258dd241ccc5c82f3",
+      "bytes": 637,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/B/client/Scenario_B_SingleStream/parallel_1_number_50/benchmark_summary.json"
+    },
+    "artifacts/submission/primary_abc/primary/B/B/client/Scenario_B_SingleStream/parallel_1_number_50/workload_throughput.json": {
+      "sha256": "cdb57438ce6600be9b7a2319ead45ba087ec971369ba415cf24e6483d8cb33d0",
+      "bytes": 874,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/B/client/Scenario_B_SingleStream/parallel_1_number_50/workload_throughput.json"
+    },
+    "artifacts/submission/primary_abc/primary/B/B/client/Scenario_B_SingleStream/parallel_1_number_50/workload_timeline.json": {
+      "sha256": "5cce62a8a6f0c564f7cc870113ba625d7c1b83141182dc502326d37e4faaa9b8",
+      "bytes": 7945,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/B/client/Scenario_B_SingleStream/parallel_1_number_50/workload_timeline.json"
+    },
+    "artifacts/submission/primary_abc/primary/B/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "b771d9f39220706d842190f813fa8ff62c7c9d4420370c5f15256e8593420fea",
+      "bytes": 5068,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/primary_abc/primary/B/B/client.log": {
+      "sha256": "6e91f56181f2c6971796ccec6089145dd95085d5f7d3582c9e20ec45c294c8dd",
+      "bytes": 27926,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/B/client.log"
+    },
+    "artifacts/submission/primary_abc/primary/B/plan.json": {
+      "sha256": "df8ffac85622e7adb837144e42b45849d408fe38f22354b96ca6ca7844513450",
+      "bytes": 304,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/plan.json"
+    },
+    "artifacts/submission/primary_abc/primary/B/results.json": {
+      "sha256": "343e7c9ac23879418a0df9bb0444f9c47827e786d491e9320a1965b3134ec500",
+      "bytes": 7579,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/results.json"
+    },
+    "artifacts/submission/primary_abc/primary/B/server/batches.jsonl": {
+      "sha256": "0b40004f1d85e0fe686365ebd8a3835f286f51241badbc24301d7e00f583ec91",
+      "bytes": 733694,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/server/batches.jsonl"
+    },
+    "artifacts/submission/primary_abc/primary/B/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/server/fastpaths.json"
+    },
+    "artifacts/submission/primary_abc/primary/B/server/launch.json": {
+      "sha256": "164ab603da50019579902fc64a53d537279e225c74596b4d472ffbdf430746aa",
+      "bytes": 4316,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/server/launch.json"
+    },
+    "artifacts/submission/primary_abc/primary/B/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/server/loading_audit.json"
+    },
+    "artifacts/submission/primary_abc/primary/B/server.log": {
+      "sha256": "a0695c6087b3898d7c11158752fe285c85caea5e7ae243af167b0b26985cb674",
+      "bytes": 28646,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/server.log"
+    },
+    "artifacts/submission/primary_abc/primary/B/stage.log": {
+      "sha256": "fd0530daf2e7f9eb5b1a82780e8fa57a3d3f28522051cc88b31c135852ecc4ef",
+      "bytes": 2677,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/B/stage.log"
+    },
+    "artifacts/submission/primary_abc/primary/C/C/batches.jsonl": {
+      "sha256": "dc0c3428b0fa2a71bee9cd3103994d8fa74536ce40799d83f253b88941833d40",
+      "bytes": 207621,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/C/batches.jsonl"
+    },
+    "artifacts/submission/primary_abc/primary/C/C/client/Scenario_C_Poisson_N1/benchmark.log": {
+      "sha256": "543e7756913b491b6dabac7b911ea87965b0cdbb4f5bd3e477c8a1324657591d",
+      "bytes": 221273,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/C/client/Scenario_C_Poisson_N1/benchmark.log"
+    },
+    "artifacts/submission/primary_abc/primary/C/C/client/Scenario_C_Poisson_N1/performance_summary.txt": {
+      "sha256": "de949ccd2606ecee2d91e5a10d091bc228776f9919b8f57502b6f31ca6b3743e",
+      "bytes": 4882,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/C/client/Scenario_C_Poisson_N1/performance_summary.txt"
+    },
+    "artifacts/submission/primary_abc/primary/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_200/benchmark_args.json": {
+      "sha256": "de4adf2789062cb012540979ad70b37ed2af17b640cf38128953b1d15def8cd0",
+      "bytes": 2486,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_200/benchmark_args.json"
+    },
+    "artifacts/submission/primary_abc/primary/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_200/benchmark_percentile.json": {
+      "sha256": "faec8662010fe62255c0f056d2e7162a2ef6128934f885f1312f81b8d60175c8",
+      "bytes": 3661,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_200/benchmark_percentile.json"
+    },
+    "artifacts/submission/primary_abc/primary/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_200/benchmark_summary.json": {
+      "sha256": "2d7f6ad374f63e9a88988b21e031e080657d6a8f8ac3cbd086d7396b2360cbe3",
+      "bytes": 572,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_200/benchmark_summary.json"
+    },
+    "artifacts/submission/primary_abc/primary/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_200/workload_throughput.json": {
+      "sha256": "c8f34697d32e1c7994fb283beae6a3d2d50edf18985e7a09701660085109abca",
+      "bytes": 833,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_200/workload_throughput.json"
+    },
+    "artifacts/submission/primary_abc/primary/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_200/workload_timeline.json": {
+      "sha256": "a82779566690d452329a9da16354a682892f6383fb153b08e10695f6adf02e17",
+      "bytes": 216,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_200/workload_timeline.json"
+    },
+    "artifacts/submission/primary_abc/primary/C/C/client.log": {
+      "sha256": "8d0b40644e171593f41a39d25c0107552d8345f1d216b36c3b011342a6cf59f5",
+      "bytes": 317588,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/C/client.log"
+    },
+    "artifacts/submission/primary_abc/primary/C/plan.json": {
+      "sha256": "a755ca24adb68102b3d7df4fc59fc59a48fb0ea9985f9beb4e6358e0935ae4dc",
+      "bytes": 33855,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/plan.json"
+    },
+    "artifacts/submission/primary_abc/primary/C/results.json": {
+      "sha256": "f81c585fc1202fbd53cb626a79efad5eb358c4119592fa52ec0d8004d7cd1475",
+      "bytes": 7578,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/results.json"
+    },
+    "artifacts/submission/primary_abc/primary/C/server/batches.jsonl": {
+      "sha256": "dc0c3428b0fa2a71bee9cd3103994d8fa74536ce40799d83f253b88941833d40",
+      "bytes": 207621,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/server/batches.jsonl"
+    },
+    "artifacts/submission/primary_abc/primary/C/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/server/fastpaths.json"
+    },
+    "artifacts/submission/primary_abc/primary/C/server/launch.json": {
+      "sha256": "96b53474f27ca95341b3eb48c088052ae0f7a28c8a123a8894beaf3c13a5665e",
+      "bytes": 4316,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/server/launch.json"
+    },
+    "artifacts/submission/primary_abc/primary/C/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/server/loading_audit.json"
+    },
+    "artifacts/submission/primary_abc/primary/C/server.log": {
+      "sha256": "980815a0e55e6fa35e4f57ffa7e87c840ff4f6bde886aabc0b9ef3f4ed7ba4fa",
+      "bytes": 71278,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/server.log"
+    },
+    "artifacts/submission/primary_abc/primary/C/stage.log": {
+      "sha256": "9dbc2397b20f8df50e042feae9c21c66488f94a9485d1c1d4c2e2d8af768c854",
+      "bytes": 2901,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/primary/C/stage.log"
+    },
+    "artifacts/submission/primary_abc/summary.json": {
+      "sha256": "4ea3c90293c31c133c249724b3cd358bdb1b20288582add1678a6dc0fee479c2",
+      "bytes": 225528,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/summary.json"
+    },
+    "artifacts/submission/primary_abc/template/adapter_prepare.log": {
+      "sha256": "e1519c18c68863aa73fca0fd4d7b06c36222505da74282317e5226fade197e7e",
+      "bytes": 6666,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/template/adapter_prepare.log"
+    },
+    "artifacts/submission/primary_abc/template/inputs/C_smoke.jsonl": {
+      "sha256": "fb8045d56918ab1363fd6f5659e28790604b52a0454a05a62c5b215b4f54bb29",
+      "bytes": 157269,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/template/inputs/C_smoke.jsonl"
+    },
+    "artifacts/submission/primary_abc/template/inputs/adapter_manifest.json": {
+      "sha256": "d96c1e5c88a0d8f4de7caeb5a3eb918311eeb18a3e46742d2adce31b745146a7",
+      "bytes": 134092,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/template/inputs/adapter_manifest.json"
+    },
+    "artifacts/submission/primary_abc/template/manifest.json": {
+      "sha256": "5f6fdc2612e4e112dca776237f8a7af8a3c572746b41169889e6299ec1fcc1c5",
+      "bytes": 183625,
+      "original": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary/template/manifest.json"
     }
   }
 }
