@@ -1,0 +1,66 @@
+{
+  "runs": {
+    "fused_moe": "20261115T220256351771Z",
+    "fused_moe_swa_ck": "20261115T223459375865Z",
+    "fused_moe_native_attention": "20261115T231450301731Z"
+  },
+  "metrics": {
+    "fused_moe": {
+      "A64": {
+        "successes": 64,
+        "requests": 64,
+        "output_tokens_per_s_gpu": 57.0039,
+        "ttft_p99_s": 10.04099181597121,
+        "tpot_p99_s": 0.5374429633019163,
+        "actual_decode_max_batch": 32
+      },
+      "C20": {
+        "successes": 20,
+        "requests": 20,
+        "output_tokens_per_s_gpu": 30.9853,
+        "ttft_p99_s": 22.68927087704651,
+        "tpot_p99_s": 0.44393889558428495,
+        "actual_decode_max_batch": 19
+      }
+    },
+    "fused_moe_swa_ck": {
+      "A64": {
+        "successes": 64,
+        "requests": 64,
+        "output_tokens_per_s_gpu": 59.612,
+        "ttft_p99_s": 6.272884197067469,
+        "tpot_p99_s": 0.5191729441376439,
+        "actual_decode_max_batch": 32
+      },
+      "C20": {
+        "successes": 20,
+        "requests": 20,
+        "output_tokens_per_s_gpu": 34.4001,
+        "ttft_p99_s": 3.8190451900009066,
+        "tpot_p99_s": 0.3625930732161756,
+        "actual_decode_max_batch": 19
+      }
+    },
+    "fused_moe_native_attention": {
+      "A64": {
+        "successes": 64,
+        "requests": 64,
+        "output_tokens_per_s_gpu": 121.4966,
+        "ttft_p99_s": 4.9135694860015064,
+        "tpot_p99_s": 0.24968372829459315,
+        "actual_decode_max_batch": 32
+      },
+      "C20": {
+        "successes": 20,
+        "requests": 20,
+        "output_tokens_per_s_gpu": 55.1928,
+        "ttft_p99_s": 1.7262960330117494,
+        "tpot_p99_s": 0.13478300826642298,
+        "actual_decode_max_batch": 12
+      }
+    }
+  },
+  "verified_artifacts": 84,
+  "source_unchanged": true,
+  "scope": "Same small-load protocol/inputs, single runs; not official ABC or functional acceptance"
+}

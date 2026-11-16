@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/results/mellum_candidate_capacity/20261115T231925241791Z",
+  "baseline_run": "/workspace/results/mellum_candidate_capacity/20261115T220256351771Z",
+  "verified_artifacts": 88,
+  "source_unchanged": true,
+  "cases": {
+    "A64": {
+      "requests": 64,
+      "successes": 64,
+      "failures": 0,
+      "ttft_p50_s": 7.536147490842268,
+      "ttft_p99_s": 10.078956501092762,
+      "tpot_p50_s": 0.5111785972746564,
+      "tpot_p99_s": 0.5451723301682767,
+      "output_tokens_per_s_gpu": 57.0946,
+      "request_start_span_s": 149.10532958596013,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 32
+    },
+    "C20": {
+      "requests": 20,
+      "successes": 20,
+      "failures": 0,
+      "ttft_p50_s": 2.1587363129947335,
+      "ttft_p99_s": 19.50689233490266,
+      "tpot_p50_s": 0.3356572648784255,
+      "tpot_p99_s": 0.4183702628703459,
+      "output_tokens_per_s_gpu": 31.9333,
+      "request_start_span_s": 64.95170882996172,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 19,
+      "prefix_cached_tokens": 72352,
+      "prefix_hit_requests": 19,
+      "new_tokens_in_cached_batches": 127410
+    }
+  },
+  "C20_input_tokens": 203830,
+  "C20_cached_fraction": 0.3549624687239366
+}

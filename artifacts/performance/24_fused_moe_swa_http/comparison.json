@@ -1,0 +1,58 @@
+{
+  "old_run": "/workspace/results/mellum_candidate_capacity/20261115T220256351771Z",
+  "new_run": "/workspace/results/mellum_candidate_capacity/20261115T223459375865Z",
+  "comparisons": {
+    "A64": {
+      "fused_moe": {
+        "successes": 64,
+        "requests": 64,
+        "output_tokens_per_s_gpu": 57.0039,
+        "ttft_p50_s": 7.558374635875225,
+        "ttft_p99_s": 10.04099181597121,
+        "tpot_p50_s": 0.5207783551603629,
+        "tpot_p99_s": 0.5374429633019163,
+        "actual_decode_max_batch": 32
+      },
+      "fused_moe_swa_ck": {
+        "successes": 64,
+        "requests": 64,
+        "output_tokens_per_s_gpu": 59.612,
+        "ttft_p50_s": 5.155349491164088,
+        "ttft_p99_s": 6.272884197067469,
+        "tpot_p50_s": 0.5139187685451378,
+        "tpot_p99_s": 0.5191729441376439,
+        "actual_decode_max_batch": 32
+      },
+      "throughput_ratio": 1.04575300988178,
+      "ttft_p99_reduction_fraction": 0.3752724519613875,
+      "tpot_p99_reduction_fraction": 0.03399434063109863
+    },
+    "C20": {
+      "fused_moe": {
+        "successes": 20,
+        "requests": 20,
+        "output_tokens_per_s_gpu": 30.9853,
+        "ttft_p50_s": 3.7753024951089174,
+        "ttft_p99_s": 22.68927087704651,
+        "tpot_p50_s": 0.34241157624706187,
+        "tpot_p99_s": 0.44393889558428495,
+        "actual_decode_max_batch": 19
+      },
+      "fused_moe_swa_ck": {
+        "successes": 20,
+        "requests": 20,
+        "output_tokens_per_s_gpu": 34.4001,
+        "ttft_p50_s": 1.477759551955387,
+        "ttft_p99_s": 3.8190451900009066,
+        "tpot_p50_s": 0.33334741983927935,
+        "tpot_p99_s": 0.3625930732161756,
+        "actual_decode_max_batch": 19
+      },
+      "throughput_ratio": 1.1102070982046326,
+      "ttft_p99_reduction_fraction": 0.8316805678465223,
+      "tpot_p99_reduction_fraction": 0.1832365291197271
+    }
+  },
+  "verified_artifacts": 84,
+  "note": "Same small-load protocol and planned inputs, single runs with differing concurrent workloads; not formal ABC speedup."
+}

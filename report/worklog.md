@@ -1,6 +1,6 @@
 # 工作日志
 
-按自然日归纳，每天一个简要条目。日期依据既有日志、对话和结果目录的UTC运行ID；D0/D1是旧研究批次，不自动等于不同工作日。重构前全部追加记录已[保存快照](archive/step0_document_snapshots/report/worklog.md)，SHA256见[清单](archive/step0_document_snapshots/manifest.json)。当前有据可补日期为2026-11-10至13，不补造更早日期、时刻或提交；D1–D7映射待考核起始日确认。
+按自然日归纳，每天一个简要条目。日期依据既有日志、对话和结果目录的UTC运行ID；D0/D1是旧研究批次，不自动等于不同工作日。重构前全部追加记录已[保存快照](archive/step0_document_snapshots/report/worklog.md)，SHA256见[清单](archive/step0_document_snapshots/manifest.json)。当前有据可补日期为2026-11-10至16，不补造更早日期、时刻或提交；D1–D7映射待考核起始日确认。
 
 ## 2026-11-10
 
@@ -116,14 +116,91 @@
 
 - 按用户要求转向成熟实现复用调研：冻结Qwen3MoE/FusedMoE/gfx942 BF16与分页Attention，公开ATOM main、vLLM v0.23.0 Mellum和SGLang Mellum均做源码对照；发现当前已有aiter MoE开关但与R Torch包装器不兼容，参考ragged桥阻止原生batch/缓存路径。输出研究05、来源清单和计划20，优先整批FusedMoE+原生Attention独立候选，不继续外围小优化；明确未取得上游HEAD/穷尽PR，不能冒称最新完整快照。本轮无推理代码修改、安装或GPU运行。
 
-- 计划20首轮实施在独立worktree tencent-mellum-native：新增Mellum FusedMoE（参考gate/路由、BF16舍入后按AITER要求FP32传权重）与原生varlen/paged Attention（保留参考RoPE/KV写入），拆开E控制与旧ragged桥，默认关闭。交付计划21双track脚本，GPU0/1、端口8226/8326、每track最多3worker/60分钟，先R/候选固定256计时、显著收益才D200，不重跑ABC。GPU未执行，冻结环境未改。
-- 原生候选交付检查：117项相关CPU测试通过，py_compile/diff检查通过；MoE prepare-only 182107通过。AITER FP32路由权重存储要求已按源码修正并保留BF16舍入，增加shuffle和无SDPA回退审计测试。GPU待用户终端执行。
+- 原生主路径代码在独立commit cb09aed交付：GPU0工作区tencent-mellum-native、GPU1同快照tencent-mellum-native-attention；整批FusedMoE保留Torch gate/路由（BF16舍入后FP32传AITER），原生Attention保留参考RoPE/KV写入、替换varlen/paged计算。117项相关CPU检查通过，两份prepare-only通过，计划21给出命令/60分钟预算；主R工作区只同步文档，冻结库和主R推理源码未改，GPU尚未执行。
+- 原生两卡批次完成：MoE184205累计26.82分钟，批量1.4663×、D200位置72.36%；Attention184214累计26.45分钟，批量1.4507×、D200位置71.38%。均低于90%不晋级。MoE256重复S1/S32/L32分别1/1、31/32、29/32输出变化，Attention全相同；尚不能据此断言具体kernel根因。98产物/476源码hash通过，性能19归档；无追加GPU/数学修改。
 
-- 原生候选未过D200后开发计划22：独立诊断工作区，MoE固定layer0输入/路由12次回放、Opus/CK排序两项对照并记录实际stage metadata/单次真实trace；Attention分prefill_only/decode_only各D200，仅通过者做256性能。默认路径保留，不重跑ABC，不自动全模型MoE修正。120项相关CPU测试通过，GPU待用户终端执行。
+- 计划22有界诊断入口交付：独立GPU0固定layer0/路由12次Opus/CK回放、stage metadata和短trace（15分钟）；GPU1仅prefill/仅decode各D200，达到90%者才256性能（45分钟）。120项CPU检查及195403/195402两份prepare-only通过，53b6833及排序前缀补丁1cac5e2/c300a25；主R源码未改，无新GPU实测。
+- 计划22完成：MoE195607累计16.28秒，Opus/CK固定排序下三shape的12次输出均出现重复差异；metadata确认CK two-stage，trace和冻结CK源码确认输出AtomicAdd路径，尚未单独证明全部差异由stage2造成。Attention195614累计8.86分钟，仅prefill位置72.55%、仅decode77.25%，均不达90%，按计划跳过性能。34产物/480源码指纹通过，归档性能20；不原样重跑或追加排序D200，后续若修MoE聚焦贡献输出/归并，不默认继续数值搜索。
 
-- 根据CK原子归并证据，在独立tencent-mellum-moe-isolated实现fused_isolated：top8分配展开pseudo-token，以AITER top1/unit权重独立输出后BF16加权和显式top-k求和；保留权重加载shuffle、gate/路由与R Attention/L。增加临时张量，不能保证稳定或HF一致。126项CPU检查及202806 prepare-only通过，计划23单入口最多4worker/45分钟，回放→D200→条件性能，GPU未执行、不改冻结库和原R源码。
+- 计划23交付：独立分支step1/moe-isolated-reduction、commit ee1215c，top8贡献展开为native top1独立输出，外部BF16加权/求和；不复制权重，增加按N*8增长的临时存储。126项CPU检查、py_compile/diff和202806 prepare-only通过；入口GPU0/8526、最多4worker/45分钟，固定回放稳定/finite才D200、达到90%才R/候选256性能。主R仅同步文档，未执行新GPU。
+- 计划23运行203133完成，累计3.84分钟：独立贡献归约三组固定回放各12次精确，消除所测重复变化；D200位置74.18%、完整序列45.5%，相比原native MoE总体+1.82pp但长输入降至52.98%，仍低90%。加载/路径/真实batch32通过，按门槛未跑性能，不套用旧候选加速比；17产物/241源码hash通过，归档性能21。无追加GPU/数学修改。
 
-- 用户确认将完整HumanEval任务指标纳入实际决策，关闭thinking/最多2048token优先控时；新建独立tencent-mellum-humaneval，开发单入口HF0/候选1并行164题生成与官方隔离评分。候选选择有实测收益的原生FusedMoE，已知token位置低于90%也评分；保留截断/提取失败、逐题增减和2pp检查，不用功能分数替代其它题目指标。当前无GPU运行。
-- 完整HumanEval配对入口CPU核验：10通过、1 Landlock检查因工具限制跳过，终端self-test仍强制；164题/关闭thinking/2048和真实模板后缀核验通过，实际HF模型源码/tokenizer/评测器指纹固定。尚未运行GPU或得到功能分数。
+- 用户确认HumanEval关闭thinking/最多2048token优先控时；交付独立分支step1/humaneval-functional-evaluation、7d6a4ce，一条命令HF/GPU0与FusedMoE/GPU1真实batch32并行164题、统一提取/官方隔离评分，90分钟总预算，保留截断/提取失败和逐题功能变化，不以token位置低于90%阻挡评分。10项CPU通过、1 Landlock检查工具受限跳过（终端仍强制self-test），164输入/模板和205642 prepare-only通过；未运行新GPU，冻结库/原R源码未改。
 
-- HumanEval运行中发现HF loading_info的set序列化遗漏；在独立delivery分支df33885修复，复用既有json_default，6项CPU检查与恢复prepare-only通过；交付HF-only recovery复用原ATOM数据，不修改运行快照/不重跑候选。并行next工作区开发显式服务profiles、thinking/audit开关及C CPU前缀分析：共有3820token，16token块结构复用757792/2039880=37.15%，非实际命中率/加速比；定位reference K覆盖晚于prefix gather，暂不启用缓存。15项CPU服务/profile/前缀测试通过，计划25/研究06记录后续分支。无额外GPU任务。
+- HumanEval原批次候选164题完成，HF因loading_info的set序列化失败，完整配对尚未得出。在独立delivery提交df33885修复，6项CPU检查及恢复prepare-only通过，HF-only recovery可复用原候选。独立next提交a2cbcce增加显式服务profiles与C前缀CPU分析，15项CPU检查通过；200条C共有3820token，按16token块可复用757792/2039880=37.15%，非实际命中率或加速承诺。参考K覆盖晚于prefix gather，暂不启用缓存；计划25/研究06归档，无额外GPU任务。
+
+- HF恢复运行期间准备GPU1候选HTTP批次：next提交9a3b3ca，复用已审计EvalScope与原ABC worker，显式fused_moe/HTTP8151/engine8726，smoke→A64并发32→长度分层C20率0.3，35分钟执行预算。24项CPU测试及实际输入prepare/current_matches通过，GPU未运行；计划26已归档。保持HF运行工作区不变。
+
+- HF恢复20261115T213706098181Z完成：HF145/164=88.4146%，FusedMoE147/164=89.6341%，绝对差1.2195pp，本地2pp检查通过；增5失3，预算截断4/5，提取失败5/6，均保留164分母。独立核验逐题结果与评分，归档性能22及来源hash，不等同整体题目验收；继续GPU1计划26性能主线。
+
+- GPU1容量20261115T220256351771Z完成：smoke/A64/C20均全成功，A57.0039tokens/s、实际batch32；C TTFT p99 22.6893秒、TPOT p99 0.44394秒、batch19。独立核验产物与源码、5631加载、native调用；归档性能23。用户要求以更多实现/实测效果为主，不以计点讨论阻塞开发；下一步现成Fused+SWA组合与prefix兼容开发，最终只提交最多三个独立点。
+
+- GPU1组合测试期间在独立prefix分支80cd14c开发cached-prefill：reference K先写后gather、共享metadata副本、bottom-right矩形causal/SWA mask、ragged后缀支持；NHD按实际逻辑token读取避免整个缓存池连续化。GPU0 off/on小试验单命令、25分钟预算、三条真实C、每请求16输出，不重跑HF。57项CPU检查与实际输入prepare-only通过，GPU待终端执行；未修改GPU1源码。
+
+- GPU1组合20261115T223459375865Z完成，smoke/A64/C20全成功；A59.612tokens/s较单项+4.58%，C TTFT p99 22.689→3.819秒、TPOT p99 0.44394→0.36259。核验同输入、产物与源码hash，归档性能24。GPU0 prefix继续运行不改；下一步GPU1筛选FusedMoE+完整原生Attention，性能优先，有收益后复用HF作候选功能评估。
+
+- GPU0 prefix_probe 20261115T225622969152Z通过，8次/128token off/on全部一致、实际命中46592；共享ragged5.608→3.571秒、逆序复用5.571→2.108秒（非HTTP收益）。核验源码/加载/命中，归档性能25。服务新增显式prefix开关及逐case命中审计，GPU0独立8251/8926跑FusedMoE+prefix容量计划28，33项CPU检查及实际prepare/hash通过；GPU1 next原生Attention继续运行未改。
+
+- GPU1原生组合20261115T231450301731Z完成，smoke/A64/C20全成功；A121.4966tokens/s，约SWA组合2.04倍；C TTFT/TPOT p99 1.7263/0.13478秒。审计aiter_varlen/paged_attention_triton与FusedMoE、同输入/产物/源码，归档性能26。独立native-functional工作区开发仅GPU1复用HF的完整HumanEval入口，8项CPU检查；GPU0 prefix继续，未改其源码。
+
+- GPU0 prefix HTTP 20261115T231925241791Z完成：A64/C20全成功，C19/20命中72352token，TTFT p99 19.5069秒、TPOT p99 0.41837，A57.0946tokens/s。核验输入、源码、产物与真实命中，归档性能27；用户同时回传的231450原生Attention是已分析批次，不算重复实验或HumanEval完成。下一主线仍原生组合功能评估，后续prefix接原生路径。
+
+## 2026-11-16
+
+- 原生Attention+FusedMoE完整HumanEval 20261116T010456387933Z完成：候选144/164=87.8049%，复用HF145/164=88.4146%，绝对差0.60976pp，本地2pp检查通过；增2失3，预算截断4/5、提取失败5/6，均保留164分母。核验双方逐题/评分、原参考相同、源码和5631加载；124次原生prefill/2926次paged decode确认路径。性能28归档，结合性能26保留高速主线，下一步prefix与原生Attention整合，不追加无界token对齐诊断。
+
+- 按计划交付两项并行实验：独立native-prefix c34a96a接入原生cached prefill，验证Q/K独立边界/真实后缀位置，保留K写回/gather，自动GPU0结构内核探针→off/on→HTTP A64/C20，45分钟预算，token分叉只报告；独立native-abc cd2c3e3支持显式高速profile与隔离端口的完整B50/A512/C200、90分钟预算和恢复。72/22项CPU检查、py_compile/diff、真实数据prepare-only及最终源码/输入/客户端指纹通过；未运行GPU、未改冻结库或既有已验工作区。计划30与交付清单归档，最终正式复测仍需空闲机器。
+
+- 两卡批次完成：native-prefix 20261116T025408685476Z，104产物/源码核验，kernel结构全精确，off/on4/8序列同，C20命中19/20、72352token，TTFT/TPOT p99 1.12319/0.12185秒，归档性能29；native-ABC 20261116T025416247034Z，98产物/源码核验，47.37分钟，B50/A512/C200全成功，A121.2755tokens/s为官方19.0%，C TTFT/TPOT p99 2.54046/0.21940秒，归档性能30。未把相对R提升约2.92倍当官方加速。下一步根据campaign L仍逐请求拆分QKV/O/router的源码证据，独立native-batched profile恢复整批投影，16项CPU检查及数据prepare，性能优先、有收益再复用HF评估。
+
+- GPU1 native-batched运行期间，独立prefix-functional提交990f38a补原生prefix组合的完整HumanEval入口：候选固定GPU0/9126、164题、关闭thinking/2048、复用HF，记录实际缓存命中；10项CPU检查和真实引用/源码hash prepare核验通过，GPU待终端执行。并行只读研究07定位Graph/CPU后续边界：空campaign触发eager guard、参考K动态布尔索引、重复RoPE/KV写入、审计tolist先求值；未改GPU1运行源码，不预先宣称新收益。
+
+- GPU1整批投影20261116T043117581045Z完成，84产物/源码核验，与性能26模型源码内容及输入完全相同；A64全成功439.6727tokens/s、TPOT p99 0.05862秒，约原生L控制组合3.62倍；C20全成功、TPOT p99 0.08037秒。性能31归档。独立batched-functional扩展功能入口--batched-projections，GPU1/8626复用HF164，22项CPU检查与真实输入/引用hash通过，GPU待终端；GPU0 prefix-functional保持不变。
+
+- GPU0 prefix HumanEval 20261116T044507881892Z完成：147/164=89.6341%，对HF145/164差1.2195pp，本地功能门槛通过。预算截断/提取失败双方4/5，均保留164分母；独立核验官方逐题/score、HF复用、源码/5631加载及128次native cached事件、132请求/2128token命中。性能32归档。此次仍groups=L，不能赋给整批投影候选；用户同时回传043117是已归档性能31，不作为新一轮实验。下一步仍计划33整批投影功能结果。
+
+- 整批投影HumanEval 20261116T085201556563Z完成：149/164=90.8537%，HF145/164=88.4146%，高2.4390pp，增6失2；预算/提取失败候选3/3、HF4/5，164分母完整。核验源码、原参考、官方逐题/评分、加载与groups为空。原脚本按绝对差给False，保留原判定并补方向解释（observed drop=0），不改门槛、不为降低分数调实现；性能33归档，继续整批主线和prefix整合，正式口径待裁判确认。
+
+- 按计划交付两卡新批次：GPU0 batched-prefix e4cfb91整合整批投影与原生缓存，74项CPU检查/真实数据prepare/源码输入客户端指纹通过，45分钟自动结构探针→off/on→HTTP；GPU1 direct-kv b4e77d9新增参考K/V单次AITER写入，保留BF16 NHD/SHUFFLE与QK公式，拒绝缓存/融合norm等未支持配置，59项CPU检查（含跨块/负slot/非连续V/非法shape）及真实prepare/指纹通过，40分钟自动布局探针→HTTP。未开Graph、未运行GPU或修改冻结库；计划34与交付指纹归档，导航顶部更新到当前阶段。
+
+- 两卡批次34完成：GPU0 batched-prefix 20261116T101213244110Z，A64 438.8336tokens/s近似持平、C20 TTFT/TPOT p99 1.01427/0.07378秒、19/20命中72352；结构探针精确，off/on3/8序列同如实记录，功能待整体评估。GPU1 direct-kv 20261116T101221209827Z，布局/跨块/负slot/strided V GPU探针全部精确，A64 499.6429tokens/s（较439.67约+13.64%）、C20 TPOT p99 0.07040秒；实际prefill/decode单次写入审计通过。独立核验产物、源码、输入与5631加载，归档性能34/35。下一步合并有效机制，补整体功能；有界试decode Graph，再固定配置完整ABC。
+
+- 根据用户对朴素Baseline差距的质疑，只读审计当前执行路径并归档研究08：L拆分和重复KV已有3.62倍/+13.64%实证；仍有113处手写Norm、3路F.linear+cat、每层CPU inverse-frequency上传及审计tolist。确认官方eager，不能把缺Graph当全部差距理由；建议下一批优先短trace和基础快路径恢复，保留协议/硬件干扰核对，不猜测官方源码或宣称已达硬件上限。无新GPU或代码修改。
+
+- 根据研究08重排优先级，交付独立fastpaths分支68a4086/计划35：默认保留reference，新增113处Norm工厂切换原ATOM RMSNorm、既有packed QKV、GPU inverse-frequency驻留及组合profile；实际构造类/投影属性/驻留device单独审计。GPU0短bs1/32 trace及基线/驻留HTTP，GPU1基线/Norm/packed/组合四项HTTP；一次准备复用只读输入、独立失败保留，组件失败跳过组合，不重跑HF/完整ABC。90项相关CPU检查、py_compile/diff、真实两track prepare及全部job源码/输入/客户端指纹通过。未运行GPU、未升级依赖/修改既有装饰模型；Graph后移至基础路径实测后再决定。
+
+- 核对原始题目第2、6–8页与当前仓库，形成计划36：保留真实非squash历史，后续独立集成交付版本；当前main/缓存远端仍为Step0、实验分散分支，缺统一启动入口、最终消融及4页报告/1页AI说明。明确完整ABC与开发缩减负载、最终组合与组件证据的边界，更新陈旧首页状态。本轮仅文档审计，未改运行代码、合并分支或推送。
+
+- 基础快路径两批结果核验532项哈希/5631加载完整，GPU1组合A64达到625.616tokens/s，较同卡507.7752提升23.2%；C20 TPOT/TTFT p99为57.912ms/1.02807s。按用户要求暂停逐项完整正确性，独立sprint提交3f81b6d实现空观察器移除、既有decode Graph接入与实际replay回执、原生路由及Packed消融；27项CPU检查通过，准备两卡A64/C20批量实验。未运行GPU或预先宣称新收益。
+
+- 优化sprint两批完成，266项产物哈希一致且全部请求成功。GPU0clean620.9951→Graph943.2600tokens/s（+51.9%），C20 TPOT p99降至22.841ms，真实回放证据完整；GPU1关闭Packed退化、原生路由约+2.8%。独立fusion分支2dc21b2实现Graph路由ABBA和Triton仅RoPE/QK-Norm+RoPE两级候选，37项CPU检查、两专门化gfx942离线编译通过。局部GPU数学冒烟后直接A64/C20筛选，完整模型正确性留最终组合，未运行GPU或宣称新融合收益。
+
+- 当前fusion两卡运行期间，独立scheduling分支12087e7完成Graph+direct-KV前缀兼容桥接、prefix开关及2048/4096 chunk内部调度候选。复用此前矩形Attention与缓存逻辑，SHUFFLE调用原生gather、NHD只读本批逻辑token，避免整个KV池转换；40项CPU检查通过，含跨块、写后gather及调度配置，准备CPU数据。未占GPU、未改fusion运行工作区，完整正确性留最终组合。
+
+- fusion两批完成并核验322项哈希/5631加载/Graph回放及后端：GPU0路由ABBA均值939.49→1008.94tokens/s（+7.39%），GPU1基线941.63→RoPE1032.72→QK融合1062.46（+12.83%），C20 TPOT p99至18.639ms，局部数学冒烟通过。scheduling分支ee3e238准备QK+路由组合ABBA及QK基线上的prefix/chunk2048/4096四项筛选，41项CPU检查通过。保持完整正确性集中到最终组合，不按单项收益叠乘或宣称正式ABC通过。
+
+- 组合/调度两卡运行期间，独立campaign工作区准备prefill元数据复用（当次ForwardContext、默认关闭，处理inference tensor版本缺失）、实际复用回执及完整ABC多profile批次。复用cd2c3e3的profile/端口/resume CLI，完整批次独立stage失败继续、成功产物hash校验后跳过、失败attempt保留；40项相关CPU检查联合ATOM测试夹具通过（含新增恢复及元数据检查）；单独收集scripts测试缺少ATOM轻量导入夹具，改用完整相关检查组复验通过。未占GPU或修改scheduling运行目录；等当前结果选择候选，不默认扩大量化/MTP实验。
+
+- combine/latency两批核验369项哈希且全部请求成功。QK+原生路由ABBA吞吐1124.91/1127.32，相对QK均值约+8.26%；prefix C20 TTFT/TPOT p99为0.75063s/15.9079ms，有19次/72352token复用；chunk2048/4096吞吐与尾延迟均退化，停止晋级。campaign提交22597b2交付GPU0最快组合完整B50/A512/C200，GPU1最快组合/prefix/prefix+metadata三项最后筛选；40项CPU检查通过，等待GPU执行，不逐项跑HF。
+
+- 完整ABC/finish运行期间，独立acceptance分支25350e6准备最终profile的一次加载验证入口：复用已核验HF200/长组/HumanEval164，保留Graph、路由、融合及缓存开关，原始IDs避免HTTP再分词；按题目位置率和HE功能分差独立报告，无tensor精确门槛。44项CPU检查及实际参考输入准备/指纹通过，冻结候选环境、评分沙箱和HE164分母不变。未占GPU或改campaign运行目录，待最终候选确定后运行一次。
+
+- 完整ABC/finish完成，210项产物哈希核验通过。sprint_graph_qk_router：A512/B50/C200全成功，A1129.3798tokens/s/GPU为官方1.7694倍；B TPOT p50=4.9299ms；C TPOT p99=13.6623ms改善66.89%，但TTFT p99=1.48832s比官方慢49.80%。GPU1prefix+metadata C20 TTFT/TPOT p99至0.70070s/12.4346ms，实际复用回执存在。选该组合补完整ABC及统一200/16k/HE验证；两工作区模型/runtime无差异，无新模型改动或GPU启动，不以小规模结果代替最终通过。
+
+- 最终ABC/统一验证运行期间，独立ablation分支2ca737d准备组件开关矩阵与历史Step0只读复现入口。核对tag=f382471，历史SDPA仅单请求、没有批处理服务桥接，不能把后来的R冒称Step0；新启动器校验精确tag及干净状态、PYTHONPATH指向detached快照、max_num_seqs1，客户端并发不改。47项相关CPU检查及快照/矩阵准备通过，3项来源检查复验通过；不自动跑全部消融，正式最多3点的累加表与内部组件证据明确分开。未占GPU或修改运行工作区。
+
+- 最终组合完整ABC/统一验证完成，96项产物哈希一致、真实后端及5631加载通过。A512=1139.7781（官方+78.57%），C TPOT/TTFT p99=11.502ms/1.025998s（相对官方-72.13%/+3.27%）；199次prefix后缀共757792token。正确性：开发200位置8045/12800=62.85%未达90%；16k63/64；8191/8192/8193边界55/9/11位置相同，四条整体90为额外检查。HE150/164对HF145/164，增7失2，但原绝对差3.0488pp判False。源码确认融合QK Norm与HF的BF16舍入边界不同，尚未证实是主因；建议保持优化做有界token-only对照，不全面回滚或静默改门槛。性能36/验证40归档，未启动新GPU。
+
+- 针对开发200位置62.85%未达90%，独立agreement分支6485506实现默认关闭HF QK Norm舍入（保留融合/Graph，无新增kernel），准备Norm累加与prefix/路由/投影/batch隔离两线，慢R控制仅在快分支未过90%时运行。只原200/长边界，不重跑HF、HE、ABC或tensor dump；46项CPU检查、3种gfx942离线编译及真实参考准备通过，未宣称已找到主因/恢复一致率。原高性能版本和结果不改。
+
+- greedy恢复两卡运行期间，独立hf-norm分支d9345c7准备条件后备：TP1/BF16 fused RMSNorm保留HF residual-add BF16、norm后BF16、权重乘法边界及原weight键/shape，Graph/QK融合保留。49项CPU检查、128/2304维有/无residual四种gfx942离线编译及输入准备通过。新增执行证据门：只有当前参考Norm控制实测≥90%才允许局部GPU冒烟与200配对，不支持Norm假设就停此支线。未占GPU或改运行源码，未宣称数值/速度通过。
+
+- greedy norm线20261116T142512125736Z完成，65项哈希与实际后端/5631加载通过；200位置率基线65.234→QK HF边界66.977→其余参考Norm71.852→再Torch路由72.914%，均未达90%。最佳16k63/64，但基线本轮8/64与先前不同，两次GPU/开发快照不同，不当严格重复或挑高报数。Norm有贡献但不足以解释差距，计划47快速Norm未满足≥90%证据条件，保持暂停；待systems完整控制结果，不重跑HE/ABC或扩展无证据优化。验证41归档。
+
+- systems五项快速子结果读取：基线65.36%、无prefix64.79%、Torch路由66.67%、分离QKV62.27%、batch1=64.10%；参考控制仍未完整返回。不改运行源码，独立core-diagnosis分支29063ee准备GPU0专家/Attention四格短对照：固定参考Norm、Torch route、分离投影、eager/batch1，12HE+8A按来源/长度固定20条，不依据参考输出筛选。50项CPU检查、实际20条准备通过，预期5–12分钟、预算25分钟；不重跑HF/HE/全量ABC，不把诊断子集通过当原200验收。
+
+- systems线20261116T142518071993Z完成，92项哈希/5631加载核验通过。参考R数学batch1为200条12800/12800、200/200序列；长组256/256、4/4序列，16k64/64。其它快速分支62–67%，Norm线最多72.9%。明确环境/输入管道可复现HF，但不替优化shuffle/缓存布局背书；不重装/重跑HF，不把R当历史Step0。GPU0核心矩阵已运行，GPU1不重复慢控制，待有希望组合后立刻完整200确认。验证42归档，未修改运行源码。
+
+- GPU0四格20261116T144338670827Z完成，52项哈希与实际28层后端/5631加载通过；20条原生/原生69.84%、原生Attention/参考专家71.17%、参考Attention/原生专家77.03%、参考/参考100%。不能只归单模块；独立attn-phase提交b699065准备两卡各两项阶段定位，专家诊断保留原Fused加载后shuffle及canonical参考副本、192分片就绪审计，明示额外内存仅诊断。53项CPU检查与实际20条准备通过，未启动新GPU，原20条不代替200验收。
+
+- 两卡阶段诊断完成，54项hash一致及实际backend/192分片审计通过；20条专家prefill86.875%、decode83.906%，Attention prefill73.672%、decode78.672%，均未达90。子集A占40%而原200占18%，不直接判全量失败或以重加权当通过。独立confirmation提交d4b2573只准备最后原200/长组：最接近expert_prefill batch1与R参考batch32并行，55项CPU检查通过；异步询问实际截止以限制实验预算，若不足即冻结已验证保守基础与显式激进实验版，绝不混用指标。

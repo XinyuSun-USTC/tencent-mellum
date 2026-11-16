@@ -1,0 +1,221 @@
+{
+  "status": "developer_position_below_90",
+  "track": "attention",
+  "scope": "Native developer pilot; no formal ABC/HumanEval acceptance, no defaults changed",
+  "native_execution": {
+    "calls": 1566,
+    "backends": [
+      "aiter_varlen",
+      "paged_attention_triton"
+    ],
+    "decode_max_requests": 32
+  },
+  "generation_repeat_stability": {
+    "R": true,
+    "candidate": true
+  },
+  "performance": {
+    "S1": {
+      "R_seconds": [
+        14.718480193056166,
+        14.722378514008597
+      ],
+      "candidate_seconds": [
+        14.05545413121581,
+        14.693134415894747
+      ],
+      "speedup": 1.024080144276293
+    },
+    "S32": {
+      "R_seconds": [
+        155.94724506814964,
+        155.99523125914857
+      ],
+      "candidate_seconds": [
+        120.78398882597685,
+        120.99011211912148
+      ],
+      "speedup": 1.2902228779174887
+    },
+    "L32": {
+      "R_seconds": [
+        200.229365658015,
+        200.2977955690585
+      ],
+      "candidate_seconds": [
+        123.39007433201186,
+        122.14539822097868
+      ],
+      "speedup": 1.631239498971511
+    },
+    "batch_geomean_speedup": 1.4507455052267801,
+    "speed_eligible": true
+  },
+  "accuracy_native_execution": {
+    "calls": 460,
+    "backends": [
+      "aiter_varlen",
+      "paged_attention_triton"
+    ],
+    "decode_max_requests": 32
+  },
+  "D200_groups": {
+    "all": {
+      "records": 200,
+      "matching_positions": 9136,
+      "compared_positions": 12800,
+      "token_match_fraction": 0.71375,
+      "exact_sequences": 82,
+      "exact_sequence_fraction": 0.41
+    },
+    "below_1024": {
+      "records": 168,
+      "matching_positions": 7881,
+      "compared_positions": 10752,
+      "token_match_fraction": 0.7329799107142857,
+      "exact_sequences": 76,
+      "exact_sequence_fraction": 0.4523809523809524
+    },
+    "at_least_1024": {
+      "records": 32,
+      "matching_positions": 1255,
+      "compared_positions": 2048,
+      "token_match_fraction": 0.61279296875,
+      "exact_sequences": 6,
+      "exact_sequence_fraction": 0.1875
+    },
+    "humaneval": {
+      "records": 164,
+      "matching_positions": 7793,
+      "compared_positions": 10496,
+      "token_match_fraction": 0.7424733231707317,
+      "exact_sequences": 75,
+      "exact_sequence_fraction": 0.4573170731707317
+    },
+    "scenario_a": {
+      "records": 36,
+      "matching_positions": 1343,
+      "compared_positions": 2304,
+      "token_match_fraction": 0.5828993055555556,
+      "exact_sequences": 7,
+      "exact_sequence_fraction": 0.19444444444444445
+    }
+  },
+  "source_run": "/workspace/results/mellum_native_attention/20261115T184214571268Z",
+  "git_head": "cb09aede47c1a3bb8135c2090ebcf481a122e413",
+  "used_seconds": 1587.206863842206,
+  "integrity": {
+    "artifacts_verified": 49,
+    "sources_verified": 238
+  },
+  "repeated_generation": {
+    "S1": {
+      "records": 1,
+      "changed_sequences": 0,
+      "actual_batches_0": {
+        "prefill": {
+          "calls_by_batch_size": {
+            "1": 1
+          },
+          "max_batch_size": 1
+        },
+        "decode": {
+          "calls_by_batch_size": {
+            "1": 256
+          },
+          "max_batch_size": 1
+        }
+      },
+      "actual_batches_1": {
+        "prefill": {
+          "calls_by_batch_size": {
+            "1": 1
+          },
+          "max_batch_size": 1
+        },
+        "decode": {
+          "calls_by_batch_size": {
+            "1": 256
+          },
+          "max_batch_size": 1
+        }
+      }
+    },
+    "S32": {
+      "records": 32,
+      "changed_sequences": 0,
+      "actual_batches_0": {
+        "prefill": {
+          "calls_by_batch_size": {
+            "32": 1
+          },
+          "max_batch_size": 32
+        },
+        "decode": {
+          "calls_by_batch_size": {
+            "32": 256
+          },
+          "max_batch_size": 32
+        }
+      },
+      "actual_batches_1": {
+        "prefill": {
+          "calls_by_batch_size": {
+            "32": 1
+          },
+          "max_batch_size": 32
+        },
+        "decode": {
+          "calls_by_batch_size": {
+            "32": 256
+          },
+          "max_batch_size": 32
+        }
+      }
+    },
+    "L32": {
+      "records": 32,
+      "changed_sequences": 0,
+      "actual_batches_0": {
+        "prefill": {
+          "calls_by_batch_size": {
+            "4": 1,
+            "5": 2,
+            "6": 3
+          },
+          "max_batch_size": 6
+        },
+        "decode": {
+          "calls_by_batch_size": {
+            "32": 256
+          },
+          "max_batch_size": 32
+        }
+      },
+      "actual_batches_1": {
+        "prefill": {
+          "calls_by_batch_size": {
+            "4": 1,
+            "5": 2,
+            "6": 3
+          },
+          "max_batch_size": 6
+        },
+        "decode": {
+          "calls_by_batch_size": {
+            "32": 256
+          },
+          "max_batch_size": 32
+        }
+      }
+    }
+  },
+  "first_token_matching_HF": 200,
+  "exact_sequences_to_R": 80,
+  "raw_sha256": {
+    "/workspace/results/mellum_native_attention/20261115T184214571268Z/summary.json": "7f1fbae03c10d07442a38487d51e7088b839fc2e021f1703f42fb8bdf9ecaf4c",
+    "/workspace/results/mellum_native_attention/20261115T184214571268Z/manifest.json": "39b7b43327cfad54d05a760846429bcac5093833655b4d562740e97bc301e711",
+    "/workspace/results/mellum_native_attention/20261115T184214571268Z/jobs/D200_candidate/D200_r0.json": "a310bc0a896b515f40ac2c1241917c0fd0eeebfe502fb5132e0e37d214d27106",
+    "/workspace/results/mellum_native_attention/20261115T184214571268Z/jobs/performance_candidate/results.json": "9986c8dcf885cc9e487c64847c084fbb12eb72198b29bebb1a26a4500b34e33a"
+  }
+}

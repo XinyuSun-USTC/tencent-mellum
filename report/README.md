@@ -108,3 +108,38 @@
 - [18 GPU1 prefill逐元素合并](performance/18_prefill_elementwise.md)：D200输出与R200/200相同，综合0.998×，停止当前候选。
 
 - [研究05 优化实现源码对照](research/05_optimization_implementation_sources.md)：冻结ATOM复用点、上游版本边界、vLLM/SGLang Mellum、候选兼容性和优先级。
+- [19 原生MoE/Attention两卡结果](performance/19_native_runtime_pilots.md)：批量约1.47×/1.45×，D200位置72.36%/71.38%；MoE重复生成存在差异，当前均不晋级。
+- [20 固定MoE回放与Attention阶段消融](performance/20_native_phase_diagnostics.md)：排序重复但MoE输出变化，CK原子归并证据；Attention仅prefill72.55%、仅decode77.25%，均停止晋级。
+- [21 MoE贡献独立归约](performance/21_isolated_moe_reduction.md)：三组局部回放12次稳定，D200位置74.18%，未达90%，跳过性能并停止晋级。
+
+- [研究06 并行准备与C前缀复用](research/06_parallel_preparation_and_prefix.md)：服务profiles已完成CPU验证；C公共前缀3820token，结构复用量37.15%，缓存尚未启用。
+
+- [22 FusedMoE完整HumanEval](performance/22_fused_moe_humaneval.md)：HF145/164、候选147/164，差距1.2195pp，本地功能门槛通过；其它公开集要求独立。
+
+- [23 FusedMoE HTTP容量](performance/23_fused_moe_http_capacity.md)：A64全成功57.00tokens/s，C20全成功TTFT p99 22.69秒；原生路径确认，仍需改善C延迟，非正式ABC。
+
+- [24 FusedMoE+SWA CK HTTP](performance/24_fused_moe_swa_http.md)：A64 59.61tokens/s、C20 TTFT p99 3.82秒；相对单项小负载观察改善4.58%/83.17%，非正式ABC。
+
+- [25 Prefix GPU0试验](performance/25_prefix_probe.md)：8请求/128token开关全一致，真实复用46592token；重复/共享请求耗时改善，下一步真实HTTP。
+
+- [26 FusedMoE+原生Attention HTTP](performance/26_native_attention_http.md)：A64 121.50tokens/s，C20 TTFT/TPOT p99 1.726秒/0.13478秒，进入复用HF的完整功能评估。
+
+- [27 FusedMoE+prefix HTTP](performance/27_prefix_http.md)：C20 19/20命中、复用72352token，TTFT p99 19.51秒；有效但弱于原生Attention主线。
+
+- [28 原生Attention+FusedMoE HumanEval](performance/28_native_attention_humaneval.md)：144/164，对HF145/164，差0.6098pp；本地功能门槛通过，作为性能主线继续推进。
+
+- [29 原生prefix组合](performance/29_native_prefix.md)：C20 TTFT p99 1.123秒，19/20命中；组合功能待评。
+- [30 原生完整ABC](performance/30_native_full_abc.md)：A512/B50/C200全成功，A121.28tokens/s为官方19.0%，C完整尾延迟仍落后，继续削减批量执行开销。
+
+- [研究07 Graph与KV写入后续核查](research/07_graph_and_cache_write_followup.md)：空campaign阻止非eager、动态K索引、重复RoPE/KV写入及审计tolist先求值；源码依据与最小后续边界，无新性能宣称。
+
+- [31 整批投影HTTP](performance/31_batched_projections.md)：A64 439.67tokens/s（同模型源码原生组合3.62倍），C20 TPOT p99 80.37ms，全部请求成功，功能评估待运行。
+
+- [32 原生prefix完整HumanEval](performance/32_native_prefix_humaneval.md)：GPU0候选147/164，对HF145/164，差1.2195pp，132个请求实际命中；此配置仍L请求级投影，整批版本待独立评估。
+
+- [33 整批投影HumanEval](performance/33_batched_projection_humaneval.md)：候选149/164、HF145/164，高2.4390pp；原脚本绝对差检查False，保留原判定并解释方向，不改门槛，继续性能主线。
+
+- [34 整批投影+prefix](performance/34_batched_prefix.md)：A64 438.83近似持平，C20 TTFT p99 1.014秒，19/20命中。
+- [35 单次KV写入](performance/35_direct_kv.md)：A64 499.64tokens/s（+13.64%），C20 TPOT p99 70.40ms，实际缓存布局与写入路径通过。
+
+- [研究08 官方Baseline差距审计](research/08_official_baseline_gap_audit.md)：已证实的诊断兼容成本、113处手写Norm、独立QKV、常量传输与审计读取；建议先恢复基础高效路径，未假定官方具体实现。

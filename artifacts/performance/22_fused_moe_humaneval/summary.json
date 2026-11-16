@@ -1,0 +1,78 @@
+{
+  "status": "paired_functional_evaluation_complete",
+  "original_run": "/workspace/results/mellum_humaneval_pair/20261115T210153552943Z",
+  "hf_extraction": {
+    "failures": 5,
+    "budget_hits": 4,
+    "output_tokens": 54436
+  },
+  "candidate_extraction": {
+    "failures": 6,
+    "budget_hits": 5,
+    "output_tokens": 53839
+  },
+  "candidate_score_reused": true,
+  "passed_tasks": {
+    "hf": 145,
+    "candidate": 147
+  },
+  "pass_at_1": {
+    "hf": 0.8841463414634146,
+    "candidate": 0.8963414634146342
+  },
+  "absolute_difference_pp": 1.2195121951219512,
+  "candidate_gains": 5,
+  "candidate_losses": 3,
+  "bf16_2pp_local_check": true,
+  "changed_tasks": [
+    {
+      "task_id": "HumanEval/32",
+      "hf": false,
+      "candidate": true
+    },
+    {
+      "task_id": "HumanEval/59",
+      "hf": false,
+      "candidate": true
+    },
+    {
+      "task_id": "HumanEval/67",
+      "hf": false,
+      "candidate": true
+    },
+    {
+      "task_id": "HumanEval/75",
+      "hf": false,
+      "candidate": true
+    },
+    {
+      "task_id": "HumanEval/119",
+      "hf": true,
+      "candidate": false
+    },
+    {
+      "task_id": "HumanEval/129",
+      "hf": false,
+      "candidate": true
+    },
+    {
+      "task_id": "HumanEval/132",
+      "hf": true,
+      "candidate": false
+    },
+    {
+      "task_id": "HumanEval/134",
+      "hf": true,
+      "candidate": false
+    }
+  ],
+  "exact_full_sequences": 92,
+  "protocol": "Local paired chat/full-code extraction protocol, official HumanEval scorer; not asserted judge-identical",
+  "thinking": false,
+  "max_new_tokens": 2048,
+  "notes": [
+    "No token-position gate; official functional score under explicit local protocol",
+    "Public200/16k and final performance remain independent requirements; inspect extraction/truncation counts"
+  ],
+  "recovery_source_unchanged": true
+}

@@ -24,7 +24,7 @@
 /opt/venv/bin/python /workspace/tencent-mellum-attention-diagnostics/scripts/run_mellum_native_diagnostics.py --track attention
 ```
 
-两份工作区固定同commit，实验期间不修改源码；GPU1引擎端口8426，GPU0层级回放不启引擎/端口。GPU1预计8–15分钟完成两项生成；有通过项才测256性能，可能总计20–35分钟。累计上限45分钟、每worker15分钟、最多5次启动。
+两份工作区固定相同源码，实验期间不修改源码；GPU1引擎端口8426，GPU0层级回放不启引擎/端口。GPU1预计8–15分钟完成两项生成；有通过项才测256性能，可能总计20–35分钟。累计上限45分钟、每worker15分钟、最多5次启动。
 
 1. `MELLUM_ATTENTION_EXECUTION=native_prefill`：原生varlen prefill，reference_ragged_decode。保留参考RoPE/KV修正、R专家，不用旧SDPA dispatch wrapper代替显式分阶段安装。
 2. `native_decode`：reference_ragged_prefill，原生paged decode；保留参考prefill所需raw QK、CPU频率和mask/GQA行为，不在这阶段改变prefill。
@@ -38,3 +38,5 @@
 输出根分别`/workspace/results/mellum_native_moe_diagnosis/<UTC>`、`mellum_native_attention_diagnosis/<UTC>`，回传各自RESULT与目录。失败日志、输入/源码hash、完成阶段产物hash和累计预算保留。`--resume <目录>`要求同工作区/track/源码/输入，已完成job跳过，最多启动次数和预算不重置，失败尝试归档。
 
 本轮没有GPU实测权限：工具无/dev/kfd、/dev/dri，只有CPU接线与调度检查。CPU测试覆盖模式的两个相反阶段、路由/窗口现有回归、通过/失败晋级、恢复、只做两项MoE回放、metadata描述和native/reference证据。最终验收仍为正常生成、16k、HumanEval与题目性能，不由局部误差替代。
+
+交付核验：120项相关CPU测试通过，py_compile/diff检查通过；MoE prepare-only `20261115T195403222539Z`、Attention prepare-only `20261115T195402782769Z`通过。实现基于53b6833，排序前缀观察补丁分别1cac5e2/c300a25，两份源码树相同；GPU尚未运行。

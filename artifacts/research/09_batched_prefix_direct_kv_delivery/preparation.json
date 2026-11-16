@@ -1,0 +1,32 @@
+{
+  "scope": "CPU preparation only; no new GPU experiment executed",
+  "commits": {
+    "batched_prefix": "e4cfb91",
+    "direct_kv": "b4e77d9"
+  },
+  "cpu_tests": {
+    "GPU0": 74,
+    "GPU1": 59
+  },
+  "prepared_manifests": {
+    "GPU0": {
+      "path": "/workspace/results/mellum_native_prefix/20261116T093839152450Z/manifest.json",
+      "sha256": "e1ee949b8211bd1aa7fac76703b22b0d5686066583fc2f9f8e7107a205ef5362"
+    },
+    "GPU1": {
+      "path": "/workspace/results/mellum_direct_kv/20261116T094126401077Z/manifest.json",
+      "sha256": "228d89c8b1823a04c1064aadf7d494663b4cb85e37309aed647dbfb6181431f7"
+    }
+  },
+  "frozen_cache_sources": {
+    "/app/aiter-test/aiter/ops/cache.py": "44c70f4c3a59fc2b0d5b731e4f04fa3d543ed09f748d4c06620dd3c6fb8ba381",
+    "/app/aiter-test/csrc/kernels/cache_kernels.cu": "4b171171cddf5c1483a14bf2b175edc35d3a7b4f63600ae067d16dd685caba96"
+  },
+  "checks": [
+    "source/input/client fingerprints passed",
+    "GPU0 batched native prefix explicit",
+    "GPU1 BF16 direct write explicit",
+    "no Graph/compile enabled",
+    "existing validated workspaces untouched"
+  ]
+}

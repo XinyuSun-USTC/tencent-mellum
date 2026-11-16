@@ -1,0 +1,132 @@
+{
+  "run": "/workspace/results/mellum_direct_kv/20261116T101221209827Z",
+  "baseline_run": "/workspace/results/mellum_candidate_capacity/20261116T043117581045Z",
+  "status": "complete",
+  "kernel": {
+    "status": "passed",
+    "cases": [
+      {
+        "window": -1,
+        "layout": "SHUFFLE",
+        "checks": {
+          "query_exact": true,
+          "keys_exact": true,
+          "values_exact": true,
+          "untouched": true,
+          "strided_v_tested": true
+        }
+      },
+      {
+        "window": 1024,
+        "layout": "NHD",
+        "checks": {
+          "query_exact": true,
+          "keys_exact": true,
+          "values_exact": true,
+          "untouched": true,
+          "strided_v_tested": true
+        }
+      }
+    ],
+    "scope": "Cache copy/layout semantics only, no free-generation equality requirement"
+  },
+  "probe": null,
+  "verified_artifacts": 88,
+  "source_unchanged": true,
+  "profile": "fused_moe_native_batched_direct_kv",
+  "cases": {
+    "smoke_B": {
+      "requests": 2,
+      "successes": 2,
+      "failures": 0,
+      "ttft_p50_s": 0.1901988349854946,
+      "ttft_p99_s": 0.20633192989043891,
+      "tpot_p50_s": 0.04644111755358822,
+      "tpot_p99_s": 0.046643253396648696,
+      "output_tokens_per_s_gpu": 21.2155,
+      "request_start_span_s": 12.100575405871496,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 1
+    },
+    "smoke_A": {
+      "requests": 8,
+      "successes": 8,
+      "failures": 0,
+      "ttft_p50_s": 1.161904462845996,
+      "ttft_p99_s": 1.1634014500305057,
+      "tpot_p50_s": 0.0496806096039055,
+      "tpot_p99_s": 0.04968090048242434,
+      "output_tokens_per_s_gpu": 148.0603,
+      "request_start_span_s": 0.002595471916720271,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 8
+    },
+    "smoke_C": {
+      "requests": 2,
+      "successes": 2,
+      "failures": 0,
+      "ttft_p50_s": 0.5157083859667182,
+      "ttft_p99_s": 0.9919987481553108,
+      "tpot_p50_s": 0.04927074999968503,
+      "tpot_p99_s": 0.05269977729037112,
+      "output_tokens_per_s_gpu": 26.4956,
+      "request_start_span_s": 5.767887894995511,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 2
+    },
+    "A64": {
+      "requests": 64,
+      "successes": 64,
+      "failures": 0,
+      "ttft_p50_s": 3.1281655200291425,
+      "ttft_p99_s": 4.138577984878793,
+      "tpot_p50_s": 0.05003687174187279,
+      "tpot_p99_s": 0.05012350721905629,
+      "output_tokens_per_s_gpu": 499.6429,
+      "request_start_span_s": 16.92575372592546,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 32
+    },
+    "C20": {
+      "requests": 20,
+      "successes": 20,
+      "failures": 0,
+      "ttft_p50_s": 0.7210637480020523,
+      "ttft_p99_s": 1.418277035932988,
+      "tpot_p50_s": 0.05376325012549904,
+      "tpot_p99_s": 0.07040189429021934,
+      "output_tokens_per_s_gpu": 65.6675,
+      "request_start_span_s": 64.95266983215697,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 9
+    }
+  },
+  "native_audits": {
+    "A_small": {
+      "kv_write/aiter_reference_kv_once/prefill": 1,
+      "attention/aiter_varlen/prefill": 14,
+      "moe/FusedMoE/prefill": 14,
+      "kv_write/aiter_reference_kv_once/decode": 1,
+      "attention/paged_attention_triton/decode": 768,
+      "moe/FusedMoE/decode": 768
+    },
+    "C_small": {
+      "kv_write/aiter_reference_kv_once/prefill": 1,
+      "attention/aiter_varlen/prefill": 21,
+      "moe/FusedMoE/prefill": 21,
+      "kv_write/aiter_reference_kv_once/decode": 1,
+      "attention/paged_attention_triton/decode": 1679,
+      "moe/FusedMoE/decode": 1679
+    }
+  }
+}
