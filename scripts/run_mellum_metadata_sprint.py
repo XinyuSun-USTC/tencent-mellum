@@ -9,7 +9,8 @@ from mellum_process_runner import run_stage
 from run_mellum_batch_campaign import write
 import run_mellum_candidate_capacity as capacity
 BASE='fused_moe_native_batched_direct_kv'
-TRACKS={'plain':['sprint_graph_qk','sprint_graph_qk_metadata'],
+TRACKS={'finish':['sprint_graph_qk_router','sprint_graph_qk_router_prefix','sprint_graph_qk_router_prefix_metadata'],
+        'plain':['sprint_graph_qk','sprint_graph_qk_metadata'],
         'prefix':['sprint_graph_qk_prefix','sprint_graph_qk_prefix_metadata'],
         'chunk':['sprint_graph_qk_chunk2048','sprint_graph_qk_chunk2048_metadata']}
 

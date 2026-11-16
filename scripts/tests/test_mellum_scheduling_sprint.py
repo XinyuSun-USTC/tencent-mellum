@@ -88,6 +88,8 @@ def test_native_cached_rectangular_bounds_reach_kernel(monkeypatch):
 def test_derived_candidates_change_only_declared_mechanisms():
     base=profile_settings('sprint_graph_qk')
     expected={
+        'sprint_graph_qk_router_prefix':{'MELLUM_NATIVE_ROUTING':'1','MELLUM_PREFIX_COMPAT':'1','MELLUM_PREFIX_ENABLED':'1'},
+        'sprint_graph_qk_router_prefix_metadata':{'MELLUM_PREFILL_METADATA_REUSE':'1','MELLUM_NATIVE_ROUTING':'1','MELLUM_PREFIX_COMPAT':'1','MELLUM_PREFIX_ENABLED':'1'},
         'sprint_graph_qk_router':{'MELLUM_NATIVE_ROUTING':'1'},
         'sprint_graph_qk_prefix':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_PREFIX_ENABLED':'1'},
         'sprint_graph_qk_chunk2048':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_CHUNK_BUDGET':'2048'},

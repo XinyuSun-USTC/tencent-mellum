@@ -14,7 +14,7 @@ def test_profile_forwarding_failure_continuation_and_resume(tmp_path,monkeypatch
         directory=Path(log).parent;job=json.loads((directory/'plan.json').read_text());seen.append(job)
         assert job['profile']==profile and job['server_port']==8451
         if job['stage']=='B':raise RuntimeError('owned stage failed')
-        write(directory/'results.json',{'status':'complete','cases':{'case':{'metrics':{'complete_without_failures':True}}}})
+        write(directory/'results.json',{'status':'complete','cases':{'case':{'metrics':{'complete_without_failures':True,'output_tokens_per_s_gpu':1000.,'ttft_p99_s':1.,'tpot_p99_s':.02}}}})
     first=c.execute(tmp_path,plan,600,execute)
     assert first['status']=='complete_with_failures' and [s['stage'] for s in seen]==['A','B','C']
     seen.clear()

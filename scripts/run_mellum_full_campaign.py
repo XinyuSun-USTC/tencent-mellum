@@ -77,12 +77,21 @@ def execute(out,plan,budget,executor=run_stage):
 
 def finish(out,plan,status):
     current(out,plan)
-    rows={}
+    rows={};metrics={}
     for key,job in plan['jobs'].items():
         f=out/key/'results.json'
         rows[key]={'status':job['status'],'results':json.loads(f.read_text()) if f.exists() else None}
+    official=json.loads(Path('/data/datasets/baseline.json').read_text());comparisons={}
+    for key,row in rows.items():
+        profile,stage=key.split('/')
+        for case in (row['results'] or {}).get('cases',{}).values():
+            m=case.get('metrics',{})
+            metrics.setdefault(profile,{})[stage]={k:m.get(k) for k in ['requests','successes','failures','output_tokens_per_s_gpu','ttft_p50_s','ttft_p99_s','tpot_p50_s','tpot_p99_s','complete_without_failures']}
+            if row['status']!='complete' or not m.get('complete_without_failures'):continue
+            if stage=='A':comparisons.setdefault(profile,{})['A_throughput_ratio_vs_official']=m['output_tokens_per_s_gpu']/official['scenario_a']['tokens_per_s_gpu']
+            if stage=='C':comparisons.setdefault(profile,{}).update(C_ttft_p99_latency_ratio_vs_official=m['ttft_p99_s']/official['scenario_c']['ttft_p99_s'],C_tpot_p99_latency_ratio_vs_official=m['tpot_p99_s']/official['scenario_c']['tpot_p99_s'])
     write(out/'manifest.json',plan)
-    result={'status':status,'scope':plan['scope'],'jobs':rows,'source_unchanged':True,
+    result={'metrics':metrics,'comparisons':comparisons,'status':status,'scope':plan['scope'],'jobs':rows,'source_unchanged':True,
             'artifact_sha256':{str(f.relative_to(out)):sha(f) for f in out.rglob('*') if f.is_file() and f!=out/'summary.json'}}
     write(out/'summary.json',result);return result
 
