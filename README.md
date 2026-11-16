@@ -1,6 +1,6 @@
 # Mellum 2.1 on ATOM — delivery
 
-冻结 AMD ROCm 环境中的 Mellum2.1-12B-A2.5B-Thinking BF16 适配与性能实验。交付分支：`release/submission`。单卡运行，MTP 关闭。
+冻结 AMD ROCm 环境中的 Mellum2.1-12B-A2.5B-Thinking BF16 适配与性能实验。交付分支：`release/submission`；发布标签：`submission-20261116`。单卡运行，MTP 关闭。
 
 **默认保守模式已在本地 200×64 token 和长输入组逐 token 完全一致。激进模式有性能收益，但未通过本地 90% token 一致率门槛，因此不能宣称整体考核通过。** 两种运行策略的选择是独立交付开关，不算作 Step0 或一个优化点。
 
@@ -32,7 +32,7 @@ OpenAI 接口 `http://127.0.0.1:8000/v1`，健康检查 `/health`。默认模型
 | 配置 | 本地 200 条前64 token | 长输入组 | HumanEval | 完整 ABC |
 |---|---:|---:|---|---|
 | conservative，profile r，槽1 | 12800/12800，100% | 256/256，100%；16k 64/64 | 此精确预设未单独测量 | 此精确预设未测量 |
-| aggressive，最终组合，槽32 | 8045/12800，62.85%，不通过 | 138/256；16k 63/64 | 150/164；HF145/164 | A1139.78 token/s/GPU；B TPOTp50 4.865ms；C TPOTp99 11.502ms、TTFTp99 1026.0ms |
+| aggressive，最终组合，槽32 | 8045/12800，62.85%，不通过 | 138/256；16k 63/64 | 150/164；HF145/164 | A1137.08 token/s/GPU；B TPOTp50 4.941ms；C TPOTp99 11.396ms、TTFTp99 1024.0ms |
 
 HumanEval 关闭 thinking、上限2048、官方 openai/human-eval 评测套件。候选较 HF 高5题/+3.05个百分点；按题面“差距”绝对值≤2pp的字面口径，仍不宣称通过。公开200条的官方精确口径未完全确认，本地集称 developer200。最终裁判的隐藏集、空闲机三次中位数未由本项目完成。两卡用于并行独立实验，交付推理为单卡，不主张双卡并行或 MTP 支持。
 
@@ -92,3 +92,5 @@ HumanEval 关闭 thinking、上限2048、官方 openai/human-eval 评测套件�
 ```
 
 生成各行实际指标与 `matrix.md`，完成数据按 `scripts/archive_submission_run.py --run RUN --label LABEL` 归档；归档不会根据预期补齐失败/缺失项。
+
+最终交付源码完整 ABC 复测：`artifacts/submission/delivery_abc/summary.json`；A512/B50/C200 全部成功。缩减规模累计对照：`artifacts/submission/delivery_ablation/matrix.md`，四组配置、12个阶段全部成功。正式累计消融的缺口与正确性结果见技术报告。

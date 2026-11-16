@@ -1,0 +1,201 @@
+{"kind": "kv_write", "phase": "prefill", "rows": 9, "requests": 1, "backend": "aiter_reference_kv_once", "cache_format": "NHD", "resident_inverse": true, "inverse_device": "cuda:0", "rope_backend": "triton_qk_norm_rope"}
+{"kind": "attention", "phase": "prefill", "rows": 9, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 9, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 998, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 998, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14869, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14869, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15561, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15561, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14668, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14668, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14175, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14175, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16215, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16215, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 6495, "requests": 2, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 6495, "requests": 2, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 5173, "requests": 2, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 5173, "requests": 2, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16425, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16425, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16449, "requests": 9, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16449, "requests": 9, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15389, "requests": 9, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15389, "requests": 9, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 12526, "requests": 4, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 12526, "requests": 4, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 3954, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 3954, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14730, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14730, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15583, "requests": 9, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15583, "requests": 9, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14893, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14893, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13798, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13798, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 7268, "requests": 2, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 7268, "requests": 2, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 2447, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 2447, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16423, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16423, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14648, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14648, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13902, "requests": 4, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13902, "requests": 4, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15169, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15169, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 12792, "requests": 4, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 12792, "requests": 4, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 3258, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 3258, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14785, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14785, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16207, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16207, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13738, "requests": 4, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13738, "requests": 4, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14690, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14690, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 12864, "requests": 4, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 12864, "requests": 4, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 4096, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 4096, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 1141, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 1141, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15842, "requests": 9, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15842, "requests": 9, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16348, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16348, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15705, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15705, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16568, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16568, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 3655, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 3655, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 3613, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 3613, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15164, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15164, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16072, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16072, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14193, "requests": 9, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14193, "requests": 9, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16305, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16305, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15123, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15123, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 618, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 618, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16571, "requests": 9, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16571, "requests": 9, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15581, "requests": 9, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15581, "requests": 9, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14735, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14735, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15248, "requests": 4, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15248, "requests": 4, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 9103, "requests": 3, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 9103, "requests": 3, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 987, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 987, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16213, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16213, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16353, "requests": 9, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16353, "requests": 9, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15619, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15619, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13959, "requests": 4, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13959, "requests": 4, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13348, "requests": 4, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13348, "requests": 4, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 652, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 652, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13548, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13548, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16294, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16294, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16302, "requests": 9, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16302, "requests": 9, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15811, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15811, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 8037, "requests": 2, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 8037, "requests": 2, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 1187, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 1187, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15844, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15844, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16422, "requests": 9, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16422, "requests": 9, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15996, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15996, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15629, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15629, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13307, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13307, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 3634, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 3634, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 1644, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 1644, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15252, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15252, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14667, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14667, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15572, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15572, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13148, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13148, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14343, "requests": 4, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14343, "requests": 4, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 3954, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 3954, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 7131, "requests": 3, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 7131, "requests": 3, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14664, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14664, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15044, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15044, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14916, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14916, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15265, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15265, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 5602, "requests": 2, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 5602, "requests": 2, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 1919, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 1919, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15825, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15825, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15856, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15856, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13876, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13876, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14253, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14253, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16132, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16132, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 2225, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 2225, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16013, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16013, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15974, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15974, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15241, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15241, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13532, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13532, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 11708, "requests": 3, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 11708, "requests": 3, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 773, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 773, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15207, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15207, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 16295, "requests": 8, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 16295, "requests": 8, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14946, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14946, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 13493, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 13493, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 12149, "requests": 4, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 12149, "requests": 4, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}

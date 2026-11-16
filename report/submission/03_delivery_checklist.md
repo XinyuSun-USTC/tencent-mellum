@@ -43,11 +43,11 @@
 /opt/venv/bin/python scripts/run_submission_ablation.py --gpu 1 --budget-minutes 20
 ```
 
-后者采用 A32/B6/C8，控制行为原生快速配置，与历史 Step0 不同。该对照已完成，12个阶段均成功，运行编号为`20261116T153235801902Z`，结果见`artifacts/submission/delivery_ablation/matrix.md`。其结果用于补充组件收益分析，不替代题目规定的完整累计消融。完整ABC复测完成后另行归档。
+后者采用 A32/B6/C8，控制行为原生快速配置，与历史 Step0 不同。该对照已完成，12个阶段均成功，运行编号为`20261116T153235801902Z`，结果见`artifacts/submission/delivery_ablation/matrix.md`。其结果用于补充组件收益分析，不替代题目规定的完整累计消融。完整ABC复测已完成，运行编号为`20261116T153025780336Z`，A512/B50/C200全部成功，结果见`artifacts/submission/delivery_abc/`。
 
 ## 4. 版本与打包
 
-交付分支为 `release/submission`，历史 Step0 标签为 `step0-local-validated`。Git 保留提交和合并历史。技术报告、AI 说明、WORKLOG 与证据索引均随代码交付；模型权重、虚拟环境及大体积张量文件保留在外部环境中。
+交付分支为 `release/submission`，发布标签为 `submission-20261116`，历史 Step0 标签为 `step0-local-validated`。Git 保留提交和合并历史。技术报告、AI 说明、WORKLOG 与证据索引均随代码交付；模型权重、虚拟环境及大体积张量文件保留在外部环境中。
 
 工作树提交完成后，执行：
 

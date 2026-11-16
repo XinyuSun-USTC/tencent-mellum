@@ -210,3 +210,9 @@
 在独立`release/submission`工作树整合实现与证据，保留正常合并历史；增加`start_server.sh`及独立conservative/aggressive模式与组件关闭开关。真实交付入口两模式GPU smoke均通过，运行`20261116T152441526820Z`，覆盖5631权重加载、HTTP、SSE/usage；不作为完整正确性验收。CPU相关59项通过，干净克隆文件/证据校验及两模式dry-run通过。正式交付文档按用户要求以中文Markdown主稿为准，PDF仅预览。
 
 最终源码完整ABC运行`/workspace/results/mellum_full_campaign/20261116T153025780336Z`；短A32/B6/C8累计screen运行`/workspace/results/mellum_submission_ablation/20261116T153235801902Z`。两任务运行期间不修改被manifest绑定的ATOM/性能入口。短screen控制是native fast control，不是历史Step0；不会替代完整累计消融。初版离线源码ZIP/完整历史bundle已生成，最终结果归档后重打包。工具环境github.com DNS失败，远端上传需用户在容器终端执行。
+
+### 11-16 最终工作树性能复测与消融补充
+
+完整ABC运行`20261116T153025780336Z`完成：A512/B50/C200全部成功，72项产物SHA256一致，测量源码未改变。A1137.0824token/s/GPU、B TPOTp50 4.941291ms、C TPOTp99 11.396278ms、TTFTp99 1024.007058ms。与题给baseline比较，A+78.147%、C TPOTp99−72.383%、TTFTp99+3.066%；与此前组合结果接近。
+
+缩减累计对照`20261116T153235801902Z`完成，四配置12阶段全部成功，259项产物SHA256一致。A32吞吐依次584.7686/908.3906/1101.4811/1092.9483，B6 TPOTp50为39.123868/8.997919/4.925193/4.901319ms；C8 TTFTp99为1133.564107/1057.081355/1024.438373/779.619595ms。控制配置为原生快速配置，不是历史Step0；保留正式累计消融缺口。两项证据归档至artifacts/submission，中文技术报告更新本轮结果；正确性结论不因性能完成而改变。

@@ -1,0 +1,1065 @@
+SERVE output /workspace/results/mellum_full_campaign/20261116T153025780336Z/sprint_graph_qk_router_prefix_metadata/C/server
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+[atom 15:35:26] Default chat template kwargs: {'enable_thinking': True}
+[atom 15:35:26] Loading tokenizer from /data/models/Mellum2.1-12B-A2.5B-Thinking...
+You are using a model of type `mellum` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+[atom 15:35:26] Initializing engine with model /data/models/Mellum2.1-12B-A2.5B-Thinking...
+[atom 15:35:26] Engine kwargs: {'trust_remote_code': False, 'tensor_parallel_size': 1, 'data_parallel_size': 1, 'enforce_eager': False, 'enable_prefix_caching': True, 'port': 9426, 'kv_cache_dtype': 'bf16', 'max_model_len': 16640, 'max_num_batched_tokens': 16640, 'attn_prefill_chunk_size': 16384, 'enable_chunked_prefill': False, 'scheduler_delay_factor': 0.0, 'max_num_seqs': 32, 'gpu_memory_utilization': 0.35, 'load_dummy': False, 'enable_expert_parallel': False, 'torch_profiler_dir': None, 'enable_dp_attention': False, 'kv_transfer_config': '{}', 'mark_trace': False, 'online_quant_config': None, 'kv_cache_block_size': 16, 'compilation_config': CompilationConfig(level=0, use_cudagraph=True, local_cache_dir=None, cudagraph_capture_sizes=[1, 2, 4, 8, 16, 32], cuda_graph_sizes=[512], debug_dump_path='', traced_files=set(), cache_dir='', use_inductor=True, cudagraph_mode=None, compilation_time=0.0, splitting_ops=None, cudagraph_copy_inputs=False, inductor_compile_config={}, compile_sizes=None, static_forward_context={}), 'speculative_config': None, 'enable_tbo': False, 'enable_tbo_decode': False, 'enable_low_latency': False}
+`torch_dtype` is deprecated! Use `dtype` instead!
+[atom 15:35:26] Engine Core Mgr: Creating EngineCore for DP rank 0/1
+[atom 15:35:26] Creating EngineCore process: DP rank 0, will use GPUs 0 to 0
+[atom 15:35:26] Engine Core Mgr: Starting EngineCore for DP rank 0/1
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+[atom 15:35:36] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 15:35:36] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 15:35:36] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[atom 15:35:36] Create lazy wrapper for FusedMoE to change the naming
+[atom 15:35:36] ModelRunner rank=0, dp_rank_local=0, local_device_rank=0, device=cuda:0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[atom 15:35:36] disable_mmap: False
+Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:   0%|          | 0/5 [00:00<?, ?it/s]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  20%|██        | 1/5 [00:01<00:04,  1.19s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  40%|████      | 2/5 [00:02<00:03,  1.25s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  60%|██████    | 3/5 [00:03<00:02,  1.26s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  80%|████████  | 4/5 [00:04<00:01,  1.20s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]: 100%|██████████| 5/5 [00:06<00:00,  1.22s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]: 100%|██████████| 5/5 [00:06<00:00,  1.22s/it]
+[atom 15:35:43] Mellum loading audit passed: 5631 source tensors
+[atom 15:35:43] Model load done: /data/models/Mellum2.1-12B-A2.5B-Thinking
+[aiter] [fused_moe] duplicate tuned rows after disabling act_type in /tmp/aiter_configs/tuned_fmoe.csv; keeping first match for 427 rows
+[aiter] type hints mismatch, override to --> ck_moe_stage1(hidden_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w1_scale: Optional[torch.Tensor] = None, a1_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] type hints mismatch, override to --> ck_moe_stage2(inter_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w2_scale: Optional[torch.Tensor] = None, a2_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[atom 15:35:44] Model Runner0/1: warmup_model 1.46 seconds with 1 reqs 16640 tokens
+[atom 15:35:44] Model warmup done: /data/models/Mellum2.1-12B-A2.5B-Thinking
+[atom 15:35:44] Memory budget: total_gpu=191.98GB, free=168.12GB, utilization=0.35, budget=67.19GB, peak_torch=23.49GB, cudagraph_est=0.13GB, safety=3.84GB, available_for_kv=39.74GB, block_bytes=931840, num_kvcache_blocks=45791
+[atom 15:35:44] Concurrent capacity vs context length (max_model_len=16640, block_size=16, max_slots=32, pool_blocks=45791):
+   10% (   1664 tok):    104 blk/req → max_concurrent=32    (bound by slots)
+   30% (   4992 tok):    312 blk/req → max_concurrent=32    (bound by slots)
+   50% (   8320 tok):    520 blk/req → max_concurrent=32    (bound by slots)
+   70% (  11648 tok):    728 blk/req → max_concurrent=32    (bound by slots)
+   90% (  14976 tok):    936 blk/req → max_concurrent=32    (bound by slots)
+  100% (  16640 tok):   1040 blk/req → max_concurrent=32    (bound by slots)
+[atom 15:35:44] Binding KV cache for target model starting at layer_id=0
+/opt/venv/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W1116 15:35:44.632689875 ProcessGroupNCCL.cpp:5140] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+  0%|          | 0/6 [00:00<?, ?it/s]Capturing bs=32, max_q_len=1:   0%|          | 0/6 [00:00<?, ?it/s]Capturing bs=32, max_q_len=1:  17%|█▋        | 1/6 [00:00<00:01,  2.95it/s]Capturing bs=16, max_q_len=1:  17%|█▋        | 1/6 [00:00<00:01,  2.95it/s]Capturing bs=16, max_q_len=1:  33%|███▎      | 2/6 [00:00<00:00,  4.72it/s]Capturing bs=8, max_q_len=1:  33%|███▎      | 2/6 [00:00<00:00,  4.72it/s] Capturing bs=4, max_q_len=1:  33%|███▎      | 2/6 [00:00<00:00,  4.72it/s]Capturing bs=4, max_q_len=1:  67%|██████▋   | 4/6 [00:00<00:00,  8.70it/s]Capturing bs=2, max_q_len=1:  67%|██████▋   | 4/6 [00:00<00:00,  8.70it/s]Capturing bs=1, max_q_len=1:  67%|██████▋   | 4/6 [00:00<00:00,  8.70it/s]Capturing bs=1, max_q_len=1: 100%|██████████| 6/6 [00:00<00:00, 11.38it/s]Capturing bs=1, max_q_len=1: 100%|██████████| 6/6 [00:00<00:00,  8.67it/s]
+[atom 15:35:45] Post-init memory: actual=64.40GB (33.5%), target=67.19GB (35%)
+[atom 15:35:45] Engine Core: cudagraph capture[1, 2, 4, 8, 16, 32] cost: 0.69 seconds
+[atom 15:35:45] Engine Core: load model runner success
+[atom 15:35:46] Engine Core: EngineCore fully initialized and ready
+[atom 15:35:46] Engine Core Mgr: DP rank 0 is fully initialized and ready
+[atom 15:35:46] Engine Core Mgr: All EngineCores are fully initialized and ready
+[atom 15:35:46] Engine Core Mgr: All 1 EngineCores initialized and ready
+[atom 15:35:46] KV transfer config loaded: {}
+[atom 15:35:46] LLMEngine init with 1 data parallel ranks
+[atom 15:35:46] LLMEngine init with 1 data parallel ranks
+[atom 15:35:46] Starting server on 127.0.0.1:8451...
+INFO:     Started server process [1266071]
+INFO:     Waiting for application startup.
+[atom 15:35:46] Server started successfully and ready to accept requests
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8451 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48368 - "GET /health HTTP/1.1" 200 OK
+[atom 15:35:51] Request 0 arrived, input tokens: 9, pending requests: 1
+[atom 15:35:51] API: Created request_id=chatcmpl-42fb91454f0f40a89fb03ffba4cb6479, seq_id=0
+INFO:     127.0.0.1:48444 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:35:51] Scheduled prefill batch: 1 reqs, 9 new tokens (cached: [0], new: [9]), req_ids: (0,)
+[aiter] type hints mismatch, override to --> fmha_v3_varlen_fwd(q: torch.Tensor, k: torch.Tensor, v: torch.Tensor, cu_seqlens_q: torch.Tensor, cu_seqlens_k: torch.Tensor, max_seqlen_q: int, max_seqlen_k: int, min_seqlen_q: int, dropout_p: float, softmax_scale: float, logits_soft_cap: float, zero_tensors: bool, is_causal: bool, window_size_left: int, window_size_right: int, return_softmax_lse: bool, return_dropout_randval: bool, how_v3_bf16_cvt: int, out: Optional[torch.Tensor] = None, block_table: Optional[torch.Tensor] = None, bias: Optional[torch.Tensor] = None, alibi_slopes: Optional[torch.Tensor] = None, q_descale: Optional[torch.Tensor] = None, k_descale: Optional[torch.Tensor] = None, v_descale: Optional[torch.Tensor] = None, gen: Optional[torch.Generator] = None, cu_seqlens_q_padded: Optional[torch.Tensor] = None, cu_seqlens_k_padded: Optional[torch.Tensor] = None) -> List[torch.Tensor]
+[atom 15:35:52] Engine Core: output send 1 reqs
+[atom 15:35:58] Request 1 arrived, input tokens: 7889, pending requests: 1
+[atom 15:35:58] API: Created request_id=chatcmpl-5afec0a092f3461bb86b506dff6b6488, seq_id=1
+INFO:     127.0.0.1:48458 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:35:58] Scheduled prefill batch: 1 reqs, 7889 new tokens (cached: [0], new: [7889]), req_ids: (1,)
+[atom 15:36:00] Engine Core: output send 1 reqs
+[atom 15:36:09] Request 2 arrived, input tokens: 12588, pending requests: 1
+[atom 15:36:09] API: Created request_id=chatcmpl-adeaf72577c143ecbfea72ab303fad3f, seq_id=2
+INFO:     127.0.0.1:48530 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:09] Scheduled prefill batch: 1 reqs, 8780 new tokens (cached: [3808], new: [8780]), req_ids: (2,)
+[atom 15:36:11] Engine Core: output send 1 reqs
+[atom 15:36:13] Request 3 arrived, input tokens: 11897, pending requests: 1
+[atom 15:36:13] API: Created request_id=chatcmpl-1df047a4b8584873ab23bb444af0d0ea, seq_id=3
+INFO:     127.0.0.1:48530 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:13] Scheduled prefill batch: 1 reqs, 8089 new tokens (cached: [3808], new: [8089]), req_ids: (3,)
+[atom 15:36:15] Engine Core: output send 1 reqs
+[atom 15:36:16] Request 4 arrived, input tokens: 6191, pending requests: 1
+[atom 15:36:16] API: Created request_id=chatcmpl-f55abad79d454b3ebc3f368694eb28e7, seq_id=4
+INFO:     127.0.0.1:48530 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:17] Scheduled prefill batch: 1 reqs, 2383 new tokens (cached: [3808], new: [2383]), req_ids: (4,)
+[atom 15:36:17] Request 5 arrived, input tokens: 10314, pending requests: 2
+[atom 15:36:17] API: Created request_id=chatcmpl-fd6b2b13c4d940b0b67712bb7620c1e7, seq_id=5
+INFO:     127.0.0.1:48604 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:17] Scheduled prefill batch: 1 reqs, 6506 new tokens (cached: [3808], new: [6506]), req_ids: (5,)
+[atom 15:36:18] Request 6 arrived, input tokens: 8709, pending requests: 3
+[atom 15:36:18] API: Created request_id=chatcmpl-3b9c0c90bf644542bc725869b95b07f0, seq_id=6
+INFO:     127.0.0.1:48610 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:18] Scheduled prefill batch: 1 reqs, 4901 new tokens (cached: [3808], new: [4901]), req_ids: (6,)
+[atom 15:36:18] Request 7 arrived, input tokens: 13290, pending requests: 4
+[atom 15:36:18] API: Created request_id=chatcmpl-c721626beb0545d9a8ed113484df542a, seq_id=7
+INFO:     127.0.0.1:48612 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:18] Scheduled prefill batch: 1 reqs, 9482 new tokens (cached: [3808], new: [9482]), req_ids: (7,)
+[atom 15:36:19] Engine Core: output send 1 reqs
+[atom 15:36:20] Engine Core: output send 1 reqs
+[atom 15:36:20] Engine Core: output send 2 reqs
+[atom 15:36:25] Request 8 arrived, input tokens: 10640, pending requests: 1
+[atom 15:36:25] API: Created request_id=chatcmpl-ff1fa1ce675a437db71e9286db624819, seq_id=8
+INFO:     127.0.0.1:48610 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:25] Scheduled prefill batch: 1 reqs, 6832 new tokens (cached: [3808], new: [6832]), req_ids: (8,)
+[atom 15:36:27] Engine Core: output send 1 reqs
+[atom 15:36:28] Request 9 arrived, input tokens: 13156, pending requests: 1
+[atom 15:36:28] API: Created request_id=chatcmpl-51af2285d10840cfaf85efd09e9736fc, seq_id=9
+INFO:     127.0.0.1:48610 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:28] Scheduled prefill batch: 1 reqs, 9348 new tokens (cached: [3808], new: [9348]), req_ids: (9,)
+[atom 15:36:30] Engine Core: output send 1 reqs
+[atom 15:36:33] Request 10 arrived, input tokens: 15202, pending requests: 1
+[atom 15:36:33] API: Created request_id=chatcmpl-5d35f10666ff4a0992f0ff7cb7b2d3f6, seq_id=10
+INFO:     127.0.0.1:48610 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:33] Scheduled prefill batch: 1 reqs, 11394 new tokens (cached: [3808], new: [11394]), req_ids: (10,)
+[atom 15:36:33] Request 11 arrived, input tokens: 13816, pending requests: 2
+[atom 15:36:33] API: Created request_id=chatcmpl-79f8c07064e94c6890f9b5f234bf1b93, seq_id=11
+INFO:     127.0.0.1:48718 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:33] Scheduled prefill batch: 1 reqs, 10008 new tokens (cached: [3808], new: [10008]), req_ids: (11,)
+[atom 15:36:35] Engine Core: output send 2 reqs
+[atom 15:36:45] Request 12 arrived, input tokens: 4376, pending requests: 1
+[atom 15:36:45] API: Created request_id=chatcmpl-fbc3e1244895472bafd53db8b7c24838, seq_id=12
+INFO:     127.0.0.1:48810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:45] Scheduled prefill batch: 1 reqs, 568 new tokens (cached: [3808], new: [568]), req_ids: (12,)
+[atom 15:36:46] Engine Core: output send 1 reqs
+[atom 15:36:51] Request 13 arrived, input tokens: 5097, pending requests: 1
+[atom 15:36:51] API: Created request_id=chatcmpl-367d20a53f564059b92aee6504356338, seq_id=13
+INFO:     127.0.0.1:48810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:51] Scheduled prefill batch: 1 reqs, 1289 new tokens (cached: [3808], new: [1289]), req_ids: (13,)
+[atom 15:36:52] Request 14 arrived, input tokens: 10680, pending requests: 2
+[atom 15:36:52] API: Created request_id=chatcmpl-1a088f48e0054bd5b206d73569a7ee69, seq_id=14
+INFO:     127.0.0.1:48828 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:52] Scheduled prefill batch: 1 reqs, 6872 new tokens (cached: [3808], new: [6872]), req_ids: (14,)
+[atom 15:36:53] Request 15 arrived, input tokens: 7360, pending requests: 3
+[atom 15:36:53] API: Created request_id=chatcmpl-2bf4b8da2a7444789f2397f590e831aa, seq_id=15
+INFO:     127.0.0.1:48830 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:53] Scheduled prefill batch: 1 reqs, 3552 new tokens (cached: [3808], new: [3552]), req_ids: (15,)
+[atom 15:36:53] Engine Core: output send 1 reqs
+[atom 15:36:54] Request 16 arrived, input tokens: 15239, pending requests: 3
+[atom 15:36:54] API: Created request_id=chatcmpl-60dfc08e555443738b6c7d9cc6038a6a, seq_id=16
+INFO:     127.0.0.1:48810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:54] Scheduled prefill batch: 1 reqs, 11431 new tokens (cached: [3808], new: [11431]), req_ids: (16,)
+[atom 15:36:55] Request 17 arrived, input tokens: 6510, pending requests: 4
+[atom 15:36:55] API: Created request_id=chatcmpl-d92867c7848141de9056b52531c7ab1c, seq_id=17
+INFO:     127.0.0.1:48834 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:55] Scheduled prefill batch: 1 reqs, 2702 new tokens (cached: [3808], new: [2702]), req_ids: (17,)
+[atom 15:36:55] Engine Core: output send 1 reqs
+[atom 15:36:55] Engine Core: output send 1 reqs
+[atom 15:36:56] Engine Core: output send 1 reqs
+[atom 15:36:57] Engine Core: output send 1 reqs
+[atom 15:36:57] Request 18 arrived, input tokens: 5584, pending requests: 1
+[atom 15:36:57] API: Created request_id=chatcmpl-6944c5bd6edc4d9f912bed18d806f09a, seq_id=18
+INFO:     127.0.0.1:48828 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:57] Scheduled prefill batch: 1 reqs, 1776 new tokens (cached: [3808], new: [1776]), req_ids: (18,)
+[atom 15:36:59] Engine Core: output send 1 reqs
+[atom 15:36:59] Request 19 arrived, input tokens: 6756, pending requests: 1
+[atom 15:36:59] API: Created request_id=chatcmpl-aeba6fdf65ef45b389d2998a467db0f3, seq_id=19
+INFO:     127.0.0.1:48830 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:36:59] Scheduled prefill batch: 1 reqs, 2948 new tokens (cached: [3808], new: [2948]), req_ids: (19,)
+[atom 15:37:01] Request 20 arrived, input tokens: 11222, pending requests: 2
+[atom 15:37:01] API: Created request_id=chatcmpl-571c5659d47848df8d3030d4dd94b08e, seq_id=20
+INFO:     127.0.0.1:48810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:01] Scheduled prefill batch: 1 reqs, 7414 new tokens (cached: [3808], new: [7414]), req_ids: (20,)
+[atom 15:37:01] Engine Core: output send 1 reqs
+[atom 15:37:02] Engine Core: output send 1 reqs
+[atom 15:37:04] Request 21 arrived, input tokens: 8471, pending requests: 1
+[atom 15:37:04] API: Created request_id=chatcmpl-601adba04d9a4ed6942f17014bf75516, seq_id=21
+INFO:     127.0.0.1:48830 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:04] Scheduled prefill batch: 1 reqs, 4663 new tokens (cached: [3808], new: [4663]), req_ids: (21,)
+[atom 15:37:05] Request 22 arrived, input tokens: 15181, pending requests: 2
+[atom 15:37:05] API: Created request_id=chatcmpl-bd052c662a7e4e55bde9587ac9f842d7, seq_id=22
+INFO:     127.0.0.1:48810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:05] Scheduled prefill batch: 1 reqs, 11373 new tokens (cached: [3808], new: [11373]), req_ids: (22,)
+[atom 15:37:06] Request 23 arrived, input tokens: 12937, pending requests: 3
+[atom 15:37:06] API: Created request_id=chatcmpl-a47b9ade827949d39010e1eeca15493d, seq_id=23
+INFO:     127.0.0.1:48862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:06] Scheduled prefill batch: 1 reqs, 9129 new tokens (cached: [3808], new: [9129]), req_ids: (23,)
+[atom 15:37:07] Engine Core: output send 1 reqs
+[atom 15:37:07] Engine Core: output send 1 reqs
+[atom 15:37:07] Request 24 arrived, input tokens: 13368, pending requests: 2
+[atom 15:37:07] API: Created request_id=chatcmpl-09440a21f8804431aab44b9c5978fae0, seq_id=24
+INFO:     127.0.0.1:48830 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:07] Scheduled prefill batch: 1 reqs, 9560 new tokens (cached: [3808], new: [9560]), req_ids: (24,)
+[atom 15:37:08] Engine Core: output send 1 reqs
+[atom 15:37:09] Engine Core: output send 1 reqs
+[atom 15:37:10] Request 25 arrived, input tokens: 4607, pending requests: 1
+[atom 15:37:10] API: Created request_id=chatcmpl-35031c6cf5ad4e3fa938a44f30f46f4e, seq_id=25
+INFO:     127.0.0.1:48810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:10] Scheduled prefill batch: 1 reqs, 799 new tokens (cached: [3808], new: [799]), req_ids: (25,)
+[atom 15:37:11] Engine Core: output send 1 reqs
+[atom 15:37:15] Request 26 arrived, input tokens: 13083, pending requests: 1
+[atom 15:37:15] API: Created request_id=chatcmpl-1a56e93894e84512b7ff4563f19b8c2f, seq_id=26
+INFO:     127.0.0.1:48810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:15] Scheduled prefill batch: 1 reqs, 9275 new tokens (cached: [3808], new: [9275]), req_ids: (26,)
+[atom 15:37:16] Request 27 arrived, input tokens: 15565, pending requests: 2
+[atom 15:37:16] API: Created request_id=chatcmpl-2b279af0ccea4341b9c742131773c5c4, seq_id=27
+INFO:     127.0.0.1:48892 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:16] Scheduled prefill batch: 1 reqs, 11757 new tokens (cached: [3808], new: [11757]), req_ids: (27,)
+[atom 15:37:18] Engine Core: output send 1 reqs
+[atom 15:37:18] Engine Core: output send 1 reqs
+[atom 15:37:18] Request 28 arrived, input tokens: 13869, pending requests: 1
+[atom 15:37:18] API: Created request_id=chatcmpl-ca5881e0b6ad4d5282a824f0f1d5c9ba, seq_id=28
+INFO:     127.0.0.1:48810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:18] Scheduled prefill batch: 1 reqs, 10061 new tokens (cached: [3808], new: [10061]), req_ids: (28,)
+[atom 15:37:20] Engine Core: output send 1 reqs
+[atom 15:37:21] Request 29 arrived, input tokens: 5009, pending requests: 1
+[atom 15:37:21] API: Created request_id=chatcmpl-6708490a5f0b4419be1452c593452196, seq_id=29
+INFO:     127.0.0.1:48892 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:21] Scheduled prefill batch: 1 reqs, 1201 new tokens (cached: [3808], new: [1201]), req_ids: (29,)
+[atom 15:37:22] Request 30 arrived, input tokens: 14022, pending requests: 2
+[atom 15:37:22] API: Created request_id=chatcmpl-9c3e22ae4a6349ef99068fb4be4ca6b0, seq_id=30
+INFO:     127.0.0.1:48810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:22] Scheduled prefill batch: 1 reqs, 10214 new tokens (cached: [3808], new: [10214]), req_ids: (30,)
+[atom 15:37:24] Engine Core: output send 1 reqs
+[atom 15:37:24] Engine Core: output send 1 reqs
+[atom 15:37:25] Request 31 arrived, input tokens: 13813, pending requests: 1
+[atom 15:37:25] API: Created request_id=chatcmpl-90a0ad438ba34187822c8e943be06095, seq_id=31
+INFO:     127.0.0.1:48892 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:25] Scheduled prefill batch: 1 reqs, 10005 new tokens (cached: [3808], new: [10005]), req_ids: (31,)
+[atom 15:37:26] Request 32 arrived, input tokens: 7959, pending requests: 2
+[atom 15:37:26] API: Created request_id=chatcmpl-1cab762b5ae845e5a0ae8f4909c42fb1, seq_id=32
+INFO:     127.0.0.1:48810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:26] Scheduled prefill batch: 1 reqs, 4151 new tokens (cached: [3808], new: [4151]), req_ids: (32,)
+[atom 15:37:26] Request 33 arrived, input tokens: 10748, pending requests: 3
+[atom 15:37:26] API: Created request_id=chatcmpl-f6b6c97c17894b87b473fa0cdb0d75eb, seq_id=33
+INFO:     127.0.0.1:48934 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:26] Scheduled prefill batch: 1 reqs, 6940 new tokens (cached: [3808], new: [6940]), req_ids: (33,)
+[atom 15:37:28] Engine Core: output send 1 reqs
+[atom 15:37:28] Engine Core: output send 1 reqs
+[atom 15:37:28] Engine Core: output send 1 reqs
+[atom 15:37:36] Request 34 arrived, input tokens: 6685, pending requests: 1
+[atom 15:37:36] API: Created request_id=chatcmpl-61f66ac1d1f442a5be0d4f81285166b5, seq_id=34
+INFO:     127.0.0.1:49018 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:36] Scheduled prefill batch: 1 reqs, 2877 new tokens (cached: [3808], new: [2877]), req_ids: (34,)
+[atom 15:37:38] Engine Core: output send 1 reqs
+[atom 15:37:48] Request 35 arrived, input tokens: 8970, pending requests: 1
+[atom 15:37:48] API: Created request_id=chatcmpl-8f3e323150824f21be2ec74a1e82edd6, seq_id=35
+INFO:     127.0.0.1:49114 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:48] Scheduled prefill batch: 1 reqs, 5162 new tokens (cached: [3808], new: [5162]), req_ids: (35,)
+[atom 15:37:50] Engine Core: output send 1 reqs
+[atom 15:37:54] Request 36 arrived, input tokens: 15701, pending requests: 1
+[atom 15:37:54] API: Created request_id=chatcmpl-42c85114fdb245b5a23e25072980bc55, seq_id=36
+INFO:     127.0.0.1:49114 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:54] Scheduled prefill batch: 1 reqs, 11893 new tokens (cached: [3808], new: [11893]), req_ids: (36,)
+[atom 15:37:55] Request 37 arrived, input tokens: 12088, pending requests: 2
+[atom 15:37:55] API: Created request_id=chatcmpl-24e9bb49c664434280d6ab78a0d3fe09, seq_id=37
+INFO:     127.0.0.1:49224 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:55] Scheduled prefill batch: 1 reqs, 8280 new tokens (cached: [3808], new: [8280]), req_ids: (37,)
+[atom 15:37:56] Request 38 arrived, input tokens: 6184, pending requests: 3
+[atom 15:37:56] API: Created request_id=chatcmpl-750c529ae13742709c70c89965218bcb, seq_id=38
+INFO:     127.0.0.1:49228 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:37:56] Scheduled prefill batch: 1 reqs, 2376 new tokens (cached: [3808], new: [2376]), req_ids: (38,)
+[atom 15:37:57] Engine Core: output send 1 reqs
+[atom 15:37:57] Engine Core: output send 2 reqs
+[atom 15:38:00] Request 39 arrived, input tokens: 13574, pending requests: 1
+[atom 15:38:00] API: Created request_id=chatcmpl-c4c373d1d7d64656be00afabb450167e, seq_id=39
+INFO:     127.0.0.1:49114 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:00] Scheduled prefill batch: 1 reqs, 9766 new tokens (cached: [3808], new: [9766]), req_ids: (39,)
+[atom 15:38:02] Engine Core: output send 1 reqs
+[atom 15:38:02] Request 40 arrived, input tokens: 4107, pending requests: 1
+[atom 15:38:02] API: Created request_id=chatcmpl-24e5eeb026984bf78bb0bfd87359dd51, seq_id=40
+INFO:     127.0.0.1:49224 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:02] Scheduled prefill batch: 1 reqs, 299 new tokens (cached: [3808], new: [299]), req_ids: (40,)
+[atom 15:38:02] Request 41 arrived, input tokens: 4068, pending requests: 2
+[atom 15:38:02] API: Created request_id=chatcmpl-cf65391ea5f0446289773359d9fde7c0, seq_id=41
+INFO:     127.0.0.1:49228 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:02] Scheduled prefill batch: 1 reqs, 260 new tokens (cached: [3808], new: [260]), req_ids: (41,)
+[atom 15:38:03] Engine Core: output send 1 reqs
+[atom 15:38:04] Engine Core: output send 1 reqs
+[atom 15:38:05] Request 42 arrived, input tokens: 7794, pending requests: 1
+[atom 15:38:05] API: Created request_id=chatcmpl-8c8839401e9c48fbbefc78d03b025abf, seq_id=42
+INFO:     127.0.0.1:49114 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:05] Scheduled prefill batch: 1 reqs, 3986 new tokens (cached: [3808], new: [3986]), req_ids: (42,)
+[atom 15:38:05] Request 43 arrived, input tokens: 9331, pending requests: 2
+[atom 15:38:05] API: Created request_id=chatcmpl-beb3e0a49e654bc492ef48f692f8044f, seq_id=43
+INFO:     127.0.0.1:49224 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:05] Scheduled prefill batch: 1 reqs, 5523 new tokens (cached: [3808], new: [5523]), req_ids: (43,)
+[atom 15:38:07] Engine Core: output send 2 reqs
+[atom 15:38:13] Request 44 arrived, input tokens: 9034, pending requests: 1
+[atom 15:38:13] API: Created request_id=chatcmpl-00fcc6c2699b480fb1e57e4a98086979, seq_id=44
+INFO:     127.0.0.1:49262 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:13] Scheduled prefill batch: 1 reqs, 5226 new tokens (cached: [3808], new: [5226]), req_ids: (44,)
+[atom 15:38:14] Request 45 arrived, input tokens: 11988, pending requests: 2
+[atom 15:38:14] API: Created request_id=chatcmpl-9ba594731aea4aefa6226d38ea5eef29, seq_id=45
+INFO:     127.0.0.1:49264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:14] Scheduled prefill batch: 1 reqs, 8180 new tokens (cached: [3808], new: [8180]), req_ids: (45,)
+[atom 15:38:15] Engine Core: output send 1 reqs
+[atom 15:38:16] Engine Core: output send 1 reqs
+[atom 15:38:18] Request 46 arrived, input tokens: 4328, pending requests: 1
+[atom 15:38:18] API: Created request_id=chatcmpl-e7ba35883b60487692b4c2f2ff6d6b29, seq_id=46
+INFO:     127.0.0.1:49262 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:18] Scheduled prefill batch: 1 reqs, 520 new tokens (cached: [3808], new: [520]), req_ids: (46,)
+[atom 15:38:19] Request 47 arrived, input tokens: 14469, pending requests: 2
+[atom 15:38:19] API: Created request_id=chatcmpl-491d6120060340b4932209dfef6a73c4, seq_id=47
+INFO:     127.0.0.1:49264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:19] Scheduled prefill batch: 1 reqs, 10661 new tokens (cached: [3808], new: [10661]), req_ids: (47,)
+[atom 15:38:20] Engine Core: output send 1 reqs
+[atom 15:38:21] Engine Core: output send 1 reqs
+[atom 15:38:22] Request 48 arrived, input tokens: 12167, pending requests: 1
+[atom 15:38:22] API: Created request_id=chatcmpl-3895a30a92b04f7cbcd3c48ec4722f56, seq_id=48
+INFO:     127.0.0.1:49262 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:22] Scheduled prefill batch: 1 reqs, 8359 new tokens (cached: [3808], new: [8359]), req_ids: (48,)
+[atom 15:38:24] Engine Core: output send 1 reqs
+[atom 15:38:25] Request 49 arrived, input tokens: 5929, pending requests: 1
+[atom 15:38:25] API: Created request_id=chatcmpl-a7524a28be284981b6842f550bee403f, seq_id=49
+INFO:     127.0.0.1:49264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:25] Scheduled prefill batch: 1 reqs, 2121 new tokens (cached: [3808], new: [2121]), req_ids: (49,)
+[atom 15:38:26] Request 50 arrived, input tokens: 16027, pending requests: 2
+[atom 15:38:26] API: Created request_id=chatcmpl-96d087d166924c0aa783ce930c1ad4c7, seq_id=50
+INFO:     127.0.0.1:49262 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:26] Scheduled prefill batch: 1 reqs, 12219 new tokens (cached: [3808], new: [12219]), req_ids: (50,)
+[atom 15:38:27] Engine Core: output send 1 reqs
+[atom 15:38:28] Engine Core: output send 1 reqs
+[atom 15:38:38] Request 51 arrived, input tokens: 13049, pending requests: 1
+[atom 15:38:38] API: Created request_id=chatcmpl-30a94cae4d504d9f8258ccd2cb42d19f, seq_id=51
+INFO:     127.0.0.1:49402 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:38] Scheduled prefill batch: 1 reqs, 9241 new tokens (cached: [3808], new: [9241]), req_ids: (51,)
+[atom 15:38:40] Engine Core: output send 1 reqs
+[atom 15:38:43] Request 52 arrived, input tokens: 13863, pending requests: 1
+[atom 15:38:43] API: Created request_id=chatcmpl-66ad893e39634300a3012a00578a5d2e, seq_id=52
+INFO:     127.0.0.1:49402 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:43] Scheduled prefill batch: 1 reqs, 10055 new tokens (cached: [3808], new: [10055]), req_ids: (52,)
+[atom 15:38:45] Engine Core: output send 1 reqs
+[atom 15:38:53] Request 53 arrived, input tokens: 9819, pending requests: 1
+[atom 15:38:53] API: Created request_id=chatcmpl-8abbf0e6df244f5a9e9be8ecb41e7281, seq_id=53
+INFO:     127.0.0.1:49536 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:38:53] Scheduled prefill batch: 1 reqs, 6011 new tokens (cached: [3808], new: [6011]), req_ids: (53,)
+[atom 15:38:55] Engine Core: output send 1 reqs
+[atom 15:39:01] Request 54 arrived, input tokens: 13846, pending requests: 1
+[atom 15:39:01] API: Created request_id=chatcmpl-04d959464bf04111b799d5a31ed28b74, seq_id=54
+INFO:     127.0.0.1:49682 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:01] Scheduled prefill batch: 1 reqs, 10038 new tokens (cached: [3808], new: [10038]), req_ids: (54,)
+[atom 15:39:03] Engine Core: output send 1 reqs
+[atom 15:39:04] Request 55 arrived, input tokens: 13955, pending requests: 1
+[atom 15:39:04] API: Created request_id=chatcmpl-ce720ff00eb44f9a8dc5b36d83827fed, seq_id=55
+INFO:     127.0.0.1:49682 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:04] Scheduled prefill batch: 1 reqs, 10147 new tokens (cached: [3808], new: [10147]), req_ids: (55,)
+[atom 15:39:06] Engine Core: output send 1 reqs
+[atom 15:39:13] Request 56 arrived, input tokens: 15326, pending requests: 1
+[atom 15:39:13] API: Created request_id=chatcmpl-61634299b9904e8595b6d07d54545961, seq_id=56
+INFO:     127.0.0.1:49706 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:13] Scheduled prefill batch: 1 reqs, 11518 new tokens (cached: [3808], new: [11518]), req_ids: (56,)
+[atom 15:39:13] Request 57 arrived, input tokens: 7005, pending requests: 2
+[atom 15:39:13] API: Created request_id=chatcmpl-f7675c84f5d94800a20eb29023184a8c, seq_id=57
+INFO:     127.0.0.1:49710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:14] Scheduled prefill batch: 1 reqs, 3197 new tokens (cached: [3808], new: [3197]), req_ids: (57,)
+[atom 15:39:14] Request 58 arrived, input tokens: 12944, pending requests: 3
+[atom 15:39:14] API: Created request_id=chatcmpl-01c3fe4037c74a4eac8f8fd2b0a8995c, seq_id=58
+INFO:     127.0.0.1:49712 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:14] Scheduled prefill batch: 1 reqs, 9136 new tokens (cached: [3808], new: [9136]), req_ids: (58,)
+[atom 15:39:14] Request 59 arrived, input tokens: 13296, pending requests: 4
+[atom 15:39:14] API: Created request_id=chatcmpl-7847e93cf3b542048284f94a91d45044, seq_id=59
+INFO:     127.0.0.1:49714 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:15] Scheduled prefill batch: 1 reqs, 9488 new tokens (cached: [3808], new: [9488]), req_ids: (59,)
+[atom 15:39:16] Request 60 arrived, input tokens: 12800, pending requests: 5
+[atom 15:39:16] API: Created request_id=chatcmpl-ec494390a4354acc92e4f8b8ab2aad16, seq_id=60
+INFO:     127.0.0.1:49722 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:16] Scheduled prefill batch: 1 reqs, 8992 new tokens (cached: [3808], new: [8992]), req_ids: (60,)
+[atom 15:39:17] Engine Core: output send 2 reqs
+[atom 15:39:17] Engine Core: output send 2 reqs
+[atom 15:39:17] Request 61 arrived, input tokens: 6969, pending requests: 2
+[atom 15:39:17] API: Created request_id=chatcmpl-f589edffaf924666afeaa0d36da3896a, seq_id=61
+INFO:     127.0.0.1:49706 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:17] Scheduled prefill batch: 1 reqs, 3161 new tokens (cached: [3808], new: [3161]), req_ids: (61,)
+[atom 15:39:18] Engine Core: output send 1 reqs
+[atom 15:39:19] Request 62 arrived, input tokens: 11150, pending requests: 2
+[atom 15:39:19] API: Created request_id=chatcmpl-be70652cdfa64dff9764d8e92b394356, seq_id=62
+INFO:     127.0.0.1:49710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:19] Scheduled prefill batch: 1 reqs, 7342 new tokens (cached: [3808], new: [7342]), req_ids: (62,)
+[atom 15:39:19] Engine Core: output send 1 reqs
+[atom 15:39:20] Engine Core: output send 1 reqs
+[atom 15:39:25] Request 63 arrived, input tokens: 5896, pending requests: 1
+[atom 15:39:25] API: Created request_id=chatcmpl-b882278e0c8f40bfbe90a0b7edd017d3, seq_id=63
+INFO:     127.0.0.1:49710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:25] Scheduled prefill batch: 1 reqs, 2088 new tokens (cached: [3808], new: [2088]), req_ids: (63,)
+[atom 15:39:26] Engine Core: output send 1 reqs
+[atom 15:39:26] Request 64 arrived, input tokens: 8851, pending requests: 1
+[atom 15:39:26] API: Created request_id=chatcmpl-6f71a4ed36b34680950b806c64947a57, seq_id=64
+INFO:     127.0.0.1:49710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:26] Scheduled prefill batch: 1 reqs, 5043 new tokens (cached: [3808], new: [5043]), req_ids: (64,)
+[atom 15:39:28] Request 65 arrived, input tokens: 13172, pending requests: 2
+[atom 15:39:28] API: Created request_id=chatcmpl-5e29a0f15e654394a38e9964569f6c09, seq_id=65
+INFO:     127.0.0.1:49782 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:28] Scheduled prefill batch: 1 reqs, 9364 new tokens (cached: [3808], new: [9364]), req_ids: (65,)
+[atom 15:39:29] Engine Core: output send 1 reqs
+[atom 15:39:29] Engine Core: output send 1 reqs
+[atom 15:39:30] Request 66 arrived, input tokens: 9252, pending requests: 1
+[atom 15:39:30] API: Created request_id=chatcmpl-57fd9e5d09fa4a8d8f6a1622b791c8d8, seq_id=66
+INFO:     127.0.0.1:49710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:30] Scheduled prefill batch: 1 reqs, 5444 new tokens (cached: [3808], new: [5444]), req_ids: (66,)
+[atom 15:39:31] Request 67 arrived, input tokens: 12619, pending requests: 2
+[atom 15:39:31] API: Created request_id=chatcmpl-8e73d865ae8d479cb7b59690027f2ba7, seq_id=67
+INFO:     127.0.0.1:49782 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:31] Scheduled prefill batch: 1 reqs, 8811 new tokens (cached: [3808], new: [8811]), req_ids: (67,)
+[atom 15:39:33] Engine Core: output send 1 reqs
+[atom 15:39:33] Engine Core: output send 1 reqs
+[atom 15:39:37] Request 68 arrived, input tokens: 11218, pending requests: 1
+[atom 15:39:37] API: Created request_id=chatcmpl-3f2137e87a9c4ee98652c2ec9c1fc190, seq_id=68
+INFO:     127.0.0.1:49710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:37] Scheduled prefill batch: 1 reqs, 7410 new tokens (cached: [3808], new: [7410]), req_ids: (68,)
+[atom 15:39:37] Request 69 arrived, input tokens: 6874, pending requests: 2
+[atom 15:39:37] API: Created request_id=chatcmpl-b12442e28eba4ca995345281c74dd163, seq_id=69
+INFO:     127.0.0.1:49782 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:37] Scheduled prefill batch: 1 reqs, 3066 new tokens (cached: [3808], new: [3066]), req_ids: (69,)
+[atom 15:39:39] Engine Core: output send 2 reqs
+[atom 15:39:52] Request 70 arrived, input tokens: 6652, pending requests: 1
+[atom 15:39:52] API: Created request_id=chatcmpl-b0160ae05b6844c59b636192b7155530, seq_id=70
+INFO:     127.0.0.1:49926 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:52] Scheduled prefill batch: 1 reqs, 2844 new tokens (cached: [3808], new: [2844]), req_ids: (70,)
+[atom 15:39:54] Engine Core: output send 1 reqs
+[atom 15:39:57] Request 71 arrived, input tokens: 14009, pending requests: 1
+[atom 15:39:57] API: Created request_id=chatcmpl-fd06c9bebedb475d899ff386b1865a49, seq_id=71
+INFO:     127.0.0.1:49926 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:57] Scheduled prefill batch: 1 reqs, 10201 new tokens (cached: [3808], new: [10201]), req_ids: (71,)
+[atom 15:39:58] Request 72 arrived, input tokens: 10448, pending requests: 2
+[atom 15:39:58] API: Created request_id=chatcmpl-d6f329c5754b4d64af8642fc78085d9e, seq_id=72
+INFO:     127.0.0.1:49940 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:58] Scheduled prefill batch: 1 reqs, 6640 new tokens (cached: [3808], new: [6640]), req_ids: (72,)
+[atom 15:39:58] Request 73 arrived, input tokens: 11224, pending requests: 3
+[atom 15:39:58] API: Created request_id=chatcmpl-8c411aa7a02e4f1d938176fec5cdddb8, seq_id=73
+INFO:     127.0.0.1:49942 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:39:58] Scheduled prefill batch: 1 reqs, 7416 new tokens (cached: [3808], new: [7416]), req_ids: (73,)
+[atom 15:40:00] Engine Core: output send 1 reqs
+[atom 15:40:00] Engine Core: output send 2 reqs
+[atom 15:40:04] Request 74 arrived, input tokens: 6581, pending requests: 1
+[atom 15:40:04] API: Created request_id=chatcmpl-b7e86ac9e22f461ca41370b269bc7942, seq_id=74
+INFO:     127.0.0.1:49926 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:04] Scheduled prefill batch: 1 reqs, 2773 new tokens (cached: [3808], new: [2773]), req_ids: (74,)
+[atom 15:40:06] Engine Core: output send 1 reqs
+[atom 15:40:08] Request 75 arrived, input tokens: 4689, pending requests: 1
+[atom 15:40:08] API: Created request_id=chatcmpl-3f5c22ab6ccc4c6f908047d1a2592347, seq_id=75
+INFO:     127.0.0.1:49926 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:08] Scheduled prefill batch: 1 reqs, 881 new tokens (cached: [3808], new: [881]), req_ids: (75,)
+[atom 15:40:10] Engine Core: output send 1 reqs
+[atom 15:40:13] Request 76 arrived, input tokens: 11259, pending requests: 1
+[atom 15:40:13] API: Created request_id=chatcmpl-8a7667b992dc40f2b8ff8150d03e2f66, seq_id=76
+INFO:     127.0.0.1:49926 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:13] Scheduled prefill batch: 1 reqs, 7451 new tokens (cached: [3808], new: [7451]), req_ids: (76,)
+[atom 15:40:15] Engine Core: output send 1 reqs
+[atom 15:40:18] Request 77 arrived, input tokens: 10222, pending requests: 1
+[atom 15:40:18] API: Created request_id=chatcmpl-ce7456c422ad4df39463efcf5e9dd5ba, seq_id=77
+INFO:     127.0.0.1:49926 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:18] Scheduled prefill batch: 1 reqs, 6414 new tokens (cached: [3808], new: [6414]), req_ids: (77,)
+[atom 15:40:18] Request 78 arrived, input tokens: 6387, pending requests: 2
+[atom 15:40:18] API: Created request_id=chatcmpl-d4d87639ca1d45f586d7db8bad7504c4, seq_id=78
+INFO:     127.0.0.1:49990 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:19] Scheduled prefill batch: 1 reqs, 2579 new tokens (cached: [3808], new: [2579]), req_ids: (78,)
+[atom 15:40:20] Request 79 arrived, input tokens: 4438, pending requests: 3
+[atom 15:40:20] API: Created request_id=chatcmpl-44eeb550105446dba8e401c7d9b8594f, seq_id=79
+INFO:     127.0.0.1:49994 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:20] Scheduled prefill batch: 1 reqs, 630 new tokens (cached: [3808], new: [630]), req_ids: (79,)
+[atom 15:40:20] Engine Core: output send 2 reqs
+[atom 15:40:20] Request 80 arrived, input tokens: 8291, pending requests: 2
+[atom 15:40:20] API: Created request_id=chatcmpl-c9f34526710b47f7b86d0ba10f517383, seq_id=80
+INFO:     127.0.0.1:49926 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:20] Scheduled prefill batch: 1 reqs, 4483 new tokens (cached: [3808], new: [4483]), req_ids: (80,)
+[atom 15:40:22] Engine Core: output send 1 reqs
+[atom 15:40:22] Engine Core: output send 1 reqs
+[atom 15:40:27] Request 81 arrived, input tokens: 7833, pending requests: 1
+[atom 15:40:27] API: Created request_id=chatcmpl-09fc2f722ddb49b597612a09210bdf03, seq_id=81
+INFO:     127.0.0.1:50012 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:27] Scheduled prefill batch: 1 reqs, 4025 new tokens (cached: [3808], new: [4025]), req_ids: (81,)
+[atom 15:40:29] Engine Core: output send 1 reqs
+[atom 15:40:31] Request 82 arrived, input tokens: 10286, pending requests: 1
+[atom 15:40:31] API: Created request_id=chatcmpl-fa1bb51a41b64d6fa59d7d9a259223c1, seq_id=82
+INFO:     127.0.0.1:50012 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:31] Scheduled prefill batch: 1 reqs, 6478 new tokens (cached: [3808], new: [6478]), req_ids: (82,)
+[atom 15:40:32] Request 83 arrived, input tokens: 14821, pending requests: 2
+[atom 15:40:32] API: Created request_id=chatcmpl-2ce6a34d829e46298eb6a2db3bdfe0b7, seq_id=83
+INFO:     127.0.0.1:50024 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:32] Scheduled prefill batch: 1 reqs, 11013 new tokens (cached: [3808], new: [11013]), req_ids: (83,)
+[atom 15:40:33] Request 84 arrived, input tokens: 6687, pending requests: 3
+[atom 15:40:33] API: Created request_id=chatcmpl-32a2d43b1b934ed6aeec72a4f3e40467, seq_id=84
+INFO:     127.0.0.1:50026 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:33] Scheduled prefill batch: 1 reqs, 2879 new tokens (cached: [3808], new: [2879]), req_ids: (84,)
+[atom 15:40:33] Engine Core: output send 1 reqs
+[atom 15:40:34] Request 85 arrived, input tokens: 13258, pending requests: 3
+[atom 15:40:34] API: Created request_id=chatcmpl-c0aaf0086e2b44f3b695007efb3f27fc, seq_id=85
+INFO:     127.0.0.1:50012 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:34] Scheduled prefill batch: 1 reqs, 9450 new tokens (cached: [3808], new: [9450]), req_ids: (85,)
+[atom 15:40:35] Engine Core: output send 2 reqs
+[atom 15:40:35] Request 86 arrived, input tokens: 8110, pending requests: 2
+[atom 15:40:35] API: Created request_id=chatcmpl-06735e38bd6a4de799a998dff4365294, seq_id=86
+INFO:     127.0.0.1:50024 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:35] Scheduled prefill batch: 1 reqs, 4302 new tokens (cached: [3808], new: [4302]), req_ids: (86,)
+[atom 15:40:36] Engine Core: output send 1 reqs
+[atom 15:40:37] Engine Core: output send 1 reqs
+[atom 15:40:40] Request 87 arrived, input tokens: 13283, pending requests: 1
+[atom 15:40:40] API: Created request_id=chatcmpl-5b64a3ac2fcf4d0487d3bbd9bc5e2e3b, seq_id=87
+INFO:     127.0.0.1:50026 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:40] Scheduled prefill batch: 1 reqs, 9475 new tokens (cached: [3808], new: [9475]), req_ids: (87,)
+[atom 15:40:42] Engine Core: output send 1 reqs
+[atom 15:40:43] Request 88 arrived, input tokens: 5966, pending requests: 1
+[atom 15:40:43] API: Created request_id=chatcmpl-e4f4a63385b2411dbf8586b19718908a, seq_id=88
+INFO:     127.0.0.1:50026 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:43] Scheduled prefill batch: 1 reqs, 2158 new tokens (cached: [3808], new: [2158]), req_ids: (88,)
+[atom 15:40:45] Engine Core: output send 1 reqs
+[atom 15:40:51] Request 89 arrived, input tokens: 9042, pending requests: 1
+[atom 15:40:51] API: Created request_id=chatcmpl-6cd04aef038a4235886bb45e8aba8958, seq_id=89
+INFO:     127.0.0.1:50140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:51] Scheduled prefill batch: 1 reqs, 5234 new tokens (cached: [3808], new: [5234]), req_ids: (89,)
+[atom 15:40:53] Engine Core: output send 1 reqs
+[atom 15:40:53] Request 90 arrived, input tokens: 16011, pending requests: 1
+[atom 15:40:53] API: Created request_id=chatcmpl-b38fb0cc73bd4fa3a7062d1a8677ad32, seq_id=90
+INFO:     127.0.0.1:50140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:53] Scheduled prefill batch: 1 reqs, 12203 new tokens (cached: [3808], new: [12203]), req_ids: (90,)
+[atom 15:40:54] Request 91 arrived, input tokens: 12012, pending requests: 2
+[atom 15:40:54] API: Created request_id=chatcmpl-cc59e2c63a464565b889654615ef7289, seq_id=91
+INFO:     127.0.0.1:50154 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:54] Scheduled prefill batch: 1 reqs, 8204 new tokens (cached: [3808], new: [8204]), req_ids: (91,)
+[atom 15:40:56] Engine Core: output send 2 reqs
+[atom 15:40:58] Request 92 arrived, input tokens: 12801, pending requests: 1
+[atom 15:40:58] API: Created request_id=chatcmpl-4b6210dfd85f43de93ea63fb06ceefee, seq_id=92
+INFO:     127.0.0.1:50140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:40:58] Scheduled prefill batch: 1 reqs, 8993 new tokens (cached: [3808], new: [8993]), req_ids: (92,)
+[atom 15:41:00] Engine Core: output send 1 reqs
+[atom 15:41:03] Request 93 arrived, input tokens: 6442, pending requests: 1
+[atom 15:41:03] API: Created request_id=chatcmpl-b612bb31a9e44dce8d5fd34db4cf040f, seq_id=93
+INFO:     127.0.0.1:50140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:03] Scheduled prefill batch: 1 reqs, 2634 new tokens (cached: [3808], new: [2634]), req_ids: (93,)
+[atom 15:41:05] Engine Core: output send 1 reqs
+[atom 15:41:06] Request 94 arrived, input tokens: 10342, pending requests: 1
+[atom 15:41:06] API: Created request_id=chatcmpl-7112bdc8d08a4cc9bc8903750283928f, seq_id=94
+INFO:     127.0.0.1:50140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:06] Scheduled prefill batch: 1 reqs, 6534 new tokens (cached: [3808], new: [6534]), req_ids: (94,)
+[atom 15:41:08] Engine Core: output send 1 reqs
+[atom 15:41:11] Request 95 arrived, input tokens: 13932, pending requests: 1
+[atom 15:41:11] API: Created request_id=chatcmpl-666e3ee3ee0a43bca2e1893fab21ef1c, seq_id=95
+INFO:     127.0.0.1:50140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:11] Scheduled prefill batch: 1 reqs, 10124 new tokens (cached: [3808], new: [10124]), req_ids: (95,)
+[atom 15:41:13] Engine Core: output send 1 reqs
+[atom 15:41:14] Request 96 arrived, input tokens: 4919, pending requests: 1
+[atom 15:41:14] API: Created request_id=chatcmpl-e74f5b6a9c204b11be8964f319a28e0a, seq_id=96
+INFO:     127.0.0.1:50140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:14] Scheduled prefill batch: 1 reqs, 1111 new tokens (cached: [3808], new: [1111]), req_ids: (96,)
+[atom 15:41:15] Engine Core: output send 1 reqs
+[atom 15:41:16] Request 97 arrived, input tokens: 8249, pending requests: 1
+[atom 15:41:16] API: Created request_id=chatcmpl-a3f14e9cbaa6478e81825ac7e4732e4d, seq_id=97
+INFO:     127.0.0.1:50140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:16] Scheduled prefill batch: 1 reqs, 4441 new tokens (cached: [3808], new: [4441]), req_ids: (97,)
+[atom 15:41:18] Engine Core: output send 1 reqs
+[atom 15:41:18] Request 98 arrived, input tokens: 12084, pending requests: 1
+[atom 15:41:18] API: Created request_id=chatcmpl-2c19a7a0e52b4c42b60498820abbf6c4, seq_id=98
+INFO:     127.0.0.1:50140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:18] Scheduled prefill batch: 1 reqs, 8276 new tokens (cached: [3808], new: [8276]), req_ids: (98,)
+[atom 15:41:18] Request 99 arrived, input tokens: 4072, pending requests: 2
+[atom 15:41:18] API: Created request_id=chatcmpl-298f1cc16d5a4bc89a6894372bcc9ddc, seq_id=99
+INFO:     127.0.0.1:50230 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:19] [Cache Stats Interval] Reqs: 100, Cached/Total tokens: 373184/1003855, Hit rate: 37.18%
+[atom 15:41:19] [Cache Stats         ] Reqs: 100, Cached/Total tokens: 373184/1003855, Hit rate: 37.18%
+[atom 15:41:19] Scheduled prefill batch: 1 reqs, 264 new tokens (cached: [3808], new: [264]), req_ids: (99,)
+[atom 15:41:19] Request 100 arrived, input tokens: 12878, pending requests: 3
+[atom 15:41:19] API: Created request_id=chatcmpl-e6d8846712184103bcb40ad77015e587, seq_id=100
+INFO:     127.0.0.1:50234 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:19] Scheduled prefill batch: 1 reqs, 9070 new tokens (cached: [3808], new: [9070]), req_ids: (100,)
+[atom 15:41:19] Request 101 arrived, input tokens: 11039, pending requests: 4
+[atom 15:41:19] API: Created request_id=chatcmpl-bc0f3f06d48c4608b0243759e101641b, seq_id=101
+INFO:     127.0.0.1:50236 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:19] Scheduled prefill batch: 1 reqs, 7231 new tokens (cached: [3808], new: [7231]), req_ids: (101,)
+[atom 15:41:21] Engine Core: output send 2 reqs
+[atom 15:41:21] Engine Core: output send 2 reqs
+[atom 15:41:23] Request 102 arrived, input tokens: 7191, pending requests: 1
+[atom 15:41:23] API: Created request_id=chatcmpl-c7fd4d6a61e34105b2be2d4ad04a950b, seq_id=102
+INFO:     127.0.0.1:50140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:23] Scheduled prefill batch: 1 reqs, 3383 new tokens (cached: [3808], new: [3383]), req_ids: (102,)
+[atom 15:41:24] Request 103 arrived, input tokens: 6742, pending requests: 2
+[atom 15:41:24] API: Created request_id=chatcmpl-8d2cfa6672574117a6e2d23aa3cdedf6, seq_id=103
+INFO:     127.0.0.1:50230 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:24] Scheduled prefill batch: 1 reqs, 2934 new tokens (cached: [3808], new: [2934]), req_ids: (103,)
+[atom 15:41:24] Engine Core: output send 1 reqs
+[atom 15:41:25] Engine Core: output send 1 reqs
+[atom 15:41:26] Request 104 arrived, input tokens: 5901, pending requests: 1
+[atom 15:41:26] API: Created request_id=chatcmpl-2736bee941534fd6930450b4e8055e9a, seq_id=104
+INFO:     127.0.0.1:50234 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:26] Scheduled prefill batch: 1 reqs, 2093 new tokens (cached: [3808], new: [2093]), req_ids: (104,)
+[atom 15:41:28] Engine Core: output send 1 reqs
+[atom 15:41:35] Request 105 arrived, input tokens: 11787, pending requests: 1
+[atom 15:41:35] API: Created request_id=chatcmpl-b3b687e5baa24edcadb5b85807f3e8da, seq_id=105
+INFO:     127.0.0.1:50318 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:35] Scheduled prefill batch: 1 reqs, 7979 new tokens (cached: [3808], new: [7979]), req_ids: (105,)
+[atom 15:41:36] Request 106 arrived, input tokens: 12606, pending requests: 2
+[atom 15:41:36] API: Created request_id=chatcmpl-0003e42c7dde4299bbf6a0213ac34115, seq_id=106
+INFO:     127.0.0.1:50330 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:36] Scheduled prefill batch: 1 reqs, 8798 new tokens (cached: [3808], new: [8798]), req_ids: (106,)
+[atom 15:41:37] Engine Core: output send 1 reqs
+[atom 15:41:38] Request 107 arrived, input tokens: 14759, pending requests: 2
+[atom 15:41:38] API: Created request_id=chatcmpl-a4d19a2924d04988b07f7fa6bb17e152, seq_id=107
+INFO:     127.0.0.1:50318 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:38] Scheduled prefill batch: 1 reqs, 10951 new tokens (cached: [3808], new: [10951]), req_ids: (107,)
+[atom 15:41:38] Engine Core: output send 1 reqs
+[atom 15:41:40] Engine Core: output send 1 reqs
+[atom 15:41:43] Request 108 arrived, input tokens: 13163, pending requests: 1
+[atom 15:41:43] API: Created request_id=chatcmpl-dd2ec8b3120b4061b13d358402733890, seq_id=108
+INFO:     127.0.0.1:50330 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:43] Scheduled prefill batch: 1 reqs, 9355 new tokens (cached: [3808], new: [9355]), req_ids: (108,)
+[atom 15:41:44] Request 109 arrived, input tokens: 6764, pending requests: 2
+[atom 15:41:44] API: Created request_id=chatcmpl-20688a9070d54c26ac834bba34afca51, seq_id=109
+INFO:     127.0.0.1:50318 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:44] Scheduled prefill batch: 1 reqs, 2956 new tokens (cached: [3808], new: [2956]), req_ids: (109,)
+[atom 15:41:44] Request 110 arrived, input tokens: 12003, pending requests: 3
+[atom 15:41:44] API: Created request_id=chatcmpl-43f33845bbe84efeb77bf945cdbc664f, seq_id=110
+INFO:     127.0.0.1:50378 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:44] Scheduled prefill batch: 1 reqs, 8195 new tokens (cached: [3808], new: [8195]), req_ids: (110,)
+[atom 15:41:45] Request 111 arrived, input tokens: 11853, pending requests: 4
+[atom 15:41:45] API: Created request_id=chatcmpl-e4450326c99e4ada92af916eae01b2c5, seq_id=111
+INFO:     127.0.0.1:50384 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:45] Scheduled prefill batch: 1 reqs, 8045 new tokens (cached: [3808], new: [8045]), req_ids: (111,)
+[atom 15:41:46] Request 112 arrived, input tokens: 11359, pending requests: 5
+[atom 15:41:46] API: Created request_id=chatcmpl-65fe2282ec584d6bb76971536ae670ef, seq_id=112
+INFO:     127.0.0.1:50392 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:46] Engine Core: output send 1 reqs
+[atom 15:41:46] Scheduled prefill batch: 1 reqs, 7551 new tokens (cached: [3808], new: [7551]), req_ids: (112,)
+[atom 15:41:46] Engine Core: output send 1 reqs
+[atom 15:41:47] Engine Core: output send 1 reqs
+[atom 15:41:47] Engine Core: output send 1 reqs
+[atom 15:41:48] Engine Core: output send 1 reqs
+[atom 15:41:55] Request 113 arrived, input tokens: 6523, pending requests: 1
+[atom 15:41:55] API: Created request_id=chatcmpl-a9947b360e754669aa6e6b03e8e1002d, seq_id=113
+INFO:     127.0.0.1:50494 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:41:55] Scheduled prefill batch: 1 reqs, 2715 new tokens (cached: [3808], new: [2715]), req_ids: (113,)
+[atom 15:41:57] Engine Core: output send 1 reqs
+[atom 15:42:01] Request 114 arrived, input tokens: 15256, pending requests: 1
+[atom 15:42:01] API: Created request_id=chatcmpl-d6a7cdfb14d74e1aa86462d043c76a88, seq_id=114
+INFO:     127.0.0.1:50494 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:01] Scheduled prefill batch: 1 reqs, 11448 new tokens (cached: [3808], new: [11448]), req_ids: (114,)
+[atom 15:42:03] Engine Core: output send 1 reqs
+[atom 15:42:04] Request 115 arrived, input tokens: 4956, pending requests: 1
+[atom 15:42:04] API: Created request_id=chatcmpl-dbbfadc16d8341bd8423a619da4352f0, seq_id=115
+INFO:     127.0.0.1:50494 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:04] Scheduled prefill batch: 1 reqs, 1148 new tokens (cached: [3808], new: [1148]), req_ids: (115,)
+[atom 15:42:06] Engine Core: output send 1 reqs
+[atom 15:42:12] Request 116 arrived, input tokens: 4871, pending requests: 1
+[atom 15:42:12] API: Created request_id=chatcmpl-d45c2a543ef04a8a890a81f6b939a503, seq_id=116
+INFO:     127.0.0.1:50530 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:12] Scheduled prefill batch: 1 reqs, 1063 new tokens (cached: [3808], new: [1063]), req_ids: (116,)
+[atom 15:42:13] Engine Core: output send 1 reqs
+[atom 15:42:17] Request 117 arrived, input tokens: 13608, pending requests: 1
+[atom 15:42:17] API: Created request_id=chatcmpl-241950725b1d4addbb3b73ee95aa320d, seq_id=117
+INFO:     127.0.0.1:50530 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:17] Scheduled prefill batch: 1 reqs, 9800 new tokens (cached: [3808], new: [9800]), req_ids: (117,)
+[atom 15:42:18] Request 118 arrived, input tokens: 10288, pending requests: 2
+[atom 15:42:18] API: Created request_id=chatcmpl-69c529ac1b1b4b6dbac38e00a0a6561b, seq_id=118
+INFO:     127.0.0.1:50570 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:18] Scheduled prefill batch: 1 reqs, 6480 new tokens (cached: [3808], new: [6480]), req_ids: (118,)
+[atom 15:42:20] Engine Core: output send 1 reqs
+[atom 15:42:20] Engine Core: output send 1 reqs
+[atom 15:42:26] Request 119 arrived, input tokens: 13362, pending requests: 1
+[atom 15:42:26] API: Created request_id=chatcmpl-f31c42445c5b45f2b7edeb6889582181, seq_id=119
+INFO:     127.0.0.1:50618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:26] Scheduled prefill batch: 1 reqs, 9554 new tokens (cached: [3808], new: [9554]), req_ids: (119,)
+[atom 15:42:28] Engine Core: output send 1 reqs
+[atom 15:42:29] Request 120 arrived, input tokens: 10000, pending requests: 1
+[atom 15:42:29] API: Created request_id=chatcmpl-f08004c561794de0afdd5dc0d02c0c66, seq_id=120
+INFO:     127.0.0.1:50618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:29] Scheduled prefill batch: 1 reqs, 6192 new tokens (cached: [3808], new: [6192]), req_ids: (120,)
+[atom 15:42:30] Engine Core: output send 1 reqs
+[atom 15:42:34] Request 121 arrived, input tokens: 5392, pending requests: 1
+[atom 15:42:34] API: Created request_id=chatcmpl-b4b15dd59c9741eb9e1559589b075c41, seq_id=121
+INFO:     127.0.0.1:50618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:34] Scheduled prefill batch: 1 reqs, 1584 new tokens (cached: [3808], new: [1584]), req_ids: (121,)
+[atom 15:42:36] Engine Core: output send 1 reqs
+[atom 15:42:42] Request 122 arrived, input tokens: 7130, pending requests: 1
+[atom 15:42:42] API: Created request_id=chatcmpl-f3ff9ae061b9459aa7434d6df9a874bb, seq_id=122
+INFO:     127.0.0.1:50712 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:42] Scheduled prefill batch: 1 reqs, 3322 new tokens (cached: [3808], new: [3322]), req_ids: (122,)
+[atom 15:42:44] Request 123 arrived, input tokens: 9260, pending requests: 2
+[atom 15:42:44] API: Created request_id=chatcmpl-47d0a3aa537d429aa6cf519f99ac7f43, seq_id=123
+INFO:     127.0.0.1:50716 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:44] Scheduled prefill batch: 1 reqs, 5452 new tokens (cached: [3808], new: [5452]), req_ids: (123,)
+[atom 15:42:44] Request 124 arrived, input tokens: 7943, pending requests: 3
+[atom 15:42:44] API: Created request_id=chatcmpl-6aed53796b5e41f0933439b2493f0c9c, seq_id=124
+INFO:     127.0.0.1:50718 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:44] Scheduled prefill batch: 1 reqs, 4135 new tokens (cached: [3808], new: [4135]), req_ids: (124,)
+[atom 15:42:45] Engine Core: output send 1 reqs
+[atom 15:42:45] Request 125 arrived, input tokens: 8440, pending requests: 3
+[atom 15:42:45] API: Created request_id=chatcmpl-479d9f516ce14031a3c96dfa5bf12583, seq_id=125
+INFO:     127.0.0.1:50712 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:45] Scheduled prefill batch: 1 reqs, 4632 new tokens (cached: [3808], new: [4632]), req_ids: (125,)
+[atom 15:42:46] Engine Core: output send 1 reqs
+[atom 15:42:46] Engine Core: output send 1 reqs
+[atom 15:42:47] Engine Core: output send 1 reqs
+[atom 15:42:47] Request 126 arrived, input tokens: 8741, pending requests: 1
+[atom 15:42:47] API: Created request_id=chatcmpl-d5042fa865374f5b8e23afea88986668, seq_id=126
+INFO:     127.0.0.1:50716 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:47] Scheduled prefill batch: 1 reqs, 4933 new tokens (cached: [3808], new: [4933]), req_ids: (126,)
+[atom 15:42:49] Engine Core: output send 1 reqs
+[atom 15:42:53] Request 127 arrived, input tokens: 7884, pending requests: 1
+[atom 15:42:53] API: Created request_id=chatcmpl-03c8c08efe334ba894ec5aa7d353511c, seq_id=127
+INFO:     127.0.0.1:50716 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:42:53] Scheduled prefill batch: 1 reqs, 4076 new tokens (cached: [3808], new: [4076]), req_ids: (127,)
+[atom 15:42:55] Engine Core: output send 1 reqs
+[atom 15:43:00] Request 128 arrived, input tokens: 11783, pending requests: 1
+[atom 15:43:00] API: Created request_id=chatcmpl-d9c26805eca24b949546bbda24e130b5, seq_id=128
+INFO:     127.0.0.1:50750 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:00] Scheduled prefill batch: 1 reqs, 7975 new tokens (cached: [3808], new: [7975]), req_ids: (128,)
+[atom 15:43:00] Request 129 arrived, input tokens: 11409, pending requests: 2
+[atom 15:43:00] API: Created request_id=chatcmpl-f0c45aa557304b18b50c4327516c30f7, seq_id=129
+INFO:     127.0.0.1:50752 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:00] Scheduled prefill batch: 1 reqs, 7601 new tokens (cached: [3808], new: [7601]), req_ids: (129,)
+[atom 15:43:03] Engine Core: output send 2 reqs
+[atom 15:43:03] Request 130 arrived, input tokens: 12711, pending requests: 1
+[atom 15:43:03] API: Created request_id=chatcmpl-6b9d9c23450c42f5b665621b3b5138f9, seq_id=130
+INFO:     127.0.0.1:50750 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:03] Scheduled prefill batch: 1 reqs, 8903 new tokens (cached: [3808], new: [8903]), req_ids: (130,)
+[atom 15:43:04] Request 131 arrived, input tokens: 5541, pending requests: 2
+[atom 15:43:04] API: Created request_id=chatcmpl-b5672482dbac4677bf19a9de41093108, seq_id=131
+INFO:     127.0.0.1:50752 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:04] Scheduled prefill batch: 1 reqs, 1733 new tokens (cached: [3808], new: [1733]), req_ids: (131,)
+[atom 15:43:05] Engine Core: output send 1 reqs
+[atom 15:43:05] Request 132 arrived, input tokens: 14071, pending requests: 2
+[atom 15:43:05] API: Created request_id=chatcmpl-34e0e67d5d8b4d7292d251d6f98a1671, seq_id=132
+INFO:     127.0.0.1:50750 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:05] Scheduled prefill batch: 1 reqs, 10263 new tokens (cached: [3808], new: [10263]), req_ids: (132,)
+[atom 15:43:06] Request 133 arrived, input tokens: 5931, pending requests: 3
+[atom 15:43:06] API: Created request_id=chatcmpl-00fb216eb9244ae990d0e8a0daa0675c, seq_id=133
+INFO:     127.0.0.1:50770 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:06] Scheduled prefill batch: 1 reqs, 2123 new tokens (cached: [3808], new: [2123]), req_ids: (133,)
+[atom 15:43:07] Engine Core: output send 1 reqs
+[atom 15:43:07] Request 134 arrived, input tokens: 7611, pending requests: 3
+[atom 15:43:07] API: Created request_id=chatcmpl-5d078df0150949db8eaabe9a1a2e73e2, seq_id=134
+INFO:     127.0.0.1:50752 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:07] Scheduled prefill batch: 1 reqs, 3803 new tokens (cached: [3808], new: [3803]), req_ids: (134,)
+[atom 15:43:08] Engine Core: output send 2 reqs
+[atom 15:43:09] Engine Core: output send 1 reqs
+[atom 15:43:17] Request 135 arrived, input tokens: 6769, pending requests: 1
+[atom 15:43:17] API: Created request_id=chatcmpl-2adff04a024a423eb0e92ff368e8a0b2, seq_id=135
+INFO:     127.0.0.1:50798 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:17] Scheduled prefill batch: 1 reqs, 2961 new tokens (cached: [3808], new: [2961]), req_ids: (135,)
+[atom 15:43:19] Request 136 arrived, input tokens: 11907, pending requests: 2
+[atom 15:43:19] API: Created request_id=chatcmpl-62c2a2998c524a1dbf578710e621b3ff, seq_id=136
+INFO:     127.0.0.1:50802 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:19] Scheduled prefill batch: 1 reqs, 8099 new tokens (cached: [3808], new: [8099]), req_ids: (136,)
+[atom 15:43:20] Engine Core: output send 1 reqs
+[atom 15:43:21] Engine Core: output send 1 reqs
+[atom 15:43:21] Request 137 arrived, input tokens: 5162, pending requests: 1
+[atom 15:43:21] API: Created request_id=chatcmpl-1b278cca7d9444cbae1b0ad6f0b45edc, seq_id=137
+INFO:     127.0.0.1:50798 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:21] Scheduled prefill batch: 1 reqs, 1354 new tokens (cached: [3808], new: [1354]), req_ids: (137,)
+[atom 15:43:23] Engine Core: output send 1 reqs
+[atom 15:43:26] Request 138 arrived, input tokens: 5262, pending requests: 1
+[atom 15:43:26] API: Created request_id=chatcmpl-799978e93f614fb0a86a4d783c73b551, seq_id=138
+INFO:     127.0.0.1:50802 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:26] Scheduled prefill batch: 1 reqs, 1454 new tokens (cached: [3808], new: [1454]), req_ids: (138,)
+[atom 15:43:27] Engine Core: output send 1 reqs
+[atom 15:43:27] Request 139 arrived, input tokens: 15086, pending requests: 1
+[atom 15:43:27] API: Created request_id=chatcmpl-bfeedd06cc5a4c46a64c5afdde6f9228, seq_id=139
+INFO:     127.0.0.1:50798 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:27] Scheduled prefill batch: 1 reqs, 11278 new tokens (cached: [3808], new: [11278]), req_ids: (139,)
+[atom 15:43:29] Engine Core: output send 1 reqs
+[atom 15:43:40] Request 140 arrived, input tokens: 11399, pending requests: 1
+[atom 15:43:40] API: Created request_id=chatcmpl-a5c28b3e33d44b1982e238fb13073e6b, seq_id=140
+INFO:     127.0.0.1:50932 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:40] Scheduled prefill batch: 1 reqs, 7591 new tokens (cached: [3808], new: [7591]), req_ids: (140,)
+[atom 15:43:42] Engine Core: output send 1 reqs
+[atom 15:43:51] Request 141 arrived, input tokens: 13195, pending requests: 1
+[atom 15:43:51] API: Created request_id=chatcmpl-8c0a8c8c07544930ab94708ce564a450, seq_id=141
+INFO:     127.0.0.1:50994 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:51] Scheduled prefill batch: 1 reqs, 9387 new tokens (cached: [3808], new: [9387]), req_ids: (141,)
+[atom 15:43:52] Request 142 arrived, input tokens: 15793, pending requests: 2
+[atom 15:43:52] API: Created request_id=chatcmpl-6f207a6d18a3434a8a3263faad5640ad, seq_id=142
+INFO:     127.0.0.1:50998 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:52] Scheduled prefill batch: 1 reqs, 11985 new tokens (cached: [3808], new: [11985]), req_ids: (142,)
+[atom 15:43:54] Engine Core: output send 1 reqs
+[atom 15:43:54] Engine Core: output send 1 reqs
+[atom 15:43:55] Request 143 arrived, input tokens: 8605, pending requests: 1
+[atom 15:43:55] API: Created request_id=chatcmpl-2d266e8cb0594df8a433d9a1fd5c1c5c, seq_id=143
+INFO:     127.0.0.1:50994 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:55] Scheduled prefill batch: 1 reqs, 4797 new tokens (cached: [3808], new: [4797]), req_ids: (143,)
+[atom 15:43:56] Request 144 arrived, input tokens: 9470, pending requests: 2
+[atom 15:43:56] API: Created request_id=chatcmpl-472598162aee40ceb30065f4d57f3afd, seq_id=144
+INFO:     127.0.0.1:50998 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:56] Scheduled prefill batch: 1 reqs, 5662 new tokens (cached: [3808], new: [5662]), req_ids: (144,)
+[atom 15:43:57] Engine Core: output send 1 reqs
+[atom 15:43:57] Request 145 arrived, input tokens: 8612, pending requests: 2
+[atom 15:43:57] API: Created request_id=chatcmpl-02601258453e4bb795baabcfdcca56fc, seq_id=145
+INFO:     127.0.0.1:50994 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:57] Scheduled prefill batch: 1 reqs, 4804 new tokens (cached: [3808], new: [4804]), req_ids: (145,)
+[atom 15:43:57] Request 146 arrived, input tokens: 5854, pending requests: 3
+[atom 15:43:57] API: Created request_id=chatcmpl-83560992e3964f7ba20c78a775262dff, seq_id=146
+INFO:     127.0.0.1:51012 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:43:57] Scheduled prefill batch: 1 reqs, 2046 new tokens (cached: [3808], new: [2046]), req_ids: (146,)
+[atom 15:43:58] Engine Core: output send 1 reqs
+[atom 15:43:59] Engine Core: output send 2 reqs
+[atom 15:44:01] Request 147 arrived, input tokens: 11032, pending requests: 1
+[atom 15:44:01] API: Created request_id=chatcmpl-6770783760d4431da5cc9e5422989597, seq_id=147
+INFO:     127.0.0.1:50998 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:01] Scheduled prefill batch: 1 reqs, 7224 new tokens (cached: [3808], new: [7224]), req_ids: (147,)
+[atom 15:44:02] Engine Core: output send 1 reqs
+[atom 15:44:03] Request 148 arrived, input tokens: 15537, pending requests: 1
+[atom 15:44:03] API: Created request_id=chatcmpl-1790e4093769427a8eb09cc1052a1004, seq_id=148
+INFO:     127.0.0.1:50994 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:03] Scheduled prefill batch: 1 reqs, 11729 new tokens (cached: [3808], new: [11729]), req_ids: (148,)
+[atom 15:44:03] Request 149 arrived, input tokens: 5375, pending requests: 2
+[atom 15:44:03] API: Created request_id=chatcmpl-bd2cfc05a62d4c36a6e509429fcc1043, seq_id=149
+INFO:     127.0.0.1:51012 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:04] Scheduled prefill batch: 1 reqs, 1567 new tokens (cached: [3808], new: [1567]), req_ids: (149,)
+[atom 15:44:04] Request 150 arrived, input tokens: 5358, pending requests: 3
+[atom 15:44:04] API: Created request_id=chatcmpl-798c47e24ff44c23a6f6076674651d32, seq_id=150
+INFO:     127.0.0.1:50998 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:04] Scheduled prefill batch: 1 reqs, 1550 new tokens (cached: [3808], new: [1550]), req_ids: (150,)
+[atom 15:44:06] Engine Core: output send 2 reqs
+[atom 15:44:06] Engine Core: output send 1 reqs
+[atom 15:44:13] Request 151 arrived, input tokens: 7192, pending requests: 1
+[atom 15:44:13] API: Created request_id=chatcmpl-a03c1dfcbe2245b7a78a57057bcd30ca, seq_id=151
+INFO:     127.0.0.1:51050 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:13] Scheduled prefill batch: 1 reqs, 3384 new tokens (cached: [3808], new: [3384]), req_ids: (151,)
+[atom 15:44:14] Request 152 arrived, input tokens: 12727, pending requests: 2
+[atom 15:44:14] API: Created request_id=chatcmpl-2fd3d4a5adaf46098b1fce4db7ed23a7, seq_id=152
+INFO:     127.0.0.1:51058 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:14] Scheduled prefill batch: 1 reqs, 8919 new tokens (cached: [3808], new: [8919]), req_ids: (152,)
+[atom 15:44:14] Request 153 arrived, input tokens: 15007, pending requests: 3
+[atom 15:44:14] API: Created request_id=chatcmpl-02ad70e5e72c47c5ab0187d6c9d811ee, seq_id=153
+INFO:     127.0.0.1:51062 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:14] Scheduled prefill batch: 1 reqs, 11199 new tokens (cached: [3808], new: [11199]), req_ids: (153,)
+[atom 15:44:16] Engine Core: output send 1 reqs
+[atom 15:44:17] Engine Core: output send 1 reqs
+[atom 15:44:17] Request 154 arrived, input tokens: 7809, pending requests: 2
+[atom 15:44:17] API: Created request_id=chatcmpl-572d9a19a0ef4346a4e8d7d637978ad8, seq_id=154
+INFO:     127.0.0.1:51050 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:17] Engine Core: output send 1 reqs
+[atom 15:44:17] Scheduled prefill batch: 1 reqs, 4001 new tokens (cached: [3808], new: [4001]), req_ids: (154,)
+[atom 15:44:19] Engine Core: output send 1 reqs
+[atom 15:44:32] Request 155 arrived, input tokens: 8673, pending requests: 1
+[atom 15:44:32] API: Created request_id=chatcmpl-5a25ee91ad0e4c1580c7fefa2dbbfbd2, seq_id=155
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:32] Scheduled prefill batch: 1 reqs, 4865 new tokens (cached: [3808], new: [4865]), req_ids: (155,)
+[atom 15:44:33] Request 156 arrived, input tokens: 7904, pending requests: 2
+[atom 15:44:33] API: Created request_id=chatcmpl-713dbabb42b64222bc49b2f6cbd3499c, seq_id=156
+INFO:     127.0.0.1:51178 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:33] Scheduled prefill batch: 1 reqs, 4096 new tokens (cached: [3808], new: [4096]), req_ids: (156,)
+[atom 15:44:34] Engine Core: output send 1 reqs
+[atom 15:44:34] Engine Core: output send 1 reqs
+[atom 15:44:37] Request 157 arrived, input tokens: 15916, pending requests: 1
+[atom 15:44:37] API: Created request_id=chatcmpl-627a137ca0c040bea471717823c6016b, seq_id=157
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:37] Scheduled prefill batch: 1 reqs, 12108 new tokens (cached: [3808], new: [12108]), req_ids: (157,)
+[atom 15:44:39] Engine Core: output send 1 reqs
+[atom 15:44:42] Request 158 arrived, input tokens: 14865, pending requests: 1
+[atom 15:44:42] API: Created request_id=chatcmpl-2d30f5ace0f8492fa2a2f8d65ee06af0, seq_id=158
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:42] Scheduled prefill batch: 1 reqs, 11057 new tokens (cached: [3808], new: [11057]), req_ids: (158,)
+[atom 15:44:43] Request 159 arrived, input tokens: 15973, pending requests: 2
+[atom 15:44:43] API: Created request_id=chatcmpl-2841b6035a4c4bf0983e76a03588a7c9, seq_id=159
+INFO:     127.0.0.1:51230 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:43] Scheduled prefill batch: 1 reqs, 12165 new tokens (cached: [3808], new: [12165]), req_ids: (159,)
+[atom 15:44:44] Engine Core: output send 1 reqs
+[atom 15:44:45] Engine Core: output send 1 reqs
+[atom 15:44:47] Request 160 arrived, input tokens: 13757, pending requests: 1
+[atom 15:44:47] API: Created request_id=chatcmpl-fc201f45d65b495286453edaed2a2082, seq_id=160
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:47] Scheduled prefill batch: 1 reqs, 9949 new tokens (cached: [3808], new: [9949]), req_ids: (160,)
+[atom 15:44:49] Request 161 arrived, input tokens: 11009, pending requests: 2
+[atom 15:44:49] API: Created request_id=chatcmpl-77408093cd2f4ef4acaa053e7b533f77, seq_id=161
+INFO:     127.0.0.1:51230 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:49] Scheduled prefill batch: 1 reqs, 7201 new tokens (cached: [3808], new: [7201]), req_ids: (161,)
+[atom 15:44:50] Engine Core: output send 1 reqs
+[atom 15:44:51] Engine Core: output send 1 reqs
+[atom 15:44:52] Request 162 arrived, input tokens: 6592, pending requests: 1
+[atom 15:44:52] API: Created request_id=chatcmpl-1f6a0cbf6cb34a6f82620ac59a3df992, seq_id=162
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:52] Scheduled prefill batch: 1 reqs, 2784 new tokens (cached: [3808], new: [2784]), req_ids: (162,)
+[atom 15:44:54] Engine Core: output send 1 reqs
+[atom 15:44:56] Request 163 arrived, input tokens: 7796, pending requests: 1
+[atom 15:44:56] API: Created request_id=chatcmpl-d5bbac92fba64a7d81142a4680bf294f, seq_id=163
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:56] Scheduled prefill batch: 1 reqs, 3988 new tokens (cached: [3808], new: [3988]), req_ids: (163,)
+[atom 15:44:58] Engine Core: output send 1 reqs
+[atom 15:44:59] Request 164 arrived, input tokens: 13798, pending requests: 1
+[atom 15:44:59] API: Created request_id=chatcmpl-c5f52d72c9af40ff805d069e05700927, seq_id=164
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:59] Scheduled prefill batch: 1 reqs, 9990 new tokens (cached: [3808], new: [9990]), req_ids: (164,)
+[atom 15:44:59] Request 165 arrived, input tokens: 11011, pending requests: 2
+[atom 15:44:59] API: Created request_id=chatcmpl-2d98afc123e04235a90c21eb1933e514, seq_id=165
+INFO:     127.0.0.1:51328 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:44:59] Scheduled prefill batch: 1 reqs, 7203 new tokens (cached: [3808], new: [7203]), req_ids: (165,)
+[atom 15:45:01] Engine Core: output send 2 reqs
+[atom 15:45:05] Request 166 arrived, input tokens: 10357, pending requests: 1
+[atom 15:45:05] API: Created request_id=chatcmpl-3c6b896b70b74d92bd7125f5f41b979a, seq_id=166
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:05] Scheduled prefill batch: 1 reqs, 6549 new tokens (cached: [3808], new: [6549]), req_ids: (166,)
+[atom 15:45:07] Request 167 arrived, input tokens: 13832, pending requests: 2
+[atom 15:45:07] API: Created request_id=chatcmpl-0d897cafa99643f2a125e67a210a6e37, seq_id=167
+INFO:     127.0.0.1:51368 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:07] Scheduled prefill batch: 1 reqs, 10024 new tokens (cached: [3808], new: [10024]), req_ids: (167,)
+[atom 15:45:07] Request 168 arrived, input tokens: 12342, pending requests: 3
+[atom 15:45:07] API: Created request_id=chatcmpl-3ecdc661f3f047f0add3434d04584906, seq_id=168
+INFO:     127.0.0.1:51374 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:07] Scheduled prefill batch: 1 reqs, 8534 new tokens (cached: [3808], new: [8534]), req_ids: (168,)
+[atom 15:45:08] Request 169 arrived, input tokens: 5185, pending requests: 4
+[atom 15:45:08] API: Created request_id=chatcmpl-3efdd745cc694b8fbdfa44ea3ae8e63a, seq_id=169
+INFO:     127.0.0.1:51378 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:08] Scheduled prefill batch: 1 reqs, 1377 new tokens (cached: [3808], new: [1377]), req_ids: (169,)
+[atom 15:45:08] Engine Core: output send 1 reqs
+[atom 15:45:10] Engine Core: output send 1 reqs
+[atom 15:45:10] Engine Core: output send 2 reqs
+[atom 15:45:11] Request 170 arrived, input tokens: 6677, pending requests: 1
+[atom 15:45:11] API: Created request_id=chatcmpl-e69b671dd0b345dfa0d25ac8def40a36, seq_id=170
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:11] Scheduled prefill batch: 1 reqs, 2869 new tokens (cached: [3808], new: [2869]), req_ids: (170,)
+[atom 15:45:12] Engine Core: output send 1 reqs
+[atom 15:45:15] Request 171 arrived, input tokens: 12459, pending requests: 1
+[atom 15:45:15] API: Created request_id=chatcmpl-9238f5e79ea04d488cd296aa8b618323, seq_id=171
+INFO:     127.0.0.1:51374 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:15] Scheduled prefill batch: 1 reqs, 8651 new tokens (cached: [3808], new: [8651]), req_ids: (171,)
+[atom 15:45:15] Request 172 arrived, input tokens: 5645, pending requests: 2
+[atom 15:45:15] API: Created request_id=chatcmpl-6777c17c447143a49074196db9525d5d, seq_id=172
+INFO:     127.0.0.1:51378 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:15] Scheduled prefill batch: 1 reqs, 1837 new tokens (cached: [3808], new: [1837]), req_ids: (172,)
+[atom 15:45:17] Engine Core: output send 2 reqs
+[atom 15:45:17] Request 173 arrived, input tokens: 13837, pending requests: 1
+[atom 15:45:17] API: Created request_id=chatcmpl-f7e8c1ce9d7d4b55be78d43265d0e982, seq_id=173
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:17] Scheduled prefill batch: 1 reqs, 10029 new tokens (cached: [3808], new: [10029]), req_ids: (173,)
+[atom 15:45:18] Request 174 arrived, input tokens: 5843, pending requests: 2
+[atom 15:45:18] API: Created request_id=chatcmpl-61c8f941c8094715a55a02ba798ea9ca, seq_id=174
+INFO:     127.0.0.1:51374 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:18] Scheduled prefill batch: 1 reqs, 2035 new tokens (cached: [3808], new: [2035]), req_ids: (174,)
+[atom 15:45:20] Engine Core: output send 1 reqs
+[atom 15:45:20] Engine Core: output send 1 reqs
+[atom 15:45:22] Request 175 arrived, input tokens: 15331, pending requests: 1
+[atom 15:45:22] API: Created request_id=chatcmpl-9dc22777c2c14cd5a011a627b00071b7, seq_id=175
+INFO:     127.0.0.1:51378 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:22] Scheduled prefill batch: 1 reqs, 11523 new tokens (cached: [3808], new: [11523]), req_ids: (175,)
+[atom 15:45:23] Request 176 arrived, input tokens: 15866, pending requests: 2
+[atom 15:45:23] API: Created request_id=chatcmpl-8a91b293068448fea978f3a42aa53da8, seq_id=176
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:23] Scheduled prefill batch: 1 reqs, 12058 new tokens (cached: [3808], new: [12058]), req_ids: (176,)
+[atom 15:45:25] Engine Core: output send 1 reqs
+[atom 15:45:25] Engine Core: output send 1 reqs
+[atom 15:45:27] Request 177 arrived, input tokens: 14198, pending requests: 1
+[atom 15:45:27] API: Created request_id=chatcmpl-3f48ff96773946208ad7df459dbbca45, seq_id=177
+INFO:     127.0.0.1:51378 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:27] Scheduled prefill batch: 1 reqs, 10390 new tokens (cached: [3808], new: [10390]), req_ids: (177,)
+[atom 15:45:28] Request 178 arrived, input tokens: 5997, pending requests: 2
+[atom 15:45:28] API: Created request_id=chatcmpl-9e4fb4f781244b1895d67f982c78096b, seq_id=178
+INFO:     127.0.0.1:51172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:28] Scheduled prefill batch: 1 reqs, 2189 new tokens (cached: [3808], new: [2189]), req_ids: (178,)
+[atom 15:45:29] Engine Core: output send 1 reqs
+[atom 15:45:30] Engine Core: output send 1 reqs
+[atom 15:45:38] Request 179 arrived, input tokens: 10986, pending requests: 1
+[atom 15:45:38] API: Created request_id=chatcmpl-1d41a95fda5849da8c788434f8cc63a2, seq_id=179
+INFO:     127.0.0.1:51532 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:38] Scheduled prefill batch: 1 reqs, 7178 new tokens (cached: [3808], new: [7178]), req_ids: (179,)
+[atom 15:45:39] Request 180 arrived, input tokens: 15334, pending requests: 2
+[atom 15:45:39] API: Created request_id=chatcmpl-ea3d1bc8d28547c29eeaaab055da5d27, seq_id=180
+INFO:     127.0.0.1:51536 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:39] Scheduled prefill batch: 1 reqs, 11526 new tokens (cached: [3808], new: [11526]), req_ids: (180,)
+[atom 15:45:40] Request 181 arrived, input tokens: 10787, pending requests: 3
+[atom 15:45:40] API: Created request_id=chatcmpl-c08f618dfb5349e4b2b028bfea7a4eef, seq_id=181
+INFO:     127.0.0.1:51540 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:40] Scheduled prefill batch: 1 reqs, 6979 new tokens (cached: [3808], new: [6979]), req_ids: (181,)
+[atom 15:45:41] Request 182 arrived, input tokens: 12677, pending requests: 4
+[atom 15:45:41] API: Created request_id=chatcmpl-9db85b3fb4da455fba03c9609f16822c, seq_id=182
+INFO:     127.0.0.1:51542 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:41] Scheduled prefill batch: 1 reqs, 8869 new tokens (cached: [3808], new: [8869]), req_ids: (182,)
+[atom 15:45:41] Engine Core: output send 1 reqs
+[atom 15:45:42] Engine Core: output send 1 reqs
+[atom 15:45:43] Engine Core: output send 1 reqs
+[atom 15:45:43] Engine Core: output send 1 reqs
+[atom 15:45:50] Request 183 arrived, input tokens: 14642, pending requests: 1
+[atom 15:45:50] API: Created request_id=chatcmpl-c647f4f1a176411d9abd6b70415e2b26, seq_id=183
+INFO:     127.0.0.1:51560 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:50] Scheduled prefill batch: 1 reqs, 10834 new tokens (cached: [3808], new: [10834]), req_ids: (183,)
+[atom 15:45:52] Engine Core: output send 1 reqs
+[atom 15:45:57] Request 184 arrived, input tokens: 11279, pending requests: 1
+[atom 15:45:57] API: Created request_id=chatcmpl-268af066666548aca4243f27e4143b6b, seq_id=184
+INFO:     127.0.0.1:51582 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:57] Scheduled prefill batch: 1 reqs, 7471 new tokens (cached: [3808], new: [7471]), req_ids: (184,)
+[atom 15:45:58] Request 185 arrived, input tokens: 7592, pending requests: 2
+[atom 15:45:58] API: Created request_id=chatcmpl-6f4d52ba01f642f1a32df6db0503948e, seq_id=185
+INFO:     127.0.0.1:51584 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:45:58] Scheduled prefill batch: 1 reqs, 3784 new tokens (cached: [3808], new: [3784]), req_ids: (185,)
+[atom 15:45:59] Engine Core: output send 1 reqs
+[atom 15:46:00] Engine Core: output send 1 reqs
+[atom 15:46:02] Request 186 arrived, input tokens: 9617, pending requests: 1
+[atom 15:46:02] API: Created request_id=chatcmpl-8a2323793b5742bdbcf5f38ab65e03d7, seq_id=186
+INFO:     127.0.0.1:51582 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:02] Scheduled prefill batch: 1 reqs, 5809 new tokens (cached: [3808], new: [5809]), req_ids: (186,)
+[atom 15:46:04] Engine Core: output send 1 reqs
+[atom 15:46:08] Request 187 arrived, input tokens: 9722, pending requests: 1
+[atom 15:46:08] API: Created request_id=chatcmpl-e165cd1070764ed0afd9c8fd60ba399d, seq_id=187
+INFO:     127.0.0.1:51582 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:08] Scheduled prefill batch: 1 reqs, 5914 new tokens (cached: [3808], new: [5914]), req_ids: (187,)
+[atom 15:46:10] Engine Core: output send 1 reqs
+[atom 15:46:11] Request 188 arrived, input tokens: 5192, pending requests: 1
+[atom 15:46:11] API: Created request_id=chatcmpl-83b7dbb745e946d0885e0b82f60b370d, seq_id=188
+INFO:     127.0.0.1:51582 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:11] Scheduled prefill batch: 1 reqs, 1384 new tokens (cached: [3808], new: [1384]), req_ids: (188,)
+[atom 15:46:12] Engine Core: output send 1 reqs
+[atom 15:46:13] Request 189 arrived, input tokens: 6126, pending requests: 1
+[atom 15:46:13] API: Created request_id=chatcmpl-22a8611688d8410aaf45f0fdf5758482, seq_id=189
+INFO:     127.0.0.1:51582 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:13] Scheduled prefill batch: 1 reqs, 2318 new tokens (cached: [3808], new: [2318]), req_ids: (189,)
+[atom 15:46:14] Request 190 arrived, input tokens: 15950, pending requests: 2
+[atom 15:46:14] API: Created request_id=chatcmpl-a65fc5fe357148ef932c9f8a0c2b7638, seq_id=190
+INFO:     127.0.0.1:51616 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:14] Scheduled prefill batch: 1 reqs, 12142 new tokens (cached: [3808], new: [12142]), req_ids: (190,)
+[atom 15:46:15] Request 191 arrived, input tokens: 14851, pending requests: 3
+[atom 15:46:15] API: Created request_id=chatcmpl-13aa0612ef7c4c3e806a2f4e3c1b32d3, seq_id=191
+INFO:     127.0.0.1:51618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:15] Scheduled prefill batch: 1 reqs, 11043 new tokens (cached: [3808], new: [11043]), req_ids: (191,)
+[atom 15:46:16] Engine Core: output send 1 reqs
+[atom 15:46:17] Engine Core: output send 2 reqs
+[atom 15:46:23] Request 192 arrived, input tokens: 8467, pending requests: 1
+[atom 15:46:23] API: Created request_id=chatcmpl-aad0a869cda84760947ee83978826c1c, seq_id=192
+INFO:     127.0.0.1:51636 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:23] Scheduled prefill batch: 1 reqs, 4659 new tokens (cached: [3808], new: [4659]), req_ids: (192,)
+[atom 15:46:24] Engine Core: output send 1 reqs
+[atom 15:46:31] Request 193 arrived, input tokens: 6517, pending requests: 1
+[atom 15:46:31] API: Created request_id=chatcmpl-7706479e12444bf682f9b1061ca89226, seq_id=193
+INFO:     127.0.0.1:51656 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:31] Scheduled prefill batch: 1 reqs, 2709 new tokens (cached: [3808], new: [2709]), req_ids: (193,)
+[atom 15:46:32] Engine Core: output send 1 reqs
+[atom 15:46:34] Request 194 arrived, input tokens: 8438, pending requests: 1
+[atom 15:46:34] API: Created request_id=chatcmpl-4033c0564c8a4af4a3f86b170a766ef3, seq_id=194
+INFO:     127.0.0.1:51656 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:34] Scheduled prefill batch: 1 reqs, 4630 new tokens (cached: [3808], new: [4630]), req_ids: (194,)
+[atom 15:46:36] Request 195 arrived, input tokens: 6178, pending requests: 2
+[atom 15:46:36] API: Created request_id=chatcmpl-608ff9f3be494494aa093396e19ce6dc, seq_id=195
+INFO:     127.0.0.1:51672 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:36] Scheduled prefill batch: 1 reqs, 2370 new tokens (cached: [3808], new: [2370]), req_ids: (195,)
+[atom 15:46:36] Engine Core: output send 1 reqs
+[atom 15:46:37] Engine Core: output send 1 reqs
+[atom 15:46:37] Request 196 arrived, input tokens: 15549, pending requests: 1
+[atom 15:46:37] API: Created request_id=chatcmpl-4f5f825d843d4adda084459f64af3afb, seq_id=196
+INFO:     127.0.0.1:51656 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:37] Scheduled prefill batch: 1 reqs, 11741 new tokens (cached: [3808], new: [11741]), req_ids: (196,)
+[atom 15:46:39] Engine Core: output send 1 reqs
+[atom 15:46:42] Request 197 arrived, input tokens: 12946, pending requests: 1
+[atom 15:46:42] API: Created request_id=chatcmpl-47c388194e42480fac285b695c8a5831, seq_id=197
+INFO:     127.0.0.1:51672 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:42] Scheduled prefill batch: 1 reqs, 9138 new tokens (cached: [3808], new: [9138]), req_ids: (197,)
+[atom 15:46:44] Engine Core: output send 1 reqs
+[atom 15:46:50] Request 198 arrived, input tokens: 15307, pending requests: 1
+[atom 15:46:50] API: Created request_id=chatcmpl-920348697e634f26b1df8b21587ee8b0, seq_id=198
+INFO:     127.0.0.1:51696 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:50] Scheduled prefill batch: 1 reqs, 11499 new tokens (cached: [3808], new: [11499]), req_ids: (198,)
+[atom 15:46:52] Engine Core: output send 1 reqs
+[atom 15:46:58] Request 199 arrived, input tokens: 10813, pending requests: 1
+[atom 15:46:58] API: Created request_id=chatcmpl-f10c537d1bf146ee96a952e102176021, seq_id=199
+INFO:     127.0.0.1:51712 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:46:58] [Cache Stats Interval] Reqs: 100, Cached/Total tokens: 380800/1031740, Hit rate: 36.91%
+[atom 15:46:58] [Cache Stats         ] Reqs: 200, Cached/Total tokens: 753984/2035595, Hit rate: 37.04%
+[atom 15:46:58] Scheduled prefill batch: 1 reqs, 7005 new tokens (cached: [3808], new: [7005]), req_ids: (199,)
+[atom 15:47:00] Engine Core: output send 1 reqs
+[atom 15:47:03] Request 200 arrived, input tokens: 4294, pending requests: 1
+[atom 15:47:03] API: Created request_id=chatcmpl-517fe845fed74c63ac35ed66af5b5b28, seq_id=200
+INFO:     127.0.0.1:51712 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[atom 15:47:03] Scheduled prefill batch: 1 reqs, 486 new tokens (cached: [3808], new: [486]), req_ids: (200,)
+[atom 15:47:04] Engine Core: output send 1 reqs
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[atom 15:47:06] Server shutting down, releasing resources...
+[atom 15:47:06] Engine Core Mgr: Shutting down all 1 EngineCores
+[atom 15:47:09] AsyncIOProcManager(ModelRunner): shutdown all runners...
+[atom 15:47:09] AsyncIOProcManager(ModelRunner): All runners are shutdown.
+[atom 15:47:11] Engine Core Mgr: All EngineCores shut down
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1266071]
+[atom 15:47:11] Received SIGINT, shutting down engine...
+[atom 15:47:13] Engine shutdown complete.
