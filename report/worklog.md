@@ -150,3 +150,5 @@
 - 原生Attention+FusedMoE完整HumanEval 20261116T010456387933Z完成：候选144/164=87.8049%，复用HF145/164=88.4146%，绝对差0.60976pp，本地2pp检查通过；增2失3，预算截断4/5、提取失败5/6，均保留164分母。核验双方逐题/评分、原参考相同、源码和5631加载；124次原生prefill/2926次paged decode确认路径。性能28归档，结合性能26保留高速主线，下一步prefix与原生Attention整合，不追加无界token对齐诊断。
 
 - 按计划交付两项并行实验：独立native-prefix c34a96a接入原生cached prefill，验证Q/K独立边界/真实后缀位置，保留K写回/gather，自动GPU0结构内核探针→off/on→HTTP A64/C20，45分钟预算，token分叉只报告；独立native-abc cd2c3e3支持显式高速profile与隔离端口的完整B50/A512/C200、90分钟预算和恢复。72/22项CPU检查、py_compile/diff、真实数据prepare-only及最终源码/输入/客户端指纹通过；未运行GPU、未改冻结库或既有已验工作区。计划30与交付清单归档，最终正式复测仍需空闲机器。
+
+- 两卡批次完成：native-prefix 20261116T025408685476Z，104产物/源码核验，kernel结构全精确，off/on4/8序列同，C20命中19/20、72352token，TTFT/TPOT p99 1.12319/0.12185秒，归档性能29；native-ABC 20261116T025416247034Z，98产物/源码核验，47.37分钟，B50/A512/C200全成功，A121.2755tokens/s为官方19.0%，C TTFT/TPOT p99 2.54046/0.21940秒，归档性能30。未把相对R提升约2.92倍当官方加速。下一步根据campaign L仍逐请求拆分QKV/O/router的源码证据，独立native-batched profile恢复整批投影，16项CPU检查及数据prepare，性能优先、有收益再复用HF评估。

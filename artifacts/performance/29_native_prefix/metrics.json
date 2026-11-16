@@ -1,0 +1,118 @@
+{
+  "run": "/workspace/results/mellum_native_prefix/20261116T025408685476Z",
+  "kernel": {
+    "status": "passed",
+    "cases": [
+      {
+        "window": -1,
+        "finite": true,
+        "max_abs": 0.0,
+        "structural_check": true
+      },
+      {
+        "window": 4,
+        "finite": true,
+        "max_abs": 0.0,
+        "structural_check": true
+      },
+      {
+        "window": 1024,
+        "finite": true,
+        "max_abs": 0.0,
+        "structural_check": true
+      }
+    ],
+    "scope": "Synthetic bottom-right/GQA/window structural check, not formal accuracy acceptance"
+  },
+  "probe": {
+    "cached_tokens": 46592,
+    "exact_sequences": 4,
+    "sequences": 8,
+    "note": "Free-generation equality is reported, not a gate for numerically different native paths."
+  },
+  "source_unchanged": true,
+  "verified_artifacts": 104,
+  "cases": {
+    "smoke_B": {
+      "requests": 2,
+      "successes": 2,
+      "failures": 0,
+      "ttft_p50_s": 0.21706581697799265,
+      "ttft_p99_s": 0.23096921294927597,
+      "tpot_p50_s": 0.054724055094023547,
+      "tpot_p99_s": 0.05476916304369475,
+      "output_tokens_per_s_gpu": 18.0478,
+      "request_start_span_s": 14.18583441991359,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 1
+    },
+    "smoke_A": {
+      "requests": 8,
+      "successes": 8,
+      "failures": 0,
+      "ttft_p50_s": 1.3591746010351926,
+      "ttft_p99_s": 1.3605226739309728,
+      "tpot_p50_s": 0.10542377796042346,
+      "tpot_p99_s": 0.10542406338796603,
+      "output_tokens_per_s_gpu": 72.5114,
+      "request_start_span_s": 0.002128418069332838,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 8
+    },
+    "smoke_C": {
+      "requests": 2,
+      "successes": 2,
+      "failures": 0,
+      "ttft_p50_s": 0.5386605591047555,
+      "ttft_p99_s": 0.9576370241120458,
+      "tpot_p50_s": 0.06619158308569562,
+      "tpot_p99_s": 0.06920188252960204,
+      "output_tokens_per_s_gpu": 21.6907,
+      "request_start_span_s": 5.76810586405918,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 2,
+      "prefix_cached_tokens": 3808,
+      "prefix_hit_requests": 1,
+      "new_tokens_in_cached_batches": 12219
+    },
+    "A64": {
+      "requests": 64,
+      "successes": 64,
+      "failures": 0,
+      "ttft_p50_s": 4.03088277997449,
+      "ttft_p99_s": 4.938164424849674,
+      "tpot_p50_s": 0.2591241170076982,
+      "tpot_p99_s": 0.25986109459590095,
+      "output_tokens_per_s_gpu": 115.9656,
+      "request_start_span_s": 71.01703452994116,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 32
+    },
+    "C20": {
+      "requests": 20,
+      "successes": 20,
+      "failures": 0,
+      "ttft_p50_s": 0.6818368991371244,
+      "ttft_p99_s": 1.1231944460887462,
+      "tpot_p50_s": 0.10488253707504448,
+      "tpot_p99_s": 0.12184540465857614,
+      "output_tokens_per_s_gpu": 56.2066,
+      "request_start_span_s": 64.95256515895016,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 11,
+      "prefix_cached_tokens": 72352,
+      "prefix_hit_requests": 19,
+      "new_tokens_in_cached_batches": 127410
+    }
+  }
+}

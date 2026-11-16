@@ -54,3 +54,5 @@ GPU1待运行：[29 原生Attention组合完整HumanEval](plan/29_native_attenti
 当前已完成：[性能28](../report/performance/28_native_attention_humaneval.md)，原生Attention+FusedMoE完整HumanEval达本地2pp门槛；下一步原生路径与prefix整合及真实负载消融。
 
 当前待运行：[30 原生prefix与完整ABC两卡批次](plan/30_native_prefix_and_full_abc.md)。GPU0独立native-prefix提交c34a96a（72项CPU检查），GPU1独立native-abc提交cd2c3e3（22项）；真实输入prepare/指纹核验通过。两项GPU尚未执行。
+
+两卡批次30完成，结果见[性能29](../report/performance/29_native_prefix.md)/[性能30](../report/performance/30_native_full_abc.md)。当前GPU1待运行：[31 恢复整批投影](plan/31_batched_projection_dispatch.md)，独立native-batched提交0555b76，16项CPU检查及真实输入/源码/客户端指纹通过。

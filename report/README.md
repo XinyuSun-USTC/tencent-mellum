@@ -127,3 +127,6 @@
 - [27 FusedMoE+prefix HTTP](performance/27_prefix_http.md)：C20 19/20命中、复用72352token，TTFT p99 19.51秒；有效但弱于原生Attention主线。
 
 - [28 原生Attention+FusedMoE HumanEval](performance/28_native_attention_humaneval.md)：144/164，对HF145/164，差0.6098pp；本地功能门槛通过，作为性能主线继续推进。
+
+- [29 原生prefix组合](performance/29_native_prefix.md)：C20 TTFT p99 1.123秒，19/20命中；组合功能待评。
+- [30 原生完整ABC](performance/30_native_full_abc.md)：A512/B50/C200全成功，A121.28tokens/s为官方19.0%，C完整尾延迟仍落后，继续削减批量执行开销。
