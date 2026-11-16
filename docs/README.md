@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+最新诊断：[验证41 Norm恢复](../report/validation/41_norm_greedy_recovery.md)：本轮200位置65.23→66.98→71.85→72.91%，仍低于90%；暂停快速HF Norm后备，等待systems控制组定位其它因素。
+
 并行CPU后备：[47 HF语义融合Norm](plan/47_conditional_hf_norm_fusion.md)，独立hf-norm提交d9345c7。仅当当前参考Norm分支实测≥90%才允许GPU后续；49项CPU检查、4种gfx942离线编译通过，未跑GPU。
 
 当前诊断：[46 有界恢复greedy一致率](plan/46_greedy_agreement_recovery.md)，独立agreement提交6485506。只测原200/长组，不重跑HF/HE/ABC；GPU0 HF Norm舍入及组合，GPU1prefix/路由/投影/batch与按需参考控制。
