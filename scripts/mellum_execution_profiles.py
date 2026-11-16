@@ -15,11 +15,22 @@ DERIVED={
     'sprint_graph_qk_chunk2048':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_CHUNK_BUDGET':'2048'},
     'sprint_graph_qk_chunk4096':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_CHUNK_BUDGET':'4096'},
 }
-PROFILES=tuple(DERIVED)+FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
+AGREEMENT={
+    'agree_qk_round':{'MELLUM_HF_QK_ROUNDING':'1'},
+    'agree_norms':{'MELLUM_HF_QK_ROUNDING':'1','MELLUM_NORM_BACKEND':'reference'},
+    'agree_norms_route':{'MELLUM_HF_QK_ROUNDING':'1','MELLUM_NORM_BACKEND':'reference','MELLUM_NATIVE_ROUTING':'0'},
+    'agree_no_prefix':{'MELLUM_PREFIX_ENABLED':'0'},
+    'agree_route':{'MELLUM_NATIVE_ROUTING':'0'},
+    'agree_projection':{'MELLUM_QKV_BACKEND':'separate'},
+}
+
+PROFILES=tuple(AGREEMENT)+tuple(DERIVED)+FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
 
 
 def profile_settings(name):
     if name not in PROFILES:raise ValueError('Unknown Mellum execution profile')
+    if name in AGREEMENT:
+        result=profile_settings('sprint_graph_qk_router_prefix_metadata');result.update(AGREEMENT[name]);return result
     if name in DERIVED:
         result=profile_settings('sprint_graph_qk');result.update(DERIVED[name]);return result
     fast=name in FAST_PROFILES

@@ -109,9 +109,10 @@ def runtime(profile,gpu,target):
     return settings,opts
 
 
-def worker(out):
+def worker(out,suites=None,batch_size=32):
     plan=json.loads((out/'manifest.json').read_text());current(plan)
     target=out/'candidate';target.mkdir();settings,opts=runtime(plan['profile'],plan['gpu'],target)
+    opts['max_num_seqs']=batch_size
     sys.path.insert(0,str(PROJECT/'ATOM'))
     import torch,transformers
     from atom.model_engine.arg_utils import EngineArgs
@@ -125,7 +126,7 @@ def worker(out):
     engine=None
     try:
         engine=EngineArgs(**opts).create_engine()
-        for name in ['tokens','long','humaneval']:
+        for name in (suites or ['tokens','long','humaneval']):
             inputs=json.loads((out/(name+'_inputs.json')).read_text());rows=inputs['records']
             cases=[{'name':r['name'],'input_ids':r['input_ids'][0],'budget':r['generation_settings']['max_new_tokens']} for r in rows]
             result={**inputs,'producer':'atom','status':'started','profile':plan['profile'],'records':[],
@@ -133,7 +134,7 @@ def worker(out):
             def progress(done,*args):
                 result['records']=[{**rows[i],'generated_ids':[done[i]['token_ids']]} for i in sorted(done)]
                 write(out/(name+'_generation.json'),result);print(name,'completed',len(done),'/',len(rows),flush=True)
-            outputs,_,_=drive_window(engine,cases,lambda c:SamplingParams(temperature=0,max_tokens=c['budget'],ignore_eos=False),32,progress)
+            outputs,_,_=drive_window(engine,cases,lambda c:SamplingParams(temperature=0,max_tokens=c['budget'],ignore_eos=False),batch_size,progress)
             result.update(status='complete',records=[{**r,'generated_ids':[v['token_ids']]} for r,v in zip(rows,outputs)])
             validate_candidate(inputs,result);write(out/(name+'_generation.json'),result)
         write(out/'batch_evidence.json',read_batches(target/'batches.jsonl'))

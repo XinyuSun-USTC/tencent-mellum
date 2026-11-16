@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT
 """Default-off THD QK RMSNorm/RoPE fusion, retaining BF16 stage boundaries."""
 import torch
+import os
 import triton
 import triton.language as tl
 from triton.language.extra import libdevice
@@ -10,18 +11,22 @@ from triton.language.extra import libdevice
 def _norm_rope(Q,K,QW,KW,INV,POS,OQ,OK,
                QS0:tl.constexpr,QS1:tl.constexpr,KS0:tl.constexpr,KS1:tl.constexpr,
                QH:tl.constexpr,KH:tl.constexpr,D:tl.constexpr,
-               EPS:tl.constexpr,FACTOR:tl.constexpr,NORM:tl.constexpr):
+               EPS:tl.constexpr,FACTOR:tl.constexpr,NORM:tl.constexpr,HF_ROUND:tl.constexpr):
     t=tl.program_id(0);h=tl.program_id(1);d=tl.arange(0,D)
     if h<QH:
         x=tl.load(Q+t*QS0+h*QS1+d).to(tl.float32)
         if NORM:
             w=tl.load(QW+d).to(tl.float32)
-            x=(x*tl.rsqrt(tl.sum(x*x,0)/D+EPS)*w).to(tl.bfloat16).to(tl.float32)
+            x=x*tl.rsqrt(tl.sum(x*x,0)/D+EPS)
+            if HF_ROUND:x=x.to(tl.bfloat16).to(tl.float32)
+            x=(x*w).to(tl.bfloat16).to(tl.float32)
     else:
         x=tl.load(K+t*KS0+(h-QH)*KS1+d).to(tl.float32)
         if NORM:
             w=tl.load(KW+d).to(tl.float32)
-            x=(x*tl.rsqrt(tl.sum(x*x,0)/D+EPS)*w).to(tl.bfloat16).to(tl.float32)
+            x=x*tl.rsqrt(tl.sum(x*x,0)/D+EPS)
+            if HF_ROUND:x=x.to(tl.bfloat16).to(tl.float32)
+            x=(x*w).to(tl.bfloat16).to(tl.float32)
     angle=tl.load(POS+t).to(tl.float32)*tl.load(INV+d%(D//2))
     c=(libdevice.cos(angle)*FACTOR).to(tl.bfloat16).to(tl.float32)
     s=(libdevice.sin(angle)*FACTOR).to(tl.bfloat16).to(tl.float32)
@@ -45,6 +50,6 @@ def fused_qk_rope(q,k,positions,inverse,factor,norms=None):
         if kn.eps!=eps or qw.numel()!=128 or kw.numel()!=128:raise ValueError('Invalid QK norm parameters')
     oq=torch.empty(q.shape,device=q.device,dtype=q.dtype);ok=torch.empty(k.shape,device=k.device,dtype=k.dtype)
     _norm_rope[(len(q),q.shape[1]+k.shape[1])](q,k,qw,kw,inverse,positions.flatten(),oq,ok,
-        q.stride(0),q.stride(1),k.stride(0),k.stride(1),q.shape[1],k.shape[1],128,eps,float(factor),norms is not None,
+        q.stride(0),q.stride(1),k.stride(0),k.stride(1),q.shape[1],k.shape[1],128,eps,float(factor),norms is not None,os.getenv("MELLUM_HF_QK_ROUNDING","0")=="1",
         num_warps=4,enable_fp_fusion=False)
     return oq,ok
