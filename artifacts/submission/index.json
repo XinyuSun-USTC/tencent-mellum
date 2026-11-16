@@ -14,7 +14,10 @@
     "primary_acceptance_batch32": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32",
     "reference_acceptance_batch1": "/workspace/results/mellum_reference_acceptance/20261116T160211830830Z_batch1",
     "primary_abc": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary",
-    "stream_cleanup_cpu": "/workspace/tencent-mellum-delivery-final/results/stream_cleanup_cpu/20261116T191201123019Z"
+    "stream_cleanup_cpu": "/workspace/tencent-mellum-delivery-final/results/stream_cleanup_cpu/20261116T191201123019Z",
+    "reference_kv_screen": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z",
+    "expert_group_screen": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z",
+    "expert_group4_c20": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4"
   },
   "files": {
     "artifacts/submission/aggressive_abc/manifest.json": {
@@ -2881,6 +2884,1641 @@
       "sha256": "79dff421455615b73b009a6354c2281ca093c94da38a970a9d6779048272a56c",
       "bytes": 640,
       "original": "/workspace/tencent-mellum-delivery-final/results/stream_cleanup_cpu/20261116T191201123019Z/summary.json"
+    },
+    "artifacts/submission/reference_kv_screen/cache/results.json": {
+      "sha256": "d359ea55da2391779737e4fd81134e88f26f9c1adb08d78464bef5d305e45b88",
+      "bytes": 5377,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/cache/results.json"
+    },
+    "artifacts/submission/reference_kv_screen/cache/worker.log": {
+      "sha256": "921e804a0f0da66ff831f06e07caf628b7bf4a701c24fa29a96906484f0f87e6",
+      "bytes": 1173,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/cache/worker.log"
+    },
+    "artifacts/submission/reference_kv_screen/candidate_screen/batch_evidence.json": {
+      "sha256": "4037090d72b228d14721036f97758e8f81e77abfcc161c9e5aa63795a266a019",
+      "bytes": 294,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/candidate_screen/batch_evidence.json"
+    },
+    "artifacts/submission/reference_kv_screen/candidate_screen/candidate/batches.jsonl": {
+      "sha256": "f62a76dfeacb09dc28d1e6056a924b47e5b984e59f01f430e25de0d4058086d3",
+      "bytes": 95265,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/candidate_screen/candidate/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/candidate_screen/candidate/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/candidate_screen/candidate/fastpaths.json"
+    },
+    "artifacts/submission/reference_kv_screen/candidate_screen/candidate/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/candidate_screen/candidate/loading_audit.json"
+    },
+    "artifacts/submission/reference_kv_screen/candidate_screen/candidate/native_calls.jsonl": {
+      "sha256": "697bf4a2f6302dddb289e7102f6d2d21ddc184f6c93caf16aa66aad09b9975fa",
+      "bytes": 415,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/candidate_screen/candidate/native_calls.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/candidate_screen/long_generation.json": {
+      "sha256": "401f7c62f81b95d82aecf3d46362faa49b9c8897eb0b07e88152db5b3336da4c",
+      "bytes": 1939591,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/candidate_screen/long_generation.json"
+    },
+    "artifacts/submission/reference_kv_screen/candidate_screen/manifest.json": {
+      "sha256": "5ca106fe8f774a91fd9a692d395a299a0be045997595673fda21d818e3d2003d",
+      "bytes": 42167,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/candidate_screen/manifest.json"
+    },
+    "artifacts/submission/reference_kv_screen/candidate_screen/runtime.json": {
+      "sha256": "c1de8791f3236c088914dde0f96ccc4fcb73f7fe9f895789fde6d788019f4cff",
+      "bytes": 2803,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/candidate_screen/runtime.json"
+    },
+    "artifacts/submission/reference_kv_screen/candidate_screen/worker.log": {
+      "sha256": "ea36b9bb61d2a3cd8ea9fcdbe11657e58ed8a665b570e8d602744deff47957e1",
+      "bytes": 56474,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/candidate_screen/worker.log"
+    },
+    "artifacts/submission/reference_kv_screen/manifest.json": {
+      "sha256": "aa2d9e31b167c1774b92e177613b33cf48ac9619816638ac19575db348a03e6b",
+      "bytes": 100029,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/manifest.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/A/batches.jsonl": {
+      "sha256": "d04df1d92f2063054f5e99ad02f658871e5873531559555b1d6470c3f0251832",
+      "bytes": 10017,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/A/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "6f59a37724a37c8cf3a8acec2819b0af018e62d452e4163567511480ae40d25e",
+      "bytes": 9825,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": {
+      "sha256": "28973596096939333e832ec23924f76c8dbbc7a91dc4ae5d64378c5a61b73b1d",
+      "bytes": 2468,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": {
+      "sha256": "e7690ef82d80ab2443e58d0e986341cda51823221bb298dd6c7526248c179a74",
+      "bytes": 3651,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": {
+      "sha256": "8b732aef88807ca5aeb2a3e00e6b20434191ea0a4545310e4e9af40889f313c5",
+      "bytes": 575,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": {
+      "sha256": "a3bc132e6627fc61883696deb8f3024c63b87ef9dd7a4da4f5dee1219c0437a6",
+      "bytes": 877,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": {
+      "sha256": "52a0a076e347754587c11f86989ef0360719e602029de918be09b39501d04a21",
+      "bytes": 5040,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "d2f0d281ab7e5c6059a756c127cb255054499ca60ffd1ad1c17a6e64a95111d7",
+      "bytes": 5007,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/A/client.log": {
+      "sha256": "9288603dc1d4b099a012299a3b6d32ad0a3a2a294aea942ce4c33ca9c1799511",
+      "bytes": 17847,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/A/client.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/B/batches.jsonl": {
+      "sha256": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+      "bytes": 9178,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "d9dbf93e657f0eacc768f43f7df1b2b224600d16febe0c79ce1288e6d9ba8aac",
+      "bytes": 9228,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": {
+      "sha256": "4776732a71dde28cc73889a48079e9bc0ec62c50141b84d1305856c59420447f",
+      "bytes": 2431,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": {
+      "sha256": "da937166323119e3993aa3643ed57c380c5a9d5184019f0b2a2ac9407d7f87d8",
+      "bytes": 3628,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": {
+      "sha256": "0e12acc553fd5c81f91c6f1819bdd934d5fdc764cb2d776c0f31d01c4b58151f",
+      "bytes": 561,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": {
+      "sha256": "3ad931288f2fec081c8846f06bf0baf54622ac3f5053cc707e1ffbc52a34267b",
+      "bytes": 874,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": {
+      "sha256": "a239b3c46b20f404d335a1be5682f960ce975906c938ff260dc54a742d7a0337",
+      "bytes": 673,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "b4d1214e05fc726dc5a88f372ff020b5acc9fc2ebf133a7fcb23bf576444f2a5",
+      "bytes": 4792,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/B/client.log": {
+      "sha256": "ac9e4035d873b8be2b6c5cbf521a3be4b133f86f635d4d66a2291d9797e1edbb",
+      "bytes": 17465,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/plan.json": {
+      "sha256": "accbbdedb694acdd03c09af54e537764325e2d30042c3ac0ac21f68ef856d5b9",
+      "bytes": 5786,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/plan.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/results.json": {
+      "sha256": "31b2eebbdd5b754eb963c8a72a13221d4a47e7bbff9778e3236007025e04ca47",
+      "bytes": 14277,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/results.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/server/batches.jsonl": {
+      "sha256": "f0210e815ef10e7ec299a55f65aeebc61918d2b54bc1d9f03f449a6a27b6635e",
+      "bytes": 19195,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/server/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/server/fastpaths.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/server/launch.json": {
+      "sha256": "c273e2e880a7a5a7897f7e9fd7802b59621b66dcaffe61cfeb648ffb270e2bff",
+      "bytes": 3763,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/server/launch.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/server/loading_audit.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/server/native_calls.jsonl": {
+      "sha256": "12368cff97990af11f6c2874425463d977ef7ae7a1b43acf003916805b0c69e0",
+      "bytes": 409,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/server/native_calls.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/server.log": {
+      "sha256": "5def8cd11fdff5735eda99d879235bc4e752f06b8c17ffd3090de27705a3ed27",
+      "bytes": 19510,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/server.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K1/worker.log": {
+      "sha256": "bee89c262776082414110873dea41a112f77c807da01f588f8130b129c06cb51",
+      "bytes": 538,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/worker.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/A/batches.jsonl": {
+      "sha256": "4ef628da23b4a333bdae2349ff980380e5e6caa2bf43f1fa7287b32f4f494679",
+      "bytes": 10017,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/A/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "8e3acefe92cd4c250c636964410a6ab36034dc99895d1c5773aca5177030aacd",
+      "bytes": 9825,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": {
+      "sha256": "a75943c5ea75d61142afbd014804fe8ec1469602fc0327c5fd40114720293c0d",
+      "bytes": 2468,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": {
+      "sha256": "9c1672cad4b5c120de9fae315a850ee63be27af62ebbae36eeb9d92f15d97a7b",
+      "bytes": 3660,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": {
+      "sha256": "6e4444de82bcf22eb5148022a85231ee7cd6c2a1588d819989e0aa9879c97ba7",
+      "bytes": 576,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": {
+      "sha256": "8680bfc4b7189d7105ee39ea557338cbfaacb398f7aa028bcab4f67b864a417f",
+      "bytes": 880,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": {
+      "sha256": "184b31277e50d3cf58086e505bb938d8a9353e5d500a421a980f9936e5cea51c",
+      "bytes": 5040,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "8635ab5a6b0a43920ba70071a20f6a0629c6c545381fdb7b8412ce0e2964e9f9",
+      "bytes": 5007,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/A/client.log": {
+      "sha256": "a82e8c8f3c9143be6fa08eaa36ed2f0b55acb3fc143c40ba9697887192457d4c",
+      "bytes": 17940,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/A/client.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/B/batches.jsonl": {
+      "sha256": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+      "bytes": 9178,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/B/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "6eff5849ffd84675c2532ac762d9b89babc7e09d4c0bcedcadc2451d41c6306e",
+      "bytes": 9228,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": {
+      "sha256": "90e5c165e79cdaa33860db4a20120ff195feef295b795a448c84075c32037b0b",
+      "bytes": 2431,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": {
+      "sha256": "905d709a51730dca60466bfb9c66e5f503e97888d11cf548e4534d82bc6f7119",
+      "bytes": 3640,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": {
+      "sha256": "688bfc24e9c3d90ffa8d9432bcba09a93db6e096eacd8e0f4b28514cf52752c4",
+      "bytes": 561,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": {
+      "sha256": "36793a322dffe280f87074e6ce3720dd0b1923e813c6e71ddeb9efd5f4caeeec",
+      "bytes": 867,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": {
+      "sha256": "3fee526d77aea7013bf8adcff8859531a4a60509b061146fcc22517d4371ef08",
+      "bytes": 674,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "46ae3a46881bbb5fb3a4e2bcd6646407751090d777a4f6adddaadcd6d7de156e",
+      "bytes": 4826,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/B/client.log": {
+      "sha256": "9da215556bbf2219c9a374821ab120f2f2f788d6ae74d1679bbade5ae7050c83",
+      "bytes": 17499,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/B/client.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/plan.json": {
+      "sha256": "accbbdedb694acdd03c09af54e537764325e2d30042c3ac0ac21f68ef856d5b9",
+      "bytes": 5786,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/plan.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/results.json": {
+      "sha256": "e77fb4fa3746009b0659a578949b7c53206b5615786ac28c7f1201225371d471",
+      "bytes": 14297,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/results.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/server/batches.jsonl": {
+      "sha256": "9d0b7f23675031080a72fcb21deadff89f78d0c88f78d0a6c2d2fd2e62087c78",
+      "bytes": 19195,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/server/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/server/fastpaths.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/server/launch.json": {
+      "sha256": "aa9c0987292b11562083b1692cc14b16631d765f20bd067602272ac79333498d",
+      "bytes": 3763,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/server/launch.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/server/loading_audit.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/server/native_calls.jsonl": {
+      "sha256": "12368cff97990af11f6c2874425463d977ef7ae7a1b43acf003916805b0c69e0",
+      "bytes": 409,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/server/native_calls.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/server.log": {
+      "sha256": "6397c369dc2211dfdd326a365472d18ffe8dcdabb2a8ee4e6ff9f4a16904aa57",
+      "bytes": 19510,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/server.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/K2/worker.log": {
+      "sha256": "dae27aa447f3349db5532b5bc550522bc0bfc5920dcfe545980e98dc13b636ab",
+      "bytes": 538,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/worker.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/A/batches.jsonl": {
+      "sha256": "e805a8c4ed3cfaa932ec82d82bd2eabfef33619c8b70910f8d746fd28ddbe082",
+      "bytes": 10017,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/A/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "e787513d31272b5ef7b46e69d2706a0c9f8c2214a2a705674a597276bb427181",
+      "bytes": 9825,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": {
+      "sha256": "1d11376171aef88b3d281f1b93f2289fcb7f0ab761b4b064ca255bf9a4904a23",
+      "bytes": 2468,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": {
+      "sha256": "7e5e378e78047c327c9803ac09f0f55a83d246883b41ae79c97dc2bdbc7fc7b6",
+      "bytes": 3660,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": {
+      "sha256": "c5603a1ae2a86e3e049260cdcead5b1cc2b67feac9c59415dbd58f069c2ea285",
+      "bytes": 575,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": {
+      "sha256": "b7a269dad8e09774b2590910a6813ded8156d452af80673c49794487636fd5d2",
+      "bytes": 875,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": {
+      "sha256": "8d7bbfcf9333d56e57e14fe71b7eb2c204668e6614fa7574a6af554ab34f81d9",
+      "bytes": 5043,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "6f553000d7a8558c8f52a6ebdddfb933a637787887ec8c3462144ee9e754d3a8",
+      "bytes": 5007,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/A/client.log": {
+      "sha256": "59de912de9a2bc8718d76e227ca7e8fe608e407505d0919b1faa0607ad062642",
+      "bytes": 17847,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/A/client.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/B/batches.jsonl": {
+      "sha256": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+      "bytes": 9178,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/B/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "49dd5a873047c174c4ab5fbc9c306318dc5494c1247bd6418101c8794cf6aea6",
+      "bytes": 9228,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": {
+      "sha256": "38c15c666523e4b1d1b82b9a82d6b005cee7a31c89e90d83c88e5554b307b489",
+      "bytes": 2431,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": {
+      "sha256": "4bdc04159a97562230bab3341a487871cbb7d96c920e04361c05bd9eef9f34b0",
+      "bytes": 3628,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": {
+      "sha256": "976ce2dc179e0c1d6504f998a9f91fbac79db72dcc447daab46eaf9b32835510",
+      "bytes": 560,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": {
+      "sha256": "8448c3510e88e2c707cf990435569f78fe198ae66a20a2812e44fd5b2eeb47ab",
+      "bytes": 878,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": {
+      "sha256": "daa41f2df1bd6c14e160b24bcfcb6f1c70c44b99b9ecfb07cf5c1cfef1e0d773",
+      "bytes": 674,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "069dd1935828682643e2c3020f78b5592fbf5129a1a12767edbd1e4703cdca0c",
+      "bytes": 4826,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/B/client.log": {
+      "sha256": "f0fb3b7af167484def567b6c9cf8e582b533a4fa8a95debe601ecabc150a3039",
+      "bytes": 17499,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/B/client.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/plan.json": {
+      "sha256": "3c7a874dda465a48f0f8d9ddc8c5cd9a32ff49511dccedd8c76463e370c25dc8",
+      "bytes": 5768,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/plan.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/results.json": {
+      "sha256": "5fe621ba76f09e982b49fda395be6bb065586db7e874d9c33903c27ec872e87c",
+      "bytes": 14264,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/results.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/server/batches.jsonl": {
+      "sha256": "a4b66a79ba5be2967a3ca81d4cc5fa0978df6026556f3c9517aa6859f648690a",
+      "bytes": 19195,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/server/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/server/fastpaths.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/server/launch.json": {
+      "sha256": "a5cc8d8254dad9a17417ca60d27f220f4234d8e83c788f5c54e6ab121d892450",
+      "bytes": 3745,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/server/launch.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/server/loading_audit.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/server.log": {
+      "sha256": "797ea32d36dfab32dfdeb3b3d8d89deb490759285917f3b757d433b83409e813",
+      "bytes": 19510,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/server.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R1/worker.log": {
+      "sha256": "a2fa52a3fae33ff6b74513ca6d0ee61fe267c1215d646ec79de87adbbd18d33d",
+      "bytes": 538,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/worker.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/A/batches.jsonl": {
+      "sha256": "aa66befb17b08ec98c054ec32b9b3e5197947875e4799037aacdc3843a6a7ee7",
+      "bytes": 10017,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/A/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "ac7825739d8724f2ec346f14228eeeeb75d1816264d4060adcec8b77e0de64ff",
+      "bytes": 9806,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": {
+      "sha256": "4c2167703ed03297b31acf598714559b658cd377c73792b7f3c23e5bcf56c282",
+      "bytes": 2468,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": {
+      "sha256": "e72f1deb7040a136be2691e038d9d124804e08bcae7a2b4140871be6fd9785e0",
+      "bytes": 3654,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": {
+      "sha256": "f2c88f81ebedbe9b1e7e78b7b59d68ad39cd995392001812e88939be68d055d1",
+      "bytes": 576,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": {
+      "sha256": "591dda97f48366eef0c78c67d0e85aca8dd3addbda92fbf7e684c4d80d239fc5",
+      "bytes": 879,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": {
+      "sha256": "4814f359e4f3c40c0d2a7c75729a25e1daf82271677f87201105473b5718bcbf",
+      "bytes": 5043,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "1d28db709fff47f08c45facc27dd459b0a1986ee1987b00192f6510dae8d5682",
+      "bytes": 5007,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/A/client.log": {
+      "sha256": "712aab6d1c9456984e150b761c6af21a641813f529afdabd6ef6e690e18884d7",
+      "bytes": 17828,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/A/client.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/B/batches.jsonl": {
+      "sha256": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+      "bytes": 9178,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/B/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "739d2e07955588b10742a7e7b229cae3ccce04fac5ce346f4495fe6c441450cb",
+      "bytes": 9228,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": {
+      "sha256": "fe76e0fccbf26cf04204d711060be654784ac18bfe571be4132353f6cf5b96df",
+      "bytes": 2431,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": {
+      "sha256": "3cd6e02ed2fc0cb99d307624af2cdc579705cec1abd36a16fa94adda45fa67ea",
+      "bytes": 3628,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": {
+      "sha256": "6fb26c83bb002fae4048ce257a10016283290bd33fcef4f95f33c2b763428d11",
+      "bytes": 560,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": {
+      "sha256": "86fbed402116575a74f0a0363b18ba48da7753ad55c85521802114d295fa074a",
+      "bytes": 873,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": {
+      "sha256": "a70f242eeb79ee56ff1f878db9d24cc966948d788d23e64260db372289dfcc2b",
+      "bytes": 673,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "28f3e3a586ef1505480391f0f042c1bb4e01d184ff230385b6848e1f6dd26cf9",
+      "bytes": 4826,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/B/client.log": {
+      "sha256": "d768767b34fb4582e358e64d447adc363eee0b101fd4076bd3a31ecc4b39313f",
+      "bytes": 17499,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/B/client.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/plan.json": {
+      "sha256": "3c7a874dda465a48f0f8d9ddc8c5cd9a32ff49511dccedd8c76463e370c25dc8",
+      "bytes": 5768,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/plan.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/results.json": {
+      "sha256": "d2046a3a748b66205ecf160b6e5be960d1e7396e9b19043a805d06366fb707e0",
+      "bytes": 14259,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/results.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/server/batches.jsonl": {
+      "sha256": "b635be0d50be59592d0b33ce3c2370337d4cf7d0912bf72d3e21722a6f0c01db",
+      "bytes": 19195,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/server/batches.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/server/fastpaths.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/server/launch.json": {
+      "sha256": "bd048bc7290db84a8aa024fbd82c98a1c17fb886f7621220a8bc232c0942a1db",
+      "bytes": 3745,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/server/launch.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/server/loading_audit.json"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/server.log": {
+      "sha256": "27dcf2fec8abb9c11ef5cc0f997ee03767a1bd13f23d07a92459b947691bd732",
+      "bytes": 19510,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/server.log"
+    },
+    "artifacts/submission/reference_kv_screen/paired_perf/R2/worker.log": {
+      "sha256": "b821512703a9c14f10396f40221abe0bf5581896a1e999f566e0ba4ab846fc50",
+      "bytes": 538,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/worker.log"
+    },
+    "artifacts/submission/reference_kv_screen/perf_template/adapter_prepare.log": {
+      "sha256": "de17dd7a0d6f4ea955c4ae857cb4a7308ef78fcd4d8b321243e1005ae916ff3e",
+      "bytes": 6572,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/perf_template/adapter_prepare.log"
+    },
+    "artifacts/submission/reference_kv_screen/perf_template/inputs/C_smoke.jsonl": {
+      "sha256": "fb8045d56918ab1363fd6f5659e28790604b52a0454a05a62c5b215b4f54bb29",
+      "bytes": 157269,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/perf_template/inputs/C_smoke.jsonl"
+    },
+    "artifacts/submission/reference_kv_screen/perf_template/inputs/adapter_manifest.json": {
+      "sha256": "d96c1e5c88a0d8f4de7caeb5a3eb918311eeb18a3e46742d2adce31b745146a7",
+      "bytes": 134092,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/perf_template/inputs/adapter_manifest.json"
+    },
+    "artifacts/submission/reference_kv_screen/perf_template/manifest.json": {
+      "sha256": "f6c9f3f830a9e938d02f0c6f9a8528a02fa0ead15c7299914c4d8a602fe2017e",
+      "bytes": 60176,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/perf_template/manifest.json"
+    },
+    "artifacts/submission/reference_kv_screen/summary.json": {
+      "sha256": "66a4ea88acad5bf0dfdf133e4cba52a8b5868ed8c320eaa893f4c8a2c1a01080",
+      "bytes": 128965,
+      "original": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/summary.json"
+    },
+    "artifacts/submission/expert_group_screen/group2/batch_evidence.json": {
+      "sha256": "4037090d72b228d14721036f97758e8f81e77abfcc161c9e5aa63795a266a019",
+      "bytes": 294,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group2/batch_evidence.json"
+    },
+    "artifacts/submission/expert_group_screen/group2/candidate/batches.jsonl": {
+      "sha256": "f62a76dfeacb09dc28d1e6056a924b47e5b984e59f01f430e25de0d4058086d3",
+      "bytes": 95265,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group2/candidate/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/group2/candidate/expert_groups.jsonl": {
+      "sha256": "e1249ac4a38c353e493c9a1f243596330325f9ae75da42bc8ed3ebbb562848f0",
+      "bytes": 87131,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group2/candidate/expert_groups.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/group2/candidate/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group2/candidate/fastpaths.json"
+    },
+    "artifacts/submission/expert_group_screen/group2/candidate/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group2/candidate/loading_audit.json"
+    },
+    "artifacts/submission/expert_group_screen/group2/long_generation.json": {
+      "sha256": "7d797ba50e0a47b025af4a758c937b650f680c6ab08f12568ae8c4fc236dcd25",
+      "bytes": 1939588,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group2/long_generation.json"
+    },
+    "artifacts/submission/expert_group_screen/group2/manifest.json": {
+      "sha256": "d477841b6fdfe8d26fc0db8f28788f25e681a74df817fd06c8340aee9c407c09",
+      "bytes": 44645,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group2/manifest.json"
+    },
+    "artifacts/submission/expert_group_screen/group2/runtime.json": {
+      "sha256": "6c801915e36f86322486895bcb8ce64dbdca5c14b6e141de8e1620b9fc79214b",
+      "bytes": 2903,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group2/runtime.json"
+    },
+    "artifacts/submission/expert_group_screen/group2/worker.log": {
+      "sha256": "a44c3765964740a3b35ef60c22c5912497a4b9d947e6cf07748ac1dbd4f24037",
+      "bytes": 56474,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group2/worker.log"
+    },
+    "artifacts/submission/expert_group_screen/group4/batch_evidence.json": {
+      "sha256": "4037090d72b228d14721036f97758e8f81e77abfcc161c9e5aa63795a266a019",
+      "bytes": 294,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group4/batch_evidence.json"
+    },
+    "artifacts/submission/expert_group_screen/group4/candidate/batches.jsonl": {
+      "sha256": "f62a76dfeacb09dc28d1e6056a924b47e5b984e59f01f430e25de0d4058086d3",
+      "bytes": 95265,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group4/candidate/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/group4/candidate/expert_groups.jsonl": {
+      "sha256": "f89fb522a2269d50c32befed322e327f3fb90e67ea5495f3bad0be5000bcabd5",
+      "bytes": 86747,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group4/candidate/expert_groups.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/group4/candidate/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group4/candidate/fastpaths.json"
+    },
+    "artifacts/submission/expert_group_screen/group4/candidate/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group4/candidate/loading_audit.json"
+    },
+    "artifacts/submission/expert_group_screen/group4/long_generation.json": {
+      "sha256": "e8a7ecb4d559798ed011c8ed7dad27562ad4c34ee37bdab5187cb4748620f469",
+      "bytes": 1939588,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group4/long_generation.json"
+    },
+    "artifacts/submission/expert_group_screen/group4/manifest.json": {
+      "sha256": "055d106d5e249f6e832c7a856c903cc8f74f10e254e1609b6c9880454e7822db",
+      "bytes": 44645,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group4/manifest.json"
+    },
+    "artifacts/submission/expert_group_screen/group4/runtime.json": {
+      "sha256": "f8a4d58806c818bf07a26cedb1a1698acfd2aeab0aae5a25e121dc6d56662154",
+      "bytes": 2903,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group4/runtime.json"
+    },
+    "artifacts/submission/expert_group_screen/group4/worker.log": {
+      "sha256": "399027d5328feb1ae144dc22efd838ba37699fad0a4ee8900bef0dedfb8fc1af",
+      "bytes": 56474,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/group4/worker.log"
+    },
+    "artifacts/submission/expert_group_screen/manifest.json": {
+      "sha256": "eb3459540d0ef3fa2cfb9cb7dd7f33fc9b3e12ef8e95614ba9282f6648db5b25",
+      "bytes": 64708,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/manifest.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/A/batches.jsonl": {
+      "sha256": "ef5e09ba2479a1310144ad249f94f640998767bf4b1d72de62eb10dd02d19d8c",
+      "bytes": 10017,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/A/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "1191a7458ed078a4deb1dc5e675fe5b8c3331d20e9860c97ee4db18b01432ddb",
+      "bytes": 9816,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": {
+      "sha256": "1ab478affd49603ed3fef0a6f1126c8430dd6e2c8328875ce9951e2f1bcc5fd0",
+      "bytes": 2470,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": {
+      "sha256": "f5e4cdd64cfdf0cf70a036906b09eff782c8d6e114947e6f0909b75de37eabac",
+      "bytes": 3659,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": {
+      "sha256": "4cba83868028451da3fd18de268956ab5f300614889ea2ede9f587ab4d61d3b5",
+      "bytes": 576,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": {
+      "sha256": "62f04d3954a8bbef41eb2835a9579af4d803f7ddd74b66e2d64bce7c1a6ab99d",
+      "bytes": 879,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": {
+      "sha256": "5570604bf6e2ec8986187df35ef94efaa830a138a9b1784514b11bf04697d2bc",
+      "bytes": 5041,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "1c6b61d8acd7f975a26cbe196fbf54f4e52b609998c8feb862cd01db907dc829",
+      "bytes": 5007,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/A/client.log": {
+      "sha256": "745b32baee75dafeb4f8dd684841e7e84661627be45bfc35c447ed6d74f9c7dc",
+      "bytes": 17840,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/A/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/B/batches.jsonl": {
+      "sha256": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+      "bytes": 9178,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/B/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "5847df2b331e73e69d02a7d66385e508feaff924f03a53bef35cf2e03d7f95f2",
+      "bytes": 9238,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": {
+      "sha256": "8665ec7ccbaba9c85c30f093b9ed690a94fd79dcb521b4a33f7e0b79dbe409ca",
+      "bytes": 2433,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": {
+      "sha256": "de755c9945d23e36b9e91e1313672b7a2cf1ce9d4064118888b92a408ee1d314",
+      "bytes": 3639,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": {
+      "sha256": "c08cf2324e013e169c4d290d010190279bd7fbfdafb55995ef3eebc66d80d6e7",
+      "bytes": 562,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": {
+      "sha256": "ae14cca176ce63ac2f450a01ef05caaf390697840dc4c81b2ca8d2a479b5b844",
+      "bytes": 874,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": {
+      "sha256": "25433466c8dc82b17152a1ee2de4c429a2ea13142a41fd9c0f78a85c89c1a401",
+      "bytes": 674,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "8abaf67eca95cde40eaf60a06325cfe3a6b40bb49198e56b055f898af4939613",
+      "bytes": 4792,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/B/client.log": {
+      "sha256": "da13b9b2677db99f3dce538ebef569ab48c3abeb2e71a2e1700fe700650db098",
+      "bytes": 17477,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/B/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/plan.json": {
+      "sha256": "efcaf7ad13380d082a13c7285127d03fb6909df88eb0e164e49067ac4bd0cd3b",
+      "bytes": 5783,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/plan.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/results.json": {
+      "sha256": "dd7a6e75712444136693e6dff1f91a2500403628d8657d45971f276b71d4f2d7",
+      "bytes": 14333,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/results.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/server/batches.jsonl": {
+      "sha256": "b05764a049f814d2c9bd60d8546e6a49cf8de891f14013ce21dd33e98f82abed",
+      "bytes": 19195,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/server/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/server/fastpaths.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/server/launch.json": {
+      "sha256": "5c7de2185ae02a9f53debcdc63ad6983b4cfcc7e05051b208353a229438a0e86",
+      "bytes": 3900,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/server/launch.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/server/loading_audit.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/server.log": {
+      "sha256": "452bfbee86c1f4ac370ac2765bcbce8ad02dddac283bebae82252cdd80aa3486",
+      "bytes": 19512,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/server.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_1/worker.log": {
+      "sha256": "6f2dea9a9fdf8d4a9bbeeea78dc9a184581f7e43653d5a237b4425036c25508a",
+      "bytes": 544,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_1/worker.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/A/batches.jsonl": {
+      "sha256": "293aaf1c61918b35186469bdce3bc4946bef14ae5e74c530ff77334bc27de811",
+      "bytes": 9966,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/A/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "090884e6593cddc857c901063c8f58fcf5371c7307dce4566b9ea228a2e69c5a",
+      "bytes": 9816,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": {
+      "sha256": "ba9bd264d43ff530359526b497013721aa2858af2c0b6453f4be562e9720ba9f",
+      "bytes": 2470,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": {
+      "sha256": "f2aeef4bbf74d313e7a4d37cdabf8ce8913f1f40f5e89273b1603b0a96ad0874",
+      "bytes": 3648,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": {
+      "sha256": "a35f6826d43fe11f63559245d3bf5619c3f118942dbc02de822bc1caaada8847",
+      "bytes": 576,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": {
+      "sha256": "0abfbfa891a765dd190c5fcef14a670e1a7692b694456da55102aeee7bbc7781",
+      "bytes": 875,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": {
+      "sha256": "ef679957f8c5a009e058a38a6fc173cac5255c87fe173b993a3ad8a4e1347dd1",
+      "bytes": 5044,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "30010123d0a86a2f20c8651f0e31d700483a6d66d64008793d8724e1953ad19b",
+      "bytes": 5007,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/A/client.log": {
+      "sha256": "0c854813f5b9b9ad650469e8e919dd50a2a58c1a1ec72d09bf21c1bf3d3fa30d",
+      "bytes": 17840,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/A/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/B/batches.jsonl": {
+      "sha256": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+      "bytes": 9178,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/B/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "3b8de65d9e7b825845ba4bb2088464481c71176bf70e13cfc9ac431ec9f4ec70",
+      "bytes": 9238,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": {
+      "sha256": "2fd98b851c949adffad6b552b8b0914ce555f037c23599428d9eebc2b7967ff9",
+      "bytes": 2433,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": {
+      "sha256": "f3ff34910a0ec05369e0360f63dd7468bbcf2f36ff62d12103bff752ef979b98",
+      "bytes": 3638,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": {
+      "sha256": "8c9909fe0db3e260898dcc10f4950089b1e93eb57867568367fc2a1d1605f506",
+      "bytes": 562,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": {
+      "sha256": "f28ac1cb5395ac46078c7833ff6b0121c59c272311a78503ec9f436d835d84c6",
+      "bytes": 877,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": {
+      "sha256": "89951a891b87ed2e801046c489f4b47598b66e4bc69fa4de387145574ad9a080",
+      "bytes": 674,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "22f0c1a257250db0581565f50d38e2b53f60de92187b86f99d4d70b021d853e6",
+      "bytes": 4826,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/B/client.log": {
+      "sha256": "64e8f065b5dab714676361bfcfe395f90c17437090c17aefefe24ab95fdc3175",
+      "bytes": 17511,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/B/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/plan.json": {
+      "sha256": "efcaf7ad13380d082a13c7285127d03fb6909df88eb0e164e49067ac4bd0cd3b",
+      "bytes": 5783,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/plan.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/results.json": {
+      "sha256": "b51ad0a22d473afa31531403b6cbc7734e20447152424f17fc94667330971289",
+      "bytes": 14325,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/results.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/server/batches.jsonl": {
+      "sha256": "27b74b07cb267a48b42aebe887db749dcca99bf1f0a10df947d024281565f8e2",
+      "bytes": 19144,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/server/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/server/fastpaths.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/server/launch.json": {
+      "sha256": "57259efb08aa780c575eadbb7f773d6c1f4cbe81f629a9670379049abca50936",
+      "bytes": 3900,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/server/launch.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/server/loading_audit.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/server.log": {
+      "sha256": "ce0cefc0842ebfca64f504323c6168285fc3efc4f64da873b041a22b6f3556d3",
+      "bytes": 19418,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/server.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G2_2/worker.log": {
+      "sha256": "0b0301d97533a5eca5ecaef324d14b0e4bcf1af46c3bd1f6a10333592ec12ba5",
+      "bytes": 544,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G2_2/worker.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/A/batches.jsonl": {
+      "sha256": "11f9f7720d2b1a14f413bad262c36359dabf9481d6d374e9decc2fe382d2b248",
+      "bytes": 10017,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/A/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "54bd750bbfb6ecb37896969f94f92a06d2af9ab1693adcc5a354181153214c5a",
+      "bytes": 9835,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": {
+      "sha256": "0dd5b471ac25f858b7e551c8fee2e9c6f745a23798072525a3113095e8c62b76",
+      "bytes": 2470,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": {
+      "sha256": "db452637ce4024e8084779e2d688314636629c5fedf577303e02baefc70966bf",
+      "bytes": 3658,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": {
+      "sha256": "f3322482497cf3de99744c8fbaa668ac2177abd173641a4ca85fad5e5cec617f",
+      "bytes": 575,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": {
+      "sha256": "abdd4c21a284b4042c4b0a9efeabcea5a0c23d0860995c28e81ebf5ec7c38cfe",
+      "bytes": 879,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": {
+      "sha256": "9ab2691fdab49b98d721496e4becdd3c83f388aa982745c599a4c278ceb03b16",
+      "bytes": 5039,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "706419d56aecb6b7712cfd94b5a8992801eb839b0cbeb9fa1ca6abb9fe54658f",
+      "bytes": 5007,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/A/client.log": {
+      "sha256": "f899a9c77de3caf0563eca1a7298fb79bfd4fad2808fb4912b01341ac1c5e8ad",
+      "bytes": 17859,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/A/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/B/batches.jsonl": {
+      "sha256": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+      "bytes": 9178,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/B/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "1602b856fddfd0357005bc67f8fa4e9878cc18ec10e77594cb9274a0ac01d314",
+      "bytes": 9238,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": {
+      "sha256": "0e95ec53461f3919dafbe236fff87741c8350a3885186df3c988459b33e7dd7a",
+      "bytes": 2433,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": {
+      "sha256": "fe9b25969d823f02fc4c8b7b44987e38efa7035066952dadfbaf6e9e12de10f5",
+      "bytes": 3628,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": {
+      "sha256": "4eb949bfd274bd55fe3ed90c2642fcaa5f7b9aa9ddde471a6b806794f0a1ea02",
+      "bytes": 562,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": {
+      "sha256": "a6f4bcea38c711df2565050d2b68a1343f3c37f9a7479f5f73ff7b3208666f45",
+      "bytes": 874,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": {
+      "sha256": "518dabac0e15ce8eb463846ec9f339ac3ccaa818c445a48d25d89b2677fa9d80",
+      "bytes": 674,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "0c29fb6aa5b050a4b541e332f29dbee94acb678d1dd04dc8d8786d79f8620501",
+      "bytes": 4826,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/B/client.log": {
+      "sha256": "98f83747f9ea56d008f88edaab50c605ea8369fd88125d1ad8d270e2acc85742",
+      "bytes": 17511,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/B/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/plan.json": {
+      "sha256": "3dfd09d6d1c048d41b42b67d539e44583392a19fdbdcec2b5e2903d5ead48a8a",
+      "bytes": 5783,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/plan.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/results.json": {
+      "sha256": "2d73570e699be894cc120df8f195af68952831d1fa9b8062ebe30566bca9b6d1",
+      "bytes": 14321,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/results.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/server/batches.jsonl": {
+      "sha256": "08834a655eacec89ac3df5e9e228fe7b2289e55be9617ee9b137401eb89c1dab",
+      "bytes": 19195,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/server/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/server/fastpaths.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/server/launch.json": {
+      "sha256": "de8e517deb118d4f9536f9e7ed61ecf5bf974570fffd529e5e2e677bf60ec0a6",
+      "bytes": 3900,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/server/launch.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/server/loading_audit.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/server.log": {
+      "sha256": "56e448a8e00e749075b993aa497c2f541262b284b7dcd178f2641fb1712b5f27",
+      "bytes": 19512,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/server.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_1/worker.log": {
+      "sha256": "fa7c036a928674a85c32c6af58e208fccaf0f7dfaff5151f06a58f34448bb50b",
+      "bytes": 544,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_1/worker.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/A/batches.jsonl": {
+      "sha256": "c5e8258f0f4e9769f3f53f9ae9fd1ef000945a131c1952f01a11b26f9520fe74",
+      "bytes": 10017,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/A/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "1d9e33d911665f9866006bd0c88fda2e2384301bc36a85da7187850efe64ae01",
+      "bytes": 9764,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": {
+      "sha256": "e30824a439118ad50b67e740dfc75db8ea3ecbf21548a938dbbd9ea5ada3cbd6",
+      "bytes": 2470,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": {
+      "sha256": "7ba6ec67fdb089b5f3051dc17bae5c17ce7a82369ba51c4aa6e92d5d30982ee8",
+      "bytes": 3659,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": {
+      "sha256": "7504f85fa32cdac381554cf6c5dafc3e1e2044735f210f41af17a474a5c8486a",
+      "bytes": 576,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": {
+      "sha256": "b6118a43bad290e6a3b190f7cf00b0c18bdd9ffc961d1113b60b118bf4476c96",
+      "bytes": 874,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": {
+      "sha256": "5890a8cb2fa3d89b08cf2005360d7e472003f4a4684a1157a7712d678d0aabe8",
+      "bytes": 5041,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "62d2aed9b6b3003ffcc8f08dfb0904e51baa813912c840def163c5ac3afed635",
+      "bytes": 4962,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/A/client.log": {
+      "sha256": "7c58718babf0384b3323372f48d7ed10d2577f18be9d6b7b4e2241cde0a9fa1a",
+      "bytes": 17743,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/A/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/B/batches.jsonl": {
+      "sha256": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+      "bytes": 9178,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/B/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "5e020c5e2c5ebd7f2f2ae7aad2485352bf6303f2f80219201fd8d2c768592b7f",
+      "bytes": 9238,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": {
+      "sha256": "513eb3499f6da43f82ade37f61458395bd0c72b2e7e4cd630d1d7203eef45b09",
+      "bytes": 2433,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": {
+      "sha256": "e9ec137f0d1c16799188f2677371429ab240dca96bdc26d2dbfaf84a2512a448",
+      "bytes": 3639,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": {
+      "sha256": "7b0c582119811b1a570ba3cb1e16995cec092fa2ce8ff3af8bdc85b1eae63510",
+      "bytes": 561,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": {
+      "sha256": "6ffed6a9ac0cb1d6a052cf3bbe75d9ac7f9f945db7f15936be7f61c1ed79270e",
+      "bytes": 874,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": {
+      "sha256": "817c48ff6d89a5476805f3a2cc1e9d669360f8f3c7bf80a28e442fcd7ebdf37c",
+      "bytes": 672,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "9f8612c8d81b1cf8b691b9e4519dd9546f5029f789248f22a448d4af781c5ad6",
+      "bytes": 4826,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/B/client.log": {
+      "sha256": "f699d909546cda2ad6555dcd84a32e0dbea4a8755231d0280f686b45a3659341",
+      "bytes": 17511,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/B/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/plan.json": {
+      "sha256": "3dfd09d6d1c048d41b42b67d539e44583392a19fdbdcec2b5e2903d5ead48a8a",
+      "bytes": 5783,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/plan.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/results.json": {
+      "sha256": "089c149bf4a04707fc7d1b1816f890c20d002cd41ec437d186609161674e7cc0",
+      "bytes": 14332,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/results.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/server/batches.jsonl": {
+      "sha256": "db931f8dcb5d9e76424272e64a3347866864a1301bb421a644104c7d88a12857",
+      "bytes": 19195,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/server/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/server/fastpaths.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/server/launch.json": {
+      "sha256": "504171a5ee2c6d2bcc707cd60265f3df7b403cc8231f1c1cf4bea3a2dfeffd1e",
+      "bytes": 3900,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/server/launch.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/server/loading_audit.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/server.log": {
+      "sha256": "57f98e70482113563da0fb648c03fd01306e9015e7e47517a994919400ab129f",
+      "bytes": 19512,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/server.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/G4_2/worker.log": {
+      "sha256": "5705915464efc59d9f71c0ebeb8276ab5f1578b59362853975cae7287cd7a3cd",
+      "bytes": 544,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/G4_2/worker.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/A/batches.jsonl": {
+      "sha256": "ef7fe98874bc1de34180454ee713bf61fa246776d458d740e6a479118b07fbd2",
+      "bytes": 10017,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/A/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "3f95e241e341eb17ff3782787fdabd400484e30c880fe5ff2b92604f46afe2a3",
+      "bytes": 9806,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": {
+      "sha256": "e86018fa0e81f48e94130da4b2ecdc935edfe2d0822ea4e40ba134b9b07dda09",
+      "bytes": 2468,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": {
+      "sha256": "1c8e2a81a346a1084b01a35a907d7b8f2cbd636a9f8643c3c0f4a2548e88b664",
+      "bytes": 3656,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": {
+      "sha256": "484d3f991dea3d033ddf79991014cb0844f9f09f1a2c665c971363b4f8fc2e7f",
+      "bytes": 576,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": {
+      "sha256": "95e7300fc9683ae474a8978635fb575dcf1fe868db0651e1c913ec41cc0c7dd4",
+      "bytes": 878,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": {
+      "sha256": "9e3fa87a8e3bd3360cf970c87fac048132651336c4b0b32243106b396a107b01",
+      "bytes": 5042,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "ca882c9b687a7f9cc4ce414bb1889789bf833f24898dff9554ffb3075cf6a180",
+      "bytes": 5007,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/A/client.log": {
+      "sha256": "5996bb13982ef4a974abf30edd51f1dc88b83691c46492807ec54dc370275310",
+      "bytes": 17828,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/A/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/B/batches.jsonl": {
+      "sha256": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+      "bytes": 9178,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/B/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "c0792d7a869f2c5873483abcf4e70a4d803b31902c5fd8a1861726e0cd275cf2",
+      "bytes": 9228,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": {
+      "sha256": "6fe85afedf2cb10d05193717f7867a8967fd3a1945adb4ba1f7ffa6ac9b0adba",
+      "bytes": 2431,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": {
+      "sha256": "7d83eafc3af905c3f948d0963fa9b6225f92715037d5af4161b7865739c8cc8a",
+      "bytes": 3630,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": {
+      "sha256": "2b3fed26695e573dd3b041d04b6d19fcbc31b92717798ab4f0eb8664cc14daa8",
+      "bytes": 562,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": {
+      "sha256": "2dcd8ce2e4eac18c7d00f7bdbf7f1b5fb593d169b0a60df0566be1888a90788c",
+      "bytes": 876,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": {
+      "sha256": "7ce9af9ef278692c54509350580cb7e2558375b95393a47d3334325b31d9776d",
+      "bytes": 672,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "707ae4ba381ed8a76e53ca866d31db9032a2390b0905c73b7ea09a3d21e2659f",
+      "bytes": 4826,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/B/client.log": {
+      "sha256": "0a8e97c243a6006690dd592a0b8ed085108c7224495de190854bc0716f180265",
+      "bytes": 17499,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/B/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/plan.json": {
+      "sha256": "01f70e8988d5614c5347163ef6af0afc3e0c1b849965f4f6dc2ae780fab62876",
+      "bytes": 5768,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/plan.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/results.json": {
+      "sha256": "7f1bee3173eed33a8a172ce7f49a48a7cefce7ab5fd1266c0249910a000670df",
+      "bytes": 14300,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/results.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/server/batches.jsonl": {
+      "sha256": "c491a1e9b7ae0b2c9654aa2be2d1a7bac01a000524d153bd2ea4087a36b92114",
+      "bytes": 19195,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/server/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/server/fastpaths.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/server/launch.json": {
+      "sha256": "aa89287550b752f410416ec75421960ff5097adbc66d4f6daab764ac15378de6",
+      "bytes": 3844,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/server/launch.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/server/loading_audit.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/server.log": {
+      "sha256": "0e5a553bd56d6848e937cc7a678bcbe9afa12a9efe6d103a71117aa4be52fdeb",
+      "bytes": 19510,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/server.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R1/worker.log": {
+      "sha256": "2931920663c9c57b7bfd21702f503687cf9830c6107fee3786729932fe0c9930",
+      "bytes": 538,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R1/worker.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/A/batches.jsonl": {
+      "sha256": "44ed0dca3a49b40b17e1adb1b2497ae7ed0fd4ea2829b5c5a35b03b79bbf7a6d",
+      "bytes": 10017,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/A/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/A/client/Scenario_A_N1/benchmark.log": {
+      "sha256": "8fa29fb9cc8201aa2f1a28c0e34efa84799ae93687cc49c1f5d684414c8e20f6",
+      "bytes": 9806,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/A/client/Scenario_A_N1/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": {
+      "sha256": "cafeabf2eb9ef9ed228cc32dec2eff0f15456ccd75b45f77c4da2d2194ef1622",
+      "bytes": 2468,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": {
+      "sha256": "c7336e8f764e9975e734416d085ac32bb7255af829d6403ffd120b339c1ffee9",
+      "bytes": 3657,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": {
+      "sha256": "91b53628488cd7c62a3390d98ff7cd4d126125f42396c5a407b2625cb1c7c417",
+      "bytes": 576,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": {
+      "sha256": "d30675d45871ffab17dfac692432a82d91d8ca18e75c07fa7bd89ac31ade1627",
+      "bytes": 880,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": {
+      "sha256": "a0c358b946203717f3d52e5f387ca8b4c84d6484d29e0594cd98ecfa4dcd348a",
+      "bytes": 5041,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/A/client/Scenario_A_N1/performance_summary.txt": {
+      "sha256": "fbdde3a77c8bb2f47c641f217c73b9af80c8d7da943cfd0a4767c0a5bc5f55d8",
+      "bytes": 5007,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/A/client/Scenario_A_N1/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/A/client.log": {
+      "sha256": "d44ecba2810ce3891d51d62cabc3d197effc6c1151dc9ec2175ebb5448bc5f5c",
+      "bytes": 17828,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/A/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/B/batches.jsonl": {
+      "sha256": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+      "bytes": 9178,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/B/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/benchmark.log": {
+      "sha256": "64a2086640a8c38ebf4402bda91cc125c5145d759db7af796336a0fe6d8c0e5a",
+      "bytes": 9228,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/B/client/Scenario_B_SingleStream/benchmark.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": {
+      "sha256": "8d5213b6aa528c7effe73513bcb5af5b9433ccdad6153ca3b55312cb6f05e90f",
+      "bytes": 2431,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": {
+      "sha256": "8c9684cf3501f27944b4f17cc098490b2bc7dffdaebb800752b7d7b2181db580",
+      "bytes": 3630,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": {
+      "sha256": "4cce6da10808cad6ca0a2eccc28ae8c0bd7a47023ef88c77ca2411b15612e35d",
+      "bytes": 560,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": {
+      "sha256": "3565796004492637be95e073d21471021ed963e9e75ea9fafb367479451aa877",
+      "bytes": 876,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": {
+      "sha256": "6a8c17647e613b9668ccbf4efc5d78119ea9eb43590bd60b0047c475f5c4bfa9",
+      "bytes": 674,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/B/client/Scenario_B_SingleStream/performance_summary.txt": {
+      "sha256": "852bce0c52b541e26462de5feb621b4c125eda0b2d10b134d89fcd005438431b",
+      "bytes": 4826,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/B/client/Scenario_B_SingleStream/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/B/client.log": {
+      "sha256": "c258fa61d77dcda2133e096905d4fa93a813f7c147db8353aea2c4306f27c49d",
+      "bytes": 17499,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/B/client.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/plan.json": {
+      "sha256": "01f70e8988d5614c5347163ef6af0afc3e0c1b849965f4f6dc2ae780fab62876",
+      "bytes": 5768,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/plan.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/results.json": {
+      "sha256": "f57b90bd26086baa030da91a6136aa22518e0a97eb11cc0e4606e1bbb5535b16",
+      "bytes": 14300,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/results.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/server/batches.jsonl": {
+      "sha256": "d2cbf8805c2585c29aa3f48cd435b96de0b94ba6b95348bbd00021768ff8a1f8",
+      "bytes": 19195,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/server/batches.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/server/fastpaths.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/server/launch.json": {
+      "sha256": "59acb5aa98224d93f219a3d251af1a8420c221422ac1ecefc322ede08a3575b1",
+      "bytes": 3844,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/server/launch.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/server/loading_audit.json"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/server.log": {
+      "sha256": "cabe89859476935fbd653d7915301438a6a1742765e2669c7e85a53f375d6431",
+      "bytes": 19510,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/server.log"
+    },
+    "artifacts/submission/expert_group_screen/paired_perf/R2/worker.log": {
+      "sha256": "e489baa1061a10c05b5381b1909e1aa93498006fba388a50f13d877358505599",
+      "bytes": 538,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/paired_perf/R2/worker.log"
+    },
+    "artifacts/submission/expert_group_screen/perf_template/adapter_prepare.log": {
+      "sha256": "2ef094b32f5ae3eea78e0f01f3b301737731ad7dbf84045fd6665df9dac0ad1d",
+      "bytes": 6345,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/perf_template/adapter_prepare.log"
+    },
+    "artifacts/submission/expert_group_screen/perf_template/inputs/C_smoke.jsonl": {
+      "sha256": "fb8045d56918ab1363fd6f5659e28790604b52a0454a05a62c5b215b4f54bb29",
+      "bytes": 157269,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/perf_template/inputs/C_smoke.jsonl"
+    },
+    "artifacts/submission/expert_group_screen/perf_template/inputs/adapter_manifest.json": {
+      "sha256": "d96c1e5c88a0d8f4de7caeb5a3eb918311eeb18a3e46742d2adce31b745146a7",
+      "bytes": 134092,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/perf_template/inputs/adapter_manifest.json"
+    },
+    "artifacts/submission/expert_group_screen/perf_template/manifest.json": {
+      "sha256": "45d27c7ebe0a8850a8f358225dc8ea851a767acdf8d421b887514e865a90beda",
+      "bytes": 62794,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/perf_template/manifest.json"
+    },
+    "artifacts/submission/expert_group_screen/summary.json": {
+      "sha256": "87962510b7c5e121c07bd4892c53f8fe7a77f08d52e75eff8cf8c6336d1baa51",
+      "bytes": 208553,
+      "original": "/workspace/results/mellum_expert_group_screen/20261116T190635371969Z/summary.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/C/batches.jsonl": {
+      "sha256": "2df9abad12c6d83109a0054e3247a6fbf4a5c241be10173b7fa8a6e8a83a3c85",
+      "bytes": 75086,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/C/batches.jsonl"
+    },
+    "artifacts/submission/expert_group4_c20/C/C/client/Scenario_C_Poisson_N1/benchmark.log": {
+      "sha256": "e128fee2e5aec1420a35bc9336415844df128e94e0cbf689bf0b5f9b14100913",
+      "bytes": 9673,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/C/client/Scenario_C_Poisson_N1/benchmark.log"
+    },
+    "artifacts/submission/expert_group4_c20/C/C/client/Scenario_C_Poisson_N1/performance_summary.txt": {
+      "sha256": "ee7f983838799e8a5d6a31a42442492866aa1192f69853af5dd40bec829234cf",
+      "bytes": 4928,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/C/client/Scenario_C_Poisson_N1/performance_summary.txt"
+    },
+    "artifacts/submission/expert_group4_c20/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_20/benchmark_args.json": {
+      "sha256": "e8eb8ccfb3bd1ea916acfd5658969ab8dbe10328de070c653f5b8a321cf53fff",
+      "bytes": 2571,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_20/benchmark_args.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_20/benchmark_percentile.json": {
+      "sha256": "eebf9009851b337a398abdccb9cdc31c83cd258f11411315b29d76ec86b90c57",
+      "bytes": 3672,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_20/benchmark_percentile.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_20/benchmark_summary.json": {
+      "sha256": "5272a4780a91adc860d9961e4c6cdd3b16c60fbe25b657b71c24d64edb5a9b8a",
+      "bytes": 574,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_20/benchmark_summary.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_20/workload_throughput.json": {
+      "sha256": "12942a549cdc0fb0dd385a022cfeb44cdf95b5fa827cd64dedc4b4b05a6692e0",
+      "bytes": 882,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_20/workload_throughput.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_20/workload_timeline.json": {
+      "sha256": "244e29feaee06c22a430389856fa2b7e5619905e04e8450f9fa0e8d373ca299a",
+      "bytes": 3225,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/C/client/Scenario_C_Poisson_N1/rate_0.3_number_20/workload_timeline.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/C/client.log": {
+      "sha256": "23004f69ce40342a26b4c6a7bf65ec33fc2dd84f02437ed4bbf6bfd73842e138",
+      "bytes": 19268,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/C/client.log"
+    },
+    "artifacts/submission/expert_group4_c20/C/plan.json": {
+      "sha256": "44d838663d5861005dc95597e6dc63896181037c12554e8a16883cdc1913e53c",
+      "bytes": 3748,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/plan.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/results.json": {
+      "sha256": "1d495b409e96b4eb0a1b641d54ede8e3d02b4884a2afd1ee26425621906a21fc",
+      "bytes": 7716,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/results.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/server/batches.jsonl": {
+      "sha256": "2df9abad12c6d83109a0054e3247a6fbf4a5c241be10173b7fa8a6e8a83a3c85",
+      "bytes": 75086,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/server/batches.jsonl"
+    },
+    "artifacts/submission/expert_group4_c20/C/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/server/fastpaths.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/server/launch.json": {
+      "sha256": "af2f22d9fb575f7c0d2f8977697cbb7dd2d3d56a79809ddf7cadba029456b090",
+      "bytes": 3940,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/server/launch.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/server/loading_audit.json"
+    },
+    "artifacts/submission/expert_group4_c20/C/server.log": {
+      "sha256": "d4e1326ddd895a281611282f7be96f3de0e860dbd1f8d1bd45f814204d65985a",
+      "bytes": 16100,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/server.log"
+    },
+    "artifacts/submission/expert_group4_c20/C/worker.log": {
+      "sha256": "fb190251cf84fb943f3f4efc433485bfd8c080e93e49bb7000613e7d142cebf6",
+      "bytes": 816,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/C/worker.log"
+    },
+    "artifacts/submission/expert_group4_c20/manifest.json": {
+      "sha256": "6c2f867ecd0e6a1f71fa2b3e3aa826bd808da1be8959cc4878aa9d96ec034d12",
+      "bytes": 160926,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/manifest.json"
+    },
+    "artifacts/submission/expert_group4_c20/summary.json": {
+      "sha256": "a76c886ee3f783e26a2a40793c270e4c4c945d8f114655c886322b03806e0c2c",
+      "bytes": 11177,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/summary.json"
+    },
+    "artifacts/submission/expert_group4_c20/template/adapter_prepare.log": {
+      "sha256": "6f64a08ab66e30eef07115bea3d42f95c24102cab0d2a0965ec1f785fa505e63",
+      "bytes": 6192,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/template/adapter_prepare.log"
+    },
+    "artifacts/submission/expert_group4_c20/template/inputs/C20.jsonl": {
+      "sha256": "41fd5cae377a8e9cf3ed4b35e3a1040837afdd5367a62c1a9942f7d95e1ed93a",
+      "bytes": 1292692,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/template/inputs/C20.jsonl"
+    },
+    "artifacts/submission/expert_group4_c20/template/inputs/C_smoke.jsonl": {
+      "sha256": "fb8045d56918ab1363fd6f5659e28790604b52a0454a05a62c5b215b4f54bb29",
+      "bytes": 157269,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/template/inputs/C_smoke.jsonl"
+    },
+    "artifacts/submission/expert_group4_c20/template/inputs/adapter_manifest.json": {
+      "sha256": "d96c1e5c88a0d8f4de7caeb5a3eb918311eeb18a3e46742d2adce31b745146a7",
+      "bytes": 134092,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/template/inputs/adapter_manifest.json"
+    },
+    "artifacts/submission/expert_group4_c20/template/manifest.json": {
+      "sha256": "a9567a75f4c1f018c8c6d16163ea32feb592b2c815308420fb18d4946f62addd",
+      "bytes": 185797,
+      "original": "/workspace/results/mellum_qualified_followup/20261116T193831725803Z_capacity_r_expert_decode4/template/manifest.json"
     }
   }
 }
