@@ -9,7 +9,7 @@ from mellum_process_runner import run_stage
 from run_mellum_batch_campaign import write
 
 
-def prepare(out):
+def prepare(out,profile='r'):
     from transformers import AutoTokenizer
     tokenizer=AutoTokenizer.from_pretrained(MODEL,local_files_only=True,trust_remote_code=False)
     rows=load_rows('/data/datasets/scenario_c_prompts.jsonl');selected=[rows[0],rows[len(rows)//2],rows[-1]]
@@ -18,7 +18,7 @@ def prepare(out):
     groups=[{'name':'cold_first','indices':[0]},{'name':'same_prompt','indices':[0]},
             {'name':'shared_prefix_ragged','indices':[0,1,2]},{'name':'reverse_reuse','indices':[2,1,0]}]
     paths=list((PROJECT/'ATOM/atom').rglob('*.py'))+[Path(__file__),PROJECT/'scripts/mellum_runtime_config.py',PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'scripts/mellum_process_runner.py']
-    m={'gpu':0,'profile':'r','budget_tokens':16,'cases':cases,'groups':groups,
+    m={'gpu':0,'profile':profile,'budget_tokens':16,'cases':cases,'groups':groups,
        'source_sha256':{str(p):sha(p) for p in paths},'dataset_sha256':sha('/data/datasets/scenario_c_prompts.jsonl'),
        'scope':'Prefix off/on self comparison on three real C prompts. Not public200/HumanEval or formal speedup.',
        'thinking':True,'chunked_prefill':False}
@@ -30,8 +30,8 @@ def check_sources(m):
 
 
 def worker(out,plan,enabled):
-    settings=apply_serving(0,out,True,'reference',True);settings.update(profile_settings('r'))
-    settings.update(MELLUM_PREFIX_COMPAT='1' if enabled else '0',MELLUM_PREFIX_AUDIT_PATH=str(out/'prefix.jsonl'))
+    settings=apply_serving(0,out,True,'reference',True);settings.update(profile_settings(plan['profile']))
+    settings.update(MELLUM_PREFIX_COMPAT='1' if enabled else '0',MELLUM_PREFIX_AUDIT_PATH=str(out/'prefix.jsonl'),MELLUM_NATIVE_AUDIT_PATH=str(out/'native_calls.jsonl'))
     os.environ.update(settings);sys.path.insert(0,str(PROJECT/'ATOM'))
     import torch
     if not torch.cuda.is_available():raise RuntimeError('GPU0 unavailable')
@@ -67,12 +67,13 @@ def worker(out,plan,enabled):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--prepare-only',action='store_true');p.add_argument('--worker',type=Path)
+    p.add_argument('--profile',choices=['r','fused_moe_native_attention'],default='r')
     p.add_argument('--prefix',action='store_true');p.add_argument('--budget-minutes',type=float,default=25);a=p.parse_args()
     if a.worker:
         plan=json.loads((a.worker.parent/'plan.json').read_text());worker(a.worker,plan,a.prefix);return 0
     if not 1<=a.budget_minutes<=40:p.error('Budget must be 1..40 minutes')
     out=Path('/workspace/results/mellum_prefix_probe')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
-    m=prepare(out)
+    m=prepare(out,a.profile)
     if a.prepare_only:print('RESULT prefix_probe_prepared output',out);return 0
     deadline=time.monotonic()+a.budget_minutes*60;s={'status':'started','scope':m['scope']}
     try:
@@ -90,6 +91,7 @@ def main():
                 comparisons.append({'group':x['name'],'id':l['id'],'exact':l['generated_ids']==r['generated_ids']})
         hit=on['observed_cached_tokens']>0
         s.update(status='prefix_probe_passed' if hit and all(x['exact'] for x in comparisons) else 'prefix_probe_review_required',
+            expected_native_variability=m['profile']=='fused_moe_native_attention',
             comparisons=comparisons,observed_cached_tokens=on['observed_cached_tokens'],timings={k:[{'name':x['name'],'seconds':x['elapsed_seconds']} for x in v['groups']] for k,v in [('off',off),('on',on)]})
     except Exception:s.update(status='failed',traceback=traceback.format_exc())
     s['source_unchanged']=all(sha(p)==v for p,v in m['source_sha256'].items());write(out/'summary.json',s)

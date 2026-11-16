@@ -127,3 +127,28 @@ def test_isolated_experts_use_one_unit_weight_route_then_reference_weighting(mon
     assert torch.equal(calls[0][2],ids.reshape(4,1))
     with pytest.raises(ValueError,match='FP32 route storage'):
         isolated_fused_experts(x,weights.bfloat16(),ids,w13,w2)
+
+
+@pytest.mark.parametrize('window',[-1,4])
+def test_native_cached_prefill_preserves_separate_bounds_and_suffix_positions(monkeypatch,window):
+    from atom.model_config.mellum_prefix import suffix_mask
+    monkeypatch.setenv('MELLUM_PREFIX_COMPAT','1');calls=[]
+    def flash(**kw):
+        calls.append(kw);qb=kw['cu_seqlens_q'].tolist();kb=kw['cu_seqlens_k'].tolist();out=[]
+        for a,b,c,d in zip(qb,qb[1:],kb,kb[1:]):
+            out.append(torch.nn.functional.scaled_dot_product_attention(kw['q'][a:b].transpose(0,1)[None],
+                kw['k'][c:d].transpose(0,1)[None],kw['v'][c:d].transpose(0,1)[None],
+                attn_mask=suffix_mask(b-a,d-c,window,'cpu'),scale=kw['softmax_scale'],enable_gqa=True)[0].transpose(0,1))
+        return torch.cat(out)
+    monkeypatch.setitem(sys.modules,'aiter',NS(flash_attn_varlen_func=flash))
+    q=torch.zeros(3,4,4);k=torch.zeros(10,2,4);v=torch.arange(10).float()[:,None,None].expand(10,2,4).contiguous()
+    meta=NS(has_cached=True,cu_seqlens_q=torch.tensor([0,2,3]),cu_seqlens_k=torch.tensor([0,6,10]),max_seqlen_q=2,max_seqlen_k=6)
+    ctx=NS(attn_metadata=meta,context=NS(is_prefill=True,positions=torch.tensor([4,5,3])))
+    impl=NS(layer_num=1,sliding_window=window,scale=.5)
+    output=native_prefill(impl,q,k,v,None,None,None,None,ctx)
+    assert output.shape==q.shape and calls[0]['max_seqlen_q']==2 and calls[0]['max_seqlen_k']==6
+    assert calls[0]['window_size']==((window-1,0,0) if window>0 else (-1,-1,0))
+    expected=[v[(1 if window>0 else 0):5].mean(0),v[(2 if window>0 else 0):6].mean(0),v[6:10].mean(0)]
+    torch.testing.assert_close(output,torch.stack(expected).repeat_interleave(2,dim=1))
+    ctx.context.positions[0]=0
+    with pytest.raises(ValueError,match='suffix'):native_prefill(impl,q,k,v,None,None,None,None,ctx)

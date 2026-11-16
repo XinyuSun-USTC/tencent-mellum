@@ -70,3 +70,15 @@ def test_prefix_service_rejects_unvalidated_native_attention_combination(tmp_pat
     p=subprocess.run([sys.executable,str(script),'--profile','native_attention','--batching',
         '--prefix-caching','--prepare-only','--output',str(tmp_path)],capture_output=True,text=True)
     assert p.returncode!=0 and 'currently requires' in p.stderr
+
+
+def test_native_prefix_service_disables_old_bridge_and_enables_cache(tmp_path):
+    script=Path(__file__).resolve().parents[1]/'serve_mellum.py'
+    p=subprocess.run([sys.executable,str(script),'--profile','fused_moe_native_attention','--batching',
+        '--prefix-caching','--gpu','0','--server-port','8251','--engine-port','8926',
+        '--prepare-only','--output',str(tmp_path)],capture_output=True,text=True)
+    assert p.returncode==0,p.stderr
+    d=json.loads((tmp_path/'launch.json').read_text())
+    assert '--enable_prefix_caching' in d['command']
+    assert d['settings']['MELLUM_PREFIX_COMPAT']=='1'
+    assert d['settings']['MELLUM_REQUEST_BATCHING']==d['settings']['MELLUM_SDPA_DECODE']=='0'

@@ -77,7 +77,7 @@ def main():
     p.add_argument('--prefix-caching',action='store_true')
     p.add_argument('--budget-minutes',type=float,default=35);a=p.parse_args()
     if not 1<=a.budget_minutes<=45:p.error('Budget must be 1..45 minutes')
-    if a.prefix_caching and a.profile not in ('r','fused_moe'):p.error('Prefix study currently supports r/fused_moe only')
+    if a.prefix_caching and a.profile not in ('r','fused_moe','fused_moe_native_attention'):p.error('Prefix study currently supports r/fused_moe/fused_moe_native_attention only')
     out=Path('/workspace/results/mellum_candidate_capacity')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
     m=prepare(out,a.gpu,a.profile,a.prefix_caching)
     if a.prepare_only:print('RESULT capacity_prepared output',out);return 0
