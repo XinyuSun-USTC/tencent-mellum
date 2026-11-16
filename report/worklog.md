@@ -179,4 +179,4 @@
 
 - fusion两批完成并核验322项哈希/5631加载/Graph回放及后端：GPU0路由ABBA均值939.49→1008.94tokens/s（+7.39%），GPU1基线941.63→RoPE1032.72→QK融合1062.46（+12.83%），C20 TPOT p99至18.639ms，局部数学冒烟通过。scheduling分支ee3e238准备QK+路由组合ABBA及QK基线上的prefix/chunk2048/4096四项筛选，41项CPU检查通过。保持完整正确性集中到最终组合，不按单项收益叠乘或宣称正式ABC通过。
 
-- 组合/调度两卡运行期间，独立campaign工作区准备prefill元数据复用（当次ForwardContext、默认关闭，处理inference tensor版本缺失）、实际复用回执及完整ABC多profile批次。复用cd2c3e3的profile/端口/resume CLI，完整批次独立stage失败继续、成功产物hash校验后跳过、失败attempt保留；40项相关CPU检查通过，新增5项复验通过。未占GPU或修改scheduling运行目录；等当前结果选择候选，不默认扩大量化/MTP实验。
+- 组合/调度两卡运行期间，独立campaign工作区准备prefill元数据复用（当次ForwardContext、默认关闭，处理inference tensor版本缺失）、实际复用回执及完整ABC多profile批次。复用cd2c3e3的profile/端口/resume CLI，完整批次独立stage失败继续、成功产物hash校验后跳过、失败attempt保留；40项相关CPU检查联合ATOM测试夹具通过（含新增恢复及元数据检查）；单独收集scripts测试缺少ATOM轻量导入夹具，改用完整相关检查组复验通过。未占GPU或修改scheduling运行目录；等当前结果选择候选，不默认扩大量化/MTP实验。
