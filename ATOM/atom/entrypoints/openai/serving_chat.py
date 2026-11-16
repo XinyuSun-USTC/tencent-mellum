@@ -6,6 +6,7 @@
 import asyncio
 import json
 import logging
+import os
 import time
 from typing import Any, AsyncGenerator, Dict, List, Optional, Union
 
@@ -74,89 +75,95 @@ async def stream_chat_response(
     - content deltas for the answer
     - tool_calls deltas when model invokes tools
     """
-    num_tokens_input = _prompt_token_count(prompt, tokenizer)
-    num_tokens_output = 0
-    reasoning_filter = ReasoningFilter()
-    tool_parser = ToolCallStreamParser()
-    has_tool_calls = False
+    _mellum_completed = False
+    try:
+        num_tokens_input = _prompt_token_count(prompt, tokenizer)
+        num_tokens_output = 0
+        reasoning_filter = ReasoningFilter()
+        tool_parser = ToolCallStreamParser()
+        has_tool_calls = False
 
-    # Send initial role chunk
-    yield create_chat_chunk(request_id, model, delta={"role": "assistant"})
+        # Send initial role chunk
+        yield create_chat_chunk(request_id, model, delta={"role": "assistant"})
 
-    while True:
-        chunk_data = await stream_queue.get()
-        new_text = chunk_data["text"]
-        num_tokens_output += len(chunk_data.get("token_ids", []))
+        while True:
+            chunk_data = await stream_queue.get()
+            if chunk_data.get('finished',False):_mellum_completed=True
+            new_text = chunk_data["text"]
+            num_tokens_output += len(chunk_data.get("token_ids", []))
 
-        # Phase 1: Process through reasoning filter
-        segments = reasoning_filter.process(new_text)
-        if chunk_data.get("finished", False):
-            segments.extend(reasoning_filter.flush())
+            # Phase 1: Process through reasoning filter
+            segments = reasoning_filter.process(new_text)
+            if chunk_data.get("finished", False):
+                segments.extend(reasoning_filter.flush())
 
-        # Phase 2: For content segments, check for tool calls
-        for field, text in segments:
-            if field == "reasoning_content":
-                if text:
-                    yield create_chat_chunk(
-                        request_id, model, delta={"reasoning_content": text}
-                    )
-            elif field == "content":
-                # Run through tool parser
-                events = tool_parser.process(text)
-                for event_type, data in events:
-                    if event_type == "content":
+            # Phase 2: For content segments, check for tool calls
+            for field, text in segments:
+                if field == "reasoning_content":
+                    if text:
                         yield create_chat_chunk(
-                            request_id, model, delta={"content": data}
+                            request_id, model, delta={"reasoning_content": text}
                         )
+                elif field == "content":
+                    # Run through tool parser
+                    events = tool_parser.process(text)
+                    for event_type, data in events:
+                        if event_type == "content":
+                            yield create_chat_chunk(
+                                request_id, model, delta={"content": data}
+                            )
+                        elif event_type == "tool_call_start":
+                            has_tool_calls = True
+                            yield create_chat_chunk(
+                                request_id,
+                                model,
+                                delta={"tool_calls": [data]},
+                            )
+                        elif event_type == "tool_call_args":
+                            yield create_chat_chunk(
+                                request_id,
+                                model,
+                                delta={"tool_calls": [data]},
+                            )
+
+            if chunk_data.get("finished", False):
+                # Flush tool parser
+                for event_type, data in tool_parser.flush():
+                    if event_type == "content":
+                        yield create_chat_chunk(request_id, model, delta={"content": data})
                     elif event_type == "tool_call_start":
                         has_tool_calls = True
                         yield create_chat_chunk(
-                            request_id,
-                            model,
-                            delta={"tool_calls": [data]},
+                            request_id, model, delta={"tool_calls": [data]}
                         )
                     elif event_type == "tool_call_args":
                         yield create_chat_chunk(
-                            request_id,
-                            model,
-                            delta={"tool_calls": [data]},
+                            request_id, model, delta={"tool_calls": [data]}
                         )
+                break
 
-        if chunk_data.get("finished", False):
-            # Flush tool parser
-            for event_type, data in tool_parser.flush():
-                if event_type == "content":
-                    yield create_chat_chunk(request_id, model, delta={"content": data})
-                elif event_type == "tool_call_start":
-                    has_tool_calls = True
-                    yield create_chat_chunk(
-                        request_id, model, delta={"tool_calls": [data]}
-                    )
-                elif event_type == "tool_call_args":
-                    yield create_chat_chunk(
-                        request_id, model, delta={"tool_calls": [data]}
-                    )
-            break
+        if os.getenv('MELLUM_ABORT_ON_DISCONNECT','0')!='1':cleanup_fn(request_id, seq_id)
 
-    cleanup_fn(request_id, seq_id)
-
-    # Final chunks
-    finish_reason = "tool_calls" if has_tool_calls else "stop"
-    usage = {
-        "prompt_tokens": num_tokens_input,
-        "completion_tokens": num_tokens_output,
-        "total_tokens": num_tokens_input + num_tokens_output,
-    }
-    yield create_chat_chunk(request_id, model, finish_reason=finish_reason)
-    usage_chunk = {
-        "id": request_id,
-        "object": CHAT_COMPLETION_CHUNK_OBJECT,
-        "created": int(time.time()),
-        "model": model,
-        "usage": usage,
-    }
-    yield f"data: {json.dumps(usage_chunk)}\n\n"
-    yield STREAM_DONE_MESSAGE
+        # Final chunks
+        finish_reason = "tool_calls" if has_tool_calls else "stop"
+        usage = {
+            "prompt_tokens": num_tokens_input,
+            "completion_tokens": num_tokens_output,
+            "total_tokens": num_tokens_input + num_tokens_output,
+        }
+        yield create_chat_chunk(request_id, model, finish_reason=finish_reason)
+        usage_chunk = {
+            "id": request_id,
+            "object": CHAT_COMPLETION_CHUNK_OBJECT,
+            "created": int(time.time()),
+            "model": model,
+            "usage": usage,
+        }
+        yield f"data: {json.dumps(usage_chunk)}\n\n"
+        yield STREAM_DONE_MESSAGE
+    finally:
+        if os.getenv('MELLUM_ABORT_ON_DISCONNECT','0')=='1':
+            cleanup_fn(request_id,seq_id,abort=not _mellum_completed)
 
 
 def _build_chat_choice(

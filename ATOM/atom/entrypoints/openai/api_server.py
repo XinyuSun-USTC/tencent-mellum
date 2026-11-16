@@ -14,6 +14,7 @@ Usage:
 
 import argparse
 import asyncio
+import os
 import base64
 import binascii
 import io
@@ -666,7 +667,7 @@ async def setup_streaming_request(
     return seq_id, stream_queue
 
 
-def cleanup_streaming_request(request_id: str, seq_id: int) -> None:
+def cleanup_streaming_request(request_id: str, seq_id: int, abort: bool = False) -> None:
     """Clean up resources for a streaming request.
 
     Safe to call multiple times for the same ``request_id`` with different
@@ -676,6 +677,8 @@ def cleanup_streaming_request(request_id: str, seq_id: int) -> None:
     global engine, _stream_queues, _seq_id_to_request_id
     global _stream_loops, _request_start_times
 
+    if abort and os.getenv('MELLUM_ABORT_ON_DISCONNECT','0')=='1':
+        engine.core_mgr.abort_request([seq_id])
     _stream_queues.pop(request_id, None)
     _seq_id_to_request_id.pop(seq_id, None)
     _stream_loops.pop(request_id, None)

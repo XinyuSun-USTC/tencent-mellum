@@ -410,6 +410,13 @@ class CoreManager:
                         copy=False,
                     )
 
+    def abort_request(self, request_ids):
+        """Queue cancellation to the single EngineCore; never mutate its scheduler from IO."""
+        if self.local_engine_count!=1:raise ValueError('Abort candidate supports one EngineCore')
+        ids=[int(x) for x in request_ids]
+        self.input_sockets[0].send_multipart([self.engine_core_identities[0],pickle.dumps((EngineCoreRequestType.ABORT,ids))],copy=False)
+        for seq_id in ids:self._seq_id_to_callback.pop(seq_id,None)
+
     def get_stream_outputs(self):
         try:
             return self.stream_outputs_queue.get_nowait()

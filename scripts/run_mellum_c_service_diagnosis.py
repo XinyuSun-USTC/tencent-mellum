@@ -32,12 +32,12 @@ def delivered_rate(events,cutoff):
 
 
 def disconnect_evidence(steps,target,closed):
-    owned=[r for r in steps if target in r['request_ids']]
+    owned=[r for r in steps if target in r.get('request_ids',[])]
     later=[r for r in owned if r['start_ns']>closed]
     return {'engine_steps_started_after_close':len(later),
             'inflight_steps_spanning_close':sum(r['start_ns']<=closed<r['end_ns'] for r in owned),
             'continued_host_step_seconds':sum(r['end_ns']-r['start_ns'] for r in later)/1e9,
-            'engine_completion_observed':any(target in r['finished_request_ids'] for r in steps)}
+            'engine_completion_observed':any(target in r.get('finished_request_ids',[]) for r in steps)}
 
 
 def prepare(out,args):
@@ -47,7 +47,7 @@ def prepare(out,args):
     prompts=[chat_ids(tokenizer,[{'role':'user','content':r['prompt']}]) for r in rows[:32]]
     if any(not 4000<=len(x)<=16384 for x in prompts):raise ValueError('Unexpected actual C prompt lengths')
     files=list((PROJECT/'ATOM/atom/model_config').glob('mellum*.py'))+[
-        PROJECT/'ATOM/atom/model_engine/engine_core.py',PROJECT/'ATOM/atom/model_engine/mellum_service_audit.py',
+        PROJECT/'ATOM/atom/model_engine/engine_core.py',PROJECT/'ATOM/atom/model_engine/engine_core_mgr.py',PROJECT/'ATOM/atom/model_engine/model_runner.py',PROJECT/'ATOM/atom/model_engine/mellum_service_audit.py',
         PROJECT/'ATOM/atom/model_engine/scheduler.py',PROJECT/'ATOM/atom/entrypoints/openai/serving_chat.py',
         PROJECT/'ATOM/atom/entrypoints/openai/api_server.py',PROJECT/'scripts/mellum_execution_profiles.py',
         PROJECT/'scripts/serve_mellum.py',PROJECT/'scripts/mellum_runtime_config.py',Path(__file__).resolve()]
@@ -161,6 +161,11 @@ def disconnect_case(out,plan,mode):
             if len(ids)!=1:raise ValueError('Expected exactly one owned HTTP request')
             steps=load_steps(out/'server/engine_steps.jsonl');target=ids[0]
             evidence=disconnect_evidence(steps,target,closed)
+            aborts=[r for r in steps if r.get('kind')=='abort' and target in r.get('requested',[])]
+            evidence['abort_receipts']=aborts
+            evidence['engine_steps_started_after_abort']=sum(target in r.get('request_ids',[]) and r.get('start_ns',0)>aborts[-1]['time_ns'] for r in steps) if aborts else None
+            if mode!='normal' and plan['profile']=='r_abort' and (not any(target in r.get('removed',[]) for r in aborts) or evidence['engine_steps_started_after_abort']):
+                raise ValueError('Abort removal not observed or target was scheduled after removal')
             result.update(status='disconnect_observed',request_id=target,**evidence,
                           verdict='engine_work_continued_after_disconnect' if mode!='normal' and evidence['engine_steps_started_after_close'] else 'no_post_close_step_observed',
                           scope='Live transport close, no abort repair. Observed subsequent engine steps, not exact GPU wasted time or full C causal contribution.')
@@ -175,7 +180,7 @@ def disconnect_case(out,plan,mode):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--track',choices=['decode','disconnect'],required=True)
-    p.add_argument('--profile',choices=['r_expert_decode4_kv_once','r_decode_meta','r_swa_decode2','r_swa_decode4'],default=PROFILE)
+    p.add_argument('--profile',choices=['r_expert_decode4_kv_once','r_abort','r_decode_meta','r_swa_decode2','r_swa_decode4'],default=PROFILE)
     p.add_argument('--gpu',type=int,choices=[0,1],default=0);p.add_argument('--batches',type=int,nargs='+',default=[1,4,8,16,32])
     p.add_argument('--tokens',type=int,choices=[64,128,256],default=128);p.add_argument('--observe-seconds',type=int,default=15)
     p.add_argument('--budget-minutes',type=float,default=40);p.add_argument('--prepare-only',action='store_true');p.add_argument('--decode-worker',type=Path);p.add_argument('--disconnect-worker',type=Path)

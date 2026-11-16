@@ -1225,6 +1225,11 @@ class ModelRunner:
         # memory due to pooling across multiple captured batch sizes.
         return int(activation_bytes * 0.2)
 
+    def mellum_abort_barrier(self):
+        """Rare disconnect path: finish outstanding GPU reads before KV release."""
+        torch.cuda.synchronize(self.device)
+        return True
+
     def get_num_blocks(self) -> dict[str, int]:
         torch.set_default_device(self.device)
         config = self.config
