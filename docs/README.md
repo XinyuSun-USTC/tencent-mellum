@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+最新：[验证43 四格结果](../report/validation/43_core_attention_expert_matrix.md)、[49 阶段拆分](plan/49_phase_attention_and_experts.md)。仅参考/参考20条100%；独立attn-phase提交b699065准备两卡各两项prefill/decode短定位，53项CPU检查通过。
+
 最新控制：[验证42 systems完成](../report/validation/42_systems_reference_control.md)：参考数学batch1为200/长组全100%；其它快速分支均未达90%。GPU0四格矩阵进行中，空闲GPU1保留用于有效组合完整200确认。
 
 下一短对照：[48 专家/Attention最小矩阵](plan/48_core_attention_expert_diagnosis.md)，独立core-diagnosis提交29063ee，使用空闲GPU0；GPU1慢参考控制保持运行。20条固定分层仅作定位，不冒充200验收。
