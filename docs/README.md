@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+当前实验：[42 组合结果与完整ABC](plan/42_combination_results_and_full_abc.md)，campaign提交22597b2。QK+原生路由A64两次1124.91/1127.32；prefix改善C20，chunk两档退化停止。下一批GPU0完整ABC，GPU1最快组合上的prefix/元数据最后筛选。
+
 并行CPU准备：[41 prefill元数据复用与完整ABC批次](plan/41_prefill_metadata_and_full_load_campaign.md)：独立campaign分支实现当次forward校验复用及显式profile的完整ABC、失败继续/恢复，GPU待当前两批结果后决定。
 
 当前实验：[40 融合结果与组合调度](plan/40_fusion_results_and_combined_scheduling.md)，scheduling分支ee3e238。QK融合A64为1062.46tokens/s、路由ABBA均值+7.39%；下一批GPU0组合重复、GPU1prefix/chunk性能筛选，仍不逐项跑HF。
