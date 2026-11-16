@@ -27,7 +27,8 @@
     "c_decode_quota1_screen": "/workspace/results/mellum_c_chunk_screen/20261116T212002619250Z",
     "c_reference_prefix_screen": "/workspace/results/mellum_c_chunk_screen/20261116T212008871299Z",
     "c_isolated_decode": "/workspace/results/mellum_c_service_diagnosis/20261116T221216213089Z_decode",
-    "c_disconnect_diagnosis": "/workspace/results/mellum_c_service_diagnosis/20261116T221223452847Z_disconnect"
+    "c_disconnect_diagnosis": "/workspace/results/mellum_c_service_diagnosis/20261116T221223452847Z_disconnect",
+    "c_disconnect_abort_check": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect"
   },
   "files": {
     "artifacts/submission/aggressive_abc/manifest.json": {
@@ -6751,6 +6752,131 @@
       "sha256": "4ed36d53f094150c5d12bb93a9073bc9ec501423ed2c931d185eb016116e736f",
       "bytes": 11689,
       "original": "/workspace/results/mellum_c_service_diagnosis/20261116T221223452847Z_disconnect/summary.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_role/plan.json": {
+      "sha256": "924138f64c2bda8d6098dd7313954714ea88921bedc58ec7391a88b656e63d07",
+      "bytes": 57303,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_role/plan.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_role/results.json": {
+      "sha256": "7356cfeee49b5e4fa992f83d9e9b64b4537355fabb2d76e8100aad4bf3e1b569",
+      "bytes": 1781,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_role/results.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_role/server/engine_steps.jsonl": {
+      "sha256": "d470800d2a29fcea90179789c5808c50428cf44b050d204401c4fff503d39084",
+      "bytes": 494,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_role/server/engine_steps.jsonl"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_role/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_role/server/fastpaths.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_role/server/launch.json": {
+      "sha256": "30e391368dca84bb1953ef28991638b1cde040e4ab9d1684dc4a24537bc7404b",
+      "bytes": 4082,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_role/server/launch.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_role/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_role/server/loading_audit.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_role/server.log": {
+      "sha256": "f11f943b565d85b0bcc2e39d7dd78305d154909c533a20e09cd9e60756862109",
+      "bytes": 8644,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_role/server.log"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_role/worker.log": {
+      "sha256": "f20a9e7d6eb0f3f2f172f79f9b1e3e40d8ff0757e949837dd6cd6669e3fa0384",
+      "bytes": 130,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_role/worker.log"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_token/plan.json": {
+      "sha256": "37cdfdc73a2004ffa78701bb2b8d2d0161dce7088a51edf8b5f7eca45617cd60",
+      "bytes": 57304,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_token/plan.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_token/results.json": {
+      "sha256": "01f423c43fb7c532c7aa57234990f2284e40befc4cef973958d8d6d02f5fedeb",
+      "bytes": 2149,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_token/results.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_token/server/engine_steps.jsonl": {
+      "sha256": "ca9bc3444e8156ea27793aa1e15c415e2a844417c0785badc057e3950a7ec370",
+      "bytes": 1415,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_token/server/engine_steps.jsonl"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_token/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_token/server/fastpaths.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_token/server/launch.json": {
+      "sha256": "d87fb9db19f3e19384b20f3ddd0fe1207e644dd4bed65b9a9731c395e0efdb62",
+      "bytes": 4085,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_token/server/launch.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_token/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_token/server/loading_audit.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_token/server.log": {
+      "sha256": "dc5ccc44be62c8213b3d07f7cc9a4b03dcc2b947f18be6b29591aa6fe72ea082",
+      "bytes": 8645,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_token/server.log"
+    },
+    "artifacts/submission/c_disconnect_abort_check/close_after_token/worker.log": {
+      "sha256": "345ba72af240873812996c4e262eb464e28389f452e892c88dd54d60c092c3be",
+      "bytes": 132,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_token/worker.log"
+    },
+    "artifacts/submission/c_disconnect_abort_check/normal/plan.json": {
+      "sha256": "48d723fa0294e2cbb5325c2f274b551f0f8fec484c48b4fb486b9638bcf63add",
+      "bytes": 57293,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/normal/plan.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/normal/results.json": {
+      "sha256": "3dc1ef32a39c46be7553b1f8ac4da0ffacd156da5863b00069bf33fd0c7fa353",
+      "bytes": 4802,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/normal/results.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/normal/server/engine_steps.jsonl": {
+      "sha256": "f638b12b5cebf15057b0f380532a0ddc8537ba3ae242c107444100e36c4baa38",
+      "bytes": 2771,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/normal/server/engine_steps.jsonl"
+    },
+    "artifacts/submission/c_disconnect_abort_check/normal/server/fastpaths.json": {
+      "sha256": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+      "bytes": 330,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/normal/server/fastpaths.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/normal/server/launch.json": {
+      "sha256": "1600e6f8a9a4298f39c4235db9d8fdd21007ce628fa7414a0271484bf7d994e5",
+      "bytes": 4052,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/normal/server/launch.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/normal/server/loading_audit.json": {
+      "sha256": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+      "bytes": 94,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/normal/server/loading_audit.json"
+    },
+    "artifacts/submission/c_disconnect_abort_check/normal/server.log": {
+      "sha256": "e8ee17136ea1fb31c5df08338c61e1c4864afe42d64390762fe5a8df549684b1",
+      "bytes": 8682,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/normal/server.log"
+    },
+    "artifacts/submission/c_disconnect_abort_check/normal/worker.log": {
+      "sha256": "bf88327d47608a009472d3527b9971d6f58592a4c6a2ab9ed5c2f809424d4063",
+      "bytes": 110,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/normal/worker.log"
+    },
+    "artifacts/submission/c_disconnect_abort_check/summary.json": {
+      "sha256": "1f6eb6c7e236775e8012fed84ecd7447412abaccc3bc9e7eddf314f0fce5e3d6",
+      "bytes": 12496,
+      "original": "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/summary.json"
     }
   }
 }

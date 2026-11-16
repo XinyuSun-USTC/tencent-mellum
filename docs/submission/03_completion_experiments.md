@@ -34,3 +34,5 @@
 ## 诊断已完成，进入单卡实现筛查
 
 隔离decode批32约43.68token/s；真实断连后仍有236/253个新步骤。单卡主线已明确，[计划60](../plan/60_single_gpu_decode_and_abort_candidates.md)准备SWA解码分组/元数据复用及安全取消两个独立候选，等待GPU筛查。原诊断运行归档于`c_isolated_decode/`、`c_disconnect_diagnosis/`，没有因诊断完成而晋级正式主配置。
+
+取消候选e15b691已完成真实服务检查：正常请求完成，role/首内容断连后新step均为0，ABORT移除后无继续调度，分别回收494块。详见`report/performance/42_disconnect_abort_check.md`。多请求交错取消与C容量增量尚待验证，不提前升级默认；SWA计算筛查继续保持源树冻结。

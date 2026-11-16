@@ -1,0 +1,84 @@
+{
+  "mode": "normal",
+  "status": "disconnect_observed",
+  "server_command": [
+    "/opt/venv/bin/python",
+    "/workspace/tencent-mellum-disconnect-abort/scripts/serve_mellum.py",
+    "--gpu",
+    "1",
+    "--batching",
+    "--profile",
+    "r_abort",
+    "--max-num-seqs",
+    "32",
+    "--max-model-len",
+    "16640",
+    "--max-batched-tokens",
+    "16640",
+    "--phase-audit",
+    "--server-port",
+    "19851",
+    "--engine-port",
+    "15026",
+    "--output",
+    "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/normal/server"
+  ],
+  "client_start_ns": 1780601363062111,
+  "client_close_ns": 1780604675417531,
+  "done_received": true,
+  "frames": [
+    {
+      "time_ns": 1780601410853646,
+      "payload": "{\"id\": \"chatcmpl-06810014773a4609a99c537144939ba5\", \"object\": \"chat.completion.chunk\", \"created\": 1794868705, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"role\": \"assistant\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1780604346334898,
+      "payload": "{\"id\": \"chatcmpl-06810014773a4609a99c537144939ba5\", \"object\": \"chat.completion.chunk\", \"created\": 1794868708, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"\\n\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1780604400822254,
+      "payload": "{\"id\": \"chatcmpl-06810014773a4609a99c537144939ba5\", \"object\": \"chat.completion.chunk\", \"created\": 1794868708, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"We\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1780604455676106,
+      "payload": "{\"id\": \"chatcmpl-06810014773a4609a99c537144939ba5\", \"object\": \"chat.completion.chunk\", \"created\": 1794868708, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" need\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1780604510676893,
+      "payload": "{\"id\": \"chatcmpl-06810014773a4609a99c537144939ba5\", \"object\": \"chat.completion.chunk\", \"created\": 1794868708, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" to\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1780604565417806,
+      "payload": "{\"id\": \"chatcmpl-06810014773a4609a99c537144939ba5\", \"object\": \"chat.completion.chunk\", \"created\": 1794868708, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" parse\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1780604619914951,
+      "payload": "{\"id\": \"chatcmpl-06810014773a4609a99c537144939ba5\", \"object\": \"chat.completion.chunk\", \"created\": 1794868708, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" the\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1780604675118589,
+      "payload": "{\"id\": \"chatcmpl-06810014773a4609a99c537144939ba5\", \"object\": \"chat.completion.chunk\", \"created\": 1794868708, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" problem\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1780604675387314,
+      "payload": "{\"id\": \"chatcmpl-06810014773a4609a99c537144939ba5\", \"object\": \"chat.completion.chunk\", \"created\": 1794868708, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {}, \"finish_reason\": \"stop\", \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1780604675404912,
+      "payload": "{\"id\": \"chatcmpl-06810014773a4609a99c537144939ba5\", \"object\": \"chat.completion.chunk\", \"created\": 1794868708, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"usage\": {\"prompt_tokens\": 7889, \"completion_tokens\": 8, \"total_tokens\": 7897}}"
+    },
+    {
+      "time_ns": 1780604675416501,
+      "payload": "[DONE]"
+    }
+  ],
+  "request_id": 0,
+  "engine_steps_started_after_close": 0,
+  "inflight_steps_spanning_close": 0,
+  "continued_host_step_seconds": 0.0,
+  "engine_completion_observed": true,
+  "abort_receipts": [],
+  "engine_steps_started_after_abort": null,
+  "verdict": "no_post_close_step_observed",
+  "scope": "Live transport close, no abort repair. Observed subsequent engine steps, not exact GPU wasted time or full C causal contribution."
+}
