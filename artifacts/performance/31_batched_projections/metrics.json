@@ -1,0 +1,54 @@
+{
+  "run": "/workspace/results/mellum_candidate_capacity/20261116T043117581045Z",
+  "reference_run": "/workspace/results/mellum_candidate_capacity/20261115T231450301731Z",
+  "same_atom_model_sources": true,
+  "verified_artifacts": 84,
+  "cases": {
+    "A64": {
+      "requests": 64,
+      "successes": 64,
+      "failures": 0,
+      "ttft_p50_s": 3.229806095827371,
+      "ttft_p99_s": 4.24182259500958,
+      "tpot_p50_s": 0.058312866501692755,
+      "tpot_p99_s": 0.05862426057677059,
+      "output_tokens_per_s_gpu": 439.6727,
+      "request_start_span_s": 19.195075024152175,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 32,
+      "throughput_ratio_vs_requestwise": 3.6188066168106765
+    },
+    "C20": {
+      "requests": 20,
+      "successes": 20,
+      "failures": 0,
+      "ttft_p50_s": 0.7780471500009298,
+      "ttft_p99_s": 1.5861352989450097,
+      "tpot_p50_s": 0.06485306554126974,
+      "tpot_p99_s": 0.08036899591029129,
+      "output_tokens_per_s_gpu": 63.5585,
+      "request_start_span_s": 64.95175147498958,
+      "validation_errors": [],
+      "complete_without_failures": true,
+      "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+      "actual_decode_max_batch": 9,
+      "throughput_ratio_vs_requestwise": 1.1515723065327361
+    }
+  },
+  "native_audits": {
+    "A_small": {
+      "attention/aiter_varlen/prefill": 14,
+      "moe/FusedMoE/prefill": 14,
+      "attention/paged_attention_triton/decode": 768,
+      "moe/FusedMoE/decode": 768
+    },
+    "C_small": {
+      "attention/aiter_varlen/prefill": 21,
+      "moe/FusedMoE/prefill": 21,
+      "attention/paged_attention_triton/decode": 1476,
+      "moe/FusedMoE/decode": 1476
+    }
+  }
+}

@@ -132,3 +132,5 @@
 - [30 原生完整ABC](performance/30_native_full_abc.md)：A512/B50/C200全成功，A121.28tokens/s为官方19.0%，C完整尾延迟仍落后，继续削减批量执行开销。
 
 - [研究07 Graph与KV写入后续核查](research/07_graph_and_cache_write_followup.md)：空campaign阻止非eager、动态K索引、重复RoPE/KV写入及审计tolist先求值；源码依据与最小后续边界，无新性能宣称。
+
+- [31 整批投影HTTP](performance/31_batched_projections.md)：A64 439.67tokens/s（同模型源码原生组合3.62倍），C20 TPOT p99 80.37ms，全部请求成功，功能评估待运行。

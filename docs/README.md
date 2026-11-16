@@ -58,3 +58,5 @@ GPU1待运行：[29 原生Attention组合完整HumanEval](plan/29_native_attenti
 两卡批次30完成，结果见[性能29](../report/performance/29_native_prefix.md)/[性能30](../report/performance/30_native_full_abc.md)。当前GPU1待运行：[31 恢复整批投影](plan/31_batched_projection_dispatch.md)，独立native-batched提交0555b76，16项CPU检查及真实输入/源码/客户端指纹通过。
 
 GPU1批量投影运行期间，GPU0待运行：[32 原生prefix完整功能评估](plan/32_native_prefix_functional_gpu0.md)，独立prefix-functional提交990f38a，10项CPU检查及真实HF引用/源码hash核验通过；仅GPU0，复用HF。
+
+GPU1下一项：[33 整批投影完整功能评估](plan/33_batched_projection_functional_gpu1.md)，独立batched-functional，复用HF，22项CPU检查和真实引用prepare通过；性能结果见报告31。
