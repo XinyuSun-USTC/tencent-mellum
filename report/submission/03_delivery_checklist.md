@@ -43,7 +43,7 @@
 /opt/venv/bin/python scripts/run_submission_ablation.py --gpu 1 --budget-minutes 20
 ```
 
-后者采用 A32/B6/C8，控制行为原生快速配置，与历史 Step0 不同。其结果用于补充组件收益分析，不替代题目规定的完整累计消融。复测结果完成后，随运行配置和来源索引一同归档。
+后者采用 A32/B6/C8，控制行为原生快速配置，与历史 Step0 不同。该对照已完成，12个阶段均成功，运行编号为`20261116T153235801902Z`，结果见`artifacts/submission/delivery_ablation/matrix.md`。其结果用于补充组件收益分析，不替代题目规定的完整累计消融。完整ABC复测完成后另行归档。
 
 ## 4. 版本与打包
 

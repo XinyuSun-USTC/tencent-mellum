@@ -1,0 +1,1042 @@
+{"kind": "kv_write", "phase": "prefill", "rows": 9, "requests": 1, "backend": "aiter_reference_kv_once", "cache_format": "NHD", "resident_inverse": true, "inverse_device": "cuda:0", "rope_backend": "torch"}
+{"kind": "attention", "phase": "prefill", "rows": 9, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 9, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "kv_write", "phase": "decode", "rows": 1, "requests": 1, "backend": "aiter_reference_kv_once", "cache_format": "NHD", "resident_inverse": true, "inverse_device": "cuda:0", "rope_backend": "torch"}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 1, "requests": 1, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 1, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 998, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 998, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14687, "requests": 7, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14687, "requests": 7, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15743, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15743, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14668, "requests": 5, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14668, "requests": 5, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 14034, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 14034, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 15936, "requests": 6, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 15936, "requests": 6, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 6915, "requests": 2, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 6915, "requests": 2, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "decode", "rows": 32, "requests": 32, "backend": "paged_attention_triton", "mode": "both"}
+{"kind": "moe", "phase": "decode", "rows": 32, "requests": 32, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "torch_softmax_topk", "shuffled_w13": true, "shuffled_w2": true}

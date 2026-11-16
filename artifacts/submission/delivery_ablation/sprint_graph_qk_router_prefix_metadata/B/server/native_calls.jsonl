@@ -1,0 +1,15 @@
+{"kind": "kv_write", "phase": "prefill", "rows": 9, "requests": 1, "backend": "aiter_reference_kv_once", "cache_format": "NHD", "resident_inverse": true, "inverse_device": "cuda:0", "rope_backend": "triton_qk_norm_rope"}
+{"kind": "attention", "phase": "prefill", "rows": 9, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 9, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
+{"kind": "attention", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "aiter_varlen", "window": [1023, 0, 0]}
+{"kind": "moe", "phase": "prefill", "rows": 1024, "requests": 1, "backend": "FusedMoE", "quant_method": "UnquantizedFusedMoEMethod", "routing": "aiter_native", "shuffled_w13": true, "shuffled_w2": true}
