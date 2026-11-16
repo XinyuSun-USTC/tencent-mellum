@@ -2,11 +2,19 @@
 import json
 
 FAST_PROFILES=('fast_resident','fast_norm','fast_packed','fast_combined','sprint_clean','sprint_graph','sprint_unpacked','sprint_router','sprint_graph_router','sprint_graph_rope','sprint_graph_qk','sprint_graph_prefix','sprint_graph_chunk2048','sprint_graph_chunk4096')
-PROFILES=FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
+DERIVED={
+    'sprint_graph_qk_router':{'MELLUM_NATIVE_ROUTING':'1'},
+    'sprint_graph_qk_prefix':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_PREFIX_ENABLED':'1'},
+    'sprint_graph_qk_chunk2048':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_CHUNK_BUDGET':'2048'},
+    'sprint_graph_qk_chunk4096':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_CHUNK_BUDGET':'4096'},
+}
+PROFILES=tuple(DERIVED)+FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
 
 
 def profile_settings(name):
     if name not in PROFILES:raise ValueError('Unknown Mellum execution profile')
+    if name in DERIVED:
+        result=profile_settings('sprint_graph_qk');result.update(DERIVED[name]);return result
     fast=name in FAST_PROFILES
     fused=fast or name in ('fused_moe','fused_moe_swa_ck','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
     native=fast or name in ('native_attention','fused_moe_native_attention','fused_moe_native_batched','fused_moe_native_batched_direct_kv')

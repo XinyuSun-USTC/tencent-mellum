@@ -9,17 +9,19 @@ from mellum_process_runner import run_stage
 from run_mellum_batch_campaign import write
 import run_mellum_candidate_capacity as capacity
 BASE='fused_moe_native_batched_direct_kv'
-TRACKS={'prefix':['sprint_graph','sprint_graph_prefix'],
+TRACKS={'combine':['sprint_graph_qk','sprint_graph_qk_router','sprint_graph_qk_router_repeat','sprint_graph_qk_repeat'],
+        'latency':['sprint_graph_qk','sprint_graph_qk_prefix','sprint_graph_qk_chunk2048','sprint_graph_qk_chunk4096'],
+        'prefix':['sprint_graph','sprint_graph_prefix'],
         'chunk':['sprint_graph','sprint_graph_chunk2048','sprint_graph_chunk4096']}
 
 
 def prepare(out,track):
-    gpu=0 if track=='prefix' else 1
+    gpu=0 if track in ('prefix','combine') else 1
     template=out/'template';template.mkdir();tm=capacity.prepare(template,gpu,BASE)
     jobs={}
     for name in TRACKS[track]:
         directory=out/name;directory.mkdir();(directory/'inputs').symlink_to(template/'inputs',target_is_directory=True)
-        m=copy.deepcopy(tm);m['profile']=name
+        m=copy.deepcopy(tm);m['profile']=name.removesuffix('_repeat')
         m['stages'].pop('smoke',None)
         write(directory/'manifest.json',m);jobs[name]=m
     source={**tm['source_sha256'],**tm['additional_source_sha256'],str(Path(__file__).resolve()):sha(__file__),
@@ -43,10 +45,15 @@ def verify_backend(out,profile):
         if profile.startswith('sprint_graph'):
             receipts=[json.loads(x) for x in (out/stage/'server/graph_replays.jsonl').read_text().splitlines()]
             if not receipts or not all(x['event']=='replayed' for x in receipts):raise ValueError('No actual decode graph replay')
-        if stage=='C_small' and profile in ('sprint_graph_prefix','sprint_graph_chunk2048','sprint_graph_chunk4096'):
-            events=[json.loads(x) for x in (out/stage/'server/prefix.jsonl').read_text().splitlines()]
-            if not events or not any(sum(x['cached_tokens'])>0 for x in events):raise ValueError('No cached suffix processing observed')
         wanted=profile_settings(profile)
+        events=[json.loads(x) for x in (out/stage/'server/native_calls.jsonl').read_text().splitlines()]
+        if wanted.get('MELLUM_FUSED_QK_ROPE')=='1' and not any(x.get('rope_backend')=='triton_qk_norm_rope' for x in events):
+            raise ValueError('Actual QK fusion not observed')
+        if wanted.get('MELLUM_NATIVE_ROUTING')=='1' and not any(x.get('routing')=='aiter_native' for x in events):
+            raise ValueError('Actual native routing not observed')
+        if stage=='C_small' and wanted.get('MELLUM_PREFIX_COMPAT')=='1':
+            cached=[json.loads(x) for x in (out/stage/'server/prefix.jsonl').read_text().splitlines()]
+            if not cached or not any(sum(x['cached_tokens'])>0 for x in cached):raise ValueError('No cached suffix processing observed')
         expected_norm=wanted.get('MELLUM_NORM_BACKEND','reference');packed=wanted.get('MELLUM_QKV_BACKEND','separate')=='packed'
         if a['norm_count']!=113 or a['qkv_count']!=28 or a['norm_backend']!=expected_norm:raise ValueError('Actual norm/model backend audit differs')
         if a['norm_classes']!=({'RMSNorm':113} if expected_norm=='aiter' else {'MellumRMSNorm':113}):raise ValueError('Actual norm classes differ')
@@ -67,7 +74,7 @@ def execute(out,plan,jobs,budget):
         if remaining<60:s['status']='budget_limited';break
         try:
             measured=capacity.execute(out/name,m,remaining)
-            if measured['status']=='diagnostic_complete':verify_backend(out/name,name)
+            if measured['status']=='diagnostic_complete':verify_backend(out/name,m['profile'])
             s['jobs'][name]={'status':measured['status'],'summary':str(out/name/'summary.json')}
         except Exception:s['jobs'][name]={'status':'failed','traceback':traceback.format_exc()}
         write(out/'summary.json',s)

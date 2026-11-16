@@ -83,3 +83,14 @@ def test_native_cached_rectangular_bounds_reach_kernel(monkeypatch):
     out=native_prefill(NS(layer_num=1,sliding_window=1024,scale=128**-.5),q,k,k,None,None,None,None,ctx)
     assert out.shape==q.shape and seen[0]['causal'] and seen[0]['window_size']==(1023,0,0)
     assert seen[0]['max_seqlen_q']==2 and seen[0]['max_seqlen_k']==5
+
+
+def test_derived_candidates_change_only_declared_mechanisms():
+    base=profile_settings('sprint_graph_qk')
+    expected={
+        'sprint_graph_qk_router':{'MELLUM_NATIVE_ROUTING':'1'},
+        'sprint_graph_qk_prefix':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_PREFIX_ENABLED':'1'},
+        'sprint_graph_qk_chunk2048':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_CHUNK_BUDGET':'2048'},
+        'sprint_graph_qk_chunk4096':{'MELLUM_PREFIX_COMPAT':'1','MELLUM_CHUNK_BUDGET':'4096'}}
+    for name,changes in expected.items():
+        assert profile_settings(name)=={**base,**changes}
