@@ -134,10 +134,10 @@ def render(path,pages):
         for i,(title,body) in enumerate(pages,1):
             lines=[]
             for paragraph in body.strip().split('\n'):
-                lines.extend(textwrap.wrap(paragraph,99,replace_whitespace=False,drop_whitespace=True) or [''])
-            if len(lines)>67:raise ValueError(f'Text overflow {title}: {len(lines)} lines')
+                lines.extend(textwrap.wrap(paragraph,84,replace_whitespace=False,drop_whitespace=True) or [''])
+            if len(lines)>60:raise ValueError(f'Text overflow {title}: {len(lines)} lines')
             fig=plt.figure(figsize=(8.27,11.69));fig.text(.075,.95,title,fontsize=15,fontweight='bold',va='top')
-            fig.text(.075,.91,'\n'.join(lines),family='DejaVu Sans Mono',fontsize=8.5,linespacing=1.32,va='top')
+            fig.text(.075,.91,'\n'.join(lines),family='DejaVu Sans Mono',fontsize=10,linespacing=1.22,va='top')
             fig.text(.075,.035,f'Mellum / ATOM | release/submission | {i}/{len(pages)}',fontsize=8,color='#555555')
             pdf.savefig(fig);plt.close(fig)
 OUT.mkdir(parents=True,exist_ok=True)

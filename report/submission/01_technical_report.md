@@ -1,6 +1,8 @@
 # Mellum/ATOM 阶段技术报告（交付版）
 
-作者：XinyuSun-USTC。环境：题给 ROCm7.2.4/Torch2.10、ATOM、AITER；Mellum2.1-12B-A2.5B-Thinking BF16，单卡。本文中文说明与4页英文PDF表达相同结论；完整研究记录另附，不计入精简报告。
+作者：XinyuSun-USTC。环境：题给 ROCm7.2.4/Torch2.10、ATOM、AITER；Mellum2.1-12B-A2.5B-Thinking BF16，单卡。本 Markdown 为正式中文主稿，按四页内容分段，便于修改；最终导出页数取决于字体、页边距和排版。完整研究记录另附，不计入精简报告。现有英文PDF仅为先前预览，不是本稿修改后的自动同步版本。
+
+<!-- 第1页内容；导出时检查实际页数 -->
 
 ## 1. 完成内容与交付边界
 
@@ -14,6 +16,10 @@
 
 Torch profiler先按模型组件标注，再用固定输入微基准、AB/ABBA和全量ABC逐步验证。bs1 trace有18627个kernel，组件归因98.3%；活跃kernel170.569ms/跨度641.084ms，间隙470.515ms（间隙不全等同CPU时间）。MoE58.372ms、SWA41.228ms、QKV20.007ms、两处Norm合计25.183ms。bs32活跃1573.961ms/跨度2027.532ms，其中MoE714.275ms、QKV331.458ms、SWA258.752ms。该trace以prefill工作为主，不能直接解释为纯decode占比。
 
+<!-- pagebreak -->
+
+<!-- 第2页内容 -->
+
 工程探索机制较多；以下按三个瓶颈方向叙述，而不是声称已经完成三组独立合格优化及题面累计消融。
 
 | 方向 | 实现、预期与实测 | 关闭方式 |
@@ -25,6 +31,10 @@ Torch profiler先按模型组件标注，再用固定输入微基准、AB/ABBA�
 来源：冻结ATOM已有模型、AITER kernel与HF原生Mellum数值语义；vLLM/SGLang/新版ATOM用于阅读参考。第三方kernel不主张原创。具体来源与许可证见根目录SOURCES.md，源码拆分见 `ATOM/atom/model_config/mellum_{native,fastpaths,direct_kv,fused_rope,prefix,prefill_metadata}.py`；graph接入见 `ATOM/atom/model_engine/model_runner.py`（以仓库实际路径为准）。
 
 放弃/未选：chunk2048/4096造成吞吐/TTFT退化；indexed专家、仅prefill替换等未形成满意收益；CK/Triton SWA有数值分叉；reference Norm与阶段混合能改善局部token但未达到最终90%。双份专家权重只用于诊断，不用于交付预设。未为了通过公开集改变答案或缓存生成输出。
+
+<!-- pagebreak -->
+
+<!-- 第3页内容 -->
 
 ## 3. 性能测量与累计消融缺口
 
@@ -49,6 +59,10 @@ A512、B50、C200均成功，无请求失败；C吞吐76.8348受到达率约束�
 | Step0+优化1+2+3 | 1139.7781* | 4.865ms* | 11.502 / 1025.998ms* | *仅最终实验组合，尚非已认证三点累计行；token门槛失败 |
 
 因此提交的是可运行代码、正确性回退配置和已量化的优化探索；不是宣称所有必填实验已经齐备。
+
+<!-- pagebreak -->
+
+<!-- 第4页内容 -->
 
 ## 4. 正确性、诊断与复现
 

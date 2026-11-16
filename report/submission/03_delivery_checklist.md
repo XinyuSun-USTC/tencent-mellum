@@ -5,7 +5,7 @@
 - `ATOM/`完整适配与优化源码，保留上游许可证、正常Git提交/合并历史与`step0-local-validated`标签。
 - 根目录 `start_server.sh`：保守默认/激进显式模式，独立组件关闭开关，固定环境检查及实际配置/源码哈希记录。
 - 实际交付入口两种模式均通过 GPU 加载、HTTP非流式、SSE流式与usage冒烟：`20261116T152441526820Z`，证据在`artifacts/submission/smoke/`。范围为512上下文、槽1、8输出token。
-- 技术报告 `01_technical_report.pdf`，4页；AI使用说明 `02_ai_usage.pdf`，1页。PDF英文便于无中文字体容器可靠生成；另附中文Markdown详细说明。
+- 正式文档均为可编辑中文Markdown：`01_technical_report.md`（按四页内容分段）、`02_ai_usage.md`（一页篇幅）及根目录`WORKLOG.md`。已有英文PDF仅为可选预览；修改Markdown后需重新导出、核验页数，不自动同步。
 - 根目录 `WORKLOG.md`每日摘要；`report/worklog.md`保留详细研发日志。
 - `artifacts/submission/index.json`精选原始证据、SHA256及原始路径；大张量/模型/环境不纳入普通Git。
 - `SOURCES.md`来源说明；`scripts/verify_submission.py`进行CPU交付完整性检查。
@@ -33,4 +33,4 @@
 
 ## 提交方式
 
-提交代码仓库的`release/submission`分支及最终标签，附两份PDF、README、WORKLOG与证据索引。源代码压缩包便于离线阅读；Git bundle用于保留版本历史。不要只交一个不含Git历史的源码压缩包，也不要以尚未更新的远端main作为最终版本。
+提交代码仓库的`release/submission`分支及最终标签，附技术报告和AI说明的Markdown主稿、README、WORKLOG与证据索引；如需PDF，按润色后的Markdown导出并核对页数。源代码压缩包便于离线阅读；Git bundle用于保留版本历史。不要只交一个不含Git历史的源码压缩包，也不要以尚未更新的远端main作为最终版本。
