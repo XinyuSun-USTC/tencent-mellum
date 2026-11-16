@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+最新控制：[验证42 systems完成](../report/validation/42_systems_reference_control.md)：参考数学batch1为200/长组全100%；其它快速分支均未达90%。GPU0四格矩阵进行中，空闲GPU1保留用于有效组合完整200确认。
+
 下一短对照：[48 专家/Attention最小矩阵](plan/48_core_attention_expert_diagnosis.md)，独立core-diagnosis提交29063ee，使用空闲GPU0；GPU1慢参考控制保持运行。20条固定分层仅作定位，不冒充200验收。
 
 最新诊断：[验证41 Norm恢复](../report/validation/41_norm_greedy_recovery.md)：本轮200位置65.23→66.98→71.85→72.91%，仍低于90%；暂停快速HF Norm后备，等待systems控制组定位其它因素。
