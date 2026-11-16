@@ -30,7 +30,12 @@ def install_direct_kv_rope(impl,inv,factor):
                 cached=inv.to(device=q.device,dtype=torch.float32)
                 self._mellum_gpu_inverse_frequency=cached
             frequency=cached
-        qr,kr=reference_position_rope(q,k,position,frequency,factor)
+        fused=os.getenv('MELLUM_FUSED_ROPE','0')=='1' or hasattr(self,'_mellum_fused_norms')
+        if fused:
+            from atom.model_config.mellum_fused_rope import fused_qk_rope
+            qr,kr=fused_qk_rope(q,k,position,frequency,factor,getattr(self,'_mellum_fused_norms',None))
+        else:
+            qr,kr=reference_position_rope(q,k,position,frequency,factor)
         self.use_triton_attn=(self.sliding_window!=-1 or self.head_dim!=128 or self.num_heads==self.num_kv_heads)
         asm_layout=not (self.use_triton_attn and vc.dim()!=5)
         self._cache_format='SHUFFLE' if asm_layout else 'NHD'
@@ -43,7 +48,7 @@ def install_direct_kv_rope(impl,inv,factor):
             seen=getattr(self,'_mellum_direct_kv_audited',set())
             if phase not in seen:
                 from atom.model_config.mellum_native import record
-                record('kv_write',self.layer_num,ctx,len(q),'aiter_reference_kv_once',cache_format=self._cache_format,resident_inverse=resident,inverse_device=str(frequency.device))
+                record('kv_write',self.layer_num,ctx,len(q),'aiter_reference_kv_once',cache_format=self._cache_format,resident_inverse=resident,inverse_device=str(frequency.device),rope_backend='triton_qk_norm_rope' if hasattr(self,'_mellum_fused_norms') else 'triton_rope' if fused else 'torch')
                 seen.add(phase);self._mellum_direct_kv_audited=seen
         return qr,kr,v,kc,vc,ks,vs
     impl.rope_cache=types.MethodType(direct,impl)

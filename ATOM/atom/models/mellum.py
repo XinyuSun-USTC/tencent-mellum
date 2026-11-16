@@ -158,6 +158,9 @@ class MellumAttention(nn.Module):
 
         self.q_norm = make_mellum_norm(self.head_dim, eps=rms_norm_eps)
         self.k_norm = make_mellum_norm(self.head_dim, eps=rms_norm_eps)
+        self.fused_qk_rope = os.getenv('MELLUM_FUSED_QK_ROPE','0')=='1'
+        if self.fused_qk_rope and (ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION or os.getenv('MELLUM_DIRECT_KV_WRITE')!='1'):
+            raise ValueError('Experimental QK fusion requires direct KV and disables upstream fusion')
 
         self.attn = Attention(
             self.num_heads,
@@ -173,6 +176,9 @@ class MellumAttention(nn.Module):
             q_norm=self.q_norm if ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION else None,
             k_norm=self.k_norm if ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION else None,
         )
+
+        if self.fused_qk_rope:
+            self.attn.impl._mellum_fused_norms=(self.q_norm,self.k_norm)
 
         self.kv_cache_dtype = kv_cache_dtype
         self.layer_num = layer_num
@@ -251,12 +257,13 @@ class MellumAttention(nn.Module):
             )
         else:
             # Add qk-norm (per-head)
-            q = self.q_norm(q.view(-1, self.num_heads, self.head_dim)).view(
-                -1, self.num_heads * self.head_dim
-            )
-            k = self.k_norm(k.view(-1, self.num_kv_heads, self.head_dim)).view(
-                -1, self.num_kv_heads * self.head_dim
-            )
+            if not self.fused_qk_rope:
+                q = self.q_norm(q.view(-1, self.num_heads, self.head_dim)).view(
+                    -1, self.num_heads * self.head_dim
+                )
+                k = self.k_norm(k.view(-1, self.num_kv_heads, self.head_dim)).view(
+                    -1, self.num_kv_heads * self.head_dim
+                )
 
             if getattr(self.attn.impl, '_mellum_stepwise_rope', False):
                 self.attn.impl._mellum_raw_qk = (

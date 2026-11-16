@@ -18,6 +18,7 @@ def test_sprint_isolation():
 
 
 def test_launcher_graph_only_when_explicit(tmp_path,monkeypatch):
+    monkeypatch.setattr(serve_mellum.os,'environ',dict(serve_mellum.os.environ))
     for name in ['sprint_clean','sprint_graph']:
         out=tmp_path/name
         monkeypatch.setattr(sys,'argv',['serve','--profile',name,'--batching','--prepare-only','--output',str(out)])
