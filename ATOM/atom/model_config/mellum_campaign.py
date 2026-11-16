@@ -88,6 +88,7 @@ class Campaign:
         module.forward=forward
 
     def begin(self, batch, ctx, input_ids):
+        if os.getenv('MELLUM_DECODE_META_ONCE','0')=='1':ctx._mellum_decode_host=None
         self.bounds = None; self.rows = []; self.current = {}
         if self.config.get('runtime_switch'):
             self.active=json.loads(Path(self.config['runtime_switch']).read_text())['enabled']

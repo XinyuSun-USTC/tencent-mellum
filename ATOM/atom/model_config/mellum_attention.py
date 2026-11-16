@@ -157,8 +157,11 @@ def sdpa_cached_decode(self,q,k,v,k_cache,v_cache,k_scale,v_scale,fwd_ctx):
     meta=fwd_ctx.attn_metadata
     if q.shape[0]!=1 or meta.context_lens.numel()!=1:
         raise ValueError('Diagnostic cached SDPA requires single-request single-token decode')
-    n=int(meta.context_lens[0].item())
-    if n!=int(fwd_ctx.context.positions.flatten()[-1].item())+1:
+    n=getattr(fwd_ctx,'_mellum_decode_length',None)
+    if n is None:n=int(meta.context_lens[0].item())
+    position=getattr(fwd_ctx,'_mellum_decode_position',None)
+    if position is None:position=int(fwd_ctx.context.positions.flatten()[-1].item())
+    if n!=position+1:
         raise ValueError('Decode context length and absolute position disagree')
     start=max(0,n-self.sliding_window) if self.sliding_window>0 else 0
     keys,values=gather_reference_kv(k_cache,v_cache,meta.block_tables[0],start,n,self._cache_format)

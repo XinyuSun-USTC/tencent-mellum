@@ -51,7 +51,7 @@ def prepare(out,args):
         PROJECT/'ATOM/atom/model_engine/scheduler.py',PROJECT/'ATOM/atom/entrypoints/openai/serving_chat.py',
         PROJECT/'ATOM/atom/entrypoints/openai/api_server.py',PROJECT/'scripts/mellum_execution_profiles.py',
         PROJECT/'scripts/serve_mellum.py',PROJECT/'scripts/mellum_runtime_config.py',Path(__file__).resolve()]
-    plan={'track':args.track,'gpu':args.gpu,'profile':PROFILE,'batches':args.batches,'tokens':args.tokens,
+    plan={'track':args.track,'gpu':args.gpu,'profile':args.profile,'batches':args.batches,'tokens':args.tokens,
           'observe_seconds':args.observe_seconds,'prompts':prompts,'http_prompt':rows[0]['prompt'],
           'source_sha256':{str(p):sha(p) for p in files},'external_sha256':{str(source):sha(source)},
           'scope':'Diagnostic isolated decode or live disconnect, no correctness/capacity promotion; no model math changed.'}
@@ -60,14 +60,15 @@ def prepare(out,args):
 
 def decode_worker(out):
     plan=json.loads((out/'manifest.json').read_text());current(plan)
-    env=apply_serving(plan['gpu'],out,True,'reference',True);env.update(profile_settings(PROFILE))
-    env['MELLUM_ENGINE_PHASE_AUDIT']=str(out/'engine_steps.jsonl');os.environ.update(env)
+    env=apply_serving(plan['gpu'],out,True,'reference',True);env.update(profile_settings(plan['profile']))
+    env['MELLUM_ENGINE_PHASE_AUDIT']=str(out/'engine_steps.jsonl')
+    env['MELLUM_NATIVE_AUDIT_PATH']=str(out/'native_calls.jsonl');os.environ.update(env)
     sys.path.insert(0,str(PROJECT/'ATOM'))
     from atom import SamplingParams
     from atom.model_engine.arg_utils import EngineArgs
     from atom.model_engine.mellum_service_audit import summarize_steps
     options=engine_options(16640,None);options.update(max_num_seqs=32,port=13826+100*plan['gpu'],torch_profiler_dir=None)
-    engine=None;result={'status':'started','profile':PROFILE,'options':options,'cases':[]}
+    engine=None;result={'status':'started','profile':plan['profile'],'options':options,'cases':[]}
     try:
         engine=EngineArgs(**options).create_engine()
         # Exclude one short untimed warmup; no prefix cache is enabled.
@@ -119,7 +120,7 @@ def disconnect_case(out,plan,mode):
     out.mkdir(parents=True,exist_ok=True);port=19751+plan['gpu']*100;engine_port=14926+plan['gpu']*100
     with socket.socket() as sock:
         if sock.connect_ex(('127.0.0.1',port))==0:raise RuntimeError('Refuse unowned occupied port')
-    command=[sys.executable,str(PROJECT/'scripts/serve_mellum.py'),'--gpu',str(plan['gpu']),'--batching','--profile',PROFILE,
+    command=[sys.executable,str(PROJECT/'scripts/serve_mellum.py'),'--gpu',str(plan['gpu']),'--batching','--profile',plan['profile'],
              '--max-num-seqs','32','--max-model-len','16640','--max-batched-tokens','16640','--phase-audit',
              '--server-port',str(port),'--engine-port',str(engine_port),'--output',str(out/'server')]
     proc=None;response=None;result={'mode':mode,'status':'started','server_command':command}
@@ -174,6 +175,7 @@ def disconnect_case(out,plan,mode):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--track',choices=['decode','disconnect'],required=True)
+    p.add_argument('--profile',choices=['r_expert_decode4_kv_once','r_decode_meta','r_swa_decode2','r_swa_decode4'],default=PROFILE)
     p.add_argument('--gpu',type=int,choices=[0,1],default=0);p.add_argument('--batches',type=int,nargs='+',default=[1,4,8,16,32])
     p.add_argument('--tokens',type=int,choices=[64,128,256],default=128);p.add_argument('--observe-seconds',type=int,default=15)
     p.add_argument('--budget-minutes',type=float,default=40);p.add_argument('--prepare-only',action='store_true');p.add_argument('--decode-worker',type=Path);p.add_argument('--disconnect-worker',type=Path)
@@ -200,7 +202,7 @@ def main():
             for mode in ['normal','close_after_role','close_after_token']:
                 if end-time.monotonic()<60:raise TimeoutError('Insufficient budget for another owned server')
                 target=out/mode;target.mkdir()
-                job={k:plan[k] for k in ['gpu','observe_seconds','http_prompt','source_sha256','external_sha256']};job['mode']=mode
+                job={k:plan[k] for k in ['gpu','profile','observe_seconds','http_prompt','source_sha256','external_sha256']};job['mode']=mode
                 write(target/'plan.json',job)
                 try:
                     run_stage(mode,[sys.executable,str(Path(__file__).resolve()),'--track','disconnect','--disconnect-worker',str(target)],target/'worker.log',timeout=min(420,end-time.monotonic()),allowed_exit_codes=(0,1))

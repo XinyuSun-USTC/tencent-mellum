@@ -62,15 +62,35 @@ def ragged_decode(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx):
         raise ValueError('Ragged decode requires one token per real request, no graph padding/MTP')
     positions=ctx.context.positions.flatten()
     if positions.numel()!=count:raise ValueError('Decode positions differ from request count')
-    lengths=meta.context_lens.tolist()
+    once=os.getenv('MELLUM_DECODE_META_ONCE','0')=='1'
+    if once:
+        from atom.model_config.mellum_grouped_decode import host_geometry
+        lengths,host_positions=host_geometry(ctx)
+    else:lengths=meta.context_lens.tolist();host_positions=None
     if any(n<=0 for n in lengths):raise ValueError('Invalid decode context lengths')
     audit(self,'decode',lengths)
-    if count==1:return sdpa_cached_decode(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx)
-    outputs=[]
-    for i in range(count):
+    if count==1 and not once:return sdpa_cached_decode(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx)
+    group=int(os.getenv('MELLUM_SWA_DECODE_GROUP','1'))
+    if group not in (1,2,4):raise ValueError('SWA decode groups support1/2/4')
+    eligible=(group>1 and self.sliding_window>0 and getattr(self,'_cache_format',None)=='NHD')
+    outputs=[];i=0;used=0
+    while i<count:
+        stop=min(count,i+group)
+        if eligible and stop-i>1 and all(n>=self.sliding_window for n in lengths[i:stop]):
+            from atom.model_config.mellum_grouped_decode import grouped_swa
+            outputs.append(grouped_swa(q[i:stop],k_cache,v_cache,meta.block_tables[i:stop],meta.context_lens[i:stop],self.sliding_window,self.scale))
+            used+=1;i=stop;continue
         sub=types.SimpleNamespace(attn_metadata=types.SimpleNamespace(context_lens=meta.context_lens[i:i+1],
             block_tables=meta.block_tables[i:i+1]),context=types.SimpleNamespace(positions=positions[i:i+1]))
-        outputs.append(sdpa_cached_decode(proxy(self),q[i:i+1],k[i:i+1],v[i:i+1],k_cache,v_cache,k_scale,v_scale,sub))
+        if once:sub._mellum_decode_length=lengths[i];sub._mellum_decode_position=host_positions[i]
+        outputs.append(sdpa_cached_decode(proxy(self),q[i:i+1],k[i:i+1],v[i:i+1],k_cache,v_cache,k_scale,v_scale,sub));i+=1
+    if used:
+        key=(group,count)
+        seen=getattr(self,'_mellum_grouped_decode_seen',set())
+        if key not in seen:
+            from atom.model_config.mellum_native import record
+            record('swa_decode_groups',self.layer_num,ctx,count,'torch_sdpa_grouped_swa',group_size=group,group_calls=used,window=self.sliding_window)
+            seen.add(key);self._mellum_grouped_decode_seen=seen
     return torch.cat(outputs,dim=0)
 
 
