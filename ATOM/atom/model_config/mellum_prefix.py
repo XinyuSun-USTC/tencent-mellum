@@ -11,8 +11,12 @@ def gather_direct_prefix(impl,q,k,v,kc,vc,ks,vs,ctx):
     if impl._cache_format=='SHUFFLE':
         return impl._gather_prefix_and_concat_kv(q,k,v,kc,vc,ks,vs,meta)
     from atom.model_config.mellum_attention import gather_reference_kv
+    if os.getenv('MELLUM_PREFILL_METADATA_REUSE','0')=='1':
+        from atom.model_config.mellum_prefill_metadata import geometry
+        _,lengths=geometry(ctx,len(q),int(meta.total_kv))
+    else:lengths=meta.context_lens.tolist()
     pieces=[gather_reference_kv(kc,vc,meta.block_tables[i],0,n,'NHD')
-            for i,n in enumerate(meta.context_lens.tolist())]
+            for i,n in enumerate(lengths)]
     return q,torch.cat([a for a,b in pieces]),torch.cat([b for a,b in pieces]),kc,vc,ks,vs
 
 

@@ -108,18 +108,12 @@ def native_prefill(self,q,k,v,k_cache,v_cache,k_scale,v_scale,ctx):
     import aiter
     from atom.model_config.mellum_batch import audit
     meta=ctx.attn_metadata
-    cached=bool(getattr(meta,'has_cached',False))
-    if cached and os.getenv('MELLUM_PREFIX_COMPAT','0')=='1':
-        if k.shape!=v.shape:raise ValueError('Cached K/V geometry mismatch')
-        from atom.model_config.mellum_prefix import native_prefix_geometry,audit_native_prefix
-        lengths,keys=native_prefix_geometry(meta,ctx.context.positions,len(q),len(k))
+    if k.shape!=v.shape:raise ValueError('Native K/V geometry mismatch')
+    from atom.model_config.mellum_prefill_metadata import geometry
+    lengths,keys=geometry(ctx,len(q),len(k))
+    if bool(getattr(meta,'has_cached',False)):
+        from atom.model_config.mellum_prefix import audit_native_prefix
         audit_native_prefix(self,lengths,keys)
-    else:
-        if q.shape[0]!=k.shape[0] or k.shape!=v.shape or meta.cu_seqlens_q.numel()!=meta.cu_seqlens_k.numel():
-            raise ValueError('Native Mellum prefill requires full uncached ragged Q/K/V')
-        if cached or not torch.equal(meta.cu_seqlens_q,meta.cu_seqlens_k):
-            raise ValueError('Native prefix/chunked prefill needs explicit compatibility')
-        bounds=meta.cu_seqlens_q.tolist();lengths=[b-a for a,b in zip(bounds,bounds[1:])]
     if getattr(self,'layer_num',-1)==0:audit(self,'prefill',lengths)
     window=(self.sliding_window-1,0,0) if self.sliding_window>0 else (-1,-1,0)
     output=aiter.flash_attn_varlen_func(q=q.contiguous(),k=k.contiguous(),v=v.contiguous(),

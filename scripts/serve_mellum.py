@@ -40,6 +40,9 @@ def main():
         '--max-num-batched-tokens',str(a.max_batched_tokens),'--max-num-seqs',str(a.max_num_seqs),
         '--gpu-memory-utilization','0.35','--no-enable_prefix_caching','--no-enable_chunked_prefill',
         '--default-chat-template-kwargs',json.dumps({'enable_thinking':not a.disable_thinking},separators=(',',':'))]
+    if settings.get('MELLUM_PREFILL_METADATA_REUSE')=='1':
+        settings['MELLUM_METADATA_AUDIT_PATH']=str(out/'metadata.jsonl')
+        os.environ.update(settings)
     if settings.get('MELLUM_PREFIX_COMPAT')=='1':
         settings['MELLUM_PREFIX_AUDIT_PATH']=str(out/'prefix.jsonl')
         if settings.get('MELLUM_PREFIX_ENABLED')=='1':
