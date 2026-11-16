@@ -1,0 +1,438 @@
+{
+  "status": "chunk_generation_smoke_completed",
+  "profile": "r_chunk1024_d1",
+  "settings": {
+    "MELLUM_HF_GENERATION_EXPERTS": "1",
+    "MELLUM_MOE_BACKEND": "torch",
+    "MELLUM_QKV_BACKEND": "separate",
+    "MELLUM_ROUTER_BACKEND": "torch",
+    "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+    "MELLUM_REFERENCE_KV_ROPE": "1",
+    "MELLUM_SDPA_DECODE": "1",
+    "MELLUM_STAGE_LAYER": "0",
+    "MELLUM_DECODE_LAYER_CAPTURE": "0",
+    "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "0",
+    "ATOM_ENABLE_ALLREDUCE_RMSNORM_FUSION": "0",
+    "ATOM_USE_UNIFIED_ATTN": "0",
+    "ATOM_LOADER_USE_THREADPOOL": "0",
+    "AITER_LOG_LEVEL": "WARNING",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HIP_VISIBLE_DEVICES": "0",
+    "PYTHONPATH": "/workspace/tencent-mellum-qualified-c-prefix/ATOM",
+    "MELLUM_LOAD_AUDIT_PATH": "/workspace/results/mellum_c_chunk_screen/20261116T212002619250Z/r_chunk1024_d1/smoke/loading_audit.json",
+    "MELLUM_PROFILE_LABELS": "0",
+    "ATOM_PROFILER_MORE": "0",
+    "MELLUM_REQUEST_BATCHING": "1",
+    "MELLUM_SWA_PREFILL_OPT": "0",
+    "MELLUM_SWA_PREFILL_IMPL": "ck",
+    "MELLUM_BATCH_AUDIT_PATH": "/workspace/results/mellum_c_chunk_screen/20261116T212002619250Z/r_chunk1024_d1/smoke/batches.jsonl",
+    "MELLUM_DIRECT_KV_WRITE": "1",
+    "MELLUM_ATTENTION_EXECUTION": "reference",
+    "MELLUM_BATCH_CAMPAIGN_CONFIG": "{\"decode_expert_group_size\": 4, \"groups\": \"LE\", \"moe_optimization\": \"shared_routing\", \"phases\": [\"prefill\", \"decode\"]}",
+    "MELLUM_REFERENCE_CHUNKED": "1",
+    "MELLUM_CHUNK_BUDGET": "1024",
+    "MELLUM_C_DECODE_STEPS": "1"
+  },
+  "options": {
+    "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+    "tensor_parallel_size": 1,
+    "data_parallel_size": 1,
+    "enforce_eager": true,
+    "level": 0,
+    "kv_cache_dtype": "bf16",
+    "max_model_len": 16640,
+    "max_num_batched_tokens": 1024,
+    "max_num_seqs": 32,
+    "gpu_memory_utilization": 0.35,
+    "enable_prefix_caching": false,
+    "enable_chunked_prefill": true,
+    "torch_profiler_dir": null,
+    "mark_trace": false,
+    "port": 12826
+  },
+  "stages": [
+    {
+      "name": "single_0",
+      "elapsed": 2.1320493139792234,
+      "records": [
+        {
+          "name": "humaneval_0",
+          "input_tokens": 152,
+          "actual_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            3559,
+            302,
+            2717
+          ],
+          "expected_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            3559,
+            302,
+            2717
+          ],
+          "matching_positions": 8
+        }
+      ],
+      "cached_prefill_batches": 0,
+      "cached_token_counts": []
+    },
+    {
+      "name": "single_1",
+      "elapsed": 0.6151037970557809,
+      "records": [
+        {
+          "name": "window_1023",
+          "input_tokens": 1023,
+          "actual_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "expected_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "matching_positions": 8
+        }
+      ],
+      "cached_prefill_batches": 0,
+      "cached_token_counts": []
+    },
+    {
+      "name": "single_2",
+      "elapsed": 0.7030594828538597,
+      "records": [
+        {
+          "name": "window_1025",
+          "input_tokens": 1025,
+          "actual_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "expected_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "matching_positions": 8
+        }
+      ],
+      "cached_prefill_batches": 1,
+      "cached_token_counts": [
+        [
+          1024
+        ]
+      ]
+    },
+    {
+      "name": "single_3",
+      "elapsed": 3.6448541549034417,
+      "records": [
+        {
+          "name": "long_16384",
+          "input_tokens": 16384,
+          "actual_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "expected_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "matching_positions": 8
+        }
+      ],
+      "cached_prefill_batches": 15,
+      "cached_token_counts": [
+        [
+          1024
+        ],
+        [
+          2048
+        ],
+        [
+          3072
+        ],
+        [
+          4096
+        ],
+        [
+          5120
+        ],
+        [
+          6144
+        ],
+        [
+          7168
+        ],
+        [
+          8192
+        ],
+        [
+          9216
+        ],
+        [
+          10240
+        ],
+        [
+          11264
+        ],
+        [
+          12288
+        ],
+        [
+          13312
+        ],
+        [
+          14336
+        ],
+        [
+          15360
+        ]
+      ]
+    },
+    {
+      "name": "ragged4",
+      "elapsed": 4.938127761008218,
+      "records": [
+        {
+          "name": "humaneval_0",
+          "input_tokens": 152,
+          "actual_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            3559,
+            302,
+            2717
+          ],
+          "expected_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            3559,
+            302,
+            2717
+          ],
+          "matching_positions": 8
+        },
+        {
+          "name": "window_1023",
+          "input_tokens": 1023,
+          "actual_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "expected_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "matching_positions": 8
+        },
+        {
+          "name": "window_1025",
+          "input_tokens": 1025,
+          "actual_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "expected_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "matching_positions": 8
+        },
+        {
+          "name": "long_16384",
+          "input_tokens": 16384,
+          "actual_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "expected_ids": [
+            23,
+            233,
+            2116,
+            596,
+            255,
+            99,
+            8768,
+            410
+          ],
+          "matching_positions": 8
+        }
+      ],
+      "cached_prefill_batches": 18,
+      "cached_token_counts": [
+        [
+          872,
+          0
+        ],
+        [
+          873,
+          0
+        ],
+        [
+          872
+        ],
+        [
+          1896
+        ],
+        [
+          2920
+        ],
+        [
+          3944
+        ],
+        [
+          4968
+        ],
+        [
+          5992
+        ],
+        [
+          7016
+        ],
+        [
+          8040
+        ],
+        [
+          9064
+        ],
+        [
+          10088
+        ],
+        [
+          11112
+        ],
+        [
+          12136
+        ],
+        [
+          13160
+        ],
+        [
+          14184
+        ],
+        [
+          15208
+        ],
+        [
+          16232
+        ]
+      ]
+    },
+    {
+      "name": "repeat_first",
+      "elapsed": 0.5487514971755445,
+      "records": [
+        {
+          "name": "humaneval_0",
+          "input_tokens": 152,
+          "actual_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            3559,
+            302,
+            2717
+          ],
+          "expected_ids": [
+            23,
+            233,
+            2116,
+            895,
+            333,
+            3559,
+            302,
+            2717
+          ],
+          "matching_positions": 8
+        }
+      ],
+      "cached_prefill_batches": 0,
+      "cached_token_counts": []
+    }
+  ],
+  "cached_prefill_batches": 34,
+  "accuracy_note": "Small smoke only; mismatches recorded, no official gate inferred"
+}

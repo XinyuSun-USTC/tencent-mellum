@@ -20,7 +20,7 @@
 
 - 参考组合 `r_expert_decode4_kv_once`：developer200 96.8125%，长组 256/256，16k 64/64，HumanEval 148/164 对 HF145/164，绝对差1.8293个百分点，本地通过；C200仅1/200成功。归档为 `reference_combination_acceptance/` 与 `reference_combination_c200/`。
 - 四轮配额分段：C60成功21–24/60，包含16k的小样本生成通过；没有完整候选正确性或C通过声明。见 `report/performance/38_c_chunked_prefill_screen.md`。
-- 一轮配额与前缀缓存：正在测，结果待填。CPU检查不等于GPU验收。
+- 一轮配额与前缀缓存：C60已测，分别完成2–14/60；缓存实际命中但未解决容量，小样本不替代完整正确性。
 - 旧 aggressive：已有完整ABC和缩减对照，但未通过正确性。其数据不放入新方案累计消融。
 - 旧保守r：单槽和32槽本地正确性均通过；r32容量失败。旧标签不代表当前最终候选。
 
