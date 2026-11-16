@@ -64,8 +64,9 @@ def test_primary_preset_matches_measured_acceptance(tmp_path,monkeypatch):
     launch=s.build(args('conservative'),tmp_path)
     saved=json.loads((s.PROJECT/'artifacts/submission/primary_acceptance_batch32/runtime.json').read_text())
     for key,value in saved['settings'].items():
-        if key.endswith('_PATH'):continue
+        if key.endswith('_PATH') or key=='PYTHONPATH':continue
         assert launch['settings'].get(key)==value,key
+    assert launch['settings']['PYTHONPATH']==str(s.PROJECT/'ATOM')
     assert launch['effective_max_num_seqs']==saved['engine_options']['max_num_seqs']==32
     verdict=json.loads((s.PROJECT/launch['preset']['acceptance_evidence']).read_text())
     assert verdict['status']=='local_candidate_checks_passed' and all(verdict['local_checks'].values())

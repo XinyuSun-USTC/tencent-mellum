@@ -27,11 +27,15 @@ AGREEMENT={
 CORE_PROFILES=('core_nn','core_nt','core_tn','core_tt')
 
 PHASE_PROFILES=('phase_prefill','phase_decode','expert_prefill','expert_decode')
-PROFILES=PHASE_PROFILES+CORE_PROFILES+tuple(AGREEMENT)+tuple(DERIVED)+FAST_PROFILES+('r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
+PROFILES=PHASE_PROFILES+CORE_PROFILES+tuple(AGREEMENT)+tuple(DERIVED)+FAST_PROFILES+('r_reference_kv_once','r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
 
 
 def profile_settings(name):
     if name not in PROFILES:raise ValueError('Unknown Mellum execution profile')
+    if name=='r_reference_kv_once':
+        result=profile_settings('r')
+        result['MELLUM_DIRECT_KV_WRITE']='1'
+        return result
     if name in PHASE_PROFILES:
         if name.startswith('expert_'):
             result=profile_settings('core_tn')
