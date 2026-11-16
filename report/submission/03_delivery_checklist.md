@@ -34,3 +34,11 @@
 ## 提交方式
 
 提交代码仓库的`release/submission`分支及最终标签，附技术报告和AI说明的Markdown主稿、README、WORKLOG与证据索引；如需PDF，按润色后的Markdown导出并核对页数。源代码压缩包便于离线阅读；Git bundle用于保留版本历史。不要只交一个不含Git历史的源码压缩包，也不要以尚未更新的远端main作为最终版本。
+
+离线打包命令（Git工作树须干净）：
+
+```bash
+/opt/venv/bin/python scripts/package_submission.py
+```
+
+输出在`/workspace/delivery/<时间>_<提交>/`，包含源码ZIP、保留所有本地refs历史的Git bundle、版本清单及SHA256。ZIP与bundle角色不同：前者打开即读，后者可`git clone tencent-mellum-history.bundle -b release/submission`恢复源码和历史。推理仍需题给模型与冻结容器环境。
