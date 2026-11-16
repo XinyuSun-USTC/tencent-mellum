@@ -13,7 +13,7 @@ Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目
 
 文档均为可编辑中文 Markdown。技术报告按四页内容分段，AI 说明按一页篇幅组织；实际导出页数仍需排版核验。
 
-**验收状态：尚未完全满足题目要求。** 参考计算配置在本地200条前64 token及长输入组上完全一致；优化组合的一致率为62.85%，未达到90%。正式Step0累计消融仍不完整。详细核对见[交付审查](docs/submission/02_delivery_audit.md)。
+**主交付候选采用参考计算配置，激进配置作为附加性能实验版本。** 主候选正在补跑完整验收；实测通过前仍标记为待验收。 参考计算配置在本地200条前64 token及长输入组上完全一致；优化组合的一致率为62.85%，未达到90%。正式Step0累计消融仍不完整。详细核对见[交付审查](docs/submission/02_delivery_audit.md)。
 
 ## 启动服务
 
@@ -105,3 +105,5 @@ Mellum2.1-12B-A2.5B-Thinking 的 BF16 单卡适配与性能实验，基于题目
 [交付审查与复现清单](docs/submission/02_delivery_audit.md) · [实现来源与许可证](docs/submission/01_sources_and_licenses.md) · [实验依据索引](artifacts/submission/index.json) · [内部研发文档](docs/README.md)
 
 `docs/`与`report/`中的方案、研究和逐轮诊断用于追溯开发过程，不属于正式报告正文。模型权重、虚拟环境及大型张量输出不纳入普通Git。
+
+主版本的完整正确性验收、同配置性能和历史Step0累计补测，见[补充实验安排](docs/submission/03_completion_experiments.md)。
