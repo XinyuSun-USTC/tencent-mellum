@@ -62,3 +62,5 @@ GPU1批量投影运行期间，GPU0待运行：[32 原生prefix完整功能评�
 GPU1下一项：[33 整批投影完整功能评估](plan/33_batched_projection_functional_gpu1.md)，独立batched-functional，复用HF，22项CPU检查和真实引用prepare通过；性能结果见报告31。
 
 新增功能证据：[性能32](../report/performance/32_native_prefix_humaneval.md)，原生prefix组合147/164达到本地2pp门槛；整批投影配置的功能评估按计划33独立执行。
+
+整批投影功能结果：[性能33](../report/performance/33_batched_projection_humaneval.md)。149/164高于HF145/164；因绝对差2.439pp，原2pp脚本False，不能写成严格绝对差已通过。保留高性能候选，下一步prefix整合与最终复测。

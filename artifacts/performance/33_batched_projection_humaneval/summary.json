@@ -1,0 +1,89 @@
+{
+  "status": "paired_functional_evaluation_complete",
+  "protocol": "Local paired chat/full-code extraction protocol, official HumanEval scorer; not asserted judge-identical",
+  "reused_hf": "/workspace/results/mellum_humaneval_recovery/20261115T213706098181Z",
+  "generation_stages": {
+    "candidate": {
+      "returncode": 0,
+      "completed": true
+    }
+  },
+  "hf_extraction": {
+    "failures": 5,
+    "budget_hits": 4,
+    "output_tokens": 54436
+  },
+  "candidate_extraction": {
+    "failures": 3,
+    "budget_hits": 3,
+    "output_tokens": 51329
+  },
+  "passed_tasks": {
+    "hf": 145,
+    "candidate": 149
+  },
+  "pass_at_1": {
+    "hf": 0.8841463414634146,
+    "candidate": 0.9085365853658537
+  },
+  "absolute_difference_pp": 2.4390243902439024,
+  "candidate_gains": 6,
+  "candidate_losses": 2,
+  "bf16_2pp_local_check": false,
+  "changed_tasks": [
+    {
+      "task_id": "HumanEval/57",
+      "hf": true,
+      "candidate": false
+    },
+    {
+      "task_id": "HumanEval/67",
+      "hf": false,
+      "candidate": true
+    },
+    {
+      "task_id": "HumanEval/75",
+      "hf": false,
+      "candidate": true
+    },
+    {
+      "task_id": "HumanEval/99",
+      "hf": false,
+      "candidate": true
+    },
+    {
+      "task_id": "HumanEval/129",
+      "hf": false,
+      "candidate": true
+    },
+    {
+      "task_id": "HumanEval/130",
+      "hf": false,
+      "candidate": true
+    },
+    {
+      "task_id": "HumanEval/134",
+      "hf": true,
+      "candidate": false
+    },
+    {
+      "task_id": "HumanEval/159",
+      "hf": false,
+      "candidate": true
+    }
+  ],
+  "candidate_configuration": {
+    "gpu": 1,
+    "attention": "native",
+    "moe": "fused_torch_route",
+    "batched_projections": true,
+    "prefix_caching": false
+  },
+  "exact_full_sequences": 87,
+  "interpretation_notes": [
+    "Token differences do not gate functional scoring; public200 and16k remain independent requirements",
+    "Local thinking/prompt/extraction/budget protocol; compare truncation and reference quality before interpreting pass@1",
+    "Single generation per task; no repeated-run reliability claim for nondeterministic candidate"
+  ],
+  "source_unchanged": true
+}
