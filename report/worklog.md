@@ -156,3 +156,5 @@
 - GPU1 native-batched运行期间，独立prefix-functional提交990f38a补原生prefix组合的完整HumanEval入口：候选固定GPU0/9126、164题、关闭thinking/2048、复用HF，记录实际缓存命中；10项CPU检查和真实引用/源码hash prepare核验通过，GPU待终端执行。并行只读研究07定位Graph/CPU后续边界：空campaign触发eager guard、参考K动态布尔索引、重复RoPE/KV写入、审计tolist先求值；未改GPU1运行源码，不预先宣称新收益。
 
 - GPU1整批投影20261116T043117581045Z完成，84产物/源码核验，与性能26模型源码内容及输入完全相同；A64全成功439.6727tokens/s、TPOT p99 0.05862秒，约原生L控制组合3.62倍；C20全成功、TPOT p99 0.08037秒。性能31归档。独立batched-functional扩展功能入口--batched-projections，GPU1/8626复用HF164，22项CPU检查与真实输入/引用hash通过，GPU待终端；GPU0 prefix-functional保持不变。
+
+- GPU0 prefix HumanEval 20261116T044507881892Z完成：147/164=89.6341%，对HF145/164差1.2195pp，本地功能门槛通过。预算截断/提取失败双方4/5，均保留164分母；独立核验官方逐题/score、HF复用、源码/5631加载及128次native cached事件、132请求/2128token命中。性能32归档。此次仍groups=L，不能赋给整批投影候选；用户同时回传043117是已归档性能31，不作为新一轮实验。下一步仍计划33整批投影功能结果。
