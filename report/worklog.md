@@ -170,3 +170,5 @@
 - 根据研究08重排优先级，交付独立fastpaths分支68a4086/计划35：默认保留reference，新增113处Norm工厂切换原ATOM RMSNorm、既有packed QKV、GPU inverse-frequency驻留及组合profile；实际构造类/投影属性/驻留device单独审计。GPU0短bs1/32 trace及基线/驻留HTTP，GPU1基线/Norm/packed/组合四项HTTP；一次准备复用只读输入、独立失败保留，组件失败跳过组合，不重跑HF/完整ABC。90项相关CPU检查、py_compile/diff、真实两track prepare及全部job源码/输入/客户端指纹通过。未运行GPU、未升级依赖/修改既有装饰模型；Graph后移至基础路径实测后再决定。
 
 - 核对原始题目第2、6–8页与当前仓库，形成计划36：保留真实非squash历史，后续独立集成交付版本；当前main/缓存远端仍为Step0、实验分散分支，缺统一启动入口、最终消融及4页报告/1页AI说明。明确完整ABC与开发缩减负载、最终组合与组件证据的边界，更新陈旧首页状态。本轮仅文档审计，未改运行代码、合并分支或推送。
+
+- 基础快路径两批结果核验532项哈希/5631加载完整，GPU1组合A64达到625.616tokens/s，较同卡507.7752提升23.2%；C20 TPOT/TTFT p99为57.912ms/1.02807s。按用户要求暂停逐项完整正确性，独立sprint提交3f81b6d实现空观察器移除、既有decode Graph接入与实际replay回执、原生路由及Packed消融；27项CPU检查通过，准备两卡A64/C20批量实验。未运行GPU或预先宣称新收益。

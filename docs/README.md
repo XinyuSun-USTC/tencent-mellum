@@ -4,6 +4,8 @@
 
 ## 当前阅读入口
 
+当前实验：[37 连续优化批次](plan/37_optimization_sprint.md)，独立sprint分支3f81b6d：GPU0空观察器移除/decode Graph，GPU1Packed消融/原生路由，集中性能筛选，完整正确性留最终组合。
+
 交付收敛：[36 提交与版本验收](plan/36_submission_and_version_acceptance.md)：核对原题Git历史、单命令server、≤4页报告、消融、AI说明与WORKLOG要求，区分最终提交缺口与内部整理建议。
 
 当前工作：[35 基础快路径优先](plan/35_basic_fastpaths_first.md)。独立fastpaths提交68a4086：GPU0短trace/常量驻留，GPU1融合Norm/packed QKV/组合，90项CPU检查及两track真实数据准备通过，待GPU终端运行。
