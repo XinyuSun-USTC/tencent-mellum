@@ -1,6 +1,6 @@
 # 工作日志
 
-按自然日归纳，每天一个简要条目。日期依据既有日志、对话和结果目录的UTC运行ID；D0/D1是旧研究批次，不自动等于不同工作日。重构前全部追加记录已[保存快照](archive/step0_document_snapshots/report/worklog.md)，SHA256见[清单](archive/step0_document_snapshots/manifest.json)。当前有据可补日期为2026-11-10至13，不补造更早日期、时刻或提交；D1–D7映射待考核起始日确认。
+按自然日归纳，每天一个简要条目。日期依据既有日志、对话和结果目录的UTC运行ID；D0/D1是旧研究批次，不自动等于不同工作日。重构前全部追加记录已[保存快照](archive/step0_document_snapshots/report/worklog.md)，SHA256见[清单](archive/step0_document_snapshots/manifest.json)。当前有据可补日期为2026-11-10至16，不补造更早日期、时刻或提交；D1–D7映射待考核起始日确认。
 
 ## 2026-11-10
 
@@ -144,3 +144,7 @@
 - GPU1原生组合20261115T231450301731Z完成，smoke/A64/C20全成功；A121.4966tokens/s，约SWA组合2.04倍；C TTFT/TPOT p99 1.7263/0.13478秒。审计aiter_varlen/paged_attention_triton与FusedMoE、同输入/产物/源码，归档性能26。独立native-functional工作区开发仅GPU1复用HF的完整HumanEval入口，8项CPU检查；GPU0 prefix继续，未改其源码。
 
 - GPU0 prefix HTTP 20261115T231925241791Z完成：A64/C20全成功，C19/20命中72352token，TTFT p99 19.5069秒、TPOT p99 0.41837，A57.0946tokens/s。核验输入、源码、产物与真实命中，归档性能27；用户同时回传的231450原生Attention是已分析批次，不算重复实验或HumanEval完成。下一主线仍原生组合功能评估，后续prefix接原生路径。
+
+## 2026-11-16
+
+- 原生Attention+FusedMoE完整HumanEval 20261116T010456387933Z完成：候选144/164=87.8049%，复用HF145/164=88.4146%，绝对差0.60976pp，本地2pp检查通过；增2失3，预算截断4/5、提取失败5/6，均保留164分母。核验双方逐题/评分、原参考相同、源码和5631加载；124次原生prefill/2926次paged decode确认路径。性能28归档，结合性能26保留高速主线，下一步prefix与原生Attention整合，不追加无界token对齐诊断。

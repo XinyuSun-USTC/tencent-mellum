@@ -125,3 +125,5 @@
 - [26 FusedMoE+原生Attention HTTP](performance/26_native_attention_http.md)：A64 121.50tokens/s，C20 TTFT/TPOT p99 1.726秒/0.13478秒，进入复用HF的完整功能评估。
 
 - [27 FusedMoE+prefix HTTP](performance/27_prefix_http.md)：C20 19/20命中、复用72352token，TTFT p99 19.51秒；有效但弱于原生Attention主线。
+
+- [28 原生Attention+FusedMoE HumanEval](performance/28_native_attention_humaneval.md)：144/164，对HF145/164，差0.6098pp；本地功能门槛通过，作为性能主线继续推进。
