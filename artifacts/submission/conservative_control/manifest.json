@@ -1,0 +1,38 @@
+{
+  "track": "systems",
+  "jobs": {
+    "sprint_graph_qk_router_prefix_metadata": {
+      "profile": "sprint_graph_qk_router_prefix_metadata",
+      "batch": 32,
+      "plan_sha256": "17eecda4348ae1d7b5217c3a8041358bbe05355c9b14c58c5393b548620d6483"
+    },
+    "agree_no_prefix": {
+      "profile": "agree_no_prefix",
+      "batch": 32,
+      "plan_sha256": "8dfcc44c3014419d3821f9dc957bb28345ae853b9b5b1cf67595b836144718f0"
+    },
+    "agree_route": {
+      "profile": "agree_route",
+      "batch": 32,
+      "plan_sha256": "88ab2f7373269dcddb7574903e5faf0df284a30510018ecd2774f1f1a34c3eae"
+    },
+    "agree_projection": {
+      "profile": "agree_projection",
+      "batch": 32,
+      "plan_sha256": "1993e4752a240a9871682afb9ee21bc50daf30d4dd0e7b3473e84c3e2f765214"
+    },
+    "single": {
+      "profile": "sprint_graph_qk_router_prefix_metadata",
+      "batch": 1,
+      "plan_sha256": "c8235070922be8eb2adf8fe780614006caf3c475bf986e9f0f6c66755cb26af8"
+    },
+    "reference_control": {
+      "profile": "r",
+      "batch": 1,
+      "plan_sha256": "f372e8144fcfaffdac44dc4bf062ffd19b6b6a1dea6a46b6a2ea85eae84fa9e2"
+    }
+  },
+  "source": "/workspace/tencent-mellum-agreement/scripts/run_mellum_greedy_recovery.py",
+  "source_sha256": "71bf324dfa82caa24953f9ce32c25a7e988700dd11d6b823e502acdc6aab9b8c",
+  "scope": "Greedy200 and long regression only; no HE or throughput acceptance"
+}

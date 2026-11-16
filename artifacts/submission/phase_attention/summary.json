@@ -1,0 +1,396 @@
+{
+  "status": "diagnostic_complete",
+  "scope": "20 fixed length/source-stratified diagnostics, not public200 acceptance",
+  "jobs": {
+    "phase_prefill": {
+      "status": "complete",
+      "tokens": {
+        "all": {
+          "records": 20,
+          "matching_positions": 943,
+          "compared_positions": 1280,
+          "position_match_fraction": 0.73671875,
+          "exact_sequences": 11,
+          "at_least_90_percent": false
+        },
+        "16k": {
+          "records": 0,
+          "matching_positions": 0,
+          "compared_positions": 0,
+          "position_match_fraction": null,
+          "exact_sequences": 0,
+          "at_least_90_percent": false
+        },
+        "records": [
+          {
+            "name": "humaneval_3",
+            "input_tokens": 145,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_10",
+            "input_tokens": 175,
+            "compared_positions": 64,
+            "matching_positions": 60,
+            "exact": false
+          },
+          {
+            "name": "humaneval_13",
+            "input_tokens": 97,
+            "compared_positions": 64,
+            "matching_positions": 7,
+            "exact": false
+          },
+          {
+            "name": "humaneval_23",
+            "input_tokens": 63,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_35",
+            "input_tokens": 111,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_95",
+            "input_tokens": 213,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_99",
+            "input_tokens": 191,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_108",
+            "input_tokens": 157,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_121",
+            "input_tokens": 124,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_129",
+            "input_tokens": 446,
+            "compared_positions": 64,
+            "matching_positions": 21,
+            "exact": false
+          },
+          {
+            "name": "humaneval_130",
+            "input_tokens": 276,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_157",
+            "input_tokens": 139,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "scenario_a_3",
+            "input_tokens": 1582,
+            "compared_positions": 64,
+            "matching_positions": 11,
+            "exact": false
+          },
+          {
+            "name": "scenario_a_5",
+            "input_tokens": 3515,
+            "compared_positions": 64,
+            "matching_positions": 50,
+            "exact": false
+          },
+          {
+            "name": "scenario_a_6",
+            "input_tokens": 874,
+            "compared_positions": 64,
+            "matching_positions": 25,
+            "exact": false
+          },
+          {
+            "name": "scenario_a_10",
+            "input_tokens": 2390,
+            "compared_positions": 64,
+            "matching_positions": 12,
+            "exact": false
+          },
+          {
+            "name": "scenario_a_11",
+            "input_tokens": 1133,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "scenario_a_15",
+            "input_tokens": 4113,
+            "compared_positions": 64,
+            "matching_positions": 46,
+            "exact": false
+          },
+          {
+            "name": "scenario_a_26",
+            "input_tokens": 3843,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "scenario_a_28",
+            "input_tokens": 3027,
+            "compared_positions": 64,
+            "matching_positions": 7,
+            "exact": false
+          }
+        ]
+      },
+      "backend_audit": {
+        "norm_backend": "reference",
+        "moe_classes": {
+          "MellumSparseMoeBlock": 28
+        },
+        "prefill_functions": {
+          "native_prefill": 28
+        },
+        "norm_classes": {
+          "MellumRMSNorm": 113
+        },
+        "norm_count": 113,
+        "qkv_backend": "separate",
+        "qkv_count": 28,
+        "separate_qkv_count": 28,
+        "resident_inverse_frequency": true
+      }
+    },
+    "phase_decode": {
+      "status": "complete",
+      "tokens": {
+        "all": {
+          "records": 20,
+          "matching_positions": 1007,
+          "compared_positions": 1280,
+          "position_match_fraction": 0.78671875,
+          "exact_sequences": 12,
+          "at_least_90_percent": false
+        },
+        "16k": {
+          "records": 0,
+          "matching_positions": 0,
+          "compared_positions": 0,
+          "position_match_fraction": null,
+          "exact_sequences": 0,
+          "at_least_90_percent": false
+        },
+        "records": [
+          {
+            "name": "humaneval_3",
+            "input_tokens": 145,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_10",
+            "input_tokens": 175,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_13",
+            "input_tokens": 97,
+            "compared_positions": 64,
+            "matching_positions": 12,
+            "exact": false
+          },
+          {
+            "name": "humaneval_23",
+            "input_tokens": 63,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_35",
+            "input_tokens": 111,
+            "compared_positions": 64,
+            "matching_positions": 16,
+            "exact": false
+          },
+          {
+            "name": "humaneval_95",
+            "input_tokens": 213,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_99",
+            "input_tokens": 191,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_108",
+            "input_tokens": 157,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_121",
+            "input_tokens": 124,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_129",
+            "input_tokens": 446,
+            "compared_positions": 64,
+            "matching_positions": 45,
+            "exact": false
+          },
+          {
+            "name": "humaneval_130",
+            "input_tokens": 276,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "humaneval_157",
+            "input_tokens": 139,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "scenario_a_3",
+            "input_tokens": 1582,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "scenario_a_5",
+            "input_tokens": 3515,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "scenario_a_6",
+            "input_tokens": 874,
+            "compared_positions": 64,
+            "matching_positions": 24,
+            "exact": false
+          },
+          {
+            "name": "scenario_a_10",
+            "input_tokens": 2390,
+            "compared_positions": 64,
+            "matching_positions": 19,
+            "exact": false
+          },
+          {
+            "name": "scenario_a_11",
+            "input_tokens": 1133,
+            "compared_positions": 64,
+            "matching_positions": 64,
+            "exact": true
+          },
+          {
+            "name": "scenario_a_15",
+            "input_tokens": 4113,
+            "compared_positions": 64,
+            "matching_positions": 46,
+            "exact": false
+          },
+          {
+            "name": "scenario_a_26",
+            "input_tokens": 3843,
+            "compared_positions": 64,
+            "matching_positions": 51,
+            "exact": false
+          },
+          {
+            "name": "scenario_a_28",
+            "input_tokens": 3027,
+            "compared_positions": 64,
+            "matching_positions": 26,
+            "exact": false
+          }
+        ]
+      },
+      "backend_audit": {
+        "norm_backend": "reference",
+        "moe_classes": {
+          "MellumSparseMoeBlock": 28
+        },
+        "prefill_functions": {
+          "ragged_prefill": 28
+        },
+        "norm_classes": {
+          "MellumRMSNorm": 113
+        },
+        "norm_count": 113,
+        "qkv_backend": "separate",
+        "qkv_count": 28,
+        "separate_qkv_count": 28,
+        "resident_inverse_frequency": true
+      }
+    }
+  },
+  "source_unchanged": true,
+  "artifact_sha256": {
+    "manifest.json": "fa162d4bd52aeb40654806be6628b6b0ce625c62c7ec5c57e30922868ec9993c",
+    "phase_prefill/batch_evidence.json": "c248998177060f6b0675ac4354e34d939c54519bb776970cf8d61ec081b47fef",
+    "phase_prefill/worker.log": "db46999da289f711f1c5aabd2b11ffaaebcbd2673c2cfa8f816971c57854326a",
+    "phase_prefill/tokens_generation.json": "23fa10b1f0d72160594dbce021c7ed286563bd20152fc35f6ff82e96ee242fb5",
+    "phase_prefill/manifest.json": "30ac9deb1c926cc789f8d000fa0781f77805f473c586b2227b3f87d912d5d355",
+    "phase_prefill/diagnostic_reference.json": "2d88e3da30de508182d18b341f46de428ff1d384a9029a18915b13217cef7901",
+    "phase_prefill/humaneval_inputs.json": "98c20e3eb6d1f0aad08da7c535180c5281c961859888019de1a52848163e88fc",
+    "phase_prefill/runtime.json": "51292e930f377b7476e1b76be42ee3a68c1f3c97d96c3fdb87f9a776c2442504",
+    "phase_prefill/tokens_inputs.json": "efbc9938b333695791c03024a3092376d6854ed2d30fc1767c2aecffa43b3264",
+    "phase_prefill/long_inputs.json": "ea3722a51858c99a6cca806b5c1c33d122cfa5421ccc20e22758f9024f5c3a78",
+    "phase_decode/batch_evidence.json": "c248998177060f6b0675ac4354e34d939c54519bb776970cf8d61ec081b47fef",
+    "phase_decode/worker.log": "4e747d35df6a35e66e8feeb7d126f1302fbc818eace2263da27a48e55db5c812",
+    "phase_decode/tokens_generation.json": "4dbcdbd2669e32a8ecb8091c874b9331ce5ae228e89dd325032876e77c551a8d",
+    "phase_decode/manifest.json": "99ef46beed6c3e611d39c60f28622336d65529f85205c8d771ee55a134bfe6b2",
+    "phase_decode/diagnostic_reference.json": "2d88e3da30de508182d18b341f46de428ff1d384a9029a18915b13217cef7901",
+    "phase_decode/humaneval_inputs.json": "98c20e3eb6d1f0aad08da7c535180c5281c961859888019de1a52848163e88fc",
+    "phase_decode/runtime.json": "585bdcc7dc5cc5096fd707969e3e22fe2c38c4e823c6832f2784a784ea3520e4",
+    "phase_decode/tokens_inputs.json": "efbc9938b333695791c03024a3092376d6854ed2d30fc1767c2aecffa43b3264",
+    "phase_decode/long_inputs.json": "ea3722a51858c99a6cca806b5c1c33d122cfa5421ccc20e22758f9024f5c3a78",
+    "phase_prefill/candidate/batches.jsonl": "5e486578840d86a2dce922a8dfdf86dba0eae920a986474ab6ab19961d4acaee",
+    "phase_prefill/candidate/fastpaths.json": "28fb07f49d88de2c52a4c3a1fd3ce210224811723e9dcfd3cf452033be117a7d",
+    "phase_prefill/candidate/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "phase_prefill/candidate/native_calls.jsonl": "eb5e21ece84dcdb557b3c3f198490009b4a5f211c142bf79c51bc752552f2c51",
+    "phase_decode/candidate/batches.jsonl": "5e486578840d86a2dce922a8dfdf86dba0eae920a986474ab6ab19961d4acaee",
+    "phase_decode/candidate/fastpaths.json": "30a48d6c98a8498076c68805b68a948298355af1683988be3be6c43ccae937d5",
+    "phase_decode/candidate/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "phase_decode/candidate/native_calls.jsonl": "c70c11f6473e871d1b63b91410232b32d8280963dea801b27d7ecd08bce7d79b"
+  }
+}

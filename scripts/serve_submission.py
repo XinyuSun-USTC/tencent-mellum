@@ -19,8 +19,12 @@ def build(args,out):
     settings.update(profile_settings(preset['profile']))
     for flag,key,value in [('disable_graph','MELLUM_DECODE_GRAPH','0'),('disable_qk_fusion','MELLUM_FUSED_QK_ROPE','0'),
         ('disable_native_routing','MELLUM_NATIVE_ROUTING','0'),('disable_prefix','MELLUM_PREFIX_ENABLED','0'),
-        ('disable_metadata_reuse','MELLUM_PREFILL_METADATA_REUSE','0'),('separate_qkv','MELLUM_QKV_BACKEND','separate')]:
+        ('disable_metadata_reuse','MELLUM_PREFILL_METADATA_REUSE','0'),('separate_qkv','MELLUM_QKV_BACKEND','separate'),
+        ('disable_native_moe','MELLUM_MOE_BACKEND','torch'),('reference_norm','MELLUM_NORM_BACKEND','reference'),
+        ('disable_direct_kv','MELLUM_DIRECT_KV_WRITE','0'),('disable_resident_rope','MELLUM_RESIDENT_ROPE','0')]:
         if getattr(args,flag):settings[key]=value
+    if args.disable_native_attention:
+        settings.update(MELLUM_ATTENTION_EXECUTION='reference',MELLUM_SDPA_DECODE='1',MELLUM_REQUEST_BATCHING='1',MELLUM_DIRECT_KV_WRITE='0')
     settings['MELLUM_FASTPATH_AUDIT_PATH']=str(out/'fastpaths.json')
     if args.audit:
         settings.update(MELLUM_NATIVE_AUDIT_PATH=str(out/'native_calls.jsonl'),MELLUM_GRAPH_AUDIT_PATH=str(out/'graph_replays.jsonl'),
@@ -36,7 +40,7 @@ def build(args,out):
     source=[PROJECT/'scripts/serve_submission.py',PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'scripts/mellum_runtime_config.py',
         PROJECT/'configs/submission'/f'{args.mode}.json',PROJECT/'ATOM/atom/models/mellum.py']
     return {'mode':args.mode,'preset':preset,'versions':versions,'settings':settings,'command':command,
-        'declared_gpus':1,'effective_max_num_seqs':seq,'component_overrides':[f for f in ['disable_graph','disable_qk_fusion','disable_native_routing','disable_prefix','disable_metadata_reuse','separate_qkv'] if getattr(args,f)],
+        'declared_gpus':1,'effective_max_num_seqs':seq,'component_overrides':[f for f in ['disable_graph','disable_qk_fusion','disable_native_routing','disable_prefix','disable_metadata_reuse','separate_qkv','disable_native_moe','disable_native_attention','reference_norm','disable_direct_kv','disable_resident_rope'] if getattr(args,f)],
         'source_sha256':{str(p.relative_to(PROJECT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in source},
         'note':'Mode selects a documented runtime policy; it is not Step0 or an optimization-point claim. Accuracy and speed results must use the same effective configuration.'}
 
@@ -48,7 +52,7 @@ def main():
     p.add_argument('--engine-port',type=int,default=8026);p.add_argument('--max-num-seqs',type=int)
     p.add_argument('--max-model-len',type=int);p.add_argument('--max-batched-tokens',type=int)
     p.add_argument('--audit',action='store_true');p.add_argument('--dry-run',action='store_true');p.add_argument('--output',type=Path)
-    for f in ['disable-graph','disable-qk-fusion','disable-native-routing','disable-prefix','disable-metadata-reuse','separate-qkv']:p.add_argument('--'+f,action='store_true')
+    for f in ['disable-graph','disable-qk-fusion','disable-native-routing','disable-prefix','disable-metadata-reuse','separate-qkv','disable-native-moe','disable-native-attention','reference-norm','disable-direct-kv','disable-resident-rope']:p.add_argument('--'+f,action='store_true')
     args=p.parse_args()
     if not 1<=args.port<=65535 or not 1<=args.engine_port<=65535 or args.port==args.engine_port:p.error('Distinct valid HTTP and engine ports required')
     out=args.output or PROJECT/'results/submission_server'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')

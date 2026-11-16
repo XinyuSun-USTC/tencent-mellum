@@ -7,14 +7,23 @@ from mellum_execution_profiles import PROFILES,profile_settings
 
 @pytest.mark.parametrize('name',PROFILES)
 def test_profiles_preserve_required_model_semantics_and_do_not_split_fused_experts(name):
-    env=profile_settings(name);cfg=json.loads(env['MELLUM_BATCH_CAMPAIGN_CONFIG'])
-    if env['MELLUM_MOE_BACKEND']!='torch':assert cfg['groups']==('' if name in ('fused_moe_native_batched','fused_moe_native_batched_direct_kv') or name.startswith('fast_') else 'L') and 'moe_optimization' not in cfg
-    else:assert cfg['groups']=='LE' and cfg['moe_optimization']=='shared_routing'
+    env=profile_settings(name)
+    # New native profiles deliberately disable the legacy campaign controller.
+    # Preserve the original safety property: fused experts must not be split by E.
+    raw=env['MELLUM_BATCH_CAMPAIGN_CONFIG'];cfg=json.loads(raw) if raw else {}
+    if env['MELLUM_MOE_BACKEND']!='torch':
+        assert 'E' not in cfg.get('groups','') and 'moe_optimization' not in cfg
+    elif cfg:
+        assert cfg['groups']=='LE' and cfg['moe_optimization']=='shared_routing'
     assert env['MELLUM_REFERENCE_KV_ROPE']=='1' and env['MELLUM_PREFILL_BACKEND']=='sdpa_cpu_rope_diagnostic'
     if env['MELLUM_ATTENTION_EXECUTION']=='native':
         assert env['MELLUM_SDPA_DECODE']=='0' and env['MELLUM_REQUEST_BATCHING']=='0'
         assert env['MELLUM_SWA_PREFILL_OPT']=='0'
-    else:assert env['MELLUM_SDPA_DECODE']==env['MELLUM_REQUEST_BATCHING']=='1'
+    elif env['MELLUM_ATTENTION_EXECUTION']=='reference':
+        assert env['MELLUM_SDPA_DECODE']==env['MELLUM_REQUEST_BATCHING']=='1'
+    else:
+        assert env['MELLUM_ATTENTION_EXECUTION'] in ('native_prefill','native_decode')
+        assert env['MELLUM_QKV_BACKEND']=='separate' and env['MELLUM_DECODE_GRAPH']=='0'
 
 
 def test_launcher_profile_prepare_records_exact_environment_and_no_GPU_import(tmp_path):
