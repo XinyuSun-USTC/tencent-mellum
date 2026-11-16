@@ -22,7 +22,8 @@
     "reference_combination_acceptance": "/workspace/results/mellum_qualified_followup/20261116T200506565898Z_acceptance_r_expert_decode4_kv_once",
     "reference_combination_c200": "/workspace/results/mellum_qualified_followup/20261116T201220092629Z_capacity_r_expert_decode4_kv_once",
     "c_chunk512_1024_screen": "/workspace/results/mellum_c_chunk_screen/20261116T204832193530Z",
-    "c_control_2048_screen": "/workspace/results/mellum_c_chunk_screen/20261116T204837799320Z"
+    "c_control_2048_screen": "/workspace/results/mellum_c_chunk_screen/20261116T204837799320Z",
+    "reference_profiling": "/workspace/results/mellum_profile_study/20261113T190525160560Z"
   },
   "files": {
     "artifacts/submission/aggressive_abc/manifest.json": {
@@ -5864,6 +5865,48 @@
       "sha256": "b741f3a0060295b1516e515e2ed4c552d021161011c3a9995c6000abcbc9e142",
       "bytes": 184469,
       "original": "/workspace/results/mellum_c_chunk_screen/20261116T204837799320Z/template/manifest.json"
+    },
+    "artifacts/submission/reference_profiling/ctx_1024.pt.trace.json.gz": {
+      "sha256": "e15f3644d6511eef247ad14003300d9bd7a8eadd53cc098ce43de5056c976da1",
+      "bytes": 11743416,
+      "original": "/workspace/results/mellum_profile_study/20261113T190525160560Z/trace/traces/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261113_193234_945.pt.trace.json.gz",
+      "kind": "original_trace"
+    },
+    "artifacts/submission/reference_profiling/ctx_16384_analysis.json": {
+      "sha256": "b07f952193c1f08626a08e422250ec7515f3ddbe51f76df2f8548906b18cd559",
+      "bytes": 59490,
+      "original": "/workspace/tencent-mellum-delivery-final/artifacts/performance/02_expanded_profile/trace/ctx_16384_analysis.json",
+      "kind": "original_analysis_copy"
+    },
+    "artifacts/submission/reference_profiling/phase_attribution.png": {
+      "sha256": "f446acf71ae7a365275f2a8fc64b73f92ae7971f03955812bf0a9394af8ea802",
+      "bytes": 60365,
+      "original": "/workspace/tencent-mellum-delivery-final/artifacts/submission/reference_profiling/phase_attribution.png",
+      "kind": "derived_evidence"
+    },
+    "artifacts/submission/reference_profiling/ctx_1024_analysis.json": {
+      "sha256": "4d9e8a3652f4069617fcc2f1ca67d6e81dadfeb1889c045c1fe3b5f0397020a1",
+      "bytes": 61596,
+      "original": "/workspace/tencent-mellum-delivery-final/artifacts/performance/02_expanded_profile/trace/ctx_1024_analysis.json",
+      "kind": "original_analysis_copy"
+    },
+    "artifacts/submission/reference_profiling/ctx_16384.pt.trace.json.gz": {
+      "sha256": "32833981431cabadb01eb87fe6159a6af540c7bbb1e2688413274130dc427494",
+      "bytes": 11823029,
+      "original": "/workspace/results/mellum_profile_study/20261113T190525160560Z/trace/traces/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261113_193338_284.pt.trace.json.gz",
+      "kind": "original_trace"
+    },
+    "artifacts/submission/reference_profiling/manifest.json": {
+      "sha256": "e05d893e31e2e812cc1995bfd4d599e5bb852e955824afc4191dc37a7636de66",
+      "bytes": 5259,
+      "original": "/workspace/tencent-mellum-delivery-final/artifacts/submission/reference_profiling/manifest.json",
+      "kind": "derived_evidence"
+    },
+    "artifacts/submission/reference_profiling/phase_attribution.svg": {
+      "sha256": "7307842426a4e1c4b0d166529efad0ede22ffcd52e56d9eee87399d75d3678d2",
+      "bytes": 56470,
+      "original": "/workspace/tencent-mellum-delivery-final/artifacts/submission/reference_profiling/phase_attribution.svg",
+      "kind": "derived_evidence"
     }
   }
 }

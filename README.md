@@ -61,6 +61,10 @@
 
 - [当前补测与集成计划](docs/submission/03_completion_experiments.md)
 - [实验与证据索引](artifacts/submission/index.json)
+- [Profiling 原始证据与阅读说明](docs/submission/06_profiling_evidence.md)
+- [选点、失败与转向记录](docs/submission/07_optimization_decisions.md)
+- [预期收益、实测与消融台账](docs/submission/08_estimates_and_ablation.md)
+- [AI 协作纠错案例](docs/submission/09_ai_collaboration_cases.md)
 - [当前内部文档导航](docs/README.md)
 - [来源与许可证](docs/submission/01_sources_and_licenses.md)
 - [题目原件](docs/requirements/2026%20CSIG云一计算加速团队实习校招面试题.pdf)

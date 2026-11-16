@@ -14,4 +14,6 @@
 
 关键版本：`step0-local-validated` 保存原始 Step0；`6ddec3c` 为参考组合筛查实现；`6730362` 为四轮配额分段实现；`e4b4909` 为一轮配额与前缀缓存实验。`d9bf584` 保存候选交付入口的 CPU 集成准备，不代表 GPU 验收或正式默认配置已升级。
 
+面试备查新增[Profiling原始证据](docs/submission/06_profiling_evidence.md)、[选点与弯路](docs/submission/07_optimization_decisions.md)、[预期及消融台账](docs/submission/08_estimates_and_ablation.md)与[AI纠错案例](docs/submission/09_ai_collaboration_cases.md)，用于追溯本人的取舍和对AI建议的审查，不补造未测收益。
+
 当前结果见 [性能37](report/performance/37_reference_kv_and_expert_groups.md)、[性能38](report/performance/38_c_chunked_prefill_screen.md)、[等待分析](report/performance/39_c_admission_and_prefix_accounting.md)。此前详细逐日记录及本次重构前的交付稿保留于 [文档快照](report/archive/submission_document_snapshots/20261116_before_current_scheme/manifest.json)，不作为当前运行指令。

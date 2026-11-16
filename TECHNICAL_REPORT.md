@@ -8,18 +8,16 @@
 
 模型结合全局注意力与 1024-token 滑窗注意力。参考路径保留独立 Q/K/V 投影、参考 RoPE、Torch SDPA 和 HF 兼容专家计算，以此建立优化对照，而非刻意复刻题给 baseline 源码。
 
-Torch profiler 的一组以 prefill 为主的诊断轨迹如下，单位 ms；原始归因见 [profiling](artifacts/submission/profiling/)。
+参考路径的扩展采集包含19组无profiler计时和10份trace。以下为批大小1、1K/16K输入的阶段归因，主证据来自11月13日参考路径，不混用后期快速配置。原始压缩trace、SHA256、配置和统计图均已[随仓库归档](artifacts/submission/reference_profiling/manifest.json)。
 
-| 指标 | 批大小 1 | 批大小 32 |
+| 指标 | 1K 输入 | 16K 输入 |
 |---|---:|---:|
-| 轨迹跨度 | 641.084 | 2027.532 |
-| GPU 内核活跃时间并集 | 170.569 | 1573.961 |
-| MoE 专家计算累计时间 | 58.372 | 714.275 |
-| SWA 累计时间 | 41.228 | 258.752 |
-| QKV 投影累计时间 | 20.007 | 331.458 |
+| prefill累计GPU kernel时间（ms） | 127.401 | 3902.955 |
+| prefill专家 / SDPA占比 | 58.94% / 8.53% | 15.33% / 72.21% |
+| decode累计kernel时间，16次forward（ms） | 360.642 | 515.448 |
+| decode专家 / RoPE与K覆盖占比 | 27.09% / 17.64% | 19.07% / 12.37% |
 
-小批次存在较多执行间隙，大批次专家、投影与注意力开销突出。轨迹间隙不能全部归为 CPU 时间，组件累计时间也不等同于完整请求延迟。C 场景进一步暴露长预填充与解码之间的竞争：参考组合在 C200 中仅完成 1/200，故本阶段重点从局部内核提速转向持续负载下的请求完成能力。
-
+短输入专家执行占比较高，长输入SDPA占优，支持分别研究执行粒度、KV去冗余和长输入服务干扰。短trace使wall增加约1.09–1.53倍，性能测量因此关闭profiler；累计kernel时间不是请求wall，执行间隙也不全部等于CPU开销。没有rocprof硬件计数器证据，不声称测得HBM带宽或occupancy。阅读方法见[证据说明](docs/submission/06_profiling_evidence.md)。
 <!-- pagebreak -->
 
 ## 2. 优化设计与技术取舍
@@ -34,9 +32,9 @@ Torch profiler 的一组以 prefill 为主的诊断轨迹如下，单位 ms；�
 
 分段注意力按绝对位置读取分页历史，全局层保持因果关系，SWA 层满足 `query−window < key ≤ query`。调度器在每个预填充分段后安排指定轮数解码，未完成预填充的请求不得进入解码。前缀缓存沿用已有完整块哈希，只复用已计算 KV，不缓存生成答案。分段进度不能累计为公共前缀命中量。
 
-三项为当前研究组织方式，最终保留内容及计点仍以独立开关、测量和题目最多三个优化点的限制为准；缓存与调度的增量贡献分别披露。各轮短负载收益不连乘，不外推为正式 ABC 加速比。
+三项为当前研究组织方式，最终保留内容及计点仍以独立开关、测量和题目最多三个优化点的限制为准；缓存与调度的增量贡献分别披露。各轮短负载收益不连乘，不外推为正式 ABC 加速比。早期没有固定端到端百分比预测，不能用事后结果补造；[预期与实测台账](docs/submission/08_estimates_and_ablation.md)分别保留定性预期、结构潜力和实测。
 
-原生 MoE/注意力、graph 和融合曾获得较高吞吐，但一项组合的 developer200 一致率仅 62.85%，不纳入合格候选成绩。双卡 P/D 分离、FP8、MTP 暂未采用：它们增加集成与验收成本；两张卡当前仅运行独立实验。来源及复用范围见 [来源说明](docs/submission/01_sources_and_licenses.md)。
+取舍由结果决定：CK SWA在16K×64中将TTFT约3996→1426 ms，但长生成分叉；indexed专家局部约4.892倍，D200仅78.23%；prefill逐元素合并保持生成，却无实质加速。原生/graph/融合的快速组合D200仅62.85%，不能借其性能给参考组合。参考组合C200仍1/200，故优先治理场景C而非继续外围小优化。双卡P/D、FP8、MTP因集成和额外验收成本暂缓，并非已证无效。详细[决策记录](docs/submission/07_optimization_decisions.md)保留假设、失败与转向；复用来源见[来源说明](docs/submission/01_sources_and_licenses.md)。
 
 <!-- pagebreak -->
 
@@ -66,7 +64,7 @@ Torch profiler 的一组以 prefill 为主的诊断轨迹如下，单位 ms；�
 | Step0 + ①② | 1 | — | — | — | — | A— / B— / C 1/200 |
 | Step0 + ①②③，最终配置待定 | 1 | — | — | — | — | — |
 
-完整 B 的 TTFT/TPOT p50/p99：—。题给 baseline 为 A **638.282724 token/s/GPU**、C TPOT p99 **41.265 ms**、TTFT p99 **993.549 ms**；当前没有可据以声明最终合格方案超过 baseline 的完整数据。①②组合独立 C200 为 **1/200**，其成功请求分位数不作为有效 C 成绩；C60 不替代 C200。
+正式累计表的精确配置与测量规则见[消融台账](docs/submission/08_estimates_and_ablation.md)。完整 B 的 TTFT/TPOT p50/p99：—。题给 baseline 为 A **638.282724 token/s/GPU**、C TPOT p99 **41.265 ms**、TTFT p99 **993.549 ms**；当前没有可据以声明最终合格方案超过 baseline 的完整数据。①②组合独立 C200 为 **1/200**，其成功请求分位数不作为有效 C 成绩；C60 不替代 C200。
 
 本地客户端为独立 EvalScope 1.15，兼容调整包括输入字段、流式参数语法、A 筛选后循环补足请求数，以及 C 指数间隔归一化到 n/r。后者与未归一化 Poisson 到达不同，须保留实际命令和输入记录。本地结果不等同于裁判空闲机器、隐藏集三次中位数。阶段结果见 [性能37](report/performance/37_reference_kv_and_expert_groups.md)、[性能38](report/performance/38_c_chunked_prefill_screen.md)。
 

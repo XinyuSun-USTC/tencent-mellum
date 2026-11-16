@@ -12,6 +12,7 @@
 | 准入等待与前缀计量 | [性能39](../report/performance/39_c_admission_and_prefix_accounting.md) |
 | 一轮配额与前缀缓存，实验待结果 | [计划57](plan/57_c_prefix_and_decode_quota.md) |
 | 候选服务入口，CPU准备 | [计划56](plan/56_qualified_entrypoint_staging.md) |
+| 答辩备查：profiling、选点、收益、消融、AI | [证据06](submission/06_profiling_evidence.md)、[决策07](submission/07_optimization_decisions.md)、[台账08](submission/08_estimates_and_ablation.md)、[AI案例09](submission/09_ai_collaboration_cases.md) |
 | 原题与来源 | [题目摘要](requirements/01_assessment_summary.md)、[来源说明](submission/01_sources_and_licenses.md) |
 
 以下“最新”“下一步”等措辞属于历史原文，不代表当前任务或最终交付指令。旧激进路线未通过正确性，旧参考r的C容量失败；不能根据旧页面标题将其视为当前合格主版本。

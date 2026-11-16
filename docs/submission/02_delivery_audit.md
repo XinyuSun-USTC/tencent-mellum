@@ -12,7 +12,7 @@
 | ≤4 页技术报告 | `TECHNICAL_REPORT.md` | 已按当前方案重写，数据缺口留空，作者最终确认页数 |
 | 一页 AI 使用说明 | `AI_USAGE.md` | 已更新方法、错误与责任，作者最终确认页数 |
 | D1—D7 日志与完整 Git 历史 | `WORKLOG.md` | 已统一每日记录，历史详细记录归档；不 squash |
-| Profiling 证据 | `artifacts/submission/profiling/` | 已归档，不等同于正式吞吐测量 |
+| Profiling 证据 | `artifacts/submission/reference_profiling/` | 已保存参考路径原始trace、哈希、phase统计和图；旧快速路径轨迹另存，不混作基线 |
 | 同配置完整 ABC 与累计消融 | 正式报告第 3 节 | 尚缺最终方案；未以缩减或激进路线数据补表 |
 | 来源和许可证 | `01_sources_and_licenses.md` | 已保留，候选最终集成后再核对增量 |
 
@@ -35,3 +35,7 @@
 5. 更新根目录报告、证据索引、提交和新的最终标签。旧标签不移动，不借用旧正确性或性能结论。
 
 `verify_submission.py`可检查文件、部分链接与证据索引，但其通过不代表GPU或题目验收通过。打包前必须在选定的最终工作树运行检查并确认打包脚本选择正确分支；当前默认脚本仍面向旧release/submission，不能直接打包充当新方案。完整Git历史可另存bundle；模型权重、虚拟环境与大型张量通过外部资产清单引用。不要在候选仍测试时提前冻结“最终合格版本”。
+
+## 面试重点备查
+
+[06 Profiling证据](06_profiling_evidence.md)提供两份原始压缩trace与阅读顺序；[07 决策记录](07_optimization_decisions.md)保留有效与失败尝试及转向；[08 收益和消融台账](08_estimates_and_ablation.md)区分事前假设、结构估计、实测及待测；[09 AI案例](09_ai_collaboration_cases.md)说明本人如何质疑和纠正AI建议。它们是内部备查，不自动计入正式四页或一页报告正文。
