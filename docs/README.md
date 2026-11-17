@@ -5,6 +5,7 @@
 ## 交付与复现
 
 - [技术报告](../TECHNICAL_REPORT.md)、[AI说明](../AI_USAGE.md)、[工作日志](../WORKLOG.md)
+- [四版本正确性证据](submission/11_correctness_evidence.md)
 - [当前交付核对](submission/02_delivery_audit.md)、[剩余实验](submission/03_completion_experiments.md)
 - [累计实验口径](plan/65_final_delivery_matrix.md)、[r32基线定义](plan/67_r32_baseline_revision.md)
 - [Profiling证据](submission/06_profiling_evidence.md)、[技术取舍](submission/07_optimization_decisions.md)、[收益与消融](submission/08_estimates_and_ablation.md)
