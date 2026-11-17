@@ -20,8 +20,9 @@ CASES={
 
 def write(path,value):path.write_text(json.dumps(value,indent=2)+'\n')
 def verify(plan):
- for p,h in plan['sha256'].items():
-  if sha(p)!=h:raise ValueError('Frozen source changed: '+p)
+ for group in ['sha256','external_sha256']:
+  for p,h in plan.get(group,{}).items():
+   if sha(p)!=h:raise ValueError('Frozen source/input changed: '+p)
 
 def prepare(out,track,gpu):
  old=json.loads((OLD/'manifest.json').read_text());equivalent={}
@@ -37,6 +38,7 @@ def prepare(out,track,gpu):
        'scope':'A-only full rerun or token-only numerical diagnosis; no reuse of truncated A work as completed requests'}
  if track=='step0-a':
   previous=json.loads((OLD/'performance/manifest.json').read_text())
+  plan['external_sha256']={**previous['template']['input_sha256'],str(OLD/'summary.json'):sha(OLD/'summary.json')}
   d=out/'A';d.mkdir();spec=previous['template']['stages']['A']
   write(d/'plan.json',{'stage':'A','gpu':gpu,'profile':'delivery_step0','cases':spec,
        'timeout':14400,'server_port':8651+gpu*100,'engine_port':10226+gpu*100})
