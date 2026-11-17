@@ -28,3 +28,7 @@ decode元数据复用与参考SWA四请求分组通过此前完整本地正确�
 运行：`/workspace/results/mellum_precision_third/20261117T174129219274Z_full-performance`。已核验47项产物哈希、源码与输入身份，以及其关联的完整正确性验收。轻量归档位于`artifacts/experiments/precision_third/full-performance`，包含原摘要、输入适配清单、启动配置、加载审计和EvalScope参数/统计。
 
 原始EvalScope报表中的`Spec. Accept Rate`字段不代表本实现启用MTP；该通用客户端字段不用于投机解码结论。
+
+## C200补测更新
+
+随后三轮独立C200均仅1/200成功，其余各199条为180秒超时，未形成有效完整负载尾延迟中位数。详情见`05_precision_c_completion_results.md`。此前“尚未测量”的状态由该补测结果取代。
