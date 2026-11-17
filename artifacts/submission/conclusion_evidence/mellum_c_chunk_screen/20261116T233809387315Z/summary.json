@@ -1,0 +1,622 @@
+{
+  "status": "screen_complete",
+  "scope": "Exploratory reference chunking; four-prompt smoke + C60, rate0.3 output256 timeout180. Not full correctness acceptance or idle judge median.",
+  "candidates": {
+    "r_swa4_abort": {
+      "smoke": {
+        "status": "chunk_generation_smoke_completed",
+        "profile": "r_swa4_abort",
+        "settings": {
+          "MELLUM_HF_GENERATION_EXPERTS": "1",
+          "MELLUM_MOE_BACKEND": "torch",
+          "MELLUM_QKV_BACKEND": "separate",
+          "MELLUM_ROUTER_BACKEND": "torch",
+          "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+          "MELLUM_REFERENCE_KV_ROPE": "1",
+          "MELLUM_SDPA_DECODE": "1",
+          "MELLUM_STAGE_LAYER": "0",
+          "MELLUM_DECODE_LAYER_CAPTURE": "0",
+          "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "0",
+          "ATOM_ENABLE_ALLREDUCE_RMSNORM_FUSION": "0",
+          "ATOM_USE_UNIFIED_ATTN": "0",
+          "ATOM_LOADER_USE_THREADPOOL": "0",
+          "AITER_LOG_LEVEL": "WARNING",
+          "HF_HUB_OFFLINE": "1",
+          "TRANSFORMERS_OFFLINE": "1",
+          "HIP_VISIBLE_DEVICES": "0",
+          "PYTHONPATH": "/workspace/tencent-mellum-swa-abort-integration/ATOM",
+          "MELLUM_LOAD_AUDIT_PATH": "/workspace/results/mellum_c_chunk_screen/20261116T233809387315Z/r_swa4_abort/smoke/loading_audit.json",
+          "MELLUM_PROFILE_LABELS": "0",
+          "ATOM_PROFILER_MORE": "0",
+          "MELLUM_REQUEST_BATCHING": "1",
+          "MELLUM_SWA_PREFILL_OPT": "0",
+          "MELLUM_SWA_PREFILL_IMPL": "ck",
+          "MELLUM_BATCH_AUDIT_PATH": "/workspace/results/mellum_c_chunk_screen/20261116T233809387315Z/r_swa4_abort/smoke/batches.jsonl",
+          "MELLUM_DIRECT_KV_WRITE": "1",
+          "MELLUM_ATTENTION_EXECUTION": "reference",
+          "MELLUM_BATCH_CAMPAIGN_CONFIG": "{\"decode_expert_group_size\": 4, \"groups\": \"LE\", \"moe_optimization\": \"shared_routing\", \"phases\": [\"prefill\", \"decode\"]}",
+          "MELLUM_DECODE_META_ONCE": "1",
+          "MELLUM_SWA_DECODE_GROUP": "4",
+          "MELLUM_ABORT_ON_DISCONNECT": "1"
+        },
+        "options": {
+          "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+          "tensor_parallel_size": 1,
+          "data_parallel_size": 1,
+          "enforce_eager": true,
+          "level": 0,
+          "kv_cache_dtype": "bf16",
+          "max_model_len": 16640,
+          "max_num_batched_tokens": 16640,
+          "max_num_seqs": 32,
+          "gpu_memory_utilization": 0.35,
+          "enable_prefix_caching": false,
+          "enable_chunked_prefill": false,
+          "torch_profiler_dir": null,
+          "mark_trace": false,
+          "port": 12826
+        },
+        "stages": [
+          {
+            "name": "single_0",
+            "elapsed": 2.0846052758861333,
+            "records": [
+              {
+                "name": "humaneval_0",
+                "input_tokens": 152,
+                "actual_ids": [
+                  23,
+                  233,
+                  2116,
+                  895,
+                  333,
+                  3559,
+                  302,
+                  2717
+                ],
+                "expected_ids": [
+                  23,
+                  233,
+                  2116,
+                  895,
+                  333,
+                  3559,
+                  302,
+                  2717
+                ],
+                "matching_positions": 8
+              }
+            ],
+            "cached_prefill_batches": 0,
+            "cached_token_counts": []
+          },
+          {
+            "name": "single_1",
+            "elapsed": 0.7695666609797627,
+            "records": [
+              {
+                "name": "window_1023",
+                "input_tokens": 1023,
+                "actual_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "expected_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "matching_positions": 8
+              }
+            ],
+            "cached_prefill_batches": 0,
+            "cached_token_counts": []
+          },
+          {
+            "name": "single_2",
+            "elapsed": 0.6182282851077616,
+            "records": [
+              {
+                "name": "window_1025",
+                "input_tokens": 1025,
+                "actual_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "expected_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "matching_positions": 8
+              }
+            ],
+            "cached_prefill_batches": 0,
+            "cached_token_counts": []
+          },
+          {
+            "name": "single_3",
+            "elapsed": 4.3927550609223545,
+            "records": [
+              {
+                "name": "long_16384",
+                "input_tokens": 16384,
+                "actual_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "expected_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "matching_positions": 8
+              }
+            ],
+            "cached_prefill_batches": 0,
+            "cached_token_counts": []
+          },
+          {
+            "name": "ragged4",
+            "elapsed": 5.011330222943798,
+            "records": [
+              {
+                "name": "humaneval_0",
+                "input_tokens": 152,
+                "actual_ids": [
+                  23,
+                  233,
+                  2116,
+                  895,
+                  333,
+                  3559,
+                  302,
+                  2717
+                ],
+                "expected_ids": [
+                  23,
+                  233,
+                  2116,
+                  895,
+                  333,
+                  3559,
+                  302,
+                  2717
+                ],
+                "matching_positions": 8
+              },
+              {
+                "name": "window_1023",
+                "input_tokens": 1023,
+                "actual_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "expected_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "matching_positions": 8
+              },
+              {
+                "name": "window_1025",
+                "input_tokens": 1025,
+                "actual_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "expected_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "matching_positions": 8
+              },
+              {
+                "name": "long_16384",
+                "input_tokens": 16384,
+                "actual_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "expected_ids": [
+                  23,
+                  233,
+                  2116,
+                  596,
+                  255,
+                  99,
+                  8768,
+                  410
+                ],
+                "matching_positions": 8
+              }
+            ],
+            "cached_prefill_batches": 0,
+            "cached_token_counts": []
+          },
+          {
+            "name": "repeat_first",
+            "elapsed": 0.5636767810210586,
+            "records": [
+              {
+                "name": "humaneval_0",
+                "input_tokens": 152,
+                "actual_ids": [
+                  23,
+                  233,
+                  2116,
+                  895,
+                  333,
+                  3559,
+                  302,
+                  2717
+                ],
+                "expected_ids": [
+                  23,
+                  233,
+                  2116,
+                  895,
+                  333,
+                  3559,
+                  302,
+                  2717
+                ],
+                "matching_positions": 8
+              }
+            ],
+            "cached_prefill_batches": 0,
+            "cached_token_counts": []
+          }
+        ],
+        "cached_prefill_batches": 0,
+        "accuracy_note": "Small smoke only; mismatches recorded, no official gate inferred"
+      },
+      "capacity": {
+        "status": "complete",
+        "cases": {
+          "C": {
+            "command": [
+              "/workspace/venvs/evalscope-perf/bin/python",
+              "/workspace/tencent-mellum-swa-abort-integration/scripts/evalscope_mellum_adapter.py",
+              "perf",
+              "--url",
+              "http://127.0.0.1:9551/v1/chat/completions",
+              "--api",
+              "openai",
+              "--model",
+              "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+              "--tokenizer-path",
+              "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+              "--open-loop",
+              "--rate",
+              "0.3",
+              "--number",
+              "60",
+              "--dataset",
+              "mellum_assessment_jsonl",
+              "--dataset-path",
+              "/workspace/results/mellum_c_chunk_screen/20261116T233809387315Z/template/inputs/C60.jsonl",
+              "--total-timeout",
+              "180",
+              "--max-tokens",
+              "256",
+              "--min-tokens",
+              "256",
+              "--stream",
+              "--extra-args",
+              "{\"ignore_eos\": true, \"temperature\": 0.0}",
+              "--name",
+              "Scenario_C_Poisson_N1",
+              "--outputs-dir",
+              "/workspace/results/mellum_c_chunk_screen/20261116T233809387315Z/r_swa4_abort/capacity/C/client",
+              "--no-timestamp",
+              "--seed",
+              "42"
+            ],
+            "status": "complete",
+            "metrics": {
+              "requests": 60,
+              "successes": 11,
+              "failures": 49,
+              "ttft_p50_s": 63.40854515414685,
+              "ttft_p99_s": 82.84685492399149,
+              "tpot_p50_s": 0.3471209026151793,
+              "tpot_p99_s": 0.3690536925295258,
+              "output_tokens_per_s_gpu": 8.2483,
+              "vendor_summary": {
+                "Test Duration (s)": 341.4052,
+                "Concurrency": -1,
+                "Request Rate (req/s)": 0.3,
+                "Total Requests": 60,
+                "Success Requests": 11,
+                "Failed Requests": 49,
+                "Stream Requests": 60,
+                "Non-Stream Requests": 0,
+                "Req Throughput (req/s)": 0.0322,
+                "Avg Latency (s)": 143.8231,
+                "Avg Input Tokens": 12162.9091,
+                "Output Throughput (tok/s)": 8.2483,
+                "Total Throughput (tok/s)": 400.1345,
+                "Avg TTFT (ms)": 60616.21,
+                "Avg TPOT (ms)": 326.3,
+                "Avg ITL (ms)": 327.7,
+                "Avg Output Tokens": 256.0,
+                "Input Throughput (tok/s)": 0.0,
+                "Avg Decoded Tok/Iter": 1.0039,
+                "Spec. Accept Rate": 0.0039
+              },
+              "vendor_percentiles": [
+                {
+                  "Percentiles": "min",
+                  "Latency (s)": 41.6459,
+                  "TTFT (ms)": 1283.1528,
+                  "ITL (ms)": 52.9461,
+                  "TPOT (ms)": 158.2854,
+                  "Input tokens": 7005.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 1.4467,
+                  "Total (tok/s)": 50.4048,
+                  "Decode (tok/s)": 2.7096
+                },
+                {
+                  "Percentiles": "1%",
+                  "Latency (s)": 41.6459,
+                  "TTFT (ms)": 1283.1528,
+                  "ITL (ms)": 53.3601,
+                  "TPOT (ms)": 158.2854,
+                  "Input tokens": 7005.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 1.4467,
+                  "Total (tok/s)": 50.4048,
+                  "Decode (tok/s)": 2.7096
+                },
+                {
+                  "Percentiles": "5%",
+                  "Latency (s)": 41.6459,
+                  "TTFT (ms)": 1283.1528,
+                  "ITL (ms)": 54.0322,
+                  "TPOT (ms)": 158.2854,
+                  "Input tokens": 7005.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 1.4467,
+                  "Total (tok/s)": 50.4048,
+                  "Decode (tok/s)": 2.7096
+                },
+                {
+                  "Percentiles": "10%",
+                  "Latency (s)": 143.0657,
+                  "TTFT (ms)": 55466.7848,
+                  "ITL (ms)": 116.3746,
+                  "TPOT (ms)": 309.7404,
+                  "Input tokens": 7889.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 1.4878,
+                  "Total (tok/s)": 61.6184,
+                  "Decode (tok/s)": 2.7294
+                },
+                {
+                  "Percentiles": "25%",
+                  "Latency (s)": 143.9826,
+                  "TTFT (ms)": 57286.0305,
+                  "ITL (ms)": 209.8319,
+                  "TPOT (ms)": 317.278,
+                  "Input tokens": 9819.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 1.5657,
+                  "Total (tok/s)": 75.1884,
+                  "Decode (tok/s)": 2.8172
+                },
+                {
+                  "Percentiles": "50%",
+                  "Latency (s)": 144.2515,
+                  "TTFT (ms)": 63408.5452,
+                  "ITL (ms)": 320.1831,
+                  "TPOT (ms)": 347.1209,
+                  "Input tokens": 13049.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 1.7747,
+                  "Total (tok/s)": 91.2588,
+                  "Decode (tok/s)": 2.8808
+                },
+                {
+                  "Percentiles": "75%",
+                  "Latency (s)": 163.5062,
+                  "TTFT (ms)": 72991.1115,
+                  "ITL (ms)": 448.5924,
+                  "TPOT (ms)": 354.9684,
+                  "Input tokens": 13863.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 1.778,
+                  "Total (tok/s)": 93.9583,
+                  "Decode (tok/s)": 3.1518
+                },
+                {
+                  "Percentiles": "90%",
+                  "Latency (s)": 172.0692,
+                  "TTFT (ms)": 78642.8529,
+                  "ITL (ms)": 510.1091,
+                  "TPOT (ms)": 366.378,
+                  "Input tokens": 13955.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 1.7894,
+                  "Total (tok/s)": 108.2214,
+                  "Decode (tok/s)": 3.2285
+                },
+                {
+                  "Percentiles": "95%",
+                  "Latency (s)": 176.9555,
+                  "TTFT (ms)": 82846.8549,
+                  "ITL (ms)": 535.3686,
+                  "TPOT (ms)": 369.0537,
+                  "Input tokens": 15326.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 6.1471,
+                  "Total (tok/s)": 195.5773,
+                  "Decode (tok/s)": 6.3177
+                },
+                {
+                  "Percentiles": "99%",
+                  "Latency (s)": 176.9555,
+                  "TTFT (ms)": 82846.8549,
+                  "ITL (ms)": 541.3055,
+                  "TPOT (ms)": 369.0537,
+                  "Input tokens": 15326.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 6.1471,
+                  "Total (tok/s)": 195.5773,
+                  "Decode (tok/s)": 6.3177
+                },
+                {
+                  "Percentiles": "max",
+                  "Latency (s)": 176.9555,
+                  "TTFT (ms)": 82846.8549,
+                  "ITL (ms)": 5971.3693,
+                  "TPOT (ms)": 369.0537,
+                  "Input tokens": 15326.0,
+                  "Output tokens": 256.0,
+                  "Output (tok/s)": 6.1471,
+                  "Total (tok/s)": 195.5773,
+                  "Decode (tok/s)": 6.3177
+                }
+              ],
+              "request_start_span_s": 198.33953638910316,
+              "validation_errors": [],
+              "complete_without_failures": false,
+              "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+              "actual_decode_max_batch": 32
+            }
+          }
+        },
+        "scope": "Pinned local assessment-scale reproduction; adapter and arrival normalization disclosed",
+        "server_command": [
+          "/opt/venv/bin/python",
+          "/workspace/tencent-mellum-swa-abort-integration/scripts/serve_mellum.py",
+          "--gpu",
+          "0",
+          "--batching",
+          "--batch-audit",
+          "--max-num-seqs",
+          "32",
+          "--max-model-len",
+          "16640",
+          "--max-batched-tokens",
+          "16640",
+          "--output",
+          "/workspace/results/mellum_c_chunk_screen/20261116T233809387315Z/r_swa4_abort/capacity/server",
+          "--server-port",
+          "9551",
+          "--engine-port",
+          "13026",
+          "--profile",
+          "r_swa4_abort",
+          "--phase-audit"
+        ],
+        "server_load_audit": {
+          "source_tensors": 5631,
+          "successful_parts": 5631,
+          "missing": [],
+          "unexpected": []
+        }
+      },
+      "status": "measured"
+    }
+  },
+  "source_unchanged": true,
+  "artifact_sha256": {
+    "manifest.json": "f87cd0649d9fea07614d5b2b0703443c0fc5a239c5d6787d985c7bf8c7500e44",
+    "template/manifest.json": "50ec4dc8b15f0b5f6abfc15a43bc4e426bfa7117c16ba3705f5a7b0ad64bf817",
+    "template/adapter_prepare.log": "5f9db46b3460b286bc196021f5df4f7be8f204797e45a896b31d15489b892f9d",
+    "template/inputs/adapter_manifest.json": "d96c1e5c88a0d8f4de7caeb5a3eb918311eeb18a3e46742d2adce31b745146a7",
+    "template/inputs/C60.jsonl": "b30b66680a39251dea4bc1122fe5210a982199db4045495cc0a259a7fdde8074",
+    "template/inputs/C_smoke.jsonl": "fb8045d56918ab1363fd6f5659e28790604b52a0454a05a62c5b215b4f54bb29",
+    "r_swa4_abort/capacity/server.log": "c8eed13ae94194228b180c3894e975f19fe4bc6be58688a7489f0b111db10908",
+    "r_swa4_abort/capacity/worker.log": "86a710050f3f4d84c911a3264c9d1752ccd5ef946f5fb06eda3edb68c219f49a",
+    "r_swa4_abort/capacity/plan.json": "5edb03124962e32e7d94d952f81b316eb6d49985053e9a2ecd92081c4483dcaa",
+    "r_swa4_abort/capacity/results.json": "2bf5ac8c5b1d91e4bab6241bf49edc41af3bffe0f0ef5ec02fca874dad9a7999",
+    "r_swa4_abort/smoke/batches.jsonl": "7110fabad78b3a5993a2f8ef33c333089e50c041a14c628d1ca683f87db728e5",
+    "r_swa4_abort/smoke/worker.log": "757cb7e49171a4c1bc1b48f448c5017d9068821c632bacdfbfbec3e3ddd6b74e",
+    "r_swa4_abort/smoke/plan.json": "fc0751f7e9c0b2dd5a2e17e4d354555b23c762692a14a8a7b81a1d63b7d29d89",
+    "r_swa4_abort/smoke/results.json": "5ad9ebeabeb23fb864d5d99f78a711b6023a3f43a67c9c711436307fa5385a18",
+    "r_swa4_abort/smoke/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "r_swa4_abort/capacity/server/batches.jsonl": "2e65c3a2359b4071bec8258589c2337ec9c2eb8447e238ca36e75394ecadc8ae",
+    "r_swa4_abort/capacity/server/launch.json": "70312121bb26ddd2465f42b6cd10eb7dbc4e31fd1784935ce3b9aef82e85f697",
+    "r_swa4_abort/capacity/server/fastpaths.json": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+    "r_swa4_abort/capacity/server/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "r_swa4_abort/capacity/server/engine_steps.jsonl": "b77ac515effd2ffbd394a1ae451fdd8dd80466b224949cf024d533ed8e680ffa",
+    "r_swa4_abort/capacity/server/native_calls.jsonl": "e7bec4b6e153c2d4f2bd317e4394afe3307850b1de00fec3a8a120ce07c40122",
+    "r_swa4_abort/capacity/C/batches.jsonl": "2e65c3a2359b4071bec8258589c2337ec9c2eb8447e238ca36e75394ecadc8ae",
+    "r_swa4_abort/capacity/C/client.log": "af4cdf1e9ee35e62a14116bd3d3809d90e4fc301c575d60747ff4cf7e5636792",
+    "r_swa4_abort/capacity/C/client/Scenario_C_Poisson_N1/perf_report.html": "1c2649a131601d21635ff3754e21bd52e8f8b28fee6d859d036d22874ca550bb",
+    "r_swa4_abort/capacity/C/client/Scenario_C_Poisson_N1/benchmark.log": "bd100c941774815fcfbfd60fe7258b131972a9d350767d1f3cb02e52aebc0a4b",
+    "r_swa4_abort/capacity/C/client/Scenario_C_Poisson_N1/performance_summary.txt": "4df8e7e353bf69ddf48e863d221d959665d8afbb385c204b250ffb220b9a075e",
+    "r_swa4_abort/capacity/C/client/Scenario_C_Poisson_N1/rate_0.3_number_60/benchmark_summary.json": "4584041479d0f42876d4fc32cfa835b7141304ddf3cb9db322c4f683575621fb",
+    "r_swa4_abort/capacity/C/client/Scenario_C_Poisson_N1/rate_0.3_number_60/workload_throughput.json": "020191e2b0814a24e2529e69a93ba8947be97e4df6dc27b1e16f4b2c2c262d44",
+    "r_swa4_abort/capacity/C/client/Scenario_C_Poisson_N1/rate_0.3_number_60/benchmark_args.json": "e07a0def3203e3507d1e7250bc2c87d6d3ff4ca61d037176c001e0162d0f0472",
+    "r_swa4_abort/capacity/C/client/Scenario_C_Poisson_N1/rate_0.3_number_60/benchmark_data.db": "42bab58ab34d9827428d92d80b9e4a86cf3a18f5bb1e6e0e6c7a04e760435c84",
+    "r_swa4_abort/capacity/C/client/Scenario_C_Poisson_N1/rate_0.3_number_60/workload_timeline.json": "24d2cbc8933ca643ed5bdc167a2cc92a9acc9b8c2a27d484d3a3e1d36c9cf22b",
+    "r_swa4_abort/capacity/C/client/Scenario_C_Poisson_N1/rate_0.3_number_60/benchmark_percentile.json": "83a1116edd40f5eb03bcd95b6dd3909c2163ba745c07f1c2fd06e975e9ae362a"
+  }
+}

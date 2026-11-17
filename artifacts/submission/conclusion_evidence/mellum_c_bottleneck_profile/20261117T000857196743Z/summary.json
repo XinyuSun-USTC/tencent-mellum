@@ -1,0 +1,106 @@
+{
+  "status": "bottleneck_profile_collected",
+  "profile": "r_swa4_abort_prefix_chunk1024_d4",
+  "options": {
+    "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+    "tensor_parallel_size": 1,
+    "data_parallel_size": 1,
+    "enforce_eager": true,
+    "level": 0,
+    "kv_cache_dtype": "bf16",
+    "max_model_len": 16640,
+    "max_num_batched_tokens": 1024,
+    "max_num_seqs": 32,
+    "gpu_memory_utilization": 0.35,
+    "enable_prefix_caching": true,
+    "enable_chunked_prefill": true,
+    "torch_profiler_dir": "/workspace/results/mellum_c_bottleneck_profile/20261117T000857196743Z/traces",
+    "mark_trace": false,
+    "port": 14826
+  },
+  "scope": "C-shaped controlled burst, not Poisson, not C60/C200 capacity or correctness acceptance. Profile timings are perturbed.",
+  "warmup": {
+    "wall_s": 34.20908217784017,
+    "completed": 16,
+    "output_tokens": 256,
+    "frontend_steps": 16,
+    "actual_decode_steps": 220,
+    "actual_prefill_steps": 107
+  },
+  "unprofiled": [
+    {
+      "wall_s": 5.489943463122472,
+      "completed": 16,
+      "output_tokens": 256,
+      "frontend_steps": 1,
+      "actual_decode_steps": 16,
+      "actual_prefill_steps": 1
+    },
+    {
+      "wall_s": 5.496874533127993,
+      "completed": 16,
+      "output_tokens": 256,
+      "frontend_steps": 1,
+      "actual_decode_steps": 16,
+      "actual_prefill_steps": 1
+    }
+  ],
+  "started": {
+    "kind": "started",
+    "rank": 0,
+    "sequence": 1,
+    "pid": 1545763,
+    "time_ns": 1794874210123271428,
+    "trace_dir": "/workspace/results/mellum_c_bottleneck_profile/20261117T000857196743Z/traces/rank_0",
+    "traces": [],
+    "allocator": {
+      "allocated_bytes": 67559967232,
+      "reserved_bytes": 70827114496,
+      "peak_allocated_bytes": 68216752128,
+      "peak_reserved_bytes": 70827114496,
+      "peaks_reset_at_profile_start": false
+    }
+  },
+  "profiled": {
+    "wall_s": 6.995378931984305,
+    "completed": 16,
+    "output_tokens": 256,
+    "frontend_steps": 1,
+    "actual_decode_steps": 16,
+    "actual_prefill_steps": 1
+  },
+  "stopped": {
+    "kind": "stopped",
+    "rank": 0,
+    "sequence": 1,
+    "pid": 1545763,
+    "time_ns": 1794874242713126392,
+    "trace_dir": "/workspace/results/mellum_c_bottleneck_profile/20261117T000857196743Z/traces/rank_0",
+    "traces": [
+      "/workspace/results/mellum_c_bottleneck_profile/20261117T000857196743Z/traces/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261117_001022_821.pt.trace.json.gz"
+    ],
+    "allocator": {
+      "allocated_bytes": 67559967232,
+      "reserved_bytes": 70827114496,
+      "peak_allocated_bytes": 68216752128,
+      "peak_reserved_bytes": 70827114496,
+      "peaks_reset_at_profile_start": false
+    }
+  },
+  "trace": "/workspace/results/mellum_c_bottleneck_profile/20261117T000857196743Z/traces/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261117_001022_821.pt.trace.json.gz",
+  "trace_sha256": "f4132a7d1748439ea9e96034e3da5de59d95ca7ffa64ef6ab7436c736a46f0e6",
+  "source_unchanged": true,
+  "artifact_sha256": {
+    "batches.jsonl": "f4d37641d2eb7d27268ab6c0c96b1bdfaca046a702af3eda168bd2ba372c31bb",
+    "worker.log": "69ca3b4b2d8621092bd3381a431a92694e33bbc88a61e841a243e03ef98d271c",
+    "trace_analysis.md": "238a0aa79fcbcc02ad5f92168bf06ed6da587f969416d4269a04bbac47e64818",
+    "plan.json": "b38d5536d37d93dccd8acbcfd4d467f9362befb123468348958154245ab1a54a",
+    "trace_analysis.json": "532ecb57c1016ce36960daf3d4b0cb38207eea90691f89ff20b727a7b08669e3",
+    "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "engine_steps.jsonl": "0dca518edc7ecad408eea5c1642e00885a97ec8750d62d2cddf545bf91b36a54",
+    "worker_results.json": "780eec15121583be9b9f0903418e3037d649508bc73c5f967811ee8e779c892f",
+    "control/rank_0_started_001.json": "4c15dc56063027d4b6cdc7b5f4b3c5d3b3c8415f869cd3b8478bb712248a1404",
+    "control/rank_0_stopped_001.json": "9f06980ebf9472901d233aed0e277f2feb3f660678aea56c16423082a0826c94",
+    "traces/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261117_001022_821.pt.trace.json.gz": "f4132a7d1748439ea9e96034e3da5de59d95ca7ffa64ef6ab7436c736a46f0e6"
+  }
+}
