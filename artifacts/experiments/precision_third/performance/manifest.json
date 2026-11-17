@@ -1,0 +1,2056 @@
+{
+  "gpu": 1,
+  "track": "performance",
+  "settings": {
+    "r_expert_decode4_kv_once": {
+      "MELLUM_DIRECT_KV_WRITE": "1",
+      "MELLUM_MOE_BACKEND": "torch",
+      "MELLUM_ROUTER_BACKEND": "torch",
+      "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+      "MELLUM_REFERENCE_KV_ROPE": "1",
+      "MELLUM_SDPA_DECODE": "1",
+      "MELLUM_REQUEST_BATCHING": "1",
+      "MELLUM_ATTENTION_EXECUTION": "reference",
+      "MELLUM_SWA_PREFILL_OPT": "0",
+      "MELLUM_SWA_PREFILL_IMPL": "ck",
+      "MELLUM_BATCH_CAMPAIGN_CONFIG": "{\"decode_expert_group_size\": 4, \"groups\": \"LE\", \"moe_optimization\": \"shared_routing\", \"phases\": [\"prefill\", \"decode\"]}"
+    },
+    "r_decode_meta": {
+      "MELLUM_DIRECT_KV_WRITE": "1",
+      "MELLUM_MOE_BACKEND": "torch",
+      "MELLUM_ROUTER_BACKEND": "torch",
+      "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+      "MELLUM_REFERENCE_KV_ROPE": "1",
+      "MELLUM_SDPA_DECODE": "1",
+      "MELLUM_REQUEST_BATCHING": "1",
+      "MELLUM_ATTENTION_EXECUTION": "reference",
+      "MELLUM_SWA_PREFILL_OPT": "0",
+      "MELLUM_SWA_PREFILL_IMPL": "ck",
+      "MELLUM_BATCH_CAMPAIGN_CONFIG": "{\"decode_expert_group_size\": 4, \"groups\": \"LE\", \"moe_optimization\": \"shared_routing\", \"phases\": [\"prefill\", \"decode\"]}",
+      "MELLUM_DECODE_META_ONCE": "1"
+    },
+    "r_swa_decode4": {
+      "MELLUM_DIRECT_KV_WRITE": "1",
+      "MELLUM_MOE_BACKEND": "torch",
+      "MELLUM_ROUTER_BACKEND": "torch",
+      "MELLUM_PREFILL_BACKEND": "sdpa_cpu_rope_diagnostic",
+      "MELLUM_REFERENCE_KV_ROPE": "1",
+      "MELLUM_SDPA_DECODE": "1",
+      "MELLUM_REQUEST_BATCHING": "1",
+      "MELLUM_ATTENTION_EXECUTION": "reference",
+      "MELLUM_SWA_PREFILL_OPT": "0",
+      "MELLUM_SWA_PREFILL_IMPL": "ck",
+      "MELLUM_BATCH_CAMPAIGN_CONFIG": "{\"decode_expert_group_size\": 4, \"groups\": \"LE\", \"moe_optimization\": \"shared_routing\", \"phases\": [\"prefill\", \"decode\"]}",
+      "MELLUM_DECODE_META_ONCE": "1",
+      "MELLUM_SWA_DECODE_GROUP": "4"
+    }
+  },
+  "source_sha256": {
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/__init__.py": "8386a0d1eb2f87068a80535dcc1be823d88ffd552405c3f36305fd46b8255d98",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/benchmarks/backend_request_func.py": "e96654ece9f288c1e9e2898ee49e754a809dc0a74b60c724c53b5b933db62ae7",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/benchmarks/benchmark_serving.py": "62679edb88603efda2f5611ec7956957357ec3a354451dd25cb794d87390d490",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/benchmarks/benchmark_utils.py": "758db59b13aede9a0e7f577de5537d42bd7f43b656f16755a26c97fc1e620ee1",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/config.py": "4eddac301ab4b660d2d258b4b90c4d0ae84811ea8f9c13b849b49fa883a295bb",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/__init__.py": "f6f90e287f9a9255945c19068656cb854b9b249f35b97eb1537c23a5c6533e01",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/api_server.py": "078de7c9b89b0b721ea8495ac83b3674b22a0e6adb908ecfb25d04f28aeb6377",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/chat_encoders.py": "ba98f0fcb07dc8fe264285c9278f9d72434d450d240afb53b9dd979ec7044c6f",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/protocol.py": "d7d7a0ce7ef7adcefd944162f944738edc8b0f2663a4a0a93def4aa4a1a5c3aa",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/reasoning.py": "d22734dc359e4f793f5eba81ebdb3ecee7951eb44d2c4862a6ad52ea8f6fcf4d",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/serving_chat.py": "733c899426c576b282618cd97fc9fa46f7acdcc57e842a5d575c63e2ba5572ae",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/serving_completion.py": "daab57bd8704db1c79e97ba50fe60c19d64dfb31a59fbe4736372b20dbc18ab4",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/tool_parser.py": "fadba8fabc0e1b91bbee802eeac1e5854ebfb93b44d153f88c3f8b550703c2fb",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai_server.py": "bd8a6ff20ef3bbe8763c17c640aad9e63662cde90b85de133695aa023e43a513",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/examples/multimodal_inference.py": "6da13f947287b7a196b10d46a09e90654088d8a7e8e6cf2c7ebd4d40ef8f663e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/examples/profile_offline.py": "fa34228d360ee656e4683a8fdde463dfa785d2e27ecb7c3630749024bf4f0fc8",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/examples/simple_inference.py": "2911f8e863155208796714a648b7fa382192dbb388a7dc797eb6f8563bbd6621",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/__init__.py": "4ef850d1fcb57905eef03e7b9160bf18c20a54c6aeddd37c0992543f42d7b1f7",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/aggregator.py": "9f83a96fb63389c47af97c26ad1661a55184486663c6c236fc183af81db1291a",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/base.py": "65cf08f8cd688a2db612ed0ab114adcefa9621e6d4f193b9bdc28afd2db981ca",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/factory.py": "97162a34bb8765c4b61380d7af73654c675d2b8a1028cd1fe66dcd7542c16c23",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/mooncake/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/mooncake/mooncake_connector.py": "ee0d48e805c8120bb739bf55b3b099ad1a770d6a1d644d6d20e2bf1b8da78faa",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/moriio/__init__.py": "ba9a768c13f4290be4775482202eb176227a474bb4e22b2525e874041effbdca",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/moriio/moriio_common.py": "3943a54cf2ee483ab6741463c81b797ed72d305ec15aac9f32d42dd7f1dd3921",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/moriio/moriio_connector.py": "897e01c46b4407a7d1be0d8fba1398034182c7c0c7bf54caa7372cc782229c59",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/moriio/moriio_engine.py": "4ae22ed2002064adc20c4309b96b178faa7d01d5a77d09f252cc0dcecdaccc43",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/proxy.py": "d5390446e5f72135d8371eed85d3825a89b3eb6f0f79a9592bc8efc9dc26175d",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/types.py": "b0b2d50f2633d898346e122abd5d651920d41037d755e2b50b597be932bd1a13",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/utils.py": "64198e60ed6b3ddf7fe309141dd2f382ccd902b8c83d37f1598517b14cbd2b05",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/kimi_k25.py": "5d34631d8833eed6db54220f5ad8dbdbf5ad3a62b84a3e2763bf71ed1f920642",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum.py": "0b9d56b974b33e5bc98bb0875d6a7e9c3d7a6e8f7cd23e293e3ca2b8133a50cd",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_attention.py": "a2fed8d5d99ee676fcea274887d77b7dce9ebab8fb00a29d18d170a7aff8da6a",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_batch.py": "b080eaef790ed0af4f06f0c3a0a5a8b07c32c10208a0424f506c215d3298b308",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_campaign.py": "725007069f2fd353452bf6e9addfb23c5768ff95ebfcce28421c4d8709054609",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_chunked.py": "21cfc84b720f9a69f88e5656842d1868f05cdb13e54a1d16257e5f27f29069d6",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_decode_probe.py": "7e9bab93b3625672245d2cc97b9a8b39107fcc56e2cbe4aac41fd72910383561",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_diagnostics.py": "2f1d5b403704f0428b7e545d1cf8e81434a7a05950e37c6dbb9bd291fa87356a",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_direct_kv.py": "a717c38c993b3b3f1c13c25869b7d91e912cb0de7ce2e0db23076ff6790d3029",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_experts.py": "d99e45da3dd13131fa6bfb95b4dfc58be7aba662ffffcf448371b414631c153e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_fastpaths.py": "e3b9179f019a7aa473e870f0d85289ae1799ad4794df3d56dd3bec2821e55b28",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_fused_rope.py": "de5652d3f0bb3218691be0d54a79e86dae90bfd824228513d0e76c39232d7286",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_grouped_decode.py": "1b28c26e5f505c2b5157489e64089b2d6cc42ba039b87203337d728de55c4dfd",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_indexed_gemv.py": "034b972ba67a64572f4426ad174c81ba897fd9664f58ba75a7c6456490d39103",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_moe_optimization.py": "6176b514e5df8b03d275f36d4ef19550a3ba0823aee3bc78eb57b5ed3fa53f0d",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_native.py": "dcd6ed26b0ef2427618354ed03750d42f235e022c61225237528feed029a41b0",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_phase_moe.py": "d26e968a79dab96a70621ccd3ac3da16c2538401559425a898ee7fc73448c8ed",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_prefill_metadata.py": "b4c6c008f0ae2aab3dd37ebabc8ee0ddc63ce04539440dcac33c294c60df6f69",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_prefix.py": "dfdf7b4f337cbaba9a31b94d10e34670fbbce316c2da36c9a1cba31eb056b68c",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_profile.py": "815ad19e1745f634c84ed2acd0c90b0ca59b657b6663673ae3486517ebf84804",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_projection.py": "33325a841f1bace20954acfefbe4c36c1ec2cfef03563cb11a418c0a64a4c1c7",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_swa_capture.py": "6eb9f39311fe3eb0f41afe58957c4c384743041687e4cbbdef132f31a8867e5e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_swa_triton.py": "f3acfef0a9998b1c74fb651789884032b80078ebd00b2b3d7777d4279ab1061b",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_utils.py": "a85148ca6a6d01fbed93060993a5a2227ea0ff0e1c841d3c693296f6ad6f0d4f",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/qwen3_5.py": "437e15664602cb57abd1408219f0a433a9bd40a93fd0e464285d33a957fa54f6",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/qwen3_5_moe.py": "84ad34da9fc3653535bad063ffe8391fcb1f2e309bd01e135e3d7d708afbf89e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/qwen3_next.py": "cd45c1a443337465655c81ff10b4f251675423fe257a900bc99edf8579904b49",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/arg_utils.py": "09148b83019e75838f74c70e9658b4ca57e166cd415fe03965146258413a390e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/async_proc.py": "319afe358e5c51650eee28b377adb883d575947271e12b524ea1b1831eb4b43e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/block_manager.py": "2be621f4abde73cb479c1f8a5ce806f567d70deea4512ad0c115c1e5a7842bb2",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/engine_core.py": "c705062d4d8a578011d328e2b803e59dd38016eed1582a5d25e063198956cbea",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/engine_core_mgr.py": "4013f0bce03645ccb0ccc29eb78d59c5231da7d4353373720065823d3cb5be15",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/llm_engine.py": "d1776dc1db99e7e76bac5f1970bae9b25f1bdbfba0799c2fbd92dd6d3e4d1c41",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/mellum_service_audit.py": "2806c150903d0d604d5d72b73754b72d8fe0f18fdb17a4ed09fd64a2a60f9284",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/model_runner.py": "13765bf31f68ab4b5104c43db91167c58936109ddc81343a38d4626ebd138a1a",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/multimodal.py": "72d78368342b0bc09c012aab03d449e31b4ba6629c48d9b4ff0c606953014d18",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/prefill_delayer.py": "1a4edbf625814f7beb8a5ef547f3815c271ab927333558be623ce95dc327b314",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/request.py": "a0c17fb2dd5d7ffc49aa0012668e411393396702da5b532c9c9410cceb7a9daf",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/scheduler.py": "118ec36feb07104e68ac5a3ab98da9688730d1b44170324c70b0fddf6493a27f",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/sequence.py": "94d39f94ae156d3286e22a46c5c89f5af8de0ecac32168a24f325beb0a1329ee",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_loader/loader.py": "57032ed3e2fdd159776687d25497f7b494585c682be71bddd18ef646e2e6aa1c",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_loader/weight_utils.py": "0a4d7898ee4bb6ad94633b38e3d7796d3d385e886f1d1ae284706a7404c237b4",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/__init__.py": "3a5f2634f4fcad251ebefc71704fc2109b7b82e0a0b2a4ad17875802ecf61ece",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/activation.py": "c780504fa712348bf3f15561f734427b7d63c6e7e54f4ff3cadadd3c1904dcea",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attention_gdn.py": "de40e7cc910f532d9f6a8220329d4f7fa6c6c318d48955b5d02f95306ea98c04",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attention_mha.py": "db158659f422101ab8588f5e62d134604a4a8efa057de08369ca36e8fa523e64",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attention_mla.py": "1020c9cccd61ea6c5a9a5f1e51e8d82011fc4223bb288f04463105b827f01104",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/aiter_attention.py": "4353dd8c612d07f1e52d3f59765a59b2375f7988974c539d1073a934e5df7aba",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/aiter_mla.py": "443a94002f7d335b162e765631f90cad8012dffed1c5b80e23535b17de17e0a8",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/backends.py": "3f439c3ae5c790e4cd09ad01f57ae0c9258ab6cf92843fd947fdf0d4e54bd949",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/deepseek_v4_attn.py": "8a115024c63ec652bab97a35485c8bdcc47bdb8e9801b4d7e3b7f01034b99fa8",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/gdn_attn.py": "3e549d5d0398ff10944d40b886c70c745e89e4a7fcb6baafb0d5f9d29b75e625",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/triton_merge_attn_states.py": "f53140c9b150eb784215e6fafae98eaea12b377fe1cd97a0761cc97c505122ca",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/triton_mha.py": "d94daf497b6d183dc29a32a913ca2abd1b10ac9f4c09958826d6feb4c04066c0",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/triton_mla.py": "c34497ff4755fb12ceed224120a270cd032cd58b4a9c7f7f01d724f543ede282",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/base_attention.py": "4d63f732d9fb5458df212573acf5d572581191ccb2988e4445ee541906e1ae64",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/base_config.py": "7ae95efb7b7803b772d3a3082eeeae827b629e2ffd1a84e13fdcd877e6d0a5db",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/embed_head.py": "61db223e8f3546d32a09e94ac9cd5bc30817d04f20883bc4a934ed535ddfec4e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/__init__.py": "4f1f5a8e66ec082a6db89a1f5fe429082fd4b764b06414d3e7a4948c65c636cd",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk.py": "af8979d6c0730c2a788506e836a72fd3e1f4f6ccf83872034d0c56149160f9af",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_delta_h.py": "f6e412316213891f7f475519ef03997bc119cb8ce115c20e81d98e1ae7969bdd",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_delta_h_vk.py": "8bfb23689d89eb43e4cf9b22fb7d51fb47a59caa7067026a089fcaf2d82c09a3",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_fused.py": "976b8e319c092027930e9a94575df4318e5dd382171a89d191d6448afca0d890",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_o.py": "a33778a9b85b7f14136e672f88ca3668b48d8fc8944fc0b08e697c2be8377a5a",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_o_vk.py": "c793b6a5b4d2431031cb8e7b52637c004542015e273dc703e7a0a9060ce1f2a0",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_scaled_dot_kkt.py": "b013513aeb518ca0292a3a2162f7df30b8def01af053581263899def8ce7e4c3",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_vk.py": "4a719c3b8ae392c388301a9cf4bf38415c0337616d8c2b86c6f22b8981a79050",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/cumsum.py": "37ab3ee25fd3234ceab31dceae83da667fb3a58e7a1c5d22ba0558176051da78",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/fused_recurrent.py": "2d73bf0140413729c9b22cfc320fe59c0eb95296b865af73da04bd24a11c39da",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/fused_sigmoid_gating.py": "608f82a20f71eee8e5f0c7f07aee16e21441298d0dd62cfc4cc6827cb9e6ad8f",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/index.py": "5c6f3a539c90c06580bd3c5cf3fe9f343cfbf5d98344a1838e9c4737ffd11539",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/l2norm.py": "48a7bba0e1c5de4a617bd05fe2465bd4bd07a9f2a5bd64739964156dac71aebd",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/layernorm_guard.py": "c510e306b601122349d9fe49a21434849fcb9fe312412ce8abc809c191791bdf",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/op.py": "394d28bd870bc150eaf72144014ca10806fb92e31b203460afb0e20310feafde",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/solve_tril.py": "75aef0710c8b78b589afd3bc1d6ce3beb1dacf017ed6d2b2e60288baf63ee6e0",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/utils.py": "3da60d18bc9268f90d0e73679c1e5d07b8a15ee4404057b8479604f3c5a3ba6e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/wy_fast.py": "e0aa0fe3c9f1a696ab181f78ef171df3b33b7325a59e7177d1d72eeab56d66eb",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fused_moe/config.py": "fb3b6afca08ac5d205187c8416be1289b0e32c326960cd542a5f7a5a3202075b",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fused_moe/modular_kernel.py": "f3908487f468ea2bf3d42fe1597feb7a98f22c4b3bd8ca0a997761bd43b29ce1",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fused_moe/mori_prepare_finalize.py": "aff9dd209ab3d6cf440999cc5f692a1c7cb86e7353793a194dac7bb47984bb2b",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fused_moe/utils.py": "209edacb89d86add883522f4c64bf10bdea7b2e6e032789ed9c3c4a9798d20e1",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fused_moe_triton.py": "7a0ba65f38ee0a10b07616831a69e3f69427c02ce706dabac59040123aea5454",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/layernorm.py": "2f8bfe56d78a51d36f6723cf5b4825f9cf1e6056543beb0b3d9e638d6e7c93e3",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/linear.py": "0844a5a29ae800f4a6c27d09d1f81d7de60c9d886cbd4381255c894b01803302",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/mamba_ops/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/mamba_ops/causal_conv1d.py": "11f825ca0af507ddf11d7ada81aa0f0309d75e25cea36bcd21621f3a7eec9131",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/module_dispatch_ops.py": "0f7d826963afec3e068ad8b543160c064ea61fe25dc55f644eeaf512526ad706",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/moe.py": "0e379efed66652c2d482d5463f75f2ca544f58f7390fe31938a4ab1ac6a013d1",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/paged_attention.py": "d8a2609552f37fc638866c93ce2a60f4c282c5c3907c45fd4fdbcb34c4de25d0",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/quant_v4.py": "04e5e2e740ac2a6e5a5aca7f7a1d0cc24d3730a52bddddb2efef310cd50e3c45",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/rejection_sampler.py": "38c5523971d45f53e0b7d99f7d7ac6ca964010dc785f7e0524a5db4226f2e024",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/rotary_embedding.py": "c2eb29be7c01521bca74513445f8a1067f29e2c1c7c1425d95ecb0912a8d7f7b",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/sampler.py": "a3bf97bc761b5ae287104711841c821bbfef6a2e14848484c954f5428d0988f4",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/sparse_attn_v4.py": "2924fe097ad6651ceef6fba62b0d709dc181654ca6b78234e4d3f0d75bd86332",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/split_chunk.py": "253adb67b3f7afd03cfa61e5ec9e56fe3880246a327e481a6c0b8d24baebaa5d",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/topK.py": "04627161ee5df4ebbda4facfc65fd6474101367b4abce85ad686a22a05b6053e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/triton_fused_qkv_norm_rope_cache.py": "5fe6d6c453c805d82ed7e1094de58ec24116b26e0a3f391643d73ae3be0a5995",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/triton_fused_sigmoid_mul_quant.py": "8f8e0f410d3753776c3f18398ffc6f3ec0a4bb8a591599daf5ab317d4b4abafe",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/triton_gemma_rmsnorm.py": "33dba79d7ccc829707c6a69a0dd809a37c3e74c2d833139b7aff35ce1971b25b",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/triton_rmsnorm_nw.py": "1cb7144eed15cad6263d204ecad70f70560d2aaf4a7e222e1519789b5de60cdf",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/utils.py": "77f25e542f783324b1e3c24bac797a7b0d5d827f67133fc6687b637f366ac295",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_backend_gate.py": "6e8ee83cc3857995c772e9180cfc725d631c46785dbe7f479d82a984c6ae3cf9",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/__init__.py": "0e4a1b50577961d41936533e45302a5b4ff5520461f8121ab239449bbfd98386",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/compress_plan.py": "41d6a832dbf8f0958bbc7265c443fd376d63683215ae862b8f0f930790debe13",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/csa_translate_pack.py": "e37f51dd9983b69b6058dd116496eaddc03f89d0d93076ae70e28174211b6a3d",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/fused_compress.py": "f784fb27945b4cd6fb7f71047f5ad9c74f768e8b4eeec0fc55ade211a43f4ffa",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/indexer_weights.py": "d18f71b616560337b2e9aa2d70caf8f5ac87d7b5c843a85a8be2d808d6b06a9e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/inverse_rope.py": "435db01d29e79d125c79a7c5ee25a9b4bbcace6c6e84b028b68d0bba3ed521de",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/paged_decode.py": "75e430031fdbd7f428f7497d5c927ebc8c69929e174bb53499f316729ef1afab",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/paged_decode_indices.py": "05198b81e6d2d64a35aa313f58831b710f421b0c815682e3bfbc1f299a4ceb3c",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/paged_prefill.py": "e584b34dcdae0e3d7e5b57327755996cda9a54b321610594933044ab92ab2868",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/paged_prefill_indices.py": "485e9ce9d6c6c478d1b8a0570a7ef72865a53ec288f38cd895fbe82b90ee898a",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/qk_norm_rope_maybe_quant.py": "49f2074c71e2993a5025511a1cb0bc00516e8c257c9c97a4735d6b92810144d9",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/state_writes.py": "b94ffa7e6d5702c3ac61cf3293b699c60c7b97ba83ec22924a9410c7a49f38dd",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/deepseek_mtp.py": "678340c84c4a35bf332fcfb3521839552756c23cb116dc47f0a9f1c1f2b24254",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/deepseek_v2.py": "afb043a75b46e25a4d79f13cd4c0877f6d8d2771a9564a985caa6e47cf57b102",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/deepseek_v4.py": "74eaee131ff65f6abcd97f2d4b447b1ce93c873a5bfc96964e127c712dec3f3d",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/deepseek_v4_mtp.py": "cc5655cf6b73688531b8b412fa1cfaa19793c36e95c82e2b1a749cda5a5e52b2",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/eagle3_llama.py": "86d5391c01661dd7ff712dc1d1671c0695172233e164f638cbf6a7188bff9744",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/glm4_moe.py": "a35dbb22053dc2f7130bbee334bd7fb4e3fe27f7df9ce641df7b5ba53c58d862",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/glm4_moe_mtp.py": "0f8ea93277e8b03ac2f497e1658847ff2dea88faed1fec78ac819696799282d5",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/gpt_oss.py": "48a9b412b714227ebb137cc1fbacf72a2dc652ca77cd02e147541b1e39f6bdb8",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/kimi_k25.py": "21cf3c0b67af6dbfca1ec0f7bd5009c6be59a9a966536508a8e626b04082f460",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/llama.py": "115db70701dbf9416b58d37746d311cd5d286d5809b16b066f2cfb6ce18350b0",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/mellum.py": "9ca5cace93de1aaedcd09ab85c9d7a7052dfe1cceb3da786087834fac21077f9",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/mimo_v2_flash.py": "1bda262f02a8189d8fe01bc442e0960dd4cbe212a094b293a8f8448ca59be457",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/mimo_v2_flash_mtp.py": "8e24db5f8e1fdc6fc1d6466f365ce550ce059e654f46b757a594766cdcc85c4e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/minimax_m2.py": "572711e9cb6efb2bbf230f583eeca1babda9e4b8d30a84a43604314b42eded48",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/mixtral.py": "094828601fa2c8a000400b5e1d10e6a4f52044c0fb1877752dd037960e5b1626",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3.py": "35555ae0cdcb6cc3d4a35f2c3db86ce70a6bc6ca58ee6353d83f70d87ac08a22",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_5.py": "b59c5c16fc2211fbd2c8445e83c0347e76a6b876eebd751770c850d9764c2409",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_5_mtp.py": "9d574a48547fa575924ff20fa0ca95bc4a1f30980f6cf549a3e6410417934d01",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_5_vl.py": "7ff08b3ef297ac3ba304149174254eaddf9c2f6129ae388988749fd88083071c",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_moe.py": "fd74a9d09d661f441eaa5e6c8207afee15143fb3c262cc488dac3bfe69367ef9",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_next.py": "a3086d870c58abf142607d51686abcf981abde470eeb6b04eda1b06cbe022f6f",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_next_mtp.py": "f4e4c2f1573f5da1e6aebf27a03c821ca8de9ced7f4aa856ed9cd2eaabcdb664",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/models/utils.py": "09344a6d889615304c144c851422608b9716aef512e8b6f1259060a2ca6a81ef",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/__init__.py": "dbe759b77bf3727b9eec6fb3604a3000552b42902a2a51a616e2b247e5335e13",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/attention.py": "2dcdbec46a5b95e8fa3f7a57a0dbc8b1ef4a4865ce2c96a6b44e2a005ec2ecfb",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/attention_mha.py": "fed37a4d7428c5b989c2401386c15aeebd20d4ab0caf3a16c88fd024febbf936",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/attention_mla.py": "2439e739bd696db4fe963b2be872d312470220300ee2a92c9ff8f91d63330184",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/attention_mla_sparse.py": "4bc8f8bd312049fea5be71dd990da2ff8b992cc81af92a54c35639fce5b708ae",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/config.py": "58131bf8929090b8effd88d6bf4870694556d44339717c6414914fc59b7bd2ef",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/graph_capture_patch.py": "bc98ecd8b0d69d820d4a0095778d8bca634e1d1a4e3c3382fae01051e91a0c28",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/moe.py": "6056527c17ecc4a2bc8919a55d5a4fd91fd6ee0b3240b851549c22ae826b939b",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/prepare.py": "9b7f9a6588661711516a0fec5e8870912fe3de6481918ad54a5115e63659e464",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/register.py": "371fc141eb1270d85962913542182c274d7ef7740c50d60d187d96acd1621197",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/attention_backend/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/attention_backend/attention_gdn.py": "82ff893d024883deb30f6abb2329d52621d4a89e6d7cb9ac4918e2e93093a7d0",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/attention_backend/radix_attention.py": "4404129a8e1113cd3ff66d9a89fb5a90b2c39ed63901c7c6071c2e9ab332f9f2",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/attention_backend/sgl_attention_mla.py": "acf29f19a0c25df7ab98b6894576405a7e641649d0997c486f80464252be62a8",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/attention_backend/sgl_attn_backend.py": "7a0fcbd7ed3466d3663e30f1403f13b78e6128921970c00c1333568a5e1d3727",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/graph_capture_patch.py": "4caec2e721a2dc5442869a1aa97c18891dbc6cb2061ca362194eac56ed55b0c1",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/models/base_model_wrapper.py": "89f153c787752cc444f00db02319cfed7e2de6a1e2833ccb46ea67ec1ce876eb",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/models/deepseek_nextn_wrapper.py": "e305cfcba1b891b1e26ee5d39bf6a6907ee2fb8f3f8a362ea110a57dc03da978",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/models/qwen3_5.py": "a1047a78953727be78062d9180ee7966dab5733f7bc815247e49b1a130f1e639",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/__init__.py": "39099096e72bbc09959e07d5f9293b59ab2f74d704f84cfd82b314a97110e177",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/attention_backend/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/attention_backend/attention_gdn.py": "c116800bff0258425682aad7d2d3af928d07fa9d5a6decec24384d5eda6474ab",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/attention_backend/gdn_attn.py": "ed9ffeccd5ab38f932e3548249801126d23865572a19bfe85d5f13d2b7380d9c",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/attention_backend/mla_sparse.py": "8f9ce3acff7e8aa9c486beeb77b281948fc973c9cdad5f0d95dee2abc20e71b3",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/graph_capture_patch.py": "733b86ba9e8994cc456e792cd9e884cbe3dd53384ea38cb4a905e300b65eea36",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/mla_patch.py": "3b21589f8e60d841313c6b09a028716dc80ce7e5189fc1bdc119d753278d329c",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/model_wrapper.py": "94a4cd58cfe719ba4a4ed70d1ef99993d5cea52e2e98b279f154c0c3de7c2e52",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/models/kimi_k25.py": "5b69eab298b8cad395fb5c9a07f912a40a380436252d7d41a0ff00590ac5fb05",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/platform.py": "9f3fe04ea35afc7f8bd01458792eead6ad6358529e9025398b9c7102f58d36af",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/register.py": "a480dc60d27efb045a048e3897af6815be51f4254a669b4af92cf3a6afcf8f02",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/spec_decode_patch.py": "312545b7df296e4e12aa313d8cafa5d9422d51af31ab7594b00ffa257631c58f",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/tp_group_reuse.py": "62a3dedddc97dae222f03336bc65e028f4399bb5a6a236cf0a5703d23c92eccd",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/quant_spec.py": "da5902bc6f94bda777a6d96417a2da4165b3fe6d5c233710cc6c49c83ab2c858",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/quantization/quark/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/quantization/quark/utils.py": "ebdeed798a698df79c8536fc7e55d353bfcbb71c50ea3126fabc452952e3b103",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/sampling_params.py": "dfb9128e1c555df3406db6380cc9a454986d82f275c5747f223117fd4d46383b",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/spec_decode/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/spec_decode/eagle.py": "f1dc4e6f9e59b9765636f9d9b74eb27b8bc11785e3bcffdc95127e1c11ee6e45",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/__init__.py": "126594aa5a478413d04bafb478ecfaac229a353cb11138575a2ae2788bf5c982",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/backends.py": "81a20dccc2fcc1b4392d7907a4ab57d21ed3c2230103ba17c95ee22a3a82bc27",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/block_convert.py": "2af9f2945704c242af113af0bd5e8e9e984645536959af9f80a1f6f83eaee80f",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/compiler_inferface.py": "32162e37344c8b4061a18b180b4e4c5d3dfcbd8d5e02a1e7e2935e56240aed2c",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/cuda_graph.py": "f923909a1b40fe1f8174eed0e3fb965b6e6b64fd5751130d6544afb5095f59c5",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/cuda_piecewise_backend.py": "4132873eca6fadf233d18170434b5f257b7d2b9cfb93674ffcb1d128e2942ad1",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/custom_register.py": "eadefe5256ee046205ca0e863b1ddd81940be0d810861d17b032a387a46fa412",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/debug_helper/__init__.py": "b992dfa21be5499f0921b25ab4f8d7f533648721d27a3de1ebc76b4b5d424276",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/debug_helper/compare.py": "66dc11f4d79e289e38de3611f2f029d575e5581007ed8e46f44e091df28a1dcc",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/debug_helper/dump.py": "e46da47327a7fa709e18b88e5b1d66b62e30b6fccae89063da1aa3b85861824a",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/debug_helper/ref_patch.py": "61b1cf00cf81fa638e78cf7fa3e9a94c32b4ae7074bbaffef1faf71121e6ae24",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/decorators.py": "929d6c6d1cd68406ca2c3c553907b07a0d3b54c58261ac5ecb225877ff0c2251",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/distributed/utils.py": "8056ff8183b4033b0a1469ea3b1b67ac331b53900cc12048d09dc89ffccfed9e",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/envs.py": "70b865e60f942062e7a28d5bedfd807951ccd77b40d590743868c08a05941c4a",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/forward_context.py": "fcfa15fb56972000bc2ddb2e361155a16687fd50412f08903f069cd40ea911e7",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/graph_marker.py": "a7643bb75a6d0ff653a7e1e60ce2d856872411925310adde3f6dbc9efc480983",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/graph_marker_instrumentation.py": "0bfe6065e49d09dd6f20aea31992dd040166c4ac5f06ee7ad535f1098fefc057",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/network.py": "eb259a2aee5de14f6f81a40324fab7deed77ca366d59aeee7676e41773111cd7",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/selector.py": "701b1eed746cb72d0e35e1df9c3cadae321067c4b0290afd02bf766a88f366fe",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/tbo/__init__.py": "1b3778f3ea083822dadd2cfdd58b20adb1aeb03ee8eac7940e5b30c896ad7981",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/tbo/ubatch_splitting.py": "97487c7871182a46d2de64da8500e5c62bd70bd31785fb9139f6d862c4c19d94",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/tbo/ubatch_wrapper.py": "26446b3f50939443cbdaf5e5a478d5b69ba8caacfd6a624c99fb04aa159ef3ed",
+    "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/tbo/ubatching.py": "07da99880f57ad5ca3eb52dc0ea1945f6e8b3f2395361a1dff6b23bd5b88c080",
+    "/workspace/tencent-mellum-precision-third/configs/mellum/shared_routing.json": "79064921ba6b8ba9ae2096ee1fc3fefaad2317404793271a3c43940f86aebf8b",
+    "/workspace/tencent-mellum-precision-third/configs/submission/baseline_policy.json": "2a52fe42733a2e697eb0789adc3be8bd25fd333ef80c0c8d41d2d98a83cf4889",
+    "/workspace/tencent-mellum-precision-third/configs/submission/environment.json": "bcd5fd74a4b3d49d5e0ec0ff7883755a39938778df3e5f1e8b8f6e68364eab64",
+    "/workspace/tencent-mellum-precision-third/scripts/evalscope_mellum_adapter.py": "38a90cbecad686ecdb4ea259cf138cdabc5462935a556914edc5b5849de3bf96",
+    "/workspace/tencent-mellum-precision-third/scripts/mellum_delivery_matrix.py": "b440e7ff780d026945b60ce871efc26a602d77beca8c274f7a16a84e4dc195c3",
+    "/workspace/tencent-mellum-precision-third/scripts/mellum_execution_profiles.py": "dc275924dd7e2de46b00c01374a56c9263354f92e861e42678b9f9bd6198ada6",
+    "/workspace/tencent-mellum-precision-third/scripts/mellum_perf_protocol.py": "732639f0ab6b99696615ec4d67f5a280c0e631c02546703ea893d00b01085817",
+    "/workspace/tencent-mellum-precision-third/scripts/mellum_process_runner.py": "478a9f832cd6a07e3a3c60797076ab7b07b2aacf21babd583b435701fd04eda0",
+    "/workspace/tencent-mellum-precision-third/scripts/mellum_runtime_config.py": "3ccafe152011ccc16a579791e65a463214a3680895a662045c28dc0cb4e941db",
+    "/workspace/tencent-mellum-precision-third/scripts/run_delivery_matrix.py": "91209a608edd09517b5086f582e2cab9e84996d94d16d38c9e73977299c8943f",
+    "/workspace/tencent-mellum-precision-third/scripts/run_mellum_abc_baseline.py": "947e197cfe565dea8bc09ce9ae377253d8a37d6b6a9810e3e4618d56deb5b0d1",
+    "/workspace/tencent-mellum-precision-third/scripts/serve_delivery.py": "b2fa7b2e6ea2f5e96b5e0cac6cdbd6e204509a129706d84848f1528c84fa88fe",
+    "/workspace/tencent-mellum-precision-third/scripts/serve_mellum.py": "d9af27c25ffb8347db0fc463a95c8ce31b37f25d23265b02b5a0da2308c5b7e7",
+    "/workspace/tencent-mellum-precision-third/scripts/setup_mellum_perf_client.py": "57f882332669b33552b47a071dcb1f7ccd717e32f194a2a0760d7b52158c8c0e",
+    "/workspace/tencent-mellum-precision-third/scripts/smoke_delivery.py": "95b527195d357174bcf6a5dbe8576f7266ae724658352929cac675b7a593dffe",
+    "/workspace/tencent-mellum-precision-third/start_server.sh": "c58dbe088bdb735aad46f153a6bffdda61a015e1dbab769bb6818d77c485e948",
+    "/workspace/tencent-mellum-precision-third/scripts/run_precision_third.py": "0b48e7316badfcdc4da722d001962a996de3e0c37146bf04de0f557262d7fa6e",
+    "/workspace/tencent-mellum-precision-third/scripts/run_mellum_candidate_acceptance.py": "5956d2804377762836e3777a2ad5da63b96503810557ab1fc6b2af0dcf91fd14",
+    "/workspace/tencent-mellum-precision-third/scripts/run_mellum_c_service_diagnosis.py": "8ecb5fe0ba0309711ecb7b989d723b80b44b363c910b020861deb28623875e8b"
+  },
+  "external_sha256": {
+    "/data/datasets/scenario_a_prompts.jsonl": "f5cb156bb468757841a321142c8813d281c0732b494d70d3c59d5b415bf7489d",
+    "/data/datasets/scenario_c_prompts.jsonl": "38fc340a76fd48c025bf5806376bdabbc7762f6b5c48d4509bbb109af2cfe265",
+    "/workspace/results/mellum_precision_third/20261117T170635943718Z_performance/template/inputs/C_smoke.jsonl": "fb8045d56918ab1363fd6f5659e28790604b52a0454a05a62c5b215b4f54bb29",
+    "/data/models/Mellum2.1-12B-A2.5B-Thinking/config.json": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541",
+    "/data/models/Mellum2.1-12B-A2.5B-Thinking/model.safetensors.index.json": "a6ad930e5bb35ea92d5b734c4df4649bfcfdcd899f64b0a83efe40fe0ab9b60e",
+    "/data/datasets/baseline.json": "14674cbbc641709358e197bd5ad71c3cac8f41ed3932b3091266f5636b0dd6c8",
+    "/workspace/results/mellum_precision_third/20261117T170635943718Z_performance/template/inputs/adapter_manifest.json": "d96c1e5c88a0d8f4de7caeb5a3eb918311eeb18a3e46742d2adce31b745146a7"
+  },
+  "jobs": {},
+  "scope": "Preserve reference computation; evaluate correctness and speed, not C200 completion",
+  "template": {
+    "version": 1,
+    "created_utc": "2026-11-17T17:07:05.164558+00:00",
+    "gpu": 1,
+    "smoke_only": false,
+    "source_sha256": {
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/__init__.py": "8386a0d1eb2f87068a80535dcc1be823d88ffd552405c3f36305fd46b8255d98",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/benchmarks/backend_request_func.py": "e96654ece9f288c1e9e2898ee49e754a809dc0a74b60c724c53b5b933db62ae7",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/benchmarks/benchmark_serving.py": "62679edb88603efda2f5611ec7956957357ec3a354451dd25cb794d87390d490",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/benchmarks/benchmark_utils.py": "758db59b13aede9a0e7f577de5537d42bd7f43b656f16755a26c97fc1e620ee1",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/config.py": "4eddac301ab4b660d2d258b4b90c4d0ae84811ea8f9c13b849b49fa883a295bb",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/__init__.py": "f6f90e287f9a9255945c19068656cb854b9b249f35b97eb1537c23a5c6533e01",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/api_server.py": "078de7c9b89b0b721ea8495ac83b3674b22a0e6adb908ecfb25d04f28aeb6377",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/chat_encoders.py": "ba98f0fcb07dc8fe264285c9278f9d72434d450d240afb53b9dd979ec7044c6f",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/protocol.py": "d7d7a0ce7ef7adcefd944162f944738edc8b0f2663a4a0a93def4aa4a1a5c3aa",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/reasoning.py": "d22734dc359e4f793f5eba81ebdb3ecee7951eb44d2c4862a6ad52ea8f6fcf4d",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/serving_chat.py": "733c899426c576b282618cd97fc9fa46f7acdcc57e842a5d575c63e2ba5572ae",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/serving_completion.py": "daab57bd8704db1c79e97ba50fe60c19d64dfb31a59fbe4736372b20dbc18ab4",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai/tool_parser.py": "fadba8fabc0e1b91bbee802eeac1e5854ebfb93b44d153f88c3f8b550703c2fb",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/entrypoints/openai_server.py": "bd8a6ff20ef3bbe8763c17c640aad9e63662cde90b85de133695aa023e43a513",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/examples/multimodal_inference.py": "6da13f947287b7a196b10d46a09e90654088d8a7e8e6cf2c7ebd4d40ef8f663e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/examples/profile_offline.py": "fa34228d360ee656e4683a8fdde463dfa785d2e27ecb7c3630749024bf4f0fc8",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/examples/simple_inference.py": "2911f8e863155208796714a648b7fa382192dbb388a7dc797eb6f8563bbd6621",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/__init__.py": "4ef850d1fcb57905eef03e7b9160bf18c20a54c6aeddd37c0992543f42d7b1f7",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/aggregator.py": "9f83a96fb63389c47af97c26ad1661a55184486663c6c236fc183af81db1291a",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/base.py": "65cf08f8cd688a2db612ed0ab114adcefa9621e6d4f193b9bdc28afd2db981ca",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/factory.py": "97162a34bb8765c4b61380d7af73654c675d2b8a1028cd1fe66dcd7542c16c23",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/mooncake/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/mooncake/mooncake_connector.py": "ee0d48e805c8120bb739bf55b3b099ad1a770d6a1d644d6d20e2bf1b8da78faa",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/moriio/__init__.py": "ba9a768c13f4290be4775482202eb176227a474bb4e22b2525e874041effbdca",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/moriio/moriio_common.py": "3943a54cf2ee483ab6741463c81b797ed72d305ec15aac9f32d42dd7f1dd3921",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/moriio/moriio_connector.py": "897e01c46b4407a7d1be0d8fba1398034182c7c0c7bf54caa7372cc782229c59",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/moriio/moriio_engine.py": "4ae22ed2002064adc20c4309b96b178faa7d01d5a77d09f252cc0dcecdaccc43",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/proxy.py": "d5390446e5f72135d8371eed85d3825a89b3eb6f0f79a9592bc8efc9dc26175d",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/types.py": "b0b2d50f2633d898346e122abd5d651920d41037d755e2b50b597be932bd1a13",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/kv_transfer/disaggregation/utils.py": "64198e60ed6b3ddf7fe309141dd2f382ccd902b8c83d37f1598517b14cbd2b05",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/kimi_k25.py": "5d34631d8833eed6db54220f5ad8dbdbf5ad3a62b84a3e2763bf71ed1f920642",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum.py": "0b9d56b974b33e5bc98bb0875d6a7e9c3d7a6e8f7cd23e293e3ca2b8133a50cd",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_attention.py": "a2fed8d5d99ee676fcea274887d77b7dce9ebab8fb00a29d18d170a7aff8da6a",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_batch.py": "b080eaef790ed0af4f06f0c3a0a5a8b07c32c10208a0424f506c215d3298b308",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_campaign.py": "725007069f2fd353452bf6e9addfb23c5768ff95ebfcce28421c4d8709054609",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_chunked.py": "21cfc84b720f9a69f88e5656842d1868f05cdb13e54a1d16257e5f27f29069d6",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_decode_probe.py": "7e9bab93b3625672245d2cc97b9a8b39107fcc56e2cbe4aac41fd72910383561",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_diagnostics.py": "2f1d5b403704f0428b7e545d1cf8e81434a7a05950e37c6dbb9bd291fa87356a",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_direct_kv.py": "a717c38c993b3b3f1c13c25869b7d91e912cb0de7ce2e0db23076ff6790d3029",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_experts.py": "d99e45da3dd13131fa6bfb95b4dfc58be7aba662ffffcf448371b414631c153e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_fastpaths.py": "e3b9179f019a7aa473e870f0d85289ae1799ad4794df3d56dd3bec2821e55b28",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_fused_rope.py": "de5652d3f0bb3218691be0d54a79e86dae90bfd824228513d0e76c39232d7286",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_grouped_decode.py": "1b28c26e5f505c2b5157489e64089b2d6cc42ba039b87203337d728de55c4dfd",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_indexed_gemv.py": "034b972ba67a64572f4426ad174c81ba897fd9664f58ba75a7c6456490d39103",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_moe_optimization.py": "6176b514e5df8b03d275f36d4ef19550a3ba0823aee3bc78eb57b5ed3fa53f0d",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_native.py": "dcd6ed26b0ef2427618354ed03750d42f235e022c61225237528feed029a41b0",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_phase_moe.py": "d26e968a79dab96a70621ccd3ac3da16c2538401559425a898ee7fc73448c8ed",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_prefill_metadata.py": "b4c6c008f0ae2aab3dd37ebabc8ee0ddc63ce04539440dcac33c294c60df6f69",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_prefix.py": "dfdf7b4f337cbaba9a31b94d10e34670fbbce316c2da36c9a1cba31eb056b68c",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_profile.py": "815ad19e1745f634c84ed2acd0c90b0ca59b657b6663673ae3486517ebf84804",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_projection.py": "33325a841f1bace20954acfefbe4c36c1ec2cfef03563cb11a418c0a64a4c1c7",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_swa_capture.py": "6eb9f39311fe3eb0f41afe58957c4c384743041687e4cbbdef132f31a8867e5e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_swa_triton.py": "f3acfef0a9998b1c74fb651789884032b80078ebd00b2b3d7777d4279ab1061b",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/mellum_utils.py": "a85148ca6a6d01fbed93060993a5a2227ea0ff0e1c841d3c693296f6ad6f0d4f",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/qwen3_5.py": "437e15664602cb57abd1408219f0a433a9bd40a93fd0e464285d33a957fa54f6",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/qwen3_5_moe.py": "84ad34da9fc3653535bad063ffe8391fcb1f2e309bd01e135e3d7d708afbf89e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_config/qwen3_next.py": "cd45c1a443337465655c81ff10b4f251675423fe257a900bc99edf8579904b49",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/arg_utils.py": "09148b83019e75838f74c70e9658b4ca57e166cd415fe03965146258413a390e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/async_proc.py": "319afe358e5c51650eee28b377adb883d575947271e12b524ea1b1831eb4b43e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/block_manager.py": "2be621f4abde73cb479c1f8a5ce806f567d70deea4512ad0c115c1e5a7842bb2",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/engine_core.py": "c705062d4d8a578011d328e2b803e59dd38016eed1582a5d25e063198956cbea",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/engine_core_mgr.py": "4013f0bce03645ccb0ccc29eb78d59c5231da7d4353373720065823d3cb5be15",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/llm_engine.py": "d1776dc1db99e7e76bac5f1970bae9b25f1bdbfba0799c2fbd92dd6d3e4d1c41",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/mellum_service_audit.py": "2806c150903d0d604d5d72b73754b72d8fe0f18fdb17a4ed09fd64a2a60f9284",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/model_runner.py": "13765bf31f68ab4b5104c43db91167c58936109ddc81343a38d4626ebd138a1a",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/multimodal.py": "72d78368342b0bc09c012aab03d449e31b4ba6629c48d9b4ff0c606953014d18",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/prefill_delayer.py": "1a4edbf625814f7beb8a5ef547f3815c271ab927333558be623ce95dc327b314",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/request.py": "a0c17fb2dd5d7ffc49aa0012668e411393396702da5b532c9c9410cceb7a9daf",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/scheduler.py": "118ec36feb07104e68ac5a3ab98da9688730d1b44170324c70b0fddf6493a27f",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_engine/sequence.py": "94d39f94ae156d3286e22a46c5c89f5af8de0ecac32168a24f325beb0a1329ee",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_loader/loader.py": "57032ed3e2fdd159776687d25497f7b494585c682be71bddd18ef646e2e6aa1c",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_loader/weight_utils.py": "0a4d7898ee4bb6ad94633b38e3d7796d3d385e886f1d1ae284706a7404c237b4",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/__init__.py": "3a5f2634f4fcad251ebefc71704fc2109b7b82e0a0b2a4ad17875802ecf61ece",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/activation.py": "c780504fa712348bf3f15561f734427b7d63c6e7e54f4ff3cadadd3c1904dcea",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attention_gdn.py": "de40e7cc910f532d9f6a8220329d4f7fa6c6c318d48955b5d02f95306ea98c04",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attention_mha.py": "db158659f422101ab8588f5e62d134604a4a8efa057de08369ca36e8fa523e64",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attention_mla.py": "1020c9cccd61ea6c5a9a5f1e51e8d82011fc4223bb288f04463105b827f01104",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/aiter_attention.py": "4353dd8c612d07f1e52d3f59765a59b2375f7988974c539d1073a934e5df7aba",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/aiter_mla.py": "443a94002f7d335b162e765631f90cad8012dffed1c5b80e23535b17de17e0a8",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/backends.py": "3f439c3ae5c790e4cd09ad01f57ae0c9258ab6cf92843fd947fdf0d4e54bd949",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/deepseek_v4_attn.py": "8a115024c63ec652bab97a35485c8bdcc47bdb8e9801b4d7e3b7f01034b99fa8",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/gdn_attn.py": "3e549d5d0398ff10944d40b886c70c745e89e4a7fcb6baafb0d5f9d29b75e625",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/triton_merge_attn_states.py": "f53140c9b150eb784215e6fafae98eaea12b377fe1cd97a0761cc97c505122ca",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/triton_mha.py": "d94daf497b6d183dc29a32a913ca2abd1b10ac9f4c09958826d6feb4c04066c0",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/attentions/triton_mla.py": "c34497ff4755fb12ceed224120a270cd032cd58b4a9c7f7f01d724f543ede282",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/base_attention.py": "4d63f732d9fb5458df212573acf5d572581191ccb2988e4445ee541906e1ae64",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/base_config.py": "7ae95efb7b7803b772d3a3082eeeae827b629e2ffd1a84e13fdcd877e6d0a5db",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/embed_head.py": "61db223e8f3546d32a09e94ac9cd5bc30817d04f20883bc4a934ed535ddfec4e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/__init__.py": "4f1f5a8e66ec082a6db89a1f5fe429082fd4b764b06414d3e7a4948c65c636cd",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk.py": "af8979d6c0730c2a788506e836a72fd3e1f4f6ccf83872034d0c56149160f9af",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_delta_h.py": "f6e412316213891f7f475519ef03997bc119cb8ce115c20e81d98e1ae7969bdd",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_delta_h_vk.py": "8bfb23689d89eb43e4cf9b22fb7d51fb47a59caa7067026a089fcaf2d82c09a3",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_fused.py": "976b8e319c092027930e9a94575df4318e5dd382171a89d191d6448afca0d890",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_o.py": "a33778a9b85b7f14136e672f88ca3668b48d8fc8944fc0b08e697c2be8377a5a",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_o_vk.py": "c793b6a5b4d2431031cb8e7b52637c004542015e273dc703e7a0a9060ce1f2a0",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_scaled_dot_kkt.py": "b013513aeb518ca0292a3a2162f7df30b8def01af053581263899def8ce7e4c3",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/chunk_vk.py": "4a719c3b8ae392c388301a9cf4bf38415c0337616d8c2b86c6f22b8981a79050",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/cumsum.py": "37ab3ee25fd3234ceab31dceae83da667fb3a58e7a1c5d22ba0558176051da78",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/fused_recurrent.py": "2d73bf0140413729c9b22cfc320fe59c0eb95296b865af73da04bd24a11c39da",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/fused_sigmoid_gating.py": "608f82a20f71eee8e5f0c7f07aee16e21441298d0dd62cfc4cc6827cb9e6ad8f",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/index.py": "5c6f3a539c90c06580bd3c5cf3fe9f343cfbf5d98344a1838e9c4737ffd11539",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/l2norm.py": "48a7bba0e1c5de4a617bd05fe2465bd4bd07a9f2a5bd64739964156dac71aebd",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/layernorm_guard.py": "c510e306b601122349d9fe49a21434849fcb9fe312412ce8abc809c191791bdf",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/op.py": "394d28bd870bc150eaf72144014ca10806fb92e31b203460afb0e20310feafde",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/solve_tril.py": "75aef0710c8b78b589afd3bc1d6ce3beb1dacf017ed6d2b2e60288baf63ee6e0",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/utils.py": "3da60d18bc9268f90d0e73679c1e5d07b8a15ee4404057b8479604f3c5a3ba6e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fla_ops/wy_fast.py": "e0aa0fe3c9f1a696ab181f78ef171df3b33b7325a59e7177d1d72eeab56d66eb",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fused_moe/config.py": "fb3b6afca08ac5d205187c8416be1289b0e32c326960cd542a5f7a5a3202075b",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fused_moe/modular_kernel.py": "f3908487f468ea2bf3d42fe1597feb7a98f22c4b3bd8ca0a997761bd43b29ce1",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fused_moe/mori_prepare_finalize.py": "aff9dd209ab3d6cf440999cc5f692a1c7cb86e7353793a194dac7bb47984bb2b",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fused_moe/utils.py": "209edacb89d86add883522f4c64bf10bdea7b2e6e032789ed9c3c4a9798d20e1",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/fused_moe_triton.py": "7a0ba65f38ee0a10b07616831a69e3f69427c02ce706dabac59040123aea5454",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/layernorm.py": "2f8bfe56d78a51d36f6723cf5b4825f9cf1e6056543beb0b3d9e638d6e7c93e3",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/linear.py": "0844a5a29ae800f4a6c27d09d1f81d7de60c9d886cbd4381255c894b01803302",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/mamba_ops/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/mamba_ops/causal_conv1d.py": "11f825ca0af507ddf11d7ada81aa0f0309d75e25cea36bcd21621f3a7eec9131",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/module_dispatch_ops.py": "0f7d826963afec3e068ad8b543160c064ea61fe25dc55f644eeaf512526ad706",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/moe.py": "0e379efed66652c2d482d5463f75f2ca544f58f7390fe31938a4ab1ac6a013d1",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/paged_attention.py": "d8a2609552f37fc638866c93ce2a60f4c282c5c3907c45fd4fdbcb34c4de25d0",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/quant_v4.py": "04e5e2e740ac2a6e5a5aca7f7a1d0cc24d3730a52bddddb2efef310cd50e3c45",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/rejection_sampler.py": "38c5523971d45f53e0b7d99f7d7ac6ca964010dc785f7e0524a5db4226f2e024",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/rotary_embedding.py": "c2eb29be7c01521bca74513445f8a1067f29e2c1c7c1425d95ecb0912a8d7f7b",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/sampler.py": "a3bf97bc761b5ae287104711841c821bbfef6a2e14848484c954f5428d0988f4",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/sparse_attn_v4.py": "2924fe097ad6651ceef6fba62b0d709dc181654ca6b78234e4d3f0d75bd86332",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/split_chunk.py": "253adb67b3f7afd03cfa61e5ec9e56fe3880246a327e481a6c0b8d24baebaa5d",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/topK.py": "04627161ee5df4ebbda4facfc65fd6474101367b4abce85ad686a22a05b6053e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/triton_fused_qkv_norm_rope_cache.py": "5fe6d6c453c805d82ed7e1094de58ec24116b26e0a3f391643d73ae3be0a5995",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/triton_fused_sigmoid_mul_quant.py": "8f8e0f410d3753776c3f18398ffc6f3ec0a4bb8a591599daf5ab317d4b4abafe",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/triton_gemma_rmsnorm.py": "33dba79d7ccc829707c6a69a0dd809a37c3e74c2d833139b7aff35ce1971b25b",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/triton_rmsnorm_nw.py": "1cb7144eed15cad6263d204ecad70f70560d2aaf4a7e222e1519789b5de60cdf",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/utils.py": "77f25e542f783324b1e3c24bac797a7b0d5d827f67133fc6687b637f366ac295",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_backend_gate.py": "6e8ee83cc3857995c772e9180cfc725d631c46785dbe7f479d82a984c6ae3cf9",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/__init__.py": "0e4a1b50577961d41936533e45302a5b4ff5520461f8121ab239449bbfd98386",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/compress_plan.py": "41d6a832dbf8f0958bbc7265c443fd376d63683215ae862b8f0f930790debe13",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/csa_translate_pack.py": "e37f51dd9983b69b6058dd116496eaddc03f89d0d93076ae70e28174211b6a3d",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/fused_compress.py": "f784fb27945b4cd6fb7f71047f5ad9c74f768e8b4eeec0fc55ade211a43f4ffa",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/indexer_weights.py": "d18f71b616560337b2e9aa2d70caf8f5ac87d7b5c843a85a8be2d808d6b06a9e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/inverse_rope.py": "435db01d29e79d125c79a7c5ee25a9b4bbcace6c6e84b028b68d0bba3ed521de",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/paged_decode.py": "75e430031fdbd7f428f7497d5c927ebc8c69929e174bb53499f316729ef1afab",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/paged_decode_indices.py": "05198b81e6d2d64a35aa313f58831b710f421b0c815682e3bfbc1f299a4ceb3c",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/paged_prefill.py": "e584b34dcdae0e3d7e5b57327755996cda9a54b321610594933044ab92ab2868",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/paged_prefill_indices.py": "485e9ce9d6c6c478d1b8a0570a7ef72865a53ec288f38cd895fbe82b90ee898a",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/qk_norm_rope_maybe_quant.py": "49f2074c71e2993a5025511a1cb0bc00516e8c257c9c97a4735d6b92810144d9",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/model_ops/v4_kernels/state_writes.py": "b94ffa7e6d5702c3ac61cf3293b699c60c7b97ba83ec22924a9410c7a49f38dd",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/deepseek_mtp.py": "678340c84c4a35bf332fcfb3521839552756c23cb116dc47f0a9f1c1f2b24254",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/deepseek_v2.py": "afb043a75b46e25a4d79f13cd4c0877f6d8d2771a9564a985caa6e47cf57b102",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/deepseek_v4.py": "74eaee131ff65f6abcd97f2d4b447b1ce93c873a5bfc96964e127c712dec3f3d",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/deepseek_v4_mtp.py": "cc5655cf6b73688531b8b412fa1cfaa19793c36e95c82e2b1a749cda5a5e52b2",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/eagle3_llama.py": "86d5391c01661dd7ff712dc1d1671c0695172233e164f638cbf6a7188bff9744",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/glm4_moe.py": "a35dbb22053dc2f7130bbee334bd7fb4e3fe27f7df9ce641df7b5ba53c58d862",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/glm4_moe_mtp.py": "0f8ea93277e8b03ac2f497e1658847ff2dea88faed1fec78ac819696799282d5",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/gpt_oss.py": "48a9b412b714227ebb137cc1fbacf72a2dc652ca77cd02e147541b1e39f6bdb8",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/kimi_k25.py": "21cf3c0b67af6dbfca1ec0f7bd5009c6be59a9a966536508a8e626b04082f460",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/llama.py": "115db70701dbf9416b58d37746d311cd5d286d5809b16b066f2cfb6ce18350b0",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/mellum.py": "9ca5cace93de1aaedcd09ab85c9d7a7052dfe1cceb3da786087834fac21077f9",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/mimo_v2_flash.py": "1bda262f02a8189d8fe01bc442e0960dd4cbe212a094b293a8f8448ca59be457",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/mimo_v2_flash_mtp.py": "8e24db5f8e1fdc6fc1d6466f365ce550ce059e654f46b757a594766cdcc85c4e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/minimax_m2.py": "572711e9cb6efb2bbf230f583eeca1babda9e4b8d30a84a43604314b42eded48",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/mixtral.py": "094828601fa2c8a000400b5e1d10e6a4f52044c0fb1877752dd037960e5b1626",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3.py": "35555ae0cdcb6cc3d4a35f2c3db86ce70a6bc6ca58ee6353d83f70d87ac08a22",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_5.py": "b59c5c16fc2211fbd2c8445e83c0347e76a6b876eebd751770c850d9764c2409",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_5_mtp.py": "9d574a48547fa575924ff20fa0ca95bc4a1f30980f6cf549a3e6410417934d01",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_5_vl.py": "7ff08b3ef297ac3ba304149174254eaddf9c2f6129ae388988749fd88083071c",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_moe.py": "fd74a9d09d661f441eaa5e6c8207afee15143fb3c262cc488dac3bfe69367ef9",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_next.py": "a3086d870c58abf142607d51686abcf981abde470eeb6b04eda1b06cbe022f6f",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/qwen3_next_mtp.py": "f4e4c2f1573f5da1e6aebf27a03c821ca8de9ced7f4aa856ed9cd2eaabcdb664",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/models/utils.py": "09344a6d889615304c144c851422608b9716aef512e8b6f1259060a2ca6a81ef",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/__init__.py": "dbe759b77bf3727b9eec6fb3604a3000552b42902a2a51a616e2b247e5335e13",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/attention.py": "2dcdbec46a5b95e8fa3f7a57a0dbc8b1ef4a4865ce2c96a6b44e2a005ec2ecfb",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/attention_mha.py": "fed37a4d7428c5b989c2401386c15aeebd20d4ab0caf3a16c88fd024febbf936",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/attention_mla.py": "2439e739bd696db4fe963b2be872d312470220300ee2a92c9ff8f91d63330184",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/attention_mla_sparse.py": "4bc8f8bd312049fea5be71dd990da2ff8b992cc81af92a54c35639fce5b708ae",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/config.py": "58131bf8929090b8effd88d6bf4870694556d44339717c6414914fc59b7bd2ef",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/graph_capture_patch.py": "bc98ecd8b0d69d820d4a0095778d8bca634e1d1a4e3c3382fae01051e91a0c28",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/moe.py": "6056527c17ecc4a2bc8919a55d5a4fd91fd6ee0b3240b851549c22ae826b939b",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/prepare.py": "9b7f9a6588661711516a0fec5e8870912fe3de6481918ad54a5115e63659e464",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/register.py": "371fc141eb1270d85962913542182c274d7ef7740c50d60d187d96acd1621197",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/attention_backend/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/attention_backend/attention_gdn.py": "82ff893d024883deb30f6abb2329d52621d4a89e6d7cb9ac4918e2e93093a7d0",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/attention_backend/radix_attention.py": "4404129a8e1113cd3ff66d9a89fb5a90b2c39ed63901c7c6071c2e9ab332f9f2",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/attention_backend/sgl_attention_mla.py": "acf29f19a0c25df7ab98b6894576405a7e641649d0997c486f80464252be62a8",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/attention_backend/sgl_attn_backend.py": "7a0fcbd7ed3466d3663e30f1403f13b78e6128921970c00c1333568a5e1d3727",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/graph_capture_patch.py": "4caec2e721a2dc5442869a1aa97c18891dbc6cb2061ca362194eac56ed55b0c1",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/models/base_model_wrapper.py": "89f153c787752cc444f00db02319cfed7e2de6a1e2833ccb46ea67ec1ce876eb",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/models/deepseek_nextn_wrapper.py": "e305cfcba1b891b1e26ee5d39bf6a6907ee2fb8f3f8a362ea110a57dc03da978",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/sglang/models/qwen3_5.py": "a1047a78953727be78062d9180ee7966dab5733f7bc815247e49b1a130f1e639",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/__init__.py": "39099096e72bbc09959e07d5f9293b59ab2f74d704f84cfd82b314a97110e177",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/attention_backend/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/attention_backend/attention_gdn.py": "c116800bff0258425682aad7d2d3af928d07fa9d5a6decec24384d5eda6474ab",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/attention_backend/gdn_attn.py": "ed9ffeccd5ab38f932e3548249801126d23865572a19bfe85d5f13d2b7380d9c",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/attention_backend/mla_sparse.py": "8f9ce3acff7e8aa9c486beeb77b281948fc973c9cdad5f0d95dee2abc20e71b3",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/graph_capture_patch.py": "733b86ba9e8994cc456e792cd9e884cbe3dd53384ea38cb4a905e300b65eea36",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/mla_patch.py": "3b21589f8e60d841313c6b09a028716dc80ce7e5189fc1bdc119d753278d329c",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/model_wrapper.py": "94a4cd58cfe719ba4a4ed70d1ef99993d5cea52e2e98b279f154c0c3de7c2e52",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/models/kimi_k25.py": "5b69eab298b8cad395fb5c9a07f912a40a380436252d7d41a0ff00590ac5fb05",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/platform.py": "9f3fe04ea35afc7f8bd01458792eead6ad6358529e9025398b9c7102f58d36af",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/register.py": "a480dc60d27efb045a048e3897af6815be51f4254a669b4af92cf3a6afcf8f02",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/spec_decode_patch.py": "312545b7df296e4e12aa313d8cafa5d9422d51af31ab7594b00ffa257631c58f",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/plugin/vllm/tp_group_reuse.py": "62a3dedddc97dae222f03336bc65e028f4399bb5a6a236cf0a5703d23c92eccd",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/quant_spec.py": "da5902bc6f94bda777a6d96417a2da4165b3fe6d5c233710cc6c49c83ab2c858",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/quantization/quark/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/quantization/quark/utils.py": "ebdeed798a698df79c8536fc7e55d353bfcbb71c50ea3126fabc452952e3b103",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/sampling_params.py": "dfb9128e1c555df3406db6380cc9a454986d82f275c5747f223117fd4d46383b",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/spec_decode/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/spec_decode/eagle.py": "f1dc4e6f9e59b9765636f9d9b74eb27b8bc11785e3bcffdc95127e1c11ee6e45",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/__init__.py": "126594aa5a478413d04bafb478ecfaac229a353cb11138575a2ae2788bf5c982",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/backends.py": "81a20dccc2fcc1b4392d7907a4ab57d21ed3c2230103ba17c95ee22a3a82bc27",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/block_convert.py": "2af9f2945704c242af113af0bd5e8e9e984645536959af9f80a1f6f83eaee80f",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/compiler_inferface.py": "32162e37344c8b4061a18b180b4e4c5d3dfcbd8d5e02a1e7e2935e56240aed2c",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/cuda_graph.py": "f923909a1b40fe1f8174eed0e3fb965b6e6b64fd5751130d6544afb5095f59c5",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/cuda_piecewise_backend.py": "4132873eca6fadf233d18170434b5f257b7d2b9cfb93674ffcb1d128e2942ad1",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/custom_register.py": "eadefe5256ee046205ca0e863b1ddd81940be0d810861d17b032a387a46fa412",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/debug_helper/__init__.py": "b992dfa21be5499f0921b25ab4f8d7f533648721d27a3de1ebc76b4b5d424276",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/debug_helper/compare.py": "66dc11f4d79e289e38de3611f2f029d575e5581007ed8e46f44e091df28a1dcc",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/debug_helper/dump.py": "e46da47327a7fa709e18b88e5b1d66b62e30b6fccae89063da1aa3b85861824a",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/debug_helper/ref_patch.py": "61b1cf00cf81fa638e78cf7fa3e9a94c32b4ae7074bbaffef1faf71121e6ae24",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/decorators.py": "929d6c6d1cd68406ca2c3c553907b07a0d3b54c58261ac5ecb225877ff0c2251",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/distributed/utils.py": "8056ff8183b4033b0a1469ea3b1b67ac331b53900cc12048d09dc89ffccfed9e",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/envs.py": "70b865e60f942062e7a28d5bedfd807951ccd77b40d590743868c08a05941c4a",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/forward_context.py": "fcfa15fb56972000bc2ddb2e361155a16687fd50412f08903f069cd40ea911e7",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/graph_marker.py": "a7643bb75a6d0ff653a7e1e60ce2d856872411925310adde3f6dbc9efc480983",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/graph_marker_instrumentation.py": "0bfe6065e49d09dd6f20aea31992dd040166c4ac5f06ee7ad535f1098fefc057",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/network.py": "eb259a2aee5de14f6f81a40324fab7deed77ca366d59aeee7676e41773111cd7",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/selector.py": "701b1eed746cb72d0e35e1df9c3cadae321067c4b0290afd02bf766a88f366fe",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/tbo/__init__.py": "1b3778f3ea083822dadd2cfdd58b20adb1aeb03ee8eac7940e5b30c896ad7981",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/tbo/ubatch_splitting.py": "97487c7871182a46d2de64da8500e5c62bd70bd31785fb9139f6d862c4c19d94",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/tbo/ubatch_wrapper.py": "26446b3f50939443cbdaf5e5a478d5b69ba8caacfd6a624c99fb04aa159ef3ed",
+      "/workspace/tencent-mellum-precision-third/ATOM/atom/utils/tbo/ubatching.py": "07da99880f57ad5ca3eb52dc0ea1945f6e8b3f2395361a1dff6b23bd5b88c080",
+      "/workspace/tencent-mellum-precision-third/configs/mellum/shared_routing.json": "79064921ba6b8ba9ae2096ee1fc3fefaad2317404793271a3c43940f86aebf8b",
+      "/workspace/tencent-mellum-precision-third/configs/submission/baseline_policy.json": "2a52fe42733a2e697eb0789adc3be8bd25fd333ef80c0c8d41d2d98a83cf4889",
+      "/workspace/tencent-mellum-precision-third/configs/submission/environment.json": "bcd5fd74a4b3d49d5e0ec0ff7883755a39938778df3e5f1e8b8f6e68364eab64",
+      "/workspace/tencent-mellum-precision-third/scripts/evalscope_mellum_adapter.py": "38a90cbecad686ecdb4ea259cf138cdabc5462935a556914edc5b5849de3bf96",
+      "/workspace/tencent-mellum-precision-third/scripts/mellum_delivery_matrix.py": "b440e7ff780d026945b60ce871efc26a602d77beca8c274f7a16a84e4dc195c3",
+      "/workspace/tencent-mellum-precision-third/scripts/mellum_execution_profiles.py": "dc275924dd7e2de46b00c01374a56c9263354f92e861e42678b9f9bd6198ada6",
+      "/workspace/tencent-mellum-precision-third/scripts/mellum_perf_protocol.py": "732639f0ab6b99696615ec4d67f5a280c0e631c02546703ea893d00b01085817",
+      "/workspace/tencent-mellum-precision-third/scripts/mellum_process_runner.py": "478a9f832cd6a07e3a3c60797076ab7b07b2aacf21babd583b435701fd04eda0",
+      "/workspace/tencent-mellum-precision-third/scripts/mellum_runtime_config.py": "3ccafe152011ccc16a579791e65a463214a3680895a662045c28dc0cb4e941db",
+      "/workspace/tencent-mellum-precision-third/scripts/run_delivery_matrix.py": "91209a608edd09517b5086f582e2cab9e84996d94d16d38c9e73977299c8943f",
+      "/workspace/tencent-mellum-precision-third/scripts/run_mellum_abc_baseline.py": "947e197cfe565dea8bc09ce9ae377253d8a37d6b6a9810e3e4618d56deb5b0d1",
+      "/workspace/tencent-mellum-precision-third/scripts/serve_delivery.py": "b2fa7b2e6ea2f5e96b5e0cac6cdbd6e204509a129706d84848f1528c84fa88fe",
+      "/workspace/tencent-mellum-precision-third/scripts/serve_mellum.py": "d9af27c25ffb8347db0fc463a95c8ce31b37f25d23265b02b5a0da2308c5b7e7",
+      "/workspace/tencent-mellum-precision-third/scripts/setup_mellum_perf_client.py": "57f882332669b33552b47a071dcb1f7ccd717e32f194a2a0760d7b52158c8c0e",
+      "/workspace/tencent-mellum-precision-third/scripts/smoke_delivery.py": "95b527195d357174bcf6a5dbe8576f7266ae724658352929cac675b7a593dffe",
+      "/workspace/tencent-mellum-precision-third/start_server.sh": "c58dbe088bdb735aad46f153a6bffdda61a015e1dbab769bb6818d77c485e948"
+    },
+    "client": {
+      "audit_run": "/workspace/results/mellum_perf_client/20261115T144518825402Z",
+      "audit_summary_sha256": "7bb151ee1e53ea68435846c46b4b1c6adc54b5c39e3e7c5d3ef937ee2cf098f5",
+      "versions": {
+        "evalscope": "1.15.0",
+        "transformers": "5.10.1",
+        "aiohttp": "3.14.0",
+        "pydantic": "2.13.4",
+        "numpy": "2.4.6"
+      },
+      "source_sha256": {
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/arguments.py": "d58c9bcfb5e208b5d510591000b34b4f0df158215ca74a46c80c0a625c6488e9",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/benchmark.py": "38bdaf8cbfa44c7af0246dfc85bab894acb60f2eee079d9a6b624938abf2514d",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/__init__.py": "4d55f9139f5df2f4a32306ebd5c7769c00d2573d95f948863aac66db5b80063f",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/http_client.py": "ee23c6280028a03c9995d9f0d69b90d975e244936465560ee019d1efba71d5e0",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/metrics_consumer.py": "f63e0d8c3bc42944ddbbb347a73c3cb52c0a2e746ee80098c92f0ac48743a3b3",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/pipeline.py": "51fe66546160edf7f377b3b4f0374ffaa9467d937ced073cf0845eea36f43fb8",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/strategies/__init__.py": "5be4099503b33bc101d2081abde03535e7b47069a6bd2adefe94c66579712654",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/strategies/base.py": "3eccd333dcfa554c91c209a9637e4c850ff39d3c1551e5a84b56c9c83891b610",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/strategies/closed_loop.py": "bc1bb35fea8a9cc915d91a59116f82dbec8505001493ec103e5299f32d6d70d1",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py": "4d0ff847431bb1cce71429d164125fbb0d4430ab859e8585be282edb07fd1149",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/core/strategies/open_loop.py": "de5a17d8a696e4c0fe5e24a283cf998abb4579a7f1d8eb94f094c548cba2418a",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/main.py": "4b099fad85a1e11ea7443a4a276775ff704bd4d2c7aaecf27c5b0375374da26a",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/multi_turn_args.py": "22911a0e4c8363857a8a4abf953ecc980f97fddfcc018dcb31026ff8b577a17d",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/multi_turn_benchmark.py": "79257bc258da42f59fca53615b1ca0dceeecf6fed2540454eaf26e2aaf68a696",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/__init__.py": "ac4bb826dc88c9acb7d6fb9f0d006aa21ef8808506f35bd0ee7119bc3ad5abe8",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/__init__.py": "1def18d5795fbf804c174191769edc0c6ac5efbe63a4e45ddfaa616ac9ca6fbf",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/base.py": "80f459071cbfb4f4d5cac20c9f6cd3c2b556a5c1c29b9e491828ad520ed99bf9",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/custom_api.py": "af5f27cfa19103e696628a74e45c94b70aa56324d726ff0767c72d1c6066c267",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/dashscope_api.py": "d94b74618d9c5f4925a8dacd98dbb3604ff8a3b4171e166bedf06d0f0c0300ff",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/decision_api.py": "e94d732410b00f299ad6e484fb418708dd88d1e7275a0a696684edc67e8c2987",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py": "1499d3fde6c560fec3a1019b184f70ddfe2a667dcdca3f55f336485f39fa8384",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/openai_api.py": "37e8d3447913c136c3555ac88e052589e48c46d1cfda85911cf245165a47c913",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/openai_embedding_api.py": "b21c33047d91628592f5a61a88d82bfb82597e14ca8314caec6153c3e7480302",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/openai_rerank_api.py": "b11a81c9dff8cdc305e789bbe4700c5aa24d4e6aa77dc095efc263315cb2e105",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/api/openai_responses_api.py": "5afcc45ef2eed23ff757531994edfb33b03e9c35b0d61d9cbbd73e202e2fd5ab",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/__init__.py": "0c91f468c7516cc768824c1fbf14e91fbe1ab9d7b60512b8fa002d2d45e15e88",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/base.py": "6f80a14597b5cfda98c47fc6f3a3b6711b1126b7191068682e6c9c183715dd07",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/custom.py": "8759039cef172900479399bc132f587f54cdf064966268132ea985f03cd59888",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/dataset_args.py": "2c7332ce71fd63c417051da0307768bb1251e05dd2df3486747a1eee71d8d8bc",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/embedding_dataset.py": "a695965b1fd6eaa29a900744b67713b4319eb62b55d0ad292d37a3c5252967f6",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/flickr8k.py": "9fad8384779e4d56a31c13d884e6359962f66ef07393b4c9a7831dea5c23cb0f",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/kontext_bench.py": "8a6cff23a73563c4d07f8f7f2f0a3e05ada53ea7473b897249a44678783eba8c",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/line_by_line.py": "ff0cbcfbf6510a18734be884c4e4868c5b847f56ba7ccff1739892dd7669f208",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/longalpaca.py": "2ceceef86cf4d1406d49316c5a101aa2400f83e47ad367c9c071c7da4dbcb485",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/mmmu_multi_image.py": "53d8ad35498abd12a7ee0599a250c8860a483d85a9188dec330ceaf95569d976",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/multi_turn.py": "a2019c6c4603b435502c5159cc861fabdf404451e5143a4c8cc48ac96a801255",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/open_decisions.py": "82606fbcb747080cf388e83a3cb3169123920ae42b90ac4926b8d79cdf6b6d9d",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/openqa.py": "a96d2bf8c3af58ef9ebe609a839cb907550fad12e4d9dae1cfad84e50919b5fe",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/random_dataset.py": "a3d6f4be3c73c3541b35260166bdc08a1aab2064c8383379fa4acec3b2e7071c",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/random_vl_dataset.py": "a73abca20093395acee085b7bb686eba4e7bcd01989bbfec2020765c789ccf1b",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/rerank_dataset.py": "6c248d30943c1434bf21bc87ac2c03b1cae60e6f6ff96c14f87a35c0c855aecc",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/share_gpt.py": "697e80962c39e74f11e20a9314b6b7a5e8cc4986c48049d998d91453ef21e110",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/speed_benchmark.py": "d16d7f5c6492ab6cfe308cde7e433316f23496da84990008411763b5f4a3b6f1",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/swe_smith.py": "9f03db868d157edcbbb81d385ebcf1f2f9c6facaf5434c158907f2c3966918d0",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/trie.py": "a02623a3f6a5db85ea0f6829204360fd3ff181377917a24d0c07a4fb8ed4500d",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/utils.py": "f0d2f2ec9ceda4fb601f768b3a3c59a5e8f6f3a45c33d34adcc25390b7e0ac43",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/datasets/workload_trace.py": "b4582847d05f25a9c3757f5fad5171e3941d1b37ba2d1fd7f12e1a66e8b6a3af",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/plugin/registry.py": "2ad76bb29d61ab6645c460534df614f19acdade24b64af69bad73fa85b535580",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/scenarios/__init__.py": "3d3316d356b7c0fd6e7b9d56d3b7413fd779b4de9ab2e5c93ca8250e7f7e05b6",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/scenarios/agentx.py": "96c6fbcfaea77a381794326888133dc1b779c6391f7a553defc2f2b16e3c6e96",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/sla/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/sla/sla_criterion.py": "6148efcfc194570bb43f37ad05236cc2d044ffe5e72f3d7d3384eaa4cbae8a3b",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/sla/sla_models.py": "482cf837ddf85ae43fd61045b6f0afc227c9569d56421babdbde649c991adba0",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/sla/sla_run.py": "b86f20888e8444f4383f24b199f94d98b189231522d0f1ca79cb35a96bbdbcd6",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/analysis_result.py": "a5acaf6f91a71c41e054f13075cf1df4e7fc2b2fdb22cb2dfe4b6b6e52ccfa68",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/benchmark_util.py": "53c9e3cf092c0b98b92a31cf8fbf132f87d3be7700f1d036f071df361b34b100",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/body_meta.py": "427d9630cbb606aed9ea73fe5a91e01142f4c40b5605be9821d87b52db97d05e",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/db_util.py": "c5c54682b4dc3180b7e2d3508cf996532557057eea09ad3be0d5daac87c88f3b",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/handler.py": "336da4c35173b10469aadefd17997464de9746737d6d0588a8d3d4d16b313825",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/local_server.py": "8ebe9df359315638897cb3f612ddef24bf0a45aa008beb1f6133ab85da9ff4b9",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/log_utils.py": "63eb602789640f52ee6796b9f2e571a6c335803889ab08025e30cf9f3f890852",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/perf_constants.py": "0fe2a02b6c8b1c4c39920e48d4d26aa10e078416083a684cdbb449d90fe47bb9",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/perf_models.py": "6b861d86201c3507033339748838b97ec9905e88b3190b5b7b8dae73e51c6bc7",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/report/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/report/generate_report.py": "7a6fd1ea908f1472d48082aedd6ce1ca54ecf4fe0bfb60f84bc236234867596a",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/report/perf_charts.py": "e94f5e9f4c8a31031c06daae81db3474699a7a75e84f934325a315d1a82d6b12",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/report/perf_data.py": "001349552dfce27087a5ff8add1185d89cc274cf4040a69aa4bb5e12a25a147b",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/report/summary.py": "cfe8e99cc6dfb889592dbe75784b6a83e02b119f095743b2cf2c2ed29f6b05ca",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/rich_display.py": "d082a1876807038b877fd9a5321b2195cf5494db43ff14e9f9998565cc553039",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/trace_metrics.py": "e38898c792d623d3ad88027987e5947d1a33a4f269ae3e84e0b1d3f572517843",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/worker_util.py": "9f981bacf9bec58b357064739e5721b4aaad78d5f9f88d7479772f8e4ba0005e",
+        "/workspace/venvs/evalscope-perf/lib/python3.12/site-packages/evalscope/perf/utils/workload_timeline.py": "405ae72a0ffdf7937b861cddc7d906be3b098eee8e8233951944a721946e7f90"
+      }
+    },
+    "adapter_manifest_sha256": "d96c1e5c88a0d8f4de7caeb5a3eb918311eeb18a3e46742d2adce31b745146a7",
+    "input_sha256": {
+      "/data/datasets/scenario_a_prompts.jsonl": "f5cb156bb468757841a321142c8813d281c0732b494d70d3c59d5b415bf7489d",
+      "/data/datasets/scenario_c_prompts.jsonl": "38fc340a76fd48c025bf5806376bdabbc7762f6b5c48d4509bbb109af2cfe265",
+      "/workspace/results/mellum_precision_third/20261117T170635943718Z_performance/template/inputs/C_smoke.jsonl": "fb8045d56918ab1363fd6f5659e28790604b52a0454a05a62c5b215b4f54bb29",
+      "/data/models/Mellum2.1-12B-A2.5B-Thinking/config.json": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541",
+      "/data/models/Mellum2.1-12B-A2.5B-Thinking/model.safetensors.index.json": "a6ad930e5bb35ea92d5b734c4df4649bfcfdcd899f64b0a83efe40fe0ab9b60e",
+      "/data/datasets/baseline.json": "14674cbbc641709358e197bd5ad71c3cac8f41ed3932b3091266f5636b0dd6c8"
+    },
+    "stages": {
+      "smoke": [
+        {
+          "name": "smoke_B",
+          "scenario": "B",
+          "number": 2,
+          "source": null,
+          "expected": []
+        },
+        {
+          "name": "smoke_A",
+          "scenario": "A",
+          "number": 8,
+          "source": "/data/datasets/scenario_a_prompts.jsonl",
+          "expected": [
+            {
+              "id": "A-0000",
+              "prompt_sha256": "2bf07a934d490d3f742d538131217cc607e88fbf1d801be9fcda85d6e34f64a4",
+              "tokens": 998
+            },
+            {
+              "id": "A-0001",
+              "prompt_sha256": "4d4958eadf9c2918adcddb8919876d04f72643d3eae053843b963d63580cdb68",
+              "tokens": 2248
+            },
+            {
+              "id": "A-0002",
+              "prompt_sha256": "0949ed18ab7a9c6e21b8cc4b77fb91129a353b9b5b3d7d562d6004cd70a27df5",
+              "tokens": 3857
+            },
+            {
+              "id": "A-0003",
+              "prompt_sha256": "cb8bb2bf966bdecc250c2d73be2a4392b98c66f0a989c557d1f5656ac2435ae5",
+              "tokens": 1582
+            },
+            {
+              "id": "A-0004",
+              "prompt_sha256": "6936f2d508b78c0086a16102a8b9178f34af5aa0121d65cecc2a11e14cadd324",
+              "tokens": 3903
+            },
+            {
+              "id": "A-0005",
+              "prompt_sha256": "cb6955383e2aa6dcc556135ed81825c444c35f540b1dcc685387de8d6e5c9b10",
+              "tokens": 3515
+            },
+            {
+              "id": "A-0006",
+              "prompt_sha256": "f89e7fb8e879278104216a5de198aef2150f9bdc32c83f2b727e3590afb63118",
+              "tokens": 874
+            },
+            {
+              "id": "A-0007",
+              "prompt_sha256": "9fb5c79bfba4386eb8c442089cdfe58eb25f8610dc1f4ed17d942c75db6599f5",
+              "tokens": 3746
+            }
+          ]
+        },
+        {
+          "name": "smoke_C",
+          "scenario": "C",
+          "number": 2,
+          "source": "/workspace/results/mellum_precision_third/20261117T170635943718Z_performance/template/inputs/C_smoke.jsonl",
+          "expected": [
+            {
+              "id": "C-0000",
+              "prompt_sha256": "203558184a3270836d064848b47db35ea5d10aebda6b59e14fe3e6d88a0f817e",
+              "tokens": 7889
+            },
+            {
+              "id": "C-0049",
+              "prompt_sha256": "318b573e75c96d7682a6f8500798d4a893599d062e79ea92df54dece8f5d2dd4",
+              "tokens": 16027
+            }
+          ]
+        }
+      ],
+      "B": [
+        {
+          "name": "B",
+          "scenario": "B",
+          "number": 4,
+          "source": null,
+          "expected": []
+        }
+      ],
+      "A": [
+        {
+          "name": "A",
+          "scenario": "A",
+          "number": 32,
+          "source": "/data/datasets/scenario_a_prompts.jsonl",
+          "expected": [
+            {
+              "id": "A-0000",
+              "prompt_sha256": "2bf07a934d490d3f742d538131217cc607e88fbf1d801be9fcda85d6e34f64a4",
+              "tokens": 998
+            },
+            {
+              "id": "A-0001",
+              "prompt_sha256": "4d4958eadf9c2918adcddb8919876d04f72643d3eae053843b963d63580cdb68",
+              "tokens": 2248
+            },
+            {
+              "id": "A-0002",
+              "prompt_sha256": "0949ed18ab7a9c6e21b8cc4b77fb91129a353b9b5b3d7d562d6004cd70a27df5",
+              "tokens": 3857
+            },
+            {
+              "id": "A-0003",
+              "prompt_sha256": "cb8bb2bf966bdecc250c2d73be2a4392b98c66f0a989c557d1f5656ac2435ae5",
+              "tokens": 1582
+            },
+            {
+              "id": "A-0004",
+              "prompt_sha256": "6936f2d508b78c0086a16102a8b9178f34af5aa0121d65cecc2a11e14cadd324",
+              "tokens": 3903
+            },
+            {
+              "id": "A-0005",
+              "prompt_sha256": "cb6955383e2aa6dcc556135ed81825c444c35f540b1dcc685387de8d6e5c9b10",
+              "tokens": 3515
+            },
+            {
+              "id": "A-0006",
+              "prompt_sha256": "f89e7fb8e879278104216a5de198aef2150f9bdc32c83f2b727e3590afb63118",
+              "tokens": 874
+            },
+            {
+              "id": "A-0007",
+              "prompt_sha256": "9fb5c79bfba4386eb8c442089cdfe58eb25f8610dc1f4ed17d942c75db6599f5",
+              "tokens": 3746
+            },
+            {
+              "id": "A-0008",
+              "prompt_sha256": "31462911283b070ea0a9f427c9d54f07b05942a13282d69f862ec04db0374d86",
+              "tokens": 1660
+            },
+            {
+              "id": "A-0009",
+              "prompt_sha256": "b622d05297ad95e650ea8b395bd87ddb0a7abcc81f621b2dc5236daf999b922c",
+              "tokens": 4044
+            },
+            {
+              "id": "A-0010",
+              "prompt_sha256": "8b1112efc6ca939e7d4c55cc740043768dbed30af026ed593dbb4d216f75ddbc",
+              "tokens": 2390
+            },
+            {
+              "id": "A-0011",
+              "prompt_sha256": "fbebf5fab1935ae1f482015f83d315a2f48f184ec8dffaccf2ffc928419e4b21",
+              "tokens": 1133
+            },
+            {
+              "id": "A-0012",
+              "prompt_sha256": "2f2da1cd05efcec98de500d223e17d4af5774e99769d36ee906f095a9f0e2c6b",
+              "tokens": 1478
+            },
+            {
+              "id": "A-0013",
+              "prompt_sha256": "a821033379b62cac93fa6b3bc17850e45209a3f56eb04a933a397088c0b9cfdb",
+              "tokens": 4065
+            },
+            {
+              "id": "A-0014",
+              "prompt_sha256": "0074c073bdde87007ed4e4df22793b6cfb8eec8abaddaedb1232b82413cc57ab",
+              "tokens": 3450
+            },
+            {
+              "id": "A-0016",
+              "prompt_sha256": "3b421a29fd1c9122fff5255296cae15bf67d5d43a247cbaa31256e2acb768643",
+              "tokens": 3790
+            },
+            {
+              "id": "A-0017",
+              "prompt_sha256": "c3d558363d6e7673e3ab5c4268e36f904e9dcf4607c6a2cf1afa6b3581c91cbe",
+              "tokens": 3824
+            },
+            {
+              "id": "A-0018",
+              "prompt_sha256": "fced6d8409cae83cb50178afb2d6b506da62c303f94721d1903c16f38cf3ed37",
+              "tokens": 2977
+            },
+            {
+              "id": "A-0019",
+              "prompt_sha256": "b1576a34aea63c355e97364f42e0233aa7fcbce0e9dd0ff87f222220909e43b1",
+              "tokens": 2074
+            },
+            {
+              "id": "A-0020",
+              "prompt_sha256": "fe1b18d65139c9cc1edeb4f82b00591b8d237ad74a284e288b71b93881304c32",
+              "tokens": 1289
+            },
+            {
+              "id": "A-0021",
+              "prompt_sha256": "ea147fcd3bded81927e7b2109fcadb33366df99078c003f09094c131e6b33070",
+              "tokens": 1293
+            },
+            {
+              "id": "A-0022",
+              "prompt_sha256": "a884759a8bb656db76b74b8df95ca5923b1fff10e363f6f8504bb11e37120026",
+              "tokens": 3802
+            },
+            {
+              "id": "A-0023",
+              "prompt_sha256": "7c9b1a4e44dea1791e04e920a70987309484262ff2380816a5a543dba7f09ad8",
+              "tokens": 2965
+            },
+            {
+              "id": "A-0024",
+              "prompt_sha256": "4bd50df341a5feafbe01c362c798e8ab39c189a21e1393fa08b5e067eb0a03a8",
+              "tokens": 921
+            },
+            {
+              "id": "A-0025",
+              "prompt_sha256": "3112c47304336f71ea518f15c1163f7095710ae3557502c397ca7227a2d1510c",
+              "tokens": 1217
+            },
+            {
+              "id": "A-0026",
+              "prompt_sha256": "ddb780ee41b8c281ddee71506e292758b49aecf11b76aa53cc38dd17858a747f",
+              "tokens": 3843
+            },
+            {
+              "id": "A-0027",
+              "prompt_sha256": "c72604d1bf816be91dd7deef77bd5bb89ed4d836f2f567590a5d5397c8e6594b",
+              "tokens": 3444
+            },
+            {
+              "id": "A-0028",
+              "prompt_sha256": "2ac8bc022a946fd24e4dbc1ca0bb9d480caa8273a91eee619f1c2ca955b09922",
+              "tokens": 3027
+            },
+            {
+              "id": "A-0029",
+              "prompt_sha256": "d81a9f0e57efc0a00a154c1f00e3f62e0489f97ea1596047a02a582248bbb7c3",
+              "tokens": 3072
+            },
+            {
+              "id": "A-0030",
+              "prompt_sha256": "f1485ad409a505534edb86b18c958cce9febd3eadc0daa8d3259c76ddd2faefe",
+              "tokens": 2870
+            },
+            {
+              "id": "A-0031",
+              "prompt_sha256": "7177645aa3e6435b4004b2b5187ce9861bc60f6af2d17aff63675c159afcca81",
+              "tokens": 978
+            },
+            {
+              "id": "A-0032",
+              "prompt_sha256": "912dc6196a0d7a7f8498b0f60c95b3eaf95d233ba3ce66cdfb9d8ce611b79c95",
+              "tokens": 2652
+            }
+          ]
+        }
+      ],
+      "C": [
+        {
+          "name": "C",
+          "scenario": "C",
+          "number": 200,
+          "source": "/data/datasets/scenario_c_prompts.jsonl",
+          "expected": [
+            {
+              "id": "C-0000",
+              "prompt_sha256": "203558184a3270836d064848b47db35ea5d10aebda6b59e14fe3e6d88a0f817e",
+              "tokens": 7889
+            },
+            {
+              "id": "C-0001",
+              "prompt_sha256": "ab5a33fe366b2060202fbeda9da5cd369d4aa594fe887b605860d8406f8f775d",
+              "tokens": 12588
+            },
+            {
+              "id": "C-0002",
+              "prompt_sha256": "8921d2cf89cd024b5b6e0bf744da68178fc090946d8c88ebdf3302712eb47939",
+              "tokens": 11897
+            },
+            {
+              "id": "C-0003",
+              "prompt_sha256": "67686c86e2e94dc1ca6e3e41fd89c5d47c7383dfe7ad2773e666a9292ad39415",
+              "tokens": 6191
+            },
+            {
+              "id": "C-0004",
+              "prompt_sha256": "8b9cc5e8991967658bf8f680551db051346cb6e7531823b99bb79f36a0f15209",
+              "tokens": 10314
+            },
+            {
+              "id": "C-0005",
+              "prompt_sha256": "fbdddbd1d0ec36320b533c425d88abb821456af66a3ee336c66514472776b47b",
+              "tokens": 8709
+            },
+            {
+              "id": "C-0006",
+              "prompt_sha256": "8a98429d860d3ee03aed755c883e5b3de4a074f897ba3582197bf67604648100",
+              "tokens": 13290
+            },
+            {
+              "id": "C-0007",
+              "prompt_sha256": "a83a614380325efd4a66ad96a9c3742791d57fb8abf6b69c835b1d6bcc1155da",
+              "tokens": 10640
+            },
+            {
+              "id": "C-0008",
+              "prompt_sha256": "c4345ad9a14a1acefdaf4edc28086e801d64fd8cbe48de55228c6f82c02b990d",
+              "tokens": 13156
+            },
+            {
+              "id": "C-0009",
+              "prompt_sha256": "a542caf5afa86da46c8f327630363f54df92b9e29556d08bb8b9b36385dd7906",
+              "tokens": 15202
+            },
+            {
+              "id": "C-0010",
+              "prompt_sha256": "a98dff70c42fbce85eeb5f09a8b9c57b1a0c181dbb14584e8e065a7bafc641ee",
+              "tokens": 13816
+            },
+            {
+              "id": "C-0011",
+              "prompt_sha256": "053d1c603c3a10a6499505a16f5bdded3db6e10222a430faae49b3075481c7cd",
+              "tokens": 4376
+            },
+            {
+              "id": "C-0012",
+              "prompt_sha256": "6e25323830fa0dabde704ff6392ef3cd1b29958c94089964316085cef7b9fa92",
+              "tokens": 5097
+            },
+            {
+              "id": "C-0013",
+              "prompt_sha256": "ef207b95544bf8292146a2f35a1a5a45d2230394c4fe89ed1d221074c3f7e849",
+              "tokens": 10680
+            },
+            {
+              "id": "C-0014",
+              "prompt_sha256": "eea6b7e5f0b602216af56a9ac16d1ec5920fbb10eb7d2f8c6435d3fb5b12d9cb",
+              "tokens": 7360
+            },
+            {
+              "id": "C-0015",
+              "prompt_sha256": "ccbc0c2f74a324a2e99dbdd3eae8c827c7aff76b2bd20352d02f017ee07e94b4",
+              "tokens": 15239
+            },
+            {
+              "id": "C-0016",
+              "prompt_sha256": "0cf7484e4ad290b9f6cd2d281787206e9aad10bfb0554b4d42268cf487bae6f6",
+              "tokens": 6510
+            },
+            {
+              "id": "C-0017",
+              "prompt_sha256": "6c65317870d95c4b781ff9d7e6a2b2ebb1e3eeb5f654e24c2932c54c039143e6",
+              "tokens": 5584
+            },
+            {
+              "id": "C-0018",
+              "prompt_sha256": "c2a07efbdd2f11ea5ee99a01eff4e9a9ae673ec8b4383395a8e1035db118a5ba",
+              "tokens": 6756
+            },
+            {
+              "id": "C-0019",
+              "prompt_sha256": "a8e75f7b37df5a4b3618296f4a7bc1c45c183e1ea011e824499e8e33c9121c57",
+              "tokens": 11222
+            },
+            {
+              "id": "C-0020",
+              "prompt_sha256": "fad141520ea7c7530cd603df9e72b22275cec227aa80fef02c4b90f22cafe685",
+              "tokens": 8471
+            },
+            {
+              "id": "C-0021",
+              "prompt_sha256": "2591f253bf1e084e2def8aad1a073a76bc2dfdde637f6b62bc6848e9832eeedb",
+              "tokens": 15181
+            },
+            {
+              "id": "C-0022",
+              "prompt_sha256": "646c07d2fcc4fd8fe3022600696630f144f8933aa1d7165018d490cd42515916",
+              "tokens": 12937
+            },
+            {
+              "id": "C-0023",
+              "prompt_sha256": "ae71433ad333c6fcee7981191417d6c6df0ca122a0666bf2ff676487662c555d",
+              "tokens": 13368
+            },
+            {
+              "id": "C-0024",
+              "prompt_sha256": "06a53d00556d094538509e6ba1d55bbda28c859da99c6158f3481a14e82b3f03",
+              "tokens": 4607
+            },
+            {
+              "id": "C-0025",
+              "prompt_sha256": "5620a44fea5e2feac483a634429bcd29146e2275c8d4bbf3087096378fc7e015",
+              "tokens": 13083
+            },
+            {
+              "id": "C-0026",
+              "prompt_sha256": "b9f70a3cc712c25d3a65071d14a5e4ff6944fa44f0f381e46c98bdf778d6516d",
+              "tokens": 15565
+            },
+            {
+              "id": "C-0027",
+              "prompt_sha256": "8ead279485ef68ca7d53e542c82504a51fb7647f678a9e3f7bd51e0eef84d2d0",
+              "tokens": 13869
+            },
+            {
+              "id": "C-0028",
+              "prompt_sha256": "891110d261a4d73e75553a50c56fba90dbd9b6143eb0d798ce090c1c1afd1ed3",
+              "tokens": 5009
+            },
+            {
+              "id": "C-0029",
+              "prompt_sha256": "961c5f8c3165db8e269a7e7992f982772658a98eacb35df1862bcb04745b4e62",
+              "tokens": 14022
+            },
+            {
+              "id": "C-0030",
+              "prompt_sha256": "fb1dc267c25059eb2394f5bf29c95055bc5e748d196fd035f5c8cd6d72405041",
+              "tokens": 13813
+            },
+            {
+              "id": "C-0031",
+              "prompt_sha256": "ccb9c0bfa5020e4f6c9517480b646b7747268007e0b90a888d9e5c64db20cfb1",
+              "tokens": 7959
+            },
+            {
+              "id": "C-0032",
+              "prompt_sha256": "8476534688ad772cb5a0b3bb004a4aa4a6a00b62b79c83092db22611d43ad8e3",
+              "tokens": 10748
+            },
+            {
+              "id": "C-0033",
+              "prompt_sha256": "e24f1133d402ccaa06dd8e6f6f5d3d60eb4ed6024036974d37dbe3b3f0261f6c",
+              "tokens": 6685
+            },
+            {
+              "id": "C-0034",
+              "prompt_sha256": "9bac99128b2fd06db48b87572b9b09ec9e39d1ac46155e35020c6153a83a1bfb",
+              "tokens": 8970
+            },
+            {
+              "id": "C-0035",
+              "prompt_sha256": "8115b1a3e89dc20a8f73919ae1f559589cba815550cdb6403d47519a419fb00f",
+              "tokens": 15701
+            },
+            {
+              "id": "C-0036",
+              "prompt_sha256": "7611dc72f55d4d3691c8db7d67b1380332e2b933019c656106e0ffe789e3e58e",
+              "tokens": 12088
+            },
+            {
+              "id": "C-0037",
+              "prompt_sha256": "763583560c0bcc668c145364120a617a028185ae8747b9a598f9982aaf5e34ee",
+              "tokens": 6184
+            },
+            {
+              "id": "C-0038",
+              "prompt_sha256": "5c6f975055650d16b6f806301af63622cbf59fcb9a1d34b174523ee8fbe73ddb",
+              "tokens": 13574
+            },
+            {
+              "id": "C-0039",
+              "prompt_sha256": "eae6dd77278c1ae1738af3e3739432ab0d5a5bcd6702e0eda0cfe01b686f3f86",
+              "tokens": 4107
+            },
+            {
+              "id": "C-0040",
+              "prompt_sha256": "bb3bad4a14b6062af20b11a63d6a718d860f1988ce187e20ffebec1d6ad28622",
+              "tokens": 4068
+            },
+            {
+              "id": "C-0041",
+              "prompt_sha256": "9cd67cfaccdc80e58c721a27d542e39a2e93adef484554ccf7d4495b5351478d",
+              "tokens": 7794
+            },
+            {
+              "id": "C-0042",
+              "prompt_sha256": "8082577e550d4806c6fbac32341f52ab19be293efb94977fd2f83cde525c04e2",
+              "tokens": 9331
+            },
+            {
+              "id": "C-0043",
+              "prompt_sha256": "e6eb3931b7ebc7ec4f07f829721b8c79d2dcb410331a6eab739f603a61b34f8c",
+              "tokens": 9034
+            },
+            {
+              "id": "C-0044",
+              "prompt_sha256": "51913adde0894ec21b69a617a5ad610438c35e7a8984a9e7f76e38a8ce48427f",
+              "tokens": 11988
+            },
+            {
+              "id": "C-0045",
+              "prompt_sha256": "725d5442d9a77ff9d34499e7747011c45194ff9414d33f9fae46aa9de8b81a4c",
+              "tokens": 4328
+            },
+            {
+              "id": "C-0046",
+              "prompt_sha256": "c6014b17b03cbc61acb748a616bd665544bf06485f2727a04b6ca35e6bf44d45",
+              "tokens": 14469
+            },
+            {
+              "id": "C-0047",
+              "prompt_sha256": "e6a0a6f935bd836fc8d5a92986b355c09fe1cafe7e1afbf7e3f2d9484223f3de",
+              "tokens": 12167
+            },
+            {
+              "id": "C-0048",
+              "prompt_sha256": "66232fcc93ed7dcf437dbb24ee9b3bc6593e820ddd9ca01d150e40bae90a2c2a",
+              "tokens": 5929
+            },
+            {
+              "id": "C-0049",
+              "prompt_sha256": "318b573e75c96d7682a6f8500798d4a893599d062e79ea92df54dece8f5d2dd4",
+              "tokens": 16027
+            },
+            {
+              "id": "C-0050",
+              "prompt_sha256": "40d5839b2375051b2bb12238d02f2a3d3999617bdf4afe6b80903630354c638e",
+              "tokens": 13049
+            },
+            {
+              "id": "C-0051",
+              "prompt_sha256": "fd174b6937eb3fb1f2eac9de49788d26ae64794edf8ab652db6243f7c0c3a39b",
+              "tokens": 13863
+            },
+            {
+              "id": "C-0052",
+              "prompt_sha256": "e13288c69af0dcf5c834c5af135c600d49718a44cf4f439d0b7f3444807a2b04",
+              "tokens": 9819
+            },
+            {
+              "id": "C-0053",
+              "prompt_sha256": "b7efcba31ccd4cb74a463fbfe3ef5026484d5b13852fd560233d32ff74edabb7",
+              "tokens": 13846
+            },
+            {
+              "id": "C-0054",
+              "prompt_sha256": "86365c38f478298bcd01cd15ebb4f5d71f38583690f0062fd4f57af20677e88b",
+              "tokens": 13955
+            },
+            {
+              "id": "C-0055",
+              "prompt_sha256": "c9ec56a963a0acb1b52625d954ddd226ace97fb0ae5620b56341373871c8d96f",
+              "tokens": 15326
+            },
+            {
+              "id": "C-0056",
+              "prompt_sha256": "53fbc6204c3af68acb99990e5c90d16b08acbeb7bbf57cc9d6910100d876aed7",
+              "tokens": 7005
+            },
+            {
+              "id": "C-0057",
+              "prompt_sha256": "90e1170794fcb11e6843069df65cbad3934f57dee130a2e8bcadf4aa8c2b76ae",
+              "tokens": 12944
+            },
+            {
+              "id": "C-0058",
+              "prompt_sha256": "e46d4e1767d6e86b0883c1ea4b1822630e6232e0d4c0d67246c9aeffb6a5a0fa",
+              "tokens": 13296
+            },
+            {
+              "id": "C-0059",
+              "prompt_sha256": "43cf1ea56ade8301fbdf1277bcdad57668cd2ea4cfd6272c4d96e7b63ba47d01",
+              "tokens": 12800
+            },
+            {
+              "id": "C-0060",
+              "prompt_sha256": "6185c83812dee7de4e8d2c510dc654948b328a4909c7f08915913d85098778d8",
+              "tokens": 6969
+            },
+            {
+              "id": "C-0061",
+              "prompt_sha256": "75048e00cdcd373f3d8b6df8ab6251c7d5305dcc63da6b38914a304376e8778c",
+              "tokens": 11150
+            },
+            {
+              "id": "C-0062",
+              "prompt_sha256": "68a082c199088300dc8ba15de0f897fae459f1a02925f64ab8a43e0d110e92f4",
+              "tokens": 5896
+            },
+            {
+              "id": "C-0063",
+              "prompt_sha256": "0a645bd97777e6ae5eedc72b4c8217b6fa497b52ca2852671b4bbaa3af72ff8a",
+              "tokens": 8851
+            },
+            {
+              "id": "C-0064",
+              "prompt_sha256": "beb2badb43ee8cdc823f20ab32ae47cb6c4d54d294e5d1514ea6a75a7ae88138",
+              "tokens": 13172
+            },
+            {
+              "id": "C-0065",
+              "prompt_sha256": "0fb06ecf32b91a592ed2ae76e0df3b1d5633aafb383baab4262575a136f182b9",
+              "tokens": 9252
+            },
+            {
+              "id": "C-0066",
+              "prompt_sha256": "2b84be8b2739c8330df5aaec6c1aa67d3fe9d2799cd02b46f338b67d3a385cc0",
+              "tokens": 12619
+            },
+            {
+              "id": "C-0067",
+              "prompt_sha256": "0fc9c0a4656cc2bab21b31204448a8d05afc54d604b3c756c41aee3d967e2ebb",
+              "tokens": 11218
+            },
+            {
+              "id": "C-0068",
+              "prompt_sha256": "18189a3ff2a8c0f21aabb03ef28379fb335960e769e57e287f0c79b81a129e7f",
+              "tokens": 6874
+            },
+            {
+              "id": "C-0069",
+              "prompt_sha256": "fd9d9f4b4cb27f72c8ec86fd04f746bbfe8543f898563ba565ef421293840df5",
+              "tokens": 6652
+            },
+            {
+              "id": "C-0070",
+              "prompt_sha256": "80594cd2c16fd976a76f850735709cc81dbec8be6851f6352c426ce824969bcc",
+              "tokens": 14009
+            },
+            {
+              "id": "C-0071",
+              "prompt_sha256": "94b75a102168215298962a4384cb3a269d7b1dbd921f05c4d57f832cdc8660a4",
+              "tokens": 10448
+            },
+            {
+              "id": "C-0072",
+              "prompt_sha256": "33da57be49eb98697ff7842718bcf5737fab079713a9f7adb31f1f785d15f786",
+              "tokens": 11224
+            },
+            {
+              "id": "C-0073",
+              "prompt_sha256": "c225c79503979c9158d5aed3cde5d14b5c0fbf32e770eb69f0005fc14c981bd2",
+              "tokens": 6581
+            },
+            {
+              "id": "C-0074",
+              "prompt_sha256": "b02f1b70a129ac18fcb17405800f4e6ecbe1c390803b0a461a1dcaeb237d2060",
+              "tokens": 4689
+            },
+            {
+              "id": "C-0075",
+              "prompt_sha256": "8e480d65e7487f14d87dee39af7dd2a7ffa01c6dd479a04df93c703e28d214a4",
+              "tokens": 11259
+            },
+            {
+              "id": "C-0076",
+              "prompt_sha256": "e30c54fd04f0670733a01039723190b6a142914bb98d01ae46a1b6022881000e",
+              "tokens": 10222
+            },
+            {
+              "id": "C-0077",
+              "prompt_sha256": "9588483a01792abc4bc06cf5e8a5308643d28fea6fa32a7f85564cd75d906735",
+              "tokens": 6387
+            },
+            {
+              "id": "C-0078",
+              "prompt_sha256": "67d2911f8c6828e24009197fa97826089adb6531b6290f81a91efeb675ae4e86",
+              "tokens": 4438
+            },
+            {
+              "id": "C-0079",
+              "prompt_sha256": "e501362aa9365222dfb94631317f4babc094a7bb87b5933519fc67d7e8e7754d",
+              "tokens": 8291
+            },
+            {
+              "id": "C-0080",
+              "prompt_sha256": "fdae58cb65e66bde5ab234067c9b24d615938859e54ed82eb7af6c96666701dd",
+              "tokens": 7833
+            },
+            {
+              "id": "C-0081",
+              "prompt_sha256": "b04e30bf8c086a8f8eb4cca08c32ccb06060e32fb3f115e0d71353e6b5fb0342",
+              "tokens": 10286
+            },
+            {
+              "id": "C-0082",
+              "prompt_sha256": "8999e343269cf8dd6a49f97021496050258aa726700cdea60f9a089c0279b800",
+              "tokens": 14821
+            },
+            {
+              "id": "C-0083",
+              "prompt_sha256": "4d95acb96ba922d4398c4d228708a345ae325d71f2693c767573278a5a10bf80",
+              "tokens": 6687
+            },
+            {
+              "id": "C-0084",
+              "prompt_sha256": "2e4e2138c45213e4e4b49557d066f2a277c963f13f75ccc4a60c8c60d78c07f0",
+              "tokens": 13258
+            },
+            {
+              "id": "C-0085",
+              "prompt_sha256": "c61e9f9e6a2e5ba085093c9d74e4f9afa2106b959444976ca2e2d46ce4ba3976",
+              "tokens": 8110
+            },
+            {
+              "id": "C-0086",
+              "prompt_sha256": "e25a80fafbc75ac3b5d4406ca845978103245bbfced56b952bc62b50ebb7d7a8",
+              "tokens": 13283
+            },
+            {
+              "id": "C-0087",
+              "prompt_sha256": "276d3d8fab46ba9f64b91cab85a2c0713911b32bfadf6c4d73e8ebb4373a567d",
+              "tokens": 5966
+            },
+            {
+              "id": "C-0088",
+              "prompt_sha256": "18076795800792e3aff2370c8ea15e9ed9647e1e1dff7f2a03b2a986b8c8df0a",
+              "tokens": 9042
+            },
+            {
+              "id": "C-0089",
+              "prompt_sha256": "63023765052ac4cebf6cd81c3a5b26c925a5762ea3965f48e959459de9625e5e",
+              "tokens": 16011
+            },
+            {
+              "id": "C-0090",
+              "prompt_sha256": "9e3bec9aabc9ed74f9bf5c4c15f5b79f9ae77eafcbe0da20f2ac75868ceaa5f9",
+              "tokens": 12012
+            },
+            {
+              "id": "C-0091",
+              "prompt_sha256": "f188d70c96e4532276ec5060369802e8acc5eebaf3c47f95300ef752941d2ccc",
+              "tokens": 12801
+            },
+            {
+              "id": "C-0092",
+              "prompt_sha256": "528fae2c1b51ceccf62312a341d770ef07ec0b4871bb295ec3210da828d87bc9",
+              "tokens": 6442
+            },
+            {
+              "id": "C-0093",
+              "prompt_sha256": "f142bf21b90b65ee6a708d30b091582b42afddc0d86ff3dfc82092ad4e61f6fd",
+              "tokens": 10342
+            },
+            {
+              "id": "C-0094",
+              "prompt_sha256": "0b34209b601dcd830cf50c5a759f0e233f29eb5c7a418b8582dd3b22b59609f7",
+              "tokens": 13932
+            },
+            {
+              "id": "C-0095",
+              "prompt_sha256": "0058badb7858eae874422bd0453e88f1c9a850d38038028378ababf4d33427de",
+              "tokens": 4919
+            },
+            {
+              "id": "C-0096",
+              "prompt_sha256": "15fb9425a2d2ed5deec1a04a3ca625f59918192c2ff1d0ac61c3e216d3dfac20",
+              "tokens": 8249
+            },
+            {
+              "id": "C-0097",
+              "prompt_sha256": "bc8957b51280aea4cba61634663b1d15a026c4009a75bcc2f1b5a2dfffc1f17f",
+              "tokens": 12084
+            },
+            {
+              "id": "C-0098",
+              "prompt_sha256": "f0005695305592b01fe3ef3ac7a92c531df6f20928f2a7ae7fe9b1d0e913d042",
+              "tokens": 4072
+            },
+            {
+              "id": "C-0099",
+              "prompt_sha256": "51b26b6055a88b543432a52dd494850dac5a4a0915e3f04f5f2c74827b2dab87",
+              "tokens": 12878
+            },
+            {
+              "id": "C-0100",
+              "prompt_sha256": "7c88e39ff21cce00e95843ebcc18a0926ab82c0a685a327da170a4274871b511",
+              "tokens": 11039
+            },
+            {
+              "id": "C-0101",
+              "prompt_sha256": "7cc418b8843e91d34e302345e1edd244f90c84c1b2169b3439c8689abb280b82",
+              "tokens": 7191
+            },
+            {
+              "id": "C-0102",
+              "prompt_sha256": "46767758bddb119361549a2e417b28ed821716519297069a70fcab21111aecef",
+              "tokens": 6742
+            },
+            {
+              "id": "C-0103",
+              "prompt_sha256": "935825c59b20f719045272d425e0ddfe74a89140e17b1abdd6362e675d9f2e92",
+              "tokens": 5901
+            },
+            {
+              "id": "C-0104",
+              "prompt_sha256": "c594e0db733b00f6adcfee7ea57ff7d6361cbdc5f7386ff9f970dd6795890ec0",
+              "tokens": 11787
+            },
+            {
+              "id": "C-0105",
+              "prompt_sha256": "49f54665c5d719c049bc54ad4f166ea096a4e5a486268f26d145d7450344b237",
+              "tokens": 12606
+            },
+            {
+              "id": "C-0106",
+              "prompt_sha256": "3b7b3601df05c7e8f67d15f1b8b843b902c6e33aa5e99c376e29d4523682e1c5",
+              "tokens": 14759
+            },
+            {
+              "id": "C-0107",
+              "prompt_sha256": "e30ffea4a633923002cc735d384ff0a444e65cf8ab1ce881612e48c5ce08857b",
+              "tokens": 13163
+            },
+            {
+              "id": "C-0108",
+              "prompt_sha256": "dca270c651887cdf21daa818e41d097c4d917a9d7d56c3b8ac0b18a354a0494b",
+              "tokens": 6764
+            },
+            {
+              "id": "C-0109",
+              "prompt_sha256": "14e804525fcc8f31a1453939417058ff50089971dc840546b35f859260cc6d05",
+              "tokens": 12003
+            },
+            {
+              "id": "C-0110",
+              "prompt_sha256": "8975d8c7b025097cb1f4faac6bd8938860094084dcba674de4b912493cf1b355",
+              "tokens": 11853
+            },
+            {
+              "id": "C-0111",
+              "prompt_sha256": "72f21c6c7a9b88f9ad152ac1056b5450d5d50d69221724b3f5837c5248e50f4f",
+              "tokens": 11359
+            },
+            {
+              "id": "C-0112",
+              "prompt_sha256": "6ffb6cf8eb8d9e86781a8e25f842d4346b40cdd84a3b56a4235c667b1eeebebf",
+              "tokens": 6523
+            },
+            {
+              "id": "C-0113",
+              "prompt_sha256": "5aec2e5f132d1e8c72a9ea7c4b81b097a588ea55ac36f77837679fef3b038158",
+              "tokens": 15256
+            },
+            {
+              "id": "C-0114",
+              "prompt_sha256": "a784431ed2d4ec155b4f3cffdc94c7e417a69a7dd04dba6e32379118dec5b94c",
+              "tokens": 4956
+            },
+            {
+              "id": "C-0115",
+              "prompt_sha256": "3eb0a2ce14b974eb9f21fb324034e606d55fe5dbfde4497467ec9656b64b531f",
+              "tokens": 4871
+            },
+            {
+              "id": "C-0116",
+              "prompt_sha256": "8501b2ab7748583868173d5e34e46e15f1f5304c590f8c33fffd6bc39be5e7f1",
+              "tokens": 13608
+            },
+            {
+              "id": "C-0117",
+              "prompt_sha256": "893c17e7d3ede0bb6d88688eccf92890178b71c90247abaebacbf92388803374",
+              "tokens": 10288
+            },
+            {
+              "id": "C-0118",
+              "prompt_sha256": "e20a49757839c474412eb731df1492f6a7c941860f6bcd056a60309a72223290",
+              "tokens": 13362
+            },
+            {
+              "id": "C-0119",
+              "prompt_sha256": "defdd017d73c85cf4db93393a0ae3296f93c97cdbcba45c3eb926f75fc1d7d1c",
+              "tokens": 10000
+            },
+            {
+              "id": "C-0120",
+              "prompt_sha256": "dd8089bfcd8a89de656061007ba153603da8e5ccc812ba47f64a594ccf43dff2",
+              "tokens": 5392
+            },
+            {
+              "id": "C-0121",
+              "prompt_sha256": "0de00ee336f637b6a53bbfe76c23ed9508567a03e4d00f570c7be3e1d64a7901",
+              "tokens": 7130
+            },
+            {
+              "id": "C-0122",
+              "prompt_sha256": "9ba198f1a1f5eb92a0aa21badc645e3dc4ff21e9f8bda2850135eb225cafb5f9",
+              "tokens": 9260
+            },
+            {
+              "id": "C-0123",
+              "prompt_sha256": "653205e1e0459de48ab35a83c46416723af02d2caf8e8b1b3c1480e79042fa64",
+              "tokens": 7943
+            },
+            {
+              "id": "C-0124",
+              "prompt_sha256": "86ecb192dec85ff2f06f2a8bf3e2ef6b9249d9e49cb408dc586c4bd0813df526",
+              "tokens": 8440
+            },
+            {
+              "id": "C-0125",
+              "prompt_sha256": "88c7aa87236b70a8824d45c11dc9c05e0f39c95cd6e081da10cb9060107831f1",
+              "tokens": 8741
+            },
+            {
+              "id": "C-0126",
+              "prompt_sha256": "00d4a8c2f777c5ba29a3ca6a484ab6d6793871cfdfa6b2c6ae1e47dd0cc60b81",
+              "tokens": 7884
+            },
+            {
+              "id": "C-0127",
+              "prompt_sha256": "49771c0dd11d6639df26af8e0ad9e3d7d856203f1cd78e1917490b6cc6978704",
+              "tokens": 11783
+            },
+            {
+              "id": "C-0128",
+              "prompt_sha256": "e517af5c7a2d797cbc0d0338470c7336ce18c7b9e9d7e6081332881530a7baa3",
+              "tokens": 11409
+            },
+            {
+              "id": "C-0129",
+              "prompt_sha256": "253aefa075f57c6aea867ae863ae4bf1823eb8f334f4487d8f3e19abed854d26",
+              "tokens": 12711
+            },
+            {
+              "id": "C-0130",
+              "prompt_sha256": "6dbea741b1f19f37d19acc59610ad15987ffcf5b5d37282fc7ec0bb708a1c723",
+              "tokens": 5541
+            },
+            {
+              "id": "C-0131",
+              "prompt_sha256": "30cffbdf25d194b51e2feddf7caf647c4adbad1853ebd86459e8fe5391a8cd61",
+              "tokens": 14071
+            },
+            {
+              "id": "C-0132",
+              "prompt_sha256": "0b15eb85a9eb6b42765aa044445e277648dff131dbd489194bdc7ff292e90a3b",
+              "tokens": 5931
+            },
+            {
+              "id": "C-0133",
+              "prompt_sha256": "f9e31fae3351ca4cd3f706c84b8fa48fb21e8b7508321c4d2d7a0987f56a0071",
+              "tokens": 7611
+            },
+            {
+              "id": "C-0134",
+              "prompt_sha256": "65482c306e2703136912f2672129e2df890b540dd53553b480a8d204fe51bbc1",
+              "tokens": 6769
+            },
+            {
+              "id": "C-0135",
+              "prompt_sha256": "6d52855c03e2e62ebcc277144803b5cb3da80484188ab3d4d687008fbba64483",
+              "tokens": 11907
+            },
+            {
+              "id": "C-0136",
+              "prompt_sha256": "5fdc0af26a4365edf9a79f6b9ea12a507a65648e0c804a36d1b0b68534ce6e89",
+              "tokens": 5162
+            },
+            {
+              "id": "C-0137",
+              "prompt_sha256": "18c1c4de6190223a6605dce5f6bc0f883b1128a409c2c5a14b47474e7350a70d",
+              "tokens": 5262
+            },
+            {
+              "id": "C-0138",
+              "prompt_sha256": "b84b210abff1f75241e6acdf02c9a8b2abe6abecd1bb287ffea50c17f44d98b7",
+              "tokens": 15086
+            },
+            {
+              "id": "C-0139",
+              "prompt_sha256": "11c634f72ca526d3602ec75266475d207914daf31aba18f45e40497d8d905553",
+              "tokens": 11399
+            },
+            {
+              "id": "C-0140",
+              "prompt_sha256": "beea7ab7c8ffa8f62be492ff3ce1b758c3025b367efafd308e13d8b5b4f02382",
+              "tokens": 13195
+            },
+            {
+              "id": "C-0141",
+              "prompt_sha256": "a42342bea43513b026ce3310375b82c69a1b9e2f1d90a298ec9a80d4daa3d23e",
+              "tokens": 15793
+            },
+            {
+              "id": "C-0142",
+              "prompt_sha256": "29f2b629f6c3e049f28a9760850aaaa55d35fb0dfee203e150f127b52475111c",
+              "tokens": 8605
+            },
+            {
+              "id": "C-0143",
+              "prompt_sha256": "2dcf2ff4ef9feb1c66995161faeeb2b7c423dd5d103e6bf3c8718e664ab873db",
+              "tokens": 9470
+            },
+            {
+              "id": "C-0144",
+              "prompt_sha256": "b0cef73f761319efee72b8c397c14e5a7b20a67d476b4cd83e5f25e38d5d68cc",
+              "tokens": 8612
+            },
+            {
+              "id": "C-0145",
+              "prompt_sha256": "335bde80bc0733f31ef6acb6609457ec69a8baba3a87e733353ed9dc98badc73",
+              "tokens": 5854
+            },
+            {
+              "id": "C-0146",
+              "prompt_sha256": "005016538f66990e59e56c9900b6f7ff62483e1dce76eb20e1daa97dbd186f9d",
+              "tokens": 11032
+            },
+            {
+              "id": "C-0147",
+              "prompt_sha256": "3830637b02249621f2ab46a8e7e8ff72ec98f0df513f89386a85005eb192cbac",
+              "tokens": 15537
+            },
+            {
+              "id": "C-0148",
+              "prompt_sha256": "7003d4eb7a3f2a85994b370ee485c0dd21d69c3483043f80ffb51cd2274a8d01",
+              "tokens": 5375
+            },
+            {
+              "id": "C-0149",
+              "prompt_sha256": "889daf4567655a2d41ca8e687b3fdd10252463d0e4c3cb005fe82280099a2956",
+              "tokens": 5358
+            },
+            {
+              "id": "C-0150",
+              "prompt_sha256": "912dffe866b8082e992952c526e05e4d034a626f4f124b79bec53e6f8dd63dcf",
+              "tokens": 7192
+            },
+            {
+              "id": "C-0151",
+              "prompt_sha256": "07d59ca893bab13181e60b39378ef821bdfee1906729f3900aba24b1e6e6968b",
+              "tokens": 12727
+            },
+            {
+              "id": "C-0152",
+              "prompt_sha256": "a48876b462cda16c836321f93afc64007d8b063f13540558a1889c1f26b40c18",
+              "tokens": 15007
+            },
+            {
+              "id": "C-0153",
+              "prompt_sha256": "7d54736b02665d2f79b8945bbf52c9fc1c5e8912e015003a655814e61893616c",
+              "tokens": 7809
+            },
+            {
+              "id": "C-0154",
+              "prompt_sha256": "2959a612d19085eee396812abd7cf3b40dce21c444880cd90b609f6b8ad54986",
+              "tokens": 8673
+            },
+            {
+              "id": "C-0155",
+              "prompt_sha256": "920036545ca1b6b9fba7d7b15a3e867498aa5c197bda0337ca599130a4a084ca",
+              "tokens": 7904
+            },
+            {
+              "id": "C-0156",
+              "prompt_sha256": "00e28ab16318b4aeb6df29f5981cbfb6f571163b0a21069b134cfe8dd131d6ff",
+              "tokens": 15916
+            },
+            {
+              "id": "C-0157",
+              "prompt_sha256": "c3c20589deb08efaac20d0adaad3bf4ec949bc0c7c33698b59727c52ccc4b9f8",
+              "tokens": 14865
+            },
+            {
+              "id": "C-0158",
+              "prompt_sha256": "84e1275722b183d5b0626910999554b2b27c323df64b39acf9f5e3f5d588f0ec",
+              "tokens": 15973
+            },
+            {
+              "id": "C-0159",
+              "prompt_sha256": "75d8a7a256dcb38fd1fea97556e7194bc368742bde65253dac5b1593f172eff6",
+              "tokens": 13757
+            },
+            {
+              "id": "C-0160",
+              "prompt_sha256": "fe759a9d74148c611df08dbc81d0b27269ada30f7e7792b1b82b1948b8d5c01d",
+              "tokens": 11009
+            },
+            {
+              "id": "C-0161",
+              "prompt_sha256": "a73d44b10ac8e32bc0f49114bd9c320cb4041ee53a6562082a09cdbabe022c31",
+              "tokens": 6592
+            },
+            {
+              "id": "C-0162",
+              "prompt_sha256": "f1ea430024b77ba0c5974833b3a4265695b95da2d573b7d3d6da1f8dd5e97cf9",
+              "tokens": 7796
+            },
+            {
+              "id": "C-0163",
+              "prompt_sha256": "d2365aa80c4386fac7bf9beec474d6db64689020f8507e3697e015109352c826",
+              "tokens": 13798
+            },
+            {
+              "id": "C-0164",
+              "prompt_sha256": "6cf4b5a39184c75371d8cba67cfc50d83637373abd576c23203977078191819b",
+              "tokens": 11011
+            },
+            {
+              "id": "C-0165",
+              "prompt_sha256": "77c40437bbc90a740723e937bc247bcfa4909ddf58ef3a5603b4ad7dad25b365",
+              "tokens": 10357
+            },
+            {
+              "id": "C-0166",
+              "prompt_sha256": "0eb79ec9258850351b0aafe9c5313b95ae3f885c693bda2a1de23620aefd37c9",
+              "tokens": 13832
+            },
+            {
+              "id": "C-0167",
+              "prompt_sha256": "48b0b61570fe6c4796e25603b454909cc240edb5b97945187a970ecc484f13c3",
+              "tokens": 12342
+            },
+            {
+              "id": "C-0168",
+              "prompt_sha256": "c056a3372a74bba6d251f26254da6304271921eab5cc948738c0a46cec5d1e81",
+              "tokens": 5185
+            },
+            {
+              "id": "C-0169",
+              "prompt_sha256": "a3403b540c2d2e1acd0761f83a026dfbc13b5ae2aa7a5fb543d4f60b5154ef61",
+              "tokens": 6677
+            },
+            {
+              "id": "C-0170",
+              "prompt_sha256": "b077b34bed741d72d2b72e76d3a8120be96332fb644005f547f3835c0b77137d",
+              "tokens": 12459
+            },
+            {
+              "id": "C-0171",
+              "prompt_sha256": "72cd7f6d26b15108b2df2d8994da7bf457275fca784d7df84223e18b5e602674",
+              "tokens": 5645
+            },
+            {
+              "id": "C-0172",
+              "prompt_sha256": "6164d820087e458662c6cdf28c4854908a6d143ffd0696207a10e789f2360ebb",
+              "tokens": 13837
+            },
+            {
+              "id": "C-0173",
+              "prompt_sha256": "be49ea56be3dd4c8d6caf80fc3ee65806adbd024f8a0ec44b422a40ee8ea21f5",
+              "tokens": 5843
+            },
+            {
+              "id": "C-0174",
+              "prompt_sha256": "3cd73d066eb2f09e0011005cafcbe79b5ed003bb0521823c62e9c65544032995",
+              "tokens": 15331
+            },
+            {
+              "id": "C-0175",
+              "prompt_sha256": "db195546c51302c2e6405f2209b6f9b5555d7b2f75ae4a497862d298812baf0f",
+              "tokens": 15866
+            },
+            {
+              "id": "C-0176",
+              "prompt_sha256": "172b9a4938de5c4cf07a2398a7a5892019d8ad471bc605f90f7e91fbb8f94d87",
+              "tokens": 14198
+            },
+            {
+              "id": "C-0177",
+              "prompt_sha256": "ad117e11cec72be40bfba2c4df7e562af216ce586c5db86c7b7f45205b73cd1c",
+              "tokens": 5997
+            },
+            {
+              "id": "C-0178",
+              "prompt_sha256": "b8ff7494b835f4bb8b2a72997f3b21fa4f0e7959fa31dc50f9b31b2bed67333b",
+              "tokens": 10986
+            },
+            {
+              "id": "C-0179",
+              "prompt_sha256": "73f718e8a72c485ac72fd730f5b0732ba85c655f63944bd1fd8e4e4053d2eb7b",
+              "tokens": 15334
+            },
+            {
+              "id": "C-0180",
+              "prompt_sha256": "a55cbab44a70d46d427fca3d92478503abd2a9c8be0c04e1c18cfa88963c96ba",
+              "tokens": 10787
+            },
+            {
+              "id": "C-0181",
+              "prompt_sha256": "97c060c193cc9e71d5127008d869d054a2e154c3ef7f4822bd48d4500fb1a095",
+              "tokens": 12677
+            },
+            {
+              "id": "C-0182",
+              "prompt_sha256": "9e8cba5eccd157de63f3184de70f81cf90ca0540bfb51e5147e98ac581647ced",
+              "tokens": 14642
+            },
+            {
+              "id": "C-0183",
+              "prompt_sha256": "ef29c6421373a53824c0a79a40d777b3e5a59509a3de7ef742385c9f11a814f0",
+              "tokens": 11279
+            },
+            {
+              "id": "C-0184",
+              "prompt_sha256": "3b8f3d27f05a319cb37b37f0df34e2034ae2d824267c460f456e7674a62c9b17",
+              "tokens": 7592
+            },
+            {
+              "id": "C-0185",
+              "prompt_sha256": "0ee358c72231588c2e8d49b6d39c394bdce424c7e4884c11c9a87fc58cf5ad13",
+              "tokens": 9617
+            },
+            {
+              "id": "C-0186",
+              "prompt_sha256": "0387d53e757f645549b0ad652e86a3b898620b6cd9f363e6f0a3e30cefc32cf1",
+              "tokens": 9722
+            },
+            {
+              "id": "C-0187",
+              "prompt_sha256": "4baa0ec38c1fabb4652c3ff1d45de2e299ff5c685b3c3fe1af867164da791d61",
+              "tokens": 5192
+            },
+            {
+              "id": "C-0188",
+              "prompt_sha256": "4f57a77c4bd289967e80b7dce2b259c482de3b2115f5b5499846c02d1e5ddf06",
+              "tokens": 6126
+            },
+            {
+              "id": "C-0189",
+              "prompt_sha256": "4d882b4aedaf104dda63ca2c91718c6a3920df0e13bb9fcb4df452ca2901db0e",
+              "tokens": 15950
+            },
+            {
+              "id": "C-0190",
+              "prompt_sha256": "13f7e3a9a7da97bdb31dc018160896f39f8dcb1bd7145f55ae11f2fe505a5b46",
+              "tokens": 14851
+            },
+            {
+              "id": "C-0191",
+              "prompt_sha256": "f121edd009db87ecfc9a7e8f96693b707ad89a900d0f1f93dbd957ed90474213",
+              "tokens": 8467
+            },
+            {
+              "id": "C-0192",
+              "prompt_sha256": "0e9555306f38a1031d383d646042150785c689ed76b22d9e929be63389882f5a",
+              "tokens": 6517
+            },
+            {
+              "id": "C-0193",
+              "prompt_sha256": "40d1542cdde482cc63153f5d281932408929d5f51f5160ed6468aabf55d5722b",
+              "tokens": 8438
+            },
+            {
+              "id": "C-0194",
+              "prompt_sha256": "5f7fbfb847c215c192e9c046a727f7b609789c67bb4ad21e0ff15767ab3778b1",
+              "tokens": 6178
+            },
+            {
+              "id": "C-0195",
+              "prompt_sha256": "e762304004ab7d3f621a92ac9685356c0b8a7beedd543c0a3b715b036379a329",
+              "tokens": 15549
+            },
+            {
+              "id": "C-0196",
+              "prompt_sha256": "cbf966d134321079ac506d47105e638654c45ec6be04da78eb0d7e4bdb61fd94",
+              "tokens": 12946
+            },
+            {
+              "id": "C-0197",
+              "prompt_sha256": "509bef356b0a642335738e3341449ce29e2224e862b74eed75c167bd408c7d8b",
+              "tokens": 15307
+            },
+            {
+              "id": "C-0198",
+              "prompt_sha256": "513292f25089feca71114d6f7c77ecf7e22a1f11848d93d26b0e6f629a51a97d",
+              "tokens": 10813
+            },
+            {
+              "id": "C-0199",
+              "prompt_sha256": "cbe3b5c4aa935fba39d2d261e7d739cbacf09621b0e66f8f706abdb43a7df562",
+              "tokens": 4294
+            }
+          ]
+        }
+      ]
+    },
+    "jobs": {},
+    "literal_commands": {
+      "A": [
+        "/workspace/venvs/evalscope-perf/bin/evalscope",
+        "perf",
+        "--url",
+        "http://127.0.0.1:8051/v1/chat/completions",
+        "--api",
+        "openai",
+        "--model",
+        "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+        "--tokenizer-path",
+        "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+        "--parallel",
+        "32",
+        "--number",
+        "512",
+        "--dataset",
+        "/data/datasets/scenario_a_prompts.jsonl",
+        "--min-prompt-length",
+        "512",
+        "--max-prompt-length",
+        "4096",
+        "--max-tokens",
+        "256",
+        "--min-tokens",
+        "256",
+        "--stream",
+        "True",
+        "--extra-args",
+        "{\"ignore_eos\": true, \"temperature\": 0.0}",
+        "--name",
+        "Scenario_A_N1"
+      ],
+      "B": [
+        "/workspace/venvs/evalscope-perf/bin/evalscope",
+        "perf",
+        "--url",
+        "http://127.0.0.1:8051/v1/chat/completions",
+        "--api",
+        "openai",
+        "--model",
+        "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+        "--tokenizer-path",
+        "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+        "--parallel",
+        "1",
+        "--number",
+        "50",
+        "--dataset",
+        "random",
+        "--min-prompt-length",
+        "1024",
+        "--max-prompt-length",
+        "1024",
+        "--max-tokens",
+        "256",
+        "--min-tokens",
+        "256",
+        "--stream",
+        "True",
+        "--extra-args",
+        "{\"ignore_eos\": true, \"temperature\": 0.0}",
+        "--name",
+        "Scenario_B_SingleStream"
+      ],
+      "C": [
+        "/workspace/venvs/evalscope-perf/bin/evalscope",
+        "perf",
+        "--url",
+        "http://127.0.0.1:8051/v1/chat/completions",
+        "--api",
+        "openai",
+        "--model",
+        "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+        "--tokenizer-path",
+        "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+        "--open-loop",
+        "--rate",
+        "0.3",
+        "--number",
+        "200",
+        "--dataset",
+        "line_by_line",
+        "--dataset-path",
+        "/data/datasets/scenario_c_prompts.jsonl",
+        "--total-timeout",
+        "180",
+        "--max-tokens",
+        "256",
+        "--min-tokens",
+        "256",
+        "--stream",
+        "True",
+        "--extra-args",
+        "{\"ignore_eos\": true, \"temperature\": 0.0}",
+        "--name",
+        "Scenario_C_Poisson_N1"
+      ]
+    },
+    "differences": [
+      "A/C prompt-field dataset adapter, using native prepare_messages filter/wrapping",
+      "A native eligible requests cycle to512; explicit ID/token manifest retained",
+      "Seed42 and output paths recorded; inference defaults not changed",
+      "PDF --stream True translated to EvalScope1.15 --stream; streaming remains enabled",
+      "EvalScope1.15 open-loop exponentials are rescaled to total n/r, not strict unconditioned Poisson"
+    ],
+    "claim": "Local assessment-scale reproduction, not asserted identical to unspecified judge EvalScope version"
+  },
+  "order": [
+    [
+      "control_before",
+      "r_expert_decode4_kv_once"
+    ],
+    [
+      "metadata",
+      "r_decode_meta"
+    ],
+    [
+      "swa_group4",
+      "r_swa_decode4"
+    ],
+    [
+      "control_after",
+      "r_expert_decode4_kv_once"
+    ]
+  ]
+}
