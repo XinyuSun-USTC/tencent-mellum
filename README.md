@@ -90,6 +90,6 @@ CPU配置检查：
 
 ## 文档与证据
 
-[技术报告](TECHNICAL_REPORT.md)已更新双模式设计、性能消融及正确性矩阵；[AI使用说明](AI_USAGE.md)与[工作日志](WORKLOG.md)保留此前稿件，后续分别修订。最新精度优先数据见[完整A/B测量](docs/experiments/03_precision_third_full_performance.md)与[C三轮补测](docs/experiments/05_precision_c_completion_results.md)。性能优先证据位于`artifacts/experiments/performance_cumulative/`。
+[技术报告](TECHNICAL_REPORT.md)包含双模式设计、性能消融及正确性矩阵；[AI使用说明](AI_USAGE.md)记录协作分工、建议纠正与人工决策；[工作日志](WORKLOG.md)记录DAY0—DAY7的实验与交付过程。最新精度优先数据见[完整A/B测量](docs/experiments/03_precision_third_full_performance.md)与[C三轮补测](docs/experiments/05_precision_c_completion_results.md)。性能优先证据位于`artifacts/experiments/performance_cumulative/`。
 
 模型、虚拟环境与完整实验结果不纳入仓库；结论摘要、必要原始统计和SHA索引随代码保留。历史分支与提交继续保存，旧版矩阵脚本需在相应历史分支复现，不能与当前模式定义混用。
