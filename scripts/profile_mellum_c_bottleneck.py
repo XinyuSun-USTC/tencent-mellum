@@ -22,7 +22,7 @@ def prepare(out,gpu,track):
     from transformers import AutoTokenizer
     source=Path('/data/datasets/scenario_c_prompts.jsonl')
     tokenizer=AutoTokenizer.from_pretrained('/data/models/Mellum2.1-12B-A2.5B-Thinking',local_files_only=True)
-    rows=load_rows(source)[:16]
+    rows=load_rows(source)[:32]
     prompts=[chat_ids(tokenizer,[{'role':'user','content':r['prompt']}]) for r in rows]
     if any(not 4000<=len(p)<=16384 for p in prompts):raise ValueError('Unexpected C input length')
     files=[source,Path(__file__).resolve(),PROJECT/'scripts/mellum_runtime_config.py',PROJECT/'scripts/mellum_execution_profiles.py']
@@ -34,18 +34,19 @@ def prepare(out,gpu,track):
           'scope':'C-shaped controlled burst, not Poisson, not C60/C200 capacity or correctness acceptance. Profile timings are perturbed.'}
     write(out/'plan.json',plan);return plan
 
-def workload(engine,plan,SamplingParams,out):
+def workload(engine,plan,SamplingParams,out,pass_index=0):
     # Each pass starts with drained queues; model/prefix state remains warm.
     audit_path=out/'engine_steps.jsonl'
     offset=len(audit_path.read_text().splitlines()) if audit_path.exists() else 0
+    prompts=plan['prompts'] if plan['track']=='decode' else plan['prompts'][pass_index*8:pass_index*8+8]
     initial=16 if plan['track']=='decode' else 4
     injected=plan['track']=='decode';rounds=0;completed={};start=time.monotonic()
-    engine.add_request(plan['prompts'][:initial],SamplingParams(temperature=0,max_tokens=16,ignore_eos=True))
+    engine.add_request(prompts[:initial],SamplingParams(temperature=0,max_tokens=16,ignore_eos=True))
     while not engine.is_finished():
         completed.update(engine.io_processor.postprocess(engine.step()));rounds+=1
         rows=[json.loads(x) for x in audit_path.read_text().splitlines()[offset:]] if audit_path.exists() else []
         if not injected and sum(r.get('phase')=='decode' for r in rows)>=4:
-            engine.add_request(plan['prompts'][4:8],SamplingParams(temperature=0,max_tokens=16,ignore_eos=True));injected=True
+            engine.add_request(prompts[4:8],SamplingParams(temperature=0,max_tokens=16,ignore_eos=True));injected=True
     expected=16 if plan['track']=='decode' else 8
     if not injected or len(completed)!=expected or any(len(v['token_ids'])!=16 for v in completed.values()):
         raise ValueError('Incomplete controlled workload')
@@ -68,9 +69,9 @@ def worker(out):
         if audit!={'source_tensors':5631,'successful_parts':5631,'missing':[],'unexpected':[]}:
             raise ValueError('Loading audit failed')
         result['warmup']=workload(engine,plan,SamplingParams,out)
-        result['unprofiled']=[workload(engine,plan,SamplingParams,out) for _ in range(2)]
+        result['unprofiled']=[workload(engine,plan,SamplingParams,out,i) for i in (1,2)]
         engine.start_profile();result['started']=wait_receipt(out/'control','started',1,60)
-        result['profiled']=workload(engine,plan,SamplingParams,out)
+        result['profiled']=workload(engine,plan,SamplingParams,out,3)
         engine.stop_profile();result['stopped']=wait_receipt(out/'control','stopped',1,300)
         traces=list((out/'traces').rglob('*.pt.trace.json.gz'))
         if len(traces)!=1:raise ValueError('Expected one rank0 GPU trace')
