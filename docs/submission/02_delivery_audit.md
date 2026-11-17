@@ -1,20 +1,24 @@
 # 当前交付核对
 
-当前工作树 `/workspace/tencent-mellum-delivery-r32`，分支 `release/r32-baseline`。根目录start_server.sh默认step0123；README、TECHNICAL_REPORT、AI_USAGE、WORKLOG为交付材料，内部记录置于docs与report。
+提交工作树为`/workspace/tencent-mellum-delivery-dual`，分支`release/dual-mode`。根入口`start_server.sh`默认性能优先＋step0123，通过`--mode precision`切换精度优先。三份正式材料为根目录`TECHNICAL_REPORT.md`、`AI_USAGE.md`和`WORKLOG.md`，历史研究与内部记录保留于docs、report及artifacts。
 
-## 代码与基线
+## 配置与实测
 
-- Step0固定32槽r参考路径，包含批处理桥接、逐请求兼容投影及共享routing。
-- ①仅decode专家group4；②参考RoPE/KV单次写入；③SWA分组及混合负载执行机制。
-- 初始单槽路径为initial_single_reference，不作为当前消融Step0。历史标签保留不动，单槽A补测取消。
-- 默认入口与累计末行配置相同；当前③精度失败，不将默认候选称为已合格主版本。
+两种模式共享单卡32槽BF16 Step0，MTP与双卡模型并行关闭。性能路线①为原生计算与packed投影，②为路由、RoPE/KV、融合与Graph，③为前缀兼容/缓存及prefill元数据复用。精度路线①为Torch专家decode group4，②为参考RoPE/KV单次写入，③为decode元数据复用与参考SWA四请求分组。
 
-## 实测状态
+性能最终组合A1135.6885token/s/GPU，B TPOT p50 4.8985ms，C200/200，C TPOT/TTFT p99 11.3619/1026.0455ms；开发200位置率66.8438%，未达到90%，HumanEval147/164，HF145/164。
 
-[当前矩阵](../../artifacts/submission/final_r32_matrix/matrix.md)复用最近历史r32完整基线和本轮后三行结果，逐行保存测量身份。前三行本地token、长组、HumanEval检查通过；最后一行token一致率75.9453%、长组16.7969%，HumanEval差1.2195个百分点。C各行分别1/200、1/200、1/200、48/200完成。
+精度最终组合A74.7620token/s/GPU，B TPOT p50 51.2821ms；开发200位置率96.8125%、长组256/256、HumanEval148/164，均通过本地对应检查。C三轮均1/200成功，其余各199条180秒超时，不提供有效完整负载尾延迟中位数。正式报告分别列出两条路线的累计矩阵，旧第三项未混入最新数据。
 
-基线A41.3351，后三行51.3440、53.3934、71.2464token/s/GPU；第三项性能对应未全部通过正确性的组合。C尾延迟仅为成功样本统计，不掩盖失败数量。
+## 已完成验证
 
-开发200由HumanEval164与A36构成，保留为已约定本地回归集合；不是仅凭文件行数确认的官方唯一集合。MTP及双卡模型并行未启用。原始结果、版本与哈希保留，旧单槽记录不改名。
+- 112项相关CPU测试通过；13种合法开关组合从真实入口完成prepare-only核验。
+- 两种模式各四行累计GPU烟测通过，检查5631张量加载、HTTP/SSE、usage、实际模式及端口回收。
+- 正式文档链接及当前配置、证据索引、烟测源码哈希由`python scripts/verify_submission.py`核验。
+- 模型、虚拟环境和完整results目录不纳入Git；必要摘要、trace、逐题判定及SHA索引保留。各分支及完整提交历史继续保存，不squash。
 
-后续工作：分析正在运行的第三项精度隔离结果，确定最终配置，再完成文档结果收敛、路径整理与Git提交。未取得的结果不补造。
+## 提交边界
+
+当前实现可以作为实际交付的双模式研究版本，但尚无同时满足90%token一致率与C200全完成的配置。页数由最终排版核对。裁判隐藏集及空闲机器三次中位数为最终复测，不能由本地数据代替。最新交付分支仍需推送远程并明确告知评审所用分支或提交。
+
+证据入口：[技术报告](../../TECHNICAL_REPORT.md)、[双模式集成](15_dual_mode_entrypoint.md)、[GPU烟测索引](../../artifacts/submission/dual_mode/gpu_smoke/index.json)。
