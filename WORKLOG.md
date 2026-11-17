@@ -111,3 +111,8 @@
 **文档与当前状态。** 重构技术报告，按适配方法、profiling、三项优化与取舍、最终消融及正确性组织，最终数据留空。完整实验已交由两张卡独立运行，截至本日志修订时尚未收齐结果；不预填通过结论、最终加速比或裁判成绩。本次日志亦仅修改文档，不改变正在测量的功能代码。
 
 证据：[集成C60](report/performance/44_integrated_single_gpu_c_screen.md)、[最新profile](report/performance/45_integrated_c_bottleneck_profile.md)、[最终实验方案](docs/plan/65_final_delivery_matrix.md)。代表提交：`e1f3e22`、`753bbe8`、`6f02551`、`4fa8ddb`、`fb2971a`。当前候选分支：`release/final-matrix-smoke-fix`。
+
+
+### 11月17日补充：统一r32消融基线
+
+最终采用32槽参考兼容r配置为消融Step0，批处理桥接、逐请求投影与共享routing纳入基线；优化①仅增加专家decode group4。复用最近完整历史r32测量及本轮后三行，无需继续补测单槽A。旧单槽定义属于当时方案，历史结果和标签保留；更新后的矩阵逐行标注来源，不将不同轮次称为同轮配对。第三项当前精度失败和C大量超时均不因基线修订而改变。当前交付工作树为 `/workspace/tencent-mellum-delivery-r32`，正在原工作树运行的精度诊断保持冻结。

@@ -27,16 +27,16 @@ AGREEMENT={
 CORE_PROFILES=('core_nn','core_nt','core_tn','core_tt')
 
 PHASE_PROFILES=('phase_prefill','phase_decode','expert_prefill','expert_decode')
-PROFILES=('delivery_step0','delivery_step01','delivery_step012','delivery_step0123')+PHASE_PROFILES+CORE_PROFILES+tuple(AGREEMENT)+tuple(DERIVED)+FAST_PROFILES+('r_swa4_abort','r_swa4_abort_prefix','r_swa4_abort_prefix_chunk1024_d4','r_abort','r_decode_meta','r_swa_decode2','r_swa_decode4','r_prefix_only','r_prefix_chunk1024_d1','r_prefix_chunk2048_d1','r_chunk1024_d1','r_chunk2048_d1','r_chunk512_d4','r_chunk1024_d4','r_chunk2048_d4','r_expert_decode4_kv_once','r_expert_decode2','r_expert_decode4','r_reference_kv_once','r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
+PROFILES=('initial_single_reference','delivery_step0','delivery_step01','delivery_step012','delivery_step0123')+PHASE_PROFILES+CORE_PROFILES+tuple(AGREEMENT)+tuple(DERIVED)+FAST_PROFILES+('r_swa4_abort','r_swa4_abort_prefix','r_swa4_abort_prefix_chunk1024_d4','r_abort','r_decode_meta','r_swa_decode2','r_swa_decode4','r_prefix_only','r_prefix_chunk1024_d1','r_prefix_chunk2048_d1','r_chunk1024_d1','r_chunk2048_d1','r_chunk512_d4','r_chunk1024_d4','r_chunk2048_d4','r_expert_decode4_kv_once','r_expert_decode2','r_expert_decode4','r_reference_kv_once','r','fused_moe','r_swa_ck','fused_moe_swa_ck','native_attention','fused_moe_native_attention','isolated_moe','fused_moe_native_batched','fused_moe_native_batched_direct_kv')
 
 
 def profile_settings(name):
     if name not in PROFILES:raise ValueError('Unknown Mellum execution profile')
+    if name=='initial_single_reference':
+        result=profile_settings('r');result.update(MELLUM_BATCH_CAMPAIGN_CONFIG='',MELLUM_REQUEST_BATCHING='1');return result
     if name.startswith('delivery_step'):
         if name=='delivery_step0':
-            result=profile_settings('r')
-            result.update(MELLUM_BATCH_CAMPAIGN_CONFIG='',MELLUM_REQUEST_BATCHING='1')
-            return result
+            return profile_settings('r')
         return profile_settings({'delivery_step01':'r_expert_decode4',
             'delivery_step012':'r_expert_decode4_kv_once',
             'delivery_step0123':'r_swa4_abort_prefix_chunk1024_d4'}[name])

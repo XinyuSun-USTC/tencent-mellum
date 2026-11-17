@@ -7,6 +7,7 @@ from mellum_perf_protocol import load_rows,sha
 
 
 def main():
+ raise SystemExit('Retired: delivery Step0 is r32-v2; reuse verified historical r32 evidence. Single-slot tool remains in historical worktree.')
  import argparse
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--gpu',type=int,choices=[0,1],default=0);p.add_argument('--prepare-only',action='store_true');a=p.parse_args()
  out=Path('/workspace/results/mellum_step0_a_short')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)

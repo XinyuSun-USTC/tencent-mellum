@@ -1,0 +1,16 @@
+{
+  "baseline_policy": "r32-v2",
+  "step0_profile": "delivery_step0",
+  "equivalent_profile": "r",
+  "slots": 32,
+  "included_in_baseline": [
+    "compatible ragged batching",
+    "requestwise projections",
+    "shared routing"
+  ],
+  "point1_increment": "decode_expert_group_size=4",
+  "historical_initial_reference": "initial_single_reference",
+  "baseline_performance_run": "/workspace/results/mellum_completion_benchmarks/20261116T165949897188Z_primary",
+  "baseline_acceptance_run": "/workspace/results/mellum_reference_acceptance/20261116T160221792307Z_batch32",
+  "evidence": "artifacts/submission/final_r32_matrix/matrix.json"
+}

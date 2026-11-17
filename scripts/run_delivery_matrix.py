@@ -2,7 +2,7 @@
 import argparse,json,time,traceback
 from pathlib import Path
 from datetime import datetime,timezone
-from mellum_delivery_matrix import ROWS
+from mellum_delivery_matrix import ROWS,BASELINE_POLICY
 from mellum_perf_protocol import sha
 import run_mellum_full_campaign as perf
 import run_mellum_candidate_acceptance as acceptance
@@ -19,7 +19,7 @@ def prepare(out,gpu,rows,kind):
     # B first provides a quicker live server check; workloads themselves unchanged.
     performance['template']['stages']={k:performance['template']['stages'][k] for k in ('B','C','A')}
     write(d/'manifest.json',performance)
-    plan={'gpu':gpu,'rows':rows,'kind':kind,'definitions':ROWS,'source_sha256':acceptance.perf.sources(),
+    plan={'baseline_policy':BASELINE_POLICY,'gpu':gpu,'rows':rows,'kind':kind,'definitions':ROWS,'source_sha256':acceptance.perf.sources(),
           'scope':'Local full-scale cumulative matrix, not judge idle-machine three-repeat median',
           'tasks':{},'default_row':'step0123'}
     plan['source_sha256'][str(Path(__file__).resolve())]=sha(__file__)
@@ -30,8 +30,8 @@ def prepare(out,gpu,rows,kind):
 
 def render(out,plan):
     f=out/'performance/summary.json';p=json.loads(f.read_text()) if f.exists() else {}
-    lines=['# 最终累计消融（本地完整负载）','','Step0为最终源码关闭三项优化的重跑；单槽与32槽差异属于优化①。不是历史源码逐字节复现。失败保留分母，未完成不填性能。','',
-           '| 行 | 槽数 | A tok/s/GPU | B TTFT p50/p99 ms | B TPOT p50/p99 ms | C TTFT/TPOT p99 ms | A/B/C完成数 | 正确性 |',
+    lines=['# 最终累计消融（本地完整负载）','','Step0为r32参考兼容服务基线；全行32槽；参考兼容批处理与共享routing属于基线，①只计专家group4。历史测量注明版本；失败保留分母。','',
+           '| 行 | 槽数 | A tok/s/GPU | B TTFT p50/p99 ms | B TPOT p50/p99 ms | C TPOT/TTFT p99 ms | A/B/C完成数 | 正确性 |',
            '|---|---:|---:|---|---|---|---|---|']
     for row in plan['rows']:
         m=p.get('metrics',{}).get(ROWS[row]['profile'],{})
@@ -41,7 +41,7 @@ def render(out,plan):
             return '/'.join(f'{v[k]*scale:.3f}' if v.get(k) is not None else '—' for k in keys)
         counts='/'.join(f"{m[s].get('successes')}/{m[s].get('requests')}" if s in m else '—' for s in ('A','B','C'))
         a=out/row/'summary.json';status=json.loads(a.read_text()).get('status') if a.exists() else '待测'
-        lines.append(f"| {row} | {ROWS[row]['slots']} | {fmt('A',['output_tokens_per_s_gpu'],1)} | {fmt('B',['ttft_p50_s','ttft_p99_s'])} | {fmt('B',['tpot_p50_s','tpot_p99_s'])} | {fmt('C',['ttft_p99_s','tpot_p99_s'])} | {counts} | {status} |")
+        lines.append(f"| {row} | {ROWS[row]['slots']} | {fmt('A',['output_tokens_per_s_gpu'],1)} | {fmt('B',['ttft_p50_s','ttft_p99_s'])} | {fmt('B',['tpot_p50_s','tpot_p99_s'])} | {fmt('C',['tpot_p99_s','ttft_p99_s'])} | {counts} | {status} |")
     (out/'matrix.md').write_text('\n'.join(lines)+'\n')
 
 def execute(out,plan,minutes):

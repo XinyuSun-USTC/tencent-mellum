@@ -111,6 +111,7 @@ def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--track',choices=['step0-a','accuracy'],required=True)
  p.add_argument('--gpu',type=int,choices=[0,1],required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--worker',type=Path)
  a=p.parse_args()
+ if a.track=='step0-a':p.error('Retired single-slot completion: Step0 is now r32-v2; use archived full r32 data')
  if a.worker:accuracy_worker(a.worker);return
  out=Path('/workspace/results/mellum_final_followup')/(datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')+'_'+a.track);out.mkdir(parents=True)
  plan=prepare(out,a.track,a.gpu)

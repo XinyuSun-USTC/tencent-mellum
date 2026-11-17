@@ -9,10 +9,15 @@ from run_delivery_matrix import render
 def test_cumulative_rows_and_default_match():
     assert DEFAULT_ROW=='step0123'
     assert [v['points'] for v in ROWS.values()]==[[],[1],[1,2],[1,2,3]]
-    assert slots('delivery_step0')==1
+    assert slots('delivery_step0')==32
+    assert slots('initial_single_reference')==1
     for row,parent in [('step01','r_expert_decode4'),('step012','r_expert_decode4_kv_once'),('step0123','r_swa4_abort_prefix_chunk1024_d4')]:
         assert profile_settings(ROWS[row]['profile'])==profile_settings(parent)
-    assert profile_settings('delivery_step0')['MELLUM_BATCH_CAMPAIGN_CONFIG']==''
+    assert profile_settings('delivery_step0')==profile_settings('r')
+    base=json.loads(profile_settings('delivery_step0')['MELLUM_BATCH_CAMPAIGN_CONFIG'])
+    one=json.loads(profile_settings('delivery_step01')['MELLUM_BATCH_CAMPAIGN_CONFIG'])
+    assert one=={**base,'decode_expert_group_size':4}
+    assert profile_settings('initial_single_reference')['MELLUM_BATCH_CAMPAIGN_CONFIG']==''
     c=command(DEFAULT_ROW,0,8000,8026,Path('/tmp/example'),True)
     assert c[c.index('--profile')+1]==ROWS[DEFAULT_ROW]['profile'] and '--prepare-only' in c
 

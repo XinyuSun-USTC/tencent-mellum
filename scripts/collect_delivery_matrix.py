@@ -9,6 +9,7 @@ def collect(runs,out):
     metrics={};tasks={};rows=[];identity=None;acceptances={}
     for root in runs:
         summary=json.loads((root/'summary.json').read_text());plan=json.loads((root/'manifest.json').read_text())
+        if plan.get('definitions')!=ROWS:raise ValueError('Historical row definitions differ; use explicit r32 provenance assembler')
         if not summary.get('source_unchanged'):raise ValueError('Unverified matrix source')
         for f,h in summary['artifact_sha256'].items():
             if sha(root/f)!=h:raise ValueError('Changed artifact: '+f)

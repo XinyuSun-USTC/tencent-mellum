@@ -26,7 +26,7 @@ def cpu_environment():
 
 
 def sources():
-    paths=list((PROJECT/'ATOM/atom').rglob('*.py'))+[CONFIG,ADAPTER,Path(__file__).resolve(),PROJECT/'start_server.sh',PROJECT/'configs/submission/environment.json']
+    paths=list((PROJECT/'ATOM/atom').rglob('*.py'))+[CONFIG,ADAPTER,Path(__file__).resolve(),PROJECT/'start_server.sh',PROJECT/'configs/submission/environment.json',PROJECT/'configs/submission/baseline_policy.json']
     paths += [PROJECT/'scripts'/name for name in ('mellum_delivery_matrix.py','smoke_delivery.py','serve_delivery.py','run_delivery_matrix.py','serve_mellum.py','mellum_execution_profiles.py','mellum_runtime_config.py','mellum_perf_protocol.py','mellum_process_runner.py','setup_mellum_perf_client.py')]
     return {str(p):sha(p) for p in sorted(set(paths))}
 

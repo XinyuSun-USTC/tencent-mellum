@@ -1,5 +1,7 @@
 # 最终累计实验首轮结果
 
+> 本记录保留首轮单槽基线口径；当前累计基线已改为r32，见[决议67](../../docs/plan/67_r32_baseline_revision.md)。原测量结果不修改。
+
 运行目录：`/workspace/results/mellum_delivery_matrix/20261117T003512204779Z`、`20261117T003519808987Z`。分别核验168、184项产物哈希，全部一致；两轮源码身份相同。合并输出为 `/workspace/results/mellum_delivery_matrix_collected/20261117_final_first_pass`。入口smoke四行全部通过。
 
 ## 完整本地正确性

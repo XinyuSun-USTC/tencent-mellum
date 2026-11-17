@@ -1,32 +1,20 @@
-# 最终交付与累计消融执行方案
+# 最终累计消融与执行口径
 
-## 固定版本与累计行
+当前方案按[决议67](67_r32_baseline_revision.md)采用r32-v2基线，替代旧单槽累计方案。所有行固定单卡32槽。
 
-独立分支 `release/final-matrix`，工作树 `/workspace/tencent-mellum-delivery-matrix`，冻结后不再修改代码。默认 `start_server.sh` 指向 `serve_delivery.py`，其默认行与矩阵最后一行均为step0123。历史入口另存，不混入结果。
+| 行 | profile | 优化增量 |
+|---|---|---|
+| Step0 | delivery_step0（等价r） | 参考兼容批处理、逐请求投影与共享routing属于基线 |
+| +① | delivery_step01 | decode专家group4 |
+| +①② | delivery_step012 | RoPE/KV单次写入 |
+| +①②③ | delivery_step0123 | SWA分组、metadata、prefix、chunk1024/d4及取消 |
 
-| 行 | profile | 槽数 | 与上一行相比 |
-|---|---|---:|---|
-| Step0 | delivery_step0 | 1 | 最终源码关闭优化的参考计算路径；保留单请求服务桥接与审计 |
-| +① | delivery_step01 | 32 | 批处理、共享routing、专家decode group4及逐请求兼容投影 |
-| +①② | delivery_step012 | 32 | 参考RoPE / KV单次写入 |
-| +①②③ | delivery_step0123 | 32 | SWA decode group4、host metadata once、prefix、chunk1024/d4、disconnect abort |
+默认start_server.sh仍指向step0123。该行当前token一致率75.9453%、长输入43/256、HumanEval147/164，尚未全部通过本地正确性。前三行本地正确性通过；C均有大量失败。
 
-原始Step0标签不移动；本矩阵基线不是历史源码逐字节复现，是最终源码关闭优化的受控重跑。①包含从单槽到32槽服务能力，客户端A并发仍32，B仍1，C仍rate0.3，服务器槽数在各场景不另换。③为协同机制集合；这里不能分离其每个子机制的贡献，原有分项实验另外保留。
+现有矩阵已收集完整负载结果，Step0复用最近历史r32完整测量，后三行复用本轮累计实验；不再补测单槽A，不重复运行整套ABC。[汇总](../../artifacts/submission/final_r32_matrix/matrix.md)及matrix.json保留每行来源与哈希。历史单槽A预算中断记录只作为初始参考，不填当前矩阵。
 
-## 统一验证与性能
+未来若重测，run_delivery_matrix.py使用新ROWS全行32槽；旧单槽manifest与新源码不兼容，不允许强行resume或直接改名。collect_delivery_matrix.py检查行定义；显式历史复用由assemble_r32_delivery_matrix.py完成。
 
-完整性能每行A512/B50/C200，按B→C→A执行，输出256、C180秒请求超时保持；已有本地客户端兼容调整保留，不等同裁判三次隐藏集。性能关闭torch profiler与phase-audit，保留现有batch审计开销，正式口径中披露。
+性能范围保持A512/B50/C200、输出256、C单请求180秒。C分位数只针对成功样本，必须同时列完成数。两卡仅运行独立任务，主机竞争及客户端到达归一化按实际记录披露。
 
-完整正确性每行200条前64token、边界/16k单列、164题HumanEval关闭thinking/max2048，复用校验HF参考。Step0单槽，其余32槽，MTP/模型双卡并行关闭。前缀/chunk实际缓存调用以batch审计验证，不误用原生prefix审计文件。失败的正确性不阻断性能采集，但最终资格独立标记。
-
-每轮先用实际start_server入口做HTTP非流式/流式及usage检查，保持对应行上下文与槽数，不用另一个缩小配置冒充最终启动。
-
-两卡分工：GPU0行0/01；GPU1行012/0123。每张卡顺序性能campaign及每行正确性，减少人工介入。每项完整测试可能较长，预计总计数小时，不能用此前短profile的3–10分钟估算。预算按阶段而非整条命令；可续跑性能，已完成产物哈希必须一致。失败正确性需新建结果目录，不覆盖原失败。
-
-`collect_delivery_matrix.py --runs <两组结果> --output <新目录>`校验原始产物、拒绝不同源码混合及重复成绩，合并四行展示。仍失败的C显示完成数，尾延迟记未完成；不能只展示成功请求的分位数。
-
-## 报告更新与交付
-
-性能43–45提供最新SWA/取消、C60和profile证据。最新trace稳态decode中全局SDPA30.19%、专家25.54%、KV读取12.01%；受控mixed有74.04%kernel时间在prefill。profile只证明定位与路径，不证明最终C通过。
-
-最终报告保留四行矩阵，实验结束后只填对应版本测得值；缺失记待测，超时记失败。默认候选是否合格由最终正确性与ABC分别决定；若不合格，保留①②保守配置及其已验证范围，不宣称题目全部通过。正式提交需指定Git提交并保留完整历史，不移动旧标签或squash。
+当前剩余实验集中在第三项精度隔离；使用旧冻结工作树执行，不能修改其源码以套用本次名称调整。选定最终候选后再决定必要的局部回归与测量，现有失败不覆盖。
