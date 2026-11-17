@@ -26,8 +26,8 @@ def cpu_environment():
 
 
 def sources():
-    paths=list((PROJECT/'ATOM/atom').rglob('*.py'))+[CONFIG,ADAPTER,Path(__file__).resolve()]
-    paths += [PROJECT/'scripts'/name for name in ('serve_mellum.py','mellum_execution_profiles.py','mellum_runtime_config.py','mellum_perf_protocol.py','mellum_process_runner.py','setup_mellum_perf_client.py')]
+    paths=list((PROJECT/'ATOM/atom').rglob('*.py'))+[CONFIG,ADAPTER,Path(__file__).resolve(),PROJECT/'start_server.sh',PROJECT/'configs/submission/environment.json']
+    paths += [PROJECT/'scripts'/name for name in ('mellum_delivery_matrix.py','smoke_delivery.py','serve_delivery.py','run_delivery_matrix.py','serve_mellum.py','mellum_execution_profiles.py','mellum_runtime_config.py','mellum_perf_protocol.py','mellum_process_runner.py','setup_mellum_perf_client.py')]
     return {str(p):sha(p) for p in sorted(set(paths))}
 
 
@@ -138,7 +138,7 @@ def stage_worker(directory):
         with socket.socket() as sock:
             if sock.connect_ex(('127.0.0.1',plan.get('server_port',8051)))==0:raise RuntimeError('HTTP port already in use; refuse unowned server')
         servercmd=['/opt/venv/bin/python',str(PROJECT/'scripts/serve_mellum.py'),'--gpu',str(plan['gpu']),
-                   '--batching','--batch-audit','--max-num-seqs','32','--max-model-len','16640','--max-batched-tokens','16640',
+                   '--batching','--batch-audit','--max-num-seqs',str(__import__('mellum_delivery_matrix').slots(plan.get('profile'))),'--max-model-len','16640','--max-batched-tokens','16640',
                    '--output',str(directory/'server'),'--server-port',str(plan.get('server_port',8051)),
                    '--engine-port',str(plan.get('engine_port',8026))]
         if plan.get('profile'):servercmd+=['--profile',plan['profile']]

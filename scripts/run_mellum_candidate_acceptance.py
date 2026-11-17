@@ -112,6 +112,7 @@ def runtime(profile,gpu,target):
 def worker(out,suites=None,batch_size=32):
     plan=json.loads((out/'manifest.json').read_text());current(plan)
     target=out/'candidate';target.mkdir();settings,opts=runtime(plan['profile'],plan['gpu'],target)
+    batch_size=min(batch_size,__import__('mellum_delivery_matrix').slots(plan['profile']))
     opts['max_num_seqs']=batch_size
     sys.path.insert(0,str(PROJECT/'ATOM'))
     import torch,transformers
@@ -169,9 +170,13 @@ def evaluate(out,plan,budget):
         wanted=profile_settings(plan['profile'])
         for switch,file,predicate in [('MELLUM_PREFIX_ENABLED','prefix.jsonl',lambda x:sum(x.get('cached_tokens',[]))>0),
                                       ('MELLUM_PREFILL_METADATA_REUSE','metadata.jsonl',lambda x:x.get('reused') is True)]:
-            if wanted.get(switch)=='1':
+            if wanted.get(switch)=='1' and not (switch=='MELLUM_PREFIX_ENABLED' and wanted.get('MELLUM_REFERENCE_PREFIX')=='1'):
                 events=[json.loads(x) for x in (out/'candidate'/file).read_text().splitlines()]
                 if not any(predicate(x) for x in events):raise ValueError('Required actual feature not observed: '+switch)
+        if wanted.get('MELLUM_REFERENCE_PREFIX')=='1':
+            events=[json.loads(x) for x in (out/'candidate/batches.jsonl').read_text().splitlines()]
+            if not any(r.get('phase')=='prefill' and any(t>0 for t in r.get('cached_tokens') or []) for r in events):
+                raise ValueError('No actual reference prefix/chunk cache use')
         summary['local_checks']={'developer200_90_percent':summary['tokens']['all']['at_least_90_percent'],
             'long_group_90_percent':summary['long']['all']['at_least_90_percent'],'16k_90_percent':summary['long']['16k']['at_least_90_percent'],
             'human_eval_absolute_2pp':summary['humaneval']['bf16_2pp_local_check']}
