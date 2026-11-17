@@ -1,5 +1,5 @@
 """Final cumulative-row launcher; default equals ablation last row, qualification pending."""
-import argparse,subprocess,sys,importlib.metadata,json
+import argparse,subprocess,sys,importlib.metadata,json,os
 from pathlib import Path
 from mellum_delivery_matrix import ROWS,DEFAULT_ROW
 
@@ -19,5 +19,6 @@ def main():
     expected=json.loads((Path(__file__).resolve().parents[1]/'configs/submission/environment.json').read_text())
     if {k:importlib.metadata.version(k) for k in expected}!=expected:raise RuntimeError('Frozen inference package versions differ')
     print('ROW',a.row,'Full final-row qualification pending; C60=43/60 is not a pass',flush=True)
-    raise SystemExit(subprocess.call(command(a.row,a.gpu,a.port,a.engine_port,a.output,a.prepare_only)))
+    cmd=command(a.row,a.gpu,a.port,a.engine_port,a.output,a.prepare_only)
+    os.execv(cmd[0],cmd)
 if __name__=='__main__':main()

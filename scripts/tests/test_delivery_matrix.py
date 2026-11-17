@@ -22,3 +22,9 @@ def test_failed_c_never_displays_success_only_tail(tmp_path):
     render(tmp_path,{'rows':['step0123']})
     text=(tmp_path/'matrix.md').read_text()
     assert '43/200' in text and '1000.000' not in text and '待测或未完成' in text
+
+
+def test_each_smoke_row_has_disjoint_ports_on_both_cards():
+    from smoke_delivery import ports
+    all_ports=[p for gpu in (0,1) for row in ROWS for p in ports(row,gpu)]
+    assert len(set(all_ports))==len(all_ports)

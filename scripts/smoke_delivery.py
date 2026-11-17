@@ -4,6 +4,9 @@ from pathlib import Path
 from datetime import datetime,timezone
 from urllib.request import Request,build_opener,ProxyHandler
 PROJECT=Path(__file__).resolve().parents[1]
+ROWS=('step0','step01','step012','step0123')
+
+def ports(mode,gpu):return 18751+gpu*100+ROWS.index(mode),19426+gpu*100+ROWS.index(mode)
 
 
 def parse_sse(lines):
@@ -20,7 +23,7 @@ def parse_sse(lines):
 
 
 def run(mode,gpu,out,timeout):
-    out.mkdir(parents=True);port=18751+gpu*100;engine=19426+gpu*100
+    out.mkdir(parents=True);port,engine=ports(mode,gpu)
     with socket.socket() as sock:
         if sock.connect_ex(('127.0.0.1',port))==0:raise RuntimeError('Refuse unowned occupied smoke port')
     command=[str(PROJECT/'start_server.sh'),'--row',mode,'--gpu',str(gpu),'--port',str(port),
@@ -76,8 +79,13 @@ def main():
     results={}
     for mode in a.modes:
         print('STAGE submission_smoke',mode,'log',out/mode/'server.log',flush=True)
-        results[mode]=run(mode,a.gpu,out/mode,a.startup_timeout)
+        try:results[mode]=run(mode,a.gpu,out/mode,a.startup_timeout)
+        except Exception:
+            results[mode]={'status':'failed','traceback':traceback.format_exc()}
+            (out/mode).mkdir(exist_ok=True)
+            (out/mode/'result.json').write_text(json.dumps(results[mode],indent=2)+'\n')
         print(mode,results[mode]['status'],flush=True)
+        (out/'summary.json').write_text(json.dumps({'status':'running','results':results},indent=2)+'\n')
     d={'status':'smoke_passed' if all(r['status']=='smoke_passed' for r in results.values()) else 'smoke_failed','results':results,
        'scope':'Actual delivery launcher, Exact row context/slots, 8 generated tokens; not complete acceptance'}
     (out/'summary.json').write_text(json.dumps(d,indent=2)+'\n');print('RESULT',d['status'],'output',out)

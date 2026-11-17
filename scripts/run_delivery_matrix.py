@@ -52,8 +52,15 @@ def execute(out,plan,minutes):
         run_stage('delivery_entrypoint_smoke',[sys.executable,str(Path(__file__).with_name('smoke_delivery.py')),
             '--gpu',str(plan['gpu']),'--modes',*plan['rows'],'--output',str(out/'entrypoint_smoke')],
             out/'entrypoint_smoke.log',timeout=900,allowed_exit_codes=(0,1))
-        plan['tasks']['entrypoint_smoke']=json.loads((out/'entrypoint_smoke/summary.json').read_text())['status']
+        smoke=out/'entrypoint_smoke/summary.json'
+        if not smoke.exists():
+            write(out/'summary.json',{'status':'entrypoint_smoke_failed','reason':'Child produced no summary; inspect entrypoint_smoke.log','source_unchanged':True})
+            raise RuntimeError('Entrypoint smoke exited without summary; see '+str(out/'entrypoint_smoke.log'))
+        plan['tasks']['entrypoint_smoke']=json.loads(smoke.read_text())['status']
         write(out/'manifest.json',plan)
+    if plan['tasks'].get('entrypoint_smoke')!='smoke_passed':
+        write(out/'summary.json',{'status':'entrypoint_smoke_failed','tasks':plan['tasks'],'source_unchanged':True})
+        raise RuntimeError('Entrypoint smoke failed; full campaign not started. Inspect entrypoint_smoke/summary.json')
     if plan['kind']!='acceptance':
         p=json.loads((out/'performance/manifest.json').read_text())
         r=perf.execute(out/'performance',p,minutes*60)
