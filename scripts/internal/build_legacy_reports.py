@@ -1,4 +1,4 @@
-"""Build the four-page technical report and one-page AI disclosure without installs."""
+"""Historical PDF generator; current deliverables are root Markdown files."""
 import os,textwrap
 from pathlib import Path
 os.environ.setdefault('MPLCONFIGDIR','/tmp/mellum-submission-matplotlib')
@@ -6,8 +6,8 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
-ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'report/submission'
+ROOT=Path(__file__).resolve().parents[2]
+OUT=ROOT/'report/archive/legacy_generated'
 PAGES=[('1. Delivery, architecture and profiling', '''
 Mellum 2.1 / ATOM | XinyuSun-USTC | 2026-11-16 | BF16, one GPU, MTP off
 

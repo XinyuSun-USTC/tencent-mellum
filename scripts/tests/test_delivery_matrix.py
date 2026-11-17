@@ -33,3 +33,15 @@ def test_each_smoke_row_has_disjoint_ports_on_both_cards():
     from smoke_delivery import ports
     all_ports=[p for gpu in (0,1) for row in ROWS for p in ports(row,gpu)]
     assert len(set(all_ports))==len(all_ports)
+
+
+def test_independent_point_switches_match_cumulative_profiles():
+    from mellum_delivery_matrix import point_settings
+    for row in ROWS.values():assert point_settings(row['points'])==profile_settings(row['profile'])
+    only_two=point_settings([2]);base=profile_settings('r')
+    assert only_two=={**base,'MELLUM_DIRECT_KV_WRITE':'1'}
+    no_two=point_settings([1,3])
+    assert no_two['MELLUM_DIRECT_KV_WRITE']=='0'
+    assert no_two['MELLUM_REFERENCE_CHUNKED']=='1'
+    c=command(DEFAULT_ROW,0,8000,8026,Path('/tmp/example'),True,disabled=[1,3])
+    assert c[c.index('--optimization-points')+1:c.index('--prepare-only')]==['2']

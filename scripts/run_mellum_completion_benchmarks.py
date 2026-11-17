@@ -22,7 +22,7 @@ def worker(directory):
    if plan['row']=='historical_step0':
     command=[sys.executable,str(PROJECT/'scripts/serve_mellum_step0_snapshot.py'),*common]
    elif plan['row']=='primary':
-    command=[str(PROJECT/'start_server.sh'),'--mode','conservative','--max-num-seqs',str(plan['batch_size']),'--audit',*common]
+    command=[str(PROJECT/'scripts/internal/start_legacy_server.sh'),'--mode','conservative','--max-num-seqs',str(plan['batch_size']),'--audit',*common]
   return original(command,*args,**kwargs)
  base.subprocess.Popen=launch
  try:base.stage_worker(directory)

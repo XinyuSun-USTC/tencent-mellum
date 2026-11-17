@@ -15,8 +15,10 @@ def main():
     p.add_argument('--phase-audit',action='store_true',help='Diagnostic EngineCore host timestamps; not final performance mode')
     p.add_argument('--disable-thinking',action='store_true')
     p.add_argument('--campaign-config',type=Path)
+    p.add_argument('--optimization-points',nargs='*',type=int,choices=[1,2,3],default=None,help='Explicit delivery point override; effective settings recorded in launch.json')
     p.add_argument('--profile',choices=PROFILES,help='Explicit experimental execution profile; requires --batching')
     a=p.parse_args()
+    if a.optimization_points is not None and (not a.profile or not a.profile.startswith('delivery_step')):p.error('--optimization-points requires a delivery_step profile')
     if a.profile and (not a.batching or a.campaign_config or a.implementation!='reference'):
         p.error('--profile requires --batching and cannot combine with campaign-config/implementation')
     if a.max_num_seqs<1 or a.max_model_len<1 or a.max_batched_tokens<a.max_model_len:p.error('Invalid sequence/token limits')
@@ -25,7 +27,10 @@ def main():
     out=a.output or Path('/workspace/results/mellum_serving')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True,exist_ok=True)
     settings=apply_serving(a.gpu,out,a.batching,a.implementation,a.batch_audit)
     if a.profile:
-        settings.update(profile_settings(a.profile))
+        if a.optimization_points is None:settings.update(profile_settings(a.profile))
+        else:
+            from mellum_delivery_matrix import point_settings
+            settings.update(point_settings(a.optimization_points))
         if a.batch_audit:settings['MELLUM_NATIVE_AUDIT_PATH']=str(out/'native_calls.jsonl')
         os.environ.update(settings)
     if a.phase_audit:settings['MELLUM_ENGINE_PHASE_AUDIT']=str(out/'engine_steps.jsonl')
@@ -67,7 +72,7 @@ def main():
     source=[PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'ATOM/atom/model_config/mellum_native.py',PROJECT/'ATOM/atom/models/mellum.py',PROJECT/'ATOM/atom/model_config/mellum_batch.py',
             PROJECT/'ATOM/atom/model_config/mellum_attention.py',PROJECT/'ATOM/atom/entrypoints/openai/api_server.py',
             PROJECT/'scripts/mellum_runtime_config.py',PROJECT/'ATOM/atom/model_engine/engine_core.py',PROJECT/'ATOM/atom/model_engine/mellum_service_audit.py',Path(__file__)]
-    (out/'launch.json').write_text(json.dumps({'profile':a.profile,'acceptance':'Experimental profile; do not infer final correctness/performance acceptance from launcher availability','settings':settings,'command':command,'source_sha256':{str(f):hashlib.sha256(f.read_bytes()).hexdigest() for f in source}},indent=2)+'\n')
+    (out/'launch.json').write_text(json.dumps({'profile':a.profile,'enabled_optimization_points':a.optimization_points if a.optimization_points is not None else next((item['points'] for item in __import__('mellum_delivery_matrix').ROWS.values() if item['profile']==a.profile),None),'acceptance':'Experimental profile; do not infer final correctness/performance acceptance from launcher availability','settings':settings,'command':command,'source_sha256':{str(f):hashlib.sha256(f.read_bytes()).hexdigest() for f in source}},indent=2)+'\n')
     if a.prepare_only:print('RESULT prepared output',out);return
     print('SERVE output',out,flush=True);os.execv(command[0],command)
 if __name__=='__main__':main()

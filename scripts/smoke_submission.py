@@ -23,7 +23,7 @@ def run(mode,gpu,out,timeout):
     out.mkdir(parents=True);port=18751 if mode=='conservative' else 18752;engine=19426 if mode=='conservative' else 19427
     with socket.socket() as sock:
         if sock.connect_ex(('127.0.0.1',port))==0:raise RuntimeError('Refuse unowned occupied smoke port')
-    command=[str(PROJECT/'start_server.sh'),'--mode',mode,'--gpu',str(gpu),'--host','127.0.0.1','--port',str(port),
+    command=[str(PROJECT/'scripts/internal/start_legacy_server.sh'),'--mode',mode,'--gpu',str(gpu),'--host','127.0.0.1','--port',str(port),
         '--engine-port',str(engine),'--max-model-len','512','--max-batched-tokens','512','--max-num-seqs','1','--audit','--output',str(out/'server')]
     result={'mode':mode,'status':'started','command':command,'scope':'Submission-entrypoint load/HTTP/SSE smoke only; not correctness or ABC'}
     (out/'result.json').write_text(json.dumps(result,indent=2)+'\n');proc=None
