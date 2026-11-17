@@ -1,0 +1,210 @@
+2026-11-16 19:14:29 - evalscope - [32mINFO[0m: Save the result to: /workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-16 19:14:29 - evalscope - [32mINFO[0m: Starting benchmark with args: [0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-16 19:14:29 - evalscope - [32mINFO[0m: {
+    "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+    "model_id": "Mellum2.1-12B-A2.5B-Thinking",
+    "attn_implementation": null,
+    "api": "openai",
+    "tokenizer_path": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+    "port": 8877,
+    "url": "127.0.0.1:8751",
+    "headers": {},
+    "connect_timeout": null,
+    "read_timeout": null,
+    "total_timeout": 21600,
+    "api_key": null,
+    "no_test_connection": false,
+    "scenario": null,
+    "number": 4,
+    "parallel": 1,
+    "rate": -1.0,
+    "warmup_num": 0,
+    "enable_pd_metrics": false,
+    "exclude_warmup_overlap": false,
+    "open_loop": false,
+    "sleep_interval": 5,
+    "duration": null,
+    "sla_auto_tune": false,
+    "sla_variable": "parallel",
+    "sla_params": null,
+    "sla_num_runs": 3,
+    "sla_upper_bound": 65536,
+    "sla_lower_bound": 1,
+    "sla_fixed_parallel": null,
+    "sla_number_multiplier": null,
+    "db_commit_interval": 1000,
+    "queue_size_multiplier": 5,
+    "in_flight_task_multiplier": 2,
+    "num_workers": 0,
+    "log_every_n_query": 100,
+    "debug": false,
+    "enable_progress_tracker": false,
+    "visualizer": null,
+    "wandb_api_key": null,
+    "swanlab_api_key": null,
+    "swanlab_host": null,
+    "name": "Scenario_B_SingleStream",
+    "alias": null,
+    "outputs_dir": "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream",
+    "no_timestamp": true,
+    "max_prompt_length": 1024,
+    "min_prompt_length": 1024,
+    "prefix_length": 0,
+    "prefix_count": 1,
+    "prompt": null,
+    "query_template": null,
+    "apply_chat_template": true,
+    "image_width": 224,
+    "image_height": 224,
+    "image_format": "RGB",
+    "image_num": 1,
+    "image_patch_size": 28,
+    "dataset": "random",
+    "dataset_path": null,
+    "data_source": null,
+    "dataset_offset": 0,
+    "dataset_args": null,
+    "frequency_penalty": null,
+    "repetition_penalty": null,
+    "logprobs": null,
+    "max_tokens": 32,
+    "min_tokens": 32,
+    "n_choices": null,
+    "seed": 42,
+    "stop": null,
+    "stop_token_ids": null,
+    "stream": true,
+    "temperature": 0.0,
+    "top_p": null,
+    "top_k": null,
+    "extra_args": {
+        "ignore_eos": true,
+        "temperature": 0.0
+    },
+    "tokenize_prompt": false,
+    "multi_turn": false,
+    "min_turns": 1,
+    "max_turns": null,
+    "multi_turn_args": null
+}[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-16 19:14:29 - evalscope - [32mINFO[0m: uvloop event loop policy installed (asyncio.sleep precision improved)[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-16 19:14:35 - evalscope - [32mINFO[0m: Test connection successful.[0m
+Running[perf]:   0%|          | 0/1 [00:05<?, ?it/s]                                                    2026-11-16 19:14:36 - evalscope - [32mINFO[0m: Using 98302 allowed tokens out of 98304 total tokens (excluded 2 special/byte-fallback tokens)[0m
+Running[perf]:   0%|          | 0/1 [00:06<?, ?it/s]
+Generating[requests]:   0%|          | 0/4 [00:00<?, ?it/s][A                                                    
+                                                           [A2026-11-16 19:14:36 - evalscope - [32mINFO[0m: Sampling input lengths from [1016, 1017)[0m
+Running[perf]:   0%|          | 0/1 [00:06<?, ?it/s]
+Generating[requests]:   0%|          | 0/4 [00:00<?, ?it/s][A                                                    
+                                                           [A2026-11-16 19:14:36 - evalscope - [32mINFO[0m: Generating[requests]  75%| 3/4 [Elapsed: 00:00 < Remaining: 00:00, 85.55it/s][0m
+Running[perf]:   0%|          | 0/1 [00:06<?, ?it/s]
+Generating[requests]:  75%|███████▌  | 3/4 [00:00<00:00, 84.89it/s][AGenerating[requests]:  75%|███████▌  | 3/4 [00:00<00:00, 84.71it/s]
+                                                    2026-11-16 19:14:36 - evalscope - [32mINFO[0m: Save the data base to: /workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_data.db[0m
+Running[perf]:   0%|          | 0/1 [00:06<?, ?it/s]
+Processing[parallel_1_number_4]:   0%|          | 0/4 [00:00<?, ?it/s][A
+Processing[parallel_1_number_4]:  25%|██▌       | 1/4 [00:02<00:06,  2.11s/it][A
+Processing[parallel_1_number_4]:  50%|█████     | 2/4 [00:04<00:04,  2.01s/it][A
+Processing[parallel_1_number_4]:  75%|███████▌  | 3/4 [00:05<00:01,  1.98s/it][A
+Processing[parallel_1_number_4]: 100%|██████████| 4/4 [00:07<00:00,  1.96s/it][A                                                    
+                                                                              [A2026-11-16 19:14:44 - evalscope - [32mINFO[0m: Processing[parallel_1_number_4] 100%| 4/4 [Elapsed: 00:08 < Remaining: 00:00,  1.96s/it][0m
+Running[perf]:   0%|          | 0/1 [00:14<?, ?it/s]
+Processing[parallel_1_number_4]: 100%|██████████| 4/4 [00:08<00:00,  1.96s/it][AProcessing[parallel_1_number_4]: 100%|██████████| 4/4 [00:08<00:00,  2.00s/it]
+                                                    2026-11-16 19:14:44 - evalscope - [33mWARNING[0m: KV cache hit rate is unavailable: 0/4 successful requests reported cached_tokens (0.0% of requests, 0.0% of input tokens). Missing values are unknown, not cache misses.[0m
+Running[perf]:   0%|          | 0/1 [00:14<?, ?it/s]                                                    2026-11-16 19:14:44 - evalscope - [32mINFO[0m: 
+Benchmarking summary:
+┌───────────────────────────┬───────────┐
+│ Metric                    │     Value │
+├───────────────────────────┼───────────┤
+│ ── General ──             │           │
+│ Test Duration (s)         │      7.92 │
+│ Concurrency               │         1 │
+│ Request Rate (req/s)      │        -1 │
+│ Total / Success / Failed  │ 4 / 4 / 0 │
+│ Req Throughput (req/s)    │      0.51 │
+│ ── Latency ──             │           │
+│ Avg Latency (s)           │     1.979 │
+│ Avg TTFT (ms)             │    321.16 │
+│ Avg TPOT (ms)             │     53.48 │
+│ Avg ITL (ms)              │     55.26 │
+│ ── Tokens ──              │           │
+│ Avg Input Tokens          │      1024 │
+│ Avg Output Tokens         │        32 │
+│ Output Throughput (tok/s) │     16.17 │
+│ Total Throughput (tok/s)  │    533.56 │
+└───────────────────────────┴───────────┘[0m
+Running[perf]:   0%|          | 0/1 [00:14<?, ?it/s]                                                    2026-11-16 19:14:44 - evalscope - [32mINFO[0m: 
+Percentile results:
+┌────────────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
+│ Metric         │    min │     1% │     5% │    10% │    25% │    50% │    75% │    90% │    95% │    99% │    max │
+├────────────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+│ Latency (s)    │  1.929 │  1.929 │  1.929 │  1.929 │  1.929 │  1.932 │   1.95 │  2.105 │  2.105 │  2.105 │  2.105 │
+│ TTFT (ms)      │ 270.99 │ 270.99 │ 270.99 │ 270.99 │ 270.99 │ 272.76 │ 289.11 │  451.8 │  451.8 │  451.8 │  451.8 │
+│ ITL (ms)       │  54.11 │  54.17 │  54.35 │  54.53 │  54.75 │  55.07 │  55.38 │  55.73 │  56.31 │  60.25 │  60.86 │
+│ TPOT (ms)      │  53.33 │  53.33 │  53.33 │  53.33 │  53.33 │  53.42 │  53.58 │  53.58 │  53.58 │  53.58 │  53.58 │
+│ Input tokens   │   1024 │   1024 │   1024 │   1024 │   1024 │   1024 │   1024 │   1024 │   1024 │   1024 │   1024 │
+│ Output tokens  │     32 │     32 │     32 │     32 │     32 │     32 │     32 │     32 │     32 │     32 │     32 │
+│ Output (tok/s) │   15.2 │   15.2 │   15.2 │   15.2 │   15.2 │  16.41 │  16.56 │  16.59 │  16.59 │  16.59 │  16.59 │
+│ Total (tok/s)  │ 501.63 │ 501.63 │ 501.63 │ 501.63 │ 501.63 │ 541.51 │ 546.55 │ 547.52 │ 547.52 │ 547.52 │ 547.52 │
+│ Decode (tok/s) │  18.66 │  18.66 │  18.66 │  18.66 │  18.66 │  18.66 │  18.72 │  18.75 │  18.75 │  18.75 │  18.75 │
+└────────────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┘[0m
+Running[perf]:   0%|          | 0/1 [00:14<?, ?it/s]                                                    2026-11-16 19:14:44 - evalscope - [32mINFO[0m: 
+Workload throughput (4 samples):
+┌─────────────────────┬───────────┬────────────┬─────────────────────┐
+│ Metric (tok/s)      │   Overall │   Last 30s │   Steady (drop 20%) │
+├─────────────────────┼───────────┼────────────┼─────────────────────┤
+│ Total Prompt tok/s  │    517.39 │     517.39 │              528.61 │
+│ New Prompt tok/s    │    517.39 │     517.39 │              528.61 │
+│ Cached Prompt tok/s │         0 │          0 │                   0 │
+│ Completion tok/s    │     16.17 │      16.17 │               16.52 │
+└─────────────────────┴───────────┴────────────┴─────────────────────┘[0m
+Running[perf]:   0%|          | 0/1 [00:14<?, ?it/s]                                                    2026-11-16 19:14:44 - evalscope - [32mINFO[0m: Save the summary to: /workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4[0m
+Running[perf]:   0%|          | 0/1 [00:14<?, ?it/s]Running[perf]: 100%|██████████| 1/1 [00:14<00:00, 14.23s/it]                                                            2026-11-16 19:14:44 - evalscope - [32mINFO[0m: Running[perf] 100%| 1/1 [Elapsed: 00:14 < Remaining: 00:00, 14.23s/it][0m
+Running[perf]: 100%|██████████| 1/1 [00:14<00:00, 14.23s/it]Running[perf]: 100%|██████████| 1/1 [00:14<00:00, 14.23s/it]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Performance Test Summary Report                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Basic Information:
+┌───────────────────────┬──────────────────────────────────────────────────────┐
+│ Model                 │ Mellum2.1-12B-A2.5B-Thinking                         │
+│ Test Dataset          │ random                                               │
+│ API Type              │ openai                                               │
+│ Endpoint              │ 127.0.0.1:8751                                       │
+│ Total Generated       │ 128.0 tokens                                         │
+│ Avg Output Rate       │ 16.17 tok/s                                          │
+│ Total Test Time       │ 7.92 s                                               │
+│ Output Path           │ /workspace/results/mellum_reference_kv_screen/20261… │
+└───────────────────────┴──────────────────────────────────────────────────────┘
+
+
+            Performance Overview             
+┏━━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━━━┳━━━━━━━━┓
+┃Conc. ┃ Rate ┃ Num ┃  RPS ┃ Gen/s ┃ Success┃
+┡━━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━━━╇━━━━━━━━┩
+│    1 │    - │   4 │ 0.51 │ 16.17 │    100%│
+└──────┴──────┴─────┴──────┴───────┴────────┘
+
+
+                      Per-Request Metrics                       
+┏━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━┓
+┃Conc. ┃ Rate ┃ Metric        ┃    avg ┃    p50 ┃   p99 ┃   max┃
+┡━━━━━━╇━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━┩
+│    1 │    - │ Latency (s)   │  1.979 │  1.932 │ 2.105 │ 2.105│
+│      │      │ TTFT (ms)     │ 321.16 │ 272.76 │ 451.8 │ 451.8│
+│      │      │ TPOT (ms)     │  53.48 │  53.42 │ 53.58 │ 53.58│
+│      │      │ Input Tokens  │   1024 │   1024 │  1024 │  1024│
+│      │      │ Output Tokens │     32 │     32 │    32 │    32│
+│      │      │ Decode toks/s │   18.7 │      - │     - │     -│
+└──────┴──────┴───────────────┴────────┴────────┴───────┴──────┘
+
+
+                             Workload Throughput                             
+┏━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┓
+┃Conc. ┃ Rate ┃ Metric (tok/s)      ┃ Overall ┃ Last 30s ┃ Steady (drop 20%)┃
+┡━━━━━━╇━━━━━━╇━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━┩
+│    1 │    - │ Total Prompt tok/s  │  517.39 │   517.39 │            528.61│
+│      │      │ New Prompt tok/s    │  517.39 │   517.39 │            528.61│
+│      │      │ Cached Prompt tok/s │       0 │        0 │                 0│
+│      │      │ Completion tok/s    │   16.17 │    16.17 │             16.52│
+└──────┴──────┴─────────────────────┴─────────┴──────────┴──────────────────┘
+2026-11-16 19:14:44 - evalscope - [32mINFO[0m: Performance summary saved to: /workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/performance_summary.txt[0m
+2026-11-16 19:14:44 - evalscope - [32mINFO[0m: HTML report generated: /workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client/Scenario_B_SingleStream/perf_report.html[0m

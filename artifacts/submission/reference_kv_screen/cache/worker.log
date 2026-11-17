@@ -1,0 +1,13 @@
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+[atom 19:07:03] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 19:07:03] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 19:07:03] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+CACHE full_attention 1 checks True ratio 1.6407942714788109
+CACHE full_attention 6 checks True ratio 1.6870079303976049
+CACHE full_attention 32 checks True ratio 1.6866629790562941
+CACHE full_attention 1024 checks True ratio 1.6011008581035786
+CACHE sliding_attention 1 checks True ratio 1.6754161079146208
+CACHE sliding_attention 6 checks True ratio 1.6478800829311757
+CACHE sliding_attention 32 checks True ratio 1.661382060311063
+CACHE sliding_attention 1024 checks True ratio 1.6820871846970795

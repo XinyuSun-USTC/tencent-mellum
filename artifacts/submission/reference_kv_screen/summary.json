@@ -1,0 +1,3688 @@
+{
+  "status": "screen_passed_full_acceptance_pending",
+  "scope": "One variable: reference KV write once. Full developer200/long; no HE rerun or formal ABC at this screening stage",
+  "cache": {
+    "status": "passed",
+    "cases": [
+      {
+        "kind": "full_attention",
+        "tokens": 1,
+        "window": -1,
+        "cache_layout": "SHUFFLE",
+        "v_is_contiguous": true,
+        "checks": {
+          "query_exact": true,
+          "returned_key_exact": true,
+          "full_k_cache_exact": true,
+          "full_v_cache_exact": true,
+          "layout_exact": true,
+          "gathered_keys_exact": true,
+          "gathered_values_exact": true,
+          "untouched_slots": true,
+          "candidate_input_unchanged": true,
+          "packed_v_layout_covered": true
+        },
+        "old_ms": 0.5942193984985351,
+        "new_ms": 0.3621535062789917,
+        "local_speedup": 1.6407942714788109
+      },
+      {
+        "kind": "full_attention",
+        "tokens": 6,
+        "window": -1,
+        "cache_layout": "SHUFFLE",
+        "v_is_contiguous": false,
+        "checks": {
+          "query_exact": true,
+          "returned_key_exact": true,
+          "full_k_cache_exact": true,
+          "full_v_cache_exact": true,
+          "layout_exact": true,
+          "gathered_keys_exact": true,
+          "gathered_values_exact": true,
+          "untouched_slots": true,
+          "candidate_input_unchanged": true,
+          "packed_v_layout_covered": true
+        },
+        "old_ms": 0.6094581127166748,
+        "new_ms": 0.3612657070159912,
+        "local_speedup": 1.6870079303976049
+      },
+      {
+        "kind": "full_attention",
+        "tokens": 32,
+        "window": -1,
+        "cache_layout": "SHUFFLE",
+        "v_is_contiguous": false,
+        "checks": {
+          "query_exact": true,
+          "returned_key_exact": true,
+          "full_k_cache_exact": true,
+          "full_v_cache_exact": true,
+          "layout_exact": true,
+          "gathered_keys_exact": true,
+          "gathered_values_exact": true,
+          "untouched_slots": true,
+          "candidate_input_unchanged": true,
+          "packed_v_layout_covered": true
+        },
+        "old_ms": 0.6042065143585205,
+        "new_ms": 0.35822598934173583,
+        "local_speedup": 1.6866629790562941
+      },
+      {
+        "kind": "full_attention",
+        "tokens": 1024,
+        "window": -1,
+        "cache_layout": "SHUFFLE",
+        "v_is_contiguous": false,
+        "checks": {
+          "query_exact": true,
+          "returned_key_exact": true,
+          "full_k_cache_exact": true,
+          "full_v_cache_exact": true,
+          "layout_exact": true,
+          "gathered_keys_exact": true,
+          "gathered_values_exact": true,
+          "untouched_slots": true,
+          "candidate_input_unchanged": true,
+          "packed_v_layout_covered": true
+        },
+        "old_ms": 0.6037624835968017,
+        "new_ms": 0.3770920991897583,
+        "local_speedup": 1.6011008581035786
+      },
+      {
+        "kind": "sliding_attention",
+        "tokens": 1,
+        "window": 1024,
+        "cache_layout": "NHD",
+        "v_is_contiguous": true,
+        "checks": {
+          "query_exact": true,
+          "returned_key_exact": true,
+          "full_k_cache_exact": true,
+          "full_v_cache_exact": true,
+          "layout_exact": true,
+          "gathered_keys_exact": true,
+          "gathered_values_exact": true,
+          "untouched_slots": true,
+          "candidate_input_unchanged": true,
+          "packed_v_layout_covered": true
+        },
+        "old_ms": 0.5935434818267822,
+        "new_ms": 0.3542663097381592,
+        "local_speedup": 1.6754161079146208
+      },
+      {
+        "kind": "sliding_attention",
+        "tokens": 6,
+        "window": 1024,
+        "cache_layout": "NHD",
+        "v_is_contiguous": false,
+        "checks": {
+          "query_exact": true,
+          "returned_key_exact": true,
+          "full_k_cache_exact": true,
+          "full_v_cache_exact": true,
+          "layout_exact": true,
+          "gathered_keys_exact": true,
+          "gathered_values_exact": true,
+          "untouched_slots": true,
+          "candidate_input_unchanged": true,
+          "packed_v_layout_covered": true
+        },
+        "old_ms": 0.5835444927215576,
+        "new_ms": 0.35411829948425294,
+        "local_speedup": 1.6478800829311757
+      },
+      {
+        "kind": "sliding_attention",
+        "tokens": 32,
+        "window": 1024,
+        "cache_layout": "NHD",
+        "v_is_contiguous": false,
+        "checks": {
+          "query_exact": true,
+          "returned_key_exact": true,
+          "full_k_cache_exact": true,
+          "full_v_cache_exact": true,
+          "layout_exact": true,
+          "gathered_keys_exact": true,
+          "gathered_values_exact": true,
+          "untouched_slots": true,
+          "candidate_input_unchanged": true,
+          "packed_v_layout_covered": true
+        },
+        "old_ms": 0.5888840198516846,
+        "new_ms": 0.3544543027877808,
+        "local_speedup": 1.661382060311063
+      },
+      {
+        "kind": "sliding_attention",
+        "tokens": 1024,
+        "window": 1024,
+        "cache_layout": "NHD",
+        "v_is_contiguous": false,
+        "checks": {
+          "query_exact": true,
+          "returned_key_exact": true,
+          "full_k_cache_exact": true,
+          "full_v_cache_exact": true,
+          "layout_exact": true,
+          "gathered_keys_exact": true,
+          "gathered_values_exact": true,
+          "untouched_slots": true,
+          "candidate_input_unchanged": true,
+          "packed_v_layout_covered": true
+        },
+        "old_ms": 0.6318799018859863,
+        "new_ms": 0.37565228939056394,
+        "local_speedup": 1.6820871846970795
+      }
+    ],
+    "scope": "Actual old/new RoPE-cache and full physical-cache comparison; timings include identical input reset; not model speed"
+  },
+  "generation": {
+    "tokens": {
+      "all": {
+        "records": 200,
+        "matching_positions": 12392,
+        "compared_positions": 12800,
+        "position_match_fraction": 0.968125,
+        "exact_sequences": 174,
+        "at_least_90_percent": true
+      },
+      "16k": {
+        "records": 0,
+        "matching_positions": 0,
+        "compared_positions": 0,
+        "position_match_fraction": null,
+        "exact_sequences": 0,
+        "at_least_90_percent": false
+      },
+      "records": [
+        {
+          "name": "humaneval_0",
+          "input_tokens": 152,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_1",
+          "input_tokens": 142,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_2",
+          "input_tokens": 109,
+          "compared_positions": 64,
+          "matching_positions": 5,
+          "exact": false
+        },
+        {
+          "name": "humaneval_3",
+          "input_tokens": 145,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_4",
+          "input_tokens": 143,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_5",
+          "input_tokens": 121,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_6",
+          "input_tokens": 142,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_7",
+          "input_tokens": 119,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_8",
+          "input_tokens": 146,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_9",
+          "input_tokens": 127,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_10",
+          "input_tokens": 175,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_11",
+          "input_tokens": 108,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_12",
+          "input_tokens": 128,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_13",
+          "input_tokens": 97,
+          "compared_positions": 64,
+          "matching_positions": 58,
+          "exact": false
+        },
+        {
+          "name": "humaneval_14",
+          "input_tokens": 80,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_15",
+          "input_tokens": 95,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_16",
+          "input_tokens": 94,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_17",
+          "input_tokens": 202,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_18",
+          "input_tokens": 119,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_19",
+          "input_tokens": 130,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_20",
+          "input_tokens": 194,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_21",
+          "input_tokens": 151,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_22",
+          "input_tokens": 116,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_23",
+          "input_tokens": 63,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_24",
+          "input_tokens": 73,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_25",
+          "input_tokens": 150,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_26",
+          "input_tokens": 111,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_27",
+          "input_tokens": 72,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_28",
+          "input_tokens": 80,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_29",
+          "input_tokens": 118,
+          "compared_positions": 64,
+          "matching_positions": 63,
+          "exact": false
+        },
+        {
+          "name": "humaneval_30",
+          "input_tokens": 144,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_31",
+          "input_tokens": 141,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_32",
+          "input_tokens": 307,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_33",
+          "input_tokens": 178,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_34",
+          "input_tokens": 98,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_35",
+          "input_tokens": 111,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_36",
+          "input_tokens": 110,
+          "compared_positions": 64,
+          "matching_positions": 43,
+          "exact": false
+        },
+        {
+          "name": "humaneval_37",
+          "input_tokens": 151,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_38",
+          "input_tokens": 194,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_39",
+          "input_tokens": 127,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_40",
+          "input_tokens": 208,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_41",
+          "input_tokens": 183,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_42",
+          "input_tokens": 139,
+          "compared_positions": 64,
+          "matching_positions": 46,
+          "exact": false
+        },
+        {
+          "name": "humaneval_43",
+          "input_tokens": 205,
+          "compared_positions": 64,
+          "matching_positions": 50,
+          "exact": false
+        },
+        {
+          "name": "humaneval_44",
+          "input_tokens": 128,
+          "compared_positions": 64,
+          "matching_positions": 54,
+          "exact": false
+        },
+        {
+          "name": "humaneval_45",
+          "input_tokens": 70,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_46",
+          "input_tokens": 205,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_47",
+          "input_tokens": 102,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_48",
+          "input_tokens": 95,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_49",
+          "input_tokens": 141,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_50",
+          "input_tokens": 123,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_51",
+          "input_tokens": 147,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_52",
+          "input_tokens": 110,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_53",
+          "input_tokens": 74,
+          "compared_positions": 64,
+          "matching_positions": 61,
+          "exact": false
+        },
+        {
+          "name": "humaneval_54",
+          "input_tokens": 167,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_55",
+          "input_tokens": 79,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_56",
+          "input_tokens": 123,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_57",
+          "input_tokens": 107,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_58",
+          "input_tokens": 147,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_59",
+          "input_tokens": 97,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_60",
+          "input_tokens": 143,
+          "compared_positions": 64,
+          "matching_positions": 43,
+          "exact": false
+        },
+        {
+          "name": "humaneval_61",
+          "input_tokens": 120,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_62",
+          "input_tokens": 136,
+          "compared_positions": 64,
+          "matching_positions": 62,
+          "exact": false
+        },
+        {
+          "name": "humaneval_63",
+          "input_tokens": 181,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_64",
+          "input_tokens": 159,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_65",
+          "input_tokens": 113,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_66",
+          "input_tokens": 141,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_67",
+          "input_tokens": 255,
+          "compared_positions": 64,
+          "matching_positions": 57,
+          "exact": false
+        },
+        {
+          "name": "humaneval_68",
+          "input_tokens": 372,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_69",
+          "input_tokens": 190,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_70",
+          "input_tokens": 157,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_71",
+          "input_tokens": 149,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_72",
+          "input_tokens": 263,
+          "compared_positions": 64,
+          "matching_positions": 63,
+          "exact": false
+        },
+        {
+          "name": "humaneval_73",
+          "input_tokens": 176,
+          "compared_positions": 64,
+          "matching_positions": 38,
+          "exact": false
+        },
+        {
+          "name": "humaneval_74",
+          "input_tokens": 223,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_75",
+          "input_tokens": 107,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_76",
+          "input_tokens": 180,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_77",
+          "input_tokens": 137,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_78",
+          "input_tokens": 355,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_79",
+          "input_tokens": 181,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_80",
+          "input_tokens": 145,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_81",
+          "input_tokens": 321,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_82",
+          "input_tokens": 106,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_83",
+          "input_tokens": 67,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_84",
+          "input_tokens": 181,
+          "compared_positions": 64,
+          "matching_positions": 52,
+          "exact": false
+        },
+        {
+          "name": "humaneval_85",
+          "input_tokens": 77,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_86",
+          "input_tokens": 163,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_87",
+          "input_tokens": 299,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_88",
+          "input_tokens": 239,
+          "compared_positions": 64,
+          "matching_positions": 63,
+          "exact": false
+        },
+        {
+          "name": "humaneval_89",
+          "input_tokens": 136,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_90",
+          "input_tokens": 146,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_91",
+          "input_tokens": 134,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_92",
+          "input_tokens": 166,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_93",
+          "input_tokens": 134,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_94",
+          "input_tokens": 350,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_95",
+          "input_tokens": 213,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_96",
+          "input_tokens": 196,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_97",
+          "input_tokens": 137,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_98",
+          "input_tokens": 96,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_99",
+          "input_tokens": 191,
+          "compared_positions": 64,
+          "matching_positions": 29,
+          "exact": false
+        },
+        {
+          "name": "humaneval_100",
+          "input_tokens": 165,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_101",
+          "input_tokens": 142,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_102",
+          "input_tokens": 122,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_103",
+          "input_tokens": 178,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_104",
+          "input_tokens": 145,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_105",
+          "input_tokens": 311,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_106",
+          "input_tokens": 151,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_107",
+          "input_tokens": 249,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_108",
+          "input_tokens": 157,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_109",
+          "input_tokens": 344,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_110",
+          "input_tokens": 226,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_111",
+          "input_tokens": 182,
+          "compared_positions": 64,
+          "matching_positions": 61,
+          "exact": false
+        },
+        {
+          "name": "humaneval_112",
+          "input_tokens": 186,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_113",
+          "input_tokens": 210,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_114",
+          "input_tokens": 109,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_115",
+          "input_tokens": 371,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_116",
+          "input_tokens": 201,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_117",
+          "input_tokens": 217,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_118",
+          "input_tokens": 174,
+          "compared_positions": 64,
+          "matching_positions": 57,
+          "exact": false
+        },
+        {
+          "name": "humaneval_119",
+          "input_tokens": 198,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_120",
+          "input_tokens": 268,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_121",
+          "input_tokens": 124,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_122",
+          "input_tokens": 171,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_123",
+          "input_tokens": 272,
+          "compared_positions": 64,
+          "matching_positions": 53,
+          "exact": false
+        },
+        {
+          "name": "humaneval_124",
+          "input_tokens": 326,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_125",
+          "input_tokens": 167,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_126",
+          "input_tokens": 279,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_127",
+          "input_tokens": 292,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_128",
+          "input_tokens": 142,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_129",
+          "input_tokens": 446,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_130",
+          "input_tokens": 276,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_131",
+          "input_tokens": 95,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_132",
+          "input_tokens": 159,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_133",
+          "input_tokens": 186,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_134",
+          "input_tokens": 194,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_135",
+          "input_tokens": 124,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_136",
+          "input_tokens": 165,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_137",
+          "input_tokens": 173,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_138",
+          "input_tokens": 110,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_139",
+          "input_tokens": 123,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_140",
+          "input_tokens": 135,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_141",
+          "input_tokens": 253,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_142",
+          "input_tokens": 198,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_143",
+          "input_tokens": 191,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_144",
+          "input_tokens": 180,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_145",
+          "input_tokens": 152,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_146",
+          "input_tokens": 150,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_147",
+          "input_tokens": 212,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_148",
+          "input_tokens": 226,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_149",
+          "input_tokens": 225,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_150",
+          "input_tokens": 118,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_151",
+          "input_tokens": 170,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_152",
+          "input_tokens": 260,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_153",
+          "input_tokens": 302,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_154",
+          "input_tokens": 159,
+          "compared_positions": 64,
+          "matching_positions": 48,
+          "exact": false
+        },
+        {
+          "name": "humaneval_155",
+          "input_tokens": 98,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_156",
+          "input_tokens": 143,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_157",
+          "input_tokens": 139,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_158",
+          "input_tokens": 147,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_159",
+          "input_tokens": 327,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_160",
+          "input_tokens": 238,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_161",
+          "input_tokens": 139,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_162",
+          "input_tokens": 113,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "humaneval_163",
+          "input_tokens": 132,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_0",
+          "input_tokens": 998,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_1",
+          "input_tokens": 2248,
+          "compared_positions": 64,
+          "matching_positions": 43,
+          "exact": false
+        },
+        {
+          "name": "scenario_a_2",
+          "input_tokens": 3857,
+          "compared_positions": 64,
+          "matching_positions": 54,
+          "exact": false
+        },
+        {
+          "name": "scenario_a_3",
+          "input_tokens": 1582,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_4",
+          "input_tokens": 3903,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_5",
+          "input_tokens": 3515,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_6",
+          "input_tokens": 874,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_7",
+          "input_tokens": 3746,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_8",
+          "input_tokens": 1660,
+          "compared_positions": 64,
+          "matching_positions": 42,
+          "exact": false
+        },
+        {
+          "name": "scenario_a_9",
+          "input_tokens": 4044,
+          "compared_positions": 64,
+          "matching_positions": 42,
+          "exact": false
+        },
+        {
+          "name": "scenario_a_10",
+          "input_tokens": 2390,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_11",
+          "input_tokens": 1133,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_12",
+          "input_tokens": 1478,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_13",
+          "input_tokens": 4065,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_14",
+          "input_tokens": 3450,
+          "compared_positions": 64,
+          "matching_positions": 54,
+          "exact": false
+        },
+        {
+          "name": "scenario_a_15",
+          "input_tokens": 4113,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_16",
+          "input_tokens": 3790,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_17",
+          "input_tokens": 3824,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_18",
+          "input_tokens": 2977,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_19",
+          "input_tokens": 2074,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_20",
+          "input_tokens": 1289,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_21",
+          "input_tokens": 1293,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_22",
+          "input_tokens": 3802,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_23",
+          "input_tokens": 2965,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_24",
+          "input_tokens": 921,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_25",
+          "input_tokens": 1217,
+          "compared_positions": 64,
+          "matching_positions": 15,
+          "exact": false
+        },
+        {
+          "name": "scenario_a_26",
+          "input_tokens": 3843,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_27",
+          "input_tokens": 3444,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_28",
+          "input_tokens": 3027,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_29",
+          "input_tokens": 3072,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_30",
+          "input_tokens": 2870,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_31",
+          "input_tokens": 978,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_32",
+          "input_tokens": 2652,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_33",
+          "input_tokens": 3485,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_34",
+          "input_tokens": 1688,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "scenario_a_35",
+          "input_tokens": 1075,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        }
+      ]
+    },
+    "tokens_vs_primary": {
+      "records": 200,
+      "matching_positions": 12800,
+      "compared_positions": 12800,
+      "position_match_fraction": 1.0,
+      "exact_sequences": 200,
+      "at_least_90_percent": true
+    },
+    "long": {
+      "all": {
+        "records": 4,
+        "matching_positions": 256,
+        "compared_positions": 256,
+        "position_match_fraction": 1.0,
+        "exact_sequences": 4,
+        "at_least_90_percent": true
+      },
+      "16k": {
+        "records": 1,
+        "matching_positions": 64,
+        "compared_positions": 64,
+        "position_match_fraction": 1.0,
+        "exact_sequences": 1,
+        "at_least_90_percent": true
+      },
+      "records": [
+        {
+          "name": "long_8191",
+          "input_tokens": 8191,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "long_8192",
+          "input_tokens": 8192,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "long_8193",
+          "input_tokens": 8193,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        },
+        {
+          "name": "long_16384",
+          "input_tokens": 16384,
+          "compared_positions": 64,
+          "matching_positions": 64,
+          "exact": true
+        }
+      ]
+    },
+    "long_vs_primary": {
+      "records": 4,
+      "matching_positions": 256,
+      "compared_positions": 256,
+      "position_match_fraction": 1.0,
+      "exact_sequences": 4,
+      "at_least_90_percent": true
+    },
+    "loading_audit": {
+      "source_tensors": 5631,
+      "successful_parts": 5631,
+      "missing": [],
+      "unexpected": []
+    },
+    "actual_paths": {
+      "norm_backend": "reference",
+      "moe_classes": {
+        "MellumSparseMoeBlock": 28
+      },
+      "prefill_functions": {
+        "ragged_prefill": 28
+      },
+      "norm_classes": {
+        "MellumRMSNorm": 113
+      },
+      "norm_count": 113,
+      "qkv_backend": "separate",
+      "qkv_count": 28,
+      "separate_qkv_count": 28,
+      "resident_inverse_frequency": false
+    },
+    "kv_write_events": [
+      {
+        "kind": "kv_write",
+        "phase": "prefill",
+        "rows": 3987,
+        "requests": 32,
+        "backend": "aiter_reference_kv_once",
+        "cache_format": "NHD",
+        "resident_inverse": false,
+        "inverse_device": "cpu",
+        "rope_backend": "torch"
+      },
+      {
+        "kind": "kv_write",
+        "phase": "decode",
+        "rows": 32,
+        "requests": 32,
+        "backend": "aiter_reference_kv_once",
+        "cache_format": "NHD",
+        "resident_inverse": false,
+        "inverse_device": "cpu",
+        "rope_backend": "torch"
+      }
+    ],
+    "developer200_gate": true,
+    "note": "Long and16k separately reported; no new internal bitwise gate. HumanEval and formal performance remain pending."
+  },
+  "paired_perf": {
+    "R1": {
+      "status": "complete",
+      "cases": {
+        "B": {
+          "command": [
+            "/workspace/venvs/evalscope-perf/bin/python",
+            "/workspace/tencent-mellum-qualified-kv/scripts/evalscope_mellum_adapter.py",
+            "perf",
+            "--url",
+            "http://127.0.0.1:8751/v1/chat/completions",
+            "--api",
+            "openai",
+            "--model",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--tokenizer-path",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--parallel",
+            "1",
+            "--number",
+            "4",
+            "--dataset",
+            "random",
+            "--min-prompt-length",
+            "1024",
+            "--max-prompt-length",
+            "1024",
+            "--max-tokens",
+            "32",
+            "--min-tokens",
+            "32",
+            "--stream",
+            "--extra-args",
+            "{\"ignore_eos\": true, \"temperature\": 0.0}",
+            "--name",
+            "Scenario_B_SingleStream",
+            "--outputs-dir",
+            "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/B/client",
+            "--no-timestamp",
+            "--seed",
+            "42"
+          ],
+          "status": "complete",
+          "metrics": {
+            "requests": 4,
+            "successes": 4,
+            "failures": 0,
+            "ttft_p50_s": 0.280278158839792,
+            "ttft_p99_s": 0.4553145889658481,
+            "tpot_p50_s": 0.05702930458280588,
+            "tpot_p99_s": 0.05709925790377442,
+            "output_tokens_per_s_gpu": 15.2951,
+            "vendor_summary": {
+              "Test Duration (s)": 8.3687,
+              "Concurrency": 1,
+              "Request Rate (req/s)": -1.0,
+              "Total Requests": 4,
+              "Success Requests": 4,
+              "Failed Requests": 0,
+              "Stream Requests": 4,
+              "Non-Stream Requests": 0,
+              "Req Throughput (req/s)": 0.478,
+              "Avg Latency (s)": 2.092,
+              "Avg Input Tokens": 1024.0,
+              "Output Throughput (tok/s)": 15.2951,
+              "Total Throughput (tok/s)": 504.7368,
+              "Avg TTFT (ms)": 324.04,
+              "Avg TPOT (ms)": 57.03,
+              "Avg ITL (ms)": 58.93,
+              "Avg Output Tokens": 32.0,
+              "Input Throughput (tok/s)": 0.0
+            },
+            "vendor_percentiles": [
+              {
+                "Percentiles": "min",
+                "Latency (s)": 2.0482,
+                "TTFT (ms)": 280.1717,
+                "ITL (ms)": 58.3696,
+                "TPOT (ms)": 56.915,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 14.4165,
+                "Total (tok/s)": 475.7444,
+                "Decode (tok/s)": 17.5134
+              },
+              {
+                "Percentiles": "1%",
+                "Latency (s)": 2.0482,
+                "TTFT (ms)": 280.1717,
+                "ITL (ms)": 58.3983,
+                "TPOT (ms)": 56.915,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 14.4165,
+                "Total (tok/s)": 475.7444,
+                "Decode (tok/s)": 17.5134
+              },
+              {
+                "Percentiles": "5%",
+                "Latency (s)": 2.0482,
+                "TTFT (ms)": 280.1717,
+                "ITL (ms)": 58.4492,
+                "TPOT (ms)": 56.915,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 14.4165,
+                "Total (tok/s)": 475.7444,
+                "Decode (tok/s)": 17.5134
+              },
+              {
+                "Percentiles": "10%",
+                "Latency (s)": 2.0482,
+                "TTFT (ms)": 280.1717,
+                "ITL (ms)": 58.5246,
+                "TPOT (ms)": 56.915,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 14.4165,
+                "Total (tok/s)": 475.7444,
+                "Decode (tok/s)": 17.5134
+              },
+              {
+                "Percentiles": "25%",
+                "Latency (s)": 2.0482,
+                "TTFT (ms)": 280.1717,
+                "ITL (ms)": 58.6454,
+                "TPOT (ms)": 56.915,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 14.4165,
+                "Total (tok/s)": 475.7444,
+                "Decode (tok/s)": 17.5134
+              },
+              {
+                "Percentiles": "50%",
+                "Latency (s)": 2.05,
+                "TTFT (ms)": 280.2782,
+                "ITL (ms)": 58.7528,
+                "TPOT (ms)": 57.0293,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.6079,
+                "Total (tok/s)": 515.0595,
+                "Decode (tok/s)": 17.5175
+              },
+              {
+                "Percentiles": "75%",
+                "Latency (s)": 2.0502,
+                "TTFT (ms)": 280.38,
+                "ITL (ms)": 58.8827,
+                "TPOT (ms)": 57.0857,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.6095,
+                "Total (tok/s)": 515.1124,
+                "Decode (tok/s)": 17.5348
+              },
+              {
+                "Percentiles": "90%",
+                "Latency (s)": 2.2197,
+                "TTFT (ms)": 455.3146,
+                "ITL (ms)": 59.1125,
+                "TPOT (ms)": 57.0993,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.6236,
+                "Total (tok/s)": 515.578,
+                "Decode (tok/s)": 17.5701
+              },
+              {
+                "Percentiles": "95%",
+                "Latency (s)": 2.2197,
+                "TTFT (ms)": 455.3146,
+                "ITL (ms)": 59.1432,
+                "TPOT (ms)": 57.0993,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.6236,
+                "Total (tok/s)": 515.578,
+                "Decode (tok/s)": 17.5701
+              },
+              {
+                "Percentiles": "99%",
+                "Latency (s)": 2.2197,
+                "TTFT (ms)": 455.3146,
+                "ITL (ms)": 63.7384,
+                "TPOT (ms)": 57.0993,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.6236,
+                "Total (tok/s)": 515.578,
+                "Decode (tok/s)": 17.5701
+              },
+              {
+                "Percentiles": "max",
+                "Latency (s)": 2.2197,
+                "TTFT (ms)": 455.3146,
+                "ITL (ms)": 64.0231,
+                "TPOT (ms)": 57.0993,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.6236,
+                "Total (tok/s)": 515.578,
+                "Decode (tok/s)": 17.5701
+              }
+            ],
+            "request_start_span_s": 6.318680931115523,
+            "validation_errors": [],
+            "complete_without_failures": true,
+            "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+            "actual_decode_max_batch": 1
+          }
+        },
+        "A": {
+          "command": [
+            "/workspace/venvs/evalscope-perf/bin/python",
+            "/workspace/tencent-mellum-qualified-kv/scripts/evalscope_mellum_adapter.py",
+            "perf",
+            "--url",
+            "http://127.0.0.1:8751/v1/chat/completions",
+            "--api",
+            "openai",
+            "--model",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--tokenizer-path",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--parallel",
+            "32",
+            "--number",
+            "32",
+            "--dataset",
+            "mellum_assessment_jsonl",
+            "--dataset-path",
+            "/data/datasets/scenario_a_prompts.jsonl",
+            "--min-prompt-length",
+            "512",
+            "--max-prompt-length",
+            "4096",
+            "--max-tokens",
+            "32",
+            "--min-tokens",
+            "32",
+            "--stream",
+            "--extra-args",
+            "{\"ignore_eos\": true, \"temperature\": 0.0}",
+            "--name",
+            "Scenario_A_N1",
+            "--outputs-dir",
+            "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/A/client",
+            "--no-timestamp",
+            "--seed",
+            "42"
+          ],
+          "status": "complete",
+          "metrics": {
+            "requests": 32,
+            "successes": 32,
+            "failures": 0,
+            "ttft_p50_s": 12.92993797105737,
+            "ttft_p99_s": 12.933556417003274,
+            "tpot_p50_s": 0.6997114978730679,
+            "tpot_p99_s": 0.699754890512615,
+            "output_tokens_per_s_gpu": 29.5726,
+            "vendor_summary": {
+              "Test Duration (s)": 34.6266,
+              "Concurrency": 32,
+              "Request Rate (req/s)": -1.0,
+              "Total Requests": 32,
+              "Success Requests": 32,
+              "Failed Requests": 0,
+              "Stream Requests": 32,
+              "Non-Stream Requests": 0,
+              "Req Throughput (req/s)": 0.9241,
+              "Avg Latency (s)": 34.6209,
+              "Avg Input Tokens": 2593.1562,
+              "Output Throughput (tok/s)": 29.5726,
+              "Total Throughput (tok/s)": 2426.0254,
+              "Avg TTFT (ms)": 12930.18,
+              "Avg TPOT (ms)": 699.7,
+              "Avg ITL (ms)": 723.02,
+              "Avg Output Tokens": 32.0,
+              "Input Throughput (tok/s)": 0.0
+            },
+            "vendor_percentiles": [
+              {
+                "Percentiles": "min",
+                "Latency (s)": 34.6196,
+                "TTFT (ms)": 12927.2437,
+                "ITL (ms)": 719.9722,
+                "TPOT (ms)": 699.6171,
+                "Input tokens": 874.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9242,
+                "Total (tok/s)": 26.1689,
+                "Decode (tok/s)": 1.4291
+              },
+              {
+                "Percentiles": "1%",
+                "Latency (s)": 34.6196,
+                "TTFT (ms)": 12927.2437,
+                "ITL (ms)": 719.9796,
+                "TPOT (ms)": 699.6171,
+                "Input tokens": 874.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9242,
+                "Total (tok/s)": 26.1689,
+                "Decode (tok/s)": 1.4291
+              },
+              {
+                "Percentiles": "5%",
+                "Latency (s)": 34.6197,
+                "TTFT (ms)": 12927.2645,
+                "ITL (ms)": 720.5281,
+                "TPOT (ms)": 699.6421,
+                "Input tokens": 921.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9243,
+                "Total (tok/s)": 27.5277,
+                "Decode (tok/s)": 1.4291
+              },
+              {
+                "Percentiles": "10%",
+                "Latency (s)": 34.6197,
+                "TTFT (ms)": 12927.8261,
+                "ITL (ms)": 720.7644,
+                "TPOT (ms)": 699.6551,
+                "Input tokens": 998.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9243,
+                "Total (tok/s)": 29.7501,
+                "Decode (tok/s)": 1.4291
+              },
+              {
+                "Percentiles": "25%",
+                "Latency (s)": 34.6204,
+                "TTFT (ms)": 12928.56,
+                "ITL (ms)": 721.8418,
+                "TPOT (ms)": 699.6566,
+                "Input tokens": 1293.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9243,
+                "Total (tok/s)": 38.2722,
+                "Decode (tok/s)": 1.4292
+              },
+              {
+                "Percentiles": "50%",
+                "Latency (s)": 34.6208,
+                "TTFT (ms)": 12929.938,
+                "ITL (ms)": 722.5768,
+                "TPOT (ms)": 699.7115,
+                "Input tokens": 2870.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9243,
+                "Total (tok/s)": 83.8249,
+                "Decode (tok/s)": 1.4292
+              },
+              {
+                "Percentiles": "75%",
+                "Latency (s)": 34.6214,
+                "TTFT (ms)": 12931.4638,
+                "ITL (ms)": 723.7124,
+                "TPOT (ms)": 699.7141,
+                "Input tokens": 3746.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9243,
+                "Total (tok/s)": 109.1214,
+                "Decode (tok/s)": 1.4293
+              },
+              {
+                "Percentiles": "90%",
+                "Latency (s)": 34.6218,
+                "TTFT (ms)": 12932.3422,
+                "ITL (ms)": 724.8477,
+                "TPOT (ms)": 699.7544,
+                "Input tokens": 3857.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9243,
+                "Total (tok/s)": 112.327,
+                "Decode (tok/s)": 1.4293
+              },
+              {
+                "Percentiles": "95%",
+                "Latency (s)": 34.6221,
+                "TTFT (ms)": 12933.4451,
+                "ITL (ms)": 725.6672,
+                "TPOT (ms)": 699.7547,
+                "Input tokens": 4044.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9243,
+                "Total (tok/s)": 117.7298,
+                "Decode (tok/s)": 1.4293
+              },
+              {
+                "Percentiles": "99%",
+                "Latency (s)": 34.6228,
+                "TTFT (ms)": 12933.5564,
+                "ITL (ms)": 733.6291,
+                "TPOT (ms)": 699.7549,
+                "Input tokens": 4065.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9243,
+                "Total (tok/s)": 118.3358,
+                "Decode (tok/s)": 1.4294
+              },
+              {
+                "Percentiles": "max",
+                "Latency (s)": 34.6228,
+                "TTFT (ms)": 12933.5564,
+                "ITL (ms)": 734.9142,
+                "TPOT (ms)": 699.7549,
+                "Input tokens": 4065.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9243,
+                "Total (tok/s)": 118.3358,
+                "Decode (tok/s)": 1.4294
+              }
+            ],
+            "request_start_span_s": 0.0069299808237701654,
+            "validation_errors": [],
+            "complete_without_failures": true,
+            "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+            "actual_decode_max_batch": 32
+          }
+        }
+      },
+      "scope": "Reduced A32/B4 HTTP timing with32 output tokens; not formal ABC",
+      "server_command": [
+        "/opt/venv/bin/python",
+        "/workspace/tencent-mellum-qualified-kv/scripts/serve_mellum.py",
+        "--gpu",
+        "1",
+        "--batching",
+        "--batch-audit",
+        "--max-num-seqs",
+        "32",
+        "--max-model-len",
+        "16640",
+        "--max-batched-tokens",
+        "16640",
+        "--output",
+        "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R1/server",
+        "--server-port",
+        "8751",
+        "--engine-port",
+        "11326",
+        "--profile",
+        "r"
+      ],
+      "server_load_audit": {
+        "source_tensors": 5631,
+        "successful_parts": 5631,
+        "missing": [],
+        "unexpected": []
+      },
+      "output_budget": 32
+    },
+    "K1": {
+      "status": "complete",
+      "cases": {
+        "B": {
+          "command": [
+            "/workspace/venvs/evalscope-perf/bin/python",
+            "/workspace/tencent-mellum-qualified-kv/scripts/evalscope_mellum_adapter.py",
+            "perf",
+            "--url",
+            "http://127.0.0.1:8751/v1/chat/completions",
+            "--api",
+            "openai",
+            "--model",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--tokenizer-path",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--parallel",
+            "1",
+            "--number",
+            "4",
+            "--dataset",
+            "random",
+            "--min-prompt-length",
+            "1024",
+            "--max-prompt-length",
+            "1024",
+            "--max-tokens",
+            "32",
+            "--min-tokens",
+            "32",
+            "--stream",
+            "--extra-args",
+            "{\"ignore_eos\": true, \"temperature\": 0.0}",
+            "--name",
+            "Scenario_B_SingleStream",
+            "--outputs-dir",
+            "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/B/client",
+            "--no-timestamp",
+            "--seed",
+            "42"
+          ],
+          "status": "complete",
+          "metrics": {
+            "requests": 4,
+            "successes": 4,
+            "failures": 0,
+            "ttft_p50_s": 0.2727568228729069,
+            "ttft_p99_s": 0.4518007452134043,
+            "tpot_p50_s": 0.053416895259532235,
+            "tpot_p99_s": 0.053584774415339195,
+            "output_tokens_per_s_gpu": 16.1684,
+            "vendor_summary": {
+              "Test Duration (s)": 7.9167,
+              "Concurrency": 1,
+              "Request Rate (req/s)": -1.0,
+              "Total Requests": 4,
+              "Success Requests": 4,
+              "Failed Requests": 0,
+              "Stream Requests": 4,
+              "Non-Stream Requests": 0,
+              "Req Throughput (req/s)": 0.5053,
+              "Avg Latency (s)": 1.979,
+              "Avg Input Tokens": 1024.0,
+              "Output Throughput (tok/s)": 16.1684,
+              "Total Throughput (tok/s)": 533.5587,
+              "Avg TTFT (ms)": 321.16,
+              "Avg TPOT (ms)": 53.48,
+              "Avg ITL (ms)": 55.26,
+              "Avg Output Tokens": 32.0,
+              "Input Throughput (tok/s)": 0.0
+            },
+            "vendor_percentiles": [
+              {
+                "Percentiles": "min",
+                "Latency (s)": 1.9287,
+                "TTFT (ms)": 270.9869,
+                "ITL (ms)": 54.1111,
+                "TPOT (ms)": 53.334,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.2008,
+                "Total (tok/s)": 501.6255,
+                "Decode (tok/s)": 18.662
+              },
+              {
+                "Percentiles": "1%",
+                "Latency (s)": 1.9287,
+                "TTFT (ms)": 270.9869,
+                "ITL (ms)": 54.1743,
+                "TPOT (ms)": 53.334,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.2008,
+                "Total (tok/s)": 501.6255,
+                "Decode (tok/s)": 18.662
+              },
+              {
+                "Percentiles": "5%",
+                "Latency (s)": 1.9287,
+                "TTFT (ms)": 270.9869,
+                "ITL (ms)": 54.3473,
+                "TPOT (ms)": 53.334,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.2008,
+                "Total (tok/s)": 501.6255,
+                "Decode (tok/s)": 18.662
+              },
+              {
+                "Percentiles": "10%",
+                "Latency (s)": 1.9287,
+                "TTFT (ms)": 270.9869,
+                "ITL (ms)": 54.5292,
+                "TPOT (ms)": 53.334,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.2008,
+                "Total (tok/s)": 501.6255,
+                "Decode (tok/s)": 18.662
+              },
+              {
+                "Percentiles": "25%",
+                "Latency (s)": 1.9287,
+                "TTFT (ms)": 270.9869,
+                "ITL (ms)": 54.745,
+                "TPOT (ms)": 53.334,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.2008,
+                "Total (tok/s)": 501.6255,
+                "Decode (tok/s)": 18.662
+              },
+              {
+                "Percentiles": "50%",
+                "Latency (s)": 1.9321,
+                "TTFT (ms)": 272.7568,
+                "ITL (ms)": 55.068,
+                "TPOT (ms)": 53.4169,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.4093,
+                "Total (tok/s)": 541.507,
+                "Decode (tok/s)": 18.6634
+              },
+              {
+                "Percentiles": "75%",
+                "Latency (s)": 1.9501,
+                "TTFT (ms)": 289.1053,
+                "ITL (ms)": 55.3796,
+                "TPOT (ms)": 53.5809,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.5622,
+                "Total (tok/s)": 546.5513,
+                "Decode (tok/s)": 18.7207
+              },
+              {
+                "Percentiles": "90%",
+                "Latency (s)": 2.1052,
+                "TTFT (ms)": 451.8007,
+                "ITL (ms)": 55.7307,
+                "TPOT (ms)": 53.5848,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.5917,
+                "Total (tok/s)": 547.5246,
+                "Decode (tok/s)": 18.7497
+              },
+              {
+                "Percentiles": "95%",
+                "Latency (s)": 2.1052,
+                "TTFT (ms)": 451.8007,
+                "ITL (ms)": 56.3141,
+                "TPOT (ms)": 53.5848,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.5917,
+                "Total (tok/s)": 547.5246,
+                "Decode (tok/s)": 18.7497
+              },
+              {
+                "Percentiles": "99%",
+                "Latency (s)": 2.1052,
+                "TTFT (ms)": 451.8007,
+                "ITL (ms)": 60.2484,
+                "TPOT (ms)": 53.5848,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.5917,
+                "Total (tok/s)": 547.5246,
+                "Decode (tok/s)": 18.7497
+              },
+              {
+                "Percentiles": "max",
+                "Latency (s)": 2.1052,
+                "TTFT (ms)": 451.8007,
+                "ITL (ms)": 60.8614,
+                "TPOT (ms)": 53.5848,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.5917,
+                "Total (tok/s)": 547.5246,
+                "Decode (tok/s)": 18.7497
+              }
+            ],
+            "request_start_span_s": 5.984539257129654,
+            "validation_errors": [],
+            "complete_without_failures": true,
+            "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+            "actual_decode_max_batch": 1
+          }
+        },
+        "A": {
+          "command": [
+            "/workspace/venvs/evalscope-perf/bin/python",
+            "/workspace/tencent-mellum-qualified-kv/scripts/evalscope_mellum_adapter.py",
+            "perf",
+            "--url",
+            "http://127.0.0.1:8751/v1/chat/completions",
+            "--api",
+            "openai",
+            "--model",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--tokenizer-path",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--parallel",
+            "32",
+            "--number",
+            "32",
+            "--dataset",
+            "mellum_assessment_jsonl",
+            "--dataset-path",
+            "/data/datasets/scenario_a_prompts.jsonl",
+            "--min-prompt-length",
+            "512",
+            "--max-prompt-length",
+            "4096",
+            "--max-tokens",
+            "32",
+            "--min-tokens",
+            "32",
+            "--stream",
+            "--extra-args",
+            "{\"ignore_eos\": true, \"temperature\": 0.0}",
+            "--name",
+            "Scenario_A_N1",
+            "--outputs-dir",
+            "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/A/client",
+            "--no-timestamp",
+            "--seed",
+            "42"
+          ],
+          "status": "complete",
+          "metrics": {
+            "requests": 32,
+            "successes": 32,
+            "failures": 0,
+            "ttft_p50_s": 12.866736030206084,
+            "ttft_p99_s": 12.870556446025148,
+            "tpot_p50_s": 0.717594418614622,
+            "tpot_p99_s": 0.7176595481653367,
+            "output_tokens_per_s_gpu": 29.1583,
+            "vendor_summary": {
+              "Test Duration (s)": 35.1186,
+              "Concurrency": 32,
+              "Request Rate (req/s)": -1.0,
+              "Total Requests": 32,
+              "Success Requests": 32,
+              "Failed Requests": 0,
+              "Stream Requests": 32,
+              "Non-Stream Requests": 0,
+              "Req Throughput (req/s)": 0.9112,
+              "Avg Latency (s)": 35.112,
+              "Avg Input Tokens": 2593.1562,
+              "Output Throughput (tok/s)": 29.1583,
+              "Total Throughput (tok/s)": 2392.0355,
+              "Avg TTFT (ms)": 12866.75,
+              "Avg TPOT (ms)": 717.59,
+              "Avg ITL (ms)": 741.51,
+              "Avg Output Tokens": 32.0,
+              "Input Throughput (tok/s)": 0.0
+            },
+            "vendor_percentiles": [
+              {
+                "Percentiles": "min",
+                "Latency (s)": 35.11,
+                "TTFT (ms)": 12863.4735,
+                "ITL (ms)": 733.8965,
+                "TPOT (ms)": 717.5124,
+                "Input tokens": 874.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9113,
+                "Total (tok/s)": 25.8026,
+                "Decode (tok/s)": 1.3934
+              },
+              {
+                "Percentiles": "1%",
+                "Latency (s)": 35.11,
+                "TTFT (ms)": 12863.4735,
+                "ITL (ms)": 733.9157,
+                "TPOT (ms)": 717.5124,
+                "Input tokens": 874.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9113,
+                "Total (tok/s)": 25.8026,
+                "Decode (tok/s)": 1.3934
+              },
+              {
+                "Percentiles": "5%",
+                "Latency (s)": 35.11,
+                "TTFT (ms)": 12863.5131,
+                "ITL (ms)": 735.5384,
+                "TPOT (ms)": 717.5337,
+                "Input tokens": 921.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9113,
+                "Total (tok/s)": 27.143,
+                "Decode (tok/s)": 1.3935
+              },
+              {
+                "Percentiles": "10%",
+                "Latency (s)": 35.1105,
+                "TTFT (ms)": 12864.0945,
+                "ITL (ms)": 736.0163,
+                "TPOT (ms)": 717.5445,
+                "Input tokens": 998.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9113,
+                "Total (tok/s)": 29.3335,
+                "Decode (tok/s)": 1.3935
+              },
+              {
+                "Percentiles": "25%",
+                "Latency (s)": 35.1112,
+                "TTFT (ms)": 12864.7874,
+                "ITL (ms)": 737.8818,
+                "TPOT (ms)": 717.546,
+                "Input tokens": 1293.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9113,
+                "Total (tok/s)": 37.7376,
+                "Decode (tok/s)": 1.3935
+              },
+              {
+                "Percentiles": "50%",
+                "Latency (s)": 35.1122,
+                "TTFT (ms)": 12866.736,
+                "ITL (ms)": 739.765,
+                "TPOT (ms)": 717.5944,
+                "Input tokens": 2870.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9114,
+                "Total (tok/s)": 82.6532,
+                "Decode (tok/s)": 1.3935
+              },
+              {
+                "Percentiles": "75%",
+                "Latency (s)": 35.113,
+                "TTFT (ms)": 12868.3663,
+                "ITL (ms)": 742.126,
+                "TPOT (ms)": 717.6293,
+                "Input tokens": 3746.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9114,
+                "Total (tok/s)": 107.5942,
+                "Decode (tok/s)": 1.3936
+              },
+              {
+                "Percentiles": "90%",
+                "Latency (s)": 35.1134,
+                "TTFT (ms)": 12869.4427,
+                "ITL (ms)": 750.8035,
+                "TPOT (ms)": 717.6309,
+                "Input tokens": 3857.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9114,
+                "Total (tok/s)": 110.7549,
+                "Decode (tok/s)": 1.3936
+              },
+              {
+                "Percentiles": "95%",
+                "Latency (s)": 35.1136,
+                "TTFT (ms)": 12870.433,
+                "ITL (ms)": 754.8973,
+                "TPOT (ms)": 717.6314,
+                "Input tokens": 4044.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9114,
+                "Total (tok/s)": 116.0821,
+                "Decode (tok/s)": 1.3937
+              },
+              {
+                "Percentiles": "99%",
+                "Latency (s)": 35.1143,
+                "TTFT (ms)": 12870.5564,
+                "ITL (ms)": 756.3193,
+                "TPOT (ms)": 717.6595,
+                "Input tokens": 4065.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9114,
+                "Total (tok/s)": 116.6802,
+                "Decode (tok/s)": 1.3937
+              },
+              {
+                "Percentiles": "max",
+                "Latency (s)": 35.1143,
+                "TTFT (ms)": 12870.5564,
+                "ITL (ms)": 756.8567,
+                "TPOT (ms)": 717.6595,
+                "Input tokens": 4065.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9114,
+                "Total (tok/s)": 116.6802,
+                "Decode (tok/s)": 1.3937
+              }
+            ],
+            "request_start_span_s": 0.007664949866011739,
+            "validation_errors": [],
+            "complete_without_failures": true,
+            "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+            "actual_decode_max_batch": 32
+          }
+        }
+      },
+      "scope": "Reduced A32/B4 HTTP timing with32 output tokens; not formal ABC",
+      "server_command": [
+        "/opt/venv/bin/python",
+        "/workspace/tencent-mellum-qualified-kv/scripts/serve_mellum.py",
+        "--gpu",
+        "1",
+        "--batching",
+        "--batch-audit",
+        "--max-num-seqs",
+        "32",
+        "--max-model-len",
+        "16640",
+        "--max-batched-tokens",
+        "16640",
+        "--output",
+        "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K1/server",
+        "--server-port",
+        "8751",
+        "--engine-port",
+        "11326",
+        "--profile",
+        "r_reference_kv_once"
+      ],
+      "server_load_audit": {
+        "source_tensors": 5631,
+        "successful_parts": 5631,
+        "missing": [],
+        "unexpected": []
+      },
+      "output_budget": 32
+    },
+    "K2": {
+      "status": "complete",
+      "cases": {
+        "B": {
+          "command": [
+            "/workspace/venvs/evalscope-perf/bin/python",
+            "/workspace/tencent-mellum-qualified-kv/scripts/evalscope_mellum_adapter.py",
+            "perf",
+            "--url",
+            "http://127.0.0.1:8751/v1/chat/completions",
+            "--api",
+            "openai",
+            "--model",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--tokenizer-path",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--parallel",
+            "1",
+            "--number",
+            "4",
+            "--dataset",
+            "random",
+            "--min-prompt-length",
+            "1024",
+            "--max-prompt-length",
+            "1024",
+            "--max-tokens",
+            "32",
+            "--min-tokens",
+            "32",
+            "--stream",
+            "--extra-args",
+            "{\"ignore_eos\": true, \"temperature\": 0.0}",
+            "--name",
+            "Scenario_B_SingleStream",
+            "--outputs-dir",
+            "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/B/client",
+            "--no-timestamp",
+            "--seed",
+            "42"
+          ],
+          "status": "complete",
+          "metrics": {
+            "requests": 4,
+            "successes": 4,
+            "failures": 0,
+            "ttft_p50_s": 0.2640655878931284,
+            "ttft_p99_s": 0.45626051793806255,
+            "tpot_p50_s": 0.05018169322471705,
+            "tpot_p99_s": 0.05193908100256756,
+            "output_tokens_per_s_gpu": 16.905,
+            "vendor_summary": {
+              "Test Duration (s)": 7.5717,
+              "Concurrency": 1,
+              "Request Rate (req/s)": -1.0,
+              "Total Requests": 4,
+              "Success Requests": 4,
+              "Failed Requests": 0,
+              "Stream Requests": 4,
+              "Non-Stream Requests": 0,
+              "Req Throughput (req/s)": 0.5283,
+              "Avg Latency (s)": 1.8928,
+              "Avg Input Tokens": 1024.0,
+              "Output Throughput (tok/s)": 16.905,
+              "Total Throughput (tok/s)": 557.8651,
+              "Avg TTFT (ms)": 312.21,
+              "Avg TPOT (ms)": 50.99,
+              "Avg ITL (ms)": 52.68,
+              "Avg Output Tokens": 32.0,
+              "Input Throughput (tok/s)": 0.0
+            },
+            "vendor_percentiles": [
+              {
+                "Percentiles": "min",
+                "Latency (s)": 1.8048,
+                "TTFT (ms)": 258.1359,
+                "ITL (ms)": 50.3817,
+                "TPOT (ms)": 49.8919,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.4875,
+                "Total (tok/s)": 511.0867,
+                "Decode (tok/s)": 19.2533
+              },
+              {
+                "Percentiles": "1%",
+                "Latency (s)": 1.8048,
+                "TTFT (ms)": 258.1359,
+                "ITL (ms)": 50.4254,
+                "TPOT (ms)": 49.8919,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.4875,
+                "Total (tok/s)": 511.0867,
+                "Decode (tok/s)": 19.2533
+              },
+              {
+                "Percentiles": "5%",
+                "Latency (s)": 1.8048,
+                "TTFT (ms)": 258.1359,
+                "ITL (ms)": 50.5322,
+                "TPOT (ms)": 49.8919,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.4875,
+                "Total (tok/s)": 511.0867,
+                "Decode (tok/s)": 19.2533
+              },
+              {
+                "Percentiles": "10%",
+                "Latency (s)": 1.8048,
+                "TTFT (ms)": 258.1359,
+                "ITL (ms)": 50.7342,
+                "TPOT (ms)": 49.8919,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.4875,
+                "Total (tok/s)": 511.0867,
+                "Decode (tok/s)": 19.2533
+              },
+              {
+                "Percentiles": "25%",
+                "Latency (s)": 1.8048,
+                "TTFT (ms)": 258.1359,
+                "ITL (ms)": 51.7909,
+                "TPOT (ms)": 49.8919,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.4875,
+                "Total (tok/s)": 511.0867,
+                "Decode (tok/s)": 19.2533
+              },
+              {
+                "Percentiles": "50%",
+                "Latency (s)": 1.826,
+                "TTFT (ms)": 264.0656,
+                "ITL (ms)": 52.3033,
+                "TPOT (ms)": 50.1817,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 17.0742,
+                "Total (tok/s)": 563.4473,
+                "Decode (tok/s)": 19.2556
+              },
+              {
+                "Percentiles": "75%",
+                "Latency (s)": 1.8742,
+                "TTFT (ms)": 270.3676,
+                "ITL (ms)": 53.5266,
+                "TPOT (ms)": 51.9331,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 17.5246,
+                "Total (tok/s)": 578.3132,
+                "Decode (tok/s)": 19.9276
+              },
+              {
+                "Percentiles": "90%",
+                "Latency (s)": 2.0662,
+                "TTFT (ms)": 456.2605,
+                "ITL (ms)": 53.8059,
+                "TPOT (ms)": 51.9391,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 17.7306,
+                "Total (tok/s)": 585.1111,
+                "Decode (tok/s)": 20.0433
+              },
+              {
+                "Percentiles": "95%",
+                "Latency (s)": 2.0662,
+                "TTFT (ms)": 456.2605,
+                "ITL (ms)": 54.2384,
+                "TPOT (ms)": 51.9391,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 17.7306,
+                "Total (tok/s)": 585.1111,
+                "Decode (tok/s)": 20.0433
+              },
+              {
+                "Percentiles": "99%",
+                "Latency (s)": 2.0662,
+                "TTFT (ms)": 456.2605,
+                "ITL (ms)": 56.8534,
+                "TPOT (ms)": 51.9391,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 17.7306,
+                "Total (tok/s)": 585.1111,
+                "Decode (tok/s)": 20.0433
+              },
+              {
+                "Percentiles": "max",
+                "Latency (s)": 2.0662,
+                "TTFT (ms)": 456.2605,
+                "ITL (ms)": 59.0981,
+                "TPOT (ms)": 51.9391,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 17.7306,
+                "Total (tok/s)": 585.1111,
+                "Decode (tok/s)": 20.0433
+              }
+            ],
+            "request_start_span_s": 5.766938104992732,
+            "validation_errors": [],
+            "complete_without_failures": true,
+            "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+            "actual_decode_max_batch": 1
+          }
+        },
+        "A": {
+          "command": [
+            "/workspace/venvs/evalscope-perf/bin/python",
+            "/workspace/tencent-mellum-qualified-kv/scripts/evalscope_mellum_adapter.py",
+            "perf",
+            "--url",
+            "http://127.0.0.1:8751/v1/chat/completions",
+            "--api",
+            "openai",
+            "--model",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--tokenizer-path",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--parallel",
+            "32",
+            "--number",
+            "32",
+            "--dataset",
+            "mellum_assessment_jsonl",
+            "--dataset-path",
+            "/data/datasets/scenario_a_prompts.jsonl",
+            "--min-prompt-length",
+            "512",
+            "--max-prompt-length",
+            "4096",
+            "--max-tokens",
+            "32",
+            "--min-tokens",
+            "32",
+            "--stream",
+            "--extra-args",
+            "{\"ignore_eos\": true, \"temperature\": 0.0}",
+            "--name",
+            "Scenario_A_N1",
+            "--outputs-dir",
+            "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/A/client",
+            "--no-timestamp",
+            "--seed",
+            "42"
+          ],
+          "status": "complete",
+          "metrics": {
+            "requests": 32,
+            "successes": 32,
+            "failures": 0,
+            "ttft_p50_s": 12.731339336140081,
+            "ttft_p99_s": 12.73515441105701,
+            "tpot_p50_s": 0.6831682230601267,
+            "tpot_p99_s": 0.6832521982235654,
+            "output_tokens_per_s_gpu": 30.1916,
+            "vendor_summary": {
+              "Test Duration (s)": 33.9167,
+              "Concurrency": 32,
+              "Request Rate (req/s)": -1.0,
+              "Total Requests": 32,
+              "Success Requests": 32,
+              "Failed Requests": 0,
+              "Stream Requests": 32,
+              "Non-Stream Requests": 0,
+              "Req Throughput (req/s)": 0.9435,
+              "Avg Latency (s)": 33.9098,
+              "Avg Input Tokens": 2593.1562,
+              "Output Throughput (tok/s)": 30.1916,
+              "Total Throughput (tok/s)": 2476.8047,
+              "Avg TTFT (ms)": 12731.41,
+              "Avg TPOT (ms)": 683.17,
+              "Avg ITL (ms)": 705.95,
+              "Avg Output Tokens": 32.0,
+              "Input Throughput (tok/s)": 0.0
+            },
+            "vendor_percentiles": [
+              {
+                "Percentiles": "min",
+                "Latency (s)": 33.9078,
+                "TTFT (ms)": 12728.4688,
+                "ITL (ms)": 701.0313,
+                "TPOT (ms)": 683.0863,
+                "Input tokens": 874.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9436,
+                "Total (tok/s)": 26.718,
+                "Decode (tok/s)": 1.4636
+              },
+              {
+                "Percentiles": "1%",
+                "Latency (s)": 33.9078,
+                "TTFT (ms)": 12728.4688,
+                "ITL (ms)": 701.0578,
+                "TPOT (ms)": 683.0863,
+                "Input tokens": 874.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9436,
+                "Total (tok/s)": 26.718,
+                "Decode (tok/s)": 1.4636
+              },
+              {
+                "Percentiles": "5%",
+                "Latency (s)": 33.9084,
+                "TTFT (ms)": 12728.4739,
+                "ITL (ms)": 702.6711,
+                "TPOT (ms)": 683.1125,
+                "Input tokens": 921.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9436,
+                "Total (tok/s)": 28.1044,
+                "Decode (tok/s)": 1.4636
+              },
+              {
+                "Percentiles": "10%",
+                "Latency (s)": 33.9087,
+                "TTFT (ms)": 12729.022,
+                "ITL (ms)": 703.0684,
+                "TPOT (ms)": 683.1316,
+                "Input tokens": 998.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9436,
+                "Total (tok/s)": 30.3738,
+                "Decode (tok/s)": 1.4637
+              },
+              {
+                "Percentiles": "25%",
+                "Latency (s)": 33.9093,
+                "TTFT (ms)": 12729.9539,
+                "ITL (ms)": 703.3784,
+                "TPOT (ms)": 683.1334,
+                "Input tokens": 1293.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9437,
+                "Total (tok/s)": 39.0741,
+                "Decode (tok/s)": 1.4637
+              },
+              {
+                "Percentiles": "50%",
+                "Latency (s)": 33.9097,
+                "TTFT (ms)": 12731.3393,
+                "ITL (ms)": 704.5722,
+                "TPOT (ms)": 683.1682,
+                "Input tokens": 2870.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9437,
+                "Total (tok/s)": 85.5809,
+                "Decode (tok/s)": 1.4638
+              },
+              {
+                "Percentiles": "75%",
+                "Latency (s)": 33.9105,
+                "TTFT (ms)": 12732.7272,
+                "ITL (ms)": 706.0663,
+                "TPOT (ms)": 683.2041,
+                "Input tokens": 3746.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9437,
+                "Total (tok/s)": 111.4088,
+                "Decode (tok/s)": 1.4638
+              },
+              {
+                "Percentiles": "90%",
+                "Latency (s)": 33.9109,
+                "TTFT (ms)": 12733.7704,
+                "ITL (ms)": 711.6427,
+                "TPOT (ms)": 683.2059,
+                "Input tokens": 3857.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9437,
+                "Total (tok/s)": 114.6818,
+                "Decode (tok/s)": 1.4638
+              },
+              {
+                "Percentiles": "95%",
+                "Latency (s)": 33.9112,
+                "TTFT (ms)": 12735.0382,
+                "ITL (ms)": 713.6612,
+                "TPOT (ms)": 683.2513,
+                "Input tokens": 4044.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9437,
+                "Total (tok/s)": 120.1973,
+                "Decode (tok/s)": 1.4639
+              },
+              {
+                "Percentiles": "99%",
+                "Latency (s)": 33.9116,
+                "TTFT (ms)": 12735.1544,
+                "ITL (ms)": 726.1656,
+                "TPOT (ms)": 683.2522,
+                "Input tokens": 4065.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9437,
+                "Total (tok/s)": 120.8199,
+                "Decode (tok/s)": 1.4639
+              },
+              {
+                "Percentiles": "max",
+                "Latency (s)": 33.9116,
+                "TTFT (ms)": 12735.1544,
+                "ITL (ms)": 727.677,
+                "TPOT (ms)": 683.2522,
+                "Input tokens": 4065.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9437,
+                "Total (tok/s)": 120.8199,
+                "Decode (tok/s)": 1.4639
+              }
+            ],
+            "request_start_span_s": 0.007396721979603171,
+            "validation_errors": [],
+            "complete_without_failures": true,
+            "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+            "actual_decode_max_batch": 32
+          }
+        }
+      },
+      "scope": "Reduced A32/B4 HTTP timing with32 output tokens; not formal ABC",
+      "server_command": [
+        "/opt/venv/bin/python",
+        "/workspace/tencent-mellum-qualified-kv/scripts/serve_mellum.py",
+        "--gpu",
+        "1",
+        "--batching",
+        "--batch-audit",
+        "--max-num-seqs",
+        "32",
+        "--max-model-len",
+        "16640",
+        "--max-batched-tokens",
+        "16640",
+        "--output",
+        "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/K2/server",
+        "--server-port",
+        "8751",
+        "--engine-port",
+        "11326",
+        "--profile",
+        "r_reference_kv_once"
+      ],
+      "server_load_audit": {
+        "source_tensors": 5631,
+        "successful_parts": 5631,
+        "missing": [],
+        "unexpected": []
+      },
+      "output_budget": 32
+    },
+    "R2": {
+      "status": "complete",
+      "cases": {
+        "B": {
+          "command": [
+            "/workspace/venvs/evalscope-perf/bin/python",
+            "/workspace/tencent-mellum-qualified-kv/scripts/evalscope_mellum_adapter.py",
+            "perf",
+            "--url",
+            "http://127.0.0.1:8751/v1/chat/completions",
+            "--api",
+            "openai",
+            "--model",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--tokenizer-path",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--parallel",
+            "1",
+            "--number",
+            "4",
+            "--dataset",
+            "random",
+            "--min-prompt-length",
+            "1024",
+            "--max-prompt-length",
+            "1024",
+            "--max-tokens",
+            "32",
+            "--min-tokens",
+            "32",
+            "--stream",
+            "--extra-args",
+            "{\"ignore_eos\": true, \"temperature\": 0.0}",
+            "--name",
+            "Scenario_B_SingleStream",
+            "--outputs-dir",
+            "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/B/client",
+            "--no-timestamp",
+            "--seed",
+            "42"
+          ],
+          "status": "complete",
+          "metrics": {
+            "requests": 4,
+            "successes": 4,
+            "failures": 0,
+            "ttft_p50_s": 0.278444386087358,
+            "ttft_p99_s": 0.48012413596734405,
+            "tpot_p50_s": 0.05495516948341843,
+            "tpot_p99_s": 0.058870144068233425,
+            "output_tokens_per_s_gpu": 15.416,
+            "vendor_summary": {
+              "Test Duration (s)": 8.303,
+              "Concurrency": 1,
+              "Request Rate (req/s)": -1.0,
+              "Total Requests": 4,
+              "Success Requests": 4,
+              "Failed Requests": 0,
+              "Stream Requests": 4,
+              "Non-Stream Requests": 0,
+              "Req Throughput (req/s)": 0.4818,
+              "Avg Latency (s)": 2.0756,
+              "Avg Input Tokens": 1024.0,
+              "Output Throughput (tok/s)": 15.416,
+              "Total Throughput (tok/s)": 508.7289,
+              "Avg TTFT (ms)": 336.67,
+              "Avg TPOT (ms)": 56.09,
+              "Avg ITL (ms)": 57.96,
+              "Avg Output Tokens": 32.0,
+              "Input Throughput (tok/s)": 0.0
+            },
+            "vendor_percentiles": [
+              {
+                "Percentiles": "min",
+                "Latency (s)": 1.9782,
+                "TTFT (ms)": 277.8037,
+                "ITL (ms)": 56.1954,
+                "TPOT (ms)": 54.85,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 13.8823,
+                "Total (tok/s)": 458.1149,
+                "Decode (tok/s)": 16.9865
+              },
+              {
+                "Percentiles": "1%",
+                "Latency (s)": 1.9782,
+                "TTFT (ms)": 277.8037,
+                "ITL (ms)": 56.2474,
+                "TPOT (ms)": 54.85,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 13.8823,
+                "Total (tok/s)": 458.1149,
+                "Decode (tok/s)": 16.9865
+              },
+              {
+                "Percentiles": "5%",
+                "Latency (s)": 1.9782,
+                "TTFT (ms)": 277.8037,
+                "ITL (ms)": 56.2825,
+                "TPOT (ms)": 54.85,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 13.8823,
+                "Total (tok/s)": 458.1149,
+                "Decode (tok/s)": 16.9865
+              },
+              {
+                "Percentiles": "10%",
+                "Latency (s)": 1.9782,
+                "TTFT (ms)": 277.8037,
+                "ITL (ms)": 56.3501,
+                "TPOT (ms)": 54.85,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 13.8823,
+                "Total (tok/s)": 458.1149,
+                "Decode (tok/s)": 16.9865
+              },
+              {
+                "Percentiles": "25%",
+                "Latency (s)": 1.9782,
+                "TTFT (ms)": 277.8037,
+                "ITL (ms)": 56.44,
+                "TPOT (ms)": 54.85,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 13.8823,
+                "Total (tok/s)": 458.1149,
+                "Decode (tok/s)": 16.9865
+              },
+              {
+                "Percentiles": "50%",
+                "Latency (s)": 1.9821,
+                "TTFT (ms)": 278.4444,
+                "ITL (ms)": 56.6328,
+                "TPOT (ms)": 54.9552,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 15.7083,
+                "Total (tok/s)": 518.3749,
+                "Decode (tok/s)": 17.9519
+              },
+              {
+                "Percentiles": "75%",
+                "Latency (s)": 2.0371,
+                "TTFT (ms)": 310.3002,
+                "ITL (ms)": 60.4775,
+                "TPOT (ms)": 55.7044,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.1449,
+                "Total (tok/s)": 532.7805,
+                "Decode (tok/s)": 18.1967
+              },
+              {
+                "Percentiles": "90%",
+                "Latency (s)": 2.3051,
+                "TTFT (ms)": 480.1241,
+                "ITL (ms)": 60.9289,
+                "TPOT (ms)": 58.8701,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.1767,
+                "Total (tok/s)": 533.8311,
+                "Decode (tok/s)": 18.2315
+              },
+              {
+                "Percentiles": "95%",
+                "Latency (s)": 2.3051,
+                "TTFT (ms)": 480.1241,
+                "ITL (ms)": 61.104,
+                "TPOT (ms)": 58.8701,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.1767,
+                "Total (tok/s)": 533.8311,
+                "Decode (tok/s)": 18.2315
+              },
+              {
+                "Percentiles": "99%",
+                "Latency (s)": 2.3051,
+                "TTFT (ms)": 480.1241,
+                "ITL (ms)": 62.2197,
+                "TPOT (ms)": 58.8701,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.1767,
+                "Total (tok/s)": 533.8311,
+                "Decode (tok/s)": 18.2315
+              },
+              {
+                "Percentiles": "max",
+                "Latency (s)": 2.3051,
+                "TTFT (ms)": 480.1241,
+                "ITL (ms)": 65.6224,
+                "TPOT (ms)": 58.8701,
+                "Input tokens": 1024.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 16.1767,
+                "Total (tok/s)": 533.8311,
+                "Decode (tok/s)": 18.2315
+              }
+            ],
+            "request_start_span_s": 6.32489244104363,
+            "validation_errors": [],
+            "complete_without_failures": true,
+            "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+            "actual_decode_max_batch": 1
+          }
+        },
+        "A": {
+          "command": [
+            "/workspace/venvs/evalscope-perf/bin/python",
+            "/workspace/tencent-mellum-qualified-kv/scripts/evalscope_mellum_adapter.py",
+            "perf",
+            "--url",
+            "http://127.0.0.1:8751/v1/chat/completions",
+            "--api",
+            "openai",
+            "--model",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--tokenizer-path",
+            "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+            "--parallel",
+            "32",
+            "--number",
+            "32",
+            "--dataset",
+            "mellum_assessment_jsonl",
+            "--dataset-path",
+            "/data/datasets/scenario_a_prompts.jsonl",
+            "--min-prompt-length",
+            "512",
+            "--max-prompt-length",
+            "4096",
+            "--max-tokens",
+            "32",
+            "--min-tokens",
+            "32",
+            "--stream",
+            "--extra-args",
+            "{\"ignore_eos\": true, \"temperature\": 0.0}",
+            "--name",
+            "Scenario_A_N1",
+            "--outputs-dir",
+            "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/A/client",
+            "--no-timestamp",
+            "--seed",
+            "42"
+          ],
+          "status": "complete",
+          "metrics": {
+            "requests": 32,
+            "successes": 32,
+            "failures": 0,
+            "ttft_p50_s": 12.893229187000543,
+            "ttft_p99_s": 12.89685759996064,
+            "tpot_p50_s": 0.6959815893262145,
+            "tpot_p99_s": 0.6960230763520925,
+            "output_tokens_per_s_gpu": 29.7034,
+            "vendor_summary": {
+              "Test Duration (s)": 34.4742,
+              "Concurrency": 32,
+              "Request Rate (req/s)": -1.0,
+              "Total Requests": 32,
+              "Success Requests": 32,
+              "Failed Requests": 0,
+              "Stream Requests": 32,
+              "Non-Stream Requests": 0,
+              "Req Throughput (req/s)": 0.9282,
+              "Avg Latency (s)": 34.4686,
+              "Avg Input Tokens": 2593.1562,
+              "Output Throughput (tok/s)": 29.7034,
+              "Total Throughput (tok/s)": 2436.7503,
+              "Avg TTFT (ms)": 12893.33,
+              "Avg TPOT (ms)": 695.98,
+              "Avg ITL (ms)": 719.17,
+              "Avg Output Tokens": 32.0,
+              "Input Throughput (tok/s)": 0.0
+            },
+            "vendor_percentiles": [
+              {
+                "Percentiles": "min",
+                "Latency (s)": 34.4671,
+                "TTFT (ms)": 12890.374,
+                "ITL (ms)": 703.5315,
+                "TPOT (ms)": 695.8995,
+                "Input tokens": 874.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9283,
+                "Total (tok/s)": 26.2844,
+                "Decode (tok/s)": 1.4367
+              },
+              {
+                "Percentiles": "1%",
+                "Latency (s)": 34.4671,
+                "TTFT (ms)": 12890.374,
+                "ITL (ms)": 703.552,
+                "TPOT (ms)": 695.8995,
+                "Input tokens": 874.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9283,
+                "Total (tok/s)": 26.2844,
+                "Decode (tok/s)": 1.4367
+              },
+              {
+                "Percentiles": "5%",
+                "Latency (s)": 34.4671,
+                "TTFT (ms)": 12890.4663,
+                "ITL (ms)": 703.623,
+                "TPOT (ms)": 695.9193,
+                "Input tokens": 921.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9283,
+                "Total (tok/s)": 27.6496,
+                "Decode (tok/s)": 1.4367
+              },
+              {
+                "Percentiles": "10%",
+                "Latency (s)": 34.4671,
+                "TTFT (ms)": 12890.8679,
+                "ITL (ms)": 703.719,
+                "TPOT (ms)": 695.9303,
+                "Input tokens": 998.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9283,
+                "Total (tok/s)": 29.8813,
+                "Decode (tok/s)": 1.4367
+              },
+              {
+                "Percentiles": "25%",
+                "Latency (s)": 34.4677,
+                "TTFT (ms)": 12891.5991,
+                "ITL (ms)": 719.9367,
+                "TPOT (ms)": 695.9323,
+                "Input tokens": 1293.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9284,
+                "Total (tok/s)": 38.4418,
+                "Decode (tok/s)": 1.4367
+              },
+              {
+                "Percentiles": "50%",
+                "Latency (s)": 34.4685,
+                "TTFT (ms)": 12893.2292,
+                "ITL (ms)": 721.7716,
+                "TPOT (ms)": 695.9816,
+                "Input tokens": 2870.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9284,
+                "Total (tok/s)": 84.1959,
+                "Decode (tok/s)": 1.4368
+              },
+              {
+                "Percentiles": "75%",
+                "Latency (s)": 34.4693,
+                "TTFT (ms)": 12895.0372,
+                "ITL (ms)": 722.8772,
+                "TPOT (ms)": 696.0187,
+                "Input tokens": 3746.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9284,
+                "Total (tok/s)": 109.6026,
+                "Decode (tok/s)": 1.4369
+              },
+              {
+                "Percentiles": "90%",
+                "Latency (s)": 34.47,
+                "TTFT (ms)": 12895.8447,
+                "ITL (ms)": 723.2624,
+                "TPOT (ms)": 696.022,
+                "Input tokens": 3857.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9284,
+                "Total (tok/s)": 112.8231,
+                "Decode (tok/s)": 1.4369
+              },
+              {
+                "Percentiles": "95%",
+                "Latency (s)": 34.4701,
+                "TTFT (ms)": 12896.7685,
+                "ITL (ms)": 723.9116,
+                "TPOT (ms)": 696.0226,
+                "Input tokens": 4044.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9284,
+                "Total (tok/s)": 118.2502,
+                "Decode (tok/s)": 1.4369
+              },
+              {
+                "Percentiles": "99%",
+                "Latency (s)": 34.4706,
+                "TTFT (ms)": 12896.8576,
+                "ITL (ms)": 733.5183,
+                "TPOT (ms)": 696.0231,
+                "Input tokens": 4065.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9284,
+                "Total (tok/s)": 118.8594,
+                "Decode (tok/s)": 1.437
+              },
+              {
+                "Percentiles": "max",
+                "Latency (s)": 34.4706,
+                "TTFT (ms)": 12896.8576,
+                "ITL (ms)": 734.6877,
+                "TPOT (ms)": 696.0231,
+                "Input tokens": 4065.0,
+                "Output tokens": 32.0,
+                "Output (tok/s)": 0.9284,
+                "Total (tok/s)": 118.8594,
+                "Decode (tok/s)": 1.437
+              }
+            ],
+            "request_start_span_s": 0.007103112060576677,
+            "validation_errors": [],
+            "complete_without_failures": true,
+            "tail_note": "Client vendor percentiles are success-only; failure counts retained. Do not treat partial-success tails as a valid complete score.",
+            "actual_decode_max_batch": 32
+          }
+        }
+      },
+      "scope": "Reduced A32/B4 HTTP timing with32 output tokens; not formal ABC",
+      "server_command": [
+        "/opt/venv/bin/python",
+        "/workspace/tencent-mellum-qualified-kv/scripts/serve_mellum.py",
+        "--gpu",
+        "1",
+        "--batching",
+        "--batch-audit",
+        "--max-num-seqs",
+        "32",
+        "--max-model-len",
+        "16640",
+        "--max-batched-tokens",
+        "16640",
+        "--output",
+        "/workspace/results/mellum_reference_kv_screen/20261116T190628531443Z/paired_perf/R2/server",
+        "--server-port",
+        "8751",
+        "--engine-port",
+        "11326",
+        "--profile",
+        "r"
+      ],
+      "server_load_audit": {
+        "source_tensors": 5631,
+        "successful_parts": 5631,
+        "missing": [],
+        "unexpected": []
+      },
+      "output_budget": 32
+    }
+  },
+  "source_unchanged": true,
+  "artifact_sha256": {
+    "manifest.json": "aa2d9e31b167c1774b92e177613b33cf48ac9619816638ac19575db348a03e6b",
+    "candidate_screen/batch_evidence.json": "4037090d72b228d14721036f97758e8f81e77abfcc161c9e5aa63795a266a019",
+    "candidate_screen/worker.log": "ea36b9bb61d2a3cd8ea9fcdbe11657e58ed8a665b570e8d602744deff47957e1",
+    "candidate_screen/tokens_generation.json": "ed498daeeaa01492718745e459e4816805f981954817c82b1830b147417eef6b",
+    "candidate_screen/long_generation.json": "401f7c62f81b95d82aecf3d46362faa49b9c8897eb0b07e88152db5b3336da4c",
+    "candidate_screen/manifest.json": "5ca106fe8f774a91fd9a692d395a299a0be045997595673fda21d818e3d2003d",
+    "candidate_screen/humaneval_inputs.json": "98c20e3eb6d1f0aad08da7c535180c5281c961859888019de1a52848163e88fc",
+    "candidate_screen/runtime.json": "c1de8791f3236c088914dde0f96ccc4fcb73f7fe9f895789fde6d788019f4cff",
+    "candidate_screen/tokens_inputs.json": "7f8da1b855f9c9c92da1bea1e9d193b4bcbb3667867fa035bafa985d1ad6a463",
+    "candidate_screen/long_inputs.json": "ea3722a51858c99a6cca806b5c1c33d122cfa5421ccc20e22758f9024f5c3a78",
+    "cache/worker.log": "921e804a0f0da66ff831f06e07caf628b7bf4a701c24fa29a96906484f0f87e6",
+    "cache/results.json": "d359ea55da2391779737e4fd81134e88f26f9c1adb08d78464bef5d305e45b88",
+    "perf_template/manifest.json": "f6c9f3f830a9e938d02f0c6f9a8528a02fa0ead15c7299914c4d8a602fe2017e",
+    "perf_template/adapter_prepare.log": "de17dd7a0d6f4ea955c4ae857cb4a7308ef78fcd4d8b321243e1005ae916ff3e",
+    "candidate_screen/candidate/batches.jsonl": "f62a76dfeacb09dc28d1e6056a924b47e5b984e59f01f430e25de0d4058086d3",
+    "candidate_screen/candidate/fastpaths.json": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+    "candidate_screen/candidate/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "candidate_screen/candidate/native_calls.jsonl": "697bf4a2f6302dddb289e7102f6d2d21ddc184f6c93caf16aa66aad09b9975fa",
+    "perf_template/inputs/adapter_manifest.json": "d96c1e5c88a0d8f4de7caeb5a3eb918311eeb18a3e46742d2adce31b745146a7",
+    "perf_template/inputs/C_smoke.jsonl": "fb8045d56918ab1363fd6f5659e28790604b52a0454a05a62c5b215b4f54bb29",
+    "paired_perf/K1/server.log": "5def8cd11fdff5735eda99d879235bc4e752f06b8c17ffd3090de27705a3ed27",
+    "paired_perf/K1/worker.log": "bee89c262776082414110873dea41a112f77c807da01f588f8130b129c06cb51",
+    "paired_perf/K1/plan.json": "accbbdedb694acdd03c09af54e537764325e2d30042c3ac0ac21f68ef856d5b9",
+    "paired_perf/K1/results.json": "31b2eebbdd5b754eb963c8a72a13221d4a47e7bbff9778e3236007025e04ca47",
+    "paired_perf/R1/server.log": "797ea32d36dfab32dfdeb3b3d8d89deb490759285917f3b757d433b83409e813",
+    "paired_perf/R1/worker.log": "a2fa52a3fae33ff6b74513ca6d0ee61fe267c1215d646ec79de87adbbd18d33d",
+    "paired_perf/R1/plan.json": "3c7a874dda465a48f0f8d9ddc8c5cd9a32ff49511dccedd8c76463e370c25dc8",
+    "paired_perf/R1/results.json": "5fe621ba76f09e982b49fda395be6bb065586db7e874d9c33903c27ec872e87c",
+    "paired_perf/R2/server.log": "27dcf2fec8abb9c11ef5cc0f997ee03767a1bd13f23d07a92459b947691bd732",
+    "paired_perf/R2/worker.log": "b821512703a9c14f10396f40221abe0bf5581896a1e999f566e0ba4ab846fc50",
+    "paired_perf/R2/plan.json": "3c7a874dda465a48f0f8d9ddc8c5cd9a32ff49511dccedd8c76463e370c25dc8",
+    "paired_perf/R2/results.json": "d2046a3a748b66205ecf160b6e5be960d1e7396e9b19043a805d06366fb707e0",
+    "paired_perf/K2/server.log": "6397c369dc2211dfdd326a365472d18ffe8dcdabb2a8ee4e6ff9f4a16904aa57",
+    "paired_perf/K2/worker.log": "dae27aa447f3349db5532b5bc550522bc0bfc5920dcfe545980e98dc13b636ab",
+    "paired_perf/K2/plan.json": "accbbdedb694acdd03c09af54e537764325e2d30042c3ac0ac21f68ef856d5b9",
+    "paired_perf/K2/results.json": "e77fb4fa3746009b0659a578949b7c53206b5615786ac28c7f1201225371d471",
+    "paired_perf/K1/A/batches.jsonl": "d04df1d92f2063054f5e99ad02f658871e5873531559555b1d6470c3f0251832",
+    "paired_perf/K1/A/client.log": "9288603dc1d4b099a012299a3b6d32ad0a3a2a294aea942ce4c33ca9c1799511",
+    "paired_perf/K1/server/batches.jsonl": "f0210e815ef10e7ec299a55f65aeebc61918d2b54bc1d9f03f449a6a27b6635e",
+    "paired_perf/K1/server/launch.json": "c273e2e880a7a5a7897f7e9fd7802b59621b66dcaffe61cfeb648ffb270e2bff",
+    "paired_perf/K1/server/fastpaths.json": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+    "paired_perf/K1/server/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "paired_perf/K1/server/native_calls.jsonl": "12368cff97990af11f6c2874425463d977ef7ae7a1b43acf003916805b0c69e0",
+    "paired_perf/K1/B/batches.jsonl": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+    "paired_perf/K1/B/client.log": "ac9e4035d873b8be2b6c5cbf521a3be4b133f86f635d4d66a2291d9797e1edbb",
+    "paired_perf/K1/A/client/Scenario_A_N1/perf_report.html": "664c3f7cf1561e3cf4c77838b7d7350afc2c14142b20d425d28e2087e73768be",
+    "paired_perf/K1/A/client/Scenario_A_N1/benchmark.log": "6f59a37724a37c8cf3a8acec2819b0af018e62d452e4163567511480ae40d25e",
+    "paired_perf/K1/A/client/Scenario_A_N1/performance_summary.txt": "d2f0d281ab7e5c6059a756c127cb255054499ca60ffd1ad1c17a6e64a95111d7",
+    "paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": "8b732aef88807ca5aeb2a3e00e6b20434191ea0a4545310e4e9af40889f313c5",
+    "paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": "a3bc132e6627fc61883696deb8f3024c63b87ef9dd7a4da4f5dee1219c0437a6",
+    "paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": "28973596096939333e832ec23924f76c8dbbc7a91dc4ae5d64378c5a61b73b1d",
+    "paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_data.db": "2d8365a521133f27711835306a9c3ca2ff061e9de47d69893be17c378dec2a4d",
+    "paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": "52a0a076e347754587c11f86989ef0360719e602029de918be09b39501d04a21",
+    "paired_perf/K1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": "e7690ef82d80ab2443e58d0e986341cda51823221bb298dd6c7526248c179a74",
+    "paired_perf/K1/B/client/Scenario_B_SingleStream/perf_report.html": "e801d3426284eb46290c3a85733ec29de84ee772bdd2a78185ee855dc909b816",
+    "paired_perf/K1/B/client/Scenario_B_SingleStream/benchmark.log": "d9dbf93e657f0eacc768f43f7df1b2b224600d16febe0c79ce1288e6d9ba8aac",
+    "paired_perf/K1/B/client/Scenario_B_SingleStream/performance_summary.txt": "b4d1214e05fc726dc5a88f372ff020b5acc9fc2ebf133a7fcb23bf576444f2a5",
+    "paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": "0e12acc553fd5c81f91c6f1819bdd934d5fdc764cb2d776c0f31d01c4b58151f",
+    "paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": "3ad931288f2fec081c8846f06bf0baf54622ac3f5053cc707e1ffbc52a34267b",
+    "paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": "4776732a71dde28cc73889a48079e9bc0ec62c50141b84d1305856c59420447f",
+    "paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_data.db": "deb73383eb3347c169c130070592ff4f72ab5cc0092560dcc8b220700b779424",
+    "paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": "a239b3c46b20f404d335a1be5682f960ce975906c938ff260dc54a742d7a0337",
+    "paired_perf/K1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": "da937166323119e3993aa3643ed57c380c5a9d5184019f0b2a2ac9407d7f87d8",
+    "paired_perf/R1/A/batches.jsonl": "e805a8c4ed3cfaa932ec82d82bd2eabfef33619c8b70910f8d746fd28ddbe082",
+    "paired_perf/R1/A/client.log": "59de912de9a2bc8718d76e227ca7e8fe608e407505d0919b1faa0607ad062642",
+    "paired_perf/R1/server/batches.jsonl": "a4b66a79ba5be2967a3ca81d4cc5fa0978df6026556f3c9517aa6859f648690a",
+    "paired_perf/R1/server/launch.json": "a5cc8d8254dad9a17417ca60d27f220f4234d8e83c788f5c54e6ab121d892450",
+    "paired_perf/R1/server/fastpaths.json": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+    "paired_perf/R1/server/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "paired_perf/R1/B/batches.jsonl": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+    "paired_perf/R1/B/client.log": "f0fb3b7af167484def567b6c9cf8e582b533a4fa8a95debe601ecabc150a3039",
+    "paired_perf/R1/A/client/Scenario_A_N1/perf_report.html": "9b6515e34bddd1639abe860655a2589c38deb75517849688bd95ec088e2e6833",
+    "paired_perf/R1/A/client/Scenario_A_N1/benchmark.log": "e787513d31272b5ef7b46e69d2706a0c9f8c2214a2a705674a597276bb427181",
+    "paired_perf/R1/A/client/Scenario_A_N1/performance_summary.txt": "6f553000d7a8558c8f52a6ebdddfb933a637787887ec8c3462144ee9e754d3a8",
+    "paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": "c5603a1ae2a86e3e049260cdcead5b1cc2b67feac9c59415dbd58f069c2ea285",
+    "paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": "b7a269dad8e09774b2590910a6813ded8156d452af80673c49794487636fd5d2",
+    "paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": "1d11376171aef88b3d281f1b93f2289fcb7f0ab761b4b064ca255bf9a4904a23",
+    "paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_data.db": "dc3435c6c876b27d1c93ab7e0ca14951704e257991118b3b0105a626b978084f",
+    "paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": "8d7bbfcf9333d56e57e14fe71b7eb2c204668e6614fa7574a6af554ab34f81d9",
+    "paired_perf/R1/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": "7e5e378e78047c327c9803ac09f0f55a83d246883b41ae79c97dc2bdbc7fc7b6",
+    "paired_perf/R1/B/client/Scenario_B_SingleStream/perf_report.html": "41fb6bf5e547c424939970fe1149165823927056e512e0be415f30b77204dfa0",
+    "paired_perf/R1/B/client/Scenario_B_SingleStream/benchmark.log": "49dd5a873047c174c4ab5fbc9c306318dc5494c1247bd6418101c8794cf6aea6",
+    "paired_perf/R1/B/client/Scenario_B_SingleStream/performance_summary.txt": "069dd1935828682643e2c3020f78b5592fbf5129a1a12767edbd1e4703cdca0c",
+    "paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": "976ce2dc179e0c1d6504f998a9f91fbac79db72dcc447daab46eaf9b32835510",
+    "paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": "8448c3510e88e2c707cf990435569f78fe198ae66a20a2812e44fd5b2eeb47ab",
+    "paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": "38c15c666523e4b1d1b82b9a82d6b005cee7a31c89e90d83c88e5554b307b489",
+    "paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_data.db": "fee81cf134d149628aa0f2bc62f2604deba8ac77184a87fefa4711477d32dbd5",
+    "paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": "daa41f2df1bd6c14e160b24bcfcb6f1c70c44b99b9ecfb07cf5c1cfef1e0d773",
+    "paired_perf/R1/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": "4bdc04159a97562230bab3341a487871cbb7d96c920e04361c05bd9eef9f34b0",
+    "paired_perf/R2/A/batches.jsonl": "aa66befb17b08ec98c054ec32b9b3e5197947875e4799037aacdc3843a6a7ee7",
+    "paired_perf/R2/A/client.log": "712aab6d1c9456984e150b761c6af21a641813f529afdabd6ef6e690e18884d7",
+    "paired_perf/R2/server/batches.jsonl": "b635be0d50be59592d0b33ce3c2370337d4cf7d0912bf72d3e21722a6f0c01db",
+    "paired_perf/R2/server/launch.json": "bd048bc7290db84a8aa024fbd82c98a1c17fb886f7621220a8bc232c0942a1db",
+    "paired_perf/R2/server/fastpaths.json": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+    "paired_perf/R2/server/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "paired_perf/R2/B/batches.jsonl": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+    "paired_perf/R2/B/client.log": "d768767b34fb4582e358e64d447adc363eee0b101fd4076bd3a31ecc4b39313f",
+    "paired_perf/R2/A/client/Scenario_A_N1/perf_report.html": "88a870b00e7e38e3e5916f013cb908b794681f70f8ac6d95e5403057b158d0c3",
+    "paired_perf/R2/A/client/Scenario_A_N1/benchmark.log": "ac7825739d8724f2ec346f14228eeeeb75d1816264d4060adcec8b77e0de64ff",
+    "paired_perf/R2/A/client/Scenario_A_N1/performance_summary.txt": "1d28db709fff47f08c45facc27dd459b0a1986ee1987b00192f6510dae8d5682",
+    "paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": "f2c88f81ebedbe9b1e7e78b7b59d68ad39cd995392001812e88939be68d055d1",
+    "paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": "591dda97f48366eef0c78c67d0e85aca8dd3addbda92fbf7e684c4d80d239fc5",
+    "paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": "4c2167703ed03297b31acf598714559b658cd377c73792b7f3c23e5bcf56c282",
+    "paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_data.db": "9dc77ba8db47004dfcddc6f4952ac16203153b15592f87509689091dcb3dd147",
+    "paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": "4814f359e4f3c40c0d2a7c75729a25e1daf82271677f87201105473b5718bcbf",
+    "paired_perf/R2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": "e72f1deb7040a136be2691e038d9d124804e08bcae7a2b4140871be6fd9785e0",
+    "paired_perf/R2/B/client/Scenario_B_SingleStream/perf_report.html": "efcad70355c8109f3a86410568a3f7aaeae766f8a6a408f6317f516bef526e0f",
+    "paired_perf/R2/B/client/Scenario_B_SingleStream/benchmark.log": "739d2e07955588b10742a7e7b229cae3ccce04fac5ce346f4495fe6c441450cb",
+    "paired_perf/R2/B/client/Scenario_B_SingleStream/performance_summary.txt": "28f3e3a586ef1505480391f0f042c1bb4e01d184ff230385b6848e1f6dd26cf9",
+    "paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": "6fb26c83bb002fae4048ce257a10016283290bd33fcef4f95f33c2b763428d11",
+    "paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": "86fbed402116575a74f0a0363b18ba48da7753ad55c85521802114d295fa074a",
+    "paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": "fe76e0fccbf26cf04204d711060be654784ac18bfe571be4132353f6cf5b96df",
+    "paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_data.db": "a76dca6225344d6b754bae529c34e36b80c2b0c628772036b60f55a8a2fd4396",
+    "paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": "a70f242eeb79ee56ff1f878db9d24cc966948d788d23e64260db372289dfcc2b",
+    "paired_perf/R2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": "3cd6e02ed2fc0cb99d307624af2cdc579705cec1abd36a16fa94adda45fa67ea",
+    "paired_perf/K2/A/batches.jsonl": "4ef628da23b4a333bdae2349ff980380e5e6caa2bf43f1fa7287b32f4f494679",
+    "paired_perf/K2/A/client.log": "a82e8c8f3c9143be6fa08eaa36ed2f0b55acb3fc143c40ba9697887192457d4c",
+    "paired_perf/K2/server/batches.jsonl": "9d0b7f23675031080a72fcb21deadff89f78d0c88f78d0a6c2d2fd2e62087c78",
+    "paired_perf/K2/server/launch.json": "aa9c0987292b11562083b1692cc14b16631d765f20bd067602272ac79333498d",
+    "paired_perf/K2/server/fastpaths.json": "4fc160c2580030f4a75f280f458eaf752ec486ad2136b21315fa8bd85c4eb3cf",
+    "paired_perf/K2/server/loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "paired_perf/K2/server/native_calls.jsonl": "12368cff97990af11f6c2874425463d977ef7ae7a1b43acf003916805b0c69e0",
+    "paired_perf/K2/B/batches.jsonl": "036c0ca71070af74ec5228130f92e5ff4808914b8510f9ae734eda6fb9ca3349",
+    "paired_perf/K2/B/client.log": "9da215556bbf2219c9a374821ab120f2f2f788d6ae74d1679bbade5ae7050c83",
+    "paired_perf/K2/A/client/Scenario_A_N1/perf_report.html": "e64128cb3918e475b2dcbae40819a910912485b5761499cb9c2416c0705c4cb0",
+    "paired_perf/K2/A/client/Scenario_A_N1/benchmark.log": "8e3acefe92cd4c250c636964410a6ab36034dc99895d1c5773aca5177030aacd",
+    "paired_perf/K2/A/client/Scenario_A_N1/performance_summary.txt": "8635ab5a6b0a43920ba70071a20f6a0629c6c545381fdb7b8412ce0e2964e9f9",
+    "paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_summary.json": "6e4444de82bcf22eb5148022a85231ee7cd6c2a1588d819989e0aa9879c97ba7",
+    "paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/workload_throughput.json": "8680bfc4b7189d7105ee39ea557338cbfaacb398f7aa028bcab4f67b864a417f",
+    "paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_args.json": "a75943c5ea75d61142afbd014804fe8ec1469602fc0327c5fd40114720293c0d",
+    "paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_data.db": "523dde5d4b48809671116e9577bc452b93ba2184c796508392b7f9629e0055f5",
+    "paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/workload_timeline.json": "184b31277e50d3cf58086e505bb938d8a9353e5d500a421a980f9936e5cea51c",
+    "paired_perf/K2/A/client/Scenario_A_N1/parallel_32_number_32/benchmark_percentile.json": "9c1672cad4b5c120de9fae315a850ee63be27af62ebbae36eeb9d92f15d97a7b",
+    "paired_perf/K2/B/client/Scenario_B_SingleStream/perf_report.html": "951b3f184882dfc7ccd2eeb6a25a9337dc5410805ecb38ba1f5538df0b3e6493",
+    "paired_perf/K2/B/client/Scenario_B_SingleStream/benchmark.log": "6eff5849ffd84675c2532ac762d9b89babc7e09d4c0bcedcadc2451d41c6306e",
+    "paired_perf/K2/B/client/Scenario_B_SingleStream/performance_summary.txt": "46ae3a46881bbb5fb3a4e2bcd6646407751090d777a4f6adddaadcd6d7de156e",
+    "paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_summary.json": "688bfc24e9c3d90ffa8d9432bcba09a93db6e096eacd8e0f4b28514cf52752c4",
+    "paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_throughput.json": "36793a322dffe280f87074e6ce3720dd0b1923e813c6e71ddeb9efd5f4caeeec",
+    "paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_args.json": "90e5c165e79cdaa33860db4a20120ff195feef295b795a448c84075c32037b0b",
+    "paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_data.db": "961ca5675904afaba9de71b0b1333555382dc9ba77ccb344080f9bd805e89e8a",
+    "paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/workload_timeline.json": "3fee526d77aea7013bf8adcff8859531a4a60509b061146fcc22517d4371ef08",
+    "paired_perf/K2/B/client/Scenario_B_SingleStream/parallel_1_number_4/benchmark_percentile.json": "905d709a51730dca60466bfb9c66e5f503e97888d11cf548e4534d82bc6f7119"
+  }
+}

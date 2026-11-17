@@ -1,0 +1,176 @@
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+[atom 22:51:32] Engine kwargs: {'trust_remote_code': False, 'tensor_parallel_size': 1, 'data_parallel_size': 1, 'enforce_eager': True, 'enable_prefix_caching': False, 'port': 13826, 'kv_cache_dtype': 'bf16', 'max_model_len': 16640, 'max_num_batched_tokens': 16640, 'attn_prefill_chunk_size': 16384, 'enable_chunked_prefill': False, 'scheduler_delay_factor': 0.0, 'max_num_seqs': 32, 'gpu_memory_utilization': 0.35, 'load_dummy': False, 'enable_expert_parallel': False, 'torch_profiler_dir': None, 'enable_dp_attention': False, 'kv_transfer_config': '{}', 'mark_trace': False, 'online_quant_config': None, 'kv_cache_block_size': 16, 'compilation_config': CompilationConfig(level=0, use_cudagraph=True, local_cache_dir=None, cudagraph_capture_sizes=[1, 2, 4, 8, 16, 32, 48, 64, 128, 256], cuda_graph_sizes=[512], debug_dump_path='', traced_files=set(), cache_dir='', use_inductor=True, cudagraph_mode=None, compilation_time=0.0, splitting_ops=None, cudagraph_copy_inputs=False, inductor_compile_config={}, compile_sizes=None, static_forward_context={}), 'speculative_config': None, 'enable_tbo': False, 'enable_tbo_decode': False, 'enable_low_latency': False}
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are using a model of type `mellum` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+[atom 22:51:33] Engine Core Mgr: Creating EngineCore for DP rank 0/1
+[atom 22:51:33] Creating EngineCore process: DP rank 0, will use GPUs 0 to 0
+[atom 22:51:33] Engine Core Mgr: Starting EngineCore for DP rank 0/1
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+/app/aiter-test/aiter/ops/deepgemm.py:22: RuntimeWarning: aiter.ops.opus (a16w16) is gfx950-only; detected arch='gfx942'. opus_gemm_* calls will raise RuntimeError at invocation. opus_gemm uses gfx950-only intrinsics (MFMA, ds_read_b64_tr) and the 160 KiB LDS budget. Set GPU_ARCHS=gfx950 (or run on a gfx950 device) to use this module.
+  from .opus.gemm_op_a16w16 import opus_gemm_a16w16_tune as _opus_tune
+[atom 22:51:42] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 22:51:42] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 22:51:42] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[atom 22:51:42] Create lazy wrapper for FusedMoE to change the naming
+[atom 22:51:42] ModelRunner rank=0, dp_rank_local=0, local_device_rank=0, device=cuda:0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[atom 22:51:42] disable_mmap: False
+Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:   0%|          | 0/5 [00:00<?, ?it/s]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  20%|██        | 1/5 [00:01<00:05,  1.30s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  40%|████      | 2/5 [00:02<00:03,  1.31s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  60%|██████    | 3/5 [00:04<00:02,  1.35s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]:  80%|████████  | 4/5 [00:05<00:01,  1.26s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]: 100%|██████████| 5/5 [00:06<00:00,  1.30s/it]Loading safetensors shards[/data/models/Mellum2.1-12B-A2.5B-Thinking]: 100%|██████████| 5/5 [00:06<00:00,  1.30s/it]
+[atom 22:51:48] Mellum loading audit passed: 5631 source tensors
+[atom 22:51:48] Model load done: /data/models/Mellum2.1-12B-A2.5B-Thinking
+[atom 22:51:50] Model Runner0/1: warmup_model 1.82 seconds with 1 reqs 16640 tokens
+[atom 22:51:50] Model warmup done: /data/models/Mellum2.1-12B-A2.5B-Thinking
+[atom 22:51:50] Memory budget: total_gpu=191.98GB, free=162.43GB, utilization=0.35, budget=67.19GB, peak_torch=29.94GB, cudagraph_est=0.00GB, safety=3.84GB, available_for_kv=33.41GB, block_bytes=931840, num_kvcache_blocks=38501
+[atom 22:51:50] Concurrent capacity vs context length (max_model_len=16640, block_size=16, max_slots=32, pool_blocks=38501):
+   10% (   1664 tok):    104 blk/req → max_concurrent=32    (bound by slots)
+   30% (   4992 tok):    312 blk/req → max_concurrent=32    (bound by slots)
+   50% (   8320 tok):    520 blk/req → max_concurrent=32    (bound by slots)
+   70% (  11648 tok):    728 blk/req → max_concurrent=32    (bound by slots)
+   90% (  14976 tok):    936 blk/req → max_concurrent=32    (bound by slots)
+  100% (  16640 tok):   1040 blk/req → max_concurrent=32    (bound by slots)
+[atom 22:51:50] Binding KV cache for target model starting at layer_id=0
+/opt/venv/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W1116 22:51:50.687616551 ProcessGroupNCCL.cpp:5140] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[atom 22:51:51] Engine Core: load model runner success
+[atom 22:51:51] Engine Core: EngineCore fully initialized and ready
+[atom 22:51:51] Engine Core Mgr: DP rank 0 is fully initialized and ready
+[atom 22:51:51] Engine Core Mgr: All EngineCores are fully initialized and ready
+[atom 22:51:51] Engine Core Mgr: All 1 EngineCores initialized and ready
+[atom 22:51:51] KV transfer config loaded: {}
+[atom 22:51:51] LLMEngine init with 1 data parallel ranks
+[atom 22:51:51] LLMEngine init with 1 data parallel ranks
+[atom 22:51:51] Request 0 arrived, input tokens: 1024, pending requests: 1
+[atom 22:51:51] Scheduled prefill batch: 1 reqs, 1024 new tokens (cached: [0], new: [1024]), req_ids: (0,)
+[atom 22:51:53] Engine Core: output send 1 reqs
+[atom 22:51:53] Request 0 finished with reason max_tokens. Input tokens: 1024, output tokens: 8, latency: 2.29s, TTFT: 1.907s, TPOT: 0.055s
+[atom 22:51:53] Request 1 arrived, input tokens: 7889, pending requests: 1
+[atom 22:51:53] Request 2 arrived, input tokens: 12588, pending requests: 2
+[atom 22:51:53] Request 3 arrived, input tokens: 11897, pending requests: 3
+[atom 22:51:53] Request 4 arrived, input tokens: 6191, pending requests: 4
+[atom 22:51:53] Request 5 arrived, input tokens: 10314, pending requests: 5
+[atom 22:51:53] Request 6 arrived, input tokens: 8709, pending requests: 6
+[atom 22:51:53] Request 7 arrived, input tokens: 13290, pending requests: 7
+[atom 22:51:53] Request 8 arrived, input tokens: 10640, pending requests: 8
+[atom 22:51:53] Scheduled prefill batch: 1 reqs, 7889 new tokens (cached: [0], new: [7889]), req_ids: (1,)
+[atom 22:51:54] Scheduled prefill batch: 1 reqs, 12588 new tokens (cached: [0], new: [12588]), req_ids: (2,)
+[atom 22:51:57] Scheduled prefill batch: 1 reqs, 11897 new tokens (cached: [0], new: [11897]), req_ids: (3,)
+[atom 22:51:59] Scheduled prefill batch: 2 reqs, 16505 new tokens (cached: [0, 0], new: [6191, 10314]), req_ids: (4, 5)
+[atom 22:52:01] Scheduled prefill batch: 1 reqs, 8709 new tokens (cached: [0], new: [8709]), req_ids: (6,)
+[atom 22:52:03] Scheduled prefill batch: 1 reqs, 13290 new tokens (cached: [0], new: [13290]), req_ids: (7,)
+[atom 22:52:05] Scheduled prefill batch: 1 reqs, 10640 new tokens (cached: [0], new: [10640]), req_ids: (8,)
+[atom 22:52:18] Engine Core: output send 8 reqs
+[atom 22:52:18] Request 1 finished with reason max_tokens. Input tokens: 7889, output tokens: 64, latency: 24.95s, TTFT: 3.556s, TPOT: 0.340s
+[atom 22:52:18] Request 2 finished with reason max_tokens. Input tokens: 12588, output tokens: 64, latency: 24.95s, TTFT: 5.780s, TPOT: 0.304s
+[atom 22:52:18] Request 3 finished with reason max_tokens. Input tokens: 11897, output tokens: 64, latency: 24.95s, TTFT: 8.501s, TPOT: 0.261s
+[atom 22:52:18] Request 4 finished with reason max_tokens. Input tokens: 6191, output tokens: 64, latency: 24.95s, TTFT: 9.802s, TPOT: 0.240s
+[atom 22:52:18] Request 5 finished with reason max_tokens. Input tokens: 10314, output tokens: 64, latency: 24.95s, TTFT: 9.802s, TPOT: 0.240s
+[atom 22:52:18] Request 6 finished with reason max_tokens. Input tokens: 8709, output tokens: 64, latency: 24.95s, TTFT: 12.445s, TPOT: 0.199s
+[atom 22:52:18] Request 7 finished with reason max_tokens. Input tokens: 13290, output tokens: 64, latency: 24.95s, TTFT: 14.310s, TPOT: 0.169s
+[atom 22:52:18] Request 8 finished with reason max_tokens. Input tokens: 10640, output tokens: 64, latency: 24.95s, TTFT: 14.483s, TPOT: 0.166s
+batch 8 delivery {'delivered_tokens': 506, 'seconds_after_last_prefill': 10.639987553, 'delivered_tokens_per_second': 47.55644661044089, 'required_C_output_rate': 76.8, 'scope': 'Observed callback delivery after last prefill; includes host/transport effects. Not official C throughput or a universal upper bound.'}
+[atom 22:52:18] Request 9 arrived, input tokens: 7889, pending requests: 1
+[atom 22:52:18] Request 10 arrived, input tokens: 12588, pending requests: 2
+[atom 22:52:18] Request 11 arrived, input tokens: 11897, pending requests: 3
+[atom 22:52:18] Request 12 arrived, input tokens: 6191, pending requests: 4
+[atom 22:52:18] Request 13 arrived, input tokens: 10314, pending requests: 5
+[atom 22:52:18] Request 14 arrived, input tokens: 8709, pending requests: 6
+[atom 22:52:18] Request 15 arrived, input tokens: 13290, pending requests: 7
+[atom 22:52:18] Request 16 arrived, input tokens: 10640, pending requests: 8
+[atom 22:52:18] Request 17 arrived, input tokens: 13156, pending requests: 9
+[atom 22:52:18] Request 18 arrived, input tokens: 15202, pending requests: 10
+[atom 22:52:18] Request 19 arrived, input tokens: 13816, pending requests: 11
+[atom 22:52:18] Request 20 arrived, input tokens: 4376, pending requests: 12
+[atom 22:52:18] Request 21 arrived, input tokens: 5097, pending requests: 13
+[atom 22:52:18] Request 22 arrived, input tokens: 10680, pending requests: 14
+[atom 22:52:18] Request 23 arrived, input tokens: 7360, pending requests: 15
+[atom 22:52:18] Request 24 arrived, input tokens: 15239, pending requests: 16
+[atom 22:52:18] Request 25 arrived, input tokens: 6510, pending requests: 17
+[atom 22:52:18] Request 26 arrived, input tokens: 5584, pending requests: 18
+[atom 22:52:18] Request 27 arrived, input tokens: 6756, pending requests: 19
+[atom 22:52:18] Request 28 arrived, input tokens: 11222, pending requests: 20
+[atom 22:52:18] Request 29 arrived, input tokens: 8471, pending requests: 21
+[atom 22:52:18] Request 30 arrived, input tokens: 15181, pending requests: 22
+[atom 22:52:18] Request 31 arrived, input tokens: 12937, pending requests: 23
+[atom 22:52:18] Request 32 arrived, input tokens: 13368, pending requests: 24
+[atom 22:52:18] Request 33 arrived, input tokens: 4607, pending requests: 25
+[atom 22:52:18] Request 34 arrived, input tokens: 13083, pending requests: 26
+[atom 22:52:18] Request 35 arrived, input tokens: 15565, pending requests: 27
+[atom 22:52:18] Request 36 arrived, input tokens: 13869, pending requests: 28
+[atom 22:52:18] Request 37 arrived, input tokens: 5009, pending requests: 29
+[atom 22:52:18] Request 38 arrived, input tokens: 14022, pending requests: 30
+[atom 22:52:18] Request 39 arrived, input tokens: 13813, pending requests: 31
+[atom 22:52:18] Request 40 arrived, input tokens: 7959, pending requests: 32
+[atom 22:52:18] Scheduled prefill batch: 1 reqs, 7889 new tokens (cached: [0], new: [7889]), req_ids: (9,)
+[atom 22:52:19] Scheduled prefill batch: 1 reqs, 12588 new tokens (cached: [0], new: [12588]), req_ids: (10,)
+[atom 22:52:22] Scheduled prefill batch: 1 reqs, 11897 new tokens (cached: [0], new: [11897]), req_ids: (11,)
+[atom 22:52:24] Scheduled prefill batch: 2 reqs, 16505 new tokens (cached: [0, 0], new: [6191, 10314]), req_ids: (12, 13)
+[atom 22:52:26] Scheduled prefill batch: 1 reqs, 8709 new tokens (cached: [0], new: [8709]), req_ids: (14,)
+[atom 22:52:28] Scheduled prefill batch: 1 reqs, 13290 new tokens (cached: [0], new: [13290]), req_ids: (15,)
+[atom 22:52:30] Scheduled prefill batch: 1 reqs, 10640 new tokens (cached: [0], new: [10640]), req_ids: (16,)
+[atom 22:52:32] Scheduled prefill batch: 1 reqs, 13156 new tokens (cached: [0], new: [13156]), req_ids: (17,)
+[atom 22:52:35] Scheduled prefill batch: 1 reqs, 15202 new tokens (cached: [0], new: [15202]), req_ids: (18,)
+[atom 22:52:38] Scheduled prefill batch: 1 reqs, 13816 new tokens (cached: [0], new: [13816]), req_ids: (19,)
+[atom 22:52:41] Scheduled prefill batch: 2 reqs, 9473 new tokens (cached: [0, 0], new: [4376, 5097]), req_ids: (20, 21)
+[atom 22:52:42] Scheduled prefill batch: 1 reqs, 10680 new tokens (cached: [0], new: [10680]), req_ids: (22,)
+[atom 22:52:44] Scheduled prefill batch: 1 reqs, 7360 new tokens (cached: [0], new: [7360]), req_ids: (23,)
+[atom 22:52:45] Scheduled prefill batch: 1 reqs, 15239 new tokens (cached: [0], new: [15239]), req_ids: (24,)
+[atom 22:52:48] Scheduled prefill batch: 2 reqs, 12094 new tokens (cached: [0, 0], new: [6510, 5584]), req_ids: (25, 26)
+[atom 22:52:50] Scheduled prefill batch: 1 reqs, 6756 new tokens (cached: [0], new: [6756]), req_ids: (27,)
+[atom 22:52:51] Scheduled prefill batch: 1 reqs, 11222 new tokens (cached: [0], new: [11222]), req_ids: (28,)
+[atom 22:52:53] Scheduled prefill batch: 1 reqs, 8471 new tokens (cached: [0], new: [8471]), req_ids: (29,)
+[atom 22:52:54] Scheduled prefill batch: 1 reqs, 15181 new tokens (cached: [0], new: [15181]), req_ids: (30,)
+[atom 22:52:57] Scheduled prefill batch: 1 reqs, 12937 new tokens (cached: [0], new: [12937]), req_ids: (31,)
+[atom 22:53:00] Scheduled prefill batch: 1 reqs, 13368 new tokens (cached: [0], new: [13368]), req_ids: (32,)
+[atom 22:53:02] Scheduled prefill batch: 1 reqs, 4607 new tokens (cached: [0], new: [4607]), req_ids: (33,)
+[atom 22:53:03] Scheduled prefill batch: 1 reqs, 13083 new tokens (cached: [0], new: [13083]), req_ids: (34,)
+[atom 22:53:05] Scheduled prefill batch: 1 reqs, 15565 new tokens (cached: [0], new: [15565]), req_ids: (35,)
+[atom 22:53:09] Scheduled prefill batch: 1 reqs, 13869 new tokens (cached: [0], new: [13869]), req_ids: (36,)
+[atom 22:53:12] Scheduled prefill batch: 1 reqs, 5009 new tokens (cached: [0], new: [5009]), req_ids: (37,)
+[atom 22:53:12] Scheduled prefill batch: 1 reqs, 14022 new tokens (cached: [0], new: [14022]), req_ids: (38,)
+[atom 22:53:15] Scheduled prefill batch: 1 reqs, 13813 new tokens (cached: [0], new: [13813]), req_ids: (39,)
+[atom 22:53:18] Scheduled prefill batch: 1 reqs, 7959 new tokens (cached: [0], new: [7959]), req_ids: (40,)
+[atom 22:53:54] Engine Core: output send 32 reqs
+[atom 22:53:54] Request 9 finished with reason max_tokens. Input tokens: 7889, output tokens: 64, latency: 96.19s, TTFT: 3.565s, TPOT: 1.470s
+[atom 22:53:54] Request 10 finished with reason max_tokens. Input tokens: 12588, output tokens: 64, latency: 96.19s, TTFT: 5.785s, TPOT: 1.435s
+[atom 22:53:54] Request 11 finished with reason max_tokens. Input tokens: 11897, output tokens: 64, latency: 96.19s, TTFT: 8.477s, TPOT: 1.392s
+[atom 22:53:54] Request 12 finished with reason max_tokens. Input tokens: 6191, output tokens: 64, latency: 96.19s, TTFT: 9.776s, TPOT: 1.372s
+[atom 22:53:54] Request 13 finished with reason max_tokens. Input tokens: 10314, output tokens: 64, latency: 96.19s, TTFT: 9.776s, TPOT: 1.372s
+[atom 22:53:54] Request 14 finished with reason max_tokens. Input tokens: 8709, output tokens: 64, latency: 96.19s, TTFT: 12.413s, TPOT: 1.330s
+[atom 22:53:54] Request 15 finished with reason max_tokens. Input tokens: 13290, output tokens: 64, latency: 96.19s, TTFT: 14.259s, TPOT: 1.300s
+[atom 22:53:54] Request 16 finished with reason max_tokens. Input tokens: 10640, output tokens: 64, latency: 96.19s, TTFT: 16.831s, TPOT: 1.260s
+[atom 22:53:54] Request 17 finished with reason max_tokens. Input tokens: 13156, output tokens: 64, latency: 96.19s, TTFT: 20.035s, TPOT: 1.209s
+[atom 22:53:54] Request 18 finished with reason max_tokens. Input tokens: 15202, output tokens: 64, latency: 96.19s, TTFT: 22.771s, TPOT: 1.165s
+[atom 22:53:54] Request 19 finished with reason max_tokens. Input tokens: 13816, output tokens: 64, latency: 96.19s, TTFT: 23.990s, TPOT: 1.146s
+[atom 22:53:54] Request 20 finished with reason max_tokens. Input tokens: 4376, output tokens: 64, latency: 96.19s, TTFT: 25.837s, TPOT: 1.117s
+[atom 22:53:54] Request 21 finished with reason max_tokens. Input tokens: 5097, output tokens: 64, latency: 96.19s, TTFT: 25.837s, TPOT: 1.117s
+[atom 22:53:54] Request 22 finished with reason max_tokens. Input tokens: 10680, output tokens: 64, latency: 96.19s, TTFT: 26.869s, TPOT: 1.100s
+[atom 22:53:54] Request 23 finished with reason max_tokens. Input tokens: 7360, output tokens: 64, latency: 96.19s, TTFT: 30.145s, TPOT: 1.048s
+[atom 22:53:54] Request 24 finished with reason max_tokens. Input tokens: 15239, output tokens: 64, latency: 96.19s, TTFT: 31.828s, TPOT: 1.022s
+[atom 22:53:54] Request 25 finished with reason max_tokens. Input tokens: 6510, output tokens: 64, latency: 96.19s, TTFT: 32.815s, TPOT: 1.006s
+[atom 22:53:54] Request 26 finished with reason max_tokens. Input tokens: 5584, output tokens: 64, latency: 96.19s, TTFT: 32.815s, TPOT: 1.006s
+[atom 22:53:54] Request 27 finished with reason max_tokens. Input tokens: 6756, output tokens: 64, latency: 96.19s, TTFT: 34.832s, TPOT: 0.974s
+[atom 22:53:54] Request 28 finished with reason max_tokens. Input tokens: 11222, output tokens: 64, latency: 96.19s, TTFT: 36.068s, TPOT: 0.954s
+[atom 22:53:54] Request 29 finished with reason max_tokens. Input tokens: 8471, output tokens: 64, latency: 96.19s, TTFT: 39.267s, TPOT: 0.904s
+[atom 22:53:54] Request 30 finished with reason max_tokens. Input tokens: 15181, output tokens: 64, latency: 96.19s, TTFT: 41.769s, TPOT: 0.864s
+[atom 22:53:54] Request 31 finished with reason max_tokens. Input tokens: 12937, output tokens: 64, latency: 96.19s, TTFT: 44.326s, TPOT: 0.823s
+[atom 22:53:54] Request 32 finished with reason max_tokens. Input tokens: 13368, output tokens: 64, latency: 96.19s, TTFT: 44.907s, TPOT: 0.814s
+[atom 22:53:54] Request 33 finished with reason max_tokens. Input tokens: 4607, output tokens: 64, latency: 96.19s, TTFT: 47.474s, TPOT: 0.773s
+[atom 22:53:54] Request 34 finished with reason max_tokens. Input tokens: 13083, output tokens: 64, latency: 96.19s, TTFT: 50.889s, TPOT: 0.719s
+[atom 22:53:54] Request 35 finished with reason max_tokens. Input tokens: 15565, output tokens: 64, latency: 96.19s, TTFT: 53.632s, TPOT: 0.675s
+[atom 22:53:54] Request 36 finished with reason max_tokens. Input tokens: 13869, output tokens: 64, latency: 96.19s, TTFT: 54.276s, TPOT: 0.665s
+[atom 22:53:54] Request 37 finished with reason max_tokens. Input tokens: 5009, output tokens: 64, latency: 96.19s, TTFT: 57.071s, TPOT: 0.621s
+[atom 22:53:54] Request 38 finished with reason max_tokens. Input tokens: 14022, output tokens: 64, latency: 96.19s, TTFT: 59.825s, TPOT: 0.577s
+[atom 22:53:54] Request 39 finished with reason max_tokens. Input tokens: 13813, output tokens: 64, latency: 96.19s, TTFT: 60.976s, TPOT: 0.559s
+[atom 22:53:54] Request 40 finished with reason max_tokens. Input tokens: 7959, output tokens: 64, latency: 96.19s, TTFT: 61.503s, TPOT: 0.551s
+batch 32 delivery {'delivered_tokens': 2018, 'seconds_after_last_prefill': 35.199970806, 'delivered_tokens_per_second': 57.329593002276646, 'required_C_output_rate': 76.8, 'scope': 'Observed callback delivery after last prefill; includes host/transport effects. Not official C throughput or a universal upper bound.'}
+[atom 22:53:54] Engine Core Mgr: Shutting down all 1 EngineCores
+[atom 22:53:57] AsyncIOProcManager(ModelRunner): shutdown all runners...
+[atom 22:53:57] AsyncIOProcManager(ModelRunner): All runners are shutdown.
+[atom 22:53:58] Engine Core Mgr: All EngineCores shut down

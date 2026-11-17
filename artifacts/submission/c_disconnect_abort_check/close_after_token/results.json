@@ -1,0 +1,64 @@
+{
+  "mode": "close_after_token",
+  "status": "disconnect_observed",
+  "server_command": [
+    "/opt/venv/bin/python",
+    "/workspace/tencent-mellum-disconnect-abort/scripts/serve_mellum.py",
+    "--gpu",
+    "1",
+    "--batching",
+    "--profile",
+    "r_abort",
+    "--max-num-seqs",
+    "32",
+    "--max-model-len",
+    "16640",
+    "--max-batched-tokens",
+    "16640",
+    "--phase-audit",
+    "--server-port",
+    "19851",
+    "--engine-port",
+    "15026",
+    "--output",
+    "/workspace/results/mellum_c_service_diagnosis/20261116T223755052494Z_disconnect/close_after_token/server"
+  ],
+  "client_start_ns": 1780693942208116,
+  "client_close_ns": 1780696708899216,
+  "done_received": false,
+  "frames": [
+    {
+      "time_ns": 1780693988065009,
+      "payload": "{\"id\": \"chatcmpl-8a85a74d6c984864af3d7ed4d379b4a0\", \"object\": \"chat.completion.chunk\", \"created\": 1794868798, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"role\": \"assistant\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    },
+    {
+      "time_ns": 1780696708880397,
+      "payload": "{\"id\": \"chatcmpl-8a85a74d6c984864af3d7ed4d379b4a0\", \"object\": \"chat.completion.chunk\", \"created\": 1794868800, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"\\n\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    }
+  ],
+  "request_id": 0,
+  "engine_steps_started_after_close": 0,
+  "inflight_steps_spanning_close": 1,
+  "continued_host_step_seconds": 0.0,
+  "engine_completion_observed": false,
+  "abort_receipts": [
+    {
+      "kind": "abort",
+      "time_ns": 1780696761224273,
+      "requested": [
+        0
+      ],
+      "removed": [
+        0
+      ],
+      "barrier_used": true,
+      "kv_free_before": 38007,
+      "kv_free_after": 38501,
+      "waiting": 0,
+      "running": 0
+    }
+  ],
+  "engine_steps_started_after_abort": 0,
+  "verdict": "no_post_close_step_observed",
+  "scope": "Live transport close, no abort repair. Observed subsequent engine steps, not exact GPU wasted time or full C causal contribution."
+}

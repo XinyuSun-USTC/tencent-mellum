@@ -1,0 +1,242 @@
+{
+  "status": "isolated_decode_measured",
+  "scope": "Diagnostic isolated decode or live disconnect, no correctness/capacity promotion; no model math changed.",
+  "decode": {
+    "status": "isolated_decode_measured",
+    "profile": "r_expert_decode4_kv_once",
+    "options": {
+      "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+      "tensor_parallel_size": 1,
+      "data_parallel_size": 1,
+      "enforce_eager": true,
+      "level": 0,
+      "kv_cache_dtype": "bf16",
+      "max_model_len": 16640,
+      "max_num_batched_tokens": 16640,
+      "max_num_seqs": 32,
+      "gpu_memory_utilization": 0.35,
+      "enable_prefix_caching": false,
+      "enable_chunked_prefill": false,
+      "torch_profiler_dir": null,
+      "mark_trace": false,
+      "port": 13826
+    },
+    "cases": [
+      {
+        "batch": 1,
+        "input_lengths": [
+          7889
+        ],
+        "output_tokens": 128,
+        "wall_seconds": 7.999016389,
+        "phase_summary": {
+          "steps": 129,
+          "prefill_steps": 1,
+          "decode_steps": 128,
+          "post_last_prefill_decode_steps": 128,
+          "decode_scheduled_token_work": 128,
+          "steady_host_step_seconds": 6.837036357,
+          "steady_host_span_seconds": 6.855800036,
+          "scheduled_token_work_per_host_span_s": 18.670322840203678,
+          "max_decode_batch": 1,
+          "prefill_host_step_seconds": 1.126083344,
+          "note": "Host call/postprocess timing, not GPU kernel timing. Scheduled decode work may include deferred extra forwards; not delivered-output throughput. Instrumentation can perturb timing."
+        },
+        "delivery": {
+          "delivered_tokens": 128,
+          "seconds_after_last_prefill": 6.856128735,
+          "delivered_tokens_per_second": 18.669427740843023,
+          "required_C_output_rate": 76.8,
+          "scope": "Observed callback delivery after last prefill; includes host/transport effects. Not official C throughput or a universal upper bound."
+        }
+      },
+      {
+        "batch": 4,
+        "input_lengths": [
+          7889,
+          12588,
+          11897,
+          6191
+        ],
+        "output_tokens": 512,
+        "wall_seconds": 22.534344536,
+        "phase_summary": {
+          "steps": 132,
+          "prefill_steps": 4,
+          "decode_steps": 128,
+          "post_last_prefill_decode_steps": 128,
+          "decode_scheduled_token_work": 512,
+          "steady_host_step_seconds": 15.818975139,
+          "steady_host_span_seconds": 15.841078824,
+          "scheduled_token_work_per_host_span_s": 32.32103101616383,
+          "max_decode_batch": 4,
+          "prefill_host_step_seconds": 6.681980447,
+          "note": "Host call/postprocess timing, not GPU kernel timing. Scheduled decode work may include deferred extra forwards; not delivered-output throughput. Instrumentation can perturb timing."
+        },
+        "delivery": {
+          "delivered_tokens": 510,
+          "seconds_after_last_prefill": 15.841479586,
+          "delivered_tokens_per_second": 32.19396251665251,
+          "required_C_output_rate": 76.8,
+          "scope": "Observed callback delivery after last prefill; includes host/transport effects. Not official C throughput or a universal upper bound."
+        }
+      },
+      {
+        "batch": 8,
+        "input_lengths": [
+          7889,
+          12588,
+          11897,
+          6191,
+          10314,
+          8709,
+          13290,
+          10640
+        ],
+        "output_tokens": 1024,
+        "wall_seconds": 40.820853215,
+        "phase_summary": {
+          "steps": 135,
+          "prefill_steps": 7,
+          "decode_steps": 128,
+          "post_last_prefill_decode_steps": 128,
+          "decode_scheduled_token_work": 1024,
+          "steady_host_step_seconds": 26.470077337,
+          "steady_host_span_seconds": 26.494820683,
+          "scheduled_token_work_per_host_span_s": 38.64906323585855,
+          "max_decode_batch": 8,
+          "prefill_host_step_seconds": 14.306410661,
+          "note": "Host call/postprocess timing, not GPU kernel timing. Scheduled decode work may include deferred extra forwards; not delivered-output throughput. Instrumentation can perturb timing."
+        },
+        "delivery": {
+          "delivered_tokens": 1018,
+          "seconds_after_last_prefill": 26.495422295,
+          "delivered_tokens_per_second": 38.42173144725112,
+          "required_C_output_rate": 76.8,
+          "scope": "Observed callback delivery after last prefill; includes host/transport effects. Not official C throughput or a universal upper bound."
+        }
+      },
+      {
+        "batch": 16,
+        "input_lengths": [
+          7889,
+          12588,
+          11897,
+          6191,
+          10314,
+          8709,
+          13290,
+          10640,
+          13156,
+          15202,
+          13816,
+          4376,
+          5097,
+          10680,
+          7360,
+          15239
+        ],
+        "output_tokens": 2048,
+        "wall_seconds": 78.557126306,
+        "phase_summary": {
+          "steps": 142,
+          "prefill_steps": 14,
+          "decode_steps": 128,
+          "post_last_prefill_decode_steps": 128,
+          "decode_scheduled_token_work": 2048,
+          "steady_host_step_seconds": 48.295529353,
+          "steady_host_span_seconds": 48.323349807,
+          "scheduled_token_work_per_host_span_s": 42.38116786562946,
+          "max_decode_batch": 16,
+          "prefill_host_step_seconds": 30.203422307,
+          "note": "Host call/postprocess timing, not GPU kernel timing. Scheduled decode work may include deferred extra forwards; not delivered-output throughput. Instrumentation can perturb timing."
+        },
+        "delivery": {
+          "delivered_tokens": 2034,
+          "seconds_after_last_prefill": 48.324072618,
+          "delivered_tokens_per_second": 42.09082326480829,
+          "required_C_output_rate": 76.8,
+          "scope": "Observed callback delivery after last prefill; includes host/transport effects. Not official C throughput or a universal upper bound."
+        }
+      },
+      {
+        "batch": 32,
+        "input_lengths": [
+          7889,
+          12588,
+          11897,
+          6191,
+          10314,
+          8709,
+          13290,
+          10640,
+          13156,
+          15202,
+          13816,
+          4376,
+          5097,
+          10680,
+          7360,
+          15239,
+          6510,
+          5584,
+          6756,
+          11222,
+          8471,
+          15181,
+          12937,
+          13368,
+          4607,
+          13083,
+          15565,
+          13869,
+          5009,
+          14022,
+          13813,
+          7959
+        ],
+        "output_tokens": 4096,
+        "wall_seconds": 154.134616413,
+        "phase_summary": {
+          "steps": 157,
+          "prefill_steps": 29,
+          "decode_steps": 128,
+          "post_last_prefill_decode_steps": 128,
+          "decode_scheduled_token_work": 4096,
+          "steady_host_step_seconds": 93.063219362,
+          "steady_host_span_seconds": 93.091427712,
+          "scheduled_token_work_per_host_span_s": 43.99975487186564,
+          "max_decode_batch": 32,
+          "prefill_host_step_seconds": 60.999149844,
+          "note": "Host call/postprocess timing, not GPU kernel timing. Scheduled decode work may include deferred extra forwards; not delivered-output throughput. Instrumentation can perturb timing."
+        },
+        "delivery": {
+          "delivered_tokens": 4066,
+          "seconds_after_last_prefill": 93.09228434,
+          "delivered_tokens_per_second": 43.67708912534351,
+          "required_C_output_rate": 76.8,
+          "scope": "Observed callback delivery after last prefill; includes host/transport effects. Not official C throughput or a universal upper bound."
+        }
+      }
+    ]
+  },
+  "source_unchanged": true,
+  "artifact_sha256": {
+    "decode_batch32_callbacks.json": "9915509d8af2637cae1fcdcfb23cc2e3219216cfdf0b7a0079f8dec5423aefc3",
+    "decode_batch8_callbacks.json": "749617bc061fd7e51a9686fadfbbb379b9f9710b31f6d563f7cdabf32502f962",
+    "batches.jsonl": "7e8a42ba12f1d260b6adc82f562d9f3793b217526abf214afb2bad84db86a281",
+    "decode_batch8_steps.json": "27134d81bc64ee9bf3075ccb82101daf4ae1a797912506e9a45a2576f0aa3557",
+    "worker.log": "b0dbe5659c49a92ec126d68147065bf15515a016818b7609d857305914c28cf0",
+    "decode_batch16_callbacks.json": "c7f4827a092ea207e481556271013b25ef07396a157af4f28a70da45884904a7",
+    "decode_batch1_callbacks.json": "90cf3e52d7f8ae353d5f57bcf591b2311518195481ac20fd119a193742f31c6c",
+    "decode_batch32_steps.json": "b915983db508931aa0855d5f09e51ae479232a7a55e0c5ea38d20a8df08105d0",
+    "decode_results.json": "a5e86031217e03640558a028fe48827f9048e7cc611cb8f34633bc41d24b58ff",
+    "manifest.json": "15d2a1f6e9d2634f319103e1e49b99cc04fcdc464a9441bfb9d7fb4eb4f1de4c",
+    "loading_audit.json": "fa3ade73425b10617368d64cc2257a9310a3c09d08b43c2254f0efa6aca914a9",
+    "engine_steps.jsonl": "2354f76d15c8a34bc9fa11f437d586fdc5145ac6783e34258596b976302066b6",
+    "decode_batch1_steps.json": "e9cf478c8784ee0b6dfa1ac001b43aa563fc715daec3cac99a786059e114d9f6",
+    "decode_batch4_steps.json": "9e0a89c1572ef3bf270386f0822b5709fd80b2c7125a1eba2db79b08e3b7fcda",
+    "decode_batch16_steps.json": "e23664dc009ae992d9e277331f556981c27b3f8845158ca12c0977f174719bcf",
+    "decode_batch4_callbacks.json": "4d423d32ead24812365e31d647b2b306f01358b289ff433cf463a98de0fab2cd"
+  }
+}

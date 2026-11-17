@@ -1,0 +1,20 @@
+{
+  "source": "/workspace/tencent-mellum-delivery-final/ATOM/atom/entrypoints/openai/serving_chat.py",
+  "source_sha256": "eefd03701987fc64fe160895ca2382b271349abb46df751adcad6bb1c730b942",
+  "cases": {
+    "normal": {
+      "cleanup_calls": 1,
+      "cleanup_called": true
+    },
+    "close_after_role": {
+      "cleanup_calls": 0,
+      "cleanup_called": false
+    },
+    "cancel_while_waiting": {
+      "cleanup_calls": 0,
+      "cleanup_called": false
+    }
+  },
+  "status": "cleanup_gap_reproduced",
+  "scope": "Actual coroutine body; inert content parsers. Does not measure the live C failure contribution or provide engine abort."
+}

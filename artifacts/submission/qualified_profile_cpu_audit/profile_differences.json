@@ -1,0 +1,59 @@
+{
+  "scope": "CPU profile inspection only; no GPU acceptance or delivery promotion",
+  "source": "/workspace/tencent-mellum-qualified-combination/scripts/mellum_execution_profiles.py",
+  "source_sha256": "f0f350c03afcdfa19711eeebbafeb926194c22ead5e06e056dde4d2502340174",
+  "differences": {
+    "r_reference_kv_once": {
+      "MELLUM_DIRECT_KV_WRITE": {
+        "reference": "0",
+        "candidate": "1"
+      }
+    },
+    "r_expert_decode4": {
+      "MELLUM_BATCH_CAMPAIGN_CONFIG": {
+        "reference": {
+          "groups": "LE",
+          "moe_optimization": "shared_routing",
+          "phases": [
+            "prefill",
+            "decode"
+          ]
+        },
+        "candidate": {
+          "decode_expert_group_size": 4,
+          "groups": "LE",
+          "moe_optimization": "shared_routing",
+          "phases": [
+            "prefill",
+            "decode"
+          ]
+        }
+      }
+    },
+    "r_expert_decode4_kv_once": {
+      "MELLUM_BATCH_CAMPAIGN_CONFIG": {
+        "reference": {
+          "groups": "LE",
+          "moe_optimization": "shared_routing",
+          "phases": [
+            "prefill",
+            "decode"
+          ]
+        },
+        "candidate": {
+          "decode_expert_group_size": 4,
+          "groups": "LE",
+          "moe_optimization": "shared_routing",
+          "phases": [
+            "prefill",
+            "decode"
+          ]
+        }
+      },
+      "MELLUM_DIRECT_KV_WRITE": {
+        "reference": "0",
+        "candidate": "1"
+      }
+    }
+  }
+}

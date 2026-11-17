@@ -1,0 +1,1617 @@
+{
+  "module_annotation_count": 5236,
+  "gpu_kernel_count": 54133,
+  "gpu_copy_or_memset_count": 5500,
+  "summed_gpu_kernel_us": 4419442.958,
+  "kernel_active_union_us": 4419442.744628906,
+  "kernel_span_us": 5319616.187988281,
+  "kernel_gaps_within_span_us": 900173.443359375,
+  "module_attribution_fraction": 0.9986017038664757,
+  "exclusive_module_kernel_us": {
+    "unattributed": 6179.689999999992,
+    "norm_input": 37626.97899999982,
+    "qkv": 179139.82300000073,
+    "attention_swa": 167110.40800000686,
+    "reference_position_rope": 138159.01700000296,
+    "overwrite_reference_keys": 33395.472000000314,
+    "sdpa": 2979511.2949999874,
+    "output_projection": 52115.04699999999,
+    "norm_post": 38352.294999999736,
+    "router": 6444.2709999999815,
+    "moe_experts": 696420.641999993,
+    "attention_full": 20984.357999999997,
+    "gather_reference_kv": 64003.66099999982
+  },
+  "inclusive_module_kernel_us": {
+    "norm_input": 37626.97899999982,
+    "qkv": 179139.82300000073,
+    "attention_swa": 3093723.4900000994,
+    "reference_position_rope": 138159.01700000296,
+    "overwrite_reference_keys": 33395.472000000314,
+    "sdpa": 2979511.2949999874,
+    "output_projection": 52115.04699999999,
+    "norm_post": 38352.294999999736,
+    "router": 6444.2709999999815,
+    "moe_experts": 696420.641999993,
+    "attention_full": 540695.5909999894,
+    "gather_reference_kv": 64003.66099999982
+  },
+  "phase_kernel_us": {
+    "prefill": 3902955.1110000033,
+    "unattributed": 1039.769,
+    "decode": 515448.0779999905
+  },
+  "phase_cpu_ranges": {
+    "prefill": {
+      "calls": 1,
+      "cpu_range_us": 3933774.019
+    },
+    "decode": {
+      "calls": 16,
+      "cpu_range_us": 1359530.145
+    }
+  },
+  "phase_exclusive_module_kernel_us": {
+    "prefill": {
+      "unattributed": 875.983,
+      "norm_input": 16022.342999999995,
+      "qkv": 160110.18899999995,
+      "attention_swa": 126260.92899999995,
+      "reference_position_rope": 100971.53000000001,
+      "overwrite_reference_keys": 6818.242,
+      "sdpa": 2818162.6480000005,
+      "output_projection": 45009.44899999999,
+      "norm_post": 16236.245999999994,
+      "router": 1466.593,
+      "moe_experts": 598140.0689999983,
+      "attention_full": 12880.889999999996
+    },
+    "unattributed": {
+      "unattributed": 1039.769
+    },
+    "decode": {
+      "unattributed": 4263.937999999998,
+      "norm_input": 21604.636000000035,
+      "qkv": 19029.634000000005,
+      "attention_swa": 40849.4789999999,
+      "reference_position_rope": 37187.48699999955,
+      "overwrite_reference_keys": 26577.230000000305,
+      "gather_reference_kv": 64003.66099999982,
+      "sdpa": 161348.6470000003,
+      "output_projection": 7105.597999999975,
+      "norm_post": 22116.048999999988,
+      "router": 4977.677999999995,
+      "moe_experts": 98280.57300000005,
+      "attention_full": 8103.468000000024
+    }
+  },
+  "phase_layer_module_kernel_us": {
+    "prefill": {
+      "unattributed": {
+        "unattributed": 875.983
+      },
+      "layer_00": {
+        "norm_input": 566.498,
+        "qkv": 5960.91,
+        "attention_swa": 6002.887000000001,
+        "reference_position_rope": 3623.657000000001,
+        "overwrite_reference_keys": 241.044,
+        "sdpa": 122255.132,
+        "output_projection": 1608.246,
+        "norm_post": 574.737,
+        "router": 52.234,
+        "moe_experts": 20985.084999999995
+      },
+      "layer_01": {
+        "norm_input": 570.497,
+        "qkv": 5707.973,
+        "attention_swa": 6011.967000000001,
+        "reference_position_rope": 3613.060000000001,
+        "overwrite_reference_keys": 242.36399999999998,
+        "sdpa": 122273.571,
+        "output_projection": 1608.646,
+        "norm_post": 581.3360000000001,
+        "router": 52.074,
+        "moe_experts": 22971.499
+      },
+      "layer_02": {
+        "norm_input": 570.6970000000001,
+        "qkv": 5710.493,
+        "attention_swa": 6008.287,
+        "reference_position_rope": 3615.5769999999998,
+        "overwrite_reference_keys": 242.523,
+        "sdpa": 122224.21500000001,
+        "output_projection": 1607.286,
+        "norm_post": 572.817,
+        "router": 51.914,
+        "moe_experts": 23227.634000000013
+      },
+      "layer_03": {
+        "norm_input": 570.137,
+        "qkv": 5708.572999999999,
+        "attention_full": 1830.848,
+        "reference_position_rope": 3622.658,
+        "overwrite_reference_keys": 245.44199999999998,
+        "sdpa": 35833.070999999996,
+        "output_projection": 1607.206,
+        "norm_post": 576.816,
+        "router": 52.395,
+        "moe_experts": 22418.51
+      },
+      "layer_04": {
+        "norm_input": 564.217,
+        "qkv": 5699.454,
+        "attention_swa": 6019.765,
+        "reference_position_rope": 3595.8990000000003,
+        "overwrite_reference_keys": 243.563,
+        "sdpa": 122296.529,
+        "output_projection": 1607.286,
+        "norm_post": 578.577,
+        "router": 52.314,
+        "moe_experts": 21322.41600000001
+      },
+      "layer_05": {
+        "norm_input": 572.256,
+        "qkv": 5708.614,
+        "attention_swa": 6014.006,
+        "reference_position_rope": 3602.1800000000003,
+        "overwrite_reference_keys": 246.164,
+        "sdpa": 122228.735,
+        "output_projection": 1607.846,
+        "norm_post": 579.336,
+        "router": 52.634,
+        "moe_experts": 21732.060000000016
+      },
+      "layer_06": {
+        "norm_input": 574.617,
+        "qkv": 5710.933,
+        "attention_swa": 6017.8460000000005,
+        "reference_position_rope": 3602.9420000000005,
+        "overwrite_reference_keys": 243.16200000000003,
+        "sdpa": 122259.29199999999,
+        "output_projection": 1607.806,
+        "norm_post": 578.736,
+        "router": 52.114,
+        "moe_experts": 20687.404000000002
+      },
+      "layer_07": {
+        "norm_input": 575.576,
+        "qkv": 5708.853,
+        "attention_full": 1842.887,
+        "reference_position_rope": 3610.2559999999994,
+        "overwrite_reference_keys": 246.242,
+        "sdpa": 35900.465000000004,
+        "output_projection": 1605.366,
+        "norm_post": 581.936,
+        "router": 52.394,
+        "moe_experts": 22241.927000000018
+      },
+      "layer_08": {
+        "norm_input": 574.096,
+        "qkv": 5711.134,
+        "attention_swa": 6018.764999999999,
+        "reference_position_rope": 3597.7,
+        "overwrite_reference_keys": 243.084,
+        "sdpa": 122374.082,
+        "output_projection": 1606.886,
+        "norm_post": 585.5749999999999,
+        "router": 52.514,
+        "moe_experts": 21323.419000000005
+      },
+      "layer_09": {
+        "norm_input": 569.976,
+        "qkv": 5712.053,
+        "attention_swa": 6012.807000000001,
+        "reference_position_rope": 3606.739,
+        "overwrite_reference_keys": 241.683,
+        "sdpa": 122317.647,
+        "output_projection": 1605.326,
+        "norm_post": 580.576,
+        "router": 52.354,
+        "moe_experts": 21690.942
+      },
+      "layer_10": {
+        "norm_input": 573.457,
+        "qkv": 5710.573,
+        "attention_swa": 6015.006,
+        "reference_position_rope": 3608.7780000000002,
+        "overwrite_reference_keys": 243.682,
+        "sdpa": 122199.298,
+        "output_projection": 1607.566,
+        "norm_post": 572.6959999999999,
+        "router": 52.394,
+        "moe_experts": 20197.32300000001
+      },
+      "layer_11": {
+        "norm_input": 563.817,
+        "qkv": 5698.375000000001,
+        "attention_full": 1846.6450000000002,
+        "reference_position_rope": 3608.9,
+        "overwrite_reference_keys": 244.84300000000002,
+        "sdpa": 35863.708,
+        "output_projection": 1605.846,
+        "norm_post": 580.7760000000001,
+        "router": 52.394,
+        "moe_experts": 21912.99900000001
+      },
+      "layer_12": {
+        "norm_input": 576.616,
+        "qkv": 5711.173000000001,
+        "attention_swa": 6000.007,
+        "reference_position_rope": 3592.101,
+        "overwrite_reference_keys": 242.683,
+        "sdpa": 122254.692,
+        "output_projection": 1608.246,
+        "norm_post": 583.456,
+        "router": 52.514,
+        "moe_experts": 20286.359999999997
+      },
+      "layer_13": {
+        "norm_input": 570.097,
+        "qkv": 5711.133000000001,
+        "attention_swa": 6019.965,
+        "reference_position_rope": 3605.6189999999992,
+        "overwrite_reference_keys": 242.723,
+        "sdpa": 122224.57500000001,
+        "output_projection": 1607.326,
+        "norm_post": 580.9359999999999,
+        "router": 52.314,
+        "moe_experts": 21526.439000000006
+      },
+      "layer_14": {
+        "norm_input": 573.376,
+        "qkv": 5707.893,
+        "attention_swa": 6013.007,
+        "reference_position_rope": 3606.2190000000005,
+        "overwrite_reference_keys": 244.72199999999998,
+        "sdpa": 122234.175,
+        "output_projection": 1608.046,
+        "norm_post": 582.135,
+        "router": 51.874,
+        "moe_experts": 20099.494999999995
+      },
+      "layer_15": {
+        "norm_input": 571.256,
+        "qkv": 5707.374,
+        "attention_full": 1837.6469999999995,
+        "reference_position_rope": 3603.020000000001,
+        "overwrite_reference_keys": 239.522,
+        "sdpa": 35847.39000000001,
+        "output_projection": 1606.446,
+        "norm_post": 589.3750000000001,
+        "router": 52.434,
+        "moe_experts": 22337.797
+      },
+      "layer_16": {
+        "norm_input": 577.4559999999999,
+        "qkv": 5707.454,
+        "attention_swa": 6010.806,
+        "reference_position_rope": 3609.9389999999994,
+        "overwrite_reference_keys": 240.803,
+        "sdpa": 122247.013,
+        "output_projection": 1608.366,
+        "norm_post": 580.696,
+        "router": 52.314,
+        "moe_experts": 22143.17899999999
+      },
+      "layer_17": {
+        "norm_input": 570.017,
+        "qkv": 5708.613,
+        "attention_swa": 6021.724,
+        "reference_position_rope": 3610.0980000000004,
+        "overwrite_reference_keys": 242.72400000000005,
+        "sdpa": 122288.81,
+        "output_projection": 1607.606,
+        "norm_post": 584.5350000000001,
+        "router": 52.274,
+        "moe_experts": 23094.006999999994
+      },
+      "layer_18": {
+        "norm_input": 579.495,
+        "qkv": 5715.173,
+        "attention_swa": 6015.246,
+        "reference_position_rope": 3595.0190000000002,
+        "overwrite_reference_keys": 245.564,
+        "sdpa": 122319.12700000001,
+        "output_projection": 1606.846,
+        "norm_post": 580.656,
+        "router": 52.674,
+        "moe_experts": 19580.463999999993
+      },
+      "layer_19": {
+        "norm_input": 570.457,
+        "qkv": 5712.053,
+        "attention_full": 1839.2079999999999,
+        "reference_position_rope": 3605.818,
+        "overwrite_reference_keys": 243.481,
+        "sdpa": 35887.826,
+        "output_projection": 1606.406,
+        "norm_post": 578.896,
+        "router": 52.634,
+        "moe_experts": 21038.724999999995
+      },
+      "layer_20": {
+        "norm_input": 575.776,
+        "qkv": 5709.733000000001,
+        "attention_swa": 6015.726,
+        "reference_position_rope": 3616.259000000001,
+        "overwrite_reference_keys": 240.76399999999998,
+        "sdpa": 122189.419,
+        "output_projection": 1608.686,
+        "norm_post": 579.5760000000001,
+        "router": 52.554,
+        "moe_experts": 22151.653000000006
+      },
+      "layer_21": {
+        "norm_input": 570.4970000000001,
+        "qkv": 5710.813,
+        "attention_swa": 6021.445,
+        "reference_position_rope": 3595.459,
+        "overwrite_reference_keys": 245.28300000000002,
+        "sdpa": 122184.7,
+        "output_projection": 1606.446,
+        "norm_post": 581.0160000000001,
+        "router": 52.474,
+        "moe_experts": 19743.848
+      },
+      "layer_22": {
+        "norm_input": 575.417,
+        "qkv": 5711.773,
+        "attention_swa": 6006.0470000000005,
+        "reference_position_rope": 3607.978,
+        "overwrite_reference_keys": 245.683,
+        "sdpa": 122118.546,
+        "output_projection": 1609.206,
+        "norm_post": 579.336,
+        "router": 52.514,
+        "moe_experts": 20579.326000000005
+      },
+      "layer_23": {
+        "norm_input": 570.856,
+        "qkv": 5713.053,
+        "attention_full": 1847.6070000000002,
+        "reference_position_rope": 3608.5379999999996,
+        "overwrite_reference_keys": 243.84199999999998,
+        "sdpa": 35883.346999999994,
+        "output_projection": 1608.886,
+        "norm_post": 582.655,
+        "router": 52.554,
+        "moe_experts": 22555.537999999997
+      },
+      "layer_24": {
+        "norm_input": 578.096,
+        "qkv": 5711.013,
+        "attention_swa": 6013.366,
+        "reference_position_rope": 3593.861,
+        "overwrite_reference_keys": 242.762,
+        "sdpa": 122186.26,
+        "output_projection": 1608.806,
+        "norm_post": 575.9359999999999,
+        "router": 52.314,
+        "moe_experts": 20949.53000000001
+      },
+      "layer_25": {
+        "norm_input": 569.817,
+        "qkv": 5713.293,
+        "attention_swa": 6010.926,
+        "reference_position_rope": 3616.378000000001,
+        "overwrite_reference_keys": 245.56399999999996,
+        "sdpa": 122197.65800000001,
+        "output_projection": 1609.246,
+        "norm_post": 581.376,
+        "router": 52.154,
+        "moe_experts": 19795.03600000001
+      },
+      "layer_26": {
+        "norm_input": 579.456,
+        "qkv": 5712.453,
+        "attention_swa": 5991.3279999999995,
+        "reference_position_rope": 3610.2569999999996,
+        "overwrite_reference_keys": 244.04199999999997,
+        "sdpa": 122248.853,
+        "output_projection": 1608.286,
+        "norm_post": 571.7370000000001,
+        "router": 52.674,
+        "moe_experts": 22233.446000000004
+      },
+      "layer_27": {
+        "norm_input": 567.817,
+        "qkv": 5699.254000000001,
+        "attention_full": 1836.0479999999998,
+        "reference_position_rope": 3586.6209999999996,
+        "overwrite_reference_keys": 244.284,
+        "sdpa": 35824.511999999995,
+        "output_projection": 1605.287,
+        "norm_post": 580.015,
+        "router": 52.594,
+        "moe_experts": 19314.007999999998
+      }
+    },
+    "unattributed": {
+      "unattributed": {
+        "unattributed": 1039.769
+      }
+    },
+    "decode": {
+      "unattributed": {
+        "unattributed": 4263.937999999998
+      },
+      "layer_00": {
+        "norm_input": 682.3600000000002,
+        "qkv": 761.5830000000001,
+        "attention_swa": 1919.0960000000007,
+        "reference_position_rope": 1404.7710000000004,
+        "overwrite_reference_keys": 1004.4850000000005,
+        "gather_reference_kv": 899.0819999999995,
+        "sdpa": 1836.1270000000004,
+        "output_projection": 257.796,
+        "norm_post": 760.6589999999999,
+        "router": 175.927,
+        "moe_experts": 3679.0550000000003
+      },
+      "layer_01": {
+        "norm_input": 759.2310000000002,
+        "qkv": 680.8710000000002,
+        "attention_swa": 1854.780000000001,
+        "reference_position_rope": 1343.729000000001,
+        "overwrite_reference_keys": 945.6070000000007,
+        "gather_reference_kv": 903.7710000000001,
+        "sdpa": 1814.7610000000002,
+        "output_projection": 261.84099999999995,
+        "norm_post": 771.7010000000007,
+        "router": 185.60699999999997,
+        "moe_experts": 3519.3159999999984
+      },
+      "layer_02": {
+        "norm_input": 755.6650000000004,
+        "qkv": 677.7109999999998,
+        "attention_swa": 1862.8370000000011,
+        "reference_position_rope": 1315.2900000000004,
+        "overwrite_reference_keys": 972.5150000000007,
+        "gather_reference_kv": 896.6469999999999,
+        "sdpa": 1814.121,
+        "output_projection": 252.20200000000003,
+        "norm_post": 770.7000000000004,
+        "router": 176.36700000000002,
+        "moe_experts": 3431.197
+      },
+      "layer_03": {
+        "norm_input": 755.0280000000004,
+        "qkv": 679.7130000000002,
+        "attention_full": 1157.3580000000015,
+        "reference_position_rope": 1307.2840000000006,
+        "overwrite_reference_keys": 933.1670000000001,
+        "gather_reference_kv": 6446.438000000003,
+        "sdpa": 17583.194000000003,
+        "output_projection": 250.918,
+        "norm_post": 843.8559999999997,
+        "router": 174.16799999999998,
+        "moe_experts": 3589.8259999999996
+      },
+      "layer_04": {
+        "norm_input": 832.7800000000001,
+        "qkv": 666.631,
+        "attention_swa": 2141.7630000000004,
+        "reference_position_rope": 1315.6830000000002,
+        "overwrite_reference_keys": 961.0400000000009,
+        "gather_reference_kv": 901.796,
+        "sdpa": 1837.0379999999998,
+        "output_projection": 253.03899999999996,
+        "norm_post": 767.9989999999999,
+        "router": 176.24699999999999,
+        "moe_experts": 3413.398999999999
+      },
+      "layer_05": {
+        "norm_input": 756.1100000000005,
+        "qkv": 676.7910000000002,
+        "attention_swa": 1826.6200000000015,
+        "reference_position_rope": 1326.406000000001,
+        "overwrite_reference_keys": 943.722000000001,
+        "gather_reference_kv": 902.0849999999999,
+        "sdpa": 1813.0849999999996,
+        "output_projection": 256.682,
+        "norm_post": 775.1480000000006,
+        "router": 181.04499999999996,
+        "moe_experts": 3462.833
+      },
+      "layer_06": {
+        "norm_input": 761.9860000000009,
+        "qkv": 682.949,
+        "attention_swa": 1853.2950000000003,
+        "reference_position_rope": 1338.4840000000013,
+        "overwrite_reference_keys": 945.0810000000007,
+        "gather_reference_kv": 902.3570000000003,
+        "sdpa": 1818.8069999999998,
+        "output_projection": 252.92000000000002,
+        "norm_post": 760.1829999999999,
+        "router": 176.28799999999995,
+        "moe_experts": 3446.2559999999985
+      },
+      "layer_07": {
+        "norm_input": 759.0200000000006,
+        "qkv": 677.6320000000002,
+        "attention_full": 1151.9239999999998,
+        "reference_position_rope": 1307.7400000000002,
+        "overwrite_reference_keys": 944.5410000000005,
+        "gather_reference_kv": 6440.007000000003,
+        "sdpa": 17582.552000000003,
+        "output_projection": 249.19899999999998,
+        "norm_post": 852.7760000000003,
+        "router": 174.886,
+        "moe_experts": 3568.787999999998
+      },
+      "layer_08": {
+        "norm_input": 826.2990000000001,
+        "qkv": 665.1550000000002,
+        "attention_swa": 2134.159000000002,
+        "reference_position_rope": 1351.7460000000005,
+        "overwrite_reference_keys": 933.4800000000007,
+        "gather_reference_kv": 905.1180000000002,
+        "sdpa": 1833.642,
+        "output_projection": 252.44,
+        "norm_post": 765.0239999999998,
+        "router": 178.24799999999996,
+        "moe_experts": 3421.959
+      },
+      "layer_09": {
+        "norm_input": 755.3010000000005,
+        "qkv": 677.7900000000001,
+        "attention_swa": 1861.9679999999987,
+        "reference_position_rope": 1349.7290000000005,
+        "overwrite_reference_keys": 934.8900000000003,
+        "gather_reference_kv": 897.3240000000002,
+        "sdpa": 1812.7220000000002,
+        "output_projection": 253.72199999999998,
+        "norm_post": 763.273,
+        "router": 179.928,
+        "moe_experts": 3491.2350000000006
+      },
+      "layer_10": {
+        "norm_input": 765.2590000000002,
+        "qkv": 681.1540000000001,
+        "attention_swa": 1835.7099999999998,
+        "reference_position_rope": 1341.98,
+        "overwrite_reference_keys": 937.8010000000008,
+        "gather_reference_kv": 898.0000000000001,
+        "sdpa": 1813.723,
+        "output_projection": 254.558,
+        "norm_post": 767.6959999999997,
+        "router": 176.327,
+        "moe_experts": 3484.7239999999974
+      },
+      "layer_11": {
+        "norm_input": 752.1909999999999,
+        "qkv": 678.592,
+        "attention_full": 1154.7019999999998,
+        "reference_position_rope": 1319.9170000000013,
+        "overwrite_reference_keys": 952.8170000000002,
+        "gather_reference_kv": 6438.720000000007,
+        "sdpa": 17582.834,
+        "output_projection": 250.95800000000003,
+        "norm_post": 850.7349999999999,
+        "router": 172.44799999999998,
+        "moe_experts": 3566.2290000000007
+      },
+      "layer_12": {
+        "norm_input": 842.4969999999998,
+        "qkv": 661.1509999999998,
+        "attention_swa": 2186.5900000000015,
+        "reference_position_rope": 1338.2459999999996,
+        "overwrite_reference_keys": 957.6080000000011,
+        "gather_reference_kv": 900.0420000000001,
+        "sdpa": 1830.7599999999998,
+        "output_projection": 254.515,
+        "norm_post": 758.4590000000002,
+        "router": 179.52700000000002,
+        "moe_experts": 3514.4329999999986
+      },
+      "layer_13": {
+        "norm_input": 761.8630000000003,
+        "qkv": 691.7530000000003,
+        "attention_swa": 1851.5370000000016,
+        "reference_position_rope": 1311.6040000000005,
+        "overwrite_reference_keys": 948.5740000000006,
+        "gather_reference_kv": 892.6749999999998,
+        "sdpa": 1817.162,
+        "output_projection": 252.682,
+        "norm_post": 767.8650000000005,
+        "router": 177.446,
+        "moe_experts": 3505.0359999999987
+      },
+      "layer_14": {
+        "norm_input": 750.6660000000006,
+        "qkv": 677.7939999999999,
+        "attention_swa": 1821.7940000000006,
+        "reference_position_rope": 1317.6510000000003,
+        "overwrite_reference_keys": 951.0440000000002,
+        "gather_reference_kv": 896.6470000000002,
+        "sdpa": 1821.1179999999997,
+        "output_projection": 255.60299999999998,
+        "norm_post": 767.7460000000001,
+        "router": 180.80700000000002,
+        "moe_experts": 3434.7190000000005
+      },
+      "layer_15": {
+        "norm_input": 756.2170000000004,
+        "qkv": 685.8720000000002,
+        "attention_full": 1159.3660000000004,
+        "reference_position_rope": 1295.659,
+        "overwrite_reference_keys": 940.2980000000002,
+        "gather_reference_kv": 6447.721000000005,
+        "sdpa": 17580.112,
+        "output_projection": 250.52299999999997,
+        "norm_post": 842.4559999999998,
+        "router": 173.646,
+        "moe_experts": 3571.5459999999994
+      },
+      "layer_16": {
+        "norm_input": 848.417,
+        "qkv": 656.3940000000001,
+        "attention_swa": 2223.3900000000017,
+        "reference_position_rope": 1329.2460000000012,
+        "overwrite_reference_keys": 946.5270000000004,
+        "gather_reference_kv": 898.8000000000001,
+        "sdpa": 1831.239,
+        "output_projection": 257.837,
+        "norm_post": 767.5800000000002,
+        "router": 179.96799999999993,
+        "moe_experts": 3458.8369999999995
+      },
+      "layer_17": {
+        "norm_input": 751.3040000000002,
+        "qkv": 680.2710000000002,
+        "attention_swa": 1872.6560000000006,
+        "reference_position_rope": 1305.438,
+        "overwrite_reference_keys": 942.7760000000003,
+        "gather_reference_kv": 897.6410000000001,
+        "sdpa": 1824.4420000000002,
+        "output_projection": 253.003,
+        "norm_post": 764.8250000000003,
+        "router": 177.007,
+        "moe_experts": 3509.766999999999
+      },
+      "layer_18": {
+        "norm_input": 760.4270000000002,
+        "qkv": 676.828,
+        "attention_swa": 1835.4349999999997,
+        "reference_position_rope": 1324.012999999999,
+        "overwrite_reference_keys": 938.9700000000004,
+        "gather_reference_kv": 894.1620000000003,
+        "sdpa": 1820.2450000000001,
+        "output_projection": 257.079,
+        "norm_post": 769.583,
+        "router": 186.687,
+        "moe_experts": 3470.397999999998
+      },
+      "layer_19": {
+        "norm_input": 751.5770000000005,
+        "qkv": 688.993,
+        "attention_full": 1162.1640000000004,
+        "reference_position_rope": 1332.8300000000006,
+        "overwrite_reference_keys": 940.9710000000002,
+        "gather_reference_kv": 6445.283000000005,
+        "sdpa": 17580.874,
+        "output_projection": 249.919,
+        "norm_post": 852.9750000000003,
+        "router": 174.80599999999998,
+        "moe_experts": 3550.4720000000016
+      },
+      "layer_20": {
+        "norm_input": 837.8159999999993,
+        "qkv": 657.955,
+        "attention_swa": 2213.666999999999,
+        "reference_position_rope": 1320.7660000000008,
+        "overwrite_reference_keys": 954.2330000000004,
+        "gather_reference_kv": 905.3590000000002,
+        "sdpa": 1830.6820000000007,
+        "output_projection": 255.96,
+        "norm_post": 761.5270000000007,
+        "router": 180.647,
+        "moe_experts": 3460.5490000000004
+      },
+      "layer_21": {
+        "norm_input": 763.5070000000003,
+        "qkv": 681.8260000000004,
+        "attention_swa": 1843.6580000000004,
+        "reference_position_rope": 1327.2900000000004,
+        "overwrite_reference_keys": 951.7190000000008,
+        "gather_reference_kv": 897.928,
+        "sdpa": 1815.444,
+        "output_projection": 252.16199999999998,
+        "norm_post": 755.9130000000006,
+        "router": 176.168,
+        "moe_experts": 3497.1919999999977
+      },
+      "layer_22": {
+        "norm_input": 757.8640000000003,
+        "qkv": 678.8740000000003,
+        "attention_swa": 1819.2740000000015,
+        "reference_position_rope": 1308.372,
+        "overwrite_reference_keys": 956.3970000000002,
+        "gather_reference_kv": 907.925,
+        "sdpa": 1815.7610000000002,
+        "output_projection": 252.92,
+        "norm_post": 767.1410000000002,
+        "router": 179.32599999999996,
+        "moe_experts": 3469.2250000000004
+      },
+      "layer_23": {
+        "norm_input": 750.9900000000002,
+        "qkv": 679.2699999999999,
+        "attention_full": 1157.6000000000008,
+        "reference_position_rope": 1332.975,
+        "overwrite_reference_keys": 944.4950000000005,
+        "gather_reference_kv": 6441.602000000002,
+        "sdpa": 17582.631999999998,
+        "output_projection": 252.159,
+        "norm_post": 854.4550000000002,
+        "router": 174.04799999999997,
+        "moe_experts": 3611.145999999998
+      },
+      "layer_24": {
+        "norm_input": 841.6950000000003,
+        "qkv": 658.355,
+        "attention_swa": 2194.4730000000013,
+        "reference_position_rope": 1339.5770000000011,
+        "overwrite_reference_keys": 953.9710000000007,
+        "gather_reference_kv": 902.1220000000003,
+        "sdpa": 1832.0830000000003,
+        "output_projection": 251.83999999999997,
+        "norm_post": 764.075,
+        "router": 177.00800000000004,
+        "moe_experts": 3495.995
+      },
+      "layer_25": {
+        "norm_input": 756.8300000000002,
+        "qkv": 681.0280000000001,
+        "attention_swa": 1828.475000000001,
+        "reference_position_rope": 1342.3340000000005,
+        "overwrite_reference_keys": 957.7770000000012,
+        "gather_reference_kv": 901.3249999999999,
+        "sdpa": 1814.608,
+        "output_projection": 256.201,
+        "norm_post": 769.7450000000001,
+        "router": 177.447,
+        "moe_experts": 3438.8799999999997
+      },
+      "layer_26": {
+        "norm_input": 751.6650000000003,
+        "qkv": 686.3090000000001,
+        "attention_swa": 1868.3020000000015,
+        "reference_position_rope": 1309.8990000000003,
+        "overwrite_reference_keys": 945.4770000000005,
+        "gather_reference_kv": 905.1630000000005,
+        "sdpa": 1821.1249999999995,
+        "output_projection": 253.00100000000003,
+        "norm_post": 764.3050000000003,
+        "router": 174.80700000000002,
+        "moe_experts": 3453.510999999999
+      },
+      "layer_27": {
+        "norm_input": 760.071,
+        "qkv": 680.3889999999999,
+        "attention_full": 1160.3539999999998,
+        "reference_position_rope": 1328.828,
+        "overwrite_reference_keys": 937.2470000000006,
+        "gather_reference_kv": 6437.921000000005,
+        "sdpa": 17587.754,
+        "output_projection": 253.91899999999998,
+        "norm_post": 937.649,
+        "router": 180.84699999999998,
+        "moe_experts": 3764.050000000001
+      }
+    }
+  },
+  "phase_instances": {
+    "prefill[bs=1 tok=16384 ctx=16384]": {
+      "kernel_count": 7219,
+      "summed_kernel_us": 3902955.1110000033
+    },
+    "unattributed": {
+      "kernel_count": 50,
+      "summed_kernel_us": 1039.769
+    },
+    "eager_decode[bs=1 tok=1 ctx=16385]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32388.08899999995
+    },
+    "eager_decode[bs=1 tok=1 ctx=16386]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32197.39699999997
+    },
+    "eager_decode[bs=1 tok=1 ctx=16387]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32134.56699999992
+    },
+    "eager_decode[bs=1 tok=1 ctx=16388]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32184.377000000015
+    },
+    "eager_decode[bs=1 tok=1 ctx=16389]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32232.95599999988
+    },
+    "eager_decode[bs=1 tok=1 ctx=16390]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32153.13899999992
+    },
+    "eager_decode[bs=1 tok=1 ctx=16391]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32224.258999999918
+    },
+    "eager_decode[bs=1 tok=1 ctx=16392]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32205.948999999975
+    },
+    "eager_decode[bs=1 tok=1 ctx=16393]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32189.540999999987
+    },
+    "eager_decode[bs=1 tok=1 ctx=16394]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32196.987999999972
+    },
+    "eager_decode[bs=1 tok=1 ctx=16395]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32137.09699999991
+    },
+    "eager_decode[bs=1 tok=1 ctx=16396]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32282.436999999885
+    },
+    "eager_decode[bs=1 tok=1 ctx=16397]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32211.379999999954
+    },
+    "eager_decode[bs=1 tok=1 ctx=16398]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32230.76899999996
+    },
+    "eager_decode[bs=1 tok=1 ctx=16399]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32282.562999999976
+    },
+    "eager_decode[bs=1 tok=1 ctx=16400]": {
+      "kernel_count": 2929,
+      "summed_kernel_us": 32196.56999999995
+    }
+  },
+  "gpu_copy_stats": {
+    "Memcpy DtoD (Device -> Device)": {
+      "calls": 3929,
+      "summed_us": 24049.389000000006
+    },
+    "Memcpy HtoD (Host -> Device)": {
+      "calls": 507,
+      "summed_us": 2052.3550000000037
+    },
+    "Memset (Device)": {
+      "calls": 952,
+      "summed_us": 1963.3169999999989
+    },
+    "Memcpy DtoH (Device -> Host)": {
+      "calls": 112,
+      "summed_us": 633.135
+    }
+  },
+  "top_launch_operators": [
+    {
+      "phase": "prefill",
+      "module": "sdpa",
+      "name": "aten::_efficient_attention_forward",
+      "calls": 21,
+      "summed_kernel_us": 2551732.135
+    },
+    {
+      "phase": "prefill",
+      "module": "moe_experts",
+      "name": "aten::mm",
+      "calls": 3496,
+      "summed_kernel_us": 484934.60099999886
+    },
+    {
+      "phase": "prefill",
+      "module": "sdpa",
+      "name": "aten::_flash_attention_forward",
+      "calls": 7,
+      "summed_kernel_us": 250997.56900000002
+    },
+    {
+      "phase": "prefill",
+      "module": "qkv",
+      "name": "aten::mm",
+      "calls": 84,
+      "summed_kernel_us": 151300.575
+    },
+    {
+      "phase": "decode",
+      "module": "sdpa",
+      "name": "aten::_flash_attention_forward",
+      "calls": 112,
+      "summed_kernel_us": 123079.95199999987
+    },
+    {
+      "phase": "decode",
+      "module": "gather_reference_kv",
+      "name": "aten::index",
+      "calls": 1344,
+      "summed_kernel_us": 52455.26899999997
+    },
+    {
+      "phase": "prefill",
+      "module": "reference_position_rope",
+      "name": "aten::mul",
+      "calls": 336,
+      "summed_kernel_us": 49853.23700000004
+    },
+    {
+      "phase": "prefill",
+      "module": "output_projection",
+      "name": "aten::mm",
+      "calls": 28,
+      "summed_kernel_us": 45009.44899999999
+    },
+    {
+      "phase": "decode",
+      "module": "moe_experts",
+      "name": "aten::index",
+      "calls": 896,
+      "summed_kernel_us": 35511.576
+    },
+    {
+      "phase": "decode",
+      "module": "sdpa",
+      "name": "aten::_efficient_attention_forward",
+      "calls": 336,
+      "summed_kernel_us": 34934.30700000001
+    },
+    {
+      "phase": "prefill",
+      "module": "moe_experts",
+      "name": "aten::index",
+      "calls": 84,
+      "summed_kernel_us": 34497.424
+    },
+    {
+      "phase": "prefill",
+      "module": "reference_position_rope",
+      "name": "aten::cat",
+      "calls": 168,
+      "summed_kernel_us": 34293.05299999999
+    },
+    {
+      "phase": "prefill",
+      "module": "moe_experts",
+      "name": "aten::mul",
+      "calls": 56,
+      "summed_kernel_us": 33348.973000000005
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_swa",
+      "name": "aten::triu",
+      "calls": 21,
+      "summed_kernel_us": 27930.563000000002
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_swa",
+      "name": "aten::tril",
+      "calls": 21,
+      "summed_kernel_us": 27525.36
+    },
+    {
+      "phase": "decode",
+      "module": "moe_experts",
+      "name": "aten::bmm",
+      "calls": 896,
+      "summed_kernel_us": 27113.623999999967
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_swa",
+      "name": "aiter::unified_attention_with_output_base",
+      "calls": 21,
+      "summed_kernel_us": 26319.595999999998
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_swa",
+      "name": "aten::copy_",
+      "calls": 126,
+      "summed_kernel_us": 19815.037999999997
+    },
+    {
+      "phase": "decode",
+      "module": "attention_swa",
+      "name": "aten::copy_",
+      "calls": 2016,
+      "summed_kernel_us": 19487.169999999976
+    },
+    {
+      "phase": "decode",
+      "module": "qkv",
+      "name": "aten::mm",
+      "calls": 1344,
+      "summed_kernel_us": 16212.285999999991
+    },
+    {
+      "phase": "prefill",
+      "module": "moe_experts",
+      "name": "aten::silu",
+      "calls": 28,
+      "summed_kernel_us": 16106.920000000002
+    },
+    {
+      "phase": "prefill",
+      "module": "sdpa",
+      "name": "aten::where",
+      "calls": 21,
+      "summed_kernel_us": 15180.655
+    },
+    {
+      "phase": "prefill",
+      "module": "moe_experts",
+      "name": "aten::topk",
+      "calls": 56,
+      "summed_kernel_us": 14365.298000000003
+    },
+    {
+      "phase": "decode",
+      "module": "moe_experts",
+      "name": "aten::topk",
+      "calls": 896,
+      "summed_kernel_us": 12361.92799999999
+    },
+    {
+      "phase": "decode",
+      "module": "overwrite_reference_keys",
+      "name": "aten::nonzero",
+      "calls": 3584,
+      "summed_kernel_us": 12122.265000000038
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_swa",
+      "name": "aten::mul",
+      "calls": 84,
+      "summed_kernel_us": 10190.332999999999
+    },
+    {
+      "phase": "decode",
+      "module": "reference_position_rope",
+      "name": "aten::mul",
+      "calls": 2688,
+      "summed_kernel_us": 10024.881000000014
+    },
+    {
+      "phase": "prefill",
+      "module": "moe_experts",
+      "name": "aten::sum",
+      "calls": 56,
+      "summed_kernel_us": 8833.466999999997
+    },
+    {
+      "phase": "prefill",
+      "module": "qkv",
+      "name": "aten::cat",
+      "calls": 28,
+      "summed_kernel_us": 8809.614
+    },
+    {
+      "phase": "prefill",
+      "module": "attention_swa",
+      "name": "aten::mean",
+      "calls": 42,
+      "summed_kernel_us": 8018.598000000003
+    },
+    {
+      "phase": "prefill",
+      "module": "reference_position_rope",
+      "name": "aten::add",
+      "calls": 112,
+      "summed_kernel_us": 7181.122999999995
+    },
+    {
+      "phase": "decode",
+      "module": "output_projection",
+      "name": "aten::mm",
+      "calls": 448,
+      "summed_kernel_us": 7105.597999999975
+    },
+    {
+      "phase": "prefill",
+      "module": "norm_input",
+      "name": "aten::mul",
+      "calls": 56,
+      "summed_kernel_us": 6826.2959999999985
+    },
+    {
+      "phase": "prefill",
+      "module": "norm_post",
+      "name": "aten::mul",
+      "calls": 56,
+      "summed_kernel_us": 6823.257
+    },
+    {
+      "phase": "decode",
+      "module": "reference_position_rope",
+      "name": "aten::cat",
+      "calls": 1344,
+      "summed_kernel_us": 6655.652000000015
+    },
+    {
+      "phase": "decode",
+      "module": "attention_swa",
+      "name": "aten::mul",
+      "calls": 1344,
+      "summed_kernel_us": 6130.237000000015
+    },
+    {
+      "phase": "prefill",
+      "module": "reference_position_rope",
+      "name": "aten::neg",
+      "calls": 112,
+      "summed_kernel_us": 5583.834999999999
+    },
+    {
+      "phase": "decode",
+      "module": "norm_input",
+      "name": "aten::mul",
+      "calls": 896,
+      "summed_kernel_us": 5497.762000000001
+    },
+    {
+      "phase": "decode",
+      "module": "norm_post",
+      "name": "aten::mul",
+      "calls": 896,
+      "summed_kernel_us": 5485.295000000003
+    },
+    {
+      "phase": "decode",
+      "module": "moe_experts",
+      "name": "aten::sum",
+      "calls": 896,
+      "summed_kernel_us": 5358.492000000008
+    }
+  ],
+  "top_kernels": [
+    {
+      "name": "attn_fwd",
+      "calls": 476,
+      "summed_us": 2960743.963000004
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB128_LBSPPM0_LPA4_LPB4_LPM0_LRVW8_LWPMn1_MIAV0_MIWT8_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW8_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA8_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 311,
+      "summed_us": 303805.6899999997
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1})",
+      "calls": 3977,
+      "summed_us": 110410.94500000078
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x192x64_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_3_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+      "calls": 118,
+      "summed_us": 88751.56000000007
+    },
+    {
+      "name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+      "calls": 980,
+      "summed_us": 70240.17699999998
+    },
+    {
+      "name": "void at::native::index_elementwise_kernel<128, 4, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1}>(long, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1})",
+      "calls": 1373,
+      "summed_us": 52325.49100000003
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x256x32_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT8_2_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW8_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA8_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 270,
+      "summed_us": 51678.059999999976
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy<at::native::(anonymous namespace)::OpaqueType<2u>, unsigned int, 3, 64, 64>(at::native::(anonymous namespace)::OpaqueType<2u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<2u>, unsigned int, 64, 64>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
+      "calls": 1008,
+      "summed_us": 36296.51599999991
+    },
+    {
+      "name": "_fused_qk_rope_reshape_and_cache_kernel",
+      "calls": 357,
+      "summed_us": 29403.57699999999
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+      "calls": 1162,
+      "summed_us": 28291.26099999988
+    },
+    {
+      "name": "void at::native::triu_tril_kernel<bool, int, true, 8, false>(at::cuda::detail::TensorInfo<bool, int>, at::cuda::detail::TensorInfo<bool const, int>, long, long, int)",
+      "calls": 21,
+      "summed_us": 27930.563000000002
+    },
+    {
+      "name": "void at::native::triu_tril_kernel<bool, int, false, 8, false>(at::cuda::detail::TensorInfo<bool, int>, at::cuda::detail::TensorInfo<bool const, int>, long, long, int)",
+      "calls": 21,
+      "summed_us": 27525.36
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB128_LBSPPM0_LPA4_LPB4_LPM0_LRVW8_LWPMn1_MIAV0_MIWT8_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW8_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA8_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 123,
+      "summed_us": 25645.48499999999
+    },
+    {
+      "name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::MeanOps<float, float, float, float>, unsigned int, float, 4, 4> >(at::native::ReduceOp<float, at::native::MeanOps<float, float, float, float>, unsigned int, float, 4, 4>)",
+      "calls": 1921,
+      "summed_us": 24436.067000000003
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1})",
+      "calls": 1921,
+      "summed_us": 23831.10300000003
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT224x256x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA128_LBSPPB128_LBSPPM0_LPA4_LPB4_LPM0_LRVW8_LWPMn1_MIAV0_MIWT7_8_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS7_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 38,
+      "summed_us": 23591.599000000002
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x224x32_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA4_GRVWB4_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA4_LPB4_LPM0_LRVW4_LWPMn1_MIAV0_MIWT8_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW8_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA8_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 140,
+      "summed_us": 21891.342000000004
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<8, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul>)",
+      "calls": 1960,
+      "summed_us": 20583.531999999945
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+      "calls": 3405,
+      "summed_us": 19644.051999999825
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+      "calls": 476,
+      "summed_us": 18900.35999999996
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(bool, c10::BFloat16, c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(bool, c10::BFloat16, c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(bool, c10::BFloat16, c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(bool, c10::BFloat16, c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+      "calls": 357,
+      "summed_us": 16971.339000000007
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<float, float>(at::TensorIteratorBase&, float)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<float, float>(at::TensorIteratorBase&, float)::{lambda(float)#1}, std::array<char*, 2ul>)",
+      "calls": 1921,
+      "summed_us": 16336.92100000003
+    },
+    {
+      "name": "Cijk_Alik_Bjlk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT192x16x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB1_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT3_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS6_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+      "calls": 448,
+      "summed_us": 16154.657999999992
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT224x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA128_LBSPPB128_LBSPPM0_LPA4_LPB4_LPM0_LRVW8_LWPMn1_MIAV0_MIWT7_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS7_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+      "calls": 55,
+      "summed_us": 15671.294
+    },
+    {
+      "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x256x32_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+      "calls": 73,
+      "summed_us": 15050.857999999995
+    }
+  ],
+  "top_cpu_operators": [
+    {
+      "name": "aten::to",
+      "calls": 12119,
+      "summed_cpu_event_us": 3775609.09799997,
+      "self_cpu_event_us": 5220.366066406295
+    },
+    {
+      "name": "aten::_to_copy",
+      "calls": 7433,
+      "summed_cpu_event_us": 3770388.729000066,
+      "self_cpu_event_us": 11955.113765625092
+    },
+    {
+      "name": "aten::copy_",
+      "calls": 10678,
+      "summed_cpu_event_us": 3766968.702999999,
+      "self_cpu_event_us": 3766968.702999999
+    },
+    {
+      "name": "aten::_grouped_mm",
+      "calls": 56,
+      "summed_cpu_event_us": 3412199.573,
+      "self_cpu_event_us": 6860.793703125
+    },
+    {
+      "name": "aiter::unified_attention_with_output_base",
+      "calls": 476,
+      "summed_cpu_event_us": 1027602.7939999994,
+      "self_cpu_event_us": 222867.4312070312
+    },
+    {
+      "name": "aten::mm",
+      "calls": 5981,
+      "summed_cpu_event_us": 178962.3429999998,
+      "self_cpu_event_us": 178962.3429999998
+    },
+    {
+      "name": "aten::index",
+      "calls": 3277,
+      "summed_cpu_event_us": 178930.45900000128,
+      "self_cpu_event_us": 45361.53907812497
+    },
+    {
+      "name": "aten::matmul",
+      "calls": 2901,
+      "summed_cpu_event_us": 141181.99000000037,
+      "self_cpu_event_us": 4716.210214843753
+    },
+    {
+      "name": "aten::nonzero",
+      "calls": 952,
+      "summed_cpu_event_us": 123197.86800000007,
+      "self_cpu_event_us": 118340.69270703132
+    },
+    {
+      "name": "aten::linear",
+      "calls": 2397,
+      "summed_cpu_event_us": 120647.4199999999,
+      "self_cpu_event_us": 3625.647539062504
+    },
+    {
+      "name": "aten::bmm",
+      "calls": 1400,
+      "summed_cpu_event_us": 67211.53000000001,
+      "self_cpu_event_us": 67211.53000000001
+    },
+    {
+      "name": "aten::mul",
+      "calls": 7818,
+      "summed_cpu_event_us": 65114.101999999715,
+      "self_cpu_event_us": 65114.101999999715
+    },
+    {
+      "name": "aiter::gemm_a16w16",
+      "calls": 493,
+      "summed_cpu_event_us": 43155.659,
+      "self_cpu_event_us": 9843.267886718739
+    },
+    {
+      "name": "aten::add",
+      "calls": 3881,
+      "summed_cpu_event_us": 37988.73499999984,
+      "self_cpu_event_us": 37988.73499999984
+    },
+    {
+      "name": "aten::scaled_dot_product_attention",
+      "calls": 476,
+      "summed_cpu_event_us": 34195.087000000036,
+      "self_cpu_event_us": 4696.424890625003
+    },
+    {
+      "name": "aten::clone",
+      "calls": 3066,
+      "summed_cpu_event_us": 30691.033999999898,
+      "self_cpu_event_us": 2839.071109374998
+    },
+    {
+      "name": "aten::cat",
+      "calls": 1988,
+      "summed_cpu_event_us": 24195.975999999966,
+      "self_cpu_event_us": 24195.975999999966
+    },
+    {
+      "name": "aten::square",
+      "calls": 1921,
+      "summed_cpu_event_us": 21560.19799999997,
+      "self_cpu_event_us": 1323.3044453125033
+    },
+    {
+      "name": "aten::repeat_interleave",
+      "calls": 1162,
+      "summed_cpu_event_us": 21536.221000000045,
+      "self_cpu_event_us": 3048.9959023437455
+    },
+    {
+      "name": "aten::mean",
+      "calls": 1921,
+      "summed_cpu_event_us": 21396.216000000008,
+      "self_cpu_event_us": 21396.216000000008
+    },
+    {
+      "name": "aten::item",
+      "calls": 4480,
+      "summed_cpu_event_us": 20577.423999999944,
+      "self_cpu_event_us": 1633.6813242187216
+    },
+    {
+      "name": "aten::pow",
+      "calls": 1921,
+      "summed_cpu_event_us": 20236.891000000025,
+      "self_cpu_event_us": 18941.470101562507
+    },
+    {
+      "name": "aten::remainder",
+      "calls": 2072,
+      "summed_cpu_event_us": 19507.27899999997,
+      "self_cpu_event_us": 10490.504585937504
+    },
+    {
+      "name": "aten::as_strided",
+      "calls": 47518,
+      "summed_cpu_event_us": 19225.551000000145,
+      "self_cpu_event_us": 19225.551000000145
+    },
+    {
+      "name": "aten::_local_scalar_dense",
+      "calls": 4480,
+      "summed_cpu_event_us": 18944.088000000003,
+      "self_cpu_event_us": 18944.088000000003
+    }
+  ],
+  "top_self_cpu_operators": [
+    {
+      "name": "aten::copy_",
+      "calls": 10678,
+      "summed_cpu_event_us": 3766968.702999999,
+      "self_cpu_event_us": 3766968.702999999
+    },
+    {
+      "name": "aiter::unified_attention_with_output_base",
+      "calls": 476,
+      "summed_cpu_event_us": 1027602.7939999994,
+      "self_cpu_event_us": 222867.4312070312
+    },
+    {
+      "name": "aten::mm",
+      "calls": 5981,
+      "summed_cpu_event_us": 178962.3429999998,
+      "self_cpu_event_us": 178962.3429999998
+    },
+    {
+      "name": "aten::nonzero",
+      "calls": 952,
+      "summed_cpu_event_us": 123197.86800000007,
+      "self_cpu_event_us": 118340.69270703132
+    },
+    {
+      "name": "aten::bmm",
+      "calls": 1400,
+      "summed_cpu_event_us": 67211.53000000001,
+      "self_cpu_event_us": 67211.53000000001
+    },
+    {
+      "name": "aten::mul",
+      "calls": 7818,
+      "summed_cpu_event_us": 65114.101999999715,
+      "self_cpu_event_us": 65114.101999999715
+    },
+    {
+      "name": "aten::index",
+      "calls": 3277,
+      "summed_cpu_event_us": 178930.45900000128,
+      "self_cpu_event_us": 45361.53907812497
+    },
+    {
+      "name": "aten::add",
+      "calls": 3881,
+      "summed_cpu_event_us": 37988.73499999984,
+      "self_cpu_event_us": 37988.73499999984
+    },
+    {
+      "name": "aten::cat",
+      "calls": 1988,
+      "summed_cpu_event_us": 24195.975999999966,
+      "self_cpu_event_us": 24195.975999999966
+    },
+    {
+      "name": "aten::mean",
+      "calls": 1921,
+      "summed_cpu_event_us": 21396.216000000008,
+      "self_cpu_event_us": 21396.216000000008
+    },
+    {
+      "name": "aten::as_strided",
+      "calls": 47518,
+      "summed_cpu_event_us": 19225.551000000145,
+      "self_cpu_event_us": 19225.551000000145
+    },
+    {
+      "name": "aten::_local_scalar_dense",
+      "calls": 4480,
+      "summed_cpu_event_us": 18944.088000000003,
+      "self_cpu_event_us": 18944.088000000003
+    },
+    {
+      "name": "aten::pow",
+      "calls": 1921,
+      "summed_cpu_event_us": 20236.891000000025,
+      "self_cpu_event_us": 18941.470101562507
+    },
+    {
+      "name": "aten::empty_strided",
+      "calls": 9484,
+      "summed_cpu_event_us": 17769.985000000113,
+      "self_cpu_event_us": 17769.985000000113
+    },
+    {
+      "name": "aten::rsqrt",
+      "calls": 1921,
+      "summed_cpu_event_us": 14117.842000000013,
+      "self_cpu_event_us": 14117.842000000013
+    },
+    {
+      "name": "aten::sum",
+      "calls": 952,
+      "summed_cpu_event_us": 12355.215000000018,
+      "self_cpu_event_us": 12249.298984375017
+    },
+    {
+      "name": "aten::_to_copy",
+      "calls": 7433,
+      "summed_cpu_event_us": 3770388.729000066,
+      "self_cpu_event_us": 11955.113765625092
+    },
+    {
+      "name": "aten::empty",
+      "calls": 6975,
+      "summed_cpu_event_us": 11276.509000000007,
+      "self_cpu_event_us": 11276.509000000007
+    },
+    {
+      "name": "aten::remainder",
+      "calls": 2072,
+      "summed_cpu_event_us": 19507.27899999997,
+      "self_cpu_event_us": 10490.504585937504
+    },
+    {
+      "name": "aiter::gemm_a16w16",
+      "calls": 493,
+      "summed_cpu_event_us": 43155.659,
+      "self_cpu_event_us": 9843.267886718739
+    },
+    {
+      "name": "aten::floor_divide",
+      "calls": 1064,
+      "summed_cpu_event_us": 11911.657999999987,
+      "self_cpu_event_us": 9830.028117187496
+    },
+    {
+      "name": "aten::topk",
+      "calls": 476,
+      "summed_cpu_event_us": 8811.01,
+      "self_cpu_event_us": 8811.01
+    },
+    {
+      "name": "aiter::reshape_and_cache",
+      "calls": 119,
+      "summed_cpu_event_us": 8755.259000000004,
+      "self_cpu_event_us": 8755.259000000004
+    },
+    {
+      "name": "aten::ge",
+      "calls": 476,
+      "summed_cpu_event_us": 8499.470999999992,
+      "self_cpu_event_us": 8499.470999999992
+    },
+    {
+      "name": "aten::fill_",
+      "calls": 1106,
+      "summed_cpu_event_us": 8478.081999999993,
+      "self_cpu_event_us": 8478.081999999993
+    }
+  ],
+  "interpretation": [
+    "GPU attribution uses external-id/correlation to CPU launch ranges, not GPU timestamp containment.",
+    "Inclusive module totals overlap; kernel sums can overlap across streams and are not wall time.",
+    "CPU self duration subtracts nested CPU-op ranges but can still include waits; CPU and GPU time are not additive. Kernel gaps alone do not prove CPU bottlenecks.",
+    "Unmatched correlations remain unattributed; low coverage requires inspecting the actual trace schema.",
+    "These traces are diagnostics, not official A/B/C scores."
+  ]
+}

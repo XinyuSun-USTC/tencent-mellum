@@ -1,0 +1,1192 @@
+{
+  "status": "abort_interleaving_passed",
+  "mode": "role",
+  "command": [
+    "/opt/venv/bin/python",
+    "/workspace/tencent-mellum-disconnect-abort/scripts/serve_mellum.py",
+    "--gpu",
+    "1",
+    "--batching",
+    "--profile",
+    "r_abort",
+    "--max-num-seqs",
+    "32",
+    "--max-model-len",
+    "16640",
+    "--max-batched-tokens",
+    "16640",
+    "--phase-audit",
+    "--server-port",
+    "20851",
+    "--engine-port",
+    "16026",
+    "--output",
+    "/workspace/results/mellum_abort_interleaving/20261116T225108838069Z/role/server"
+  ],
+  "control": {
+    "request_id": "chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf",
+    "text": "\nWe need to parse the problem. The user gave a huge block of text that appears to be some kind of error class error code list string value error error input response value python result response model class test python list class class code response class python python class code python input result list class model list class input input error test error return function string input python error service python service python data data string request data python response input request test function code python code error data value list model model request response error function list input python error model class list return request input model result result result input model python function class class python input response data model error function",
+    "usage": {
+      "prompt_tokens": 7889,
+      "completion_tokens": 128,
+      "total_tokens": 8017
+    },
+    "done": true,
+    "frames": [
+      {
+        "time_ns": 1781389368489045,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869493, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"role\": \"assistant\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392133330156,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"\\n\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392187305348,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"We\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392241837916,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" need\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392296445698,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" to\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392350652198,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" parse\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392404811522,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" the\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392459295655,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" problem\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392513994668,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \".\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392567805366,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" The\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392622327166,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" user\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392677024539,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" gave\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392731250547,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" \"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392785297152,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"a\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392839867867,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" huge\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392890646973,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869496, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" block\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392941267914,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" of\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781392991810043,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" text\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393042526895,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" that\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393093347357,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" appears\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393144255131,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" to\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393194636655,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" be\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393245570106,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" some\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393295963729,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" kind\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393346415936,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" of\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393396983092,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393447546639,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393498761234,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393549273586,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" code\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393599923255,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393650429208,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" string\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393701083676,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" value\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393752136227,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393802595224,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393853350923,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869497, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393903734207,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781393954375407,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" value\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394004926986,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394055499512,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" result\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394106173389,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394156784571,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394207252898,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394257767849,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" test\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394308239365,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394358791204,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394409197306,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394459683250,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394510094442,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" code\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394560640021,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394611118766,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394661826590,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394712233142,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394762900459,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394813503313,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" code\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394864099447,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869498, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394914430636,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781394964876825,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" result\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395015446211,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395065874921,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395116437589,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395167018934,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395217488270,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395267880594,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395318342871,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395368820486,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395419559667,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" test\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395469998446,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395520481401,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" return\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395571271736,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" function\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395621805426,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" string\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395672303200,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395722766536,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395773300386,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395823761193,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" service\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395874160196,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869499, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395924738452,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" service\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781395976061987,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396026640143,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" data\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396077289452,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" data\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396128794669,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" string\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396179453468,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" request\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396230634006,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" data\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396280946397,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396331339481,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396381669740,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396431899609,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" request\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396482391643,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" test\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396532739521,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" function\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396583153352,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" code\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396633699671,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396684183996,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" code\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396734571120,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396784848764,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" data\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396835243147,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" value\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396885571197,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869500, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396936002857,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781396986249034,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397036662986,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" request\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397087161009,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397137554393,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397187912649,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" function\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397238218511,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397288736263,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397339316768,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397389542118,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397439792835,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397490090367,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397540420287,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397590853206,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" return\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397641189765,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" request\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397691671410,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397741920457,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397792348117,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" result\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397842666358,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" result\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397893024365,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869501, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" result\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397943454765,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781397993741808,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398044136191,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398094639864,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" function\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398145142517,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398196008856,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398246479252,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398297239990,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398348201939,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398399051839,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" data\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398450049015,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398501043841,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398553056371,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" function\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398553311976,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {}, \"finish_reason\": \"stop\", \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781398553325655,
+        "payload": "{\"id\": \"chatcmpl-1933b71a4d7241799cb04bfe88ed3bbf\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"usage\": {\"prompt_tokens\": 7889, \"completion_tokens\": 128, \"total_tokens\": 8017}}"
+      },
+      {
+        "time_ns": 1781398553339314,
+        "payload": "[DONE]"
+      }
+    ]
+  },
+  "survivor": {
+    "request_id": "chatcmpl-4409df718d5c43c49c2a65c7c98c6313",
+    "text": "\nWe need to parse the problem. The user gave a huge block of text that appears to be some kind of error class error code list string value error error input response value python result response model class test python list class class code response class python python class code python input result list class model list class input input error test error return function string input python error service python service python data data string request data python response input request test function code python code error data value list model model request response error function list input python error model class list return request input model result result result input model python function class class python input response data model error function",
+    "usage": {
+      "prompt_tokens": 7889,
+      "completion_tokens": 128,
+      "total_tokens": 8017
+    },
+    "done": true,
+    "frames": [
+      {
+        "time_ns": 1781398585751969,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869502, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"role\": \"assistant\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781399803439476,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869503, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"\\n\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781399857631017,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869503, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"We\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402346828710,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869506, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" need\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402452661597,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869506, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" to\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402503526215,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869506, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" parse\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402554360447,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869506, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" the\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402605184749,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869506, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" problem\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402656153188,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869506, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \".\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402707189980,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869506, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" The\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402758004923,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869506, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" user\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402808813357,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869506, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" gave\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402859730690,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869506, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" \"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402910765703,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"a\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781402961592245,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" huge\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403012675173,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" block\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403063812605,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" of\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403114873385,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" text\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403165775170,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" that\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403216949919,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" appears\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403267794610,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" to\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403318450468,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" be\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403369262442,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" some\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403419736117,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" kind\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403470052568,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" of\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403520746583,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403571634149,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403622443433,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403673325470,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" code\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403724107826,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403775018941,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" string\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403825780129,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" value\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403876604591,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869507, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403927468400,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781403978304951,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404029178189,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404079957465,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" value\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404130911846,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404181856676,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" result\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404232817166,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404283447667,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404334465601,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404385529680,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" test\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404436546024,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404487121300,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404538011157,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404588953338,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404639662941,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" code\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404690468915,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404741354772,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404791796560,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404842261627,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404892773049,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869508, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404943153794,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" code\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781404993494002,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405044614906,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405095024738,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" result\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405145364297,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405195788857,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405246112367,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405296429328,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405346725581,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405396946140,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405447240423,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405497657044,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405548034829,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" test\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405598783899,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405649264064,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" return\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405700203216,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" function\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405750585240,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" string\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405800876263,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405851275546,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869509, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405901661840,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781405952118577,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" service\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406002448697,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406052761178,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" service\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406103168350,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406153456704,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" data\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406203731928,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" data\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406253973466,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" string\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406304357840,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" request\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406354739965,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" data\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406404971144,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406455413382,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406505740812,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406555968901,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" request\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406606345466,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" test\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406656956819,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" function\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406707443063,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" code\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406758856170,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406811345384,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" code\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406864006741,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869510, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406916378516,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" data\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781406968269007,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" value\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407020389566,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407072797448,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407125172463,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407177037736,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" request\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407229254636,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407281348267,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407333636470,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" function\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407385545960,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407437640741,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407489850921,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407541741112,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407593887629,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407646166173,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407698212039,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" list\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407750088331,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" return\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407802353136,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" request\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407854431560,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869511, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407906903775,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781407958942192,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" result\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408011123845,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" result\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408063674213,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" result\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408116143159,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408168046079,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408220244470,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408272404996,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" function\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408324541643,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408376543513,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" class\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408428752474,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" python\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408480964814,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" input\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408532802400,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" response\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408585132559,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" data\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408637408433,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" model\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408689738892,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" error\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408741866331,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" function\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408741915346,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {}, \"finish_reason\": \"stop\", \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408741926095,
+        "payload": "{\"id\": \"chatcmpl-4409df718d5c43c49c2a65c7c98c6313\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"usage\": {\"prompt_tokens\": 7889, \"completion_tokens\": 128, \"total_tokens\": 8017}}"
+      },
+      {
+        "time_ns": 1781408742157873,
+        "payload": "[DONE]"
+      }
+    ]
+  },
+  "survivor_text_equals_solo": true,
+  "recovery": {
+    "request_id": "chatcmpl-5c47195f2e574f00bf2038e7a097e2f9",
+    "text": "\nWe need to respond with ",
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 8,
+      "total_tokens": 32
+    },
+    "done": true,
+    "frames": [
+      {
+        "time_ns": 1781408744495131,
+        "payload": "{\"id\": \"chatcmpl-5c47195f2e574f00bf2038e7a097e2f9\", \"object\": \"chat.completion.chunk\", \"created\": 1794869512, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"role\": \"assistant\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781408959221482,
+        "payload": "{\"id\": \"chatcmpl-5c47195f2e574f00bf2038e7a097e2f9\", \"object\": \"chat.completion.chunk\", \"created\": 1794869513, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"\\n\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781409009743553,
+        "payload": "{\"id\": \"chatcmpl-5c47195f2e574f00bf2038e7a097e2f9\", \"object\": \"chat.completion.chunk\", \"created\": 1794869513, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \"We\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781409060350266,
+        "payload": "{\"id\": \"chatcmpl-5c47195f2e574f00bf2038e7a097e2f9\", \"object\": \"chat.completion.chunk\", \"created\": 1794869513, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" need\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781409110737411,
+        "payload": "{\"id\": \"chatcmpl-5c47195f2e574f00bf2038e7a097e2f9\", \"object\": \"chat.completion.chunk\", \"created\": 1794869513, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" to\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781409161506258,
+        "payload": "{\"id\": \"chatcmpl-5c47195f2e574f00bf2038e7a097e2f9\", \"object\": \"chat.completion.chunk\", \"created\": 1794869513, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" respond\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781409211958966,
+        "payload": "{\"id\": \"chatcmpl-5c47195f2e574f00bf2038e7a097e2f9\", \"object\": \"chat.completion.chunk\", \"created\": 1794869513, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" with\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781409263074881,
+        "payload": "{\"id\": \"chatcmpl-5c47195f2e574f00bf2038e7a097e2f9\", \"object\": \"chat.completion.chunk\", \"created\": 1794869513, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"reasoning_content\": \" \"}, \"finish_reason\": null, \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781409263110777,
+        "payload": "{\"id\": \"chatcmpl-5c47195f2e574f00bf2038e7a097e2f9\", \"object\": \"chat.completion.chunk\", \"created\": 1794869513, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {}, \"finish_reason\": \"stop\", \"logprobs\": null}]}"
+      },
+      {
+        "time_ns": 1781409263119926,
+        "payload": "{\"id\": \"chatcmpl-5c47195f2e574f00bf2038e7a097e2f9\", \"object\": \"chat.completion.chunk\", \"created\": 1794869513, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"usage\": {\"prompt_tokens\": 24, \"completion_tokens\": 8, \"total_tokens\": 32}}"
+      },
+      {
+        "time_ns": 1781409263130685,
+        "payload": "[DONE]"
+      }
+    ]
+  },
+  "lifetime": {
+    "abort_receipts": [
+      {
+        "kind": "abort",
+        "time_ns": 1781402349924656,
+        "requested": [
+          2
+        ],
+        "removed": [
+          2
+        ],
+        "barrier_used": true,
+        "kv_free_before": 37220,
+        "kv_free_after": 38007,
+        "waiting": 0,
+        "running": 1
+      }
+    ],
+    "close_to_removal_seconds": 2.492522917,
+    "post_abort_survivor_steps": 125,
+    "post_abort_canceled_steps": 0,
+    "scope": "Actual survivor and pool-reuse smoke; no full C capacity or model-accuracy claim"
+  },
+  "final_waiting_running": [
+    0,
+    0
+  ],
+  "cancel_id": 2,
+  "survivor_id": 1,
+  "close_ns": 1781399857401739,
+  "canceled_frames": [
+    {
+      "time_ns": 1781399857376692,
+      "payload": "{\"id\": \"chatcmpl-482049ee8b144e26905f21fae9ceaf49\", \"object\": \"chat.completion.chunk\", \"created\": 1794869503, \"model\": \"/data/models/Mellum2.1-12B-A2.5B-Thinking\", \"choices\": [{\"index\": 0, \"delta\": {\"role\": \"assistant\"}, \"finish_reason\": null, \"logprobs\": null}]}"
+    }
+  ],
+  "source_unchanged": true
+}

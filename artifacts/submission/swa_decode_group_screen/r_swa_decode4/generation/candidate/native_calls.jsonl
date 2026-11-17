@@ -1,0 +1,5 @@
+{"kind": "kv_write", "phase": "prefill", "rows": 3987, "requests": 32, "backend": "aiter_reference_kv_once", "cache_format": "NHD", "resident_inverse": false, "inverse_device": "cpu", "rope_backend": "torch"}
+{"kind": "kv_write", "phase": "decode", "rows": 32, "requests": 32, "backend": "aiter_reference_kv_once", "cache_format": "NHD", "resident_inverse": false, "inverse_device": "cpu", "rope_backend": "torch"}
+{"kind": "swa_decode_groups", "phase": "decode", "rows": 32, "requests": 32, "backend": "torch_sdpa_grouped_swa", "group_size": 4, "group_calls": 6, "window": 1024}
+{"kind": "swa_decode_groups", "phase": "decode", "rows": 8, "requests": 8, "backend": "torch_sdpa_grouped_swa", "group_size": 4, "group_calls": 1, "window": 1024}
+{"kind": "swa_decode_groups", "phase": "decode", "rows": 4, "requests": 4, "backend": "torch_sdpa_grouped_swa", "group_size": 4, "group_calls": 1, "window": 1024}
