@@ -67,6 +67,14 @@ def run(mode,gpu,out,timeout):
             try:os.killpg(proc.pid,signal.SIGKILL)
             except ProcessLookupError:pass
             if proc.poll() is None:proc.wait(timeout=5)
+            released=False;deadline=time.monotonic()+10
+            while time.monotonic()<deadline:
+                with socket.socket() as check:
+                    check.settimeout(.2)
+                    if check.connect_ex(('127.0.0.1',port))!=0:released=True;break
+                time.sleep(.1)
+            result['http_port_released']=released
+            if not released:result.update(status='failed',cleanup_error='Owned HTTP port remains bound after process-group cleanup')
         (out/'result.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
 
