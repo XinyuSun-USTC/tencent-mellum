@@ -2,117 +2,94 @@
 
 作者：XinyuSun-USTC
 
-本文按2026年11月10日至16日的自然日对应D1—D7，记录任务推进、主要证据、阻碍及技术决策；11月17日的工作单独列为补充记录，不并入前七日。日期依据既有研究记录、实验目录的UTC运行编号及Git历史归纳，不据此推算每日工时。跨日实验按实现与结果分别记录，后续结论不倒写为当日已知事实。
+本日志按2026年11月10日至17日记录项目进展，对应DAY0—DAY7。内容涵盖模型适配、正确性验证、性能分析、优化取舍及交付整理。相关源码、实验结果和提交历史保留于仓库，各日条目附主要证据入口。
 
-本文为交付用逐日记录，原始实验细节保留于 `report/research/`、`report/validation/` 和 `report/performance/`。Git保留原有提交及探索分支，不通过squash重写过程；早期集中纳入版本管理的修改，也不追溯补造为逐日开发提交。
+## DAY0｜2026年11月10日：需求分析与架构研究
 
-## D1｜11月10日：题意分析、源码研究与参考方案确定
+阅读研究指南和题目说明，梳理模型适配、优化目标、正确性门槛及ABC场景的负载特征。以只读源码分析为起点，检查ATOM配置解析、模型注册、权重加载、调度、注意力和专家计算的调用关系，并核对Mellum配置及checkpoint布局。整理容器内的模型、数据集与冻结依赖，明确后续开发范围。
 
-**目标与工作。** 完整阅读研究指南及题目说明，区分Step0模型适配、Step1优化、正确性门槛和ABC性能场景。以只读分析为起点，检查ATOM的配置解析、模型注册、权重加载、调度、注意力和MoE调用链，并核对目标模型的配置与checkpoint布局。整理冻结环境、模型及数据资产，确认后续适配必须在题给推理依赖上开展。
+参考环境是当日的主要问题。容器内Transformers不能直接提供所需的Mellum参考实现，现有结果文件也不足以支持完整验证。决定保持ATOM推理环境不变，单独建立新版HF参考环境；适配代码与测试工具同步开发。目标是尽快得到自己的正确实现，并为后续优化保留扩展性。
 
-**主要问题。** 容器内Transformers版本不能直接提供所需的原生Mellum参考路径；已有数据及结果文件也不足以构成可直接复用的完整正确性评测流程。仅有checkpoint能够加载，不能证明网络计算、tokenizer模板和生成行为正确。
+完成架构与环境研究后，准备模型支持探针、参考环境安装及输入协议检查，作为首次真实权重推理的前置条件。
 
-**决策。** 首先实现自己的最小正确适配，不以复刻出题方baseline源码为目标。推理环境保持冻结，独立新版HF环境仅作为正确性参考。适配开发与验证脚本同步推进，避免功能完成后再临时补建测试。文档按研究主题组织，逐日记录统一保留在工作日志中。
+相关记录：[模型研究](report/research/03_mellum_model.md)、[正确性参考调查](report/research/04_correctness_reference.md)、[HF环境验证](report/validation/01_hf_reference_environment.md)。
 
-**当日状态与后续。** 完成架构与环境研究，准备参考环境安装和支持探针。该日不宣称已完成真实checkpoint的GPU推理或Step0验收。下一步优先验证HF参考可运行，再接入ATOM模型。
+## DAY1｜2026年11月11日：建立参考并打通首次推理
 
-证据：[模型研究](report/research/03_mellum_model.md)、[正确性参考调查](report/research/04_correctness_reference.md)、[HF环境验证记录](report/validation/01_hf_reference_environment.md)。
+在独立环境中安装Transformers 5.10.1，完成Mellum配置导入、真实BF16权重加载与GPU生成。实现ATOM侧配置、注册、网络和权重映射，增加加载审计，覆盖5631个源张量。首次两条提示各生成16个token，与HF参考一致，打通了从checkpoint到输出的基本链路。
 
-## D2｜11月11日：建立HF参考并完成首次ATOM推理
+扩展至64个token后出现生成分叉，因此建立同前缀、逐层边界和固定输入重放工具，分别检查RMSNorm、路由、专家、RoPE和注意力。在专家输入与路由logits相同的条件下，输出仍存在差异。进一步对照HF官方后端，确认分组矩阵乘法与eager实现的计算路径不同；调整后的专家重放达到一致，端到端验证则继续推进。
 
-**目标与工作。** 独立参考环境安装Transformers 5.10.1，在共享冻结Torch的条件下确认Mellum配置、模型导入和真实BF16 GPU生成。实现ATOM侧模型配置、注册、网络与权重映射，增加加载完整性审计，核对5631个源张量。首次ATOM两条提示、各16token生成与HF一致，形成从checkpoint到推理输出的基本闭环。
+根据这些结果，采用固定输入逐项定位，避免将自回归历史变化与当前算子误差混在一起。同步修复set序列化、导入路径及接口版本差异等工具问题，使后续实验能够持续保存结果。
 
-**主要问题。** 测试扩展至64token及更多输入后出现生成分叉，说明短输出通过不足以证明完整适配正确。同前缀重放进一步显示，在MoE输入与router logits相同的情况下，专家输出仍可能不同，不能简单归因为输入历史或路由选择。
+相关记录：[模型接入](report/validation/05_atom_mellum_model_wiring.md)、[RMSNorm定位](report/validation/09_mellum_rmsnorm_rounding_fix.md)、[专家后端确认](report/validation/17_official_backend_confirmed_and_step0_torch_moe.md)。代表运行：`20261111T085551407745Z`、`20261111T170208537720Z`。
 
-**定位与处理。** 建立相同前缀、逐层边界和固定HF输入重放工具，分别检查RMSNorm舍入、专家激活与归约、RoPE及注意力路径。官方HF专家后端对照表明，实际使用的grouped_mm路径与eager实现存在数值差异；调整后的专家重放达到精确一致，但端到端生成尚未闭环。同步修复加载结果中set无法JSON序列化、诊断脚本导入路径和接口版本差异等工具问题。
+## DAY2｜2026年11月12日：对齐参考生成路径
 
-**决策与后续。** 将诊断范围收缩至已定位边界，以固定输入排除自回归历史放大，逐项核验计算路径；不因部分短测试通过而宣布Step0完成。下一步检查投影打包、旋转系数与prefill/decode差异。GPU任务通过用户终端运行，工具侧无法访问设备的限制与模型运行失败分别记录。
+对比独立与打包QKV投影，核验RoPE逆频率初始化、旋转和舍入行为，并检查滑窗边界的显式mask及KV展开。保留ATOM分页缓存管理，增加固定历史下的decode测试，区分prefill结果、缓存读写与新增token计算对输出的影响。
 
-证据：[模型接线验证](report/validation/05_atom_mellum_model_wiring.md)、[RMSNorm定位](report/validation/09_mellum_rmsnorm_rounding_fix.md)、[官方专家后端确认](report/validation/17_official_backend_confirmed_and_step0_torch_moe.md)。代表运行：HF `20261111T044314965290Z`、ATOM首次短生成 `20261111T085551407745Z`、专家精确重放 `20261111T170208537720Z`。
+定位过程中发现，投影形状、RoPE初始化以及HF生成阶段的专家执行方式均会影响数值路径。对齐这些因素后，继续处理并列最大logits的greedy选择差异，修正采样分流。十例普通生成共640个token及相应logits达到一致，形成参考生成闭环。
 
-## D3｜11月12日：完成参考生成路径的系统性对齐
+同时完善实验运行器的心跳、进程死亡检测、阶段超时和清理机制，处理异步末尾额外forward及可变元数据采集问题。随后扩展长prefill与SWA因果带状mask，为边界和长上下文验证做准备。局部精确比较作为定位方法，最终判断回到自然生成结果。
 
-**目标与工作。** 在固定输入条件下对照独立与打包QKV投影，核验RoPE逆频率的初始化来源、旋转与舍入行为，并检查滑窗边界的显式mask和KV展开。保留ATOM实际分页KV管理，建立同一历史下的强制decode测试，以区分prefill误差、缓存读写和新增token计算的影响。
+相关记录：[prefill与decode基线](report/validation/26_prefill_passed_and_forced_decode_baseline.md)、[router投影定位](report/validation/33_router_projection_root_and_candidate.md)、[普通生成闭环](report/validation/34_cached_decode_exact_and_normal_generation.md)、[greedy分流](report/validation/35_greedy_tie_break_and_sampling_dispatch.md)。代表运行：`20261112T213129468143Z`。
 
-**主要发现。** 投影计算形状能够影响输出；参考RoPE初始化及窗口mask也需与HF实际执行路径一致。prefill达到精确后，decode仍存在局部差异，需要继续沿层边界排查。对HF普通生成的同实例诊断还发现，生成阶段的专家执行后端与独立forward不完全相同。之后出现的并列最大logits选择差异，则需从采样分流处理，而不能继续归因为模型权重或注意力错误。
+## DAY3｜2026年11月13日：扩大验证并建立性能研究流程
 
-**处理与验证。** 逐步对齐参考投影、RoPE、SDPA、router及HF生成专家行为，并修正无过滤greedy路径的分流。固定历史decode达到精确一致；短生成闭环后，十例普通生成共640个token及对应logits一致。为防止诊断过程本身产生误导，补充进程心跳、死亡检测、阶段超时及清理，并处理异步末尾额外forward与可变元数据采集问题。
+完成1023、1024、1025输入的滑窗边界检查，并扩展到8191、8192、8193、16384输入。四条长输入各生成64个token，共256个位置及logits一致。固定164条HumanEval提示和36条场景A提示构成开发集，初始单请求适配版本在200条各64个token的对照中达到12800/12800位置一致，加载审计通过。
 
-**决策与后续。** 将“局部精确”明确限定为定位工具，不以其替代端到端验证。当天已有短组闭环，随后扩展长prefill和SWA因果带状mask；新增长输入能力的GPU验收留待次日，不将实现完成等同于测试通过。
+据此完成适配阶段总结，并将生成一致性与完整代码功能评分分开处理。前64个token可能仍包含思考过程，后续需使用HumanEval完整生成与执行评估。停止将中间张量及完整logits逐位一致作为所有优化的额外目标，把时间转向性能分析。
 
-证据：[prefill与强制decode基线](report/validation/26_prefill_passed_and_forced_decode_baseline.md)、[router投影定位](report/validation/33_router_projection_root_and_candidate.md)、[普通生成闭环](report/validation/34_cached_decode_exact_and_normal_generation.md)、[greedy分流修复](report/validation/35_greedy_tie_break_and_sampling_dispatch.md)。代表运行：`20261112T164434545261Z`、`20261112T193650834240Z`、`20261112T213129468143Z`。
+整理源码、脚本、环境及输入指纹，完成个人仓库认证、代码迁移与首次推送，保存上游历史、轻量证据和原始结果清单。初始适配版本通过 `step0-local-validated` 标签保留。
 
-## D4｜11月13日：扩大Step0验证，建立版本与性能基线
+开发torch profiler采集与扩展测量工具，开展1K至16K输入的单请求研究。结果显示，短输入专家执行占比较高，16K prefill则主要受SDPA影响。因此，后续优先研究专家执行粒度、注意力及重复缓存处理，并补齐多请求服务能力。
 
-**目标与工作。** 先完成1023/1024/1025的滑窗边界测试，再扩展至8191/8192/8193/16384输入。长输入四例各64token，共256个token及logits一致；随后固定164条HumanEval提示和36条场景A提示，完成200条各64token的开发集对照，12800/12800位置及完整logits一致，加载审计通过。
+相关记录：[长输入验证](report/validation/37_step0_long_prefill_extension.md)、[开发集验证](report/validation/38_step0_developer_200_agreement.md)、[适配总结](report/validation/39_step0_summary.md)、[扩展profiling](report/performance/02_expanded_bs1_profile_study.md)。代表运行：`20261113T104458011376Z`、`20261113T190525160560Z`。
 
-**验收判断。** 这些结果支持Step0适配和本地生成一致性成立，但64token可能仍为思考内容，不能直接替代完整HumanEval代码执行评分。核对题目后，不再把逐层或完整logits精确作为后续优化的额外硬门槛；公开集身份及功能评分口径继续单独记录。
+## DAY4｜2026年11月14日：窗口注意力探索与服务能力建设
 
-**工程整理。** 整理阶段报告、脚本、环境与输入指纹。协助完成个人仓库认证及首次推送，将ATOM源码、项目脚本与轻量证据纳入总仓库，保留上游历史和原始结果清单；历史Step0标签用于保存已验证基线，而非后续默认入口。早期未逐次提交的修改以真实快照纳入，不补造开发历史。
+根据长输入SDPA开销，接入AITER CK窗口prefill，完成微基准、真实Q/K/V重放及端到端ABBA实验。在16K输入、64token输出的离线负载中，TTFT约由3996ms降至1426ms，但较长生成发生分叉。随后测试Triton替代实现，局部误差有所降低，实际激活32条提示的一致率仍仅61.62%，因此暂停继续扩大该路线的配置搜索。
 
-**性能研究与决策。** 开发torch profiler采集及扩展实验工具，先观察单请求1K—16K负载，再确定优化方向。参考profile显示短输入专家执行较重，而16K prefill主要受SDPA影响。决定以MoE执行粒度、注意力和重复数据处理为主要候选，并同步考虑从单请求到服务批处理的能力缺口。
+为更完整地评价候选，引入官方HumanEval固定版本套件，开发代码提取、功能评分、自检与HF配对评估。明确token一致性与代码功能评分分别报告，局部算子误差和功能得分均不能单独解释全部生成行为。
 
-证据：[长输入验证](report/validation/37_step0_long_prefill_extension.md)、[200条一致性](report/validation/38_step0_developer_200_agreement.md)、[Step0总结](report/validation/39_step0_summary.md)、[初始profile](report/performance/01_bs1_profile_baseline.md)、[扩展profile](report/performance/02_expanded_bs1_profile_study.md)。代表运行：`20261113T103154043872Z`、`20261113T104458011376Z`、`20261113T190525160560Z`；历史标签：`step0-local-validated`。
+实现ragged参考注意力桥接，增加多请求生成、HTTP非流式与流式响应、并发服务检查，并修复已完成请求的前端状态清理。工作重点由单请求算子比较转向真实批处理能力，为后续A并发及C持续到达测试建立基础。
 
-## D5｜11月14日：窗口注意力优化与功能评估体系建设
+相关记录：[SWA配对测量](report/performance/04_swa_prefill_abba.md)、[真实QKV诊断](report/performance/06_swa_real_qkv_diagnosis.md)、[Triton生成检查](report/performance/09_triton_activation32.md)、[批处理与HTTP](report/performance/10_batch_and_http_smoke.md)。代表提交：`142a929`、`3e48282`。
 
-**目标与工作。** 根据长输入SDPA占比较高的证据，首先实现并评估AITER CK窗口prefill路径，开展微基准、同输入重放及端到端ABBA对照。窗口和长组短生成通过后，继续扩展生成长度和提示覆盖，避免仅凭短smoke判断候选可用。
+## DAY5｜2026年11月15日：专家优化、上游调研与完整服务测量
 
-**结果与阻碍。** CK候选在16K输入、64输出的离线实验中，将TTFT约由3996ms降至1426ms，但长生成出现分叉。实际Q/K/V重放表明，不同注意力实现即使输入相同也存在输出差异。随后筛查Triton候选，仍未形成可直接纳入最终正确组合的完整证据。由此确认：局部提速与局部误差大小都不能直接推导最终生成或功能指标。
+建立可批量执行的实验流程，检查逐请求投影、共享路由及专家执行策略。索引式专家GEMV获得约4.892倍局部加速，但完整开发集前64token位置一致率仅78.23%，停止该版本晋级。prefill逐元素合并保持了对照输出，短、长输入配对测量却没有实质收益，也未继续投入。
 
-**评价方法调整。** 在保留题目逐token一致率门槛的同时，引入官方HumanEval固定版本套件，开发代码提取、执行评分、自检和HF配对评估，区分生成一致性与功能正确性。当天进行的配对试验不写成后续完整164题验收结果，也不将功能评分通过视为免除逐token检查。
+调研ATOM中其他模型及上游ATOM、vLLM等实现，扩展原生专家、分页注意力、融合和缓存候选。原生路径有性能潜力，但生成一致率不足。通过固定输入重复、排序对照和prefill/decode拆分，进一步检查专家归并与注意力路径，而非仅凭一次端到端失败作判断。
 
-**服务能力建设。** 实现ragged参考注意力桥接，扩展多请求生成、HTTP非流式/流式响应和并发smoke，修复完成请求的前端状态清理。批处理改变算子形状，后续必须验证其对数值及服务容量的影响。
+建立独立EvalScope客户端，核对ABC命令、输入格式、流式参数和token计数。首次完整参考服务测量中A、B完成，C出现大量超时，说明单请求计算正确与持续服务容量是两个不同问题。两张卡分别承担独立实验，提高候选筛选效率。
 
-**决策与后续。** 保留CK/Triton的性能与失败证据，不直接升级默认方案；将下一阶段重点转向批处理兼容性、专家执行及完整服务评测。
+完整HumanEval采用关闭thinking、最多2048token的协议。候选结果完成后，单独恢复受工具问题影响的HF参考，避免重复生成。功能评分表明部分token分叉并不导致功能得分下降，但逐token门槛仍需独立核验。决定结合两类正确性结果筛选候选，并将C的持续容量纳入优化优先级。
 
-证据：[SWA ABBA](report/performance/04_swa_prefill_abba.md)、[HF三方对照](report/performance/05_swa_hf_triangulation.md)、[真实QKV诊断](report/performance/06_swa_real_qkv_diagnosis.md)、[评估试验](report/performance/07_representative_correctness.md)、[批处理与HTTP](report/performance/10_batch_and_http_smoke.md)。代表提交：`142a929`、`3e48282`。
+相关记录：[索引专家复核](report/performance/15_indexed_decode_d200.md)、[评测客户端](report/performance/16_abc_protocol_and_client.md)、[参考ABC](report/performance/17_r_abc_baseline.md)、[原生阶段诊断](report/performance/20_native_phase_diagnostics.md)、[完整HumanEval](report/performance/22_fused_moe_humaneval.md)。代表提交：`f52d196`、`64362b7`、`7d6a4ce`。
 
-## D6｜11月15日：批量实验、上游调研与ABC服务评测
+## DAY6｜2026年11月16日：优化路线筛选与场景C专项分析
 
-**目标与工作。** 将逐项手工运行扩展为有预算、可批量采集和分析的实验流程，检查批处理投影、共享routing及专家执行策略。索引式专家GEMV获得约4.892倍局部加速，但扩展至200条前64token后，位置一致率仅78.23%，低于90%门槛；prefill逐元素合并没有获得实质端到端收益。两类结果分别说明数值约束和收益不足的限制。
+继续测试整批投影、原生算子、Graph、融合和数据通路组合。部分配置完成完整ABC并取得较高吞吐，但对应开发集一致率仅62.85%。因此，将其保留为性能探索结果，回到参考兼容路径逐项接入优化，确保生成与性能来自同一配置。
 
-**外部实现研究。** 调查题给ATOM中其他模型的优化方式，并参考上游ATOM、vLLM等实现，重新评估原生专家、分页注意力、缓存与融合路径。相关实现作为技术参考，未升级冻结推理依赖。原生路径带来性能潜力，但同输入路由、专家归约和注意力阶段仍需独立诊断。
+专家group4在短A配对负载中提高吞吐13.74%。在此基础上，KV单次写入使短A吞吐进一步提高3.81%，短B TPOT p50降低14.32%。两项组合完整检查达到96.8125%位置一致率，四条长输入256/256一致；HumanEval为148/164，HF为145/164，绝对差1.8293个百分点。
 
-**评测与服务。** 建立独立EvalScope客户端和ABC输入适配，核对实际命令、流式参数、token计数及场景规模。首次完整参考服务测量暴露场景C严重超时，表明单请求正确性不能覆盖持续到达负载。并行开展原生计算、HTTP容量和前缀缓存实验；两张卡分别运行独立服务，不作为双卡模型并行。
+C容量仍是主要阻碍。组合在C20完成20/20，但C200仅1/200。随后测试分段prefill、decode配额与公共前缀缓存：四轮decode配额下，512、1024、2048分段的C60分别完成21、24、22条，对照为1条。缓存实际复用约35.47%的输入token，仍未消除超时。实验显示分段与配额还会影响新请求等待，不能只按缓存命中率预测服务收益。
 
-**功能评估与方法修订。** 按讨论确定关闭thinking、最多2048token的完整HumanEval协议。候选生成完成后，HF参考因工具问题需要单独恢复，保留已完成候选结果，避免重复全部生成。完整功能评估表明，token分叉不能直接推出功能评分不合格；但题目的两类门槛仍需同时满足。
+进一步测量隔离decode，并检查客户端断连后的资源占用。发现请求断连后引擎可能继续计算，遂实现同步后取消与KV回收，验证存活请求及后续分配正常。SWA group4和每次前向的元数据复用将批32隔离decode提高至60.32token/s，相对同轮对照均值提高40.74%。据此组合SWA、缓存、分段及取消机制，优先延续单卡路线，暂缓P/D、FP8与MTP。
 
-**决策与后续。** 减少对局部逐位差异的无界追查，用完整功能评估与开发集一致率筛选有价值候选；同时开始重视C的持续容量，而非只比较短负载或局部kernel。对尚未覆盖全部门槛的原生组合，不提前认定为最终方案。
+相关记录：[探索组合ABC](report/performance/36_combined_full_abc.md)、[专家与KV组合](report/performance/37_reference_kv_and_expert_groups.md)、[分段测试](report/performance/38_c_chunked_prefill_screen.md)、[缓存与配额](report/performance/40_c_prefix_and_quota_screen.md)、[SWA与取消验证](report/performance/43_swa_decode_groups_and_abort_interleaving.md)。代表提交：`177f7d8`、`d6edc3d`、`6ddec3c`、`6730362`、`a939efe`、`386d124`。
 
-证据：[索引专家筛查](report/performance/15_indexed_decode_d200.md)、[客户端口径](report/performance/16_abc_protocol_and_client.md)、[参考ABC](report/performance/17_r_abc_baseline.md)、[原生阶段诊断](report/performance/20_native_phase_diagnostics.md)、[完整功能评分](report/performance/22_fused_moe_humaneval.md)、[前缀实验](report/performance/25_prefix_probe.md)。代表提交：`f52d196`、`64362b7`、`7d6a4ce`。
+## DAY7｜2026年11月17日：累计验收、问题复核与交付整理
 
-## D7｜11月16日：优化路线收敛与场景C专项处理
+接收集成C60结果：SWA分组与取消回收完成11/60，增加前缀缓存后为28/60，再加入1024分段和四轮decode配额后为43/60。随后对最佳组合补充profiling：稳态decode中，全局SDPA、专家及KV读取分别占kernel时间30.19%、25.54%和12.01%；受控混合负载约74.04%的kernel时间位于prefill。由此确认，剩余瓶颈同时涉及计算路径与服务调度。
 
-**并行优化与资格复核。** 围绕原生计算、批量投影、graph、融合、数据通路及调度开展两卡独立实验，并补充HumanEval和ABC。部分激进组合具有较高性能，但一次完整开发集复核仅62.85%位置一致率。此前以功能评分或短测试推断整体可接受的判断因而需要修正：必须同时核对题目逐token门槛，不能将不同配置的性能和正确性拼接。
+统一启动入口、正确性测试和累计消融配置，完成四行入口检查、完整ABC及生成评估。入口测试暴露端口复用和缺失异常摘要的问题，修复后各行HTTP与流式检查均通过。完整结果中，前三行开发集位置一致率均为96.8125%，HumanEval均为148/164；加入第三项后，一致率降至75.9453%，长输入仅43/256匹配，HumanEval为147/164。第三项虽提升A吞吐并使C完成48/200，仍存在精度和容量问题。
 
-**回到可验证的增量路径。** 从参考兼容实现重新逐项接入专家分组与KV单次写入。专家group4在短A负载相对参考批处理提高13.74%；加入KV单次写入后，配对短A吞吐提高3.81%，短B TPOT p50降低14.32%。两项组合完整本地验收达到96.8125%位置一致率，长输入256/256一致，HumanEval为148/164，HF为145/164，绝对差1.8293个百分点。局部收益不连乘为正式ABC收益。
+复核此前8token集成检查与完整结果，确认部分长输入从第9个生成token开始分叉，短检查未覆盖这一变化。因此安排以通过配置为对照，分别检查SWA/元数据、前缀缓存、分段及其组合，集中定位第三项中的单项缺陷或交互影响，避免重复全部功能评分和性能测试。
 
-**C容量问题与转向。** 上述组合C20虽能20/20完成，但C200仍仅1/200，证明短负载不足以覆盖积压。随后将工作重点转向分段prefill、decode配额和公共前缀复用。C60中四轮配额的512/1024/2048分段分别完成21/24/22请求，对照为1；较小decode配额与缓存组合仍未解决容量。真实公共前缀复用约35.47%的输入token，但收益受准入、计算和管理开销共同影响。
+整理消融范围，将支持32槽、兼容批处理、逐请求投影和共享路由的实现统一为Step0，优化①仅增加专家group4。基线采用已有完整测量，保留逐行来源，不再为单槽初始版本追加长时间性能测试。累计A吞吐依次为41.3351、51.3440、53.3934、71.2464token/s/GPU；B TPOT p50依次为61.253、61.814、50.586、51.863ms。C各行完成数与成功样本分位数同时报告。
 
-**继续定位而非仅调参数。** 隔离decode测量显示原参考批32交付速率约43.68token/s；断连诊断发现客户端退出后引擎仍可能继续生成。分别实现安全取消回收与SWA解码分组、每forward元数据复用。取消交错测试验证存活请求正常完成、取消ID移除后不再调度，并能分配缓存给后续请求。SWA group4批32隔离decode达到60.32token/s，相对同轮首尾对照均值提高40.74%；开发集与长组输出序列仍与已验收参考组合一致，未据此免除集成后的完整验收。
+完成技术报告、AI使用说明和工作日志的交付化重构，补充优化探索、正确性分版本表、profiling及复现证据。统一Step0和三个优化点的名称、入口与配置；保留失败路线和真实结果，使报告能够对应代码及实验记录。
 
-**交付决策。** 优先单卡方案，暂缓P/D、FP8、MTP等新增工作。将三项最终方向收敛为：①参考兼容批处理与专家分组；②参考RoPE/KV单次写入；③SWA解码分组与混合负载执行。当天末准备将SWA、取消、前缀和分段机制组合比较，最终候选与累计消融最后一行须采用同一入口及配置。由于C仍存在失败，不宣称整题已达标。
-
-证据：[激进组合ABC](report/performance/36_combined_full_abc.md)、[参考组合完整验收](report/performance/37_reference_kv_and_expert_groups.md)、[分段筛查](report/performance/38_c_chunked_prefill_screen.md)、[缓存与配额](report/performance/40_c_prefix_and_quota_screen.md)、[断连诊断](report/performance/41_isolated_decode_and_live_disconnect.md)、[取消与SWA分组](report/performance/43_swa_decode_groups_and_abort_interleaving.md)。代表提交：`177f7d8`、`d6edc3d`、`6ddec3c`、`6730362`、`e4b4909`、`a939efe`、`386d124`。
-
-## 补充记录｜11月17日：最终候选与交付实验收敛
-
-**接收跨日结果。** 前一日启动的集成C60实验完成：SWA group4与取消回收为11/60，增加prefix为28/60，再加chunk1024/d4为43/60。所有小规模生成检查均为72/72位置一致，取消后的已移除请求没有再次调度；但仍有17个失败请求，不能据此宣称完整C通过。
-
-**补充瓶颈证据。** 对最佳组合采集稳态decode与受控混合负载trace。稳态decode阶段，全局层SDPA、专家和参考KV读取分别占kernel时间30.19%、25.54%和12.01%；混合负载约74.04%的kernel时间落在prefill。该结果支持全局注意力和长输入处理仍有优化空间，也说明仅调整调度参数不足以解释全部性能缺口。鉴于交付时间约束，停止扩展新的优化路线，转入完整测量与材料收敛。
-
-**统一交付与消融。** 建立Step0、Step0＋①、Step0＋①②、Step0＋①②③四行累计矩阵；默认启动入口等于最后一行。Step0是在最终源码上关闭优化后的单槽参考路径重跑，不冒充历史提交逐字节复现；①开启32槽，其余行保持32槽，客户端负载不变。批量流程覆盖实际入口HTTP/SSE检查、完整ABC、200条前64token、长上下文及HumanEval，并支持冻结校验与性能续跑。
-
-**工程问题及修复。** 首轮入口smoke的Step0已通过，后续行因复用尚未释放的端口而被占用保护拒绝；主流程又未处理缺失摘要。将其定位为测试编排缺陷，在新工作树中为每行分配独立端口，改为直接替换启动进程，检查监听端口释放并保存异常摘要。保留旧失败目录，不覆盖为成功。修复提交为 `6f02551`、`4fa8ddb`；完整实验从新目录重新执行。
-
-**统计口径澄清。** 核对EvalScope源码后确认，其分位数仅覆盖成功请求；题面命令的180秒为单请求超时，并非单列的TTFT指标阈值。报告将成功样本分位数与完成数、失败数一并解释，不用超时样本被排除后的较低p99证明全部负载达标，也不自行补造题目未给出的失败率评分规则。
-
-**文档与当前状态。** 重构技术报告，按适配方法、profiling、三项优化与取舍、最终消融及正确性组织，最终数据留空。完整实验已交由两张卡独立运行，截至本日志修订时尚未收齐结果；不预填通过结论、最终加速比或裁判成绩。本次日志亦仅修改文档，不改变正在测量的功能代码。
-
-证据：[集成C60](report/performance/44_integrated_single_gpu_c_screen.md)、[最新profile](report/performance/45_integrated_c_bottleneck_profile.md)、[最终实验方案](docs/plan/65_final_delivery_matrix.md)。代表提交：`e1f3e22`、`753bbe8`、`6f02551`、`4fa8ddb`、`fb2971a`。当前候选分支：`release/final-matrix-smoke-fix`。
-
-
-### 11月17日补充：统一r32消融基线
-
-最终采用32槽参考兼容r配置为消融Step0，批处理桥接、逐请求投影与共享routing纳入基线；优化①仅增加专家decode group4。复用最近完整历史r32测量及本轮后三行，无需继续补测单槽A。旧单槽定义属于当时方案，历史结果和标签保留；更新后的矩阵逐行标注来源，不将不同轮次称为同轮配对。第三项当前精度失败和C大量超时均不因基线修订而改变。当前交付工作树为 `/workspace/tencent-mellum-delivery-r32`，正在原工作树运行的精度诊断保持冻结。
+相关记录：[集成C60](report/performance/44_integrated_single_gpu_c_screen.md)、[瓶颈profile](report/performance/45_integrated_c_bottleneck_profile.md)、[累计结果](artifacts/submission/final_r32_matrix/matrix.md)、[正确性证据](docs/submission/11_correctness_evidence.md)、[探索与取舍](docs/submission/12_explored_optimization_routes.md)。代表提交：`e1f3e22`、`6f02551`、`4fa8ddb`、`12e3a45`。

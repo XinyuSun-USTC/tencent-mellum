@@ -1,5 +1,5 @@
 # 工作日志入口
 
-交付用逐日工作记录统一维护于仓库根目录的 **[WORKLOG.md](../WORKLOG.md)**，包含D1—D7及11月17日补充记录。
+每日工作记录统一维护于仓库根目录的 **[WORKLOG.md](../WORKLOG.md)**，按2026年11月10日至17日对应DAY0—DAY7组织。
 
-本路径保留为历史文档入口，不另行维护平行日志。早期详细记录可通过Git历史及[Step0文档快照](archive/step0_document_snapshots/report/worklog.md)查阅；阶段研究、验证和性能报告仍按主题保留。
+各日的源码研究、验证及性能实验通过日志内链接查阅。早期记录保留于Git历史和[文档快照](archive/step0_document_snapshots/report/worklog.md)。
