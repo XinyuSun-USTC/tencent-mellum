@@ -86,6 +86,7 @@ def execute(out,plan,minutes):
     write(out/'summary.json',result);return result
 
 def main():
+    raise RuntimeError("Archived matrix uses the previous third optimization. Reproduce it on release/r32-baseline; current launcher uses mellum_submission_modes and smoke_dual_delivery.py.")
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--gpu',type=int,choices=[0,1],required=True)
     p.add_argument('--rows',nargs='+',choices=ROWS,required=True);p.add_argument('--kind',choices=['all','perf','acceptance'],default='all')
     p.add_argument('--budget-minutes',type=float,default=180,help='Per performance campaign / per row acceptance; not total run budget')

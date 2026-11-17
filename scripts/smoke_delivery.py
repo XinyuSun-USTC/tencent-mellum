@@ -22,13 +22,14 @@ def parse_sse(lines):
     return {'done':done,'usage':usage,'text':text}
 
 
-def run(mode,gpu,out,timeout):
+def run(mode,gpu,out,timeout,route=None):
     out.mkdir(parents=True);port,engine=ports(mode,gpu)
     with socket.socket() as sock:
         if sock.connect_ex(('127.0.0.1',port))==0:raise RuntimeError('Refuse unowned occupied smoke port')
     command=[str(PROJECT/'start_server.sh'),'--row',mode,'--gpu',str(gpu),'--port',str(port),
         '--engine-port',str(engine),'--output',str(out/'server')]
-    result={'mode':mode,'status':'started','command':command,'scope':'Submission-entrypoint load/HTTP/SSE smoke only; not correctness or ABC'}
+    if route is not None:command+=['--mode',route]
+    result={'route':route,'mode':mode,'status':'started','command':command,'scope':'Submission-entrypoint load/HTTP/SSE smoke only; not correctness or ABC'}
     (out/'result.json').write_text(json.dumps(result,indent=2)+'\n');proc=None
     opener=build_opener(ProxyHandler({}));url=f'http://127.0.0.1:{port}'
     def call(path,payload=None):

@@ -1,130 +1,95 @@
 # Mellum 2.1 在 AMD ATOM 上的适配与推理优化
 
-本仓库提供Mellum2.1-12B-A2.5B-Thinking的BF16单卡实现、三项优化开关、验证工具和实验记录。推理使用题给冻结环境，完整ATOM源码位于 `ATOM/`。
+BF16单卡Mellum2.1-12B-A2.5B-Thinking适配，提供性能优先与精度优先两条路线。完整ATOM源码位于`ATOM/`。推理沿用题给冻结环境，不安装或更新依赖。
 
-| 交付材料 | 内容 |
-|---|---|
-| [技术报告](TECHNICAL_REPORT.md) | Profiling、优化设计、技术取舍、消融及正确性结果 |
-| [AI使用说明](AI_USAGE.md) | 协作分工、人工审查与纠正案例 |
-| [工作日志](WORKLOG.md) | DAY0—DAY7的实施、实验与决策记录 |
-| [测量证据](artifacts/submission/final_r32_matrix/matrix.md) | 累计结果、配置来源与原始摘要哈希 |
-
-## 运行环境
-
-在题给容器中使用 `/opt/venv/bin/python`。启动脚本检查Torch、Transformers、Triton和safetensors版本，配置保存在 `configs/submission/environment.json`。模型默认位于：
-
-```text
-/data/models/Mellum2.1-12B-A2.5B-Thinking
-```
-
-推理不需要HF参考虚拟环境，也不依赖其他实验工作树。模型权重、独立评测环境及完整运行输出不随源码打包。
-
-## 一条命令启动服务
-
-在仓库根目录执行：
+## 一条命令启动
 
 ```bash
 ./start_server.sh --gpu 0
 ```
 
-默认启用三个优化点，对应消融末行 `step0123`。服务使用单卡、32调度槽、BF16、eager模式，HTTP端口为8000，引擎端口为8026；MTP关闭。健康检查地址为 `http://127.0.0.1:8000/health`，API前缀为 `/v1`。
-
-可显式选择累计配置：
+默认使用**性能优先、①②③全部启用**。切换为精度优先：
 
 ```bash
-./start_server.sh --row step0 --gpu 0
-./start_server.sh --row step01 --gpu 0
-./start_server.sh --row step012 --gpu 0
-./start_server.sh --row step0123 --gpu 0
+./start_server.sh --mode precision --gpu 0
 ```
 
-| 配置 | 优化① | 优化② | 优化③ | 开发200位置一致率 | HumanEval |
-|---|---|---|---|---:|---:|
-| Step0 | 关 | 关 | 关 | 96.8125% | 148/164 |
-| Step0＋① | 开 | 关 | 关 | 96.8125% | 148/164 |
-| Step0＋①② | 开 | 开 | 关 | 96.8125% | 148/164 |
-| Step0＋①②③ | 开 | 开 | 开 | 75.9453% | 147/164 |
+两种模式均为单卡、32调度槽、BF16，最大模型长度16640，MTP关闭。HTTP默认8000、引擎端口8026。性能优先①②及①②③启用decode Graph；精度优先使用eager执行。模型目录：`/data/models/Mellum2.1-12B-A2.5B-Thinking`。
 
-HF HumanEval参考为145/164。前三行通过本地正确性检查；第三项组合未达到90%的token位置一致率。C场景完成数依次为1/200、1/200、1/200和48/200。需要使用已通过本地正确性检查的组合时，选择 `--row step012`。
+| 最终组合 | A tokens/s/GPU | B TPOT p50 ms | C完成数 | 开发200位置一致率 | HumanEval（HF145/164） |
+|---|---:|---:|---|---:|---:|
+| 性能优先（默认） | 1135.6885 | 4.8985 | 200/200 | 66.8438% | 147/164 |
+| 精度优先 | 74.7620 | 51.2821 | 三轮均1/200 | 96.8125% | 148/164 |
 
-### 优化开关
+性能优先未达到90%位置一致率；精度优先通过本地正确性检查，但C200大量请求触及180秒超时。模式开关独立于优化点编号。开发200为164条HumanEval及36条A场景输入；两条路线使用相同本地验证口径。
 
-Step0包含32槽服务、参考兼容批处理、逐请求投影与共享路由。三个优化点在该基线上增加：
+## 累计消融与逐项关闭
 
-| 优化点 | 作用 | 关闭参数 |
+```bash
+./start_server.sh --mode performance --row step0
+./start_server.sh --mode performance --row step01
+./start_server.sh --mode performance --row step012
+./start_server.sh --mode performance --row step0123
+```
+
+替换为`--mode precision`即可启动精度路线的四级累计配置。两条路线Step0相同，①②③含义分别如下：
+
+| 优化点 | 性能优先 | 精度优先 |
 |---|---|---|
-| ① 解码专家分组 | 将相邻四个decode请求组成专家计算组 | `--disable-opt 1` |
-| ② RoPE与KV去冗余 | 参考旋转结果直接接入缓存，K/V只写入一次 | `--disable-opt 2` |
-| ③ SWA与混合负载执行 | SWA group4、元数据复用、前缀缓存、chunk1024/d4、断连回收 | `--disable-opt 3` |
+| ① | 原生Attention/FusedMoE、AITER Norm、整批packed投影 | Torch参考专家decode group4 |
+| ② | 原生路由、驻留RoPE、KV单次写入、QK融合、decode Graph | 参考RoPE/KV单次写入 |
+| ③ | 前缀兼容与缓存、prefill元数据复用 | decode元数据复用、参考SWA四请求分组 |
 
-关闭参数作用于所选累计配置，可以重复指定。例如：
+关闭参数作用于选定行，可以重复指定：
 
 ```bash
-# 关闭③，实际启用①②
-./start_server.sh --gpu 0 --disable-opt 3
+# 两条路线均可关闭③，得到①②
+./start_server.sh --mode performance --disable-opt 3
+./start_server.sh --mode precision --disable-opt 3
 
-# 仅启用②
-./start_server.sh --gpu 0 --disable-opt 1 --disable-opt 3
+# 精度路线仅保留②
+./start_server.sh --mode precision --disable-opt 1 --disable-opt 3
 
-# 关闭全部优化，使用Step0
-./start_server.sh --gpu 0 --disable-opt 1 --disable-opt 2 --disable-opt 3
+# 关闭全部优化
+./start_server.sh --disable-opt 1 --disable-opt 2 --disable-opt 3
 ```
 
-累计四行的实测成绩见上表；其他开关组合用于独立实验，不能直接引用累计行的成绩。代码定义位于 `scripts/mellum_delivery_matrix.py`，实际开关、环境和引擎命令写入每次启动目录的 `launch.json`。
+性能路线②③依赖①的原生计算路径，入口拒绝保留②或③却关闭①的组合。其余支持组合可以启动，只有四级累计配置具有完整的既有测量证据。精度路线支持全部八种子集，非累计子集尚未经过完整GPU验收。定义集中于`scripts/mellum_submission_modes.py`；历史`delivery_step*`配置保留供旧实验溯源，不用于当前入口。
 
-### 常用参数与请求示例
+## 参数、日志与检查
 
 ```bash
-# 修改端口
-./start_server.sh --row step012 --gpu 0 --port 8001 --engine-port 8027
-
-# 只检查环境与生成启动配置，不运行GPU推理
-./start_server.sh --row step012 --prepare-only
-
-# 指定日志目录
-./start_server.sh --row step012 --output /workspace/results/mellum_server
+./start_server.sh --mode precision --port 8001 --engine-port 8027 --gpu 1
+./start_server.sh --mode performance --prepare-only
+./start_server.sh --mode precision --output /workspace/results/mellum_server
+./start_server.sh --help
 ```
 
-不指定输出目录时，每次启动创建独立的 `results/server/<UTC时间>/`。完整参数可通过 `./start_server.sh --help` 查看。
+默认日志目录为`results/server/<UTC时间>/`。`launch.json`保存模式、实际启用优化点、环境、引擎命令与源码哈希。`--prepare-only`检查冻结版本并生成配置，不加载模型或启动GPU推理。
 
 ```bash
+curl http://127.0.0.1:8000/health
 curl http://127.0.0.1:8000/v1/chat/completions \
   -H 'Content-Type: application/json' \
   -d '{"model":"/data/models/Mellum2.1-12B-A2.5B-Thinking","messages":[{"role":"user","content":"Write a Python function add(a, b)."}],"temperature":0,"max_tokens":64,"stream":false}'
 ```
 
-## 验证与复现
-
-以下命令使用CPU检查交付文件和开关配置：
+CPU配置检查：
 
 ```bash
-/opt/venv/bin/python scripts/verify_submission.py
-/opt/venv/bin/python -m pytest -q scripts/tests/test_delivery_matrix.py
+/opt/venv/bin/python -m pytest -q scripts/tests/test_dual_submission.py scripts/tests/test_delivery_matrix.py scripts/tests/test_mellum_execution_profiles.py
 ```
 
-实际GPU入口检查：
+实际入口GPU烟测，覆盖两种模式的全部累计行，检查权重加载、HTTP、SSE、usage及模式配置：
 
 ```bash
-/opt/venv/bin/python scripts/smoke_delivery.py --gpu 0 --modes step0 step01 step012 step0123
+/opt/venv/bin/python scripts/smoke_dual_delivery.py --gpu 0 --all-rows
 ```
 
-完整性能与正确性流程由 `scripts/run_delivery_matrix.py` 管理。题给数据位于 `/data/datasets/`；复用HF参考的验证工具还需要既有参考结果和独立评测环境，相关路径及协议见[实验说明](docs/plan/65_final_delivery_matrix.md)。已完成结果见[性能矩阵](artifacts/submission/final_r32_matrix/matrix.md)和[正确性证据](docs/submission/11_correctness_evidence.md)。
+仅测两种最终组合时省略`--all-rows`。分卡并行时分别指定`--mode performance --gpu 0`与`--mode precision --gpu 1`。
 
-## 仓库结构
+## 文档与证据
 
-```text
-start_server.sh       统一启动入口
-TECHNICAL_REPORT.md   技术报告
-AI_USAGE.md          AI使用说明
-WORKLOG.md           每日工作日志
-ATOM/                模型与引擎完整源码、测试及上游文档
-scripts/             启动、实验、验证和打包工具
-scripts/internal/    旧配置入口，不用于当前累计消融
-configs/            配置文件
-artifacts/           已归档的结果、原始trace和哈希索引
-docs/                题目来源、复现说明与内部技术材料
-report/              按主题编号的研究、验证和性能记录
-manifests/           原始结果库存与项目快照清单
-```
+[技术报告](TECHNICAL_REPORT.md)、[AI使用说明](AI_USAGE.md)、[工作日志](WORKLOG.md)保留此前定稿稿件；本轮先完成双模式入口集成，三份报告随后统一更新。最新精度优先数据见[完整A/B测量](docs/experiments/03_precision_third_full_performance.md)与[C三轮补测](docs/experiments/05_precision_c_completion_results.md)。性能优先证据位于`artifacts/experiments/performance_cumulative/`。
 
-源码、trace和必要实验记录纳入Git；临时结果、缓存和虚拟环境由 `.gitignore` 排除。ATOM的上游许可证保留于原目录，复用说明见[来源与许可证](docs/submission/01_sources_and_licenses.md)。需要离线交付时，`scripts/package_submission.py` 可从干净提交生成源码ZIP和保留完整提交历史的Git bundle。
+模型、虚拟环境与完整实验结果不纳入仓库；结论摘要、必要原始统计和SHA索引随代码保留。历史分支与提交继续保存，旧版矩阵脚本需在相应历史分支复现，不能与当前模式定义混用。

@@ -19,7 +19,7 @@ def test_cumulative_rows_and_default_match():
     assert one=={**base,'decode_expert_group_size':4}
     assert profile_settings('initial_single_reference')['MELLUM_BATCH_CAMPAIGN_CONFIG']==''
     c=command(DEFAULT_ROW,0,8000,8026,Path('/tmp/example'),True)
-    assert c[c.index('--profile')+1]==ROWS[DEFAULT_ROW]['profile'] and '--prepare-only' in c
+    assert c[c.index('--profile')+1]=='submission_performance_123' and '--prepare-only' in c
 
 def test_failed_c_never_displays_success_only_tail(tmp_path):
     (tmp_path/'performance').mkdir()
@@ -43,5 +43,5 @@ def test_independent_point_switches_match_cumulative_profiles():
     no_two=point_settings([1,3])
     assert no_two['MELLUM_DIRECT_KV_WRITE']=='0'
     assert no_two['MELLUM_REFERENCE_CHUNKED']=='1'
-    c=command(DEFAULT_ROW,0,8000,8026,Path('/tmp/example'),True,disabled=[1,3])
-    assert c[c.index('--optimization-points')+1:c.index('--prepare-only')]==['2']
+    c=command(DEFAULT_ROW,0,8000,8026,Path('/tmp/example'),True,disabled=[1,3],mode="precision")
+    assert c[c.index('--profile')+1]=='submission_precision_2'

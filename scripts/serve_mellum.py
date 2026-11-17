@@ -72,7 +72,12 @@ def main():
     source=[PROJECT/'scripts/mellum_execution_profiles.py',PROJECT/'ATOM/atom/model_config/mellum_native.py',PROJECT/'ATOM/atom/models/mellum.py',PROJECT/'ATOM/atom/model_config/mellum_batch.py',
             PROJECT/'ATOM/atom/model_config/mellum_attention.py',PROJECT/'ATOM/atom/entrypoints/openai/api_server.py',
             PROJECT/'scripts/mellum_runtime_config.py',PROJECT/'ATOM/atom/model_engine/engine_core.py',PROJECT/'ATOM/atom/model_engine/mellum_service_audit.py',Path(__file__)]
-    (out/'launch.json').write_text(json.dumps({'profile':a.profile,'enabled_optimization_points':a.optimization_points if a.optimization_points is not None else next((item['points'] for item in __import__('mellum_delivery_matrix').ROWS.values() if item['profile']==a.profile),None),'acceptance':'Experimental profile; do not infer final correctness/performance acceptance from launcher availability','settings':settings,'command':command,'source_sha256':{str(f):hashlib.sha256(f.read_bytes()).hexdigest() for f in source}},indent=2)+'\n')
+    from mellum_submission_modes import PROFILES as submission_profiles
+    submission_identity={}
+    if a.profile in submission_profiles:
+        _,mode,code=a.profile.split('_');submission_identity={'mode':mode,'points':[] if code=='0' else list(map(int,code))}
+    source += [PROJECT/'scripts/mellum_submission_modes.py',PROJECT/'scripts/serve_delivery.py',PROJECT/'start_server.sh']
+    (out/'launch.json').write_text(json.dumps({'submission':submission_identity,'profile':a.profile,'enabled_optimization_points':submission_identity['points'] if submission_identity else a.optimization_points if a.optimization_points is not None else next((item['points'] for item in __import__('mellum_delivery_matrix').ROWS.values() if item['profile']==a.profile),None),'acceptance':'Experimental profile; do not infer final correctness/performance acceptance from launcher availability','settings':settings,'command':command,'source_sha256':{str(f):hashlib.sha256(f.read_bytes()).hexdigest() for f in source}},indent=2)+'\n')
     if a.prepare_only:print('RESULT prepared output',out);return
     print('SERVE output',out,flush=True);os.execv(command[0],command)
 if __name__=='__main__':main()
