@@ -1,0 +1,73 @@
+{
+  "route": "performance",
+  "mode": "step01",
+  "status": "smoke_passed",
+  "command": [
+    "/workspace/tencent-mellum-delivery-dual/start_server.sh",
+    "--row",
+    "step01",
+    "--gpu",
+    "0",
+    "--port",
+    "18752",
+    "--engine-port",
+    "19427",
+    "--output",
+    "/workspace/tencent-mellum-delivery-dual/results/dual_mode_smoke/20261117T203541117885Z/performance_step01/server",
+    "--mode",
+    "performance"
+  ],
+  "scope": "Submission-entrypoint load/HTTP/SSE smoke only; not correctness or ABC",
+  "models": {
+    "object": "list",
+    "data": [
+      {
+        "id": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+        "object": "model",
+        "created": 1794947800,
+        "owned_by": "atom"
+      }
+    ]
+  },
+  "nonstream": {
+    "id": "chatcmpl-f1817588a0274bbdbeec161ae8cbf981",
+    "object": "chat.completion",
+    "created": 1794947802,
+    "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "reasoning_content": "We need to respond with"
+        },
+        "finish_reason": "max_tokens"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 8,
+      "total_tokens": 32,
+      "ttft_s": 1.4873,
+      "tpot_s": 0.047,
+      "latency_s": 1.8167
+    }
+  },
+  "stream": {
+    "done": true,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 8,
+      "total_tokens": 32
+    },
+    "text": "\nWe need to respond with "
+  },
+  "loading_audit": {
+    "source_tensors": 5631,
+    "successful_parts": 5631,
+    "missing": [],
+    "unexpected": []
+  },
+  "http_port_released": true
+}
