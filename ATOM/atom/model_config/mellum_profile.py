@@ -90,4 +90,7 @@ def install_profile_labels(model):
         for name in ['reference_position_rope', 'overwrite_reference_keys', 'gather_reference_kv']:
             wrap(mellum_attention, name, f'mellum/{name}/shared')
         wrap(torch.nn.functional, 'scaled_dot_product_attention', 'mellum/sdpa/shared')
+        from atom.model_config import mellum_batch, mellum_grouped_decode
+        wrap(mellum_batch, 'sdpa_cached_decode', 'mellum/requestwise_decode/shared')
+        wrap(mellum_grouped_decode, 'grouped_swa', 'mellum/grouped_swa/shared')
     return handles
